@@ -1,0 +1,6 @@
+{
+  "appId": "com.miguelcoll.sightreader",
+  "appName": "Sight Reader",
+  "webDir": "dist",
+  "android": { "backgroundColor": "#14161a" }
+}

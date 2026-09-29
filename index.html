@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#14161a" />
+  <title>Sight Reader</title>
+</head>
+<body>
+  <header>
+    <div class="bar-top">
+      <button id="open-settings" data-i18n-aria="settings">⚙</button>
+      <button id="rank-pill" data-i18n-title="yourLevel"></button>
+      <button id="level-pill" data-i18n-title="practicing"></button>
+      <button id="midi-pill">No MIDI</button>
+    </div>
+    <div class="quick">
+      <div class="tempo">
+        <button id="bpm-down" data-i18n-aria="slower">−</button>
+        <span id="bpm-show">60</span>
+        <button id="bpm-up" data-i18n-aria="faster">+</button>
+      </div>
+      <button id="q-clef" data-i18n-aria="staves">𝄞 Treble</button>
+      <div class="timing-group">
+        <button id="start" hidden>▶ Start</button>
+      </div>
+      <button id="q-sound" data-i18n-title="soundMode"></button>
+    </div>
+    <button id="play-line" hidden></button>
+  </header>
+
+  <main>
+    <div id="staff-wrap">
+      <div id="staff"></div>
+      <div id="read-window"></div>
+      <div id="playhead"></div>
+      <div id="key-label"><span id="key-name"></span><button id="key-scale" data-i18n-title="viewScale" data-i18n-aria="viewScale">♫</button><button id="new-key" data-i18n-title="newKey" data-i18n-aria="newKey">↻</button></div>
+      <div id="level-banner" class="level-notice" hidden>🎉 <span id="banner-text"></span></div>
+    </div>
+    <div id="status-row">
+      <div class="hud">
+        <span data-i18n-title="correct">✓ <b id="s-correct">0</b></span>
+        <span data-i18n-title="wrong">✗ <b id="s-wrong">0</b></span>
+        <span data-i18n-title="streak">🔥 <b id="s-streak">0</b></span>
+        <span data-i18n-title="avgTime">⏱ <b id="s-time">–</b></span>
+      </div>
+      <div id="feedback"></div>
+    </div>
+  </main>
+
+  <canvas id="lights" hidden></canvas>
+  <div id="piano" class="piano" hidden></div>
+  <div id="kb-bar" hidden>
+    <span id="kb-range"></span>
+    <input type="range" id="kb-shift" data-i18n-aria="moveKeyboard" hidden />
+    <span class="kb-hint" data-i18n="slideHint">↔ Slide with two fingers</span>
+    <button id="kb-auto" data-i18n-title="recenter">⟲</button>
+    <button type="button" id="guide-btn"></button>
+    <button type="button" id="finger-btn"></button>
+  </div>
+  <div id="names" hidden>
+    <button data-mod="-1">♭</button>
+    <button data-letter="c">C</button><button data-letter="d">D</button><button data-letter="e">E</button>
+    <button data-letter="f">F</button><button data-letter="g">G</button><button data-letter="a">A</button>
+    <button data-letter="b">B</button>
+    <button data-mod="1">♯</button>
+  </div>
+
+  <dialog id="settings">
+    <form method="dialog">
+      <div class="dialog-head">
+        <h2 data-i18n="settings">Settings</h2>
+        <button class="primary small" value="close" data-i18n="done">Done</button>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button type="button" data-tab="levels" data-i18n="tabLevels">Levels</button>
+        <button type="button" data-tab="exercise" data-i18n="tabExercise">Exercise</button>
+        <button type="button" data-tab="practice" data-i18n="tabPractice">Practice</button>
+        <button type="button" data-tab="general" data-i18n="tabGeneral">General</button>
+      </nav>
+
+      <!-- ===== Levels & templates ===== -->
+      <section data-panel="levels">
+        <p id="rank-summary" class="rank-summary"></p>
+        <h3 data-i18n="levelsHeader">Levels</h3>
+        <ol id="level-list" class="level-list"></ol>
+        <h3 data-i18n="customHeader">My templates</h3>
+        <ul id="custom-list" class="level-list"></ul>
+        <div class="row">
+          <button type="button" id="tpl-customize" data-i18n="customize">Customise the current one</button>
+        </div>
+        <details id="tpl-import-box">
+          <summary data-i18n="importTitle">Import a template</summary>
+          <p class="muted" data-i18n="importHint">Paste an exported template or pick a file.</p>
+          <textarea id="tpl-import-text" rows="4" spellcheck="false"></textarea>
+          <div class="row">
+            <input type="file" id="tpl-import-file" accept=".json,application/json" />
+            <button type="button" id="tpl-import" data-i18n="importBtn">Import</button>
+          </div>
+          <p id="tpl-import-msg" class="muted"></p>
+        </details>
+      </section>
+
+      <!-- ===== Exercise (the template) ===== -->
+      <section data-panel="exercise" hidden>
+        <div id="tpl-head">
+          <label id="tpl-name-row"><span data-i18n="templateName">Template name</span>
+            <input type="text" id="tpl-name" maxlength="40" />
+          </label>
+          <p id="midi-pref-note" class="muted midi-pref" hidden>🎹 <span data-i18n="midiPreferred">Best with a MIDI keyboard</span>: <span data-i18n="midiPreferredWhy">two hands at once or fast passages in time are hard to tap on the screen keyboard.</span></p>
+          <p id="tpl-builtin-note" class="muted" data-i18n="builtinNote">Levels are fixed: changing anything creates a personal copy you can edit.</p>
+          <div class="row" id="tpl-export-row">
+            <button type="button" id="tpl-export" data-i18n="exportBtn">Export</button>
+            <button type="button" id="tpl-share" data-i18n="share" hidden>Share</button>
+            <button type="button" id="tpl-delete" class="subtle danger" data-i18n="deleteTpl" hidden>Delete template</button>
+          </div>
+          <textarea id="tpl-export-text" rows="4" readonly hidden spellcheck="false"></textarea>
+        </div>
+
+        <h3 data-i18n="staves">Staves</h3>
+        <label class="check big"><input type="checkbox" name="pianoMode" /> <span><b data-i18n="pianoMode">Piano mode</b><br /><small class="muted" data-i18n="pianoModeHint">Both hands on the grand staff. Phrases alternate between hands.</small></span></label>
+        <p class="muted" id="piano-phone-note" data-i18n="pianoModePhone" hidden>On a phone the two staves do not fit: hands alternate on a single staff instead.</p>
+        <label data-show="pianoMode=true"><span data-i18n="hands">Hands</span>
+          <select name="hands"><option value="alternate" data-i18n="handsAlternate">Alternate by phrase</option><option value="together" data-i18n="handsTogether">Both at once (best with a MIDI keyboard)</option></select>
+        </label>
+        <p class="muted" id="hands-midi-note" data-i18n="handsNeedMidi" hidden>Playing both hands at once needs a connected MIDI keyboard; until then the hands alternate.</p>
+        <label><span data-i18n="layoutMode">Presentation</span>
+          <select name="layoutMode"><option value="scroll" data-i18n="layoutScroll">Continuous scroll</option><option value="page" data-i18n="layoutPage">Fixed sheet (tablet)</option></select>
+        </label>
+        <p class="muted" id="page-phone-note" data-i18n="layoutPagePhone" hidden>The fixed sheet needs a tablet-sized screen; on a phone the score scrolls.</p>
+        <label data-show="pianoMode=false"><span data-i18n="clef">Clef</span>
+          <select name="clef"><option value="treble" data-i18n="clefTreble">Treble</option><option value="bass" data-i18n="clefBass">Bass</option></select>
+        </label>
+        <label><span data-i18n="position">Hand position</span>
+          <select name="position"><option value="five" data-i18n="posFive">Fixed (five fingers)</option><option value="phrase" data-i18n="posPhrase">Moves between phrases</option><option value="free" data-i18n="posFree">Free</option></select>
+        </label>
+        <label><span data-i18n="range">Range</span>
+          <select name="level"><option value="0" data-i18n="range0">On the staff</option><option value="1" data-i18n="range1">+ 2 ledger lines</option><option value="2" data-i18n="range2">+ 3 ledger lines</option></select>
+        </label>
+        <label><span data-i18n="mode">Mode</span>
+          <select name="mode"><option value="melody" data-i18n="modeMelody">Melodies (harmony)</option><option value="notes" data-i18n="modeNotes">Random notes (review)</option></select>
+        </label>
+
+        <h3 data-i18n="keyAndMetre">Key and metre</h3>
+        <label><span data-i18n="scale">Scale</span>
+          <select name="scale"><option value="major" data-i18n="scaleMajor">Major</option><option value="minor" data-i18n="scaleMinor">Minor</option><option value="both" data-i18n="scaleBoth">Major and minor</option></select>
+        </label>
+        <div class="row">
+          <span class="muted" id="scale-current"></span>
+          <button type="button" id="scale-view-btn" data-i18n="viewScale">Show scale</button>
+          <button type="button" id="warmup-btn" data-i18n="warmup">Warm-up</button>
+        </div>
+        <label><span><span data-i18n="maxAcc">Max. accidentals in the key signature</span>: <b id="maxacc-val"></b></span>
+          <input type="range" name="maxAcc" min="0" max="7" step="1" />
+        </label>
+        <label class="check"><input type="checkbox" name="accidentals" /> <span data-i18n="accidentals">Extra accidentals (♯ ♭ ♮)</span></label>
+        <label><span data-i18n="timeSig">Time signature</span>
+          <select name="timeSig"><option value="2/4">2/4</option><option value="3/4">3/4</option><option value="4/4">4/4</option></select>
+        </label>
+        <div class="field">
+          <span class="field-label" data-i18n="figures">Note values</span>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="figures.w" /> <span data-i18n="figWhole">Whole</span></label>
+            <label class="chip"><input type="checkbox" name="figures.h" /> <span data-i18n="figHalf">Half</span></label>
+            <label class="chip"><input type="checkbox" name="figures.q" /> <span data-i18n="figQuarter">Quarter</span></label>
+            <label class="chip"><input type="checkbox" name="figures.e" /> <span data-i18n="figEighth">Eighth</span></label>
+            <label class="chip"><input type="checkbox" name="figures.s" /> <span data-i18n="figSixteenth">Sixteenth</span></label>
+            <label class="chip"><input type="checkbox" name="dotted" /> <span data-i18n="figDotted">Dotted</span></label>
+          </div>
+        </div>
+
+        <h3 data-i18n="tempo">Tempo</h3>
+        <div>
+          <label><span><span data-i18n="tempo">Tempo</span>: <b id="bpm-val"></b> BPM</span><input type="range" name="bpm" min="30" max="160" step="2" /></label>
+          <label class="check"><input type="checkbox" name="metronome" /> <span data-i18n="metronome">Metronome during line</span></label>
+          <label><span data-i18n="tolerance">Timing tolerance</span>
+            <select name="tolerance"><option value="strict" data-i18n="tolStrict">Strict</option><option value="normal" data-i18n="tolNormal">Normal</option><option value="relaxed" data-i18n="tolRelaxed">Relaxed</option></select>
+          </label>
+        </div>
+      </section>
+
+      <!-- ===== Practice (how you answer) ===== -->
+      <section data-panel="practice" hidden>
+        <label><span data-i18n="input">On-screen input</span>
+          <select name="input"><option value="piano" data-i18n="inputPiano">Piano keys</option><option value="names" data-i18n="inputNames">Note names (travel)</option><option value="none" data-i18n="inputNone">None (MIDI only)</option></select>
+        </label>
+        <label><span data-i18n="soundMode">Sound</span>
+          <select name="soundMode"><option value="tone" data-i18n="soundTone">Tone</option><option value="voice" data-i18n="soundVoice">Sung note name</option><option value="off" data-i18n="soundOff">Off</option></select>
+        </label>
+        <label><span><span data-i18n="scoreZoom">Score size</span>: <b id="zoom-val"></b></span>
+          <input type="range" name="zoom" min="0.7" max="1.5" step="0.05" />
+        </label>
+        <label><span data-i18n="light">Reading light</span>
+          <select name="light"><option value="soft" data-i18n="lightSoft">Soft</option><option value="normal" data-i18n="lightNormal">Normal</option><option value="strong" data-i18n="lightStrong">Strong</option></select>
+        </label>
+        <label class="check"><input type="checkbox" name="reveal" /> <span data-i18n="reveal">Show the note name after 2 misses</span></label>
+        <h3 data-i18n="weakest">Weakest notes</h3>
+        <ul id="stats-list"></ul>
+        <button type="button" id="reset-stats" class="subtle" data-i18n="resetStats">Reset stats</button>
+      </section>
+
+      <!-- ===== General ===== -->
+      <section data-panel="general" hidden>
+        <label><span data-i18n="language">Language</span>
+          <select name="lang"></select>
+        </label>
+        <label><span data-i18n="noteNames">Note names</span>
+          <select name="naming"></select>
+        </label>
+        <h3 data-i18n="midiKeyboard">MIDI keyboard</h3>
+        <p id="midi-devices" class="muted"></p>
+        <button type="button" id="scan-ble" data-i18n="scanBle">Scan for Bluetooth MIDI</button>
+        <div id="ble-list"></div>
+        <h3 data-i18n="progressHeader">Progress</h3>
+        <button type="button" id="reset-progress" class="subtle danger" data-i18n="resetProgress">Reset level progress</button>
+      </section>
+    </form>
+  </dialog>
+
+  <dialog id="scale-dialog">
+    <div class="dialog-head">
+      <h2 id="scale-title"></h2>
+      <button type="button" id="scale-close" class="primary small" data-i18n="close">Close</button>
+    </div>
+    <div id="scale-staff"></div>
+    <div id="scale-names"></div>
+    <div id="scale-keys" class="piano mini"></div>
+    <div class="row">
+      <button type="button" id="scale-warmup" class="primary" data-i18n="warmup">Warm-up</button>
+      <span class="muted" data-i18n="warmupHint">Scales and broken thirds in this key, up and down.</span>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
