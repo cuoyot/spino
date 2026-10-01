@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "language": "en",
+  "chapters": [
+    {
+      "id": "today",
+      "title": "Today",
+      "order": 10,
+      "source": "en/today.md",
+      "status": "draft",
+      "reviewIds": [
+        "TODAY-01",
+        "TODAY-02",
+        "TODAY-03",
+        "TODAY-04",
+        "TODAY-05"
+      ],
+      "baseline": "2026-10-01",
+      "verifiedAgainst": "2026-10-01-compact",
+      "visualAcceptance": {
+        "date": "2026-10-01",
+        "evidence": "2026-10-01-compact",
+        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+      },
+      "decisions": [
+        "D-002",
+        "D-003",
+        "D-004"
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Your practice session",
+      "order": 30,
+      "source": "en/session-overview.md",
+      "status": "draft",
+      "reviewIds": [
+        "PRACTICE-01"
+      ],
+      "baseline": "2026-10-01",
+      "verifiedAgainst": "session/2026-10-01-baseline",
+      "coverage": "Overview only; exercise, score and feedback child reviews remain open.",
+      "knownIssues": [
+        "SESSION-F04",
+        "SESSION-F05",
+        "SESSION-F06",
+        "SESSION-F09"
+      ]
+    }
+  ],
+  "plannedChapters": [
+    {
+      "id": "practice-hub",
+      "title": "Choose a practice",
+      "order": 15
+    },
+    {
+      "id": "prepare-practice",
+      "title": "Prepare a practice",
+      "order": 20
+    },
+    {
+      "id": "scores",
+      "title": "Read and annotate scores",
+      "order": 40
+    },
+    {
+      "id": "calendar",
+      "title": "Plan your practice",
+      "order": 50
+    },
+    {
+      "id": "my-piano",
+      "title": "Manage your music library",
+      "order": 60
+    },
+    {
+      "id": "repertoire",
+      "title": "Manage your repertoire",
+      "order": 70
+    },
+    {
+      "id": "catalogue",
+      "title": "Find and download scores",
+      "order": 80
+    },
+    {
+      "id": "instrument",
+      "title": "Connect a MIDI instrument",
+      "order": 90
+    },
+    {
+      "id": "profile",
+      "title": "Profile, progress and preferences",
+      "order": 100
+    },
+    {
+      "id": "backup",
+      "title": "Back up and synchronize your notebook",
+      "order": 110
+    }
+  ]
+}

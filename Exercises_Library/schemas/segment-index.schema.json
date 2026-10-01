@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sightreader:v2:segment-index",
+  "title": "Sightreader v2 — segment-index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "segments"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:sightreader:v2:segment"
+      }
+    }
+  }
+}

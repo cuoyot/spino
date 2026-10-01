@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-30T21:17:07.668Z",
+  "json_files_syntax_checked": 37,
+  "schemas_checked": 9,
+  "documents_validated_against_schema": 20,
+  "manifest_count": 13,
+  "counts": {
+    "piano_core_works": 563,
+    "piano_candidate_editions": 55,
+    "optional_accompaniment_editions": 1462,
+    "total_records": 2080,
+    "located_musicxml_assets": 1517,
+    "downloaded_scores": 0,
+    "analyzed_records": 0,
+    "playable_records": 0
+  },
+  "checks": [
+    "JSON syntax",
+    "JSON Schema 2020-12",
+    "unique piece/asset/manifest IDs",
+    "source and evidence references",
+    "manifest SHA-256",
+    "repository paths/blob IDs",
+    "counts",
+    "pending metrics remain null",
+    "negative readiness checks",
+    "segment references"
+  ],
+  "limitations": [
+    "No MusicXML downloaded or parsed.",
+    "Repository path verification is not full HTTP/content validation.",
+    "No repertoire difficulty or hand assignment calculated.",
+    "Licenses and compositions still require the per-edition workflow documented in README."
+  ]
+}

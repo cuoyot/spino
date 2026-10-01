@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sightreader:v2:library",
+  "title": "Sightreader v2 — library",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "package_id",
+    "base_language",
+    "generated_on",
+    "manifests",
+    "config",
+    "counts",
+    "notes"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "package_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "base_language": {
+      "const": "en"
+    },
+    "generated_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "manifests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "manifest_id",
+          "path",
+          "group",
+          "enabled_by_default",
+          "record_count",
+          "sha256"
+        ],
+        "properties": {
+          "manifest_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:]).+$"
+          },
+          "group": {
+            "enum": [
+              "piano_core",
+              "piano_candidates",
+              "accompaniment_optional"
+            ]
+          },
+          "enabled_by_default": {
+            "type": "boolean"
+          },
+          "record_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "ingestion"
+      ],
+      "properties": {
+        "sources": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:]).+$"
+        },
+        "ingestion": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:]).+$"
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "piano_core_works",
+        "piano_candidate_editions",
+        "optional_accompaniment_editions",
+        "total_records",
+        "located_musicxml_assets",
+        "downloaded_scores",
+        "analyzed_records",
+        "playable_records"
+      ],
+      "properties": {
+        "piano_core_works": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "piano_candidate_editions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "optional_accompaniment_editions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "located_musicxml_assets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "downloaded_scores": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "analyzed_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "playable_records": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

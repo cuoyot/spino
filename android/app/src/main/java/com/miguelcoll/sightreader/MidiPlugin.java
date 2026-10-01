@@ -35,6 +35,8 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Receives note-on events from USB and Bluetooth LE MIDI keyboards and forwards them to the web layer.
@@ -52,17 +54,20 @@ public class MidiPlugin extends Plugin {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Map<Integer, MidiDevice> openDevices = Collections.synchronizedMap(new LinkedHashMap<>());
+    // Keep ports alive for the full connection lifetime, not just while attach() runs.
+    private final Map<Integer, List<MidiOutputPort>> inputPorts = new LinkedHashMap<>();
+    private MidiManager.DeviceCallback deviceCallback;
     private final Set<Integer> opening = Collections.synchronizedSet(new HashSet<>());
     private MidiManager midiManager;
     private BluetoothLeScanner scanner;
     private ScanCallback scanCallback;
+    private volatile boolean destroyed = false;
 
     @Override
     public void load() {
         midiManager = (MidiManager) getContext().getSystemService(Context.MIDI_SERVICE);
         if (midiManager == null) return;
-        midiManager.registerDeviceCallback(
-            new MidiManager.DeviceCallback() {
+        deviceCallback = new MidiManager.DeviceCallback() {
                 @Override
                 public void onDeviceAdded(MidiDeviceInfo info) {
                     openDevice(info);
@@ -70,13 +75,13 @@ public class MidiPlugin extends Plugin {
 
                 @Override
                 public void onDeviceRemoved(MidiDeviceInfo info) {
+                    closePorts(info.getId());
                     MidiDevice d = openDevices.remove(info.getId());
                     closeQuietly(d);
                     notifyDevices();
                 }
-            },
-            handler
-        );
+            };
+        midiManager.registerDeviceCallback(deviceCallback, handler);
     }
 
     @PluginMethod
@@ -196,13 +201,28 @@ public class MidiPlugin extends Plugin {
     }
 
     private void attach(MidiDevice device) {
+        if (destroyed) { closeQuietly(device); return; }
         MidiDeviceInfo info = device.getInfo();
+        if (openDevices.containsKey(info.getId())) {
+            if (openDevices.get(info.getId()) != device) closeQuietly(device);
+            return;
+        }
+        List<MidiOutputPort> ports = new ArrayList<>();
         for (int i = 0; i < info.getOutputPortCount(); i++) {
             MidiOutputPort port = device.openOutputPort(i);
-            if (port != null) port.connect(new NoteReceiver());
+            if (port != null) { port.connect(new NoteReceiver()); ports.add(port); }
         }
+        if (ports.isEmpty()) { closeQuietly(device); notifyDevices(); return; }
+        inputPorts.put(info.getId(), ports);
         openDevices.put(info.getId(), device);
         notifyDevices();
+    }
+
+    private void closePorts(int id) {
+        List<MidiOutputPort> ports = inputPorts.remove(id);
+        if (ports != null) for (MidiOutputPort port : ports) {
+            try { port.close(); } catch (IOException ignored) {}
+        }
     }
 
     private JSArray deviceNames() {
@@ -231,9 +251,11 @@ public class MidiPlugin extends Plugin {
 
     @Override
     protected void handleOnDestroy() {
+        destroyed = true;
         stopScan();
+        if (midiManager != null && deviceCallback != null) midiManager.unregisterDeviceCallback(deviceCallback);
         synchronized (openDevices) {
-            for (MidiDevice d : openDevices.values()) closeQuietly(d);
+            for (MidiDevice d : openDevices.values()) { closePorts(d.getInfo().getId()); closeQuietly(d); }
         }
         openDevices.clear();
     }

@@ -1,0 +1,22 @@
+SPino local OCR dependencies
+
+Tesseract.js 7.0.0
+https://github.com/naptha/tesseract.js
+Apache License 2.0. The distributed license is copied to ocr/LICENSE-tesseract-js.md.
+
+Tesseract.js-core 7.0.0
+https://github.com/naptha/tesseract.js-core
+Apache License 2.0. The distributed license is copied to ocr/LICENSE-core.
+SPino bundles the unmodified LSTM-only WebAssembly JavaScript builds for
+non-SIMD, SIMD and relaxed SIMD hardware.
+
+English and Spanish trained data, 4.0.0_best_int
+https://github.com/naptha/tessdata
+https://github.com/naptha/tessdata/blob/gh-pages/LICENSE
+The trained-data repository uses Apache License 2.0 (included in ocr/LICENSE-core).
+The files come from locked @tesseract.js-data/eng and @tesseract.js-data/spa
+version 1.0.0 packages. Their npm wrapper metadata declares MIT and credits
+Balearica and jeromewu. No wrapper code is shipped by SPino.
+
+All recognition resources are copied at build time. Runtime OCR uses only
+local app assets; PDF contents are never sent to an OCR service.

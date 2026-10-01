@@ -13,7 +13,7 @@ export function now() {
 
 export function playNote(midi, duration = 1.2, when = 0, gain = 0.25) {
   const a = ac();
-  const t = when || a.currentTime;
+  const t = Math.max(a.currentTime, Number.isFinite(when) ? when : 0);
   const f = 440 * Math.pow(2, (midi - 69) / 12);
   const out = a.createGain();
   const lp = a.createBiquadFilter();
@@ -76,7 +76,8 @@ export function holdNote(midi, gain = 0.25) {
 
 export function click(accent = false, when = 0) {
   const a = ac();
-  const t = when || a.currentTime;
+  // AudioContext can resume later than the visual clock after a device interruption.
+  const t = Math.max(a.currentTime, Number.isFinite(when) ? when : 0);
   const o = a.createOscillator();
   const g = a.createGain();
   o.frequency.value = accent ? 1600 : 1000;
@@ -85,4 +86,5 @@ export function click(accent = false, when = 0) {
   o.connect(g).connect(a.destination);
   o.start(t);
   o.stop(t + 0.06);
+  return { when: t, stop() { o.stop(); } };
 }

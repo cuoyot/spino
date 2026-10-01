@@ -1,0 +1,2387 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "schema_version": "2.0.0",
+  "manifest_id": "burgmuller_op100",
+  "generated_on": "2026-09-30",
+  "group": "piano_core",
+  "notes": [
+    "25 piano studies, numbered 1–25."
+  ],
+  "pieces": [
+    {
+      "piece_id": "burgmuller_op100_001",
+      "canonical_work_id": "burgmuller_op100_001",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "1",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "1"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_002",
+      "canonical_work_id": "burgmuller_op100_002",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 2",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "2",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "2"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_003",
+      "canonical_work_id": "burgmuller_op100_003",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 3",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "3",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "3"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_004",
+      "canonical_work_id": "burgmuller_op100_004",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 4",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "4",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "4"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_005",
+      "canonical_work_id": "burgmuller_op100_005",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 5",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "5",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "5"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_006",
+      "canonical_work_id": "burgmuller_op100_006",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 6",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "6",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "6"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_007",
+      "canonical_work_id": "burgmuller_op100_007",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 7",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "7",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "7"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_008",
+      "canonical_work_id": "burgmuller_op100_008",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 8",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "8",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "8"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_009",
+      "canonical_work_id": "burgmuller_op100_009",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 9",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "9",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "9"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_010",
+      "canonical_work_id": "burgmuller_op100_010",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 10",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "10",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "10"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_011",
+      "canonical_work_id": "burgmuller_op100_011",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 11",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "11",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "11"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_012",
+      "canonical_work_id": "burgmuller_op100_012",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 12",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "12",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "12"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_013",
+      "canonical_work_id": "burgmuller_op100_013",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 13",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "13",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "13"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_014",
+      "canonical_work_id": "burgmuller_op100_014",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 14",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "14",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "14"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_015",
+      "canonical_work_id": "burgmuller_op100_015",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 15",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "15",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "15"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_016",
+      "canonical_work_id": "burgmuller_op100_016",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 16",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "16",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "16"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_017",
+      "canonical_work_id": "burgmuller_op100_017",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 17",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "17",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "17"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_018",
+      "canonical_work_id": "burgmuller_op100_018",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 18",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "18",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "18"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_019",
+      "canonical_work_id": "burgmuller_op100_019",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 19",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "19",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "19"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_020",
+      "canonical_work_id": "burgmuller_op100_020",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 20",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "20",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "20"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_021",
+      "canonical_work_id": "burgmuller_op100_021",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 21",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "21",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "21"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_022",
+      "canonical_work_id": "burgmuller_op100_022",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 22",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "22",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "22"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_023",
+      "canonical_work_id": "burgmuller_op100_023",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 23",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "23",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "23"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_024",
+      "canonical_work_id": "burgmuller_op100_024",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 24",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "24",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "24"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "burgmuller_op100_025",
+      "canonical_work_id": "burgmuller_op100_025",
+      "record_kind": "work",
+      "display_title": "25 Easy and Progressive Studies — Study 25",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Friedrich Burgmüller",
+        "collection_id": "burgmuller_op100",
+        "collection_title": "25 Études faciles et progressives",
+        "opus_or_catalogue": "Op.100",
+        "number": "25",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_burgmuller_op100"
+        ],
+        "attribution": "Friedrich Burgmüller; bibliographic reference: IMSLP (https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_burgmuller_op100",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "25"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    }
+  ]
+}

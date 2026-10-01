@@ -1,0 +1,282 @@
+{
+  "createdAt": "2026-10-01T09:01:41.219Z",
+  "surface": "Responsive Chromium using tests/browser.js and production dist; not native-device acceptance.",
+  "screen": "PRACTICE-01 add-block dialog",
+  "isolation": "Fresh synthetic notebook per language and viewport in a disposable browser profile; installed notebook unchanged.",
+  "fixtureSource": "scripts/review/session-fixtures.mjs, resumed, with preferences.language set to the capture language. Exact copies included.",
+  "entry": "Reload seeded notebook, Today Resume, Add block. Capture initial reading form. Then change activity to repertoire and measure field visibility/required state. No form submission.",
+  "time": "Date was not overridden. Fixture times are deterministic; session remains paused.",
+  "scroll": "No manual scrolling. Full dialog content fits in all eight captures; scrollHeight and clientHeight are measured.",
+  "buildFiles": {
+    "dist/index.html": "b864163c4b16af04070df7675c568bc9b84eda997e9aba7ac42320a64a4e140e",
+    "dist/assets/index-o_L0iaAR.css": "79169e10b3500200b9a8dc883353c8a388f3d96bced56cd7ff5a7c4e2e86168b",
+    "dist/assets/index-TUm0UrRn.js": "fb81a8def9e0e320142f1837152f5b37b5dd28f081e8bef3e3a0c6c9535be17b",
+    "dist/assets/musicxml-viewer-B5nkerTI.js": "db9aff41bebeb382fb3e22901e649412d60c473ed8dac284d36a00a0341ec78a",
+    "dist/assets/musicxml-worker-DOMaXPvj.js": "595557e132e5a0150445104772d8008ec215ef6aaec9cd5a9c2e4c473c7f9082",
+    "dist/assets/pdf-document-CNWCo-mT.js": "b83de2d5150c01b222e08ace42d6f13e1679468762c7eeb4c279b22ed4e0f88c",
+    "dist/assets/pdf-metadata-Czn4esm1.js": "0405a91633bad19a72fadacc1537378ef373d0fdbfe6d7152f11c4da4cf97ceb",
+    "dist/assets/pdf-viewer-AmTixEHj.js": "fffbbb40c90958c04062e29338af04c5dba9fdea0499bc8f4f638ee7d325968d",
+    "dist/assets/pdf-viewer-BcMH7FLD.css": "6b16c716af9084e47cc1ad431444bb1017c1173373835a63a46e4ce928ae2240",
+    "dist/assets/pdf-viewer-DCOg0qGN.js": "cf0fb413e01db79aabe7e4feed39ff87188b53425858cd30c88b52ef570adb4b",
+    "dist/assets/score-ocr-DXF1_Q6m.js": "5243a886dccbccb12c9df67603ac1dbfe2ffe90ba30bf28b25f52958ac9c4669"
+  },
+  "results": [
+    {
+      "language": "es",
+      "name": "pp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-pp.png",
+        "sha256": "ab83b6e02c7bc168df6f17b1a795ca08e7f158e8800e06fb414d8d0893967fd5",
+        "capturedAt": "2026-10-01T08:59:49.094Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "pl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-pl.png",
+        "sha256": "80521dde7c7330e5c226885134c6b128e82b3e706d42d2431e53dc29d360959b",
+        "capturedAt": "2026-10-01T08:59:49.838Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "tp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-tp.png",
+        "sha256": "ed966529caca770c20480169bab59ef32a9e6e21f8be22248050b96618f21768",
+        "capturedAt": "2026-10-01T08:59:50.678Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "tl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 1024,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-tl.png",
+        "sha256": "e1d00b6d6433ea760183dd0b70c0f07211a179810e61524dc35918df461bf91a",
+        "capturedAt": "2026-10-01T08:59:51.505Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "pp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-pp.png",
+        "sha256": "90a511c416c01c5b73ae5297687fc63a3b64e083ebffeca190ff36556304a8bd",
+        "capturedAt": "2026-10-01T08:59:52.264Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "pl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-pl.png",
+        "sha256": "36d5b5dc0ade7b91f4042f9656807896dbff2ff7111aefc1aa489dc8a7f713a2",
+        "capturedAt": "2026-10-01T08:59:53.049Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "tp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-tp.png",
+        "sha256": "969b232495f1b0cbb3c220c9e50d2b491fd59fee69edfa11488c43661f6f6175",
+        "capturedAt": "2026-10-01T08:59:53.914Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "tl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 1024,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-tl.png",
+        "sha256": "0c26940f812b07ba2fa6b033e1705a52d798d2eb720c473375581e7cf3723a18",
+        "capturedAt": "2026-10-01T08:59:54.739Z"
+      }
+    }
+  ],
+  "runtimeErrors": []
+}

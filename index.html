@@ -4,10 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
   <meta name="theme-color" content="#14161a" />
-  <title>Sight Reader</title>
+  <meta name="application-name" content="SPino" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/brand/spino-icon-64.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/spino-icon-180.png" />
+  <title>SPino: Smart Piano Notebook</title>
 </head>
 <body>
+  <div id="app-shell" role="application" aria-label="SPino: Smart Piano Notebook"><p class="boot-message">Opening your notebook…</p></div>
+  <div id="reader-view" hidden>
   <header>
+    <div id="practice-toolbar" hidden>
+      <button id="practice-return" type="button">‹ Session</button>
+      <span id="practice-title"></span>
+      <span class="practice-time"><span id="practice-clock">0:00</span><span id="practice-midi"></span></span>
+      <button id="practice-finish" type="button">Finish</button>
+    </div>
     <div class="bar-top">
       <button id="open-settings" data-i18n-aria="settings">⚙</button>
       <button id="rank-pill" data-i18n-title="yourLevel"></button>
@@ -34,6 +45,7 @@
       <div id="staff"></div>
       <div id="read-window"></div>
       <div id="playhead"></div>
+      <nav id="score-pages" hidden data-i18n-aria="exercisePages" aria-label="Exercise pages"><button type="button" id="score-prev" data-i18n="previousPageButton" data-i18n-aria="previousPage" aria-label="Previous page">‹ Previous</button><span id="score-page-label"></span><button type="button" id="score-next" data-i18n="nextPageButton" data-i18n-aria="nextPage" aria-label="Next page">Next ›</button></nav>
       <div id="key-label"><span id="key-name"></span><button id="key-scale" data-i18n-title="viewScale" data-i18n-aria="viewScale">♫</button><button id="new-key" data-i18n-title="newKey" data-i18n-aria="newKey">↻</button></div>
       <div id="level-banner" class="level-notice" hidden>🎉 <span id="banner-text"></span></div>
     </div>
@@ -44,13 +56,22 @@
         <span data-i18n-title="streak">🔥 <b id="s-streak">0</b></span>
         <span data-i18n-title="avgTime">⏱ <b id="s-time">–</b></span>
       </div>
-      <div id="feedback"></div>
+      <div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </main>
 
-  <canvas id="lights" hidden></canvas>
-  <div id="piano" class="piano" hidden></div>
-  <div id="kb-bar" hidden>
+  <div id="input-area">
+    <canvas id="lights" hidden></canvas>
+    <div id="piano" class="piano" hidden></div>
+    <div id="names" hidden>
+      <button data-mod="-1">♭</button>
+      <button data-letter="c">C</button><button data-letter="d">D</button><button data-letter="e">E</button>
+      <button data-letter="f">F</button><button data-letter="g">G</button><button data-letter="a">A</button>
+      <button data-letter="b">B</button>
+      <button data-mod="1">♯</button>
+    </div>
+  </div>
+  <div id="kb-bar">
     <span id="kb-range"></span>
     <input type="range" id="kb-shift" data-i18n-aria="moveKeyboard" hidden />
     <span class="kb-hint" data-i18n="slideHint">↔ Slide with two fingers</span>
@@ -58,12 +79,6 @@
     <button type="button" id="guide-btn"></button>
     <button type="button" id="finger-btn"></button>
   </div>
-  <div id="names" hidden>
-    <button data-mod="-1">♭</button>
-    <button data-letter="c">C</button><button data-letter="d">D</button><button data-letter="e">E</button>
-    <button data-letter="f">F</button><button data-letter="g">G</button><button data-letter="a">A</button>
-    <button data-letter="b">B</button>
-    <button data-mod="1">♯</button>
   </div>
 
   <dialog id="settings">
@@ -187,6 +202,10 @@
         <label><span data-i18n="soundMode">Sound</span>
           <select name="soundMode"><option value="tone" data-i18n="soundTone">Tone</option><option value="voice" data-i18n="soundVoice">Sung note name</option><option value="off" data-i18n="soundOff">Off</option></select>
         </label>
+        <label><span><span data-i18n="keyboardSize">Keyboard size</span>: <b id="kb-zoom-val"></b></span>
+          <input type="range" name="kbZoom" min="1" max="2.5" step="0.1" />
+        </label>
+        <p class="muted" data-i18n="keyboardGestures">Pinch to resize the keys. Slide with two fingers to reach other notes.</p>
         <label><span><span data-i18n="scoreZoom">Score size</span>: <b id="zoom-val"></b></span>
           <input type="range" name="zoom" min="0.7" max="1.5" step="0.05" />
         </label>

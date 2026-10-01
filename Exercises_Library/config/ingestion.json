@@ -1,0 +1,52 @@
+{
+  "$schema": "../schemas/ingestion.schema.json",
+  "schema_version": "2.0.0",
+  "import_all_enabled_catalogue_records": true,
+  "show_unavailable_in_catalogue": true,
+  "unknown_filter_policy": "separate_unknown_bucket",
+  "download": {
+    "concurrency": 3,
+    "timeout_ms": 30000,
+    "max_bytes_per_file": 25000000,
+    "retries": 2,
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "automatic_on_app_launch": false
+  },
+  "parse": {
+    "preferred_formats": [
+      "musicxml",
+      "mxl"
+    ],
+    "disable_external_entities": true,
+    "max_uncompressed_bytes": 100000000,
+    "max_zip_entries": 256,
+    "reject_archive_path_traversal": true,
+    "repeat_policy": "written_score",
+    "hand_assignment": "explicit_or_pending"
+  },
+  "segments": {
+    "enabled_after_analysis": true,
+    "target_measure_lengths": [
+      4,
+      8,
+      16
+    ],
+    "stride_measures": 4,
+    "allow_partial_final_segment": false,
+    "preserve_pickup": true,
+    "require_boundary_review": true
+  },
+  "rights": {
+    "publish_only_distribution_status": "approved",
+    "preserve_per_asset_license": true
+  },
+  "outputs": {
+    "raw": "assets/raw",
+    "normalized": "assets/normalized",
+    "analyses": "analysis",
+    "segments": "segments",
+    "reports": "reports"
+  }
+}

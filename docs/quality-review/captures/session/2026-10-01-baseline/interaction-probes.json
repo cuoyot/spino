@@ -1,0 +1,84 @@
+{
+  "initial": {
+    "midi": {
+      "x": 956,
+      "y": 12,
+      "right": 1000,
+      "bottom": 56,
+      "width": 44,
+      "height": 44
+    },
+    "finish": {
+      "x": 854.3125,
+      "y": 39.140625,
+      "right": 946,
+      "bottom": 83.140625,
+      "width": 91.6875,
+      "height": 44
+    },
+    "advice": "En tablet, prueba el modo retrato para ver más sistemas de la partitura.",
+    "buttons": [
+      {
+        "action": "midi-settings",
+        "label": ""
+      },
+      {
+        "action": "session-end",
+        "label": "Terminar"
+      },
+      {
+        "action": "toggle-session",
+        "label": "Iniciar / continuar"
+      },
+      {
+        "action": "next-block",
+        "label": "Completar sesión"
+      },
+      {
+        "action": "toggle-metronome",
+        "label": "Metrónomo"
+      },
+      {
+        "action": "leave-session",
+        "label": "Continuar después"
+      },
+      {
+        "action": "discard-session",
+        "label": "Descartar sesión"
+      }
+    ]
+  },
+  "metronomeStart": {
+    "storedRunning": null,
+    "button": "Pausar"
+  },
+  "metronomeStop": {
+    "storedRunning": 1790843319804,
+    "button": "Pausar"
+  },
+  "backgroundPause": {
+    "storedRunning": null,
+    "button": "Pausar"
+  },
+  "finishFirst": {
+    "index": 0,
+    "partial": false
+  },
+  "complete": {
+    "index": 1,
+    "partial": false
+  },
+  "cancelComplete": {
+    "text": "Free practiceCon piano · bloque 1 de 1Terminar\n      En tablet, prueba el modo retrato para ver más sistemas de la partitura.\n      \n      \n      Has terminado los bloques.Revisar y guardar\n      Tu sesión✓ Práctica libre · 40 minContinuar despuésDescartar sesión",
+    "canOpen": false,
+    "canStart": false
+  },
+  "adviceBefore": "Con MIDI en el móvil, gira a apaisado para ver más pentagrama.",
+  "adviceAfter": "Con MIDI en el móvil, gira a apaisado para ver más pentagrama.",
+  "disconnectedOpen": {
+    "readerHidden": true,
+    "message": "No se ha podido abrir la entrada MIDI: Permission to use Web MIDI API was not granted.",
+    "running": null
+  },
+  "errors": []
+}

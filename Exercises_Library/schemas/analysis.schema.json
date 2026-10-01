@@ -1,0 +1,817 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sightreader:v2:analysis",
+  "title": "Sightreader v2 — analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "parser_version",
+    "algorithm_version",
+    "input_asset_id",
+    "input_sha256",
+    "computed_at",
+    "error",
+    "metrics",
+    "warnings"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "pending",
+        "running",
+        "complete",
+        "failed"
+      ]
+    },
+    "parser_version": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "algorithm_version": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "input_asset_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "input_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "computed_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measure_count",
+        "duration_quarter_notes",
+        "key_signatures",
+        "estimated_key",
+        "time_signatures",
+        "lowest_note",
+        "highest_note",
+        "right_hand_range",
+        "left_hand_range",
+        "hand_assignment",
+        "accidentals",
+        "voice_count",
+        "max_chord_notes",
+        "max_simultaneous_notes",
+        "max_melodic_leap_semitones",
+        "rhythm_values",
+        "tuplets_present",
+        "syncopation_ratio",
+        "note_density_per_quarter",
+        "hand_independence_score",
+        "sightreading_score",
+        "sightreading_level"
+      ],
+      "properties": {
+        "measure_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duration_quarter_notes": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "key_signatures": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "part_id",
+                  "staff",
+                  "measure_index",
+                  "fifths",
+                  "mode",
+                  "nontraditional"
+                ],
+                "properties": {
+                  "part_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "staff": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "measure_index": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fifths": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "mode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "nontraditional": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "estimated_key": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tonic",
+                "mode",
+                "method",
+                "confidence"
+              ],
+              "properties": {
+                "tonic": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "mode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "method": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "confidence": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time_signatures": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "part_id",
+                  "staff",
+                  "measure_index",
+                  "beats",
+                  "beat_type"
+                ],
+                "properties": {
+                  "part_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "staff": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "measure_index": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "beats": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "beat_type": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lowest_note": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "step",
+                "alter",
+                "octave",
+                "midi"
+              ],
+              "properties": {
+                "step": {
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
+                  ]
+                },
+                "alter": {
+                  "type": "number"
+                },
+                "octave": {
+                  "type": "integer"
+                },
+                "midi": {
+                  "type": "number"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "highest_note": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "step",
+                "alter",
+                "octave",
+                "midi"
+              ],
+              "properties": {
+                "step": {
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
+                  ]
+                },
+                "alter": {
+                  "type": "number"
+                },
+                "octave": {
+                  "type": "integer"
+                },
+                "midi": {
+                  "type": "number"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "right_hand_range": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "lowest",
+                "highest"
+              ],
+              "properties": {
+                "lowest": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "step",
+                    "alter",
+                    "octave",
+                    "midi"
+                  ],
+                  "properties": {
+                    "step": {
+                      "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G"
+                      ]
+                    },
+                    "alter": {
+                      "type": "number"
+                    },
+                    "octave": {
+                      "type": "integer"
+                    },
+                    "midi": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "highest": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "step",
+                    "alter",
+                    "octave",
+                    "midi"
+                  ],
+                  "properties": {
+                    "step": {
+                      "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G"
+                      ]
+                    },
+                    "alter": {
+                      "type": "number"
+                    },
+                    "octave": {
+                      "type": "integer"
+                    },
+                    "midi": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "left_hand_range": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "lowest",
+                "highest"
+              ],
+              "properties": {
+                "lowest": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "step",
+                    "alter",
+                    "octave",
+                    "midi"
+                  ],
+                  "properties": {
+                    "step": {
+                      "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G"
+                      ]
+                    },
+                    "alter": {
+                      "type": "number"
+                    },
+                    "octave": {
+                      "type": "integer"
+                    },
+                    "midi": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "highest": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "step",
+                    "alter",
+                    "octave",
+                    "midi"
+                  ],
+                  "properties": {
+                    "step": {
+                      "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G"
+                      ]
+                    },
+                    "alter": {
+                      "type": "number"
+                    },
+                    "octave": {
+                      "type": "integer"
+                    },
+                    "midi": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hand_assignment": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "method",
+                "confidence",
+                "notes"
+              ],
+              "properties": {
+                "method": {
+                  "enum": [
+                    "explicit",
+                    "reviewed",
+                    "heuristic"
+                  ]
+                },
+                "confidence": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "accidentals": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "printed_count",
+                "courtesy_count",
+                "chromatic_pitch_count",
+                "definition_version"
+              ],
+              "properties": {
+                "printed_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "courtesy_count": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "chromatic_pitch_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "definition_version": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "voice_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_chord_notes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_simultaneous_notes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_melodic_leap_semitones": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rhythm_values": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tuplets_present": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "syncopation_ratio": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note_density_per_quarter": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hand_independence_score": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sightreading_score": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sightreading_level": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "complete"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "parser_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "algorithm_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "computed_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "failed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
+}

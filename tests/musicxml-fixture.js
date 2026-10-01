@@ -1,0 +1,18 @@
+import { zipSync, strToU8 } from 'fflate';
+
+// Independent synthetic notation; never a repertoire catalogue entry.
+const note = (step, octave, duration, extra = '', voice = '1', staff = 1) => `<note><pitch><step>${step}</step><octave>${octave}</octave></pitch><duration>${duration}</duration>${extra}<voice>${voice}</voice><type>quarter</type><staff>${staff}</staff></note>`;
+export function musicXMLFixture() {
+  const piano = [
+    `<measure number="0" implicit="yes"><attributes><divisions>6</divisions><key><fifths>1</fifths><mode>major</mode></key><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves><clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef></attributes>${note('C',4,6)}<backup><duration>6</duration></backup>${note('C',3,6,'','2',2)}</measure>`,
+    `<measure number="1"><note><pitch><step>F</step><alter>1</alter><octave>4</octave></pitch><duration>24</duration><tie type="start"/><voice>1</voice><type>whole</type><staff>1</staff></note><backup><duration>24</duration></backup>${note('D',3,24,'','2',2)}</measure>`,
+    `<measure number="1a"><note><pitch><step>F</step><alter>1</alter><octave>4</octave></pitch><duration>6</duration><tie type="stop"/><voice>1</voice><type>quarter</type><staff>1</staff></note>${note('G',4,6,'','1',2)}${['A','B','C'].map((step,i)=>`<note><pitch><step>${step}</step><octave>${i===2?5:4}</octave></pitch><duration>2</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff>${i===0?'<notations><tuplet type="start"/></notations>':i===2?'<notations><tuplet type="stop"/></notations>':''}</note>`).join('')}${note('C',5,6)}</measure>`,
+    `<measure number="4"><attributes><key><fifths>-1</fifths></key><time><beats>3+2</beats><beat-type>8</beat-type></time></attributes><note><pitch><step>B</step><alter>0</alter><octave>4</octave></pitch><duration>9</duration><voice>1</voice><type>quarter</type><dot/><accidental cautionary="yes">natural</accidental></note>${note('E',4,6)}</measure>`,
+    ...Array.from({length:4},(_,i)=>`<measure number="${i+5}">${i===0?'<attributes><divisions>4</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time></attributes>':''}${note('D',4,8)}<note><chord/><pitch><step>F</step><octave>4</octave></pitch><duration>8</duration><voice>1</voice><type>half</type></note><forward><duration>4</duration></forward>${note('E',4,4)}</measure>`),
+  ];
+  const voice = piano.map((_,i)=>`<measure number="${i}">${i===0?'<attributes><divisions>4</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time></attributes>':''}${note('C',6,16)}</measure>`).join('');
+  return `<?xml version="1.0"?><score-partwise version="4.0"><work><work-title>Synthetic piano selection fixture</work-title></work><identification><creator type="composer">Test fixture</creator><rights>Original test fixture</rights></identification><part-list><score-part id="V"><part-name>Voice</part-name></score-part><score-part id="P"><part-name>Piano</part-name><score-instrument id="PI"><instrument-name>Piano</instrument-name><instrument-sound>keyboard.piano</instrument-sound></score-instrument></score-part></part-list><part id="V">${voice}</part><part id="P">${piano.join('')}</part></score-partwise>`;
+}
+export function mxlFixture(xml = musicXMLFixture(), extra = {}) {
+  return zipSync({ 'unrelated.xml': strToU8('<not-the-score/>'), 'META-INF/container.xml': strToU8('<container><rootfiles><rootfile full-path="scores/piano.musicxml" media-type="application/vnd.recordare.musicxml+xml"/></rootfiles></container>'), 'scores/piano.musicxml': strToU8(xml), ...extra });
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@spino/cloud-backup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SPino document-provider backup bridge for iOS",
+  "main": "index.js",
+  "type": "module",
+  "capacitor": { "ios": { "src": "ios" } }
+}

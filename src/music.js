@@ -387,10 +387,11 @@ export function scaleNotes(key) {
 // Scale notes as real notes from the tonic at diatonic index d0 upwards for `count` steps
 function scaleRun(key, d0, count) {
   const sc = scaleNotes(key);
+  const tonic = LETTERS.indexOf(keyInfo(key).letter);
   const out = [];
   for (let i = 0; i < count; i++) {
     const d = d0 + i;
-    out.push(makeNote(d, sc[((d - d0) % 7 + 7) % 7].acc, 'q'));
+    out.push(makeNote(d, sc[((d - tonic) % 7 + 7) % 7].acc, 'q'));
   }
   return out;
 }
@@ -405,12 +406,13 @@ export function generateScaleBars(opts, phase = 0) {
   // lowest tonic that leaves room for an octave above; otherwise the lowest tonic in range
   let d0 = lo;
   while (d0 % 7 !== tonic) d0++;
+  if (d0 > hi) d0 = lo; // a zoomed keyboard may only show a fragment of the scale
   while (d0 + 7 <= hi - 7 && d0 + 7 < lo + 7) d0 += 7;
   const top = Math.min(hi, d0 + 7);
   const span = top - d0; // usually 7 (an octave)
   const run = scaleRun(opts.key, d0, span + 1);
   let seq;
-  if (phase % 2 === 0) {
+  if (phase % 2 === 0 || span < 2) {
     seq = [...run, ...run.slice(0, -1).reverse()];
   } else {
     // broken thirds up: 1-3, 2-4, 3-5 … then down

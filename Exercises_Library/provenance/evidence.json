@@ -1,0 +1,132 @@
+{
+  "$schema": "../schemas/evidence.schema.json",
+  "schema_version": "2.0.0",
+  "items": [
+    {
+      "evidence_id": "imslp_czerny_op821",
+      "url": "https://imslp.org/wiki/160_kurze_%C3%9Cbungen%2C_Op.821_%28Czerny%2C_Carl%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "160 piano exercises; the collection is described as eight-measure exercises. Individual lengths have not been verified."
+    },
+    {
+      "evidence_id": "imslp_czerny_op161",
+      "url": "https://imslp.org/wiki/48_%C3%89tudes_en_forme_de_pr%C3%A9ludes%2C_Op.161_%28Czerny%2C_Carl%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "48 piano studies."
+    },
+    {
+      "evidence_id": "imslp_chaulieu_jr_op9",
+      "url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "24 piano preludes; attributed by IMSLP to Chaulieu Jr.; no key order is assumed."
+    },
+    {
+      "evidence_id": "imslp_czerny_op139",
+      "url": "https://imslp.org/wiki/100_Progressive_Studies%2C_Op.139_%28Czerny%2C_Carl%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "100 piano studies."
+    },
+    {
+      "evidence_id": "imslp_burgmuller_op100",
+      "url": "https://imslp.org/wiki/25%20%C3%89tudes%20faciles%20et%20progressives%2C%20Op.100%20%28Burgm%C3%BCller%2C%20Friedrich%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "25 piano studies, numbered 1–25."
+    },
+    {
+      "evidence_id": "imslp_schumann_op68",
+      "url": "https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_%28Schumann%2C_Robert%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "43 piano pieces in the main cycle; appendices, sketches and rules are excluded."
+    },
+    {
+      "evidence_id": "imslp_duvernoy_op176",
+      "url": "https://imslp.org/wiki/%C3%89cole_primaire%2C_Op.176_%28Duvernoy%2C_Jean-Baptiste%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "25 piano studies."
+    },
+    {
+      "evidence_id": "imslp_tchaikovsky_op39",
+      "url": "https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "24 piano pieces; use the numbering of the source edition and preserve discrepancies."
+    },
+    {
+      "evidence_id": "imslp_gurlitt_op117",
+      "url": "https://imslp.org/wiki/Anfangs-Stunden%2C_Op.117_%28Gurlitt%2C_Cornelius%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "34 piano pieces; The First Lessons."
+    },
+    {
+      "evidence_id": "imslp_bach_inventions_sinfonias",
+      "url": "https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "15 keyboard inventions BWV 772–786 and 15 sinfonias BWV 787–801. Variants such as BWV 772a are excluded."
+    },
+    {
+      "evidence_id": "imslp_clementi_op43",
+      "url": "https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29",
+      "accessed_on": "2026-09-30",
+      "scope": "catalogue",
+      "claim": "Selection enumerated from the partial contents list: 25 preludes, 24 exercises and Grand Exercise. IMSLP notes that further contents remain to be added; this is not claimed to be the complete Op.43."
+    },
+    {
+      "evidence_id": "musetrainer_repo",
+      "url": "https://github.com/musetrainer/library",
+      "accessed_on": "2026-09-30",
+      "scope": "source",
+      "claim": "The repository describes itself as a public-domain MusicXML library; that blanket statement does not certify every arrangement or attribution."
+    },
+    {
+      "evidence_id": "openscore_license",
+      "url": "https://github.com/OpenScore/Lieder/blob/38c5db510224d9facdc4b08d741fc788cfb58ea8/LICENSE.txt",
+      "accessed_on": "2026-09-30",
+      "scope": "license",
+      "claim": "CC0-1.0 license for the corpus and its transcriptions; retain OpenScore credits and review any internal conflicts that arise."
+    },
+    {
+      "evidence_id": "openscore_readme",
+      "url": "https://github.com/OpenScore/Lieder/blob/38c5db510224d9facdc4b08d741fc788cfb58ea8/README.md",
+      "accessed_on": "2026-09-30",
+      "scope": "source",
+      "claim": "Songs for voice and accompaniment; composer/set/song structure; titles and composers recovered from documented paths."
+    },
+    {
+      "evidence_id": "musetrainer_tree",
+      "url": "https://api.github.com/repos/musetrainer/library/git/trees/9128876f6164d96997c877a2be843349a32bdabb?recursive=1",
+      "accessed_on": "2026-09-30",
+      "scope": "repository_inventory",
+      "claim": "Paths, sizes and Git blob SHA-1 values obtained from the complete, non-truncated tree. Raw URLs are deterministic paths to observed blobs; not all URLs have been checked with HTTP GET."
+    },
+    {
+      "evidence_id": "openscore_tree",
+      "url": "https://api.github.com/repos/OpenScore/Lieder/git/trees/38c5db510224d9facdc4b08d741fc788cfb58ea8?recursive=1",
+      "accessed_on": "2026-09-30",
+      "scope": "repository_inventory",
+      "claim": "Paths, sizes and Git blob SHA-1 values obtained from the complete, non-truncated tree. Raw URLs are deterministic paths to observed blobs; not all URLs have been checked with HTTP GET."
+    },
+    {
+      "evidence_id": "pdmx_readme",
+      "url": "https://github.com/pnlong/PDMX",
+      "accessed_on": "2026-09-30",
+      "scope": "source",
+      "claim": "Future expansion. The project documents license conflicts and recommends no_license_conflict; also filter for valid files and instrumentation. No pieces are enumerated without acquiring the actual index."
+    },
+    {
+      "evidence_id": "musicxml_mxl",
+      "url": "https://www.w3.org/2021/06/musicxml40/tutorial/compressed-mxl-files/",
+      "accessed_on": "2026-09-30",
+      "scope": "technical",
+      "claim": "MXL is a ZIP container that uses META-INF/container.xml to locate the score."
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "createdAt": "2026-10-01T09:01:41.219Z",
+  "surface": "Responsive Chromium using tests/browser.js and production dist; not native-device acceptance.",
+  "screen": "PRACTICE-01 add-block dialog",
+  "isolation": "Fresh synthetic notebook per language and viewport in a disposable browser profile; installed notebook unchanged.",
+  "fixtureSource": "scripts/review/session-fixtures.mjs, resumed, with preferences.language set to the capture language. Exact copies included.",
+  "entry": "Reload seeded notebook, Today Resume, Add block. Capture initial reading form. Then change activity to repertoire and measure field visibility/required state. No form submission.",
+  "time": "Date was not overridden. Fixture times are deterministic; session remains paused.",
+  "scroll": "No manual scrolling. Full dialog content fits in all eight captures; scrollHeight and clientHeight are measured.",
+  "buildFiles": {
+    "dist/index.html": "b864163c4b16af04070df7675c568bc9b84eda997e9aba7ac42320a64a4e140e",
+    "dist/assets/index-o_L0iaAR.css": "79169e10b3500200b9a8dc883353c8a388f3d96bced56cd7ff5a7c4e2e86168b",
+    "dist/assets/index-TUm0UrRn.js": "fb81a8def9e0e320142f1837152f5b37b5dd28f081e8bef3e3a0c6c9535be17b",
+    "dist/assets/musicxml-viewer-B5nkerTI.js": "db9aff41bebeb382fb3e22901e649412d60c473ed8dac284d36a00a0341ec78a",
+    "dist/assets/musicxml-worker-DOMaXPvj.js": "595557e132e5a0150445104772d8008ec215ef6aaec9cd5a9c2e4c473c7f9082",
+    "dist/assets/pdf-document-CNWCo-mT.js": "b83de2d5150c01b222e08ace42d6f13e1679468762c7eeb4c279b22ed4e0f88c",
+    "dist/assets/pdf-metadata-Czn4esm1.js": "0405a91633bad19a72fadacc1537378ef373d0fdbfe6d7152f11c4da4cf97ceb",
+    "dist/assets/pdf-viewer-AmTixEHj.js": "fffbbb40c90958c04062e29338af04c5dba9fdea0499bc8f4f638ee7d325968d",
+    "dist/assets/pdf-viewer-BcMH7FLD.css": "6b16c716af9084e47cc1ad431444bb1017c1173373835a63a46e4ce928ae2240",
+    "dist/assets/pdf-viewer-DCOg0qGN.js": "cf0fb413e01db79aabe7e4feed39ff87188b53425858cd30c88b52ef570adb4b",
+    "dist/assets/score-ocr-DXF1_Q6m.js": "5243a886dccbccb12c9df67603ac1dbfe2ffe90ba30bf28b25f52958ac9c4669"
+  },
+  "results": [
+    {
+      "language": "es",
+      "name": "pp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-pp.png",
+        "sha256": "ab83b6e02c7bc168df6f17b1a795ca08e7f158e8800e06fb414d8d0893967fd5",
+        "capturedAt": "2026-10-01T08:59:49.094Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "pl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-pl.png",
+        "sha256": "80521dde7c7330e5c226885134c6b128e82b3e706d42d2431e53dc29d360959b",
+        "capturedAt": "2026-10-01T08:59:49.838Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "tp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-tp.png",
+        "sha256": "ed966529caca770c20480169bab59ef32a9e6e21f8be22248050b96618f21768",
+        "capturedAt": "2026-10-01T08:59:50.678Z"
+      }
+    },
+    {
+      "language": "es",
+      "name": "tl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 1024,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-es.fixture.json",
+        "sha256": "2aaa2c0583fc3d602b32728da791c361961d36fc05860bd139bd0f22e8f90e7c"
+      },
+      "screenshot": {
+        "path": "add-es-tl.png",
+        "sha256": "e1d00b6d6433ea760183dd0b70c0f07211a179810e61524dc35918df461bf91a",
+        "capturedAt": "2026-10-01T08:59:51.505Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "pp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-pp.png",
+        "sha256": "90a511c416c01c5b73ae5297687fc63a3b64e083ebffeca190ff36556304a8bd",
+        "capturedAt": "2026-10-01T08:59:52.264Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "pl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-pl.png",
+        "sha256": "36d5b5dc0ade7b91f4042f9656807896dbff2ff7111aefc1aa489dc8a7f713a2",
+        "capturedAt": "2026-10-01T08:59:53.049Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "tp",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-tp.png",
+        "sha256": "969b232495f1b0cbb3c220c9e50d2b491fd59fee69edfa11488c43661f6f6175",
+        "capturedAt": "2026-10-01T08:59:53.914Z"
+      }
+    },
+    {
+      "language": "en",
+      "name": "tl",
+      "initial": {
+        "scrollHeight": 324,
+        "clientHeight": 324,
+        "overflow": false,
+        "submitVisible": true,
+        "workHidden": true,
+        "targetHidden": false
+      },
+      "repertoire": {
+        "workHidden": false,
+        "targetHidden": true,
+        "required": true
+      },
+      "viewport": {
+        "width": 1024,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      },
+      "fixture": {
+        "path": "add-en.fixture.json",
+        "sha256": "e2d52151cc1bdf65f45525d00a3d0dbc328bf5d265dc82d23221c62f0b576d8a"
+      },
+      "screenshot": {
+        "path": "add-en-tl.png",
+        "sha256": "0c26940f812b07ba2fa6b033e1705a52d798d2eb720c473375581e7cf3723a18",
+        "capturedAt": "2026-10-01T08:59:54.739Z"
+      }
+    }
+  ],
+  "runtimeErrors": [],
+  "runId": "2026-10-01-add-block",
+  "title": "Add a block",
+  "reviewHref": "../../../session.md",
+  "packageVersion": "5.0.0",
+  "gitHead": "afa2ae378a360c7c680795cef0f566d0d4e6c5ec",
+  "workingTree": "Uncommitted work included; use source hashes, not HEAD alone.",
+  "sourceSha256": "978d1f27b0f6671c2e308e3726b512c068fbde9ad6c54d17fba77226e23af3a4",
+  "sourceFiles": {
+    "index.html": "5bb6d23728186544cde45d2d2135c9597dd0035a3da4a0f33b349b3f53e5e418",
+    "package-lock.json": "7202b97050c4801982760f0b85dc798476b91eae5b62d22bc00ba5254018db49",
+    "package.json": "e4aef5603c982f806e7d90662a963831525cb27cb8fb7e83873e32a735b0f9ff",
+    "src/audio.js": "968290b288a2f407739aec4629321ffb2499155a0813b900c731fb8babe0e4a2",
+    "src/companion/agenda.js": "baeaa22756b1f20d8ad4924a3fcb6dd8d38cf1ede4217cbc11269f724b8040f8",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "e8f5ee474aa70acf148553841c5fbb6e77f6c7cab0a75e650db79c544ce5c46c",
+    "src/companion/app.js": "c9eb7de0c65278b8989760d34da3c5dcf32999c18a74f1cb8f1b2ae3b9050680",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "13c90d8e2a5b08d8734504851d317c2850c61668bf87f41b3326dfc83a1d1f1a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "bd96c2511e6d5c1ecf4196ea6e0e193ad6acf9ae0d4488032f6e80ca9d95ce18",
+    "src/companion/library-browse.js": "a31642993db9cbb53219e4e127eac7d92b901dafab1b114a540c78f87c8b7598",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "ac374f290a040691992b50d9daea2984b645500720bc9955dc24d0f78d23f81f",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "bf11449ee44826fc5e82fe00617166fa4ae5cbecc2eec69ddaeaf113dd14a00f",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "beed64cfff3429ed68473729850310c22d6995c75ac9d5fb96f78a00e0a868f9",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "a6fc25460d8c25b77cfbe14c41900e12c8f2b3625be5973c6ba7f996194eafb3",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "d097f01464cacf9709bfb216ddd2a606cce395fd66a52ce3205e7626982a997f",
+    "src/companion/pdf-viewer.js": "19f33e9b3bd4bdca5568e14f3344de3b1b2eb021dc2fc9ab26e5a1217ca9d0d8",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "e24cad678150de49e702cc490292e168a274b8a3094c527647102751a4f482cc",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "33ae23bd182f314c4b7733c69828ac098da33b4622850c797846fc0e83c7e1a2",
+    "src/companion/profile.css": "4d91adfa33a28ce2b4f1035e9f7bdae8a5636a295ffa2c450f5b3a1282c8ae43",
+    "src/companion/repertoire.js": "61eb6853b9dc1d2ad7d62475cda955f94fb019ed8774c4c0f5f3963f0d4214d6",
+    "src/companion/score-controls.js": "38b23527bac48322a66f4d82396101945ea3adad0bb9205bfd724dd3b2614ee2",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "e89b56706aa57f539a82728e4cfe517ce1e88fe13f2c00ea5520010786627e5c",
+    "src/companion/screen-awake.js": "f294af7bf03dd401ffb0db93d606791d2dafd0a23c0727b0088bf8edf4baa2c3",
+    "src/companion/session-edit.js": "d2058414d861b83f360fb7b54d5c3633988eb3d4b376f587ae736b44e329ae6b",
+    "src/companion/session-view.css": "68bf6d7bcafe9dd4fbb98e1fee4c087034995d62e74eb244d6e75601cc684639",
+    "src/companion/session-view.js": "bacbeba05c03a4d0f82a7429921cffa75b26089d25764b954b17ed8876a49d02",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "0faf40426d790ac408d5b4fa12f5e08fa24bb1e97d137d68dec081e4a8df5d53",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "1ac8b9c7d92397c6571fa3575d2bd66160fe0a0a14028c68d51b89677a3cde4c",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "f428672e6ab4fd6f306809a8b142e316f3c931ca400d580fd572029629b70727",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "63fcec2316d5002edebeef750aada5e2ef57712252a9429c4b3a220af3263677",
+    "src/music.js": "01b4413155ed77752830eada074288a4faa9e09a93ec8de21be605c20df4a9ab",
+    "src/render.js": "72b0d9d6ea13f2dc5bc12f11ced5afd3900361e9f3f27651e89a01191940577d",
+    "src/style.css": "983c63247e9f54baaa1f5774990c37fc88e47814aea8d0562a722c72fb03f4ca",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+    "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "sourceEvidence": {
+    "reference": "../2026-10-01-session-editor/capture.json",
+    "verification": "Every recorded add-dialog built artifact matches dist, and every source hash in the main capture matches the current source files. Both captures used the same final production build.",
+    "verifiedAt": "2026-10-01T09:03:36.911Z"
+  },
+  "originalMetadata": {
+    "path": "capture-original.json",
+    "sha256": "0c52a01737d21e186af74a314ebbf20ba5e4ae11f0b9a858e35acd51fdef83fb"
+  },
+  "archive": "Screenshots, exact fixtures and original metadata copied byte-for-byte from the artifact evidence. Source/build provenance added to this metadata copy."
+}

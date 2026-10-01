@@ -1,0 +1,37 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { openBrowser } from './browser.js';
+
+test('Android Back traverses screen history, closes dialogs and preserves catalogue context', { timeout: 60000 }, async t => {
+  const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
+  const wait = expression => evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve(true);}else if(++n>600){clearInterval(timer);reject(Error('Navigation timeout'));}},30);})`);
+  const action = name => evaluate(`document.querySelector('[data-action="${name}"]').click()`);
+  const back = () => evaluate(`(()=>{const event=new Event('spino:back',{cancelable:true});window.dispatchEvent(event);return event.defaultPrevented;})()`);
+  const title = () => evaluate(`document.querySelector('#app-shell h1').textContent`);
+  await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
+  assert.equal(await back(), false, 'Only the root delegates Back to Android.');
+  await action('piano'); const piano = await title();
+  await action('repertoire'); const repertoire = await title();
+  await action('new-work'); assert.ok(await evaluate(`document.querySelector('#cp-dialog').open`));
+  assert.equal(await back(), true); assert.equal(await evaluate(`document.querySelector('#cp-dialog').open`), false);
+  assert.equal(await title(), repertoire); assert.equal(await back(), true); assert.equal(await title(), piano);
+  await action('catalog'); await wait(`document.querySelector('#library-search')`);
+  await action('library-research');
+  await evaluate(`document.querySelector('#library-search [name=query]').value='Czerny Op.821';document.querySelector('#library-search').requestSubmit();document.querySelector('.cp-page').scrollTop=300`);
+  const scroll = await evaluate(`document.querySelector('.cp-page').scrollTop`);
+  await action('library-detail'); await action('settings');
+  assert.equal(await back(), true); assert.ok(await evaluate(`document.querySelector('[data-action=library-attach]')`));
+  assert.equal(await back(), true); assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^160 resultados/);
+  assert.equal(await evaluate(`document.querySelector('#library-search [name=query]').value`), 'Czerny Op.821');
+  assert.equal(await evaluate(`document.querySelector('.cp-page').scrollTop`), scroll);
+  assert.equal(await back(), true); assert.equal(await title(), piano);
+  assert.equal(await back(), true); assert.equal(await title(), 'Hoy'); assert.equal(await back(), false);
+  await action('practice'); await action('prepare'); await action('settings'); assert.equal(await back(), true);
+  assert.ok(await evaluate(`!!document.querySelector('#prepare-form')`));
+  await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('[data-action=open-reader]')`);
+  await action('open-reader'); await wait(`document.querySelector('#app-shell').hidden`);
+  assert.equal(await back(), true); assert.equal(await evaluate(`document.querySelector('#app-shell').hidden`), false);
+  assert.ok(await evaluate(`!!document.querySelector('[data-action=session-end]')`));
+  assert.equal(await back(), true); assert.ok(await evaluate(`!!document.querySelector('#prepare-form')`));
+  assert.deepEqual(errors, []);
+});

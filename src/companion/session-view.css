@@ -1,0 +1,103 @@
+/* Session density follows the accepted compact Today layout. */
+.cp-session { --session-accent: #a9c8ff; }
+.cp-session-heading { align-items: center; gap: 10px; margin-bottom: 12px; }
+#app-shell .cp-session-heading h1 { font-size: clamp(22px, 2.8vw, 28px); line-height: 1.15; margin: 0 0 5px; overflow-wrap: anywhere; }
+#app-shell .cp-session-heading p { color: var(--subtle); font-size: 12px; margin: 0; display: flex; flex-wrap: wrap; gap: 3px 6px; }
+.cp-session-heading [data-session-clock] { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+#app-shell .cp-session button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; font-size: 13px; border-radius: 9px; padding: 8px 11px; }
+.cp-session button svg { width: 18px; height: 18px; flex: none; }
+#app-shell .cp-session .cp-session-finish { flex: none; }
+.cp-session-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+.cp-session-current-column { min-width: 0; }
+#app-shell .cp-session-card { margin: 0; padding: 15px; text-align: left; border-radius: 12px; border-color: #465b79; background: #202938; }
+.cp-session-current-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 12px; justify-content: space-between; margin-bottom: 8px; }
+#app-shell .cp-session-current-heading .eyebrow { margin: 0; font-size: 10px; letter-spacing: .08em; }
+.cp-session-state { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #c2cddb; white-space: nowrap; }
+.cp-session-state i { width: 6px; height: 6px; border-radius: 50%; background: #acbdd6; }
+.cp-session-state[data-session-state=running] { color: #98d9ad; }
+.cp-session-state[data-session-state=running] i { background: #89d6a1; }
+.cp-session-state[data-session-state=midi-needed] { color: #edc887; }
+.cp-session-state[data-session-state=midi-needed] i { background: #edc887; }
+#app-shell .cp-session-card h2 { font-size: 21px; margin: 0 0 12px; line-height: 1.2; overflow-wrap: anywhere; }
+#app-shell .cp-session-passage { font-size: 13px; color: #bfc9d9; margin: -3px 0 10px; overflow-wrap: anywhere; }
+.cp-session-timing { display: flex; align-items: center; gap: 18px; margin: 0 0 10px; }
+.cp-session-timing > div { display: flex; flex-direction: column; }
+.cp-session-timing span { font-size: 11px; color: #b1bdce; }
+.cp-session-timing [data-block-clock] { font-size: 32px; line-height: 1.2; letter-spacing: -.025em; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cp-session-duration { border-left: 1px solid #445168; padding-left: 18px; }
+.cp-session-duration b { font-size: 15px; font-weight: 600; }
+.cp-session-timing .cp-session-tempo { margin-left: auto; color: #c0cbdb; font-size: 13px; display: block; white-space: nowrap; }
+.cp-session-primary-actions { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+#app-shell .cp-session-primary-actions .primary { padding-inline: 14px; }
+#app-shell .cp-session-primary-actions .quiet { color: #cfdbef; }
+.cp-session-midi-note { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; margin-top: 8px; border-top: 1px solid #415067; padding-top: 4px; color: #c5cbd5; font-size: 12px; }
+#app-shell .cp-session-midi-note button { padding-inline: 0; color: #c0d6ff; font-size: 12px; }
+.cp-session-manual-tools { display: flex; flex-wrap: wrap; align-items: start; gap: 0 8px; margin-top: 7px; border-top: 1px solid #415067; }
+#app-shell .cp-session-manual-tools > button { padding-inline: 0; font-size: 12px; color: #c1cddb; }
+.cp-session-timer-options { flex: 1; font-size: 12px; color: #c1cddb; min-width: 130px !important; }
+.cp-session-timer-options summary { min-height: 44px; cursor: pointer; padding: 13px 0 10px; }
+#app-shell .cp-session-timer-options label { font-size: 12px; min-height: 44px; margin: 3px 0 10px; cursor: pointer; }
+#app-shell .cp-session-timer-options p { font-size: 11px; margin: 0 0 8px; color: var(--subtle); }
+#app-shell .cp-session-orientation { color: var(--subtle); font-size: 11px; margin: 8px 2px 0; }
+.cp-session-plan { border: 1px solid var(--line); border-radius: 12px; background: #1a1d22; overflow: hidden; }
+.cp-session-plan-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 12px; }
+#app-shell .cp-session-plan-heading h2 { font-size: 16px; margin: 0 0 2px; }
+.cp-session-plan-heading small { font-size: 11px; color: var(--subtle); }
+#app-shell .cp-session-edit-hint { margin: -2px 12px 8px; font-size: 11px; color: var(--subtle); }
+#app-shell .cp-session-plan-heading button { color: var(--session-accent); padding-inline: 5px; }
+.cp-session-blocks { list-style: none; margin: 0; padding: 0; }
+.cp-session-block { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 4px 8px; align-items: center; padding: 10px 12px 6px; border-top: 1px solid #343943; }
+.cp-session-block.is-current { background: #232d3d; box-shadow: inset 3px 0 #8ab4ff; }
+.cp-session-block-number { display: grid; place-items: center; width: 25px; height: 25px; background: #2b3039; color: #b8c1d0; border-radius: 50%; font-size: 11px; }
+.is-current .cp-session-block-number { background: #40587d; color: #e4eeff; }
+.cp-session-block-number svg { width: 15px; height: 15px; }
+.cp-session-block-copy { grid-column: 2 / -1; overflow-wrap: anywhere; }
+.cp-session-block-copy strong { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; font-size: 13px; font-weight: 600; }
+.cp-session-current-label { color: #b2ceff; font-size: 10px; font-weight: 500; }
+.cp-session-block-copy > span { display: block; margin-top: 2px; font-size: 11px; color: var(--subtle); }
+.cp-session-retained-time { display: inline-block; margin-left: 7px; color: #b4cbea; font-variant-numeric: tabular-nums; }
+.cp-session-block-edit { grid-column: 2 / -1; display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+#app-shell .cp-session-minutes { display: flex; flex-direction: row; align-items: center; gap: 5px; margin: 0; font-size: 11px; color: var(--subtle); }
+#app-shell .cp-session-minutes input { width: 58px; min-height: 44px; height: 44px; padding: 7px 4px 7px 8px; text-align: center; font-size: 16px; border-color: #4b5769; border-radius: 8px; background: #1a202b; font-variant-numeric: tabular-nums; }
+.cp-session-block-tools { display: flex; gap: 0; }
+#app-shell .cp-session-block-tools button { min-width: 44px; width: 44px; min-height: 44px; padding: 10px; background: transparent; border-color: transparent; color: #bac7dc; }
+#app-shell .cp-session-block-tools button:hover { background: #343c49; }
+#app-shell .cp-session-block-tools button:disabled { opacity: .25; cursor: default; }
+.cp-session-block.is-completed { padding-block: 10px; }
+.is-completed .cp-session-block-copy { grid-column: 2; }
+.is-completed .cp-session-block-number { background: #293b32; color: #9ccbb0; }
+.is-completed .cp-session-block-copy strong { color: #b6bdc7; }
+.cp-session-block-saved-time { font-size: 11px; color: var(--subtle); }
+.cp-session-leave { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px; padding: 5px 10px; border-top: 1px solid #343943; }
+#app-shell .cp-session-leave button { font-size: 12px; padding-inline: 4px; }
+.cp-session-theory { margin-top: 12px; }
+#app-shell .cp-session-theory p { font-size: 13px; }
+.cp-session-theory .cp-actions { justify-content: flex-start; }
+#session-add-form .cp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+#session-add-form [hidden] { display: none !important; }
+@media (min-width: 950px), (orientation: landscape) and (min-width: 700px) {
+  .cp-session-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .95fr); gap: 14px; }
+}
+@media (max-width: 599px) {
+  .cp-session-heading { flex-wrap: wrap; align-items: start; margin-bottom: 10px; }
+  .cp-session-heading > div { flex: 1 1 100%; }
+  #app-shell .cp-session-heading h1 { font-size: 23px; }
+  #app-shell .cp-session-heading .cp-session-finish { padding: 7px 9px; min-height: 44px; font-size: 12px; }
+  .cp-session-card { padding: 13px !important; }
+}
+@media (orientation: landscape) and (max-height: 599px) {
+  .cp-session-heading { margin-bottom: 10px; gap: 8px; }
+  #app-shell .cp-session-heading h1 { font-size: 21px; margin-bottom: 3px; }
+  #app-shell .cp-session .cp-session-finish { font-size: 12px; padding-inline: 9px; }
+  #app-shell .cp-session-card { padding: 12px; }
+  #app-shell .cp-session-card h2 { font-size: 20px; margin-bottom: 9px; }
+  .cp-session-current-heading { margin-bottom: 7px; }
+  .cp-session-timing { gap: 12px; margin-bottom: 8px; }
+  .cp-session-duration { padding-left: 12px; }
+  .cp-session-block { padding-inline: 9px; }
+}
+@media (max-width: 359px) {
+  .cp-session-block-edit { grid-column: 1 / -1; }
+  .cp-session-timing { gap: 12px; }
+  .cp-session-duration { padding-left: 12px; }
+}

@@ -1,0 +1,42 @@
+#app-shell .cp-instrument-panel{display:grid;gap:16px;max-width:760px;margin-inline:auto}
+#app-shell .cp-instrument-hero{padding:24px}
+#app-shell .cp-instrument-hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+#app-shell .cp-instrument-keyboard{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;color:#99b9ff;background:#28364c}
+#app-shell .cp-instrument-keyboard svg{width:38px;height:38px;stroke:currentColor;stroke-width:1.6}
+#app-shell .cp-instrument-signal{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#171b21}
+#app-shell .cp-instrument-hero h2{font-size:clamp(20px,4vw,26px);margin:0 0 8px;letter-spacing:-.035em}
+#app-shell .cp-instrument-hero p{color:var(--subtle);font-size:14px;margin:0;line-height:1.5}
+#app-shell .cp-instrument-connected{padding:0;margin:20px 0;list-style:none;display:grid;gap:10px}
+#app-shell .cp-instrument-connected li{display:flex;align-items:center;gap:10px;font-size:15px;overflow-wrap:anywhere}
+#app-shell .cp-instrument-status-dot{width:8px;height:8px;display:inline-block;border-radius:50%;background:#63d6a4;box-shadow:0 0 10px #63d6a426;flex-shrink:0}
+#app-shell .cp-instrument-connect{width:100%;margin-top:20px;min-height:48px}
+#app-shell .cp-instrument-hero .cp-instrument-error{margin-top:14px;color:#f3b0a5;font-size:13px}
+#app-shell .cp-instrument-usb{display:flex;align-items:center;gap:14px;padding:2px 8px;color:var(--subtle)}
+#app-shell .cp-instrument-usb>span{display:grid;place-items:center;flex-shrink:0;width:36px}
+#app-shell .cp-instrument-usb svg{width:28px;height:28px;stroke:currentColor;stroke-width:1.5}
+#app-shell .cp-instrument-usb p{margin:3px 0 0;font-size:13px;line-height:1.5}
+#app-shell .cp-instrument-usb strong{font-size:13px;color:var(--ink)}
+#app-shell .cp-instrument-devices{padding:20px}
+#app-shell .cp-instrument-devices h3{font-size:14px;margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#app-shell .cp-instrument-devices>p{font-size:14px;color:var(--subtle);line-height:1.5;margin-bottom:0}
+#app-shell .cp-instrument-devices ul{list-style:none;margin:8px 0 0;padding:0}
+#app-shell .cp-instrument-row{display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+#app-shell .cp-instrument-row:last-child{border-bottom:0}
+#app-shell .cp-instrument-device-icon{width:30px;flex-shrink:0;color:var(--subtle)}
+#app-shell .cp-instrument-device-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#app-shell .cp-instrument-row>div{flex:1;min-width:0}
+#app-shell .cp-instrument-row strong{display:block;overflow-wrap:anywhere;font-size:14px;line-height:1.4}
+#app-shell .cp-instrument-row small{display:block;color:var(--subtle);font-size:12px;margin-top:3px}
+#app-shell .cp-instrument-row button{font-size:12px;min-height:44px;padding:8px 10px;flex-shrink:0}
+#app-shell .cp-instrument-row .cp-instrument-forget{font-size:24px;width:44px;min-width:44px;color:var(--subtle);padding:0;border:0;background:transparent}
+#app-shell .cp-instrument-toggle{border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 0 0;margin-top:4px;background:transparent;width:100%;display:flex;align-items:center;justify-content:space-between;text-align:start;gap:16px}
+#app-shell .cp-instrument-toggle strong{display:block;font-size:14px}
+#app-shell .cp-instrument-toggle small{display:block;color:var(--subtle);margin-top:4px;font-size:12px}
+#app-shell .cp-instrument-toggle i{width:42px;height:26px;border-radius:99px;background:#484e58;padding:3px;flex-shrink:0}
+#app-shell .cp-instrument-toggle i:after{content:'';display:block;width:20px;height:20px;border-radius:50%;background:#d9dde4;transition:transform .15s}
+#app-shell .cp-instrument-toggle[aria-checked=true] i{background:#4f8cff}
+#app-shell .cp-instrument-toggle[aria-checked=true] i:after{transform:translateX(16px);background:#fff}
+#app-shell .cp-instrument-searching{width:12px;height:12px;border:2px solid var(--line);border-top-color:#80aaff;border-radius:50%;animation:cp-instrument-spin 1s linear infinite}
+@keyframes cp-instrument-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#app-shell .cp-instrument-searching{animation:none}#app-shell .cp-instrument-toggle i:after{transition:none}}
+@media(max-width:380px){#app-shell .cp-instrument-hero{padding:18px}#app-shell .cp-instrument-devices{padding:16px}#app-shell .cp-instrument-device-icon{display:none}#app-shell .cp-instrument-row{gap:7px}}

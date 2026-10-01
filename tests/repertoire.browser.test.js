@@ -1,0 +1,33 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {openBrowser} from './browser.js';
+
+test('repertoire can be organized, deleted, restored and reloaded without losing the work', {timeout:90000},async t=>{
+  const {send,evaluate,errors,url}=await openBrowser(t,{companion:true});
+  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  await send('Page.navigate',{url});
+  const wait=exp=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${exp}){clearInterval(timer);resolve(true);}else if(++n>1000){clearInterval(timer);reject(Error('timeout'));}},20);})`);
+  const click=action=>evaluate(`document.querySelector('[data-action="${action}"]').click()`);
+  await wait(`document.querySelector('#app-shell h1')`);
+  await click('piano');await click('repertoire');await click('new-work');
+  await evaluate(`document.querySelector('#cp-dialog [name=title]').value='Étude';document.querySelector('#cp-dialog [name=composer]').value='Chopin';document.querySelector('#cp-dialog [name=tags]').value='Lesson, Recital';document.querySelector('#cp-dialog form').requestSubmit()`);
+  await wait(`document.querySelector('[data-action=delete-work]')`);
+  await click('delete-work');await click('close-dialog');
+  assert.ok(await evaluate(`!!document.querySelector('[data-action=practice-work]')`));
+  await click('delete-work');await evaluate(`document.querySelector('#cp-confirm').click()`);
+  await wait(`document.querySelector('#repertoire-search')`);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-repertoire-row').length`),0);
+  await evaluate(`document.querySelector('[data-repertoire-filter=scope]').value='trash';document.querySelector('[data-repertoire-filter=scope]').dispatchEvent(new Event('change',{bubbles:true}))`);
+  await click('restore-work');await wait(`document.querySelectorAll('.cp-repertoire-row').length===0`);
+  await click('repertoire-reset');await click('favorite-work');
+  await wait(`document.querySelector('[data-action=favorite-work][aria-pressed=true]')`);
+  await evaluate(`document.querySelector('#repertoire-search').value='etude chopin';document.querySelector('#repertoire-search').dispatchEvent(new Event('input',{bubbles:true}))`);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-repertoire-row').length`),1);
+  assert.equal(await evaluate(`document.querySelector('.cp-page').scrollWidth>document.querySelector('.cp-page').clientWidth+1`),false);
+  await send('Page.reload');await wait(`document.querySelector('#app-shell h1')`);
+  await click('piano');await click('repertoire');
+  assert.ok(await evaluate(`!!document.querySelector('[data-action=favorite-work][aria-pressed=true]')`));
+  await click('work-detail');await click('edit-work');
+  assert.equal(await evaluate(`document.querySelector('[name=tags]').value`),'Lesson, Recital');
+  assert.deepEqual(errors,[]);
+});

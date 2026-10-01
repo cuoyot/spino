@@ -1,0 +1,11 @@
+[data-midi-indicator] { position: relative; display: inline-flex; width: 26px; height: 26px; flex: 0 0 26px; align-items: center; justify-content: center; color: #9aa0a6; vertical-align: middle; }
+[data-midi-indicator] svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.midi-connection, .midi-activity { position: absolute; width: 7px; height: 7px; border-radius: 50%; border: 1px solid #17191e; background: #767b84; right: -1px; bottom: 0; }
+.midi-activity { top: 0; bottom: auto; background: #b4ffe4; opacity: .2; }
+[data-midi-indicator][data-connected=true] { color: #8cdeb8; }
+[data-midi-indicator][data-connected=true] .midi-connection { background: #72dfaa; }
+[data-midi-indicator][data-connected=true][data-input=manual] .midi-connection { background: #e9b86a; }
+[data-midi-indicator][data-active=true] .midi-activity { opacity: 1; box-shadow: 0 0 6px #b4ffe4; }
+#midi-pill { display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+.pdf-widget-bar [data-midi-indicator] { margin-inline: 4px; }
+.practice-time { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }

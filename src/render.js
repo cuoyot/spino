@@ -11,6 +11,24 @@ const COLORS = {
 const STAVE_GAP = 120; // logical px between treble and bass staves
 const PAD = 24; // logical px before the first rendered beat
 
+const headCentre = note => (note.getNoteHeadBeginX() + note.getNoteHeadEndX()) / 2;
+
+// Stave.y includes headroom; it is not the top staff line. Read the drawn staff
+// bounds once per render so guides share its origin, spacing and pixel alignment.
+function staffGuide(staves, zoom) {
+  const bounds = staves.map(stave => stave.getSVGElement().getBBox());
+  const top = Math.min(...bounds.map(box => box.y));
+  const bottom = Math.max(...bounds.map(box => box.y + box.height));
+  const padding = 12;
+  return { staffTop: (top - padding) * zoom, staffH: (bottom - top + 2 * padding) * zoom };
+}
+
+// Centre every head on its beat, including wider whole notes and displaced heads.
+function placeNote(note, x) {
+  const tick = new TickContext().addTickable(note).preFormat().setX(0);
+  tick.setX(x - headCentre(note));
+}
+
 // Which accidental symbol (if any) to print, honouring key signature and in-bar alterations.
 function accidentalsToShow(notes, key, perNote) {
   const keyMap = keyAccidentals(key);
@@ -92,7 +110,7 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
   const cw = container.clientWidth;
   const ch = container.clientHeight;
   const logicalH = logicalHeight(grand);
-  const zoom = Math.max(0.7, Math.min(widthZoom(cw, ppb), ch / logicalH));
+  const zoom = Math.max(0.45, Math.min(widthZoom(cw, ppb), ch / logicalH));
   const H = ch / zoom;
   const top = Math.max(0, (H - logicalH) / 2) + (grand ? 44 : 34);
   const clefs = grand ? ['treble', 'bass'] : [clef];
@@ -171,13 +189,17 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
 
   const slice = notes.slice(from, to);
   const accs = accidentalsToShow(slice, key, false);
+  const probeNote = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
+  probeNote.setStave(staves[0]).setContext(ctx);
+  new TickContext().addTickable(probeNote).preFormat().setX(0);
+  const headOffset = headCentre(probeNote);
   const drawn = slice.map((n, j) => {
     const i = from + j;
     const c = clefOf(n, clef);
     const sn = makeStaveNote(n, c, accs[j], COLORS.pending, fingering);
     sn.setStave(staves[clefs.indexOf(c)]).setContext(ctx);
     sn.addToModifierContext(new ModifierContext());
-    new TickContext().addTickable(sn).preFormat().setX(xLocal(onsets[i]));
+    placeNote(sn, xLocal(onsets[i]) + headOffset);
     return { sn, c, bar: n.bar };
   });
 
@@ -200,21 +222,21 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
 
   // Note states are CSS classes on each note's SVG group, so progress only recolours notes (no re-render).
   const groups = drawn.map((d) => d.sn.getSVGElement());
+  const painted = new Map();
   // tier: 'past' | 'near' | 'far' — how far the note is from the reading zone (drives ink weight)
   const setState = (i, state, tier = 'near') => {
     const g = groups[i - from];
-    if (g) g.setAttribute('class', `vf-stavenote st-${state} tier-${tier}`);
+    const cls = `vf-stavenote st-${state} tier-${tier}`;
+    if (g && painted.get(i) !== cls) {
+      g.setAttribute('class', cls);
+      painted.set(i, cls);
+    }
   };
   for (let i = from; i < to; i++) setState(i, states[i]);
 
-  // centre of a black note head relative to its tick x, so the red line crosses heads exactly.
-  // Measured on a probe quarter note: the first drawn note could be a whole note, whose head is wider.
-  const probeNote = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
-  probeNote.setStave(staves[0]).setContext(ctx);
-  new TickContext().addTickable(probeNote).preFormat().setX(0);
-  const headOffset = (probeNote.getNoteHeadBeginX() + probeNote.getNoteHeadEndX()) / 2;
   const xOf = (beat) => (X(beat) + headOffset) * zoom;
-  return { xOf, readX, zoom, ppb, top: top * zoom, height: (grand ? 250 : 140) * zoom, strip, headerW: headerW * zoom, from, to, setState };
+  const guide = staffGuide(staves, zoom);
+  return { xOf, readX, zoom, ppb, top: guide.staffTop, height: guide.staffH, strip, headerW: headerW * zoom, from, to, setState };
 }
 
 /**
@@ -224,14 +246,14 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
  *
  * Returns { xOfNote(i), xAtBeat(beat), systemOf(beat), rows[], setState, from, to, zoom }.
  */
-export function renderPage(container, { notes, onsets, states, clef, key, beatsPerBar = 4, barsPerSystem = 4, systems = 3, startBeat = 0, zoomHint = 1.8, fingering = false }) {
+export function renderPage(container, { notes, onsets, states, clef, key, beatsPerBar = 4, barsPerSystem = 4, systems = 3, startBeat = 0, zoomHint = 1.8, widthHint = 620, fingering = false }) {
   const grand = clef === 'grand';
   const cw = container.clientWidth;
   const ch = container.clientHeight;
   const clefs = grand ? ['treble', 'bass'] : [clef];
   const GAP = 90; // treble-to-bass stave distance on the sheet: compact, like printed piano music
   const logicalH = grand ? 40 + GAP + 80 : 130; // per system, with room for ledger lines
-  const zoom = Math.max(0.6, Math.min(zoomHint, ch / (systems * logicalH), (cw / 620) * userZoom));
+  const zoom = Math.max(0.6, Math.min(zoomHint, ch / (systems * logicalH), (cw / widthHint) * userZoom));
   const rowH = ch / systems; // CSS px
   const W = cw / zoom;
   const beatsPerSystem = barsPerSystem * beatsPerBar;
@@ -269,25 +291,18 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       new StaveConnector(staves[0], staves[1]).setType('singleLeft').setContext(ctx).draw();
       new StaveConnector(staves[0], staves[1]).setType(s === systems - 1 ? 'boldDoubleRight' : 'singleRight').setContext(ctx).draw();
     }
-    // Note.getAbsoluteX() adds the stave's note-start x (clef + key) to the tick x, so ticks are set
-    // relative to each stave; measured with a probe note so any font padding is included.
-    const probes = staves.map((st) => {
-      const p = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
-      p.setStave(st).setContext(ctx);
-      new TickContext().addTickable(p).preFormat().setX(0);
-      return p;
-    });
-    const staveOff = probes.map((p) => p.getAbsoluteX());
-    const headOffset = (probes[0].getNoteHeadBeginX() + probes[0].getNoteHeadEndX()) / 2 - staveOff[0];
+    // Keep the beat grid independent of clef/key header widths and note durations.
+    const probe = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
+    probe.setStave(staves[0]).setContext(ctx);
+    new TickContext().addTickable(probe).preFormat().setX(0);
+    const headOffset = headCentre(probe) - probe.getAbsoluteX();
     const x0 = Math.max(...staves.map((st) => st.getNoteStartX())) + 4;
     const x1 = staves[0].getNoteEndX() - 6;
-    const barW = (x1 - x0) / barsPerSystem;
-    const inBar = (pos) => 16 + (pos / beatsPerBar) * (barW - 24); // logical x inside a bar
-    const xLocal = (beat) => {
-      const rel = beat - sysStart;
-      const bar = Math.floor(rel / beatsPerBar + 1e-9);
-      return x0 + bar * barW + inBar(rel - bar * beatsPerBar);
-    };
+    // Reserve margins once per system, not once per bar. A per-bar inset
+    // makes the clock cursor jump across the unused space at each downbeat.
+    // Notes and guides share one continuous, constant-speed beat grid.
+    const barW = (x1 - x0 - 24) / barsPerSystem;
+    const xLocal = (beat) => x0 + 16 + (beat - sysStart) * barW / beatsPerBar;
     // bar lines between bars
     for (let b = 1; b < barsPerSystem; b++) {
       const x = x0 + b * barW;
@@ -307,7 +322,7 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       const sn = makeStaveNote(n, c, accs[j], COLORS.pending, fingering);
       sn.setStave(staves[clefs.indexOf(c)]).setContext(ctx);
       sn.addToModifierContext(new ModifierContext());
-      new TickContext().addTickable(sn).preFormat().setX(xLocal(onsets[i]) - staveOff[clefs.indexOf(c)]);
+      placeNote(sn, xLocal(onsets[i]) + headOffset);
       return { sn, c, bar: n.bar, i };
     });
     const beams = [];
@@ -327,15 +342,20 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
     beams.forEach((b) => b.setContext(ctx).draw());
     drawn.forEach((d) => {
       groups[d.i] = d.sn.getSVGElement();
-      posOf.set(d.i, ((d.sn.getNoteHeadBeginX() + d.sn.getNoteHeadEndX()) / 2) * zoom);
+      posOf.set(d.i, headCentre(d.sn) * zoom);
     });
-    rows.push({ top: s * rowH, height: rowH, sysStart, xAt: (beat) => (xLocal(beat) + headOffset) * zoom, staffTop: (top - 12) * zoom, staffH: ((grand ? 40 + GAP : 40) + 24) * zoom });
+    rows.push({ top: s * rowH, height: rowH, sysStart, xAt: (beat) => (xLocal(beat) + headOffset) * zoom, ...staffGuide(staves, zoom) });
   }
 
   const systemOf = (beat) => Math.max(0, Math.min(systems - 1, Math.floor((beat - startBeat) / beatsPerSystem)));
+  const painted = new Map();
   const setState = (i, state, tier = 'near') => {
     const g = groups[i];
-    if (g) g.setAttribute('class', `vf-stavenote st-${state} tier-${tier}`);
+    const cls = `vf-stavenote st-${state} tier-${tier}`;
+    if (g && painted.get(i) !== cls) {
+      g.setAttribute('class', cls);
+      painted.set(i, cls);
+    }
   };
   for (let i = from; i < to; i++) setState(i, states[i]);
   return {

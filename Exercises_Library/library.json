@@ -1,0 +1,131 @@
+{
+  "$schema": "schemas/library.schema.json",
+  "schema_version": "2.0.0",
+  "package_id": "sightreader_public_repertoire_v2",
+  "base_language": "en",
+  "generated_on": "2026-09-30",
+  "manifests": [
+    {
+      "manifest_id": "czerny_op821",
+      "path": "manifests/czerny_op821.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 160,
+      "sha256": "5e9e003101161f1db57a1ce0af859e542bf94e8781e256f44969e0016522eb0d"
+    },
+    {
+      "manifest_id": "czerny_op161",
+      "path": "manifests/czerny_op161.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 48,
+      "sha256": "0f4c8e36fe433990c4bff0c83d8e7d962fa7fcc9e0758e00c4264642671c9cc9"
+    },
+    {
+      "manifest_id": "chaulieu_jr_op9",
+      "path": "manifests/chaulieu_jr_op9.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 24,
+      "sha256": "5e7f0149f82b84247b6d760a820fdcd2ea036baa70c92f295640e3fa7003c98c"
+    },
+    {
+      "manifest_id": "czerny_op139",
+      "path": "manifests/czerny_op139.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 100,
+      "sha256": "d63ae0834ded9d2597abb5657710ef2f1c2895c945ace7a0b7924e8f20a65646"
+    },
+    {
+      "manifest_id": "burgmuller_op100",
+      "path": "manifests/burgmuller_op100.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 25,
+      "sha256": "a3a509024813d484efb5dd0a1223bb6c5f0643af5a4b3b92c8a6cb49099d4e63"
+    },
+    {
+      "manifest_id": "schumann_op68",
+      "path": "manifests/schumann_op68.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 43,
+      "sha256": "b04594ca4c2b94b21a857029f9769778a67abdedde075439d7a584a3819839b8"
+    },
+    {
+      "manifest_id": "duvernoy_op176",
+      "path": "manifests/duvernoy_op176.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 25,
+      "sha256": "13a89ae8767259436db869f24c1c69ce69d37e6154974a01723c158467825897"
+    },
+    {
+      "manifest_id": "tchaikovsky_op39",
+      "path": "manifests/tchaikovsky_op39.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 24,
+      "sha256": "d3f415aa83dddebf41b75d841277d124aaabcef80be5abbe9f82aa61b8e3854e"
+    },
+    {
+      "manifest_id": "gurlitt_op117",
+      "path": "manifests/gurlitt_op117.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 34,
+      "sha256": "6cee2dc77e9adbf9f70a1a3bcd2acd89b5e944252de589a8f8d4ce704e8ab3b3"
+    },
+    {
+      "manifest_id": "bach_inventions_sinfonias",
+      "path": "manifests/bach_inventions_sinfonias.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 30,
+      "sha256": "edc439a4e557a3e48d2c64870655966956f6ca754c74f55832f472845722cb0a"
+    },
+    {
+      "manifest_id": "clementi_op43",
+      "path": "manifests/clementi_op43.json",
+      "group": "piano_core",
+      "enabled_by_default": true,
+      "record_count": 50,
+      "sha256": "59753ec927d2cab0085bc611dd6c5fcbc5a9fe4278e673ec7d70c447b9354f87"
+    },
+    {
+      "manifest_id": "musicxml_piano_candidates",
+      "path": "manifests/musicxml_piano_candidates.json",
+      "group": "piano_candidates",
+      "enabled_by_default": true,
+      "record_count": 55,
+      "sha256": "f1cb928e5e6860ec8850e6c2aa8a13b43d0b5a0b9145ceda706744fd6c086705"
+    },
+    {
+      "manifest_id": "openscore_lieder",
+      "path": "manifests/optional/openscore_lieder.json",
+      "group": "accompaniment_optional",
+      "enabled_by_default": false,
+      "record_count": 1462,
+      "sha256": "06b0b42cbabd27ab95c96afed35fe77c3e07d75df8e14fc88369f3d0c726a0ff"
+    }
+  ],
+  "config": {
+    "sources": "config/sources.json",
+    "ingestion": "config/ingestion.json"
+  },
+  "counts": {
+    "piano_core_works": 563,
+    "piano_candidate_editions": 55,
+    "optional_accompaniment_editions": 1462,
+    "total_records": 2080,
+    "located_musicxml_assets": 1517,
+    "downloaded_scores": 0,
+    "analyzed_records": 0,
+    "playable_records": 0
+  },
+  "notes": [
+    "Counts distinguish works from editions; do not add editions as unique works.",
+    "Catalogue and integration package. Scores are downloaded and processed in the app."
+  ]
+}

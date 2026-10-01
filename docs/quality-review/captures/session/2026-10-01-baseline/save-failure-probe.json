@@ -1,0 +1,24 @@
+{
+  "failed": {
+    "stored": {
+      "active": true,
+      "count": 0
+    },
+    "error": "Simulated storage failure"
+  },
+  "retry": {
+    "stored": {
+      "active": true,
+      "count": 0
+    },
+    "error": "Esta sesión ya está guardada."
+  },
+  "returnHome": {
+    "stored": {
+      "active": true,
+      "count": 0
+    },
+    "pendingVisible": false
+  },
+  "errors": []
+}

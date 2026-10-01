@@ -1,0 +1,90 @@
+{
+  "generated_on": "2026-09-30",
+  "source_id": "musetrainer",
+  "excluded": [
+    {
+      "source_path": "scores/Bella_Ciao.mxl",
+      "reason": "Arrangement/origin requires verification.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Bella_Ciao_-_La_Casa_de_Papel.mxl",
+      "reason": "Arrangement/origin requires verification.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Carol_of_the_Bells.mxl",
+      "reason": "Verify the arrangement and lyrics against the original melody.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Carol_of_the_Bells_easy_piano.mxl",
+      "reason": "Verify the arrangement and lyrics against the original melody.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Chopin_-_Spring_Waltz.mxl",
+      "reason": "Uncertain attribution/rights: do not admit as a work by Chopin.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/G_Minor_Bach.mxl",
+      "reason": "Identity and arrangement not verified.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/G_Minor_Bach_Original.mxl",
+      "reason": "Identity and arrangement not verified.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Hungarian_Dance_No_5_in_G_Minor.mxl",
+      "reason": "Identify the arrangement: the original is for piano four hands.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Hungarian_Sonata.mxl",
+      "reason": "Composer/work not identified with sufficient confidence.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Mariage_dAmour.mxl",
+      "reason": "Modern composition; do not accept the blanket public-domain claim.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Nocturne_No._20_in_C_Minor.mxl",
+      "reason": "Conflicting title/key; identification required.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Passacaglia.mxl",
+      "reason": "Identify the arrangement and composer before admission.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Passacaglia2.mxl",
+      "reason": "Identify the arrangement and composer before admission.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    },
+    {
+      "source_path": "scores/Spring_Waltz_Mariage_dAmour_-_Chopin.mxl",
+      "reason": "Uncertain attribution to Chopin and modern composition.",
+      "source_id": "musetrainer",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb"
+    }
+  ]
+}

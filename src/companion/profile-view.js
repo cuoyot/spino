@@ -1,0 +1,66 @@
+import { ui, getAppLanguage, APP_LANGUAGES } from './locale.js';
+import { practiceDefaults } from './practice-defaults.js';
+
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const copy = {
+  en: {language:'Language',profile:'Profile',pianist:'My notebook',edit:'Edit profile',practice:'Practice preferences',practiceHint:'Hands, reading range and tempo',backup:'Backup & sync',disconnected:'Not connected',connected:'Connected',paused:'Paused',attention:'Needs attention',files:'Saved scores',filesHint:'Available on this device',notifications:'Reminders',on:'Enabled',off:'Disabled',unavailable:'Available in the Android app',goal:'Weekly goal',minutes:'min',back:'Back',name:'Your name',save:'Save changes',cancel:'Cancel',context:'Usual practice mode',mobile:'On screen',piano:'With piano',midi:'With MIDI',reading:'Sight-reading',technique:'Technique',range:'Reading range',hands:'Hands',right:'Right',left:'Left',both:'Both hands',focused:'Focused',standard:'Standard',wide:'Wide',rhythm:'Rhythm',quarter:'Quarter notes',half:'Half & quarter notes',eighth:'Up to eighth notes',tempo:'Tempo',hint:'Both hands is available with piano or MIDI.',defaults:'You can adjust these for each practice.',search:'Search scores',empty:'No saved scores yet',emptyHint:'Import a PDF or download a score from the catalogue.',catalogue:'Open catalogue',importPDF:'Import PDF',downloads:'Downloads',file:'score',filePlural:'scores',showMore:'Show more',noResults:'No matching scores',device:'On this device',data:'Manage local data',export:'Export file',restore:'Restore file',manual:'Transfer a copy',lastExport:'Last export',noExport:'Includes scores, annotations and practice history.',reminderHint:'Choose reminders when planning a practice or an event.',enable:'Enable reminders',version:'Smart Piano Notebook',loading:'Loading scores…'},
+  es: {language:'Idioma',profile:'Perfil',pianist:'Mi cuaderno',edit:'Editar perfil',practice:'Preferencias de práctica',practiceHint:'Manos, registro y tempo',backup:'Copia y sincronización',disconnected:'Sin conectar',connected:'Conectada',paused:'En pausa',attention:'Requiere atención',files:'Partituras guardadas',filesHint:'Disponibles en este dispositivo',notifications:'Recordatorios',on:'Activados',off:'Desactivados',unavailable:'Disponibles en la app Android',goal:'Objetivo semanal',minutes:'min',back:'Volver',name:'Tu nombre',save:'Guardar cambios',cancel:'Cancelar',context:'Modo habitual',mobile:'En pantalla',piano:'Con piano',midi:'Con MIDI',reading:'Lectura',technique:'Técnica',range:'Registro de lectura',hands:'Manos',right:'Derecha',left:'Izquierda',both:'Dos manos',focused:'Reducido',standard:'Estándar',wide:'Amplio',rhythm:'Ritmo',quarter:'Negras',half:'Blancas y negras',eighth:'Hasta corcheas',tempo:'Tempo',hint:'Dos manos está disponible con piano o MIDI.',defaults:'Puedes ajustarlas para cada práctica.',search:'Buscar partituras',empty:'Aún no hay partituras guardadas',emptyHint:'Importa un PDF o descarga una partitura del catálogo.',catalogue:'Abrir catálogo',importPDF:'Importar PDF',downloads:'Descargas',file:'partitura',filePlural:'partituras',showMore:'Ver más',noResults:'No se encontraron partituras',device:'En este dispositivo',data:'Gestionar datos locales',export:'Exportar archivo',restore:'Restaurar archivo',manual:'Transferir una copia',lastExport:'Última exportación',noExport:'Incluye partituras, anotaciones e historial.',reminderHint:'Elige los avisos al planificar una práctica o un evento.',enable:'Activar recordatorios',version:'Smart Piano Notebook',loading:'Cargando partituras…'}
+};
+const words = lang => copy[lang] || copy.en;
+const paths = {
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',
+  practice:'<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="#1e2127"/><circle cx="15" cy="17" r="3" fill="#1e2127"/>',
+  cloud:'<path d="M7 18H6a4 4 0 0 1-1-7.9A7 7 0 0 1 18.5 8 5 5 0 0 1 .5 10h-2M12 12v10m-3-7 3-3 3 3"/>',
+  score:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h3"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/>',
+  chevron:'<path d="m9 5 7 7-7 7"/>',back:'<path d="m14 6-6 6 6 6"/>',
+  edit:'<path d="m15 4 5 5M4 20l5-1L21 7l-5-5L4 14z"/>',
+  play:'<path d="m8 4 12 8-12 8z"/>',
+  library:'<rect x="2" y="4" width="5" height="16" rx="1"/><path d="M7 4h5v16H7M15 4l4-1 3 16-4 1zM2 8h10M2 16h10"/>',
+  progress:'<path d="M4 20V13h4v7m2 0V8h4v12m2 0V3h4v17M3 20h18"/>'
+};
+export const profileIcon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.score}</svg>`;
+export function avatarMarkup(name, large = false) {
+  const initials = String(name || '').trim().split(/\s+/).filter(Boolean).slice(0,2).map(s=>Array.from(s)[0]).join('').toLocaleUpperCase();
+  return `<span class="cp-avatar${large?' cp-avatar-large':''}" aria-hidden="true">${initials?esc(initials):profileIcon('user')}</span>`;
+}
+export function profileNavigation(icon,name,section) {
+  const destinations=[['home',ui('Today','Hoy')],['practice',ui('Practice','Practicar')],['calendar',ui('Calendar','Calendario')],['piano',ui('Library','Biblioteca')]];
+  return `<nav class="cp-nav" aria-label="${ui('Main navigation','Navegación principal')}">${destinations.map(([id,label])=>`<button type="button" data-action="${id}" ${id==='practice'?'class="cp-practice-nav"':''} ${section===id?'aria-current="page"':''}>${id==='practice'?profileIcon('play'):id==='piano'?profileIcon('library'):icon(id)}<span>${label}</span></button>`).join('')}<button type="button" class="cp-profile-nav" data-action="settings" ${section==='settings'?'aria-current="page"':''} aria-label="${ui('Profile','Perfil')}" title="${ui('Profile','Perfil')}">${avatarMarkup(name)}</button></nav>`;
+}
+export function profileHeading(title, lang=getAppLanguage()) {
+  return `<header class="cp-profile-heading"><button type="button" class="quiet cp-back" data-action="profile-back" aria-label="${words(lang).back}">${profileIcon('back')}</button><h1>${esc(title)}</h1></header>`;
+}
+const button = (action,label,css='') => `<button type="button" data-action="${action}" class="${css}">${label}</button>`;
+function row(action, icon, title, detail, tail='') {
+  return `<button type="button" class="cp-setting-row" data-action="${action}"><span class="cp-setting-icon">${profileIcon(icon)}</span><span class="cp-setting-copy"><strong>${esc(title)}</strong><small>${esc(detail)}</small></span>${tail}<span class="cp-setting-chevron">${profileIcon('chevron')}</span></button>`;
+}
+export function profileMarkup(data, {cloud={}, assetCount=null, reminders=null, native=false,lang=getAppLanguage()}={}) {
+  const t=words(lang), status=!cloud.enabled&&cloud.name?t.paused:cloud.status==='error'||cloud.status==='conflict'?t.attention:cloud.name?t.connected:t.disconnected;
+  return `<section class="cp-profile"><h1>${t.profile}</h1><div class="cp-profile-identity">${avatarMarkup(data.preferences.name,true)}<div><h2>${esc(data.preferences.name||t.pianist)}</h2><p>${t.goal} · ${data.preferences.weeklyMinutes} ${t.minutes}</p>${button('profile-edit',t.edit,'quiet cp-edit-profile')}</div></div><div class="cp-setting-group">${row('progress','progress',lang==='es'?'Tu progreso':'Your progress',lang==='es'?'Tiempo de práctica e historial':'Practice time and history')}${row('profile-practice','practice',t.practice,t.practiceHint)}${row('profile-backup','cloud',t.backup,status)}${row('profile-files','score',t.files,assetCount==null?t.filesHint:`${assetCount} ${assetCount===1?t.file:t.filePlural} · ${t.device.toLocaleLowerCase()}`)}${row('profile-reminders','bell',t.notifications,!native?t.unavailable:reminders?.enabled?t.on:t.off)}</div><footer class="cp-profile-footer"><span>SPino <small>${t.version}</small></span>${button('profile-data',t.data,'quiet')}</footer></section>`;
+}
+export function identityMarkup(preferences,lang=getAppLanguage()) {
+  const t=words(lang);
+  return `<form id="profile-identity-form"><label>${t.name}<input name="name" maxlength="80" autocomplete="given-name" value="${esc(preferences.name)}" /></label><label>${t.goal} (${t.minutes})<input type="number" name="weeklyMinutes" min="0" max="3000" required value="${preferences.weeklyMinutes}" /></label><label>${t.language}<select name="language">${options(Object.entries(APP_LANGUAGES),preferences.language || lang)}</select></label><div class="cp-actions">${button('close-dialog',t.cancel)}<button type="submit" class="primary">${t.save}</button></div></form>`;
+}
+const options = (entries,value) => entries.map(([id,label])=>`<option value="${id}" ${id===value?'selected':''}>${label}</option>`).join('');
+export function practicePreferencesMarkup(preferences,lang=getAppLanguage()) {
+  const t=words(lang);
+  return `<section class="cp-profile cp-profile-wide">${profileHeading(t.practice,lang)}<form id="preferences-form"><div class="cp-profile-context"><label>${t.context}<select name="context">${options([['mobile',t.mobile],['piano',t.piano],['midi',t.midi]],preferences.context)}</select></label><p class="muted">${t.defaults}</p></div><div class="cp-preference-cards">${['reading','technique'].map(type=>{const d=practiceDefaults(preferences,type);return `<section class="cp-preference-card"><h2>${t[type]}</h2><div class="cp-preference-fields"><label>${t.range}<select name="${type}-level">${options([[0,t.focused],[1,t.standard],[2,t.wide]],d.level)}</select></label><label>${t.hands}<select name="${type}-hand">${options([['right',t.right],['left',t.left],['both',t.both]],d.hand)}</select></label></div>${type==='reading'?`<label>${t.rhythm}<select name="reading-figures">${options([['q',t.quarter],['hq',t.half],['hqe',t.eighth]],d.figures)}</select></label>`:''}<label class="cp-preference-tempo" for="${type}-bpm"><span>${t.tempo}<b><output for="${type}-bpm">${d.bpm}</output> BPM</b></span><input id="${type}-bpm" name="${type}-bpm" type="range" min="30" max="160" value="${d.bpm}" /></label></section>`;}).join('')}</div><p class="muted cp-profile-hint">${t.hint}</p><div class="cp-profile-save"><button type="submit" class="primary">${t.save}</button></div></form></section>`;
+}
+export function manualBackupMarkup(lastBackup,lang=getAppLanguage(),native=false) {
+  const t=words(lang);
+  return `<section class="cp-transfer-card"><h2>${t.manual}</h2><p class="muted">${lastBackup?`${t.lastExport}: ${esc(new Date(lastBackup).toLocaleDateString(lang))}`:t.noExport}</p><div class="cp-actions">${button('export-backup',t.export)}${button(native?'cloud-restore':'import-backup',t.restore)}</div></section>`;
+}
+export function remindersMarkup(state,native,lang=getAppLanguage()) {
+  const t=words(lang);
+  return `<section class="cp-profile">${profileHeading(t.notifications,lang)}<section class="cp-preference-card"><span class="cp-setting-icon">${profileIcon('bell')}</span><h2>${!native?t.unavailable:state?.enabled?t.on:t.off}</h2><p class="muted">${t.reminderHint}</p>${native&&!state?.enabled?button('notification-permission',t.enable,'primary'):''}</section></section>`;
+}
+export function fileSize(bytes,lang=getAppLanguage()) {
+  if (bytes < 1024) return `${bytes} B`;
+  return bytes<1024*1024?`${new Intl.NumberFormat(lang,{maximumFractionDigits:0}).format(bytes/1024)} KB`:`${new Intl.NumberFormat(lang,{maximumFractionDigits:1}).format(bytes/1024/1024)} MB`;
+}
+export function scoreFilesMarkup(files,{search='',limit=24,lang=getAppLanguage()}={}) {
+  const t=words(lang), all=files||[], match=all.filter(f=>`${f.title} ${f.name}`.toLocaleLowerCase().includes(search.toLocaleLowerCase())),shown=match.slice(0,limit);
+  return `<section class="cp-profile cp-profile-wide">${profileHeading(t.files,lang)}<div class="cp-storage-summary"><div><strong>${files==null?'—':all.length}</strong><span>${t.filePlural} · ${fileSize(all.reduce((n,f)=>n+f.bytes,0),lang)}</span></div>${button('downloads',t.downloads)}</div><label class="cp-file-search"><span class="sr-only">${t.search}</span><input id="profile-file-search" type="search" placeholder="${t.search}" value="${esc(search)}" /></label><div class="cp-file-list">${files==null?`<p class="cp-empty">${t.loading}</p>`:shown.length?shown.map(f=>`<button type="button" class="cp-file-row" data-action="profile-file" data-id="${esc(f.id)}"><span class="cp-file-symbol">${profileIcon('score')}<small>${esc(f.format.toUpperCase())}</small></span><span class="cp-file-copy"><strong>${esc(f.title||f.name)}</strong><small>${fileSize(f.bytes,lang)}</small></span><span class="cp-setting-chevron">${profileIcon('chevron')}</span></button>`).join(''):`<div class="cp-files-empty"><span class="cp-setting-icon">${profileIcon('score')}</span><h2>${search?t.noResults:t.empty}</h2>${!search?`<p class="muted">${t.emptyHint}</p><div class="cp-actions">${button('import-pdf',t.importPDF,'primary')}${button('catalog',t.catalogue)}</div>`:''}</div>`}</div>${match.length>limit?button('profile-files-more',`${t.showMore} (${match.length-limit})`,'cp-more-files'):''}</section>`;
+}

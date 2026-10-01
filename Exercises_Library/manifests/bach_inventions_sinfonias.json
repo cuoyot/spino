@@ -1,0 +1,2862 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "schema_version": "2.0.0",
+  "manifest_id": "bach_inventions_sinfonias",
+  "generated_on": "2026-09-30",
+  "group": "piano_core",
+  "notes": [
+    "15 keyboard inventions BWV 772–786 and 15 sinfonias BWV 787–801. Variants such as BWV 772a are excluded."
+  ],
+  "pieces": [
+    {
+      "piece_id": "bach_bwv772",
+      "canonical_work_id": "bach_bwv772",
+      "record_kind": "work",
+      "display_title": "Invention 1 — BWV 772",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 772",
+        "number": "1",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "1"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv773",
+      "canonical_work_id": "bach_bwv773",
+      "record_kind": "work",
+      "display_title": "Invention 2 — BWV 773",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 773",
+        "number": "2",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "2"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv774",
+      "canonical_work_id": "bach_bwv774",
+      "record_kind": "work",
+      "display_title": "Invention 3 — BWV 774",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 774",
+        "number": "3",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "3"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv775",
+      "canonical_work_id": "bach_bwv775",
+      "record_kind": "work",
+      "display_title": "Invention 4 — BWV 775",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 775",
+        "number": "4",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "4"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv776",
+      "canonical_work_id": "bach_bwv776",
+      "record_kind": "work",
+      "display_title": "Invention 5 — BWV 776",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 776",
+        "number": "5",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "5"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv777",
+      "canonical_work_id": "bach_bwv777",
+      "record_kind": "work",
+      "display_title": "Invention 6 — BWV 777",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 777",
+        "number": "6",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "6"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv778",
+      "canonical_work_id": "bach_bwv778",
+      "record_kind": "work",
+      "display_title": "Invention 7 — BWV 778",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 778",
+        "number": "7",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "7"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv779",
+      "canonical_work_id": "bach_bwv779",
+      "record_kind": "work",
+      "display_title": "Invention 8 — BWV 779",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 779",
+        "number": "8",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "8"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv780",
+      "canonical_work_id": "bach_bwv780",
+      "record_kind": "work",
+      "display_title": "Invention 9 — BWV 780",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 780",
+        "number": "9",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "9"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv781",
+      "canonical_work_id": "bach_bwv781",
+      "record_kind": "work",
+      "display_title": "Invention 10 — BWV 781",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 781",
+        "number": "10",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "10"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv782",
+      "canonical_work_id": "bach_bwv782",
+      "record_kind": "work",
+      "display_title": "Invention 11 — BWV 782",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 782",
+        "number": "11",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "11"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv783",
+      "canonical_work_id": "bach_bwv783",
+      "record_kind": "work",
+      "display_title": "Invention 12 — BWV 783",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 783",
+        "number": "12",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "12"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv784",
+      "canonical_work_id": "bach_bwv784",
+      "record_kind": "work",
+      "display_title": "Invention 13 — BWV 784",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 784",
+        "number": "13",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "13"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv785",
+      "canonical_work_id": "bach_bwv785",
+      "record_kind": "work",
+      "display_title": "Invention 14 — BWV 785",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 785",
+        "number": "14",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "14"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv786",
+      "canonical_work_id": "bach_bwv786",
+      "record_kind": "work",
+      "display_title": "Invention 15 — BWV 786",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 786",
+        "number": "15",
+        "subdivision": "inventions",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "15"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv787",
+      "canonical_work_id": "bach_bwv787",
+      "record_kind": "work",
+      "display_title": "Sinfonia 1 — BWV 787",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 787",
+        "number": "1",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "16"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv788",
+      "canonical_work_id": "bach_bwv788",
+      "record_kind": "work",
+      "display_title": "Sinfonia 2 — BWV 788",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 788",
+        "number": "2",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "17"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv789",
+      "canonical_work_id": "bach_bwv789",
+      "record_kind": "work",
+      "display_title": "Sinfonia 3 — BWV 789",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 789",
+        "number": "3",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "18"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv790",
+      "canonical_work_id": "bach_bwv790",
+      "record_kind": "work",
+      "display_title": "Sinfonia 4 — BWV 790",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 790",
+        "number": "4",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "19"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv791",
+      "canonical_work_id": "bach_bwv791",
+      "record_kind": "work",
+      "display_title": "Sinfonia 5 — BWV 791",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 791",
+        "number": "5",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "20"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv792",
+      "canonical_work_id": "bach_bwv792",
+      "record_kind": "work",
+      "display_title": "Sinfonia 6 — BWV 792",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 792",
+        "number": "6",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "21"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv793",
+      "canonical_work_id": "bach_bwv793",
+      "record_kind": "work",
+      "display_title": "Sinfonia 7 — BWV 793",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 793",
+        "number": "7",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "22"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv794",
+      "canonical_work_id": "bach_bwv794",
+      "record_kind": "work",
+      "display_title": "Sinfonia 8 — BWV 794",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 794",
+        "number": "8",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "23"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv795",
+      "canonical_work_id": "bach_bwv795",
+      "record_kind": "work",
+      "display_title": "Sinfonia 9 — BWV 795",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 795",
+        "number": "9",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "24"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv796",
+      "canonical_work_id": "bach_bwv796",
+      "record_kind": "work",
+      "display_title": "Sinfonia 10 — BWV 796",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 796",
+        "number": "10",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "25"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv797",
+      "canonical_work_id": "bach_bwv797",
+      "record_kind": "work",
+      "display_title": "Sinfonia 11 — BWV 797",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 797",
+        "number": "11",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "26"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv798",
+      "canonical_work_id": "bach_bwv798",
+      "record_kind": "work",
+      "display_title": "Sinfonia 12 — BWV 798",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 798",
+        "number": "12",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "27"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv799",
+      "canonical_work_id": "bach_bwv799",
+      "record_kind": "work",
+      "display_title": "Sinfonia 13 — BWV 799",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 799",
+        "number": "13",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "28"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv800",
+      "canonical_work_id": "bach_bwv800",
+      "record_kind": "work",
+      "display_title": "Sinfonia 14 — BWV 800",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 800",
+        "number": "14",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "29"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "bach_bwv801",
+      "canonical_work_id": "bach_bwv801",
+      "record_kind": "work",
+      "display_title": "Sinfonia 15 — BWV 801",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Johann Sebastian Bach",
+        "collection_id": "bach_inventions_sinfonias",
+        "collection_title": "Inventions and Sinfonias",
+        "opus_or_catalogue": "BWV 801",
+        "number": "15",
+        "subdivision": "sinfonias",
+        "original_title": null,
+        "instrumentation": "keyboard_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_bach_inventions_sinfonias"
+        ],
+        "attribution": "Johann Sebastian Bach; bibliographic reference: IMSLP (https://imslp.org/wiki/Inventions_and_Sinfonias%2C_BWV_772-801_%28Bach%2C_Johann_Sebastian%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_bach_inventions_sinfonias",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "30"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    }
+  ]
+}

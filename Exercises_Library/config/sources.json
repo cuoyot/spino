@@ -1,0 +1,96 @@
+{
+  "$schema": "../schemas/sources.schema.json",
+  "schema_version": "2.0.0",
+  "sources": [
+    {
+      "source_id": "imslp",
+      "name": "IMSLP",
+      "homepage": "https://imslp.org",
+      "enabled": true,
+      "role": "catalogue_and_manual_score_discovery",
+      "preferred_formats": [
+        "musicxml",
+        "mxl",
+        "mscx",
+        "mscz",
+        "pdf"
+      ],
+      "repository": null,
+      "revision": null,
+      "download_strategy": "manual_per_edition",
+      "license_policy": "per_edition",
+      "evidence_ids": [
+        "imslp_czerny_op821",
+        "imslp_czerny_op161",
+        "imslp_chaulieu_jr_op9",
+        "imslp_czerny_op139",
+        "imslp_burgmuller_op100",
+        "imslp_schumann_op68",
+        "imslp_duvernoy_op176",
+        "imslp_tchaikovsky_op39",
+        "imslp_gurlitt_op117",
+        "imslp_bach_inventions_sinfonias",
+        "imslp_clementi_op43"
+      ],
+      "notes": "A work page is not a file URL. Do not substitute fictitious MusicXML for PDFs. OMR always requires review."
+    },
+    {
+      "source_id": "musetrainer",
+      "name": "MuseTrainer Library",
+      "homepage": "https://github.com/musetrainer/library",
+      "enabled": true,
+      "role": "piano_candidate_assets",
+      "preferred_formats": [
+        "mxl"
+      ],
+      "repository": "musetrainer/library",
+      "revision": "9128876f6164d96997c877a2be843349a32bdabb",
+      "download_strategy": "observed_pinned_raw_paths",
+      "license_policy": "individual_review_required",
+      "evidence_ids": [
+        "musetrainer_repo",
+        "musetrainer_tree"
+      ],
+      "notes": "The blanket public-domain claim does not resolve arrangement rights. See exclusions.json."
+    },
+    {
+      "source_id": "openscore",
+      "name": "OpenScore Lieder",
+      "homepage": "https://github.com/OpenScore/Lieder",
+      "enabled": false,
+      "role": "optional_accompaniment",
+      "preferred_formats": [
+        "mxl",
+        "mscx"
+      ],
+      "repository": "OpenScore/Lieder",
+      "revision": "38c5db510224d9facdc4b08d741fc788cfb58ea8",
+      "download_strategy": "observed_pinned_raw_paths",
+      "license_policy": "CC0-1.0_declared",
+      "evidence_ids": [
+        "openscore_license",
+        "openscore_readme",
+        "openscore_tree"
+      ],
+      "notes": "MXL observed in the current tree; retain credits and extract only verified piano parts."
+    },
+    {
+      "source_id": "pdmx",
+      "name": "PDMX",
+      "homepage": "https://github.com/pnlong/PDMX",
+      "enabled": false,
+      "role": "future_expansion",
+      "preferred_formats": [
+        "mxl"
+      ],
+      "repository": "pnlong/PDMX",
+      "revision": null,
+      "download_strategy": "resolve_release_index_first",
+      "license_policy": "no_license_conflict_and_per_item_review",
+      "evidence_ids": [
+        "pdmx_readme"
+      ],
+      "notes": "No speculative file links or entries are included; resolve the index/version before enumeration."
+    }
+  ]
+}

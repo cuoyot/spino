@@ -1,0 +1,2403 @@
+{
+  "manifest_version": "1.0.0",
+  "name": "Sightreader Public-Domain Piano Catalog",
+  "generated_date": "2026-09-29",
+  "purpose": "Seed manifest for app-side score discovery, download and MusicXML analysis.",
+  "design_principles": [
+    "Catalog metadata and score-derived metadata are kept separate.",
+    "Unknown score-derived values are null, never guessed.",
+    "The app ingestion pipeline should preserve source URL, license evidence, file hash and parser version.",
+    "For sight-reading, segments should later be generated from full scores and analyzed independently."
+  ],
+  "pitch_notation": {
+    "system": "scientific_pitch_notation",
+    "middle_c": "C4",
+    "midi_middle_c": 60
+  },
+  "key_signature_convention": {
+    "field": "key_signature_fifths",
+    "meaning": "negative=flats, positive=sharps, MusicXML-style"
+  },
+  "schema": {
+    "piece_id": "stable string id",
+    "composer": {
+      "name": "string",
+      "birth_year": "int|null",
+      "death_year": "int|null"
+    },
+    "work": {
+      "title": "string",
+      "collection": "string|null",
+      "opus": "string|null",
+      "number": "string|int|null"
+    },
+    "instrumentation": [
+      "piano"
+    ],
+    "pedagogy": {
+      "purpose": [
+        "sight_reading",
+        "warmup"
+      ],
+      "difficulty": {
+        "level": null,
+        "scale": "1-10",
+        "status": "pending_score_analysis"
+      },
+      "technical_tags": []
+    },
+    "tonality": {
+      "tonic": "string|null",
+      "mode": "major|minor|mode|null",
+      "key_signature_fifths": "int|null",
+      "key_signature_notes": [],
+      "key_changes": null
+    },
+    "score_analysis": {
+      "status": "pending",
+      "written_accidentals": null,
+      "accidental_count": null,
+      "lowest_note": null,
+      "highest_note": null,
+      "lowest_midi": null,
+      "highest_midi": null,
+      "keyboard_span_semitones": null,
+      "rh_lowest": null,
+      "rh_highest": null,
+      "lh_lowest": null,
+      "lh_highest": null,
+      "hands": null,
+      "staff_count": null,
+      "voice_count": null,
+      "clefs": null,
+      "time_signature": null,
+      "time_signature_changes": null,
+      "measures": null,
+      "pickup": null,
+      "shortest_note_value": null,
+      "note_values": null,
+      "rests": null,
+      "ties": null,
+      "tuplets": null,
+      "dotted_notes": null,
+      "max_chord_size": null,
+      "max_melodic_interval_semitones": null,
+      "max_harmonic_interval_semitones": null,
+      "rh_max_simultaneous_span_semitones": null,
+      "lh_max_simultaneous_span_semitones": null
+    },
+    "source": {
+      "provider": "string",
+      "landing_url": "url",
+      "download_url": "url|null",
+      "format": "musicxml|mxl|pdf|unknown",
+      "license": "string",
+      "license_status": "verified|provider_claim|needs_review"
+    },
+    "provenance": {
+      "catalog_metadata_status": "verified|partial",
+      "score_metadata_status": "pending|extracted|reviewed",
+      "notes": "string|null"
+    }
+  },
+  "collections": [
+    {
+      "collection_id": "chaulieu_op9",
+      "composer": "Charles Chaulieu Jr.",
+      "title": "24 Petits préludes, Op.9",
+      "instrumentation": [
+        "piano"
+      ],
+      "expected_items": 24,
+      "coverage": "major/minor key cycle",
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "format_available": [
+          "pdf"
+        ],
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "ingestion_priority": 1,
+      "notes": "Best first systematic 24-key set; app ingestion should determine printed numbering and all score-derived metrics."
+    },
+    {
+      "collection_id": "czerny_op821",
+      "composer": "Carl Czerny",
+      "title": "160 Kurze Übungen, Op.821",
+      "instrumentation": [
+        "piano"
+      ],
+      "expected_items": 160,
+      "coverage": "short exercises; collection described as spanning all major/minor keys",
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/160_Kurze_%C3%9Cbungen%2C_Op.821_%28Czerny%2C_Carl%29",
+        "format_available": [
+          "pdf"
+        ],
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "ingestion_priority": 2,
+      "notes": "Especially useful for short sight-reading units. Do not assign key/range metadata until score ingestion."
+    },
+    {
+      "collection_id": "czerny_op161",
+      "composer": "Carl Czerny",
+      "title": "48 Études en forme de préludes, Op.161",
+      "instrumentation": [
+        "piano"
+      ],
+      "expected_items": 48,
+      "coverage": "major/minor key cycle",
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/48_%C3%89tudes_en_forme_de_pr%C3%A9ludes%2C_Op.161_%28Czerny%2C_Carl%29",
+        "format_available": [
+          "pdf"
+        ],
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "ingestion_priority": 3,
+      "notes": "Useful second layer after Op.821; score metrics pending."
+    },
+    {
+      "collection_id": "clementi_op43",
+      "composer": "Muzio Clementi",
+      "title": "Preludes and Exercises, Op.43",
+      "instrumentation": [
+        "piano"
+      ],
+      "expected_items": null,
+      "coverage": "all major/minor keys",
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/Preludes_and_Exercises%2C_Op.43_%28Clementi%2C_Muzio%29",
+        "format_available": [
+          "pdf"
+        ],
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "ingestion_priority": 4,
+      "notes": "Strong tonal warm-up source; exact item boundaries should be derived during ingestion."
+    },
+    {
+      "collection_id": "musetrainer_library",
+      "composer": null,
+      "title": "MuseTrainer public-domain MusicXML library",
+      "instrumentation": [
+        "piano",
+        "mixed"
+      ],
+      "expected_items": null,
+      "coverage": "curated public-domain repertoire",
+      "source": {
+        "provider": "GitHub / MuseTrainer",
+        "landing_url": "https://github.com/musetrainer/library",
+        "format_available": [
+          "musicxml",
+          "mxl"
+        ],
+        "license": "Repository describes library as public-domain MusicXML; verify per asset during ingestion",
+        "license_status": "needs_review"
+      },
+      "ingestion_priority": 1,
+      "notes": "Preferred machine-readable discovery source. Ingestion should retain per-file repository path and commit/hash."
+    },
+    {
+      "collection_id": "openscore_lieder",
+      "composer": null,
+      "title": "OpenScore Lieder Corpus",
+      "instrumentation": [
+        "voice",
+        "piano"
+      ],
+      "expected_items": 1200,
+      "coverage": "art songs; useful selectively for piano textures/fragments",
+      "source": {
+        "provider": "OpenScore / GitHub",
+        "landing_url": "https://github.com/OpenScore/Lieder",
+        "format_available": [
+          "musescore",
+          "musicxml"
+        ],
+        "license": "CC0",
+        "license_status": "verified"
+      },
+      "ingestion_priority": 5,
+      "notes": "Not primary warm-up corpus because scores include voice, but valuable later for accompaniment/sight-reading textures."
+    }
+  ],
+  "pieces": [
+    {
+      "piece_id": "chaulieu_op9_c_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in C major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "C",
+        "mode": "major",
+        "key_signature_fifths": 0,
+        "key_signature_notes": [],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_a_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in A minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "A",
+        "mode": "minor",
+        "key_signature_fifths": 0,
+        "key_signature_notes": [],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_g_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in G major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "G",
+        "mode": "major",
+        "key_signature_fifths": 1,
+        "key_signature_notes": [
+          "F#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_e_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in E minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "E",
+        "mode": "minor",
+        "key_signature_fifths": 1,
+        "key_signature_notes": [
+          "F#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_d_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in D major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "D",
+        "mode": "major",
+        "key_signature_fifths": 2,
+        "key_signature_notes": [
+          "F#",
+          "C#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_b_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in B minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "B",
+        "mode": "minor",
+        "key_signature_fifths": 2,
+        "key_signature_notes": [
+          "F#",
+          "C#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_a_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in A major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "A",
+        "mode": "major",
+        "key_signature_fifths": 3,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_fs_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in F# minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "F#",
+        "mode": "minor",
+        "key_signature_fifths": 3,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_e_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in E major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "E",
+        "mode": "major",
+        "key_signature_fifths": 4,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_cs_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in C# minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "C#",
+        "mode": "minor",
+        "key_signature_fifths": 4,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_b_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in B major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "B",
+        "mode": "major",
+        "key_signature_fifths": 5,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#",
+          "A#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_gs_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in G# minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "G#",
+        "mode": "minor",
+        "key_signature_fifths": 5,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#",
+          "A#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_fs_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in F# major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "F#",
+        "mode": "major",
+        "key_signature_fifths": 6,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#",
+          "A#",
+          "E#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_ds_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in D# minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "D#",
+        "mode": "minor",
+        "key_signature_fifths": 6,
+        "key_signature_notes": [
+          "F#",
+          "C#",
+          "G#",
+          "D#",
+          "A#",
+          "E#"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_df_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in Db major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "Db",
+        "mode": "major",
+        "key_signature_fifths": -5,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab",
+          "Db",
+          "Gb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_ff_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in Bb minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "Bb",
+        "mode": "minor",
+        "key_signature_fifths": -5,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab",
+          "Db",
+          "Gb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_af_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in Ab major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "Ab",
+        "mode": "major",
+        "key_signature_fifths": -4,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab",
+          "Db"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_f_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in F minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "F",
+        "mode": "minor",
+        "key_signature_fifths": -4,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab",
+          "Db"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_ef_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in Eb major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "Eb",
+        "mode": "major",
+        "key_signature_fifths": -3,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_c_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in C minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "C",
+        "mode": "minor",
+        "key_signature_fifths": -3,
+        "key_signature_notes": [
+          "Bb",
+          "Eb",
+          "Ab"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_ff_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in Bb major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "Bb",
+        "mode": "major",
+        "key_signature_fifths": -2,
+        "key_signature_notes": [
+          "Bb",
+          "Eb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_g_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in G minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "G",
+        "mode": "minor",
+        "key_signature_fifths": -2,
+        "key_signature_notes": [
+          "Bb",
+          "Eb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_f_major",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in F major",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "F",
+        "mode": "major",
+        "key_signature_fifths": -1,
+        "key_signature_notes": [
+          "Bb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    },
+    {
+      "piece_id": "chaulieu_op9_d_minor",
+      "composer": {
+        "name": "Charles Chaulieu Jr.",
+        "birth_year": 1788,
+        "death_year": 1849
+      },
+      "work": {
+        "title": "Petit prélude in D minor",
+        "collection": "24 Petits préludes",
+        "opus": "Op.9",
+        "number": null
+      },
+      "instrumentation": [
+        "piano"
+      ],
+      "pedagogy": {
+        "purpose": [
+          "sight_reading",
+          "warmup",
+          "key_familiarity"
+        ],
+        "difficulty": {
+          "level": null,
+          "scale": "1-10",
+          "status": "pending_score_analysis"
+        },
+        "technical_tags": [
+          "prelude",
+          "key_familiarity"
+        ]
+      },
+      "tonality": {
+        "tonic": "D",
+        "mode": "minor",
+        "key_signature_fifths": -1,
+        "key_signature_notes": [
+          "Bb"
+        ],
+        "key_changes": null
+      },
+      "score_analysis": {
+        "status": "pending",
+        "written_accidentals": null,
+        "accidental_count": null,
+        "lowest_note": null,
+        "highest_note": null,
+        "lowest_midi": null,
+        "highest_midi": null,
+        "keyboard_span_semitones": null,
+        "rh_lowest": null,
+        "rh_highest": null,
+        "lh_lowest": null,
+        "lh_highest": null,
+        "hands": null,
+        "staff_count": null,
+        "voice_count": null,
+        "clefs": null,
+        "time_signature": null,
+        "time_signature_changes": null,
+        "measures": null,
+        "pickup": null,
+        "shortest_note_value": null,
+        "note_values": null,
+        "rests": null,
+        "ties": null,
+        "tuplets": null,
+        "dotted_notes": null,
+        "max_chord_size": null,
+        "max_melodic_interval_semitones": null,
+        "max_harmonic_interval_semitones": null,
+        "rh_max_simultaneous_span_semitones": null,
+        "lh_max_simultaneous_span_semitones": null
+      },
+      "source": {
+        "provider": "IMSLP",
+        "landing_url": "https://imslp.org/wiki/24_Petits_pr%C3%A9ludes%2C_Op.9_%28Chaulieu_Jr.%2C_Charles%29",
+        "download_url": null,
+        "format": "pdf",
+        "license": "Public domain score available via provider",
+        "license_status": "provider_claim"
+      },
+      "provenance": {
+        "catalog_metadata_status": "verified",
+        "score_metadata_status": "pending",
+        "notes": "Collection is organized as 24 short piano preludes covering the major/minor key cycle. Exact printed number and score-derived metrics intentionally left for ingestion."
+      }
+    }
+  ],
+  "segment_schema": {
+    "segment_id": "<piece_id>_m<start>_<end>",
+    "piece_id": "parent id",
+    "start_measure": "int",
+    "end_measure": "int",
+    "score_analysis": "same score_analysis object, recalculated only over segment",
+    "difficulty": "recalculated for segment"
+  }
+}

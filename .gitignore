@@ -4,3 +4,7 @@ android/app/build/
 android/build/
 android/.gradle/
 *.apk
+artifacts/
+public/pdfjs/
+public/ocr/
+public/repertoire/

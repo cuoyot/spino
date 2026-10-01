@@ -1,0 +1,3751 @@
+{
+  "runId": "2026-10-01-baseline",
+  "createdAt": "2026-10-01T07:01:00.959Z",
+  "screen": "TODAY-01",
+  "label": "Current implementation; discussion baseline, not an approved design",
+  "packageVersion": "5.0.0",
+  "gitHead": "afa2ae378a360c7c680795cef0f566d0d4e6c5ec",
+  "workingTree": "Uncommitted work included; use source hashes, not HEAD alone.",
+  "sourceSha256": "632b27091e554af553dc46f017d5156cc130fcde12bc6c8ca63c682b5b2073b1",
+  "sourceFiles": {
+    "index.html": "5bb6d23728186544cde45d2d2135c9597dd0035a3da4a0f33b349b3f53e5e418",
+    "package-lock.json": "7202b97050c4801982760f0b85dc798476b91eae5b62d22bc00ba5254018db49",
+    "package.json": "e4aef5603c982f806e7d90662a963831525cb27cb8fb7e83873e32a735b0f9ff",
+    "src/audio.js": "968290b288a2f407739aec4629321ffb2499155a0813b900c731fb8babe0e4a2",
+    "src/companion/agenda.js": "71189cc770b39053b2538775a97123b16cc9acfe22070683b4b7c500c54f115e",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "3c6e939d0708aa76463064fcccbaf8cb3838f276f7a044921b19c59009ebbd43",
+    "src/companion/app.js": "adc4911c3fe72fb099c7ab35abbdfa89c7243801e150820c84ad10286045feb2",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "13c90d8e2a5b08d8734504851d317c2850c61668bf87f41b3326dfc83a1d1f1a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "bd96c2511e6d5c1ecf4196ea6e0e193ad6acf9ae0d4488032f6e80ca9d95ce18",
+    "src/companion/library-browse.js": "a31642993db9cbb53219e4e127eac7d92b901dafab1b114a540c78f87c8b7598",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "ac374f290a040691992b50d9daea2984b645500720bc9955dc24d0f78d23f81f",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "fe73fb540a17b85551cb00707b082e13b315da9bf6d3437cf6723998457f095a",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "beed64cfff3429ed68473729850310c22d6995c75ac9d5fb96f78a00e0a868f9",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "a6fc25460d8c25b77cfbe14c41900e12c8f2b3625be5973c6ba7f996194eafb3",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "d097f01464cacf9709bfb216ddd2a606cce395fd66a52ce3205e7626982a997f",
+    "src/companion/pdf-viewer.js": "19f33e9b3bd4bdca5568e14f3344de3b1b2eb021dc2fc9ab26e5a1217ca9d0d8",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "e24cad678150de49e702cc490292e168a274b8a3094c527647102751a4f482cc",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "bb92c207080aaa092ab49864dc4625c2f8198dcf6e08e6ccac907ede1b6e4fe5",
+    "src/companion/profile.css": "6960e4ce9cadfdf2af65a9fc6598cc61c135b1871b286f359494cf7d39ce4f0b",
+    "src/companion/repertoire.js": "61eb6853b9dc1d2ad7d62475cda955f94fb019ed8774c4c0f5f3963f0d4214d6",
+    "src/companion/score-controls.js": "38b23527bac48322a66f4d82396101945ea3adad0bb9205bfd724dd3b2614ee2",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "e89b56706aa57f539a82728e4cfe517ce1e88fe13f2c00ea5520010786627e5c",
+    "src/companion/screen-awake.js": "f294af7bf03dd401ffb0db93d606791d2dafd0a23c0727b0088bf8edf4baa2c3",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "8a218b33959f1f60d376b337e34c950e02e0f26609edd4b2fe5490d9308ab0bd",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "1ac8b9c7d92397c6571fa3575d2bd66160fe0a0a14028c68d51b89677a3cde4c",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "f428672e6ab4fd6f306809a8b142e316f3c931ca400d580fd572029629b70727",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "63fcec2316d5002edebeef750aada5e2ef57712252a9429c4b3a220af3263677",
+    "src/music.js": "01b4413155ed77752830eada074288a4faa9e09a93ec8de21be605c20df4a9ab",
+    "src/render.js": "72b0d9d6ea13f2dc5bc12f11ced5afd3900361e9f3f27651e89a01191940577d",
+    "src/style.css": "983c63247e9f54baaa1f5774990c37fc88e47814aea8d0562a722c72fb03f4ca",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+    "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "locale": "es",
+  "timezone": "Europe/Madrid",
+  "fixedTime": "2026-10-01T10:00:00.000Z",
+  "date": "2026-10-01",
+  "surface": "Production web build in Chromium with device metrics; not native-device acceptance.",
+  "devicePixelRatio": 1,
+  "fixtures": "Synthetic, isolated notebooks; no installed app data changed.",
+  "toastPolicy": "Recovery toast hidden after load to capture stable screen; transient notices remain unreviewed.",
+  "results": [
+    {
+      "state": "typical",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 1586,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 244.859375,
+            "y": 85.734375,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 129.734375,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 277.546875,
+            "y": 160.984375,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 204.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 29,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 76.421875,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 123.84375,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 171.28125,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 218.703125,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 266.140625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 313.5625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 268.484375,
+            "y": 319.984375,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 363.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "plan-detail",
+            "id": "review-next",
+            "label": "18:00 · Prevista\n      Lectura y repertorioTécnica · Con piano40 min · 3 bloques",
+            "x": 21,
+            "y": 376.984375,
+            "width": 352,
+            "height": 137.96875,
+            "bottom": 514.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "start-plan",
+            "id": "review-next",
+            "label": "Empezar",
+            "x": 39,
+            "y": 514.953125,
+            "width": 72.625,
+            "height": 44,
+            "bottom": 558.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "edit-plan",
+            "id": "review-next",
+            "label": "Editar práctica",
+            "x": 119.625,
+            "y": 514.953125,
+            "width": 106.375,
+            "height": 44,
+            "bottom": 558.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 21,
+            "y": 588.953125,
+            "width": 352,
+            "height": 137.96875,
+            "bottom": 726.921875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 21,
+            "y": 740.921875,
+            "width": 352,
+            "height": 202.75,
+            "bottom": 943.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 16,
+            "y": 1056.453125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1136.203125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 200,
+            "y": 1056.453125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1136.203125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 16,
+            "y": 1146.203125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1225.953125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 200,
+            "y": 1146.203125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1225.953125,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 16,
+            "y": 1233.953125,
+            "width": 213,
+            "height": 44,
+            "bottom": 1277.953125,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 237,
+            "y": 1233.953125,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1277.953125,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 264.1875,
+            "y": 1322.953125,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1366.953125,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 33,
+            "y": 1366.953125,
+            "width": 324,
+            "height": 80.84375,
+            "bottom": 1447.796875,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 33,
+            "y": 1447.796875,
+            "width": 324,
+            "height": 80.84375,
+            "bottom": 1528.640625,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 83.1875,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Mi piano",
+            "x": 158.390625,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "MIDI",
+            "x": 233.59375,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "APerfil",
+            "x": 308.796875,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "typical-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5a91b78100d30be4f32237e9181f15a96a0cd2e7a4a73f21ab5c848643f284be"
+        },
+        {
+          "path": "typical-phone-portrait-02.png",
+          "scrollTop": 655,
+          "sha256": "f70946c6dba01ba2acaaaf27ecff33ab699ff4c61883a0afca1fee7462f6cfe9"
+        },
+        {
+          "path": "typical-phone-portrait-03.png",
+          "scrollTop": 815,
+          "sha256": "1afeeb0b79caa9a65d65c86ed35aa9e3425645fe5a43547f277a6b748849f62c"
+        }
+      ]
+    },
+    {
+      "state": "typical",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 1358,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 690.859375,
+            "y": 92.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 136.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 723.546875,
+            "y": 174.796875,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 218.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 127,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 224.140625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 321.28125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 418.421875,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 515.5625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 612.703125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 709.84375,
+            "y": 218.796875,
+            "width": 97.15625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 714.484375,
+            "y": 333.796875,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 377.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "plan-detail",
+            "id": "review-next",
+            "label": "18:00 · Prevista\n      Lectura y repertorioTécnica · Con piano40 min · 3 bloques",
+            "x": 119,
+            "y": 390.796875,
+            "width": 341,
+            "height": 137.96875,
+            "bottom": 528.765625,
+            "fullyVisible": false
+          },
+          {
+            "action": "start-plan",
+            "id": "review-next",
+            "label": "Empezar",
+            "x": 137,
+            "y": 528.765625,
+            "width": 72.625,
+            "height": 44,
+            "bottom": 572.765625,
+            "fullyVisible": false
+          },
+          {
+            "action": "edit-plan",
+            "id": "review-next",
+            "label": "Editar práctica",
+            "x": 217.625,
+            "y": 528.765625,
+            "width": 106.375,
+            "height": 44,
+            "bottom": 572.765625,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 478,
+            "y": 390.796875,
+            "width": 341,
+            "height": 197.96875,
+            "bottom": 588.765625,
+            "fullyVisible": false
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 119,
+            "y": 602.765625,
+            "width": 341,
+            "height": 202.75,
+            "bottom": 805.515625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 114,
+            "y": 908.90625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 988.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 293,
+            "y": 908.90625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 988.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 472,
+            "y": 908.90625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 988.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 651,
+            "y": 908.90625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 988.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 114,
+            "y": 996.65625,
+            "width": 213,
+            "height": 44,
+            "bottom": 1040.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 335,
+            "y": 996.65625,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1040.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 704.1875,
+            "y": 1099.65625,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1143.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 137,
+            "y": 1143.65625,
+            "width": 660,
+            "height": 80.84375,
+            "bottom": 1224.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 137,
+            "y": 1224.5,
+            "width": 660,
+            "height": 80.84375,
+            "bottom": 1305.34375,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Mi piano",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "MIDI",
+            "x": 8,
+            "y": 275,
+            "width": 73,
+            "height": 55,
+            "bottom": 330
+          },
+          {
+            "label": "APerfil",
+            "x": 8,
+            "y": 330,
+            "width": 73,
+            "height": 52,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "typical-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "68f223d41fd44930566d28ad730b3a77d58e986c7edc61e573d55aa631b3a33a"
+        },
+        {
+          "path": "typical-phone-landscape-02.png",
+          "scrollTop": 331,
+          "sha256": "28e8810da408d805ccf100bebbcf6d599726d97eba40293f0da1a2ebe43e84f3"
+        },
+        {
+          "path": "typical-phone-landscape-03.png",
+          "scrollTop": 662,
+          "sha256": "dc4550cae1546badc1a410202b050e75d496d1c67b01e2bae25b639c1fe91cf2"
+        },
+        {
+          "path": "typical-phone-landscape-04.png",
+          "scrollTop": 968,
+          "sha256": "0bf6127901c91a540b2a353562bf62315cd32da130b42527f4a8763a6fb6a74a"
+        }
+      ]
+    },
+    {
+      "state": "typical",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1550,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 614.859375,
+            "y": 103.71875,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 147.71875,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 647.546875,
+            "y": 184.953125,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 228.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 269.84375,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 346.703125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 423.5625,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 500.421875,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 577.28125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 654.140625,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 638.484375,
+            "y": 343.953125,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 387.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "plan-detail",
+            "id": "review-next",
+            "label": "18:00 · Prevista\n      Lectura y repertorioTécnica · Con piano40 min · 3 bloques",
+            "x": 185,
+            "y": 400.953125,
+            "width": 558,
+            "height": 137.96875,
+            "bottom": 538.921875,
+            "fullyVisible": true
+          },
+          {
+            "action": "start-plan",
+            "id": "review-next",
+            "label": "Empezar",
+            "x": 203,
+            "y": 538.921875,
+            "width": 72.625,
+            "height": 44,
+            "bottom": 582.921875,
+            "fullyVisible": true
+          },
+          {
+            "action": "edit-plan",
+            "id": "review-next",
+            "label": "Editar práctica",
+            "x": 283.625,
+            "y": 538.921875,
+            "width": 106.375,
+            "height": 44,
+            "bottom": 582.921875,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 185,
+            "y": 612.921875,
+            "width": 558,
+            "height": 137.96875,
+            "bottom": 750.890625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 185,
+            "y": 764.890625,
+            "width": 558,
+            "height": 202.75,
+            "bottom": 967.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 1071.03125,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1150.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 323.5,
+            "y": 1071.03125,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1150.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 467,
+            "y": 1071.03125,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1150.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 610.5,
+            "y": 1071.03125,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1150.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 180,
+            "y": 1158.78125,
+            "width": 213,
+            "height": 44,
+            "bottom": 1202.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 401,
+            "y": 1158.78125,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1202.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 628.1875,
+            "y": 1261.78125,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1305.78125,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 203,
+            "y": 1305.78125,
+            "width": 518,
+            "height": 80.84375,
+            "bottom": 1386.625,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 203,
+            "y": 1386.625,
+            "width": 518,
+            "height": 80.84375,
+            "bottom": 1467.46875,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 886,
+            "width": 131,
+            "height": 52,
+            "bottom": 938
+          },
+          {
+            "label": "APerfil",
+            "x": 12,
+            "y": 946,
+            "width": 131,
+            "height": 58,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "typical-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "98934289dfa0ab3b71a052d654e1a7e9bb8c212cdb62d5214d3a583a8329c4f4"
+        },
+        {
+          "path": "typical-tablet-portrait-02.png",
+          "scrollTop": 526,
+          "sha256": "01e971f6a752c68fd601c7b5039fdbc9dfbaf004ad64c3f4b89f906438fba70a"
+        }
+      ]
+    },
+    {
+      "state": "typical",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 1400,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 870.859375,
+            "y": 104.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 148.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 903.546875,
+            "y": 186.796875,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 230.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 306.421875,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 419.84375,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 533.28125,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 646.703125,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 760.140625,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 873.5625,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 894.484375,
+            "y": 345.796875,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 389.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "plan-detail",
+            "id": "review-next",
+            "label": "18:00 · Prevista\n      Lectura y repertorioTécnica · Con piano40 min · 3 bloques",
+            "x": 185,
+            "y": 402.796875,
+            "width": 398,
+            "height": 137.96875,
+            "bottom": 540.765625,
+            "fullyVisible": true
+          },
+          {
+            "action": "start-plan",
+            "id": "review-next",
+            "label": "Empezar",
+            "x": 203,
+            "y": 540.765625,
+            "width": 72.625,
+            "height": 44,
+            "bottom": 584.765625,
+            "fullyVisible": true
+          },
+          {
+            "action": "edit-plan",
+            "id": "review-next",
+            "label": "Editar práctica",
+            "x": 283.625,
+            "y": 540.765625,
+            "width": 106.375,
+            "height": 44,
+            "bottom": 584.765625,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 601,
+            "y": 402.796875,
+            "width": 398,
+            "height": 197.96875,
+            "bottom": 600.765625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 185,
+            "y": 614.765625,
+            "width": 398,
+            "height": 202.75,
+            "bottom": 817.515625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 920.90625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 1000.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 387.5,
+            "y": 920.90625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 1000.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 595,
+            "y": 920.90625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 1000.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 802.5,
+            "y": 920.90625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 1000.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 180,
+            "y": 1008.65625,
+            "width": 213,
+            "height": 44,
+            "bottom": 1052.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 401,
+            "y": 1008.65625,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1052.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 884.1875,
+            "y": 1111.65625,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1155.65625,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 203,
+            "y": 1155.65625,
+            "width": 774,
+            "height": 80.84375,
+            "bottom": 1236.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 203,
+            "y": 1236.5,
+            "width": 774,
+            "height": 80.84375,
+            "bottom": 1317.34375,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 630,
+            "width": 131,
+            "height": 52,
+            "bottom": 682
+          },
+          {
+            "label": "APerfil",
+            "x": 12,
+            "y": 690,
+            "width": 131,
+            "height": 58,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "typical-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "9f88cae33c797bd1f43f5f1f92f76ef1ca8156bc75f878ebc64572fa7250ac97"
+        },
+        {
+          "path": "typical-tablet-landscape-02.png",
+          "scrollTop": 632,
+          "sha256": "c3c3b0c909597aa905ae7c3c2bded5278b498c886f08b61009d2a9da1af0b141"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 966,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 244.859375,
+            "y": 85.734375,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 129.734375,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "0 / 90 min",
+            "x": 292.046875,
+            "y": 160.984375,
+            "width": 68.953125,
+            "height": 44,
+            "bottom": 204.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 29,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 76.421875,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 123.84375,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 171.28125,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 218.703125,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 266.140625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 313.5625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Empezar a practicar →",
+            "x": 37,
+            "y": 475.578125,
+            "width": 182.796875,
+            "height": 44,
+            "bottom": 519.578125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 16,
+            "y": 605.578125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 685.328125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 200,
+            "y": 605.578125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 685.328125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 16,
+            "y": 695.328125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 775.078125,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 200,
+            "y": 695.328125,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 775.078125,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 264.1875,
+            "y": 812.078125,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 856.078125,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 83.1875,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Mi piano",
+            "x": 158.390625,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "MIDI",
+            "x": 233.59375,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Perfil",
+            "x": 308.796875,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "empty-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4f694e07fa8af8885b96aa614635b79ee9d17ce1166539cf7ef0abd1aedd4e1f"
+        },
+        {
+          "path": "empty-phone-portrait-02.png",
+          "scrollTop": 195,
+          "sha256": "afd45dfe231ba8bbfd3edb22a10aadb1e18427bfe95b2e3e8680f7e43981050f"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 867,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 690.859375,
+            "y": 92.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 136.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "0 / 90 min",
+            "x": 738.046875,
+            "y": 174.796875,
+            "width": 68.953125,
+            "height": 44,
+            "bottom": 218.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 127,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 224.140625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 321.28125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 418.421875,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 515.5625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 612.703125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 709.84375,
+            "y": 218.796875,
+            "width": 97.15625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Empezar a practicar →",
+            "x": 135,
+            "y": 469.09375,
+            "width": 182.796875,
+            "height": 44,
+            "bottom": 513.09375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 114,
+            "y": 607.09375,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 686.84375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 293,
+            "y": 607.09375,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 686.84375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 472,
+            "y": 607.09375,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 686.84375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 651,
+            "y": 607.09375,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 686.84375,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 704.1875,
+            "y": 737.84375,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 781.84375,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Mi piano",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "MIDI",
+            "x": 8,
+            "y": 275,
+            "width": 73,
+            "height": 55,
+            "bottom": 330
+          },
+          {
+            "label": "Perfil",
+            "x": 8,
+            "y": 330,
+            "width": 73,
+            "height": 52,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "empty-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "fe52347d1e6b383a546e5225bb9d5682b3d901ec75e863b145d88dbb617d3894"
+        },
+        {
+          "path": "empty-phone-landscape-02.png",
+          "scrollTop": 331,
+          "sha256": "eaa80d5df5f286dafb762a63e70b1012a70da8c1c502cc97bd1de8e852cc9161"
+        },
+        {
+          "path": "empty-phone-landscape-03.png",
+          "scrollTop": 477,
+          "sha256": "2303d7e336f2e453baa45a3180886a7850305341a0bf389a4e06a58ea2ddd88e"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1024,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 614.859375,
+            "y": 103.71875,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 147.71875,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "0 / 90 min",
+            "x": 662.046875,
+            "y": 184.953125,
+            "width": 68.953125,
+            "height": 44,
+            "bottom": 228.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 269.84375,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 346.703125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 423.5625,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 500.421875,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 577.28125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 654.140625,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Empezar a practicar →",
+            "x": 201,
+            "y": 479.25,
+            "width": 182.796875,
+            "height": 44,
+            "bottom": 523.25,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 617.25,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 697,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 323.5,
+            "y": 617.25,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 697,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 467,
+            "y": 617.25,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 697,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 610.5,
+            "y": 617.25,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 697,
+            "fullyVisible": true
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 628.1875,
+            "y": 748,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 792,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 886,
+            "width": 131,
+            "height": 52,
+            "bottom": 938
+          },
+          {
+            "label": "Perfil",
+            "x": 12,
+            "y": 946,
+            "width": 131,
+            "height": 58,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "empty-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "669a7db3988caa002cf4bd47530fab6665232d628398d26c965b38b444864911"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 909,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 870.859375,
+            "y": 104.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 148.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "0 / 90 min",
+            "x": 918.046875,
+            "y": 186.796875,
+            "width": 68.953125,
+            "height": 44,
+            "bottom": 230.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 306.421875,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 419.84375,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 533.28125,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 646.703125,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 760.140625,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 873.5625,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Empezar a practicar →",
+            "x": 201,
+            "y": 481.09375,
+            "width": 182.796875,
+            "height": 44,
+            "bottom": 525.09375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 619.09375,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 698.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 387.5,
+            "y": 619.09375,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 698.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 595,
+            "y": 619.09375,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 698.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 802.5,
+            "y": 619.09375,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 698.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 884.1875,
+            "y": 749.84375,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 793.84375,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 630,
+            "width": 131,
+            "height": 52,
+            "bottom": 682
+          },
+          {
+            "label": "Perfil",
+            "x": 12,
+            "y": 690,
+            "width": 131,
+            "height": 58,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "empty-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6d6447298e42a7c8059d0ca2e425fac48229347649855a00980bb3c220dfaeef"
+        },
+        {
+          "path": "empty-tablet-landscape-02.png",
+          "scrollTop": 141,
+          "sha256": "28ab17910c46828398d2c78c34fe1eb19c7e54a66272d8e5b5c8c5fd77ea012a"
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 1582,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 244.859375,
+            "y": 85.734375,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 129.734375,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 277.546875,
+            "y": 160.984375,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 204.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 29,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 76.421875,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 123.84375,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 171.28125,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 218.703125,
+            "y": 204.984375,
+            "width": 47.4375,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 266.140625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 313.5625,
+            "y": 204.984375,
+            "width": 47.421875,
+            "height": 84,
+            "bottom": 288.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 268.484375,
+            "y": 319.984375,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 363.984375,
+            "fullyVisible": true
+          },
+          {
+            "action": "resume-session",
+            "id": "",
+            "label": "Continuar sesión →",
+            "x": 37,
+            "y": 507.671875,
+            "width": 162.984375,
+            "height": 44,
+            "bottom": 551.671875,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 21,
+            "y": 585.671875,
+            "width": 352,
+            "height": 137.96875,
+            "bottom": 723.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 21,
+            "y": 737.640625,
+            "width": 352,
+            "height": 202.75,
+            "bottom": 940.390625,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 16,
+            "y": 1053.171875,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1132.921875,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 200,
+            "y": 1053.171875,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1132.921875,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 16,
+            "y": 1142.921875,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1222.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 200,
+            "y": 1142.921875,
+            "width": 174,
+            "height": 79.75,
+            "bottom": 1222.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 16,
+            "y": 1230.671875,
+            "width": 213,
+            "height": 44,
+            "bottom": 1274.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 237,
+            "y": 1230.671875,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1274.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 264.1875,
+            "y": 1319.671875,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1363.671875,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 33,
+            "y": 1363.671875,
+            "width": 324,
+            "height": 80.84375,
+            "bottom": 1444.515625,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 33,
+            "y": 1444.515625,
+            "width": 324,
+            "height": 80.84375,
+            "bottom": 1525.359375,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 83.1875,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Mi piano",
+            "x": 158.390625,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "MIDI",
+            "x": 233.59375,
+            "y": 778,
+            "width": 73.203125,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "APerfil",
+            "x": 308.796875,
+            "y": 778,
+            "width": 73.1875,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "pending-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "dbf978a37278150271d371c965188b171fdf5ab3b4b1b88170a6af74729a7f17"
+        },
+        {
+          "path": "pending-phone-portrait-02.png",
+          "scrollTop": 655,
+          "sha256": "18062d1b722f20b81d73b20c7a57e11182771670fd8d3c0140d664f515d1fccb"
+        },
+        {
+          "path": "pending-phone-portrait-03.png",
+          "scrollTop": 811,
+          "sha256": "18fa3d49fcb2b029ce6b927f527973fb5a6474320ad6a2901f2432006c0b2d6e"
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 1355,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 690.859375,
+            "y": 92.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 136.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 723.546875,
+            "y": 174.796875,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 218.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 127,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 224.140625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 321.28125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 418.421875,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 515.5625,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 612.703125,
+            "y": 218.796875,
+            "width": 97.140625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 709.84375,
+            "y": 218.796875,
+            "width": 97.15625,
+            "height": 84,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 714.484375,
+            "y": 333.796875,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 377.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "resume-session",
+            "id": "",
+            "label": "Continuar sesión →",
+            "x": 135,
+            "y": 521.484375,
+            "width": 162.984375,
+            "height": 44,
+            "bottom": 565.484375,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 119,
+            "y": 599.484375,
+            "width": 341,
+            "height": 202.75,
+            "bottom": 802.234375,
+            "fullyVisible": false
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 478,
+            "y": 599.484375,
+            "width": 341,
+            "height": 202.75,
+            "bottom": 802.234375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 114,
+            "y": 905.625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 985.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 293,
+            "y": 905.625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 985.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 472,
+            "y": 905.625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 985.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 651,
+            "y": 905.625,
+            "width": 169,
+            "height": 79.75,
+            "bottom": 985.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 114,
+            "y": 993.375,
+            "width": 213,
+            "height": 44,
+            "bottom": 1037.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 335,
+            "y": 993.375,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1037.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 704.1875,
+            "y": 1096.375,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1140.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 137,
+            "y": 1140.375,
+            "width": 660,
+            "height": 80.84375,
+            "bottom": 1221.21875,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 137,
+            "y": 1221.21875,
+            "width": 660,
+            "height": 80.84375,
+            "bottom": 1302.0625,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Mi piano",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "MIDI",
+            "x": 8,
+            "y": 275,
+            "width": 73,
+            "height": 55,
+            "bottom": 330
+          },
+          {
+            "label": "APerfil",
+            "x": 8,
+            "y": 330,
+            "width": 73,
+            "height": 52,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "pending-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "68f223d41fd44930566d28ad730b3a77d58e986c7edc61e573d55aa631b3a33a"
+        },
+        {
+          "path": "pending-phone-landscape-02.png",
+          "scrollTop": 331,
+          "sha256": "de747b15fbf91aed54617d6ee7f52cb6396c9155fdbc688b749aa79a728c7597"
+        },
+        {
+          "path": "pending-phone-landscape-03.png",
+          "scrollTop": 662,
+          "sha256": "1d7f3a076e4bf278bbb770e90a47eae2c2c66abbf4edf5fcc35f5ef90ac02edf"
+        },
+        {
+          "path": "pending-phone-landscape-04.png",
+          "scrollTop": 965,
+          "sha256": "c7a3023eaf0fd6868bee96455c2de4e8f0d4585fecca300f20ff75dbea5c2e9f"
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1547,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 614.859375,
+            "y": 103.71875,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 147.71875,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 647.546875,
+            "y": 184.953125,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 228.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 269.84375,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 346.703125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 423.5625,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 500.421875,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 577.28125,
+            "y": 228.953125,
+            "width": 76.859375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 654.140625,
+            "y": 228.953125,
+            "width": 76.84375,
+            "height": 84,
+            "bottom": 312.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 638.484375,
+            "y": 343.953125,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 387.953125,
+            "fullyVisible": true
+          },
+          {
+            "action": "resume-session",
+            "id": "",
+            "label": "Continuar sesión →",
+            "x": 201,
+            "y": 531.640625,
+            "width": 162.984375,
+            "height": 44,
+            "bottom": 575.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 185,
+            "y": 609.640625,
+            "width": 558,
+            "height": 137.96875,
+            "bottom": 747.609375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 185,
+            "y": 761.609375,
+            "width": 558,
+            "height": 202.75,
+            "bottom": 964.359375,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 1067.75,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1147.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 323.5,
+            "y": 1067.75,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1147.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 467,
+            "y": 1067.75,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1147.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 610.5,
+            "y": 1067.75,
+            "width": 133.5,
+            "height": 79.75,
+            "bottom": 1147.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 180,
+            "y": 1155.5,
+            "width": 213,
+            "height": 44,
+            "bottom": 1199.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 401,
+            "y": 1155.5,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1199.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 628.1875,
+            "y": 1258.5,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1302.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 203,
+            "y": 1302.5,
+            "width": 518,
+            "height": 80.84375,
+            "bottom": 1383.34375,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 203,
+            "y": 1383.34375,
+            "width": 518,
+            "height": 80.84375,
+            "bottom": 1464.1875,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 886,
+            "width": 131,
+            "height": 52,
+            "bottom": 938
+          },
+          {
+            "label": "APerfil",
+            "x": 12,
+            "y": 946,
+            "width": 131,
+            "height": 58,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "pending-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "6a480811fd7be55f0cd075a140f052a5eed44a734d7f510c418afe11734f50bd"
+        },
+        {
+          "path": "pending-tablet-portrait-02.png",
+          "scrollTop": 523,
+          "sha256": "dc3ad64e662f01fe09c7232e2add4fe05afb7c2781d5cb1036a84d39e594b174"
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 1397,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "calendar",
+            "id": "",
+            "label": "Ver calendario",
+            "x": 870.859375,
+            "y": 104.640625,
+            "width": 129.140625,
+            "height": 44,
+            "bottom": 148.640625,
+            "fullyVisible": true
+          },
+          {
+            "action": "progress",
+            "id": "",
+            "label": "95 / 200 min",
+            "x": 903.546875,
+            "y": 186.796875,
+            "width": 83.453125,
+            "height": 44,
+            "bottom": 230.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-28",
+            "label": "L28",
+            "x": 193,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-29",
+            "label": "M29",
+            "x": 306.421875,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-09-30",
+            "label": "X30",
+            "x": 419.84375,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-01",
+            "label": "J1",
+            "x": 533.28125,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-02",
+            "label": "V2",
+            "x": 646.703125,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-03",
+            "label": "S3",
+            "x": 760.140625,
+            "y": 230.796875,
+            "width": 113.421875,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "calendar-day",
+            "id": "2026-10-04",
+            "label": "D4",
+            "x": 873.5625,
+            "y": 230.796875,
+            "width": 113.4375,
+            "height": 84,
+            "bottom": 314.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "+ Practicar",
+            "x": 894.484375,
+            "y": 345.796875,
+            "width": 105.515625,
+            "height": 44,
+            "bottom": 389.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "resume-session",
+            "id": "",
+            "label": "Continuar sesión →",
+            "x": 201,
+            "y": 533.484375,
+            "width": 162.984375,
+            "height": 44,
+            "bottom": 577.484375,
+            "fullyVisible": true
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-today",
+            "label": "19:00 · Clase\n      Clase con mi profesoraEventoPreparación y repertorio",
+            "x": 185,
+            "y": 611.484375,
+            "width": 398,
+            "height": 202.75,
+            "bottom": 814.234375,
+            "fullyVisible": false
+          },
+          {
+            "action": "session-detail",
+            "id": "review-today-result",
+            "label": "08:30 · Realizada✓\n      Técnica en Sol mayorTécnica · Con piano20 min practicados · 20 min previstos\n      🙂 Bien\n      Pulso más estable. Repasar el cambio de posición.",
+            "x": 601,
+            "y": 611.484375,
+            "width": 398,
+            "height": 202.75,
+            "bottom": 814.234375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "reading",
+            "label": "Lectura",
+            "x": 180,
+            "y": 917.625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 997.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "technique",
+            "label": "Técnica",
+            "x": 387.5,
+            "y": 917.625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 997.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "repertoire",
+            "label": "Repertorio",
+            "x": 595,
+            "y": 917.625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 997.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "prepare",
+            "id": "free",
+            "label": "Práctica libre",
+            "x": 802.5,
+            "y": 917.625,
+            "width": 197.5,
+            "height": 79.75,
+            "bottom": 997.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine",
+            "label": "▶ Mi rutina de 40 minutos",
+            "x": 180,
+            "y": 1005.375,
+            "width": 213,
+            "height": 44,
+            "bottom": 1049.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "quick-routine",
+            "id": "review-routine-mobile",
+            "label": "▶ Lectura sin piano",
+            "x": 401,
+            "y": 1005.375,
+            "width": 164.84375,
+            "height": 44,
+            "bottom": 1049.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "new-event",
+            "id": "",
+            "label": "+ Evento",
+            "x": 884.1875,
+            "y": 1108.375,
+            "width": 92.8125,
+            "height": 44,
+            "bottom": 1152.375,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-tutor-next",
+            "label": "5díasClase de piano6 oct · Clase",
+            "x": 203,
+            "y": 1152.375,
+            "width": 774,
+            "height": 80.84375,
+            "bottom": 1233.21875,
+            "fullyVisible": false
+          },
+          {
+            "action": "event-detail",
+            "id": "review-audition",
+            "label": "9díasAudición de otoño10 oct · Audición",
+            "x": 203,
+            "y": 1233.21875,
+            "width": 774,
+            "height": 80.84375,
+            "bottom": 1314.0625,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Mi piano",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "MIDI",
+            "x": 12,
+            "y": 630,
+            "width": 131,
+            "height": 52,
+            "bottom": 682
+          },
+          {
+            "label": "APerfil",
+            "x": 12,
+            "y": 690,
+            "width": 131,
+            "height": 58,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "pending-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "3ce1ea7e1081ddf0e408a5d1d7b648bb5dce6ab959eacf72eee86e7a74b22945"
+        },
+        {
+          "path": "pending-tablet-landscape-02.png",
+          "scrollTop": 629,
+          "sha256": "71d6cf7d7aba152a240adc425d0bcfe88159351b5b90ac42e55e646829c2c2f6"
+        }
+      ]
+    }
+  ],
+  "probes": {
+    "addEventDate": {
+      "today": "2026-10-01",
+      "previouslySelectedCalendarDay": "2026-10-04",
+      "prefilledDate": "2026-10-04"
+    },
+    "smallWeekTargets": [
+      {
+        "day": "2026-09-28",
+        "width": 39.703125,
+        "height": 84
+      },
+      {
+        "day": "2026-09-29",
+        "width": 39.71875,
+        "height": 84
+      },
+      {
+        "day": "2026-09-30",
+        "width": 39.71875,
+        "height": 84
+      },
+      {
+        "day": "2026-10-01",
+        "width": 39.703125,
+        "height": 84
+      },
+      {
+        "day": "2026-10-02",
+        "width": 39.71875,
+        "height": 84
+      },
+      {
+        "day": "2026-10-03",
+        "width": 39.71875,
+        "height": 84
+      },
+      {
+        "day": "2026-10-04",
+        "width": 39.71875,
+        "height": 84
+      }
+    ],
+    "pendingShortcut": {
+      "sessionVisible": true,
+      "preparationVisible": false,
+      "message": "Hay una sesión pendiente. Guárdala o continúa antes de empezar otra."
+    }
+  },
+  "runtimeErrors": []
+}

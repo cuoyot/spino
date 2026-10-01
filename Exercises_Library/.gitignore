@@ -1,0 +1,8 @@
+scripts/node_modules/
+assets/raw/*
+!assets/raw/.gitkeep
+assets/normalized/*
+!assets/normalized/.gitkeep
+analysis/*
+!analysis/.gitkeep
+reports/runtime-*

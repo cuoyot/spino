@@ -1,18 +1,31 @@
 {
-  "name": "sight-reader",
-  "version": "1.0.0",
+  "name": "spino",
+  "version": "5.0.0",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "vite build",
+    "test": "npm run build && node --test tests/*.test.js",
     "apk": "vite build && npx cap sync android && cd android && gradlew.bat assembleDebug"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "SPino: Smart Piano Notebook — a local piano practice companion with planning, lessons and practice history",
   "dependencies": {
     "@capacitor/android": "^8.5.2",
     "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "8.5.2",
+    "@spino/cloud-backup": "file:plugins/cloud-backup",
+    "@tesseract.js-data/eng": "1.0.0",
+    "@tesseract.js-data/spa": "1.0.0",
+    "@xmldom/xmldom": "0.9.12",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "fflate": "0.8.3",
+    "opensheetmusicdisplay": "2.1.3",
+    "pdfjs-dist": "^6.3.289",
+    "tesseract.js": "7.0.0",
     "vexflow": "^5.0.0"
   },
   "devDependencies": {

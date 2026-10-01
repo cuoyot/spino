@@ -1,0 +1,47 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { openBrowser } from './browser.js';
+import { emptyData, block, localDate, weekOf, addDays } from '../src/companion/model.js';
+
+test('planned practice supports structured editing, routines and touch/keyboard rescheduling', {timeout:60000}, async t => {
+  const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
+  const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++n>400){clearInterval(timer);reject(Error('Timeout: '+${JSON.stringify(expression)}));}},20);})`);
+  const action=name=>evaluate(`document.querySelector('[data-action="${name}"]').click()`);
+  const read=()=>evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,q=db.transaction('state').objectStore('state').get('current');q.onsuccess=()=>{resolve(q.result);db.close();};};})`);
+  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);
+  const data=emptyData(), date=weekOf(localDate());
+  data.routines=[{id:'routine',title:'Technique and reading',context:'piano',blocks:[block('technique',{minutes:7}),block('reading',{minutes:8})]}];
+  data.plans=[{id:'planned',title:'Original',context:'piano',blocks:[block('free')],date,time:'18:00',reminder:false,status:'planned',recurrence:{id:'series',frequency:'weekly',until:addDays(date,27)}},{id:'other',title:'Other occurrence',context:'piano',blocks:[block('free')],date:addDays(date,7),time:'18:00',reminder:false,status:'planned',recurrence:{id:'series',frequency:'weekly',until:addDays(date,27)}}];
+  await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(data)},'current');tx.oncomplete=()=>{db.close();resolve();};};})`);
+  await send('Page.reload');await wait(`document.querySelector('#app-shell h1')`);await action('calendar');await action('edit-plan');
+  await action('apply-plan-routine');await action('block-add');
+  await evaluate(`document.querySelector('[name="minutes-0"]').value='12';document.querySelector('#prepare-form').requestSubmit()`);
+  await wait(`document.querySelector('#cp-dialog[open] form')`);
+  await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('.cp-week-agenda') && !document.querySelector('#cp-dialog').open`);
+  let saved=await read();assert.equal(saved.plans.length,2);assert.equal(saved.plans[0].id,'planned');assert.equal(saved.plans[0].blocks.length,3);assert.equal(saved.plans[0].blocks[0].minutes,12);
+  assert.deepEqual(saved.routines,data.routines);assert.deepEqual(saved.plans[1],data.plans[1]);assert.deepEqual(saved.plans[0].recurrence,data.plans[0].recurrence);
+  await send('Emulation.setDeviceMetricsOverride',{width:900,height:1600,deviceScaleFactor:1,mobile:true});
+  const point=selector=>evaluate(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+Math.min(30,r.height/2)};})()`);
+  await evaluate(`document.querySelector('[data-move-plan=planned]').scrollIntoView({block:'center'})`);
+  const grip=await point('[data-move-plan=planned]'), target=await point(`[data-agenda-date="${addDays(date,1)}"]`);
+  await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...grip,id:1}]});
+  await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{...target,id:1}]});
+  await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  await wait(`document.querySelector('[data-agenda-date="${addDays(date,1)}"] [data-move-plan=planned]')`);
+  saved=await read();assert.equal(saved.plans[0].date,addDays(date,1));assert.equal(saved.plans[0].time,'18:00');assert.equal(saved.plans[0].blocks.length,3);assert.deepEqual(saved.plans[1],data.plans[1]);
+  await evaluate(`document.querySelector('[data-move-plan=planned]').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true,cancelable:true}))`);
+  await wait(`document.querySelector('[data-agenda-date="${addDays(date,2)}"] [data-move-plan=planned]')`);
+  await evaluate(`document.querySelector('[data-action=calendar-mode][data-id=month]').click()`);
+  const mouseGrip=await point('[data-move-plan=planned]'), monthDay=await point(`[data-action=select-day][data-id="${addDays(date,3)}"]`);
+  await send('Input.dispatchMouseEvent',{type:'mousePressed',...mouseGrip,button:'left',buttons:1,clickCount:1});
+  await send('Input.dispatchMouseEvent',{type:'mouseMoved',...monthDay,button:'left',buttons:1});
+  await send('Input.dispatchMouseEvent',{type:'mouseReleased',...monthDay,button:'left',buttons:0,clickCount:1});
+  await wait(`document.querySelector('[data-action=select-day][data-id="${addDays(date,3)}"][aria-pressed=true]')`);
+  assert.equal((await read()).plans[0].date,addDays(date,3));
+  // A failed reschedule must not update the in-memory notebook or its persisted date.
+  await evaluate(`window.originalPut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(value,key){if(key==='current')throw Error('Storage unavailable');return originalPut.call(this,value,key);};document.querySelector('[data-move-plan=planned]').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true,cancelable:true}));`);
+  await wait(`document.querySelector('#cp-toast').textContent==='Storage unavailable'`);
+  assert.equal((await read()).plans[0].date,addDays(date,3));
+  await evaluate(`IDBObjectStore.prototype.put=originalPut`);
+  await send('Page.reload');await wait(`document.querySelector('#app-shell h1')`);assert.equal((await read()).plans[0].date,addDays(date,3));assert.deepEqual(errors,[]);
+});

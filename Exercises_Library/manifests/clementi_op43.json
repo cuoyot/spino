@@ -1,0 +1,4762 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "schema_version": "2.0.0",
+  "manifest_id": "clementi_op43",
+  "generated_on": "2026-09-30",
+  "group": "piano_core",
+  "notes": [
+    "Selection enumerated from the partial contents list: 25 preludes, 24 exercises and Grand Exercise. IMSLP notes that further contents remain to be added; this is not claimed to be the complete Op.43."
+  ],
+  "pieces": [
+    {
+      "piece_id": "clementi_op43_c_major_prelude_1",
+      "canonical_work_id": "clementi_op43_c_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "c_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_major_prelude_2",
+      "canonical_work_id": "clementi_op43_c_major_prelude_2",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Prelude 2",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "2",
+        "subdivision": "c_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_major_prelude_3",
+      "canonical_work_id": "clementi_op43_c_major_prelude_3",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Prelude 3",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "3",
+        "subdivision": "c_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_major_prelude_4",
+      "canonical_work_id": "clementi_op43_c_major_prelude_4",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Prelude 4",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "4",
+        "subdivision": "c_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_major_prelude_5",
+      "canonical_work_id": "clementi_op43_c_major_prelude_5",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Prelude 5",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "5",
+        "subdivision": "c_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_major_exercise_1",
+      "canonical_work_id": "clementi_op43_c_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "c_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_a_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_a_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "a_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "a_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_a_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_a_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "a_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "a_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_f_major_prelude_1",
+      "canonical_work_id": "clementi_op43_f_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "f_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "f_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_f_major_prelude_2",
+      "canonical_work_id": "clementi_op43_f_major_prelude_2",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F major — Prelude 2",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "2",
+        "subdivision": "f_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "f_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_f_major_exercise_1",
+      "canonical_work_id": "clementi_op43_f_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "f_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "f_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_d_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_d_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — D minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "d_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "D minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "d_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_d_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_d_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — D minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "d_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "D minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "d_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_major_prelude_1",
+      "canonical_work_id": "clementi_op43_g_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "g_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_major_prelude_2",
+      "canonical_work_id": "clementi_op43_g_major_prelude_2",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G major — Prelude 2",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "2",
+        "subdivision": "g_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_major_prelude_3",
+      "canonical_work_id": "clementi_op43_g_major_prelude_3",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G major — Prelude 3",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "3",
+        "subdivision": "g_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_major_exercise_1",
+      "canonical_work_id": "clementi_op43_g_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "g_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_e_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_e_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "e_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "e_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_e_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_e_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "e_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "e_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_bb_major_prelude_1",
+      "canonical_work_id": "clementi_op43_bb_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B-flat major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "bb_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "bb_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_bb_major_exercise_1",
+      "canonical_work_id": "clementi_op43_bb_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B-flat major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "bb_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "bb_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_g_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "g_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_g_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_g_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "g_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "g_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_d_major_prelude_1",
+      "canonical_work_id": "clementi_op43_d_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — D major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "d_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "D major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "d_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_d_major_exercise_1",
+      "canonical_work_id": "clementi_op43_d_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — D major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "d_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "D major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "d_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_b_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_b_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "b_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "b_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_b_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_b_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "b_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "b_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_eb_major_prelude_1",
+      "canonical_work_id": "clementi_op43_eb_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E-flat major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "eb_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "eb_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_eb_major_exercise_1",
+      "canonical_work_id": "clementi_op43_eb_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E-flat major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "eb_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "eb_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_c_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "c_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_c_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_c_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "c_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "c_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_a_major_prelude_1",
+      "canonical_work_id": "clementi_op43_a_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "a_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "a_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_a_major_exercise_1",
+      "canonical_work_id": "clementi_op43_a_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "a_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "a_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_fs_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_fs_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F-sharp minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "fs_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F-sharp minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "fs_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_fs_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_fs_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F-sharp minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "fs_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F-sharp minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "fs_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_ab_major_prelude_1",
+      "canonical_work_id": "clementi_op43_ab_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A-flat major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "ab_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "ab_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_ab_major_exercise_1",
+      "canonical_work_id": "clementi_op43_ab_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — A-flat major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "ab_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "A-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "ab_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_f_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_f_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "f_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "f_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_f_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_f_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "f_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "f_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_e_major_prelude_1",
+      "canonical_work_id": "clementi_op43_e_major_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E major — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "e_major/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "e_major/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_e_major_exercise_1",
+      "canonical_work_id": "clementi_op43_e_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "e_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "e_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_cs_minor_prelude_1",
+      "canonical_work_id": "clementi_op43_cs_minor_prelude_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C-sharp minor — Prelude 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "cs_minor/prelude",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C-sharp minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "cs_minor/prelude"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_cs_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_cs_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — C-sharp minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "cs_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "C-sharp minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "cs_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_db_major_exercise_1",
+      "canonical_work_id": "clementi_op43_db_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — D-flat major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "db_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "D-flat major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "db_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_bb_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_bb_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B-flat minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "bb_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B-flat minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "bb_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_b_major_exercise_1",
+      "canonical_work_id": "clementi_op43_b_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — B major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "b_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "B major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "b_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_gs_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_gs_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — G-sharp minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "gs_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "G-sharp minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "gs_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_fs_major_exercise_1",
+      "canonical_work_id": "clementi_op43_fs_major_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — F-sharp major — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "fs_major/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "F-sharp major",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "fs_major/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_eb_minor_exercise_1",
+      "canonical_work_id": "clementi_op43_eb_minor_exercise_1",
+      "record_kind": "work",
+      "display_title": "Preludes and Exercises — E-flat minor — Exercise 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": "1",
+        "subdivision": "eb_minor/exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": "E-flat minor",
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "eb_minor/exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    },
+    {
+      "piece_id": "clementi_op43_grand_exercise",
+      "canonical_work_id": "clementi_op43_grand_exercise",
+      "record_kind": "work",
+      "display_title": "Grand Exercise through every key",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Muzio Clementi",
+        "collection_id": "clementi_op43",
+        "collection_title": "Preludes and Exercises",
+        "opus_or_catalogue": "Op.43",
+        "number": null,
+        "subdivision": "grand_exercise",
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_index"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_clementi_op43"
+        ],
+        "attribution": "Muzio Clementi; bibliographic contents list: IMSLP (https://imslp.org/wiki/Pr%C3%A9ludes_et_exercices_%28Clementi%2C_Muzio%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_clementi_op43",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "grand_exercise"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Identifier based on the key/section in the contents list; number is a local ordinal, not a global opus number. Partial index; matching to an edition is pending."
+      ]
+    }
+  ]
+}

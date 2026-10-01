@@ -1,0 +1,2292 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "schema_version": "2.0.0",
+  "manifest_id": "tchaikovsky_op39",
+  "generated_on": "2026-09-30",
+  "group": "piano_core",
+  "notes": [
+    "24 piano pieces; use the numbering of the source edition and preserve discrepancies."
+  ],
+  "pieces": [
+    {
+      "piece_id": "tchaikovsky_op39_001",
+      "canonical_work_id": "tchaikovsky_op39_001",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 1",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "1",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "1"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_002",
+      "canonical_work_id": "tchaikovsky_op39_002",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 2",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "2",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "2"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_003",
+      "canonical_work_id": "tchaikovsky_op39_003",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 3",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "3",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "3"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_004",
+      "canonical_work_id": "tchaikovsky_op39_004",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 4",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "4",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "4"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_005",
+      "canonical_work_id": "tchaikovsky_op39_005",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 5",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "5",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "5"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_006",
+      "canonical_work_id": "tchaikovsky_op39_006",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 6",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "6",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "6"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_007",
+      "canonical_work_id": "tchaikovsky_op39_007",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 7",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "7",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "7"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_008",
+      "canonical_work_id": "tchaikovsky_op39_008",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 8",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "8",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "8"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_009",
+      "canonical_work_id": "tchaikovsky_op39_009",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 9",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "9",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "9"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_010",
+      "canonical_work_id": "tchaikovsky_op39_010",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 10",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "10",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "10"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_011",
+      "canonical_work_id": "tchaikovsky_op39_011",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 11",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "11",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "11"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_012",
+      "canonical_work_id": "tchaikovsky_op39_012",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 12",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "12",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "12"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_013",
+      "canonical_work_id": "tchaikovsky_op39_013",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 13",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "13",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "13"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_014",
+      "canonical_work_id": "tchaikovsky_op39_014",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 14",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "14",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "14"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_015",
+      "canonical_work_id": "tchaikovsky_op39_015",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 15",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "15",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "15"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_016",
+      "canonical_work_id": "tchaikovsky_op39_016",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 16",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "16",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "16"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_017",
+      "canonical_work_id": "tchaikovsky_op39_017",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 17",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "17",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "17"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_018",
+      "canonical_work_id": "tchaikovsky_op39_018",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 18",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "18",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "18"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_019",
+      "canonical_work_id": "tchaikovsky_op39_019",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 19",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "19",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "19"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_020",
+      "canonical_work_id": "tchaikovsky_op39_020",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 20",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "20",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "20"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_021",
+      "canonical_work_id": "tchaikovsky_op39_021",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 21",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "21",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "21"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_022",
+      "canonical_work_id": "tchaikovsky_op39_022",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 22",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "22",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "22"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_023",
+      "canonical_work_id": "tchaikovsky_op39_023",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 23",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "23",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "23"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_op39_024",
+      "canonical_work_id": "tchaikovsky_op39_024",
+      "record_kind": "work",
+      "display_title": "Children's Album — Piece 24",
+      "catalogue_group": "piano_core",
+      "known_metadata": {
+        "composer": "Pyotr Tchaikovsky",
+        "collection_id": "tchaikovsky_op39",
+        "collection_title": "Children's Album",
+        "opus_or_catalogue": "Op.39",
+        "number": "24",
+        "subdivision": null,
+        "original_title": null,
+        "instrumentation": "piano_solo",
+        "source_reported_key": null,
+        "metadata_basis": "catalogue_enumeration"
+      },
+      "pedagogy": {
+        "intended_use": [
+          "sight_reading"
+        ],
+        "curation_priority": 1,
+        "verified_suitability": null,
+        "tags": []
+      },
+      "availability": {
+        "status": "catalogue_only",
+        "download_status": "pending",
+        "local_score_path": null,
+        "selected_asset_id": null,
+        "playable": false
+      },
+      "assets": [],
+      "rights": {
+        "composition_status": "public_domain_reported",
+        "edition_status": "pending_review",
+        "license_id": null,
+        "evidence_ids": [
+          "imslp_tchaikovsky_op39"
+        ],
+        "attribution": "Pyotr Tchaikovsky; bibliographic reference: IMSLP (https://imslp.org/wiki/Album_pour_Enfants%2C_Op.39_%28Tchaikovsky%2C_Pyotr_Ilyich%29).",
+        "target_jurisdictions": [],
+        "distribution_status": "pending_review"
+      },
+      "provenance": [
+        {
+          "evidence_id": "imslp_tchaikovsky_op39",
+          "fields": [
+            "known_metadata",
+            "piece_id",
+            "display_title",
+            "rights.composition_status"
+          ],
+          "source_record": "24"
+        }
+      ],
+      "analysis": {
+        "status": "pending",
+        "parser_version": null,
+        "algorithm_version": null,
+        "input_asset_id": null,
+        "input_sha256": null,
+        "computed_at": null,
+        "error": null,
+        "metrics": {
+          "measure_count": null,
+          "duration_quarter_notes": null,
+          "key_signatures": null,
+          "estimated_key": null,
+          "time_signatures": null,
+          "lowest_note": null,
+          "highest_note": null,
+          "right_hand_range": null,
+          "left_hand_range": null,
+          "hand_assignment": null,
+          "accidentals": null,
+          "voice_count": null,
+          "max_chord_notes": null,
+          "max_simultaneous_notes": null,
+          "max_melodic_leap_semitones": null,
+          "rhythm_values": null,
+          "tuplets_present": null,
+          "syncopation_ratio": null,
+          "note_density_per_quarter": null,
+          "hand_independence_score": null,
+          "sightreading_score": null,
+          "sightreading_level": null
+        },
+        "warnings": []
+      },
+      "notes": [
+        "Individual entry enumerated from the catalogue; the display title is an editorial label. This does not imply that a MusicXML file has been located."
+      ]
+    }
+  ]
+}

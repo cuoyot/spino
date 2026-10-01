@@ -1,0 +1,641 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sightreader:v2:piece",
+  "title": "Sightreader v2 — piece",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "piece_id",
+    "canonical_work_id",
+    "record_kind",
+    "display_title",
+    "catalogue_group",
+    "known_metadata",
+    "pedagogy",
+    "availability",
+    "assets",
+    "rights",
+    "provenance",
+    "analysis",
+    "notes"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "piece_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "canonical_work_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_kind": {
+      "enum": [
+        "work",
+        "score_edition"
+      ]
+    },
+    "display_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogue_group": {
+      "enum": [
+        "piano_core",
+        "piano_candidates",
+        "accompaniment_optional"
+      ]
+    },
+    "known_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composer",
+        "collection_id",
+        "collection_title",
+        "opus_or_catalogue",
+        "number",
+        "subdivision",
+        "original_title",
+        "instrumentation",
+        "source_reported_key",
+        "metadata_basis"
+      ],
+      "properties": {
+        "composer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "collection_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9_-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "collection_title": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opus_or_catalogue": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "number": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subdivision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "original_title": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "instrumentation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_reported_key": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "metadata_basis": {
+          "enum": [
+            "pending",
+            "catalogue_enumeration",
+            "catalogue_index",
+            "source_title",
+            "documented_repository_path"
+          ]
+        }
+      }
+    },
+    "pedagogy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intended_use",
+        "curation_priority",
+        "verified_suitability",
+        "tags"
+      ],
+      "properties": {
+        "intended_use": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "curation_priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "verified_suitability": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "download_status",
+        "local_score_path",
+        "selected_asset_id",
+        "playable"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "catalogue_only",
+            "asset_located",
+            "downloaded",
+            "parsed",
+            "ready",
+            "blocked"
+          ]
+        },
+        "download_status": {
+          "enum": [
+            "pending",
+            "running",
+            "complete",
+            "failed"
+          ]
+        },
+        "local_score_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:]).+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selected_asset_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9_-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "playable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "source_id",
+          "format",
+          "source_page_url",
+          "download_url",
+          "source_path",
+          "revision",
+          "git_blob_sha1",
+          "size_bytes",
+          "sha256",
+          "verification",
+          "license_id",
+          "license_evidence_id",
+          "requires_conversion"
+        ],
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "format": {
+            "enum": [
+              "mxl",
+              "musicxml",
+              "xml",
+              "mscx",
+              "mscz",
+              "pdf"
+            ]
+          },
+          "source_page_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "git_blob_sha1": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "size_bytes": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "checked_on",
+              "http_status"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "pending",
+                  "repository_path_verified",
+                  "http_verified",
+                  "content_verified",
+                  "failed"
+                ]
+              },
+              "checked_on": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "http_status": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 599
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "license_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "license_evidence_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requires_conversion": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composition_status",
+        "edition_status",
+        "license_id",
+        "evidence_ids",
+        "attribution",
+        "target_jurisdictions",
+        "distribution_status"
+      ],
+      "properties": {
+        "composition_status": {
+          "enum": [
+            "pending_review",
+            "public_domain_reported",
+            "public_domain_claim_unverified",
+            "public_domain_verified",
+            "protected",
+            "licensed"
+          ]
+        },
+        "edition_status": {
+          "enum": [
+            "pending_review",
+            "license_declared",
+            "verified",
+            "blocked"
+          ]
+        },
+        "license_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "attribution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_jurisdictions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "distribution_status": {
+          "enum": [
+            "pending_review",
+            "approved",
+            "blocked"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "fields",
+          "source_record"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_record": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "$ref": "urn:sightreader:v2:analysis"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "availability": {
+            "properties": {
+              "playable": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "availability": {
+            "properties": {
+              "status": {
+                "const": "ready"
+              },
+              "download_status": {
+                "const": "complete"
+              },
+              "local_score_path": {
+                "type": "string",
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:]).+$"
+              },
+              "selected_asset_id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9_-]*$"
+              }
+            }
+          },
+          "analysis": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            }
+          },
+          "rights": {
+            "properties": {
+              "distribution_status": {
+                "const": "approved"
+              }
+            }
+          },
+          "pedagogy": {
+            "properties": {
+              "verified_suitability": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

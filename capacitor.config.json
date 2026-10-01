@@ -1,6 +1,8 @@
 {
   "appId": "com.miguelcoll.sightreader",
-  "appName": "Sight Reader",
+  "appName": "SPino",
   "webDir": "dist",
-  "android": { "backgroundColor": "#14161a" }
+  "android": {
+    "backgroundColor": "#14161a"
+  }
 }

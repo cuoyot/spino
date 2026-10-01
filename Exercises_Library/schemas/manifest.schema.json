@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sightreader:v2:manifest",
+  "title": "Sightreader v2 — manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "manifest_id",
+    "generated_on",
+    "group",
+    "notes",
+    "pieces"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "generated_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "group": {
+      "enum": [
+        "piano_core",
+        "piano_candidates",
+        "accompaniment_optional"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pieces": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:sightreader:v2:piece"
+      }
+    }
+  }
+}

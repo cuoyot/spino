@@ -3,53 +3,73 @@ import { Capacitor, registerPlugin } from '@capacitor/core';
 
 const Native = registerPlugin('Midi');
 const listeners = { note: [], noteOff: [], devices: [], ble: [] };
-let webDevices = [];
+let devices = [], initialization = null, webAccess = null, simulated = false;
+let subscriptions = [];
+export const connectedDevices = () => [...devices];
 
-export const isNative = Capacitor.isNativePlatform();
+export const isNative = Capacitor.isPluginAvailable('Midi');
 
 export function on(event, cb) {
   listeners[event].push(cb);
+  return () => { const index = listeners[event].indexOf(cb); if (index >= 0) listeners[event].splice(index, 1); };
 }
 
 function emit(event, data) {
+  if (event === 'devices') devices = [...data];
   listeners[event].forEach((cb) => cb(data));
 }
 
-export async function initMidi() {
+export function initMidi() {
+  if (!initialization) initialization = initialize().catch(async error => {
+    await Promise.allSettled(subscriptions.map(listener => listener.remove()));
+    subscriptions = []; initialization = null; throw error;
+  });
+  return initialization;
+}
+export async function refreshMidi() {
+  if (simulated) return;
+  await initMidi();
+  if (isNative) { const result = await Native.openAll(); emit('devices', result.devices); }
+  else if (webAccess) await bindWebInputs();
+}
+async function bindWebInputs() {
+  const names = [];
+  await Promise.all([...webAccess.inputs.values()].map(async input => {
+    if (input.state === 'disconnected') { input.onmidimessage = null; return; }
+    input.onmidimessage = m => {
+      const [status, note, vel] = m.data, type = status & 0xf0;
+      if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel });
+      else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note });
+    };
+    try { if (input.connection !== 'open') await input.open(); if (input.state !== 'disconnected') names.push(input.name || 'MIDI input'); }
+    catch { input.onmidimessage = null; }
+  }));
+  emit('devices', names);
+}
+async function initialize() {
   if (isNative) {
-    await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity }));
-    await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note }));
-    await Native.addListener('devicesChanged', (e) => emit('devices', e.devices));
-    await Native.addListener('bleDevice', (e) => emit('ble', e));
+    subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity })));
+    subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note })));
+    subscriptions.push(await Native.addListener('devicesChanged', (e) => emit('devices', e.devices)));
+    subscriptions.push(await Native.addListener('bleDevice', (e) => emit('ble', e)));
     const { devices } = await Native.openAll();
     emit('devices', devices);
     return;
   }
   if (!navigator.requestMIDIAccess) return;
   try {
-    const access = await navigator.requestMIDIAccess();
-    const bind = () => {
-      webDevices = [];
-      access.inputs.forEach((input) => {
-        webDevices.push(input.name);
-        input.onmidimessage = (m) => {
-          const [status, note, vel] = m.data;
-          const type = status & 0xf0;
-          if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel });
-          else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note });
-        };
-      });
-      emit('devices', webDevices);
-    };
-    access.onstatechange = bind;
-    bind();
+    webAccess = await navigator.requestMIDIAccess();
+    webAccess.onstatechange = () => { void bindWebInputs(); };
+    await bindWebInputs();
   } catch (e) {
-    console.warn('Web MIDI unavailable', e);
+    emit('devices', []);
+    throw e;
   }
 }
 
 // Test hook: pretend MIDI inputs (dis)connected, e.g. simulateDevices(['Test keyboard']) from the console
 export function simulateDevices(names) {
+  simulated = true;
   emit('devices', names);
 }
 export function simulateNote(midi, on = true) {
