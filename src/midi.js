@@ -2,7 +2,7 @@
 import { Capacitor, registerPlugin } from '@capacitor/core';
 
 const Native = registerPlugin('Midi');
-const listeners = { note: [], noteOff: [], devices: [], ble: [] };
+const listeners = { note: [], noteOff: [], control: [], devices: [], ble: [] };
 let devices = [], initialization = null, webAccess = null, simulated = false;
 let subscriptions = [];
 export const connectedDevices = () => [...devices];
@@ -40,6 +40,7 @@ async function bindWebInputs() {
       const [status, note, vel] = m.data, type = status & 0xf0;
       if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel });
       else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note });
+      else if (type === 0xb0) emit('control', { controller: note, value: vel });
     };
     try { if (input.connection !== 'open') await input.open(); if (input.state !== 'disconnected') names.push(input.name || 'MIDI input'); }
     catch { input.onmidimessage = null; }
@@ -50,6 +51,7 @@ async function initialize() {
   if (isNative) {
     subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity })));
     subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note })));
+    subscriptions.push(await Native.addListener('controlChange', (e) => emit('control', { controller: e.controller, value: e.value })));
     subscriptions.push(await Native.addListener('devicesChanged', (e) => emit('devices', e.devices)));
     subscriptions.push(await Native.addListener('bleDevice', (e) => emit('ble', e)));
     const { devices } = await Native.openAll();
@@ -71,6 +73,9 @@ async function initialize() {
 export function simulateDevices(names) {
   simulated = true;
   emit('devices', names);
+}
+export function simulateControl(controller, value) {
+  emit('control', { controller, value });
 }
 export function simulateNote(midi, on = true) {
   emit(on ? 'note' : 'noteOff', on ? { midi, velocity: 80 } : { midi });

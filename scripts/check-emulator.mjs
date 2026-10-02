@@ -21,7 +21,7 @@ function twoPagePDF() {
   const start=Buffer.byteLength(pdf);pdf+=`xref\n0 ${objects.length+1}\n0000000000 65535 f \n${offsets.slice(1).map(n=>String(n).padStart(10,'0')+' 00000 n \n').join('')}trailer\n<< /Size ${objects.length+1} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF`;
   return Buffer.from(pdf).toString('base64');
 }
-const pid = run(['shell', 'pidof', 'com.miguelcoll.sightreader']);
+const pid = run(['shell', 'pidof', 'com.miguecoll.spino']);
 assert.match(pid, /^\d+$/);
 const port = run(['forward', 'tcp:0', `localabstract:webview_devtools_remote_${pid}`]);
 let socket;

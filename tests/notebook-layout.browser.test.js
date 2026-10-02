@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 
 test('compact preparation, calendar and dashboard adapt to phone/tablet orientations', {timeout:60000}, async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
@@ -51,6 +51,7 @@ test('fixed-page browsing pauses evaluation, preserves notes and does not create
   await send('Page.navigate',{url});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let count=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++count>200){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   await evaluate(`__sr.midi.simulateDevices(['Test piano']);document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="reading"]').click();document.querySelector('[name="context"]').value='midi';document.querySelector('[name="presentation-0"]').value='page';document.querySelector('#prepare-form').requestSubmit()`);
   await wait(`document.querySelector('[data-action="open-reader"]')`);
   await evaluate(`document.querySelector('[data-action="open-reader"]').click()`);

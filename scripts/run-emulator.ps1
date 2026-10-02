@@ -9,5 +9,5 @@ if (-not (& $adb devices | Select-String "emulator-")) {
 }
 & $adb install -r (Join-Path (Split-Path $PSScriptRoot) 'SPino.apk')
 if ($LASTEXITCODE -ne 0) { throw 'APK installation failed.' }
-& $adb shell am force-stop com.miguelcoll.sightreader
-& $adb shell am start -n com.miguelcoll.sightreader/.MainActivity
+& $adb shell am force-stop com.miguecoll.spino
+& $adb shell am start -n com.miguecoll.spino/.MainActivity

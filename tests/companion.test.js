@@ -78,7 +78,8 @@ test('two-hand technique preserves every scale and continues across generated ch
       assert.equal(right.midi-left.midi,12);assert.equal(right.start,left.start);
       assert.equal(right.bar,left.bar);assert.equal(right.units,4);
       assert.ok(target.notes.some(n=>n.letter===right.letter&&n.acc===right.acc),target.id);
-      if(i)assert.equal(Math.abs(right.d-notes[i-2].d),1);
+      // Steps move by one degree; only the turning tonic repeats.
+      if(i){const step=Math.abs(right.d-notes[i-2].d);assert.ok(step===1||step===0&&right.letter===target.notes[0].letter,target.id);}
     }
   }
 });

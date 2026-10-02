@@ -84,7 +84,7 @@ test('reading stays on tempo and visually stable', { timeout: 60000 }, async (t)
         expected: 500 / (60000 / __sr.settings.bpm) * (__sr.layout.xOf(1) - __sr.layout.xOf(0)) };
     })()`);
     assert.deepEqual(result.before, result.after);
-    assert.equal(result.bpm, result.oldBpm + 4);
+    assert.equal(result.bpm, result.oldBpm + 1);
     assert.ok(result.sameLine && result.sameStates);
     assert.ok(Math.abs(result.after.x - result.next.x - result.expected) < 0.11);
   });

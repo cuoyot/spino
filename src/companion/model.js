@@ -6,10 +6,12 @@ import { validateAnnotations } from './pdf-annotations.js';
 import { validateScoreView } from './score-view.js';
 import { validateLibraryState } from './library.js';
 import { validPracticeDefaults } from './practice-defaults.js';
+import { RHYTHM_VALUES } from './rhythm-levels.js';
+import { WARMUP_IDS, validWarmupPreferences } from './warmups.js';
 // Versioned, local product data. Dates without times are local calendar dates.
 export const VERSION = 1;
 export const CONTEXTS = { get mobile() { return ui('Without piano', 'Sin piano'); }, get piano() { return ui('With piano', 'Con piano'); }, get midi() { return ui('MIDI piano', 'Piano MIDI'); } };
-export const ACTIVITIES = { get reading() { return ui('Sight-reading', 'Lectura'); }, get technique() { return ui('Technique', 'Técnica'); }, get repertoire() { return ui('Repertoire', 'Repertorio'); }, get free() { return ui('Free practice', 'Práctica libre'); }, get theory() { return ui('Learn', 'Aprender'); } };
+export const ACTIVITIES = { get warmup() { return ui('Warm-up', 'Calentamiento'); }, get reading() { return ui('Sight-reading', 'Lectura'); }, get technique() { return ui('Technique', 'Técnica'); }, get repertoire() { return ui('Repertoire', 'Repertorio'); }, get free() { return ui('Free practice', 'Práctica libre'); }, get theory() { return ui('Learn', 'Aprender'); } };
 // Keep historical stored values stable; translate labels only.
 export const stageLabel = value => ui(({ 'Por empezar': 'Not started', 'En estudio': 'Learning', 'Consolidando': 'Consolidating', 'Mantenimiento': 'Maintaining', 'Archivada': 'Archived' })[value] || value, value);
 export const eventTypeLabel = value => ui(({ 'Audición': 'Audition', 'Concierto': 'Concert', 'Clase': 'Lesson', 'Ensayo': 'Rehearsal', 'Otro': 'Other' })[value] || value, value);
@@ -27,11 +29,11 @@ export function emptyData() {
   return { schemaVersion: VERSION, preferences: { name: '', context: 'mobile', weeklyMinutes: 90, wifiOnly: true }, works: [], downloads: [], downloadJobs: [], routines: [], plans: [], events: [], sessions: [], active: null, lastBackup: null };
 }
 export function block(type = 'reading', values = {}) {
-  return { id: uid(), type, minutes: 5, bpm: 60, timing: 'timed', target: 'C-major', hand: 'right', input: 'piano', figures: 'q', passage: '', workId: '', ...values };
+  return { id: uid(), type, minutes: 5, bpm: 60, timing: 'timed', target: 'C-major', hand: 'right', input: 'piano', figures: '1', passage: '', workId: '', ...values };
 }
 export function beginSession({ title, context, blocks, planId = null }, now = Date.now()) {
   if (!CONTEXTS[context] || !blocks?.length) throw new Error(ui("Choose an activity and a context.", "Elige una actividad y un contexto."));
-  if (context === 'mobile' && blocks.some(b => ['free', 'repertoire'].includes(b.type))) throw new Error(ui("This activity needs a piano. Choose reading or technique without a piano.", "Esta actividad necesita un piano. Elige lectura o una lección sin piano."));
+  if (context === 'mobile' && blocks.some(b => ['free', 'repertoire', 'warmup'].includes(b.type))) throw new Error(ui("This activity needs a piano. Choose reading or technique without a piano.", "Esta actividad necesita un piano. Elige lectura o una lección sin piano."));
   return { id: uid(), title, context, planId, blocks: copy(blocks), blockIndex: 0, results: [], startedAt: new Date(now).toISOString(), date: localDate(new Date(now)), elapsedMs: 0, blockElapsedMs: 0, runningSince: null, updatedAt: now, notes: '', next: '' };
 }
 export function accrue(active, now = Date.now()) {
@@ -92,7 +94,7 @@ function validBlock(b) {
   if (b?.level != null && (!Number.isInteger(b.level) || b.level < 0 || b.level > 2)) return false;
   if (b?.presentation != null && !['auto', 'page', 'scroll'].includes(b.presentation)) return false;
   if (b?.timing !== undefined && !['timed', 'wait'].includes(b.timing)) return false;
-  return obj(b) && str(b.id, 100) && Object.hasOwn(ACTIVITIES,b.type) && number(b.minutes) && b.minutes <= 600 && number(b.bpm) && b.bpm >= 30 && b.bpm <= 160 && (validTarget(b.target) || b.target === null && ['repertoire','free'].includes(b.type)) && (['right', 'left'].includes(b.hand) || b.hand === 'both' && ['reading', 'technique'].includes(b.type)) && ['piano', 'names'].includes(b.input) && ['q', 'hq', 'hqe'].includes(b.figures) && str(b.passage) && str(b.workId, 100);
+  return obj(b) && str(b.id, 100) && Object.hasOwn(ACTIVITIES,b.type) && number(b.minutes) && b.minutes <= 600 && number(b.bpm) && b.bpm >= 30 && b.bpm <= 160 && (b.type === 'warmup' ? WARMUP_IDS.includes(b.target) : validTarget(b.target) || b.target === null && ['repertoire','free'].includes(b.type)) && (['right', 'left'].includes(b.hand) || b.hand === 'both' && ['reading', 'technique', 'warmup'].includes(b.type)) && ['piano', 'names'].includes(b.input) && RHYTHM_VALUES.includes(b.figures) && str(b.passage) && str(b.workId, 100);
 }
 function validMusic(material) {
   if(!obj(material)||!Array.isArray(material.notes)||material.notes.length>100000||!Array.isArray(material.onsets)||material.onsets.length!==material.notes.length)return false;
@@ -113,6 +115,9 @@ function validReaderSnapshot(snap) {
 export function validateData(input) {
   if (input?.preferences?.language !== undefined && !Object.hasOwn(APP_LANGUAGES, input.preferences.language)) fail();
   if (input?.preferences?.practiceDefaults != null && !validPracticeDefaults(input.preferences.practiceDefaults)) fail();
+  if (input?.preferences?.warmup != null && !validWarmupPreferences(input.preferences.warmup)) fail();
+  if (input?.preferences?.level !== undefined && !(Number.isInteger(input.preferences.level) && input.preferences.level >= 1 && input.preferences.level <= 4)) fail();
+  if (input?.preferences?.photo != null && (!str(input.preferences.photo, 400000) || !/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(input.preferences.photo))) fail();
   if (!obj(input) || input.schemaVersion !== VERSION || !obj(input.preferences) || !Object.hasOwn(CONTEXTS,input.preferences.context) || !str(input.preferences.name, 80) || !number(input.preferences.weeklyMinutes) || input.preferences.weeklyMinutes>3000) fail();
   for (const key of ["works", 'routines', 'plans', 'events', "sessions"]) {
     const list = input[key];

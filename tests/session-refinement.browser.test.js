@@ -6,6 +6,7 @@ import { emptyData, block, beginSession, finishBlock } from '../src/companion/mo
 function notebook({ sequence = false } = {}) {
   const data = emptyData();
   data.preferences.language = 'es';
+  data.preferences.warmup = { enabled: false, minutes: 3, exercise: 'rotate' };
   const blocks = sequence ? [
     block('free', { id: 'finished-block', minutes: 10 }),
     block('free', { id: 'current-block', minutes: 10 }),
@@ -188,6 +189,44 @@ test('live session edits preserve completed work, source plans and routines acro
   assert.deepEqual(changed.active.results, fixture.active.results);
   assert.deepEqual(changed.routines, fixture.routines);
   assert.deepEqual(changed.plans, fixture.plans);
+  assert.deepEqual(errors, []);
+});
+
+test('duration sliders and block editing preserve source plans and recover from failed saves', { timeout: 30000 }, async t => {
+  const fixture = notebook({ sequence: true });
+  const { evaluate, wait, read, waitStored, action, send, errors } = await openSession(t, fixture);
+  assert.equal(await evaluate('document.querySelector("[data-session-block=finished-block] [data-action=session-block-edit]")'), null);
+  await evaluate('const slider=document.querySelector("[data-session-duration=current-block]");slider.value=23;slider.dispatchEvent(new Event("input",{bubbles:true}));');
+  assert.equal(await evaluate('document.querySelector("[data-session-minutes=current-block]").value'), '23');
+  assert.equal((await read()).active.blocks[1].minutes, 10, 'Previewing a slider does not write on every movement.');
+  await evaluate('document.querySelector("[data-session-duration=current-block]").dispatchEvent(new Event("change",{bubbles:true}))');
+  let changed = await waitStored(data => data.active.blocks[1].minutes === 23);
+  assert.equal(changed.active.blockElapsedMs, 480000);
+  await action('session-block-edit', 'current-block');
+  await wait('document.querySelector("#session-block-form")');
+  await evaluate('var form=document.querySelector("#session-block-form");form.elements.type.value="reading";form.elements.type.dispatchEvent(new Event("change"));form.elements.target.value="G-major";');
+  await evaluate('document.querySelector("#cp-dialog [data-action=close-dialog]").click()');
+  assert.equal((await read()).active.blocks[1].type, 'free');
+  await action('session-block-edit', 'current-block');
+  await evaluate('var form=document.querySelector("#session-block-form");form.elements.type.value="reading";form.elements.type.dispatchEvent(new Event("change"));form.elements.target.value="G-major";form.elements.hand.value="both";form.elements.bpm.value=84;form.elements.level.value=2;form.elements.minutes.value=18;');
+  await evaluate('window.originalPut=IDBObjectStore.prototype.put;window.rejectEdit=true;IDBObjectStore.prototype.put=function(value,key,...rest){if(key==="current"&&value.active?.blocks[1]?.target==="G-major"&&window.rejectEdit){window.rejectEdit=false;throw Error("Simulated block save failure");}return originalPut.call(this,value,key,...rest);};document.querySelector("#session-block-form").requestSubmit();');
+  await wait('document.querySelector("#cp-form-error").textContent.includes("Simulated block save failure")');
+  assert.equal((await read()).active.blocks[1].type, 'free');
+  assert.equal(await evaluate('document.querySelector("#session-block-form").elements.target.value'), 'G-major');
+  await evaluate('IDBObjectStore.prototype.put=originalPut;document.querySelector("#session-block-form").requestSubmit()');
+  await wait('!document.querySelector("#cp-dialog").open');
+  changed = await waitStored(data => data.active.blocks[1].target === 'G-major');
+  assert.equal(changed.active.blocks[1].id, 'current-block');
+  assert.equal(changed.active.blocks[1].hand, 'both');
+  assert.equal(changed.active.blocks[1].bpm, 84);
+  assert.equal(changed.active.blocks[1].level, 2);
+  assert.equal(changed.active.blockElapsedMs, 0);
+  assert.equal(changed.active.elapsedMs, fixture.active.elapsedMs);
+  assert.equal(changed.active.results.at(-1).elapsedMs, 480000);
+  assert.equal(changed.active.results.at(-1).block.type, 'free');
+  assert.deepEqual(changed.routines, fixture.routines); assert.deepEqual(changed.plans, fixture.plans);
+  await send('Page.reload'); await wait('document.querySelector("[data-action=resume-session]")'); await action('resume-session');
+  assert.equal((await read()).active.blocks[1].minutes, 18);
   assert.deepEqual(errors, []);
 });
 

@@ -2,7 +2,7 @@
 
 Decision date: 2026-09-30. The product owner selected **SPino: Smart Piano Notebook**. Use **SPino** as the short name, with uppercase S and P and lowercase ino. The app, launcher and distribution assets use this identity.
 
-Keep the Android application ID `com.miguelcoll.sightreader`, existing local database names and backup format identifiers stable so this visual rename preserves installations, history and backup compatibility. The npm package name is `spino` and the debug distribution file is `SPino.apk`.
+Keep the Android application ID `com.miguecoll.spino`, existing local database names and backup format identifiers stable so this visual rename preserves installations, history and backup compatibility. The npm package name is `spino` and the debug distribution file is `SPino.apk`.
 
 The [brand asset guide](../assets/brand/README.md) documents the notebook/piano symbol, blue/ivory/charcoal palette, wordmark, Android masks and Google Play exports. The [generation record](../assets/brand/PROMPTS.md) preserves the exact built-in image-tool prompts. Display the name as live text in the app; use the symbol alone at launcher sizes.
 

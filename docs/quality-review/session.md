@@ -1,14 +1,14 @@
 # Session overview review
 
-Review ID: **PRACTICE-01**, reached from TODAY-02/03. Status: **baseline captured; objective and refinement proposed**. Updated: 2026-10-01.
+Review ID: **PRACTICE-01**, reached from TODAY-02/03. Status: **D-005 direction accepted; implemented and in scoped verification; approved except the original movement controls, revised under D-006**. Updated: 2026-10-01.
 
 The compact Today presentation is visually accepted under D-004. This review follows its Start/Resume actions into the current session overview. No application behavior or session design was changed while collecting this baseline. Feedback defects are recorded against PRACTICE-06 without implying that its full review is complete.
 
-## Proposed objective
+## Accepted objective
 
 Know the current block and whether practice is running, then start/resume, advance or finish without uncertainty or losing work. The current block and its primary action should dominate; the session sequence and elapsed time provide context. Apply the accepted compact density where it supports that objective.
 
-Success criteria for discussion:
+Accepted success criteria:
 
 - Distinguish ready, paused, running and blocked states explicitly.
 - Keep the appropriate play/pause/recovery action visible in the four standard layouts.
@@ -54,9 +54,9 @@ All four landscape-phone states hide part or all of the exercise/timer primary a
 
 The [interaction probe output](captures/session/2026-10-01-baseline/interaction-probes.json) covers final-block cancellation, manual timing, orientation and MIDI refusal. The separate [save-failure probe](captures/session/2026-10-01-baseline/save-failure-probe.json) uses an injected failing write in a disposable browser. Neither is evidence of a physical-device failure. Reproduction steps and source references follow.
 
-## Current actions and reproduction paths
+## Baseline actions and reproduction paths
 
-| Action | Verified current behavior |
+| Action | Verified baseline behavior |
 | --- | --- |
 | Open exercise | Configures/restores reading or technique and starts playing; the overview is hidden. Refreshes MIDI first when required. |
 | Start / continue / Pause | Toggles manual practice timing for free/repertoire blocks. |
@@ -74,7 +74,7 @@ For F05, start a free-practice timer, trigger a browser hidden/visible cycle and
 
 Primary source references: [session creation and overview](../../src/companion/app.js:362), [exercise entry and block completion](../../src/companion/app.js:382), [feedback persistence](../../src/companion/app.js:404), [timer/metronome actions](../../src/companion/app.js:678), [visibility handling](../../src/companion/app.js:753), [saveSession mutation](../../src/companion/model.js:53), [orientation advice](../../src/companion/views.js:130).
 
-## Proposed refinement, not yet accepted
+## Refinement accepted under D-005
 
 - A compact current-block panel, explicit Ready/Paused/Practising state and one appropriate primary action.
 - Separate block elapsed time from session total; show suggested duration without implying a countdown or automatic advance.
@@ -82,16 +82,52 @@ Primary source references: [session creation and overview](../../src/companion/a
 - Distinguish Next block from Finish session, and retain a working return path when feedback is canceled. Repair F04/F05/F09 before considering this flow release-ready.
 - Show relevant orientation advice only, update it after rotation, and align MIDI recovery with the blocked primary action.
 
-The open entry decision is whether Today Start/Resume should open the current block ready for an explicit start, or show the overview first. Do not change Today's accepted behavior or silently auto-start the timer while that decision is unresolved. Any agreement applies to planned practices, routines, preparation and Calendar; update those previously reviewed entry points together.
+The owner agreed with this analysis and requested live session editing. The implementation places a compact current-block panel first, beside or above the editable sequence. Today Start/Resume still opens this paused overview with an explicit start action. Quick-routine auto-entry remains unchanged and tracked as SESSION-F02; choosing a common entry contract across all sources is separate from accepting the editing direction.
 
-## Verification and continuation
+## Live editing implementation and verification
 
-- [x] Production build; immutable inputs, source hashes and 27 captures; no capture runtime errors or horizontal overflow.
-- [x] Read-only code audit and disposable interaction probes; application source unchanged.
-- [x] Draft the [session overview manual](../manual/en/session-overview.md) from current behavior.
-- [ ] Agree the objective and entry semantics; then refine and capture comparable after states.
-- [ ] Repair confirmed correctness findings and add focused regression coverage as part of implementation.
-- [ ] Review repertoire with/without PDF or MusicXML, connected/reconnected MIDI, no-tempo mobile input, prior-day recovery, completed blocks, feedback, long text and assistive input.
-- [ ] Verify real background/foreground, safe areas and orientation on Android; physical MIDI and iOS remain separate gates.
+[D-005](decisions.md#d-005--adapt-the-current-session-without-losing-performed-work) records the accepted direction. The active sequence now supports inline minutes, up/down moves, removal and a compact Add block dialog. Edits pause practice and preserve source routine/plan structure. Completed blocks stay fixed. Moving a started block retains its time, answers and generated-score snapshot; removing it archives performed work. An old all-complete checkpoint can recover by adding a fresh block.
 
-Next: discuss this baseline and the proposed entry decision, implement the agreed session flow, then continue into its exercise, timer, score and feedback child views. The approved compact Today remains the density reference and must be rechecked if shared navigation or Start/Resume behavior changes.
+[Session comparison gallery](captures/session/2026-10-01-session-editor/index.html): **20 frames, 16 views**, using the same four fixtures and standard layouts. All 16 primary controls are visible initially; no page-width overflow or runtime exceptions. Planned landscape-phone primary moves from y=384–428 to **y=202–246**. Separate block/session clocks correctly show 8:00/18:00 for resumed practice. Touch controls retain 44px targets. The [Add block gallery](captures/session/2026-10-01-add-block/index.html) adds **eight English/Spanish modal captures**, with all fields and submit visible even in phone landscape; exact synthetic inputs and hashes are retained.
+
+Confirmed repairs: F01 density, F03 time/state distinction, F04 final-block cancellation, F05 background pause labels, F06 relevant/updated orientation advice, F07 MIDI recovery as primary, and F09 atomic feedback-save retry. F02 start semantics and F08 metronome/timer coupling remain unchanged for their child review. Old findings/actions above describe the immutable baseline, not current behavior.
+
+Verification evidence:
+
+- Ten pure edit/model tests cover accrued time, generated material, suspended answers, removal without loss, source IDs, completed-prefix protection, limits, backup/recovery, finalization and old all-complete checkpoints.
+- Six browser regressions cover final feedback cancellation, write failure/retry without duplicates, background control refresh, live add/reorder/remove/minutes across reload, failed removal rollback, repertoire selection and live orientation advice. These use disposable notebooks and simulated failures/lifecycle events.
+- Full suite: 227 tests exercised, 224 passed, one optional network test skipped, and two reported failures from the same obsolete PDF button-label assertion and its parent test. The assertion was updated for the new Continue label; the focused PDF suite then passed all nine tests. No unresolved failure remains. Logs: [full run](../../artifacts/session-editor-tests.log), [PDF rerun](../../artifacts/session-editor-pdf-recheck.log), [focused browser run](../../artifacts/session-refinement-browser-tests.log). This accurately distinguishes the full run from its focused correction.
+- Today/navigation/layout/locale checks from the full suite remain valid. Session styling and Add-form styling are scoped; the accepted Today layout is unchanged. Source routine/plan isolation and Today Resume are exercised by the new regressions.
+- Production web and Android APK builds passed. The APK was installed in the existing emulator. [Native navigation smoke](../../artifacts/session-editor-native-check.log) verified Android Back, navigation and the 44px MIDI target; notebook and all 55 asset/annotation hashes stayed unchanged. Live editing itself was verified in disposable browsers, not by modifying the installed notebook. No claim of physical MIDI, iOS, native four-orientation or OS-keyboard acceptance is made by responsive captures.
+
+## Continuation
+
+- [x] Accept objective/refinement direction and add live editing.
+- [x] Repair F04/F05/F06/F09 with regression evidence; capture the compact result in four layouts.
+- [x] Update the [session manual](../manual/en/session-overview.md); it stays draft while child reviews continue.
+- [x] Owner approved the result except the always-visible movement controls. D-006 supplies long-press movement and a temporary bin.
+- [ ] Resolve common entry semantics and review metronome start/stop wording in the relevant child flow.
+- [ ] Review repertoire with/without PDF or MusicXML, connected/reconnected MIDI, no-tempo mobile input, prior-day recovery, feedback, long text and assistive input.
+- [ ] Verify real background/foreground, safe areas, soft keyboard and orientation on Android; physical MIDI and iOS remain separate gates.
+
+Next: review the compact session/editor result, then follow Start/Continue exercise into the reading/technique child view. Keep the accepted Today as the density reference and carry D-005 data-preservation rules into later preparation/routine reviews.
+
+## D-006 follow-up and handoff
+
+The owner approved the rest of this screen and requested long-press rearrangement with a temporary bin. The arrow-based 20-frame gallery remains historical; the [new gesture gallery](captures/session/2026-10-01-session-drag-02/index.html) includes held states in all four layouts. Seventeen focused tests pass, including actual Chromium touch gestures, native-scroll cancellation, bin removal with retained progress and last-block protection. Existing feedback/edit failure regressions still pass. Touch behavior on physical Android/iOS devices remains a separate gate.
+
+Stop here for this conversation. Next: PRACTICE-02 reading/technique baseline and objective, preserving the approved overview and D-006 gesture convention.
+
+Updated Android APK built and installed after D-006. Navigation/Back smoke checks passed; the installed notebook and all 55 assets/annotations were unchanged. [Native check](../../artifacts/session-drag-native-check.log). Gesture verification remains Chromium touch emulation; no synthetic notebook was written into the emulator.
+
+## D-007 block editor and duration refinement
+
+The owner requested editing each block, using the card width and easier duration changes. Each unfinished row now groups Edit and the drag grip on the right, with a full-width duration slider and exact minutes beneath. The planned total previews slider changes; release commits them. D-006 long-press/bin behavior remains intact. The pencil opens activity, minutes, scale/work, hands and tempo, plus context-specific timing and a More settings disclosure. Completed blocks remain read-only.
+
+Changing musical settings archives earlier performed work with its original settings and clears only the edited block's exercise runtime. Duration-only changes retain the current exercise position. Both preserve total time, stable IDs and original routines/plans. Cancel leaves settings unchanged; failed saves keep the original paused session and form for retry.
+
+Evidence: [overview and held states](captures/session/2026-10-01-block-controls-02/index.html), 24 frames across 16 views; [English/Spanish editor, basic and expanded](captures/session/2026-10-01-edit-block-02/index.html), 24 frames across 16 views. Both use the four standard layouts and disposable notebooks. The basic phone-landscape editor fits Save/Cancel without scrolling; expanded settings remain scrollable. Historical runs are retained. New visuals await feedback.
+
+Production web build passed. [Twenty-four focused tests](../../artifacts/session-block-edit-tests.log) pass: 13 model/editor cases, seven session browser regressions, touch drag/bin and notebook layout checks. Coverage includes preview versus commit, cancel, musical edits, unchanged defaults, failed save/retry, reload and preserved earlier work. The manual now describes verified editing behavior. Do not start a new screen in this conversation; next review remains PRACTICE-02 after this final refinement.
+
+The Android APK built successfully and was installed and launched in the existing emulator. [Native navigation/Back check](../../artifacts/session-block-edit-native-check.log) passed with the notebook and all 55 assets/annotations unchanged. Editing was exercised in disposable browser fixtures; physical touch, MIDI, iOS and native keyboard/orientation remain separate coverage gates.

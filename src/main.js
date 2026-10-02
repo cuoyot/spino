@@ -12,6 +12,7 @@ import { sing, syllableFor } from './voice.js';
 import * as midi from './midi.js';
 import { bootCompanion } from './companion/app.js';
 import { generateTargetBars, targetById } from './companion/curriculum.js';
+import { rhythmFigures, rhythmLevel } from './companion/rhythm-levels.js';
 
 // ---------- persistence ----------
 const DEFAULTS = {
@@ -132,7 +133,9 @@ function toast(text) {
 
 // Legacy phone exercises use one staff; managed two-hand practice always uses the grand staff.
 const isPhone = () => Math.min(window.innerWidth, window.innerHeight) < 600;
-const managedBothHands = () => ['reading', 'technique'].includes(managed?.block.type) && managed.block.hand === 'both' && managed.context !== 'mobile';
+const managedBothHands = () => ['reading', 'technique', 'warmup'].includes(managed?.block.type) && managed.block.hand === 'both' && managed.context !== 'mobile';
+// Warm-ups show their fingering unless hidden for that block; the saved preference is left untouched.
+const fingersShown = () => managed?.block.type === 'warmup' ? managed.fingers !== false : !!settings.fingering;
 const clef = () => managedBothHands() ? 'grand' : (settings.pianoMode ? (isPhone() ? (line && line.hand) || 'treble' : 'grand') : settings.clef === 'grand' ? 'treble' : settings.clef);
 // Managed practice supports fixed pages on phones as well as tablets.
 const selfPaced = () => managed?.context === 'mobile' && managed.block.timing === 'wait';
@@ -167,6 +170,13 @@ const kbBar = $('#kb-bar');
 const kbShift = $('#kb-shift');
 const kbRange = $('#kb-range');
 const kbAuto = $('#kb-auto');
+const kbHint = $('.kb-hint');
+// Visible count-in before the first note, after a page turn and after moving the focus.
+const countEl = Object.assign(document.createElement('div'), { id: 'count-in', hidden: true });
+countEl.setAttribute('aria-hidden', 'true');
+$('#staff-wrap').append(countEl);
+const statusTools = Object.assign(document.createElement('div'), { id: 'status-tools' });
+$('#status-row').append(statusTools);
 const lightsEl = $('#lights');
 
 // ---------- session state ----------
@@ -296,11 +306,50 @@ function browsePage(direction) {
   if (line.idx < 0) line.idx = line.notes.length;
   advance();
   scrollTo = beat;
-  if (timed) {
-    const at = performance.now(); timed.t0 = at - beat * beatMs();
-    timed.suspendedAt = at; timed.nextClick = Math.ceil(beat); suspendedByCompanion = true;
-  }
+  if (timed) countInAt(beat); else line.seekBeat = beat;
   draw(); updateHud(); feedback(ui('Paused · press Continue to play this page.','En pausa · pulsa Continuar para tocar esta página.'), '');
+}
+// Leave the paused clock one bar before `beat`, so resuming counts in and then plays from there.
+function countInAt(beat) {
+  const at = performance.now();
+  timed.t0 = at - (beat - beatsPerBar()) * beatMs(); timed.suspendedAt = at;
+  timed.nextClick = Math.ceil(beat - beatsPerBar()); timed.countTo = beat; suspendedByCompanion = true;
+}
+// Move the focus to a note while paused: later notes become playable again, skipped ones are not errors.
+function seekTo(i) {
+  if (!line || i < 0 || i >= line.notes.length || timed && timed.suspendedAt == null || waiting && !waiting.paused && !selfPaced()) return;
+  const beat = line.onsets[i];
+  i = line.onsets.findIndex((onset) => onset >= beat);
+  line.states = line.states.map((st, k) => k >= i ? 'pending' : st === 'pending' || st === 'current' ? 'played' : st);
+  line.idx = i; advance();
+  if (selfPaced()) { draw(); updateHud(); return; }
+  scrollTo = beat;
+  if (timed) countInAt(beat); else line.seekBeat = beat;
+  draw(); updateHud();
+  feedback(ui('Focus moved · press Start to play from here.', 'Foco movido · pulsa Empezar para tocar desde aquí.'), '');
+}
+// A short tap on the score while paused picks the nearest note in the tapped system.
+function noteAt(x, y) {
+  if (!layout?.elementOf) return -1;
+  let best = -1, distance = Infinity;
+  for (let i = layout.from; i < layout.to; i++) {
+    const r = layout.elementOf(i)?.getBoundingClientRect();
+    if (!r?.width) continue;
+    const d = Math.max(r.left - x, 0, x - r.right) + 3 * Math.max(r.top - y, 0, y - r.bottom);
+    if (d < distance) { distance = d; best = i; }
+  }
+  return distance <= 80 ? best : -1;
+}
+{
+  let tap = null;
+  $('#staff-wrap').addEventListener('pointerdown', (e) => { tap = e.target.closest('button, nav') ? null : { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  $('#staff-wrap').addEventListener('pointerup', (e) => {
+    const start = tap; tap = null;
+    if (!start || performance.now() - start.t > 500 || Math.hypot(e.clientX - start.x, e.clientY - start.y) > 8) return;
+    if (timed && timed.suspendedAt == null) return; // only while paused or before starting
+    const i = noteAt(e.clientX, e.clientY);
+    if (i >= 0) seekTo(i);
+  });
 }
 $('#score-prev').onclick = () => browsePage(-1);
 $('#score-next').onclick = () => browsePage(1);
@@ -324,6 +373,10 @@ function layoutPanels() {
   root.dataset.lights = String(!lightsEl.hidden);
   $('#guide-btn').disabled = settings.input !== 'piano';
   kbAuto.disabled = settings.input !== 'piano' || settings.kbLo == null;
+  // Sessions without an on-screen keyboard fold the guide and fingering buttons into the status row.
+  const compact = !!managed && settings.input !== 'piano';
+  root.toggleAttribute('data-compact-footer', compact);
+  for (const id of ['#guide-btn', '#finger-btn']) (compact ? statusTools : kbBar).append($(id));
 }
 
 // A warm-up survives incidental restarts (resize, keyboard move, timed start); only applySettings decides it.
@@ -368,7 +421,7 @@ function draw(animate = false) {
   if (pageMode()) {
     line.pageStart ||= 0;
     ensureAhead(target);
-    layout = renderPage(staffEl, { notes: line.notes, onsets: line.onsets, states: line.states, clef: clef(), key: line.key, beatsPerBar: beatsPerBar(), barsPerSystem: barsPerSystem(), systems: systemsFit(), startBeat: line.pageStart, zoomHint: pageZoom() * 1.08, widthHint: selfPaced() && barsPerSystem() === 2 ? 420 : 620, fingering: settings.fingering });
+    layout = renderPage(staffEl, { notes: line.notes, onsets: line.onsets, states: line.states, clef: clef(), key: line.key, beatsPerBar: beatsPerBar(), barsPerSystem: barsPerSystem(), systems: systemsFit(), startBeat: line.pageStart, zoomHint: pageZoom() * 1.08, widthHint: selfPaced() && barsPerSystem() === 2 ? 420 : 620, fingering: fingersShown() });
     showGuides();
     return;
   }
@@ -379,7 +432,7 @@ function draw(animate = false) {
   while (from > 0 && line.onsets[from - 1] > target - behind) from--;
   // Keep complete bars: trimming mid-bar changes accidentals, beams and stem directions.
   while (from > 0 && line.notes[from - 1].bar === line.notes[from]?.bar) from--;
-  layout = renderScore(staffEl, { notes: line.notes, onsets: line.onsets, states: line.states, clef: clef(), key: line.key, beatsPerBar: beatsPerBar(), ppb: ppb(), from, to: line.notes.length, scrollBeat: target, fingering: settings.fingering });
+  layout = renderScore(staffEl, { notes: line.notes, onsets: line.onsets, states: line.states, clef: clef(), key: line.key, beatsPerBar: beatsPerBar(), ppb: ppb(), from, to: line.notes.length, scrollBeat: target, fingering: fingersShown() });
   if (animate && prev != null && !timed) {
     setScroll(prev, false);
     requestAnimationFrame(() => requestAnimationFrame(() => setScroll(target, true)));
@@ -521,7 +574,7 @@ function currentGroup() {
 function setCurrentGroup() {
   const g = currentGroup();
   g.forEach((j) => { if (line.states[j] === 'pending') line.states[j] = 'current'; });
-  if (settings.fingering && g.some((j) => line.notes[j].shift)) feedback(t('moveHand'), 'warn');
+  if (fingersShown() && g.some((j) => line.notes[j].shift)) feedback(t('moveHand'), 'warn');
 }
 function matches(n, answer) {
   return answer.pitchClassOnly ? samePitchClass(n.midi, answer.midi) : n.midi === answer.midi;
@@ -586,16 +639,21 @@ function startTimed() {
     timed.t0 += performance.now() - timed.suspendedAt; timed.suspendedAt = null; suspendedByCompanion = false;
     timed.audioOffset = audioNow() - performance.now() / 1000;
     timed.nextClick = Math.ceil((performance.now() - timed.t0) / beatMs());
+    if (timed.countTo != null && (performance.now() - timed.t0) / beatMs() < timed.countTo) feedback(t('countIn'), '');
     timed.raf = requestAnimationFrame(tick); syncStartButton(); readerEvent('play'); return;
   }
   stopTimed();
-  if (!line || line.idx > 0 || line.states.some((st) => st !== 'pending' && st !== 'current')) newLine();
+  // A focus moved before starting keeps its line and starts from that note.
+  const from = line?.seekBeat ?? 0;
+  if (line?.seekBeat != null) delete line.seekBeat;
+  else if (!line || line.idx > 0 || line.states.some((st) => st !== 'pending' && st !== 'current')) newLine();
   line.states = line.states.map((st) => (st === 'current' ? 'pending' : st));
   const bm = beatMs();
   timed = {
-    t0: performance.now() + 150 + beatsPerBar() * bm, // after a one-bar count-in
+    t0: performance.now() + 150 + (beatsPerBar() - from) * bm, // after a one-bar count-in
     audioOffset: audioNow() - performance.now() / 1000,
-    nextClick: -beatsPerBar(),
+    nextClick: Math.ceil(from) - beatsPerBar(),
+    countTo: from,
     suspendedAt: null,
     clicks: [],
     raf: 0,
@@ -637,7 +695,20 @@ function cancelClicks() {
 // beat under the playhead; backgrounding the app freezes practice without losing notes
 function timedBeat() {
   if (!timed) return 0;
-  return Math.max(-0.5, ((timed.suspendedAt ?? performance.now()) - timed.t0) / beatMs());
+  // During a count-in the focus waits just before the note that will start.
+  const beat = ((timed.suspendedAt ?? performance.now()) - timed.t0) / beatMs(), start = timed.countTo ?? 0;
+  return beat < start ? Math.max(start - 0.5, beat) : beat;
+}
+function showCount(beat) {
+  const left = timed && timed.suspendedAt == null && timed.countTo != null && beat < timed.countTo ? Math.ceil(timed.countTo - beat - 1e-6) : 0;
+  if (!left) { countEl.hidden = true; return; }
+  if (countEl.hidden || countEl.textContent !== String(left)) {
+    countEl.textContent = String(left); countEl.hidden = false;
+    // Sit beside the focus line, above its system, so the notes about to be read stay visible.
+    const head = $('#playhead');
+    countEl.style.left = `${head.offsetLeft + 10}px`; countEl.style.top = `${Math.max(4, head.offsetTop - 50)}px`;
+    countEl.classList.remove('tick'); void countEl.offsetWidth; countEl.classList.add('tick');
+  }
 }
 
 document.addEventListener('visibilitychange', () => {
@@ -723,6 +794,7 @@ function tick() {
   timed.raf = requestAnimationFrame(tick);
   const bm = beatMs();
   const now = performance.now() - timed.t0;
+  showCount(now / bm);
 
   // metronome, scheduled slightly ahead on the audio clock
   // Skip stale clicks after a slow frame instead of playing a burst to catch up.
@@ -758,6 +830,7 @@ function tick() {
   // fixed sheet: at the end of the page, turn it and give a bar of count-in before the next one
   if (pageMode() && now / bm >= pageEnd()) {
     timed.t0 += beatsPerBar() * bm;
+    timed.countTo = pageEnd();
     maybeTurnPage(pageEnd());
     feedback(t('countIn'), '');
     return;
@@ -887,8 +960,11 @@ function buildPiano() {
   pianoEl.hidden = settings.input !== 'piano';
   kbBar.hidden = false;
   namesEl.hidden = settings.input !== 'names';
+  // Without an on-screen keyboard there is nothing to move or resize; the header already shows MIDI.
+  // Hidden in place (visibility) so the guide and fingering buttons keep their slots.
+  for (const el of [kbRange, kbHint, kbAuto]) el.classList.toggle('kb-unused', settings.input !== 'piano');
   if (settings.input !== 'piano') {
-    kbRange.textContent = settings.input === 'none' ? 'MIDI' : '♪';
+    kbRange.textContent = '';
     return;
   }
   const [lo, hi] = rangeFor(clef(), settings.level);
@@ -1635,10 +1711,10 @@ function syncQuick() {
   $('#guide-btn').classList.toggle('on', settings.guide !== 'off');
   $('#guide-btn').title = $('#guide-btn').textContent;
   $('#guide-btn').setAttribute('aria-label', $('#guide-btn').textContent);
-  $('#finger-btn').textContent = `${t('fingering')}: ${t(settings.fingering ? 'yes' : 'no')}`;
-  $('#finger-btn').classList.toggle('on', !!settings.fingering);
+  $('#finger-btn').textContent = `${t('fingering')}: ${t(fingersShown() ? 'yes' : 'no')}`;
+  $('#finger-btn').classList.toggle('on', fingersShown());
   $('#finger-btn').title = $('#finger-btn').textContent;
-  $('#finger-btn').setAttribute('aria-pressed', String(!!settings.fingering));
+  $('#finger-btn').setAttribute('aria-pressed', String(fingersShown()));
   const clefLabel = t(settings.pianoMode ? 'qBoth' : CLEF_LABEL[clef()]);
   $('#q-clef').title = clefLabel;
   $('#q-clef').setAttribute('aria-label', clefLabel);
@@ -1750,13 +1826,21 @@ $('#guide-btn').addEventListener('click', () => {
   draw();
 });
 $('#finger-btn').addEventListener('click', () => {
-  settings.fingering = !settings.fingering;
-  save('sr.settings', settings);
+  if (managed?.block.type === 'warmup') managed.fingers = !fingersShown();
+  else { settings.fingering = !settings.fingering; save('sr.settings', settings); }
   syncQuick();
   draw();
 });
-$('#bpm-down').onclick = () => nudgeBpm(-4);
-$('#bpm-up').onclick = () => nudgeBpm(4);
+// One BPM per tap; holding a button keeps changing the tempo.
+for (const [id, delta] of [['#bpm-down', -1], ['#bpm-up', 1]]) {
+  const button = $(id);
+  let timer = null, held = false;
+  const stop = () => { clearTimeout(timer); timer = null; };
+  const repeat = (wait) => { timer = setTimeout(() => { held = true; nudgeBpm(delta); repeat(90); }, wait); };
+  button.addEventListener('pointerdown', () => { stop(); held = false; repeat(450); });
+  for (const type of ['pointerup', 'pointerleave', 'pointercancel']) button.addEventListener(type, stop);
+  button.onclick = () => { if (!held) nudgeBpm(delta); held = false; };
+}
 $('#q-clef').onclick = () => {
   if (managed) { $('#open-settings').onclick(); return; }
   forkIfLevel();
@@ -1809,6 +1893,7 @@ $('#new-key').onclick = () => {
 Object.defineProperty(window, '__sr', { get: () => ({ line, layout, settings, timed, waiting, midi }) });
 
 function companionPause() {
+  countEl.hidden = true;
   if (waiting) waiting.paused = true;
   if (timed && timed.suspendedAt == null) {
     timed.suspendedAt = performance.now(); cancelAnimationFrame(timed.raf); cancelClicks();
@@ -1829,7 +1914,7 @@ const reader = {
     stopTimed(); setMidiContext(context); managed = { block, context }; readerVisible = true; suspendedByCompanion = false;
     settings.timing = selfPaced() ? 'wait' : 'timed';
     const presentation = ['page', 'scroll'].includes(block.presentation) ? block.presentation : !isPhone() && context !== 'mobile' ? 'page' : 'scroll';
-    Object.assign(settings, { templateId: null, lang: getAppLanguage(), clef: block.hand === 'left' ? 'bass' : 'treble', pianoMode: false, level: block.level ?? 0, mode: 'notes', layoutMode: presentation, input: context === 'mobile' ? block.input : 'none', bpm: block.bpm, timeSig: '4/4', figures: { w: false, h: block.figures.includes('h'), q: true, e: block.figures.includes('e'), s: false }, dotted: false, accidentals: false, kbLo: null });
+    Object.assign(settings, { templateId: null, lang: getAppLanguage(), clef: block.hand === 'left' ? 'bass' : 'treble', pianoMode: false, level: block.level ?? 0, mode: 'notes', layoutMode: presentation, input: context === 'mobile' ? block.input : 'none', bpm: block.bpm, timeSig: '4/4', ...rhythmFigures(block.figures), rhythm: rhythmLevel(block.figures), accidentals: false, kbLo: null });
     Object.assign(session, { correct: 0, wrong: 0, streak: 0, best: 0, times: [] });
     document.body.classList.add('managed-practice');
     $('#reader-view').hidden = false; $('#practice-toolbar').hidden = false;

@@ -8,3 +8,12 @@ artifacts/
 public/pdfjs/
 public/ocr/
 public/repertoire/
+
+# Release signing: upload key and its passwords stay on this machine
+android/keystore.properties
+*.jks
+*.keystore
+*.aab
+
+# Wrangler local state
+.wrangler/

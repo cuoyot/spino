@@ -1,0 +1,10 @@
+// Cloudflare Workers static site: publishes only site/ (landing page, privacy policy). No server code.
+// Regenerate site/ with `node scripts/site/build-site.mjs`; see docs/play-store/README.md.
+{
+  "name": "spino",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}

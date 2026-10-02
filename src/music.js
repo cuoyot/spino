@@ -44,9 +44,16 @@ const RANGES = {
   bass: [[17, 27], [14, 30], [12, 32]],   // F2–B3, C2–E4, A1–G4
 };
 
-export function rangeFor(clef, level) {
-  if (clef === 'grand') return [RANGES.bass[level][0], RANGES.treble[level][1]];
-  return RANGES[clef][level];
+// With a real keyboard (MIDI or acoustic piano) every key is available, so even the focused level
+// reads the whole staff plus one ledger line each side: C4–A5 in treble, E2–C4 in bass.
+const KEYBOARD_RANGES = {
+  treble: [[28, 40], [26, 42], [24, 44]], // C4–A5, A3–C6, F3–E6
+  bass: [[16, 28], [14, 30], [12, 32]],   // E2–C4, C2–E4, A1–G4
+};
+export function rangeFor(clef, level, keyboard = false) {
+  const ranges = keyboard ? KEYBOARD_RANGES : RANGES;
+  if (clef === 'grand') return [ranges.bass[level][0], ranges.treble[level][1]];
+  return ranges[clef][level];
 }
 
 // Intersect a clef range with the keys visible on the on-screen piano (vis = { lo, hi, loMidi, hiMidi }).

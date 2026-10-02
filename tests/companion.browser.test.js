@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 
 test('two-hand reading and technique work on physical piano and evaluate both MIDI notes on a phone', {timeout:90000},async t=>{
   const {send,evaluate,errors,url}=await openBrowser(t,{companion:true});
@@ -10,6 +10,7 @@ test('two-hand reading and technique work on physical piano and evaluate both MI
   await send('Page.navigate',{url});
   const wait=exp=>evaluate(`new Promise((resolve,reject)=>{let i=0;const timer=setInterval(()=>{if(${exp}){clearInterval(timer);resolve(true);}else if(++i>1000){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   for(const type of ['reading','technique']) for(const context of ['piano','midi']){
     await evaluate(`__sr.midi.simulateDevices(['Test piano']);document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="${type}"]').click();{const context=document.querySelector('[name="context"]');context.value='${context}';context.dispatchEvent(new Event('change',{bubbles:true}));}`);
     assert.ok(await evaluate(`!!document.querySelector('[name="hand-0"] option[value="both"]')`));
@@ -43,6 +44,7 @@ test('piano companion: local planning, practice, history, recovery and responsiv
   await send('Page.navigate',{url});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let attempts=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve(true);}else if(++attempts>200){clearInterval(timer);reject(new Error('Timeout: '+${JSON.stringify(expression)}));}},25);})`);
   await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   const action=async (name,id=null)=>{await evaluate(`document.querySelector('[data-action="${name}"]${id?`[data-id="${id}"]`:''}').click()`);};
   const stored=()=>evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result;const q=db.transaction('state').objectStore('state').get('current');q.onsuccess=()=>{resolve(q.result);db.close();};q.onerror=reject;};r.onerror=reject;})`);
   await t.test('creates a modal reading session and records only time practised',async()=>{
@@ -138,6 +140,7 @@ test('connected practice: manual mode never creates errors and MIDI disconnect f
   await send('Page.navigate',{url});
   const wait=exp=>evaluate(`new Promise((resolve,reject)=>{let i=0;const id=setInterval(()=>{if(${exp}){clearInterval(id);resolve(true);}else if(++i>200){clearInterval(id);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="reading"]').click();document.querySelector('[name="context"]').value='piano';document.querySelector('#prepare-form').requestSubmit()`);
   await wait(`document.querySelector('[data-action="open-reader"]')`);
   await evaluate(`document.querySelector('[data-action="open-reader"]').click();frameAt(__sr.timed.t0+5000)`);

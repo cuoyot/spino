@@ -54,7 +54,7 @@ Suggested duration is guidance, not an automatic stop. Never change the piece wh
 
 ## 5. Library and routines
 
-A routine is a reusable sequence of blocks; a session records what happened on one occasion. Editing a routine must never rewrite completed sessions. A typical routine combines warm-up, technique, reading, repertoire and reflection. The editor supports adding, removing and reordering blocks with accessible buttons, setting objectives and scheduling the result. Duplication and drag ordering can follow later.
+A routine is a reusable sequence of blocks; a session records what happened on one occasion. Editing a routine must never rewrite completed sessions. A typical routine combines warm-up, technique, reading, repertoire and reflection. The editor supports adding, removing and reordering blocks, setting objectives and scheduling the result. The accepted movement standard is long press to lift an item, drag with visible destination feedback, then release; a temporary bin supports removal where allowed, with tap/keyboard alternatives. This is implemented for active-session blocks. Apply the same convention to routine preparation and calendar rescheduling during their reviews, preserving normal scrolling and existing data/deletion rules. Routine duplication remains a later enhancement.
 
 Library cards identify objectives, prerequisites, supported contexts and suggested duration; difficulty is displayed only when reviewed. Suggestions can use local rules and personal goals without hosted AI.
 

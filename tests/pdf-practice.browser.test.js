@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 import { scorePDF } from './pdf-fixture.js';
 
 test('immersive PDF practice, pause-only tools, fingering and saved framing', { timeout: 120000 }, async t => {
@@ -21,6 +21,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   const shot = async name => { if (!process.env.UI_SCREENSHOTS) return; await mkdir('artifacts/pdf', { recursive: true }); const r = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(`artifacts/pdf/${name}.png`, Buffer.from(r.data, 'base64')); };
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   await action('piano'); await action('repertoire'); await action('new-work');
   await evaluate(`(()=>{const f=new DataTransfer();f.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Score.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=f.files;input.dispatchEvent(new Event('change'));})()`);
   await wait(`document.querySelector('[name=score]').validity.valid`);

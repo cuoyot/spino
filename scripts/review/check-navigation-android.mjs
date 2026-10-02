@@ -8,7 +8,7 @@ const adb = join(process.env.USERPROFILE, 'Android', 'sdk', 'platform-tools', 'a
 const run = args => execFileSync(adb, args, { encoding: 'utf8', windowsHide: true }).trim();
 let pid = '';
 for (let attempt = 0; attempt < 40 && !pid; attempt++) {
-  try { pid = run(['shell', 'pidof', 'com.miguelcoll.sightreader']); } catch { /* The activity may still be starting after installation. */ }
+  try { pid = run(['shell', 'pidof', 'com.miguecoll.spino']); } catch { /* The activity may still be starting after installation. */ }
   if (!pid) await new Promise(resolve => setTimeout(resolve, 250));
 }
 assert.match(pid, /^\d+$/);

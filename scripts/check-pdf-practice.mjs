@@ -12,7 +12,7 @@ import { scorePDF } from '../tests/pdf-fixture.js';
 
 const adb = join(process.env.USERPROFILE, 'Android', 'sdk', 'platform-tools', 'adb.exe');
 const run = args => execFileSync(adb, args, { encoding: 'utf8', windowsHide: true }).trim();
-const pid = run(['shell', 'pidof', 'com.miguelcoll.sightreader']);
+const pid = run(['shell', 'pidof', 'com.miguecoll.spino']);
 assert.match(pid, /^\d+$/);
 const port = run(['forward', 'tcp:0', `localabstract:webview_devtools_remote_${pid}`]);
 let socket;

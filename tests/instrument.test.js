@@ -4,7 +4,7 @@ import { createInstrumentController, instrumentMarkup, readInstrumentPreferences
 
 const ADDRESS = 'AA:BB:CC:DD:EE:01';
 function fixture(t, initial = {}, native = true) {
-  const events = { devices: new Set(), ble: new Set() };
+  const events = { devices: new Set(), ble: new Set(), control: new Set() };
   let devices = [], stored = JSON.stringify(initial), scans = 0, connections = 0, refreshes = 0, error = null;
   const emit = (event, value) => { if (event === 'devices') devices = value; events[event].forEach(listener => listener(value)); };
   const storage = { getItem: () => stored, setItem: (key, value) => { assert.equal(key, 'spino.instrument.v1'); stored = value; } };

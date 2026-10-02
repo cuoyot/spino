@@ -42,6 +42,9 @@ export function pagePoint(clientX, clientY, rect) {
 // The target is at most 18 CSS px, never an entire third of the score.
 export function marginTurn({ x, width, duration, distance, scrollDistance = 0, pointers = 1, tool, zoom, allowZoom = false }) {
   if (tool !== 'read' || (!allowZoom && zoom > 1.01) || pointers !== 1 || duration > 300 || distance > 7 || scrollDistance > 2 || x < 0 || x > width) return 0;
-  const edge = Math.min(18, width * .035);
+  const edge = turnEdge(width);
   return x <= edge ? -1 : x >= width - edge ? 1 : 0;
 }
+
+// Page-turn margin: wide enough to hit reliably, never more than a third of the visible score.
+export const turnEdge = width => Math.min(width / 3, Math.max(44, Math.min(140, width * .16)));

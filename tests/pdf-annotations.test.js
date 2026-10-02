@@ -36,12 +36,14 @@ test('fingering and orientation-specific framing survive validated notebook back
   for (const frame of [{ zoom: 4, centerX: .5, centerY: .5 }, { zoom: 1, centerX: -1, centerY: .5 }, { zoom: 1, centerX: .5, centerY: Infinity }]) assert.throws(() => validateScoreView({ version: 1, portrait: frame }));
 });
 
-test('page turning uses narrow margins and rejects pointing, holds, drags, annotation and pinch gestures', () => {
+test('page turning uses wide margins and rejects pointing, holds, drags, annotation and pinch gestures', () => {
   for (const width of [160, 300, 768, 1400]) {
     const tap = { width, x: width - 2, duration: 100, distance: 0, tool: 'read', zoom: 1 };
     assert.equal(marginTurn(tap), 1); assert.equal(marginTurn({ ...tap, x: 2 }), -1);
-    assert.equal(marginTurn({ ...tap, zoom: 2, allowZoom: true }), 1, 'PDF reading can turn at a narrow visible edge of a saved zoom');
-    for (const x of [width / 2, width - 20, 20]) assert.equal(marginTurn({ ...tap, x }), 0);
+    assert.equal(marginTurn({ ...tap, zoom: 2, allowZoom: true }), 1, 'PDF reading can turn at the visible edge of a saved zoom');
+    // The margin is at least 44px (a fingertip) and at most 140px or a third of the score.
+    for (const x of [30, Math.min(width / 3, 44) - 1]) { assert.equal(marginTurn({ ...tap, x }), -1); assert.equal(marginTurn({ ...tap, x: width - x }), 1); }
+    for (const x of [width / 2, Math.min(width / 3, 140) + 2]) { assert.equal(marginTurn({ ...tap, x }), 0); assert.equal(marginTurn({ ...tap, x: width - x }), 0); }
     for (const change of [{ tool: 'pen' }, { tool: 'text' }, { tool: 'erase' }, { duration: 301 }, { distance: 8 }, { pointers: 2 }, { zoom: 1.25 }, { scrollDistance: 3 }]) {
       assert.equal(marginTurn({ ...tap, ...change }), 0, JSON.stringify(change));
     }

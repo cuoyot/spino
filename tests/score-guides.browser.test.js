@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 import { measureScoreGuides } from './score-geometry.js';
 
 function aligned(result, label) {
@@ -22,6 +22,7 @@ test('score cursor and light follow actual notation in page and scrolling layout
   ` });
   await send('Page.navigate', { url });
   await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(document.querySelector('#app-shell h1')){clearInterval(timer);resolve(true);}},20);})`);
+  await disableWarmup(evaluate);
   await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action=prepare][data-id=reading]').click();document.querySelector('[name=context]').value='piano';document.querySelector('[name=presentation-0]').value='page';document.querySelector('#prepare-form').requestSubmit();`);
   await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(document.querySelector('[data-action=open-reader]')){clearInterval(timer);resolve(true);}},20);})`);
   await evaluate(`document.querySelector('[data-action=open-reader]').click();__sr.settings.metronome=false;__sr.settings.soundMode='off';scoreBeat(0);`);
@@ -44,7 +45,7 @@ test('score cursor and light follow actual notation in page and scrolling layout
   // Wider whole-note heads must share the same beat centre as quarter-note heads.
   for (const mode of ['page', 'scroll']) {
     const result = await evaluate(`(()=>{
-      Object.assign(__sr.settings,{layoutMode:'${mode}',pianoMode:false,clef:'treble',figures:{w:true,h:false,q:false,e:false,s:false}});
+      Object.assign(__sr.settings,{layoutMode:'${mode}',pianoMode:false,clef:'treble',rhythm:null,figures:{w:true,h:false,q:false,e:false,s:false}});
       document.querySelector('#new-key').click();document.querySelector('#start').click();scoreBeat(0);
       return measureScoreGuides(0);
     })()`);

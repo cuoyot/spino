@@ -433,3 +433,20 @@
 .cp-repertoire-row .cp-repertoire-open { flex: 1; min-width: 0; text-align: left; background: transparent; border: 0; white-space: normal; overflow-wrap: anywhere; }
 .cp-repertoire-open b, .cp-repertoire-open small { display: block; }
 .cp-repertoire-open small { margin-top: 4px; opacity: .72; }
+
+/* Busy state for buttons that open a score viewer. */
+#app-shell button.cp-loading, #cp-dialog button.cp-loading { cursor: progress; opacity: 1; }
+#app-shell button.cp-loading::before, #cp-dialog button.cp-loading::before { content: ""; display: inline-block; width: 14px; height: 14px; margin-right: 8px; vertical-align: -2px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: cp-spin .7s linear infinite; }
+@keyframes cp-spin { to { transform: rotate(360deg); } }
+
+/* Save-session dialog: the two save actions share a row; leaving actions sit apart below a divider. */
+.cp-save-actions { display: grid; gap: 12px; margin-top: 16px; }
+.cp-save-main { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cp-save-main .primary { order: 2; }
+.cp-save-exits { display: flex; justify-content: space-between; gap: 8px; padding-top: 8px; border-top: 1px solid #353941; }
+#cp-dialog .cp-save-exits button { background: transparent; border-color: transparent; padding-inline: 4px; }
+#cp-dialog .cp-save-exits button:hover { background: #292e38; }
+@media (max-width: 420px) {
+  .cp-save-main { grid-template-columns: 1fr; }
+  .cp-save-main .primary { order: 0; }
+}

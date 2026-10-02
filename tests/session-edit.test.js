@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { beginSession, block, emptyData, finishBlock, saveSession, validateBackup, validateData } from '../src/companion/model.js';
 import { editSession, restoreCurrentRuntime, settleSuspendedBlocks } from '../src/companion/session-edit.js';
+import { readSessionBlockEditor } from '../src/companion/session-block-editor.js';
 
 const now = Date.parse('2026-10-01T10:00:00.000Z');
 const measurement = { source: 'screen', correct: 7, wrong: 2, timing: 'wait', bpm: null };
@@ -24,6 +25,51 @@ function progressed(context = 'mobile') {
   return active;
 }
 const restoredBackup = active => validateBackup(JSON.stringify({ format: 'cuaderno-piano', version: 1, data: { ...emptyData(), active }, assets: [] })).data.active;
+
+test('saving unchanged editor defaults does not reset an exercise or rewrite a free block target', () => {
+  for (const type of ['reading', 'free']) {
+    const original = block(type), data = emptyData(); data.active = session('piano');
+    const form = new FormData();
+    for (const [key,value] of Object.entries({ ...original, level: 0, presentation: 'auto' })) form.set(key,String(value));
+    assert.deepEqual(readSessionBlockEditor(form, original, data), {});
+  }
+});
+
+test('editing musical settings preserves performed material under the original settings and stable block ID', () => {
+  const active = progressed(), original = structuredClone(active);
+  const edited = editSession(active, { type: 'update', blockId: 'block-0', values: { target: 'G-major', hand: 'left', minutes: 20 } }, { now }).active;
+  assert.equal(edited.blocks[0].id, active.blocks[0].id);
+  assert.equal(edited.blocks[0].target, 'G-major');
+  assert.equal(edited.blockElapsedMs, 0);
+  assert.equal(edited.elapsedMs, 120000);
+  assert.equal(edited.readerSnapshot, undefined);
+  assert.equal(edited.currentMeasurement, undefined);
+  assert.equal(edited.results[0].block.target, 'C-major');
+  assert.deepEqual(edited.results[0].measurement, measurement);
+  assert.deepEqual(edited.results[0].material.notes, snapshot.line.notes);
+  assert.deepEqual(active, original);
+  assert.equal(restoredBackup(edited).results[0].elapsedMs, 120000);
+  const unchanged = editSession(active, { type: 'update', blockId: 'block-0', values: { target: 'C-major', minutes: 20 } }, { now }).active;
+  assert.deepEqual(unchanged.readerSnapshot, snapshot);
+  assert.equal(unchanged.results.length, 0);
+  assert.equal(unchanged.blockElapsedMs, 120000);
+});
+
+test('editing a postponed block archives only its performed work; invalid changes are atomic', () => {
+  const active = editSession(progressed(), { type: 'move', blockId: 'block-0', toIndex: 2 }, { now }).active;
+  const edited = editSession(active, { type: 'update', blockId: 'block-0', values: { bpm: 80 } }, { now }).active;
+  assert.equal(edited.blockRuntime, undefined);
+  assert.equal(edited.results[0].block.bpm, 60);
+  assert.equal(edited.blocks[2].bpm, 80);
+  assert.equal(edited.blocks[0].id, active.blocks[0].id);
+  assert.equal(edited.elapsedMs, active.elapsedMs);
+  for (const values of [{ id: 'replacement' }, { bpm: 900 }, { minutes: 0 }, { type: 'free' }, { type: 'theory' }]) {
+    assert.throws(() => editSession(active, { type: 'update', blockId: 'block-0', values }, { now }));
+  }
+  assert.deepEqual(active.blockRuntime[0].readerSnapshot, snapshot);
+  const completed = session(); finishBlock(completed, null, now);
+  assert.throws(() => editSession(completed, { type: 'update', blockId: 'block-0', values: { bpm: 80 } }, { now }), /Completed/);
+});
 
 test('changing minutes pauses accrued time without restarting the current exercise or changing its source', () => {
   const active = progressed(); active.runningSince = now;

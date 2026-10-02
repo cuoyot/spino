@@ -93,7 +93,7 @@ AVD name: SightReader
 
 Rebuild and rerun these commands to refresh the emulator after changes. Installation uses `adb install -r` to preserve app data. Native changes require a rebuild; `npm run dev` alone does not update an installed APK. Scripts assume one attached emulator/device.
 
-The application ID remains `com.miguelcoll.sightreader` so upgrades retain existing data. This candidate is version `5.0.0`, Android version code `29` (previous release: `4.0`, code `28`). Debug builds are for testing; public distribution needs the owner's production signing configuration and completed store listing.
+The application ID remains `com.miguecoll.spino` so upgrades retain existing data. This candidate is version `5.0.0`, Android version code `29` (previous release: `4.0`, code `28`). Debug builds are for testing; public distribution needs the owner's production signing configuration and completed store listing.
 
 The [SPino brand assets](assets/brand/README.md) include the generated source artwork, Google Play icon/feature graphic, web icons and Android adaptive/monochrome layers. Run `scripts/export-brand-assets.ps1` on Windows to regenerate size/format exports from the saved masters. The app and normal builds use the committed exports without calling an image service.
 
@@ -141,7 +141,7 @@ With practice paused, `check-score-alignment.mjs` checks the installed Android r
 | `src/companion/score-import.js`, `pdf-metadata.js`, `score-metadata.js`, `score-ocr.js` | Reviewed PDF import, local text/OCR header extraction and conservative title/composer/tempo suggestions |
 | `src/main.js`, `music.js`, `render.js` | Existing interactive reading engine, note generation and VexFlow rendering |
 | `src/layout.css`, `style.css` | Practice layout and ink-on-paper presentation |
-| `android/app/src/main/java/com/miguelcoll/sightreader/` | USB/BLE MIDI, local reminders, native file/download bridge and PDF viewer |
+| `android/app/src/main/java/com/miguecoll/spino/` | USB/BLE MIDI, local reminders, native file/download bridge and PDF viewer |
 | `Exercises_Library/` | English-base v2 repertoire package, schemas and [Codex integration handoff](Exercises_Library/CODEX_HANDOFF.md); index-driven runtime import; legacy v1 retained only as historical input |
 | `tests/`, `scripts/` | Regression checks, APK build and emulator tooling |
 | `docs/vision-producto.md` | Product vision, screen responsibilities and future scope, in English |

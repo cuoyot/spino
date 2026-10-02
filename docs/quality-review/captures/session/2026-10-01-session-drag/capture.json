@@ -1,0 +1,3917 @@
+{
+  "runId": "2026-10-01-session-drag",
+  "createdAt": "2026-10-01T09:35:51.593Z",
+  "screen": "PRACTICE-01",
+  "title": "Session overview",
+  "reviewHref": "../../../session.md",
+  "stateLabels": {
+    "planned": "Planned session · before playing",
+    "resumed": "Resumed session · second block paused",
+    "running": "Free practice · timer running",
+    "disconnected": "MIDI reading · no instrument connected"
+  },
+  "label": "Compact session with live block editing; visual review pending",
+  "packageVersion": "5.0.0",
+  "gitHead": "c49f27382ad7e01126aa1370e063a8aa1efe2bed",
+  "workingTree": "Uncommitted work included; use source hashes, not HEAD alone.",
+  "sourceSha256": "2b64f330843f70d1c1f31e57c87744c0d0c73768e633c71ea6a1bf2d74843c0c",
+  "sourceFiles": {
+    "index.html": "5bb6d23728186544cde45d2d2135c9597dd0035a3da4a0f33b349b3f53e5e418",
+    "package-lock.json": "7202b97050c4801982760f0b85dc798476b91eae5b62d22bc00ba5254018db49",
+    "package.json": "e4aef5603c982f806e7d90662a963831525cb27cb8fb7e83873e32a735b0f9ff",
+    "src/audio.js": "968290b288a2f407739aec4629321ffb2499155a0813b900c731fb8babe0e4a2",
+    "src/companion/agenda.js": "baeaa22756b1f20d8ad4924a3fcb6dd8d38cf1ede4217cbc11269f724b8040f8",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "e8f5ee474aa70acf148553841c5fbb6e77f6c7cab0a75e650db79c544ce5c46c",
+    "src/companion/app.js": "3f7838fe534a7aed8c262fea93a4a691454303bff71d13fc9a717869ad491425",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "13c90d8e2a5b08d8734504851d317c2850c61668bf87f41b3326dfc83a1d1f1a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "bd96c2511e6d5c1ecf4196ea6e0e193ad6acf9ae0d4488032f6e80ca9d95ce18",
+    "src/companion/library-browse.js": "a31642993db9cbb53219e4e127eac7d92b901dafab1b114a540c78f87c8b7598",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "ac374f290a040691992b50d9daea2984b645500720bc9955dc24d0f78d23f81f",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "bf11449ee44826fc5e82fe00617166fa4ae5cbecc2eec69ddaeaf113dd14a00f",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "beed64cfff3429ed68473729850310c22d6995c75ac9d5fb96f78a00e0a868f9",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "a6fc25460d8c25b77cfbe14c41900e12c8f2b3625be5973c6ba7f996194eafb3",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "d097f01464cacf9709bfb216ddd2a606cce395fd66a52ce3205e7626982a997f",
+    "src/companion/pdf-viewer.js": "19f33e9b3bd4bdca5568e14f3344de3b1b2eb021dc2fc9ab26e5a1217ca9d0d8",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "e24cad678150de49e702cc490292e168a274b8a3094c527647102751a4f482cc",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "33ae23bd182f314c4b7733c69828ac098da33b4622850c797846fc0e83c7e1a2",
+    "src/companion/profile.css": "4d91adfa33a28ce2b4f1035e9f7bdae8a5636a295ffa2c450f5b3a1282c8ae43",
+    "src/companion/repertoire.js": "61eb6853b9dc1d2ad7d62475cda955f94fb019ed8774c4c0f5f3963f0d4214d6",
+    "src/companion/score-controls.js": "38b23527bac48322a66f4d82396101945ea3adad0bb9205bfd724dd3b2614ee2",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "e89b56706aa57f539a82728e4cfe517ce1e88fe13f2c00ea5520010786627e5c",
+    "src/companion/screen-awake.js": "f294af7bf03dd401ffb0db93d606791d2dafd0a23c0727b0088bf8edf4baa2c3",
+    "src/companion/session-drag.js": "2c0ccb0befb6b4cec5b7424face56205d5b38c3fef52030ce0d597e904c7143a",
+    "src/companion/session-edit.js": "d2058414d861b83f360fb7b54d5c3633988eb3d4b376f587ae736b44e329ae6b",
+    "src/companion/session-view.css": "ba451529123426ccb449f6769664e51896dc1ca4d4a62290f70cf71845ecd149",
+    "src/companion/session-view.js": "46d5227ccad7ee4011997eb82b0bc9538a1d90143aa4c30b7793e65267f2172a",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "0faf40426d790ac408d5b4fa12f5e08fa24bb1e97d137d68dec081e4a8df5d53",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "1ac8b9c7d92397c6571fa3575d2bd66160fe0a0a14028c68d51b89677a3cde4c",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "f428672e6ab4fd6f306809a8b142e316f3c931ca400d580fd572029629b70727",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "63fcec2316d5002edebeef750aada5e2ef57712252a9429c4b3a220af3263677",
+    "src/music.js": "01b4413155ed77752830eada074288a4faa9e09a93ec8de21be605c20df4a9ab",
+    "src/render.js": "72b0d9d6ea13f2dc5bc12f11ced5afd3900361e9f3f27651e89a01191940577d",
+    "src/style.css": "983c63247e9f54baaa1f5774990c37fc88e47814aea8d0562a722c72fb03f4ca",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+    "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "locale": "es",
+  "timezone": "Europe/Madrid",
+  "fixedTime": "2026-10-01T10:00:00.000Z",
+  "date": "2026-10-01",
+  "surface": "Production web build in Chromium with device metrics; not native-device acceptance.",
+  "devicePixelRatio": 1,
+  "fixtures": "Synthetic, isolated notebooks; no installed app data changed.",
+  "toastPolicy": "Recovery toast hidden after load to capture stable screen; transient notices remain unreviewed.",
+  "entryPolicy": "Fresh fixture per state and viewport; actual Today Start or Resume; free practice then starts its timer. Date frozen for deterministic timer text.",
+  "results": [
+    {
+      "state": "planned",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 830,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 330,
+            "y": 16,
+            "width": 44,
+            "height": 44,
+            "bottom": 60,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 24,
+            "y": 82.828125,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 126.828125,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Empezar ejercicio",
+            "x": 30,
+            "y": 284.28125,
+            "width": 157.890625,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 192.890625,
+            "y": 284.28125,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 284.859375,
+            "y": 367.75,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 411.75,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 495.9375,
+            "width": 44,
+            "height": 44,
+            "bottom": 539.9375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-technique",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-technique",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-technique",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 597.71875,
+            "width": 44,
+            "height": 44,
+            "bottom": 641.71875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 699.5,
+            "width": 44,
+            "height": 44,
+            "bottom": 743.5,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 27,
+            "y": 755.5,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 799.5,
+            "fullyVisible": false
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 301.109375,
+            "y": 755.5,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 799.5,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 4,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Practicar",
+            "x": 85.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 167,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Biblioteca",
+            "x": 248.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "A",
+            "x": 330,
+            "y": 778,
+            "width": 56,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "planned-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "84c5c25b9e791d5a2fc325aea27cd89d647e8fce4fe196f51348b3748e0210c0"
+        },
+        {
+          "path": "planned-phone-portrait-02.png",
+          "scrollTop": 59,
+          "sha256": "180b2705d77fe5d985fbb745cf9841da4d4e426563be9d4a0b8c877624e3cdbc"
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 540,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 784,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 643.921875,
+            "y": 12.265625,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 56.265625,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Empezar ejercicio",
+            "x": 119,
+            "y": 201.796875,
+            "width": 157.890625,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 281.890625,
+            "y": 201.796875,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 738.84375,
+            "y": 82,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 126,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 210.1875,
+            "width": 44,
+            "height": 44,
+            "bottom": 254.1875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-technique",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-technique",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-technique",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 311.96875,
+            "width": 44,
+            "height": 44,
+            "bottom": 355.96875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 413.75,
+            "width": 44,
+            "height": 44,
+            "bottom": 457.75,
+            "fullyVisible": false
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 494.0625,
+            "y": 469.75,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 513.75,
+            "fullyVisible": false
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 755.09375,
+            "y": 469.75,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 513.75,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Practicar",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "Biblioteca",
+            "x": 8,
+            "y": 165,
+            "width": 73,
+            "height": 52,
+            "bottom": 217
+          },
+          {
+            "label": "A",
+            "x": 8,
+            "y": 322,
+            "width": 73,
+            "height": 60,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "planned-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "79079f5dad621269d4d14f1cdc357a39c967b3b5b8fc9144c7c8e2700f96a8e6"
+        },
+        {
+          "path": "planned-phone-landscape-02.png",
+          "scrollTop": 150,
+          "sha256": "5262602ffacd5a12dc40d262e747b768be05d0d6926847a739b5aae425e2cddc"
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1024,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 700,
+            "y": 30,
+            "width": 44,
+            "height": 44,
+            "bottom": 74,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 548.84375,
+            "y": 39.84375,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 83.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Empezar ejercicio",
+            "x": 196,
+            "y": 247.140625,
+            "width": 157.890625,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 358.890625,
+            "y": 247.140625,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 654.859375,
+            "y": 332.609375,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 376.609375,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 460.796875,
+            "width": 44,
+            "height": 44,
+            "bottom": 504.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-technique",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-technique",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-technique",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 562.578125,
+            "width": 44,
+            "height": 44,
+            "bottom": 606.578125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 664.359375,
+            "width": 44,
+            "height": 44,
+            "bottom": 708.359375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 191,
+            "y": 720.359375,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 764.359375,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 671.109375,
+            "y": 720.359375,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 764.359375,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 944,
+            "width": 64,
+            "height": 60,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "planned-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e27bcbdb2174bfc8a8f46364a765e03097c8e9ef6af3c496ea758097db2404de"
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 768,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 956,
+            "y": 12,
+            "width": 44,
+            "height": 44,
+            "bottom": 56,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 804.84375,
+            "y": 25.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 69.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Empezar ejercicio",
+            "x": 196,
+            "y": 236.03125,
+            "width": 157.890625,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 358.890625,
+            "y": 236.03125,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 910.84375,
+            "y": 106.046875,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 150.046875,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 234.234375,
+            "width": 44,
+            "height": 44,
+            "bottom": 278.234375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-technique",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-technique",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-technique",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 336.015625,
+            "width": 44,
+            "height": 44,
+            "bottom": 380.015625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 437.796875,
+            "width": 44,
+            "height": 44,
+            "bottom": 481.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 618.328125,
+            "y": 493.796875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 537.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 927.09375,
+            "y": 493.796875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 537.796875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 688,
+            "width": 64,
+            "height": 60,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "planned-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6ab594a8eade6f9b9deb2621c6aff6e1b909696a20583c3907dced19f2a520f3"
+        }
+      ]
+    },
+    {
+      "state": "resumed",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "timer": "18:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 786,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 330,
+            "y": 16,
+            "width": 44,
+            "height": 44,
+            "bottom": 60,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 24,
+            "y": 82.828125,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 126.828125,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Continuar ejercicio",
+            "x": 30,
+            "y": 284.28125,
+            "width": 165.546875,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 200.546875,
+            "y": 284.28125,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 284.859375,
+            "y": 367.75,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 411.75,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 553.71875,
+            "width": 44,
+            "height": 44,
+            "bottom": 597.71875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 655.5,
+            "width": 44,
+            "height": 44,
+            "bottom": 699.5,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 27,
+            "y": 711.5,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 755.5,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 301.109375,
+            "y": 711.5,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 755.5,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 4,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Practicar",
+            "x": 85.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 167,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Biblioteca",
+            "x": 248.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "A",
+            "x": 330,
+            "y": 778,
+            "width": 56,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "resumed-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c13975ffa2f237cac5d16a9125f553b4062cc7eb154c251c8cdc0961f33a7bc8"
+        },
+        {
+          "path": "resumed-phone-portrait-02.png",
+          "scrollTop": 15,
+          "sha256": "c927cda43b79f1c6a2d283cc3b832fe8ec2b8981d0692d9e023e1dbe0a156e5a"
+        },
+        {
+          "path": "resumed-phone-portrait-hold.png",
+          "interaction": "Long press: lifted block and bin; gesture cancelled after capture.",
+          "scrollTop": 15,
+          "sha256": "1d4aea06f4151517e068fdccca5b70a618117567b4a236835c1fcfa2bd47a478"
+        }
+      ]
+    },
+    {
+      "state": "resumed",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "timer": "18:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 496,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 784,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 643.921875,
+            "y": 12.265625,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 56.265625,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Continuar ejercicio",
+            "x": 119,
+            "y": 201.796875,
+            "width": 165.546875,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 289.546875,
+            "y": 201.796875,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 738.84375,
+            "y": 82,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 126,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 267.96875,
+            "width": 44,
+            "height": 44,
+            "bottom": 311.96875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 369.75,
+            "width": 44,
+            "height": 44,
+            "bottom": 413.75,
+            "fullyVisible": false
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 494.0625,
+            "y": 425.75,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 469.75,
+            "fullyVisible": false
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 755.09375,
+            "y": 425.75,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 469.75,
+            "fullyVisible": false
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Practicar",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "Biblioteca",
+            "x": 8,
+            "y": 165,
+            "width": 73,
+            "height": 52,
+            "bottom": 217
+          },
+          {
+            "label": "A",
+            "x": 8,
+            "y": 322,
+            "width": 73,
+            "height": 60,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "resumed-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "bb3ca01fcf4ffafd77652549051ecff5fd12d325513061f8f8bfbee4d0cc266b"
+        },
+        {
+          "path": "resumed-phone-landscape-02.png",
+          "scrollTop": 106,
+          "sha256": "3c3c901d98fcf91e27a93ec21535884ae0668abe48a2185e2df36f3072189b99"
+        },
+        {
+          "path": "resumed-phone-landscape-hold.png",
+          "interaction": "Long press: lifted block and bin; gesture cancelled after capture.",
+          "scrollTop": 51,
+          "sha256": "77ce61aa305f702b97a2e3f18bb12964f12347b246bce2ba5d14769f11c326e5"
+        }
+      ]
+    },
+    {
+      "state": "resumed",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "timer": "18:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1024,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 700,
+            "y": 30,
+            "width": 44,
+            "height": 44,
+            "bottom": 74,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 548.84375,
+            "y": 39.84375,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 83.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Continuar ejercicio",
+            "x": 196,
+            "y": 247.140625,
+            "width": 165.546875,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 366.546875,
+            "y": 247.140625,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 654.859375,
+            "y": 332.609375,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 376.609375,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 518.578125,
+            "width": 44,
+            "height": 44,
+            "bottom": 562.578125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 620.359375,
+            "width": 44,
+            "height": 44,
+            "bottom": 664.359375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 191,
+            "y": 676.359375,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 720.359375,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 671.109375,
+            "y": 676.359375,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 720.359375,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 944,
+            "width": 64,
+            "height": 60,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "resumed-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e1c8a26a5b168c4e01c8b7c6d9372c22604a288a21f519669daae428ea25d52d"
+        },
+        {
+          "path": "resumed-tablet-portrait-hold.png",
+          "interaction": "Long press: lifted block and bin; gesture cancelled after capture.",
+          "scrollTop": 0,
+          "sha256": "a00968b4c38322635687c5599479456990426cd373eff2d1b80ea5d2ea0a3682"
+        }
+      ]
+    },
+    {
+      "state": "resumed",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "timer": "18:00",
+        "sessionTitle": "Lectura y repertorio",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 768,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 956,
+            "y": 12,
+            "width": 44,
+            "height": 44,
+            "bottom": 56,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 804.84375,
+            "y": 25.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 69.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "open-reader",
+            "id": "",
+            "label": "Continuar ejercicio",
+            "x": 196,
+            "y": 236.03125,
+            "width": 165.546875,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Siguiente bloque",
+            "x": 366.546875,
+            "y": 236.03125,
+            "width": 149.203125,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 910.84375,
+            "y": 106.046875,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 150.046875,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 292.015625,
+            "width": 44,
+            "height": 44,
+            "bottom": 336.015625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-reading",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-reading",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-reading",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 393.796875,
+            "width": 44,
+            "height": 44,
+            "bottom": 437.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "routine-repertoire",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "routine-repertoire",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "routine-repertoire",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 618.328125,
+            "y": 449.796875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 493.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 927.09375,
+            "y": 449.796875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 493.796875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 688,
+            "width": 64,
+            "height": 60,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "resumed-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "699f0ce68c301a289a2a18c05a079f401f0b77a7e0b0e658c1a117f91c557d49"
+        },
+        {
+          "path": "resumed-tablet-landscape-hold.png",
+          "interaction": "Long press: lifted block and bin; gesture cancelled after capture.",
+          "scrollTop": 0,
+          "sha256": "fd8744a06a323a5a5e70237f9424103a931c5e8b4c46cddf2a7b54683e91fc9c"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "timer": "8:00",
+        "sessionTitle": "Práctica libre",
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 771,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 330,
+            "y": 16,
+            "width": 44,
+            "height": 44,
+            "bottom": 60,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 24,
+            "y": 82.828125,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 126.828125,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-session",
+            "id": "",
+            "label": "Pausar",
+            "x": 30,
+            "y": 284.28125,
+            "width": 93.796875,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 128.796875,
+            "y": 284.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-metronome",
+            "id": "",
+            "label": "Metrónomo",
+            "x": 30,
+            "y": 336.28125,
+            "width": 67.28125,
+            "height": 44,
+            "bottom": 380.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 284.859375,
+            "y": 419.75,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 463.75,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 547.9375,
+            "width": 44,
+            "height": 44,
+            "bottom": 591.9375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-free-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-free-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-free-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 27,
+            "y": 603.9375,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 647.9375,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 301.109375,
+            "y": 603.9375,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 647.9375,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 4,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Practicar",
+            "x": 85.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 167,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Biblioteca",
+            "x": 248.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "A",
+            "x": 330,
+            "y": 778,
+            "width": 56,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "53366375e9e54389723d0f9ef023c8f36ca36c3074a751bb9869d7cfb54b4ca2"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "timer": "8:00",
+        "sessionTitle": "Práctica libre",
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 390,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 784,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 643.921875,
+            "y": 12.265625,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 56.265625,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-session",
+            "id": "",
+            "label": "Pausar",
+            "x": 119,
+            "y": 201.796875,
+            "width": 93.796875,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 217.796875,
+            "y": 201.796875,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-metronome",
+            "id": "",
+            "label": "Metrónomo",
+            "x": 119,
+            "y": 253.796875,
+            "width": 67.28125,
+            "height": 44,
+            "bottom": 297.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 738.84375,
+            "y": 82,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 126,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 210.1875,
+            "width": 44,
+            "height": 44,
+            "bottom": 254.1875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-free-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-free-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-free-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 494.0625,
+            "y": 266.1875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 310.1875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 755.09375,
+            "y": 266.1875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 310.1875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Practicar",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "Biblioteca",
+            "x": 8,
+            "y": 165,
+            "width": 73,
+            "height": 52,
+            "bottom": 217
+          },
+          {
+            "label": "A",
+            "x": 8,
+            "y": 322,
+            "width": 73,
+            "height": 60,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a1e0b9c1d21ab87afa99ad36e8bf353775c2f179068dc64e15b558591331ddcc"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "timer": "8:00",
+        "sessionTitle": "Práctica libre",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1024,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 700,
+            "y": 30,
+            "width": 44,
+            "height": 44,
+            "bottom": 74,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 548.84375,
+            "y": 39.84375,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 83.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-session",
+            "id": "",
+            "label": "Pausar",
+            "x": 196,
+            "y": 247.140625,
+            "width": 93.796875,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 294.796875,
+            "y": 247.140625,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-metronome",
+            "id": "",
+            "label": "Metrónomo",
+            "x": 196,
+            "y": 299.140625,
+            "width": 67.28125,
+            "height": 44,
+            "bottom": 343.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 654.859375,
+            "y": 384.609375,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 428.609375,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 512.796875,
+            "width": 44,
+            "height": 44,
+            "bottom": 556.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-free-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-free-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-free-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 191,
+            "y": 568.796875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 612.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 671.109375,
+            "y": 568.796875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 612.796875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 944,
+            "width": 64,
+            "height": 60,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "1ad953c80d340283549a591be4f47d7353f59f2371f50762100bbe8eced3598b"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "timer": "8:00",
+        "sessionTitle": "Práctica libre",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 768,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 956,
+            "y": 12,
+            "width": 44,
+            "height": 44,
+            "bottom": 56,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 804.84375,
+            "y": 25.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 69.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-session",
+            "id": "",
+            "label": "Pausar",
+            "x": 196,
+            "y": 236.03125,
+            "width": 93.796875,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 294.796875,
+            "y": 236.03125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "toggle-metronome",
+            "id": "",
+            "label": "Metrónomo",
+            "x": 196,
+            "y": 288.03125,
+            "width": 67.28125,
+            "height": 44,
+            "bottom": 332.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 910.84375,
+            "y": 106.046875,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 150.046875,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 234.234375,
+            "width": 44,
+            "height": 44,
+            "bottom": 278.234375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-free-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-free-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-free-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 618.328125,
+            "y": 290.234375,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 334.234375,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 927.09375,
+            "y": 290.234375,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 334.234375,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 688,
+            "width": 64,
+            "height": 60,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "ce0721051a95d5e2232565e119e771de210e862fc41f32a295fb7216745f841e"
+        }
+      ]
+    },
+    {
+      "state": "disconnected",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura a dos manos",
+        "page": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 771,
+          "bottom": 771
+        },
+        "scrollHeight": 771,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 330,
+            "y": 16,
+            "width": 44,
+            "height": 44,
+            "bottom": 60,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 24,
+            "y": 82.828125,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 126.828125,
+            "fullyVisible": true
+          },
+          {
+            "action": "midi-settings",
+            "id": "",
+            "label": "Conectar instrumento",
+            "x": 30,
+            "y": 284.28125,
+            "width": 158.390625,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 193.390625,
+            "y": 284.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 328.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "continue-piano",
+            "id": "",
+            "label": "Usar registro manual",
+            "x": 152.625,
+            "y": 341.28125,
+            "width": 115.296875,
+            "height": 44,
+            "bottom": 385.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 284.859375,
+            "y": 448.6875,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 492.6875,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 317,
+            "y": 576.875,
+            "width": 44,
+            "height": 44,
+            "bottom": 620.875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-midi-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-midi-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-midi-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 27,
+            "y": 632.875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 676.875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 301.109375,
+            "y": 632.875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 676.875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 4,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Practicar",
+            "x": 85.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Calendario",
+            "x": 167,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "Biblioteca",
+            "x": 248.5,
+            "y": 778,
+            "width": 79.5,
+            "height": 60,
+            "bottom": 838
+          },
+          {
+            "label": "A",
+            "x": 330,
+            "y": 778,
+            "width": 56,
+            "height": 60,
+            "bottom": 838
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "disconnected-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "aeddb8e916eb328d9c90fa2583e66b94dc5cbe97c84e94cd8d1662e5bdba1e73"
+        }
+      ]
+    },
+    {
+      "state": "disconnected",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura a dos manos",
+        "page": {
+          "x": 90,
+          "y": 0,
+          "width": 754,
+          "height": 390,
+          "bottom": 390
+        },
+        "scrollHeight": 390,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 784,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 643.921875,
+            "y": 12.265625,
+            "width": 130.078125,
+            "height": 44,
+            "bottom": 56.265625,
+            "fullyVisible": true
+          },
+          {
+            "action": "midi-settings",
+            "id": "",
+            "label": "Conectar instrumento",
+            "x": 119,
+            "y": 201.796875,
+            "width": 158.390625,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 282.390625,
+            "y": 201.796875,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 245.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "continue-piano",
+            "id": "",
+            "label": "Usar registro manual",
+            "x": 241.625,
+            "y": 258.796875,
+            "width": 115.296875,
+            "height": 44,
+            "bottom": 302.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 738.84375,
+            "y": 82,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 126,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 773.984375,
+            "y": 210.1875,
+            "width": 44,
+            "height": 44,
+            "bottom": 254.1875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-midi-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-midi-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-midi-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 494.0625,
+            "y": 266.1875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 310.1875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 755.09375,
+            "y": 266.1875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 310.1875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 8,
+            "y": 9,
+            "width": 73,
+            "height": 52,
+            "bottom": 61
+          },
+          {
+            "label": "Practicar",
+            "x": 8,
+            "y": 61,
+            "width": 73,
+            "height": 52,
+            "bottom": 113
+          },
+          {
+            "label": "Calendario",
+            "x": 8,
+            "y": 113,
+            "width": 73,
+            "height": 52,
+            "bottom": 165
+          },
+          {
+            "label": "Biblioteca",
+            "x": 8,
+            "y": 165,
+            "width": 73,
+            "height": 52,
+            "bottom": 217
+          },
+          {
+            "label": "A",
+            "x": 8,
+            "y": 322,
+            "width": 73,
+            "height": 60,
+            "bottom": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "disconnected-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "91569f9483f63bf3545d516a9f08223e1b50e39b712308959a7c55ba6b9d2ad2"
+        }
+      ]
+    },
+    {
+      "state": "disconnected",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura a dos manos",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 612,
+          "height": 1024,
+          "bottom": 1024
+        },
+        "scrollHeight": 1024,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 700,
+            "y": 30,
+            "width": 44,
+            "height": 44,
+            "bottom": 74,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 548.84375,
+            "y": 39.84375,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 83.84375,
+            "fullyVisible": true
+          },
+          {
+            "action": "midi-settings",
+            "id": "",
+            "label": "Conectar instrumento",
+            "x": 196,
+            "y": 247.140625,
+            "width": 158.390625,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 359.390625,
+            "y": 247.140625,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 291.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "continue-piano",
+            "id": "",
+            "label": "Usar registro manual",
+            "x": 318.625,
+            "y": 304.140625,
+            "width": 115.296875,
+            "height": 44,
+            "bottom": 348.140625,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 654.859375,
+            "y": 389.609375,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 433.609375,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 687,
+            "y": 517.796875,
+            "width": 44,
+            "height": 44,
+            "bottom": 561.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-midi-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-midi-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-midi-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 191,
+            "y": 573.796875,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 617.796875,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 671.109375,
+            "y": 573.796875,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 617.796875,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 944,
+            "width": 64,
+            "height": 60,
+            "bottom": 1004
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "disconnected-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "da0602807361a4dd137c9aea150648cb5f02348665aa7653ad1510154ad77527"
+        }
+      ]
+    },
+    {
+      "state": "disconnected",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "timer": "0:00",
+        "sessionTitle": "Lectura a dos manos",
+        "page": {
+          "x": 156,
+          "y": 0,
+          "width": 868,
+          "height": 768,
+          "bottom": 768
+        },
+        "scrollHeight": 768,
+        "horizontalOverflow": false,
+        "actions": [
+          {
+            "action": "midi-settings",
+            "label": "",
+            "x": 956,
+            "y": 12,
+            "width": 44,
+            "height": 44,
+            "bottom": 56,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-end",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 804.84375,
+            "y": 25.28125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 69.28125,
+            "fullyVisible": true
+          },
+          {
+            "action": "midi-settings",
+            "id": "",
+            "label": "Conectar instrumento",
+            "x": 196,
+            "y": 236.03125,
+            "width": 158.390625,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "next-block",
+            "id": "",
+            "label": "Terminar sesión",
+            "x": 359.390625,
+            "y": 236.03125,
+            "width": 141.15625,
+            "height": 44,
+            "bottom": 280.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "continue-piano",
+            "id": "",
+            "label": "Usar registro manual",
+            "x": 318.625,
+            "y": 293.03125,
+            "width": 115.296875,
+            "height": 44,
+            "bottom": 337.03125,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-add-block",
+            "id": "",
+            "label": "Añadir",
+            "x": 910.84375,
+            "y": 106.046875,
+            "width": 76.140625,
+            "height": 44,
+            "bottom": 150.046875,
+            "fullyVisible": true
+          },
+          {
+            "label": "",
+            "x": 942.984375,
+            "y": 234.234375,
+            "width": 44,
+            "height": 44,
+            "bottom": 278.234375,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-up",
+            "id": "review-midi-block",
+            "label": "Subir",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-down",
+            "id": "review-midi-block",
+            "label": "Bajar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "session-block-remove",
+            "id": "review-midi-block",
+            "label": "Eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "label": "Suelta para eliminar",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "bottom": 0,
+            "fullyVisible": true
+          },
+          {
+            "action": "leave-session",
+            "id": "",
+            "label": "Continuar después",
+            "x": 618.328125,
+            "y": 290.234375,
+            "width": 111.671875,
+            "height": 44,
+            "bottom": 334.234375,
+            "fullyVisible": true
+          },
+          {
+            "action": "discard-session",
+            "id": "",
+            "label": "Descartar",
+            "x": 927.09375,
+            "y": 290.234375,
+            "width": 61.890625,
+            "height": 44,
+            "bottom": 334.234375,
+            "fullyVisible": true
+          }
+        ],
+        "nav": [
+          {
+            "label": "Hoy",
+            "x": 12,
+            "y": 28,
+            "width": 131,
+            "height": 52,
+            "bottom": 80
+          },
+          {
+            "label": "Practicar",
+            "x": 12,
+            "y": 88,
+            "width": 131,
+            "height": 52,
+            "bottom": 140
+          },
+          {
+            "label": "Calendario",
+            "x": 12,
+            "y": 148,
+            "width": 131,
+            "height": 52,
+            "bottom": 200
+          },
+          {
+            "label": "Biblioteca",
+            "x": 12,
+            "y": 208,
+            "width": 131,
+            "height": 52,
+            "bottom": 260
+          },
+          {
+            "label": "A",
+            "x": 45.5,
+            "y": 688,
+            "width": 64,
+            "height": 60,
+            "bottom": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "disconnected-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "703efb40d40169fdd00dcbb4abda92177a1dec5d6028831f3f6996446af0b225"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

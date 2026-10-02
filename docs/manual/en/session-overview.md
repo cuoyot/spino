@@ -18,14 +18,17 @@ For example, after ten minutes of technique and eight minutes of reading, the bl
 
 You can adjust remaining blocks directly in **Your session**:
 
-- Change the minutes beside a block. A shorter suggestion never removes time already practised.
-- Use the up/down arrows to change the order. If you move a block ahead of the current one, that block becomes current.
-- Use the bin to remove a remaining block. Keep at least one remaining block, or choose **Finish session**.
+- Drag a block's duration slider, or enter exact minutes beside it. The total previews your change; releasing the slider saves it. A shorter suggestion never removes time already practised.
+- Tap the pencil to **Edit block**. Change its activity, minutes, scale or work, hands and tempo. **More settings** contains additional reading options and a focus/passage note. Available fields depend on the activity and input context. Cancel leaves the block unchanged.
+- Hold a remaining block until it lifts, drag to the insertion marker and release. Moving a block ahead of the current one makes it current. A quick swipe scrolls normally.
+- While holding a block, drop it into the bin that appears near the bottom to remove it. Keep at least one remaining block, or choose **Finish session**.
 - Tap **Add**, choose an activity and minutes, then a scale/mode or repertoire work where relevant. The new block goes at the end; move it up if needed. Reading and technique use your profile defaults. Without a piano, only reading and technique are available.
 
-Changes pause practice so you can check the new sequence. They apply to this session only; the original routine and planned block structure remain unchanged. Completed blocks stay fixed.
+Picking up a block pauses practice. Cancel the gesture to keep the order unchanged. You can also tap or keyboard-activate the small grip for move/remove options. Changes pause practice so you can check the new sequence. They apply to this session only; the original routine and planned block structure remain unchanged. Completed blocks stay fixed.
 
 A started block that you move later keeps its elapsed time, answers and generated exercise. Its row shows time already practised. When it becomes current again, you can continue from that checkpoint. Removing a started block keeps its performed work in the saved session; ending early also retains work from postponed blocks.
+
+Changing only the suggested minutes keeps your position in the exercise. Changing its musical settings keeps earlier practice under its original settings and starts the revised exercise fresh. The session's total time is preserved.
 
 If saving a change fails, the original sequence remains available in pause. Retry the change after resolving the storage problem.
 

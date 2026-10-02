@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 const adb = join(process.env.USERPROFILE, 'Android', 'sdk', 'platform-tools', 'adb.exe');
 const run = args => execFileSync(adb, args, { encoding: 'utf8', windowsHide: true }).trim();
-const pid = run(['shell', 'pidof', 'com.miguelcoll.sightreader']);
+const pid = run(['shell', 'pidof', 'com.miguecoll.spino']);
 assert.match(pid, /^\d+$/);
 const port = run(['forward', 'tcp:0', `localabstract:webview_devtools_remote_${pid}`]);
 let socket;
@@ -53,7 +53,7 @@ try {
   assert.equal(await evaluate(`document.querySelector('.cp-page').scrollTop`),offset);
   await back(`document.querySelector('#app-shell h1').textContent===${JSON.stringify(piano)}`);
   await back(`document.querySelector('#app-shell h1').textContent==='Hoy'`);
-  assert.ok(run(['shell','dumpsys','activity','activities']).includes('com.miguelcoll.sightreader/.MainActivity'));
+  assert.ok(run(['shell','dumpsys','activity','activities']).includes('com.miguecoll.spino/.MainActivity'));
   assert.deepEqual(await snapshot(),before); assert.deepEqual(errors,[]);
   console.log(JSON.stringify({androidBack:true,dialogClosesFirst:true,screenHistory:true,filtersAndScrollRestored:true,notebookUnchanged:true,errors},null,2));
 } finally { socket?.close(); run(['forward','--remove',`tcp:${port}`]); }

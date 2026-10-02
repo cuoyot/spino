@@ -69,6 +69,19 @@ try {
         const bytes = Buffer.from(shot.data, 'base64'); await writeFile(join(folder, name), bytes);
         frames.push({ path: name, scrollTop: await evaluate(`document.querySelector('.cp-page').scrollTop`), sha256: hash(bytes) });
       }
+      if (state === 'resumed' && process.argv.includes('--hold')) {
+        await send('Emulation.setTouchEmulationEnabled', { enabled: true });
+        await evaluate('document.querySelector("[aria-current=step] .cp-session-block-copy").scrollIntoView({block:"center"})');
+        const point = await evaluate('(()=>{const r=document.querySelector("[aria-current=step] .cp-session-block-copy").getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2,id:1}})()');
+        await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] });
+        await wait('document.querySelector(".cp-session-drag-ghost")');
+        const shot = await send('Page.captureScreenshot', { format: 'png' });
+        const name = state + '-' + device.id + '-hold.png', bytes = Buffer.from(shot.data, 'base64');
+        await writeFile(join(folder, name), bytes);
+        frames.push({ path: name, interaction: 'Long press: lifted block and bin; gesture cancelled after capture.', scrollTop: await evaluate('document.querySelector(".cp-page").scrollTop'), sha256: hash(bytes) });
+        await send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+        await wait('!document.querySelector(".cp-session-drag-ghost")');
+      }
       results.push({ state, ...device, metrics, frames });
     }
   }

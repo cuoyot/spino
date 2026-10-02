@@ -8,7 +8,7 @@ import { CATALOG } from '../src/companion/catalog.js';
 const adb = join(process.env.USERPROFILE, 'Android', 'sdk', 'platform-tools', 'adb.exe');
 const run = args => execFileSync(adb, args, { encoding: 'utf8', windowsHide: true }).trim();
 const artifact = JSON.parse(await readFile('artifacts/repertoire/mt_eb69b7b3cfc165d7.json', 'utf8'));
-const pid = run(['shell', 'pidof', 'com.miguelcoll.sightreader']);
+const pid = run(['shell', 'pidof', 'com.miguecoll.spino']);
 assert.match(pid, /^\d+$/);
 const port = run(['forward', 'tcp:0', `localabstract:webview_devtools_remote_${pid}`]);
 let socket;

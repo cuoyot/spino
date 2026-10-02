@@ -57,6 +57,17 @@
 .pdf-zoom { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .pdf-zoom-value { min-width: 55px; text-align: center; }
 .pdf-view-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+#app-shell ~ dialog .pdf-split-done, .pdf-split-done { background: #4f8cff; border-color: #4f8cff; color: #fff; padding: 0 14px; }
+.pdf-split { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.pdf-split [data-pdf=split][aria-pressed=true] { background: #4f8cff; border-color: #4f8cff; color: #fff; }
+.pdf-viewport.pdf-sectioned { overflow: hidden; background: #fff; }
+.pdf-sections { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pdf-part { fill: rgba(79, 140, 255, .12); stroke: #2f6fe0; stroke-width: 2; stroke-dasharray: 7 4; }
+.pdf-part-draft { fill: rgba(79, 140, 255, .2); stroke-dasharray: none; }
+.pdf-part-label { fill: #2f6fe0; font-family: system-ui, sans-serif; font-weight: 700; }
+[data-section-delete] { cursor: pointer; }
+[data-section-delete] circle { fill: #2f6fe0; }
+[data-section-delete] path { stroke: #fff; stroke-width: 2; stroke-linecap: round; }
 .pdf-text-dialog { border: 1px solid #414650; border-radius: 16px; background: #1e2127; color: #e8eaed; width: min(440px, calc(100% - 32px)); padding: 20px; }
 .pdf-text-dialog::backdrop { background: #0008; }
 .pdf-text-dialog textarea { width: 100%; min-height: 100px; margin: 12px 0; font: 16px system-ui; color: #e8eaed; background: #14161a; border: 1px solid #414650; border-radius: 8px; padding: 10px; }
@@ -69,3 +80,11 @@
 @media (min-width: 600px) and (max-height: 500px) and (orientation: landscape) {
   .pdf-tools { grid-template-columns: repeat(10, minmax(44px, 1fr)); }
 }
+
+/* Tap margins for turning pages, shaded briefly so they are easy to find. */
+.pdf-turn-zone { position: absolute; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .6s ease; }
+.pdf-turn-zone[data-side=prev] { background: linear-gradient(90deg, rgba(79, 140, 255, .28), rgba(79, 140, 255, 0)); }
+.pdf-turn-zone[data-side=next] { background: linear-gradient(270deg, rgba(79, 140, 255, .28), rgba(79, 140, 255, 0)); }
+.pdf-turn-zone.visible { opacity: 1; transition-duration: .2s; }
+.xml-page-mask { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; pointer-events: none; }
+.xml-page-count { min-width: 3.5em; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }

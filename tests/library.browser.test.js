@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 import { mxlFixture, musicXMLFixture } from './musicxml-fixture.js';
 import { CATALOG } from '../src/companion/catalog.js';
 
@@ -14,6 +14,7 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   const shot = async name => { if (!process.env.UI_SCREENSHOTS) return; await mkdir('artifacts/repertoire', { recursive: true }); const r = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(`artifacts/repertoire/ui-${name}.png`, Buffer.from(r.data, 'base64')); };
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   await action('catalog'); await wait(`document.querySelector('[data-count=records]')?.textContent==='618'`);
   assert.equal(await evaluate(`document.querySelector('[data-count=ready]').textContent`), '0');
   assert.equal(await evaluate(`document.querySelector('[data-count=pending]').textContent`), '618');

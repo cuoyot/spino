@@ -51,14 +51,30 @@
 .cp-session-block-number { display: grid; place-items: center; width: 25px; height: 25px; background: #2b3039; color: #b8c1d0; border-radius: 50%; font-size: 11px; }
 .is-current .cp-session-block-number { background: #40587d; color: #e4eeff; }
 .cp-session-block-number svg { width: 15px; height: 15px; }
-.cp-session-block-copy { grid-column: 2 / -1; overflow-wrap: anywhere; }
+.cp-session-block-copy { grid-column: 2; overflow-wrap: anywhere; }
+.cp-session-row-actions { grid-column: 3; display: flex; gap: 0; }
+#app-shell .cp-session-row-actions button { width: 44px; min-width: 44px; padding: 10px; }
 .cp-session-block-copy strong { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; font-size: 13px; font-weight: 600; }
 .cp-session-current-label { color: #b2ceff; font-size: 10px; font-weight: 500; }
 .cp-session-block-copy > span { display: block; margin-top: 2px; font-size: 11px; color: var(--subtle); }
 .cp-session-retained-time { display: inline-block; margin-left: 7px; color: #b4cbea; font-variant-numeric: tabular-nums; }
-.cp-session-block-edit { grid-column: 2 / -1; display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.cp-session-block-edit { grid-column: 2 / -1; display: grid; grid-template-columns: minmax(80px, 1fr) 80px; align-items: center; gap: 12px; width: 100%; }
+.cp-session-block { position: relative; }
+.cp-session-block-copy, .cp-session-block-number { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+#app-shell .cp-session-grip { width: 44px; height: 44px; padding: 10px; cursor: grab; touch-action: none; color: #adbdd4; }
+.cp-session-block-menu { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border: 1px solid #56657a; border-radius: 10px; background: #202630; }
+#app-shell .cp-session-block-menu button { justify-content: flex-start; border: 0; background: transparent; }
+.cp-session-block.is-lifted { opacity: .35; }
+.cp-session-block.is-drop-before::before, .cp-session-block.is-drop-after::after { content: ''; position: absolute; left: 3px; right: 3px; height: 3px; background: #8ab4ff; border-radius: 2px; z-index: 2; }
+.cp-session-block.is-drop-before::before { top: -2px; }
+.cp-session-block.is-drop-after::after { bottom: -2px; }
+.cp-session-drag-ghost { position: fixed; z-index: 1100; pointer-events: none; width: min(280px, calc(100vw - 32px)); border: 1px solid #8ab4ff; border-radius: 12px; padding: 14px; background: #293952; color: #ecf3ff; box-shadow: 0 12px 32px #0009; font: 600 14px/1.4 system-ui; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#app-shell .cp-session .cp-session-bin { position: fixed; z-index: 1090; left: 50%; transform: translateX(-50%); bottom: calc(86px + env(safe-area-inset-bottom)); min-height: 56px; min-width: 190px; padding: 12px 20px; border: 2px dashed #b07777; color: #ffc1ba; background: #34262b; box-shadow: 0 8px 24px #0008; }
+#app-shell .cp-session-bin.is-over { background: #8a343c; color: white; border-style: solid; border-color: #ffb8b8; transform: translateX(-50%) scale(1.05); }
+@media (orientation: landscape), (min-width: 700px) { #app-shell .cp-session .cp-session-bin { bottom: calc(16px + env(safe-area-inset-bottom)); } }
 #app-shell .cp-session-minutes { display: flex; flex-direction: row; align-items: center; gap: 5px; margin: 0; font-size: 11px; color: var(--subtle); }
 #app-shell .cp-session-minutes input { width: 58px; min-height: 44px; height: 44px; padding: 7px 4px 7px 8px; text-align: center; font-size: 16px; border-color: #4b5769; border-radius: 8px; background: #1a202b; font-variant-numeric: tabular-nums; }
+#app-shell .cp-session-duration-slider { width: 100%; height: 44px; min-height: 44px; margin: 0; padding: 0; border: 0; background: transparent; accent-color: #8ab4ff; cursor: pointer; touch-action: pan-y; }
 .cp-session-block-tools { display: flex; gap: 0; }
 #app-shell .cp-session-block-tools button { min-width: 44px; width: 44px; min-height: 44px; padding: 10px; background: transparent; border-color: transparent; color: #bac7dc; }
 #app-shell .cp-session-block-tools button:hover { background: #343c49; }
@@ -75,6 +91,11 @@
 .cp-session-theory .cp-actions { justify-content: flex-start; }
 #session-add-form .cp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 #session-add-form [hidden] { display: none !important; }
+.cp-block-editor-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 12px; }
+#cp-dialog .cp-block-editor label { margin-bottom: 10px; }
+#cp-dialog .cp-block-editor-more summary { min-height: 44px; padding-block: 11px; cursor: pointer; }
+#cp-dialog .cp-block-editor-note { margin: 8px 0 12px; font-size: 12px; color: #aeb9c9; }
+#cp-dialog .cp-block-editor [hidden] { display: none !important; }
 @media (min-width: 950px), (orientation: landscape) and (min-width: 700px) {
   .cp-session-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .95fr); gap: 14px; }
 }
@@ -86,6 +107,16 @@
   .cp-session-card { padding: 13px !important; }
 }
 @media (orientation: landscape) and (max-height: 599px) {
+  #cp-dialog:has(#session-block-form) { width: min(740px, calc(100vw - 24px)); }
+  #cp-dialog:has(#session-block-form) .cp-dialog-body { padding: 14px 18px; }
+  #cp-dialog:has(#session-block-form) h2 { font-size: 20px; margin-bottom: 10px; }
+  #cp-dialog .cp-block-editor { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 12px; }
+  .cp-block-editor > .cp-block-editor-grid, .cp-block-editor > [data-editor-work], .cp-block-editor > .cp-block-editor-grid > [data-editor-tempo], .cp-block-editor > .cp-block-editor-grid > [data-editor-generated] { display: contents; }
+  #cp-dialog .cp-block-editor label { font-size: 12px; gap: 3px; margin-bottom: 6px; }
+  #cp-dialog .cp-block-editor-more:not([open]) { align-self: end; }
+  #cp-dialog .cp-block-editor-more[open], .cp-block-editor > .cp-actions, .cp-block-editor > .cp-block-editor-note { grid-column: 1 / -1; }
+  #cp-dialog .cp-block-editor-note { margin: 3px 0 5px; }
+  #cp-dialog .cp-block-editor > .cp-actions { margin-top: 5px; }
   .cp-session-heading { margin-bottom: 10px; gap: 8px; }
   #app-shell .cp-session-heading h1 { font-size: 21px; margin-bottom: 3px; }
   #app-shell .cp-session .cp-session-finish { font-size: 12px; padding-inline: 9px; }

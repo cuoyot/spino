@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 
 test('open Web MIDI input survives consecutive reading sessions and activity stays visible when paused', { timeout: 60000 }, async t => {
   const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
@@ -16,6 +16,7 @@ test('open Web MIDI input survives consecutive reading sessions and activity sta
   await send('Page.navigate', { url });
   const wait = expr => evaluate(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(${expr}){clearInterval(t);resolve();}else if(++n>500){clearInterval(t);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('.cp-midi-status [data-midi-indicator][data-connected=true]')`);
+  await disableWarmup(evaluate);
   for (let session = 0; session < 2; session++) {
     await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action=prepare][data-id=reading]').click();{const c=document.querySelector('#practice-context');c.value='midi';c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#prepare-form').requestSubmit()`);
     await wait(`document.querySelector('[data-action=open-reader]')`);

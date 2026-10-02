@@ -35,17 +35,26 @@
       "source": "en/session-overview.md",
       "status": "draft",
       "reviewIds": [
-        "PRACTICE-01"
+        "PRACTICE-01",
+        "PRACTICE-08",
+        "PRACTICE-09"
       ],
       "baseline": "2026-10-01",
-      "verifiedAgainst": "session/2026-10-01-baseline",
-      "coverage": "Overview only; exercise, score and feedback child reviews remain open.",
+      "verifiedAgainst": "session/2026-10-01-block-controls-02",
+      "coverage": "Overview, live editing and confirmed feedback/lifecycle repairs; full exercise, score and feedback child reviews remain open.",
       "knownIssues": [
-        "SESSION-F04",
-        "SESSION-F05",
-        "SESSION-F06",
-        "SESSION-F09"
-      ]
+        "SESSION-F02",
+        "SESSION-F08"
+      ],
+      "decisions": [
+        "D-005",
+        "D-006",
+        "D-007"
+      ],
+      "visualAcceptance": {
+        "date": "2026-10-01",
+        "scope": "Session layout and behavior approved except original movement controls; D-006 requests their long-press/bin replacement. Child/native/accessibility review remains open."
+      }
     }
   ],
   "plannedChapters": [

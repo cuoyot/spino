@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">SPino</string>
     <string name="title_activity_main">SPino</string>
-    <string name="package_name">com.miguelcoll.sightreader</string>
-    <string name="custom_url_scheme">com.miguelcoll.sightreader</string>
+    <string name="package_name">com.miguecoll.spino</string>
+    <string name="custom_url_scheme">com.miguecoll.spino</string>
 </resources>

@@ -89,7 +89,7 @@ export function editSession(input, action, options = {}) {
   if (Object.hasOwn(options, 'readerSnapshot')) active.readerSnapshot = copy(options.readerSnapshot);
   const previous = current(active), index = active.blocks.findIndex(item => item.id === action.blockId);
   let removedResult = null;
-  if (!['minutes', 'move', 'remove', 'add'].includes(action.type)) throw new Error(ui('Unknown session change.', 'Cambio de sesión desconocido.'));
+  if (!['minutes', 'update', 'move', 'remove', 'add'].includes(action.type)) throw new Error(ui('Unknown session change.', 'Cambio de sesión desconocido.'));
   if (action.type !== 'add') {
     if (index < 0) throw new Error(ui('This block no longer exists.', 'Este bloque ya no existe.'));
     if (index < active.blockIndex) throw new Error(ui('Completed blocks cannot be edited.', 'Los bloques completados no se pueden editar.'));
@@ -98,6 +98,26 @@ export function editSession(input, action, options = {}) {
   if (action.type === 'minutes') {
     if (!validMinutes(action.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));
     active.blocks[index].minutes = action.minutes;
+  } else if (action.type === 'update') {
+    const allowed = ['type', 'minutes', 'target', 'bpm', 'level', 'hand', 'figures', 'timing', 'input', 'presentation', 'workId', 'passage'];
+    if (!action.values || Object.keys(action.values).some(key => !allowed.includes(key))) throw new Error(ui('Choose valid block settings.', 'Elige ajustes válidos para el bloque.'));
+    const before = active.blocks[index], updated = { ...before, ...copy(action.values) };
+    if (!validMinutes(updated.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));
+    if (active.context === 'mobile' && !['reading', 'technique', 'theory'].includes(updated.type)) throw new Error(ui('Without a piano, choose reading or technique.', 'Sin piano, elige lectura o técnica.'));
+    if (updated.type === 'theory' && before.type !== 'theory') throw new Error(ui('Choose an available activity.', 'Elige una actividad disponible.'));
+    const changedContent = allowed.some(key => key !== 'minutes' && JSON.stringify(before[key]) !== JSON.stringify(updated[key]));
+    if (changedContent) {
+      const runtime = index === active.blockIndex ? runtimeOf(active) : active.blockRuntime?.find(item => item.blockId === before.id);
+      // Preserve the old exercise with its old settings, then start the edited material fresh.
+      if (runtime && performed(runtime)) active.results.push(resultOf(before, runtime, { partial: true }));
+      active.blockRuntime = (active.blockRuntime || []).filter(item => item.blockId !== before.id);
+      if (!active.blockRuntime.length) delete active.blockRuntime;
+      if (index === active.blockIndex) {
+        active.blockElapsedMs = 0;
+        delete active.currentMeasurement; delete active.readerSnapshot;
+      }
+    }
+    active.blocks[index] = updated;
   } else if (action.type === 'move') {
     if (!Number.isInteger(action.toIndex) || action.toIndex < active.blockIndex || action.toIndex >= active.blocks.length) throw new Error(ui('Move the block within the remaining session.', 'Mueve el bloque dentro de la parte pendiente de la sesión.'));
     suspendCurrent(active);

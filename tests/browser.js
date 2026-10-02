@@ -91,3 +91,19 @@ export async function openBrowser(t, { companion = false, language = 'es' } = {}
   if (companion) await send('Page.addScriptToEvaluateOnNewDocument', {source: `Object.defineProperty(navigator, 'language', { get: () => ${JSON.stringify(language)} });`});
   return { send, evaluate, errors, url: `http://127.0.0.1:${server.address().port}/${companion ? '' : '#reader'}` };
 }
+
+// Piano and MIDI sessions open with a Hanon warm-up block. Tests that exercise a specific first block switch
+// the warm-up off through Practice preferences, the way a player would, and return to Today.
+export const disableWarmup = evaluate => evaluate(`(async()=>{
+  const until=fn=>new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{let value;try{value=fn();}catch{}if(value){clearInterval(timer);resolve(value);}else if(++n>500){clearInterval(timer);reject(Error('Warm-up preference timeout'));}},20);});
+  document.querySelector('.cp-nav [data-action=settings]').click();
+  await until(()=>document.querySelector('[data-action=profile-practice]'));
+  document.querySelector('[data-action=profile-practice]').click();
+  await until(()=>document.querySelector('#preferences-form [name=warmup-enabled]'));
+  document.querySelector('#preferences-form [name=warmup-enabled]').checked=false;
+  document.querySelector('#preferences-form').requestSubmit();
+  await until(()=>/guardadas|saved/i.test(document.querySelector('#cp-toast')?.textContent||''));
+  document.querySelector('.cp-nav [data-action=home]').click();
+  await until(()=>document.querySelector('.cp-today'));
+  return true;
+})()`);

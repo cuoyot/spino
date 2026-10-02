@@ -6,7 +6,7 @@ async function pdfViewerChunk() {
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile, readdir, readFile } from 'node:fs/promises';
-import { openBrowser } from './browser.js';
+import { openBrowser, disableWarmup } from './browser.js';
 import { scorePDF } from './pdf-fixture.js';
 
 test('PDF repertoire import, safe page gestures, annotation tools, persistence and practice timing', { timeout: 120000 }, async t => {
@@ -32,6 +32,7 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
   const saved = () => wait(`document.querySelector('.pdf-save-state')?.textContent==='Anotaciones guardadas en el dispositivo.'`);
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
+  await disableWarmup(evaluate);
   await evaluate(`window.fixture=${JSON.stringify(scorePDF())};window.originalFileClick=HTMLInputElement.prototype.click;HTMLInputElement.prototype.click=function(){if(this.type==='file'){const data=new DataTransfer();data.items.add(new File([Uint8Array.from(atob(window.fixture),c=>c.charCodeAt(0))],'My score.pdf',{type:'application/pdf'}));this.files=data.files;this.dispatchEvent(new Event('change'));}else originalFileClick.call(this);};`);
   await action('piano'); await action('repertoire');
   await t.test('imports and validates a PDF without creating a partial work on invalid files', async () => {
@@ -47,9 +48,9 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
     await action('open-pdf'); await ready();
     assert.equal(await evaluate(`document.querySelector('.pdf-page-count').textContent`), '1 / 2');
   });
-  await t.test('turns only on narrow margin taps, never on staff taps, long holds or swipes', async () => {
+  await t.test('turns only on margin taps, never on staff taps, long holds or swipes', async () => {
     let r = await rect();
-    await tap(r.x + r.width - 30, r.y + r.height / 2);
+    await tap(r.x + r.width * .6, r.y + r.height / 2);
     await tap(r.x + r.width - 3, r.y + r.height / 2, 370);
     await stroke(.99, .3, .98, .6);
     assert.equal(await evaluate(`document.querySelector('.pdf-page-count').textContent`), '1 / 2');

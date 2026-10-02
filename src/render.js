@@ -236,7 +236,7 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
 
   const xOf = (beat) => (X(beat) + headOffset) * zoom;
   const guide = staffGuide(staves, zoom);
-  return { xOf, readX, zoom, ppb, top: guide.staffTop, height: guide.staffH, strip, headerW: headerW * zoom, from, to, setState };
+  return { xOf, readX, zoom, ppb, top: guide.staffTop, height: guide.staffH, strip, headerW: headerW * zoom, from, to, setState, elementOf: (i) => groups[i - from] };
 }
 
 /**
@@ -363,6 +363,6 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
     startBeat, endBeat: startBeat + systems * beatsPerSystem,
     xOfNote: (i) => posOf.get(i),
     xAtBeat: (beat) => rows[systemOf(beat)].xAt(beat),
-    setState,
+    setState, elementOf: (i) => groups[i],
   };
 }
