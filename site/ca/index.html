@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPino: quadern de piano</title>
+<meta name="description" content="Lectura a primera vista, escalfament Hanon i planificació de l’estudi de piano, amb teclat MIDI, piano acústic o només el mòbil.">
+<meta property="og:title" content="SPino: quadern de piano">
+<meta property="og:description" content="Lectura a primera vista, escalfament Hanon i planificació de l’estudi de piano, amb teclat MIDI, piano acústic o només el mòbil.">
+<meta property="og:image" content="../img/feature.png">
+<link rel="icon" href="../img/icon.png">
+<link rel="apple-touch-icon" href="../img/icon.png">
+<link rel="alternate" hreflang="es" href="../"><link rel="alternate" hreflang="en" href="../en/"><link rel="alternate" hreflang="ca" href="../ca/">
+<style>:root{--bg:#14161a;--panel:#1d2027;--line:#2c313a;--text:#e8eaed;--muted:#a3abb7;--accent:#4f8cff}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:700;font-size:20px}.brand img{width:36px;height:36px}
+.lang{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 16px;letter-spacing:-.02em}
+.hero h1 span{color:var(--accent)}.hero p.lead{color:var(--muted);font-size:19px;margin:0 0 28px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:650;border-radius:14px;padding:14px 22px}
+.cta-note{display:block;color:var(--muted);font-size:14px;margin-top:10px}
+.hero .phone{justify-self:center;width:min(300px,80vw);border-radius:28px;border:6px solid #2a2e36;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 24px;letter-spacing:-.01em}
+section{padding:48px 0}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+.feature svg{width:30px;height:30px;color:var(--accent)}.feature h3{margin:12px 0 6px;font-size:19px}.feature p{margin:0;color:var(--muted);font-size:16px}
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.shots img{flex:0 0 auto;width:min(240px,62vw);border-radius:20px;border:1px solid var(--line);scroll-snap-align:start}
+.wide{margin-top:24px;border-radius:18px;border:1px solid var(--line)}
+.privacy{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.privacy svg{width:40px;height:40px;color:var(--accent)}.privacy h2{margin:0 0 8px}.privacy p{margin:0 0 12px;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:24px;padding:28px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+footer a{color:var(--muted)}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:16px}.hero .phone{width:min(260px,72vw)}.privacy{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="./"><img src="../img/icon.png" alt="" width="36" height="36">SPino</a><nav aria-label="Language"><a class="lang" href="../" lang="es" hreflang="es">Español</a> <a class="lang" href="../en/" lang="en" hreflang="en">English</a></nav></header>
+<main>
+<section class="hero">
+<div><h1>SPino<br><span>El teu quadern de piano</span></h1><p class="lead">Planifica què estudiaràs, practica amb exercicis que s’adapten al teu nivell i guarda com ha anat cada sessió. Amb un teclat MIDI, amb el teu piano o, quan viatges, només amb el mòbil.</p>
+<a class="cta" href="#features"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9z" fill="currentColor"/></svg> Pròximament a Google Play</a><span class="cta-note">Android · gratuït · sense anuncis</span></div>
+<img class="phone" src="../img/es/02-warmup-session.png" alt="Bloc d’escalfament amb les mans al teclat" width="1080" height="1920">
+</section>
+<section id="features"><h2>Tot el que necessites per practicar</h2><div class="features"><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 10h18M3 14h18M3 18h18"/><circle cx="9" cy="10" r="2" fill="currentColor"/><circle cx="15" cy="14" r="2" fill="currentColor"/></svg><h3>Lectura a primera vista sense fi</h3><p>Exercicis nous cada vegada en l’escala que triïs, amb una mà o amb totes dues. Amb dues mans, el baix manté un patró i la melodia segueix les notes de l’acord.</p></article><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5a1.5 1.5 0 0 1 3 0v6-8a1.5 1.5 0 0 1 3 0v8-6a1.5 1.5 0 0 1 3 0v9c0 4-2.5 6-6 6s-5-1.5-7-5l-1.5-3a1.5 1.5 0 0 1 2.6-1.5L8 13"/></svg><h3>Escalfament Hanon</h3><p>Cada sessió de piano comença amb un exercici d’El pianista virtuós, amb una guia visual de les mans i una demostració animada.</p></article><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M7 6v8M12 6v8M17 6v8"/></svg><h3>Amb teclat MIDI</h3><p>Connecta’l per USB o Bluetooth: SPino comprova cada nota, també els acords. Fes servir els pedals per passar pàgina.</p></article><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V14M10 20V9M16 20V4M2 20h20"/></svg><h3>Al teu nivell</h3><p>Tria el teu nivell de pianista i cada pràctica ajusta el ritme i el registre. La mà esquerra avança al seu propi ritme.</p></article><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/></svg><h3>Planifica i repassa</h3><p>Avui, calendari setmanal, rutines, recordatoris i historial amb notes i valoració de cada sessió.</p></article><article class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><h3>Les teves partitures</h3><p>Biblioteca de domini públic, els teus PDF amb anotacions i lectura per parts en horitzontal.</p></article></div></section>
+<section><h2>Així és SPino</h2><div class="shots"><img src="../img/es/01-today.png" alt="Pantalla Avui amb la setmana i la pròxima pràctica" width="1080" height="1920" loading="lazy"><img src="../img/es/02-warmup-session.png" alt="Bloc d’escalfament amb les mans al teclat" width="1080" height="1920" loading="lazy"><img src="../img/es/03-warmup-guide.png" alt="Guia visual de l’exercici Hanon" width="1080" height="1920" loading="lazy"><img src="../img/es/06-reading-keyboard.png" alt="Lectura amb teclat en pantalla" width="1080" height="1920" loading="lazy"><img src="../img/es/07-calendar.png" alt="Calendari setmanal" width="1080" height="1920" loading="lazy"></div>
+<img class="wide" src="../img/es/wide-reading.png" alt="Lectura amb dues mans en una tauleta" width="2560" height="1600" loading="lazy"></section>
+<section><div class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><h2>Privat per disseny</h2><p>Sense comptes, sense anuncis i sense servidors propis: el quadern es guarda al teu dispositiu. Si vols, fes-ne una còpia al fitxer que triïs, per exemple a Google Drive.</p><a href="../privacy/">Política de privacitat</a></div></div></section>
+<section id="arcade"><div class="feature"><h2>Spino Arcade · Laboratori de joc</h2><p>Un joc musical nascut de Spino: Smart Piano Notebook. Llegeix notes en moviment, segueix el ritme i encadena ratxes, amb instruments amb mostres i progressió gradual.</p><p><a href="../arcade/ca/">Descobreix Spino Arcade 0.9 →</a></p></div></section></main>
+<footer><span>© 2026 SPino · Smart Piano Notebook</span><span><a href="../privacy/">Política de privacitat</a></span></footer>
+</div>
+</body>
+</html>
