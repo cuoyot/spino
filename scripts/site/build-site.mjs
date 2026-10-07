@@ -1,6 +1,6 @@
 // Builds the public website in site/ (published as is by Cloudflare Pages): landing page in Spanish (/) and
 // English (/en/), and the bilingual privacy policy (/privacy/). Usage: node scripts/site/build-site.mjs
-import { mkdir, readFile, writeFile, copyFile, rm } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, copyFile, rm, cp } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const OUT = 'site';
@@ -115,7 +115,7 @@ function page(t) {
 <section><h2>${t.shotsTitle}</h2><div class="shots">${SHOTS.map(shot).join('')}</div>
 <img class="wide" src="${t.root}img/${t.lang}/wide-reading.png" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy"></section>
 <section><div class="privacy">${ICONS.lock}<div><h2>${t.privacyTitle}</h2><p>${t.privacy}</p><a href="${t.root}privacy/">${t.privacyLink}</a></div></div></section>
-</main>
+<section id="arcade"><div class="feature"><h2>Spino Arcade · ${t.lang==='en'?'Play lab':'Laboratorio de juego'}</h2><p>${t.lang==='en'?'A musical game born from Spino: Smart Piano Notebook. Read moving notes, keep the rhythm and build streaks, with sampled instruments and gentle progression.':'Un juego musical nacido de Spino: Smart Piano Notebook. Lee notas en movimiento, sigue el ritmo y encadena rachas, con instrumentos con muestras y progresión gradual.'}</p><p><a href="${t.lang==='en'?'../arcade/en/':'./arcade/'}">${t.lang==='en'?'Discover Spino Arcade 0.9':'Descubre Spino Arcade 0.9'} →</a></p></div></section></main>
 <footer><span>© ${new Date().getFullYear()} ${t.footer}</span><span><a href="${t.root}privacy/">${t.privacyLink}</a></span></footer>
 </div>
 </body>
@@ -147,4 +147,5 @@ await writeFile(join(OUT, '_headers'), `/*
   Cache-Control: public, max-age=604800
 `);
 await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SPino</title><body style="margin:0;background:#14161a;color:#e8eaed;font:17px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center"><div><p>Página no encontrada · Page not found</p><p><a style="color:#4f8cff" href="/">SPino</a></p></div></body></html>\n`);
+await cp('scripts/site/arcade', join(OUT, 'arcade'), { recursive: true });
 console.log('site/ built');
