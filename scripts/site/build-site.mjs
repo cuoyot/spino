@@ -58,6 +58,7 @@ const COPY = {
   },
 };
 
+const TEST_DOWNLOAD_COPY={"es":["Descargar Spino Test APK","Versión de prueba para Android. La versión oficial estará disponible en Google Play.","Descargar Arcade Test APK"],"en":["Download Spino Test APK","Android test version. The official version will be available on Google Play.","Download Arcade Test APK"],"ca":["Descarrega Spino Test APK","Versió de prova per a Android. La versió oficial estarà disponible a Google Play.","Descarrega Arcade Test APK"]};
 COPY.ca={"lang":"ca","root":"../","title":"SPino: quadern de piano","description":"Lectura a primera vista, escalfament Hanon i planificació de l’estudi de piano, amb teclat MIDI, piano acústic o només el mòbil.","tagline":"El teu quadern de piano","lead":"Planifica què estudiaràs, practica amb exercicis que s’adapten al teu nivell i guarda com ha anat cada sessió. Amb un teclat MIDI, amb el teu piano o, quan viatges, només amb el mòbil.","cta":"Pròximament a Google Play","ctaNote":"Android · gratuït · sense anuncis","featuresTitle":"Tot el que necessites per practicar","features":[["read","Lectura a primera vista sense fi","Exercicis nous cada vegada en l’escala que triïs, amb una mà o amb totes dues. Amb dues mans, el baix manté un patró i la melodia segueix les notes de l’acord."],["hands","Escalfament Hanon","Cada sessió de piano comença amb un exercici d’El pianista virtuós, amb una guia visual de les mans i una demostració animada."],["midi","Amb teclat MIDI","Connecta’l per USB o Bluetooth: SPino comprova cada nota, també els acords. Fes servir els pedals per passar pàgina."],["level","Al teu nivell","Tria el teu nivell de pianista i cada pràctica ajusta el ritme i el registre. La mà esquerra avança al seu propi ritme."],["plan","Planifica i repassa","Avui, calendari setmanal, rutines, recordatoris i historial amb notes i valoració de cada sessió."],["score","Les teves partitures","Biblioteca de domini públic, els teus PDF amb anotacions i lectura per parts en horitzontal."]],"shotsTitle":"Així és SPino","shotAlt":["Pantalla Avui amb la setmana i la pròxima pràctica","Bloc d’escalfament amb les mans al teclat","Guia visual de l’exercici Hanon","Lectura amb teclat en pantalla","Calendari setmanal"],"wideAlt":"Lectura amb dues mans en una tauleta","privacyTitle":"Privat per disseny","privacy":"Sense comptes, sense anuncis i sense servidors propis: el quadern es guarda al teu dispositiu. Si vols, fes-ne una còpia al fitxer que triïs, per exemple a Google Drive.","privacyLink":"Política de privacitat","footer":"SPino · Smart Piano Notebook"};
 
 const STYLE = `:root{--bg:#14161a;--panel:#1d2027;--line:#2c313a;--text:#e8eaed;--muted:#a3abb7;--accent:#4f8cff}
@@ -110,7 +111,7 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 <main>
 <section class="hero">
 <div><h1>SPino<br><span>${t.tagline}</span></h1><p class="lead">${t.lead}</p>
-<a class="cta" href="#features">${icon('<path d="M5 3l14 9-14 9z" fill="currentColor"/>').replace('<svg', '<svg width="18" height="18"')} ${t.cta}</a><span class="cta-note">${t.ctaNote}</span></div>
+<a class="cta" href="#features">${icon('<path d="M5 3l14 9-14 9z" fill="currentColor"/>').replace('<svg', '<svg width="18" height="18"')} ${t.cta}</a><span class="cta-note">${t.ctaNote}</span><p><a class="cta" href="${t.root}downloads/spino-test.apk" download>${TEST_DOWNLOAD_COPY[t.lang][0]}</a><span class="cta-note">${TEST_DOWNLOAD_COPY[t.lang][1]}</span></p></div>
 <img class="phone" src="${t.root}img/${t.lang==='ca'?'es':t.lang}/02-warmup-session.png" alt="${t.shotAlt[1]}" width="1080" height="1920">
 </section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
@@ -150,7 +151,9 @@ await writeFile(join(OUT, '_headers'), `/*
 /img/*
   Cache-Control: public, max-age=604800
 `);
+await writeFile(join(OUT, '_headers'), (await readFile(join(OUT, '_headers'), 'utf8')) + "\n/downloads/*.apk\n  Content-Type: application/vnd.android.package-archive\n  Content-Disposition: attachment\n  Cache-Control: public, max-age=300\n");
 await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SPino</title><body style="margin:0;background:#14161a;color:#e8eaed;font:17px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center"><div><p>Página no encontrada · Page not found</p><p><a style="color:#4f8cff" href="/">SPino</a></p></div></body></html>\n`);
+await cp('scripts/site/downloads', join(OUT, 'downloads'), { recursive: true });
 await cp('scripts/site/arcade', join(OUT, 'arcade'), { recursive: true });
 console.log('site/ built');
 
