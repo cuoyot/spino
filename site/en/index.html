@@ -11,7 +11,7 @@
 <link rel="icon" href="../img/icon.png">
 <link rel="apple-touch-icon" href="../img/icon.png">
 <link rel="alternate" hreflang="es" href="../"><link rel="alternate" hreflang="en" href="../en/"><link rel="alternate" hreflang="ca" href="../ca/">
-<style>:root{--bg:#14161a;--panel:#1d2027;--line:#2c313a;--text:#e8eaed;--muted:#a3abb7;--accent:#4f8cff}
+<style>.language-picker{position:relative;z-index:5}.language-picker summary{list-style:none;cursor:pointer;border:1px solid #615b72;border-radius:10px;padding:10px;display:flex;align-items:center;background:#29263a}.language-picker summary::-webkit-details-marker{display:none}.language-picker summary:focus-visible,.language-picker a:focus-visible{outline:3px solid #ffdf69;outline-offset:3px}.language-options{position:absolute;right:0;top:100%;margin-top:8px;min-width:160px;background:#29263a;border:1px solid #615b72;border-radius:12px;padding:5px;box-shadow:0 8px 24px #0005}.language-options a{display:flex;align-items:center;gap:10px;color:#fff5ee;text-decoration:none;padding:10px;border-radius:7px;white-space:nowrap}.language-options a:hover{background:#454057}.flag{display:inline-block;width:30px;height:21px;border-radius:3px;box-shadow:0 0 0 1px #ffffff40;flex-shrink:0}.flag-es{background:linear-gradient(#b72730 25%,#ffd451 25% 75%,#b72730 75%)}.flag-ca{background:repeating-linear-gradient(to bottom,#f5ce43 0 11.11%,#c9353d 11.11% 22.22%)}.flag-en{background:linear-gradient(90deg,transparent 41%,#c83041 41% 59%,transparent 59%),linear-gradient(transparent 35%,#c83041 35% 65%,transparent 65%),linear-gradient(90deg,transparent 32%,#fff 32% 68%,transparent 68%),linear-gradient(transparent 25%,#fff 25% 75%,transparent 75%),linear-gradient(33deg,transparent 43%,#fff 43% 48%,#c83041 48% 52%,#fff 52% 57%,transparent 57%),linear-gradient(-33deg,transparent 43%,#fff 43% 48%,#c83041 48% 52%,#fff 52% 57%,transparent 57%),#253d88}:root{--bg:#14161a;--panel:#1d2027;--line:#2c313a;--text:#e8eaed;--muted:#a3abb7;--accent:#4f8cff}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:var(--accent)}img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
@@ -40,7 +40,7 @@ footer a{color:var(--muted)}
 </head>
 <body>
 <div class="wrap">
-<header class="top"><a class="brand" href="./"><img src="../img/icon.png" alt="" width="36" height="36">SPino</a><nav aria-label="Language"><a class="lang" href="../" lang="es" hreflang="es">Español</a> <a class="lang" href="../ca/" lang="ca" hreflang="ca">Català</a></nav></header>
+<header class="top"><a class="brand" href="./"><img src="../img/icon.png" alt="" width="36" height="36">SPino</a><details class="language-picker"><summary aria-label="English — Change language" title="English"><span class="flag flag-en" aria-hidden="true"></span></summary><div class="language-options"><a href="../" lang="es" hreflang="es"><span class="flag flag-es" aria-hidden="true"></span>Español</a><a href="../ca/" lang="ca" hreflang="ca"><span class="flag flag-ca" aria-hidden="true"></span>Català</a></div></details></header>
 <main>
 <section class="hero">
 <div><h1>SPino<br><span>Your piano notebook</span></h1><p class="lead">Plan what to practise, play exercises that adapt to your level and keep a record of every session. With a MIDI keyboard, with your piano or, when you travel, with just your phone.</p>
