@@ -2,6 +2,7 @@
   "name": "@spino/cloud-backup",
   "version": "1.0.0",
   "private": true,
+  "license": "GPL-3.0-or-later",
   "description": "SPino document-provider backup bridge for iOS",
   "main": "index.js",
   "type": "module",

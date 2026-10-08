@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "description": "SPino: Smart Piano Notebook — a local piano practice companion with planning, lessons and practice history",
   "dependencies": {
     "@capacitor/android": "^8.5.2",

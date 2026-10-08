@@ -2,6 +2,18 @@
 
 A free, local piano companion for planning, practising and reviewing progress. **SPino: Smart Piano Notebook** is the full product name; **SPino** is used on the launcher and compact app headers. Built with JavaScript, Vite, VexFlow and Capacitor for Android. No account, application backend, subscription or telemetry is required.
 
+## License
+
+Copyright (C) 2026 Miguel Coll and contributors.
+
+SPino's original application code, including the local cloud-backup plugin, is free software: you may redistribute it and/or modify it under the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version (`GPL-3.0-or-later`). See [LICENSE](LICENSE) for the complete terms.
+
+SPino is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for details.
+
+Third-party code, fonts, OCR models, scores and other external assets retain their respective licenses and notices; this grant does not relicense them. See [OCR notices](public/licenses/ocr-notices.txt), the notices under `public/repertoire/`, and [catalogue provenance](Exercises_Library/docs/SOURCES_AND_LICENSES.md). Musical works, editions and user-imported scores require their own rights assessment. User notebooks and annotations do not become GPL-licensed merely by using SPino. No trademark rights or official endorsement are granted by the software license.
+
+When distributing an APK or other binary, provide its corresponding source, including applicable modifications and build scripts, in compliance with GPL section 6, and retain third-party notices. The source must correspond to that exact binary; a link to a newer or incomplete branch is not sufficient. Previously granted permissions for earlier copies are not revoked by this adoption. Dependencies and bundled assets still require a complete distribution audit before an open-source release.
+
 ## What you can do
 
 - Start reading, technique, repertoire, theory or free practice; save reusable routines.
