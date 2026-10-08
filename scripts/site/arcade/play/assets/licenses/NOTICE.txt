@@ -1,3 +1,0 @@
-Original Spino Arcade code: GPL-3.0-only.
-FluidR3 samples: CC BY 3.0; see assets/INSTRUMENTS-NOTICE.md.
-Third-party dependencies retain their licenses.
