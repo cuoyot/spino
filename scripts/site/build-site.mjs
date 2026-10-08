@@ -1,11 +1,13 @@
 // Builds the public website in site/ (published as is by Cloudflare Pages): landing page in Spanish (/) and
-// English (/en/), and the bilingual privacy policy (/privacy/). Usage: node scripts/site/build-site.mjs
-import { mkdir, readFile, writeFile, copyFile, rm, cp } from 'node:fs/promises';
+// English (/en/), Catalan (/ca/) and the bilingual privacy policy (/privacy/).
+import { mkdir, readFile, writeFile, copyFile, cp } from 'node:fs/promises';
 import { join } from 'node:path';
 import {fileURLToPath} from 'node:url';
 
+import {COPY} from './site-copy.mjs';
 const OUT = 'site';
-const SHOTS = ['01-today', '02-warmup-session', '03-warmup-guide', '06-reading-keyboard', '07-calendar'];
+const SHOT_SOURCE='docs/quality-review/captures/website/2026-10-07-current-app-07';
+const SHOTS = ['01-today','02-routine','03-repertoire','04-quick-practice','05-quick-result','06-progress'];
 const icon = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const ICONS = {
   read: icon('<path d="M3 6h18M3 10h18M3 14h18M3 18h18"/><circle cx="9" cy="10" r="2" fill="currentColor"/><circle cx="15" cy="14" r="2" fill="currentColor"/>'),
@@ -14,52 +16,12 @@ const ICONS = {
   level: icon('<path d="M4 20V14M10 20V9M16 20V4M2 20h20"/>'),
   plan: icon('<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/>'),
   score: icon('<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>'),
+  game: icon('<path d="m12 3 3 6 6 1-4 5 1 6-6-3-6 3 1-6-4-5 6-1z"/>'),
+  metronome: icon('<path d="m9 3-5 18h16L15 3zM12 17l5-9M8 14h8"/>'),
   lock: icon('<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
 };
 
-const COPY = {
-  es: {
-    lang: 'es', other: 'en', otherLabel: 'English', root: './', title: 'SPino: cuaderno de piano',
-    description: 'Lectura a primera vista, calentamiento Hanon y plan de estudio de piano, con teclado MIDI, piano acústico o solo el móvil.',
-    tagline: 'Tu cuaderno de piano', lead: 'Planifica qué vas a estudiar, practica con ejercicios que se adaptan a tu nivel y guarda cómo te ha ido cada día. Con un teclado MIDI, con tu piano o, cuando viajas, solo con el móvil.',
-    cta: 'Próximamente en Google Play', ctaNote: 'Android · gratis · sin anuncios',
-    featuresTitle: 'Todo lo que necesitas para practicar',
-    features: [
-      ['read', 'Lectura a primera vista sin fin', 'Ejercicios nuevos cada vez en la escala que elijas, a una o dos manos. A dos manos, el bajo mantiene un patrón y la melodía cae en notas del acorde.'],
-      ['hands', 'Calentamiento Hanon', 'Cada sesión con piano empieza con un ejercicio de El pianista virtuoso, con una guía visual de las manos y una demostración animada.'],
-      ['midi', 'Con teclado MIDI', 'Conéctalo por USB o Bluetooth: SPino comprueba cada nota, también los acordes. Usa los pedales para pasar página.'],
-      ['level', 'A tu nivel', 'Elige tu nivel de pianista y cada práctica ajusta el ritmo y el registro. La mano izquierda avanza a su propio paso.'],
-      ['plan', 'Planifica y repasa', 'Hoy, calendario semanal, rutinas, recordatorios e historial con notas y valoración de cada sesión.'],
-      ['score', 'Tus partituras', 'Biblioteca de dominio público, tus PDF con anotaciones y lectura por partes en apaisado.'],
-    ],
-    shotsTitle: 'Así es SPino', shotAlt: ['Pantalla Hoy con la semana y la próxima práctica', 'Bloque de calentamiento con las manos sobre el teclado', 'Guía visual del ejercicio Hanon', 'Lectura con teclado en pantalla', 'Calendario semanal'],
-    wideAlt: 'Lectura a dos manos en una tablet',
-    privacyTitle: 'Privado por diseño', privacy: 'Sin cuentas, sin anuncios y sin servidores propios: tu cuaderno se guarda en tu dispositivo. Si quieres, haz una copia en el archivo que elijas, por ejemplo en Google Drive.',
-    privacyLink: 'Política de privacidad', footer: 'SPino · Smart Piano Notebook', contact: 'Contacto',
-  },
-  en: {
-    lang: 'en', other: 'es', otherLabel: 'Español', root: '../', title: 'SPino: Smart Piano Notebook',
-    description: 'Piano sight-reading, Hanon warm-ups and practice planning, with a MIDI keyboard, an acoustic piano or just your phone.',
-    tagline: 'Your piano notebook', lead: 'Plan what to practise, play exercises that adapt to your level and keep a record of every session. With a MIDI keyboard, with your piano or, when you travel, with just your phone.',
-    cta: 'Coming soon to Google Play', ctaNote: 'Android · free · no ads',
-    featuresTitle: 'Everything you need to practise',
-    features: [
-      ['read', 'Endless sight-reading', 'Fresh exercises every time in the scale you choose, one hand or both. With both hands, the bass keeps a pattern and the melody lands on chord tones.'],
-      ['hands', 'Hanon warm-up', 'Every piano session opens with an exercise from The Virtuoso Pianist, with a visual hand guide and an animated demo.'],
-      ['midi', 'With a MIDI keyboard', 'Connect by USB or Bluetooth: SPino checks every note, chords included. Turn pages with your pedals.'],
-      ['level', 'At your level', 'Choose your pianist level and each practice sets its rhythm and range. The left hand progresses at its own pace.'],
-      ['plan', 'Plan and look back', 'Today, a weekly calendar, routines, reminders and a history with notes and a rating for each session.'],
-      ['score', 'Your scores', 'A public-domain library, your own annotated PDFs and part-by-part reading in landscape.'],
-    ],
-    shotsTitle: 'See SPino', shotAlt: ['Today screen with the week and the next practice', 'Warm-up block with both hands on the keyboard', 'Visual guide for the Hanon exercise', 'Reading with the on-screen keyboard', 'Weekly calendar'],
-    wideAlt: 'Two-hand reading on a tablet',
-    privacyTitle: 'Private by design', privacy: 'No accounts, no ads and no servers of our own: your notebook stays on your device. If you want, back it up to a file you choose, for example in Google Drive.',
-    privacyLink: 'Privacy policy', footer: 'SPino · Smart Piano Notebook', contact: 'Contact',
-  },
-};
-
-const TEST_DOWNLOAD_COPY={"es":["Descargar Spino Test APK","Versión de prueba para Android. La versión oficial estará disponible en Google Play.","Descargar Arcade Test APK"],"en":["Download Spino Test APK","Android test version. The official version will be available on Google Play.","Download Arcade Test APK"],"ca":["Descarrega Spino Test APK","Versió de prova per a Android. La versió oficial estarà disponible a Google Play.","Descarrega Arcade Test APK"]};
-COPY.ca={"lang":"ca","root":"../","title":"SPino: quadern de piano","description":"Lectura a primera vista, escalfament Hanon i planificació de l’estudi de piano, amb teclat MIDI, piano acústic o només el mòbil.","tagline":"El teu quadern de piano","lead":"Planifica què estudiaràs, practica amb exercicis que s’adapten al teu nivell i guarda com ha anat cada sessió. Amb un teclat MIDI, amb el teu piano o, quan viatges, només amb el mòbil.","cta":"Pròximament a Google Play","ctaNote":"Android · gratuït · sense anuncis","featuresTitle":"Tot el que necessites per practicar","features":[["read","Lectura a primera vista sense fi","Exercicis nous cada vegada en l’escala que triïs, amb una mà o amb totes dues. Amb dues mans, el baix manté un patró i la melodia segueix les notes de l’acord."],["hands","Escalfament Hanon","Cada sessió de piano comença amb un exercici d’El pianista virtuós, amb una guia visual de les mans i una demostració animada."],["midi","Amb teclat MIDI","Connecta’l per USB o Bluetooth: SPino comprova cada nota, també els acords. Fes servir els pedals per passar pàgina."],["level","Al teu nivell","Tria el teu nivell de pianista i cada pràctica ajusta el ritme i el registre. La mà esquerra avança al seu propi ritme."],["plan","Planifica i repassa","Avui, calendari setmanal, rutines, recordatoris i historial amb notes i valoració de cada sessió."],["score","Les teves partitures","Biblioteca de domini públic, els teus PDF amb anotacions i lectura per parts en horitzontal."]],"shotsTitle":"Així és SPino","shotAlt":["Pantalla Avui amb la setmana i la pròxima pràctica","Bloc d’escalfament amb les mans al teclat","Guia visual de l’exercici Hanon","Lectura amb teclat en pantalla","Calendari setmanal"],"wideAlt":"Lectura amb dues mans en una tauleta","privacyTitle":"Privat per disseny","privacy":"Sense comptes, sense anuncis i sense servidors propis: el quadern es guarda al teu dispositiu. Si vols, fes-ne una còpia al fitxer que triïs, per exemple a Google Drive.","privacyLink":"Política de privacitat","footer":"SPino · Smart Piano Notebook"};
+const TEST_DOWNLOAD_COPY=Object.fromEntries(Object.entries(COPY).map(([lang,copy])=>[lang,copy.testDownload]));
 
 function languagePicker(lang,root){const names={"es":"Español","en":"English","ca":"Català"};return `<details class="language-picker"><summary aria-label="${names[lang]} — ${lang==='ca'?'Canvia l’idioma':lang==='es'?'Cambiar idioma':'Change language'}" title="${names[lang]}"><span class="flag flag-${lang}" aria-hidden="true"></span></summary><div class="language-options">${['es','en','ca'].filter(l=>l!==lang).map(l=>`<a href="${root}${l==='es'?'':l+'/'}" lang="${l}" hreflang="${l}"><span class="flag flag-${l}" aria-hidden="true"></span>${names[l]}</a>`).join('')}</div></details>`; }
 const STYLE = `.language-picker{position:relative;z-index:5}.language-picker summary{list-style:none;cursor:pointer;border:1px solid #615b72;border-radius:10px;padding:10px;display:flex;align-items:center;background:#29263a}.language-picker summary::-webkit-details-marker{display:none}.language-picker summary:focus-visible,.language-picker a:focus-visible{outline:3px solid #ffdf69;outline-offset:3px}.language-options{position:absolute;right:0;top:100%;margin-top:8px;min-width:160px;background:#29263a;border:1px solid #615b72;border-radius:12px;padding:5px;box-shadow:0 8px 24px #0005}.language-options a{display:flex;align-items:center;gap:10px;color:#fff5ee;text-decoration:none;padding:10px;border-radius:7px;white-space:nowrap}.language-options a:hover{background:#454057}.flag{display:inline-block;width:30px;height:21px;border-radius:3px;box-shadow:0 0 0 1px #ffffff40;flex-shrink:0}.flag-es{background:linear-gradient(#b72730 25%,#ffd451 25% 75%,#b72730 75%)}.flag-ca{background:repeating-linear-gradient(to bottom,#f5ce43 0 11.11%,#c9353d 11.11% 22.22%)}.flag-en{background:linear-gradient(90deg,transparent 41%,#c83041 41% 59%,transparent 59%),linear-gradient(transparent 35%,#c83041 35% 65%,transparent 65%),linear-gradient(90deg,transparent 32%,#fff 32% 68%,transparent 68%),linear-gradient(transparent 25%,#fff 25% 75%,transparent 75%),linear-gradient(33deg,transparent 43%,#fff 43% 48%,#c83041 48% 52%,#fff 52% 57%,transparent 57%),linear-gradient(-33deg,transparent 43%,#fff 43% 48%,#c83041 48% 52%,#fff 52% 57%,transparent 57%),#253d88}:root{--bg:#14161a;--panel:#1d2027;--line:#2c313a;--text:#e8eaed;--muted:#a3abb7;--accent:#4f8cff}
@@ -90,7 +52,7 @@ footer a{color:var(--muted)}
 @media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:16px}.hero .phone{width:min(260px,72vw)}.privacy{grid-template-columns:1fr}}`;
 
 function page(t) {
-  const shot = (name, i) => `<img src="${t.root}img/${t.lang==='ca'?'es':t.lang}/${name}.png" alt="${t.shotAlt[i]}" width="1080" height="1920" loading="lazy">`;
+  const shot = (name, i) => `<img src="${t.root}img/${t.lang}/${name}.png?v=5.2.4" alt="${t.shotAlt[i]}" width="1080" height="1920" loading="lazy">`;
   return `<!doctype html>
 <html lang="${t.lang}">
 <head>
@@ -112,14 +74,15 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 <main>
 <section class="hero">
 <div><h1>SPino<br><span>${t.tagline}</span></h1><p class="lead">${t.lead}</p>
-<a class="cta" href="#features">${icon('<path d="M5 3l14 9-14 9z" fill="currentColor"/>').replace('<svg', '<svg width="18" height="18"')} ${t.cta}</a><span class="cta-note">${t.ctaNote}</span><p><a class="cta" href="${t.root}downloads/spino-test.apk" download>${TEST_DOWNLOAD_COPY[t.lang][0]}</a><span class="cta-note">${TEST_DOWNLOAD_COPY[t.lang][1]}</span></p></div>
-<img class="phone" src="${t.root}img/${t.lang==='ca'?'es':t.lang}/02-warmup-session.png" alt="${t.shotAlt[1]}" width="1080" height="1920">
+<a class="cta" href="#features">${icon('<path d="M5 3l14 9-14 9z" fill="currentColor"/>').replace('<svg', '<svg width="18" height="18"')} ${t.cta}</a><span class="cta-note">${t.ctaNote}</span><p><a class="cta" href="${t.root}downloads/spino-5.2.7-39-test.apk" download>${TEST_DOWNLOAD_COPY[t.lang][0]}</a><span class="cta-note">${TEST_DOWNLOAD_COPY[t.lang][1]}</span></p></div>
+<img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=5.2.4" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
-<section><h2>${t.shotsTitle}</h2><div class="shots">${SHOTS.map(shot).join('')}</div>
-<img class="wide" src="${t.root}img/${t.lang==='ca'?'es':t.lang}/wide-reading.png" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy"></section>
+<section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
+<img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=5.2.4" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
+<figure style="margin:24px 0 0"><img class="wide" src="${t.root}img/${t.lang}/landscape-keyboard-5.2.5.png" alt="${t.landscapeAlt}" width="844" height="390" loading="lazy"><figcaption>${t.landscapeAlt}</figcaption></figure></section>
 <section><div class="privacy">${ICONS.lock}<div><h2>${t.privacyTitle}</h2><p>${t.privacy}</p><a href="${t.root}privacy/">${t.privacyLink}</a></div></div></section>
-<section id="arcade"><div class="feature"><h2>Spino Arcade · ${t.lang==='ca'?'Laboratori de joc':t.lang==='en'?'Play lab':'Laboratorio de juego'}</h2><p>${t.lang==='ca'?'Un joc musical nascut de Spino: Smart Piano Notebook. Llegeix notes en moviment, segueix el ritme i encadena ratxes, amb instruments amb mostres i progressió gradual.':t.lang==='en'?'A musical game born from Spino: Smart Piano Notebook. Read moving notes, keep the rhythm and build streaks, with sampled instruments and gentle progression.':'Un juego musical nacido de Spino: Smart Piano Notebook. Lee notas en movimiento, sigue el ritmo y encadena rachas, con instrumentos con muestras y progresión gradual.'}</p><p><a href="${t.root+'arcade/'+(t.lang==='es'?'':t.lang+'/')}">${t.lang==='ca'?'Descobreix Spino Arcade 0.9':t.lang==='en'?'Discover Spino Arcade 0.9':'Descubre Spino Arcade 0.9'} →</a></p></div></section></main>
+<section id="arcade"><div class="feature"><h2>Spino Arcade · ${t.lang==='ca'?'Laboratori de joc':t.lang==='en'?'Play lab':'Laboratorio de juego'}</h2><p>${t.lang==='ca'?'Un joc musical nascut de Spino: Smart Piano Notebook. Llegeix notes en moviment, segueix el ritme i encadena ratxes, amb instruments amb mostres i progressió gradual.':t.lang==='en'?'A musical game born from Spino: Smart Piano Notebook. Read moving notes, keep the rhythm and build streaks, with sampled instruments and gentle progression.':'Un juego musical nacido de Spino: Smart Piano Notebook. Lee notas en movimiento, sigue el ritmo y encadena rachas, con instrumentos con muestras y progresión gradual.'}</p><p><a href="${t.root+'arcade/'+(t.lang==='es'?'':t.lang+'/')}">${t.lang==='ca'?'Descobreix Spino Arcade 1.0':t.lang==='en'?'Discover Spino Arcade 1.0':'Descubre Spino Arcade 1.0'} →</a></p></div></section></main>
 <footer><span>© ${new Date().getFullYear()} ${t.footer}</span><span><a href="${t.root}privacy/">${t.privacyLink}</a></span></footer>
 </div>
 </body>
@@ -129,13 +92,14 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 
 export {page,COPY};
 if(process.argv[1]===fileURLToPath(import.meta.url)){
-await rm(OUT, { recursive: true, force: true });
+// Refresh generated pages without deleting unrelated files in the site directory.
 for (const t of Object.values(COPY)) {
   const dir = t.lang === 'es' ? OUT : join(OUT, t.lang);
   await mkdir(join(OUT, 'img', t.lang), { recursive: true }); await mkdir(dir, { recursive: true });
   await writeFile(join(dir, 'index.html'), page(t));
-  for (const name of SHOTS) await copyFile(`docs/play-store/screenshots/${t.lang==='ca'?'es':t.lang}/phone/${name}.png`, join(OUT, 'img', t.lang, `${name}.png`));
-  await copyFile(`docs/play-store/screenshots/${t.lang}/tablet-10/05-reading-two-hands.png`, join(OUT, 'img', t.lang, 'wide-reading.png'));
+  for (const name of SHOTS) await copyFile(`${SHOT_SOURCE}/${t.lang}/phone/${name}.png`, join(OUT, 'img', t.lang, `${name}.png`));
+  await copyFile(`${SHOT_SOURCE}/${t.lang}/tablet/wide-reading.png`, join(OUT, 'img', t.lang, 'wide-reading.png'));
+  await copyFile(`docs/quality-review/captures/website/2026-10-07-landscape-5.2.5/${t.lang}/quick-phone-landscape.png`, join(OUT, 'img', t.lang, 'landscape-keyboard-5.2.5.png'));
 }
 await copyFile('assets/brand/spino-symbol-512.png', join(OUT, 'img', 'icon.png'));
 await copyFile('assets/brand/play-store-feature-1024x500.png', join(OUT, 'img', 'feature.png'));
