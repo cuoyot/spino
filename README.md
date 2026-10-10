@@ -54,6 +54,7 @@ The [screen review workspace](docs/quality-review/README.md) tracks the prelimin
 - Node.js **22.13 or later** and npm (PDF.js supports Node 22.13+ or 24+). The checked-in lockfile fixes dependency versions.
 - A recent Chromium, Chrome or Edge for browser tests. Set `BROWSER_PATH` when automatic discovery cannot find it.
 - For Android: JDK **21**, Android SDK platform **36**, Android build tools and platform tools. Minimum supported Android API is **24**.
+- For iOS: macOS and **Xcode 26 or later**, with the iOS platform and a simulator runtime installed. See [iOS development setup](docs/ios-development.md).
 - Initial dependency/toolchain installation needs internet access. Runtime practice does not.
 
 ## Run locally

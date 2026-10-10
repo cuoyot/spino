@@ -17,3 +17,6 @@ android/keystore.properties
 
 # Wrangler local state
 .wrangler/
+
+# Xcode per-user workspace state
+**/xcuserdata/
