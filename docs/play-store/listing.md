@@ -28,9 +28,15 @@ LECTURA A PRIMERA VISTA SIN FIN
 • Mueve el foco tocando la partitura y vuelve a empezar desde ahí con una cuenta atrás.
 
 CALENTAMIENTO HANON
-• Cada sesión con piano empieza con un ejercicio de El pianista virtuoso (n.º 1 a 5) con su digitación original.
+• Cada sesión con piano empieza con una serie de ejercicios de El pianista virtuoso (n.º 1 a 10), con su digitación original, que va rotando de una sesión a otra.
 • Guía visual con las dos manos sobre el teclado, los dedos numerados y una demostración animada con sonido.
 • Puedes cambiar los minutos, fijar un ejercicio o desactivarlo.
+
+TU REPERTORIO
+• Las obras que estás trabajando, en el atril; el resto del repertorio, a mano.
+• Planifica repertorio sin decidir la obra: elígela al practicar y cámbiala cuando quieras.
+• Anota qué parte de la obra has trabajado en cada sesión.
+• En partituras MusicXML, activa el seguimiento con MIDI: la partitura avanza cuando tocas las notas correctas.
 
 CON TECLADO MIDI
 • Conecta tu teclado por USB o Bluetooth MIDI: SPino evalúa cada nota, también los acordes a dos manos.
@@ -62,11 +68,12 @@ Disponible en español e inglés.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-Primera versión pública de SPino:
-• Lectura a primera vista a una y dos manos, con teclado MIDI, piano o pantalla.
-• Calentamiento Hanon con guía visual de las manos.
-• Planificación, calendario e historial de práctica.
-• Biblioteca de partituras, PDF con anotaciones y pedales para pasar página.
+Novedades de la versión 5.1:
+• Calentamiento con una serie de ejercicios Hanon (n.º 1 a 10) que rota en cada sesión.
+• Repertorio con «En el atril» para las obras que estás trabajando; añade obras desde el catálogo.
+• Planifica repertorio sin elegir la obra: decídela al practicar y cámbiala cuando quieras.
+• Anota qué parte de la obra has trabajado.
+• Seguimiento con MIDI en partituras MusicXML (opcional).
 <!-- /field -->
 
 ## English — en-US
@@ -93,9 +100,15 @@ ENDLESS SIGHT-READING
 • Tap the score to move the focus and start again from there after a count-in.
 
 HANON WARM-UP
-• Every piano session opens with an exercise from The Virtuoso Pianist (Nos. 1–5) with Hanon's own fingering.
+• Every piano session opens with a rotating set of exercises from The Virtuoso Pianist (Nos. 1–10) with Hanon's own fingering.
 • A visual guide shows both hands on the keyboard with numbered fingers and an animated demo with sound.
 • Change its length, pick one exercise or switch it off.
+
+YOUR REPERTOIRE
+• Pieces you are practising sit on the music stand; the rest of your repertoire stays at hand.
+• Plan repertoire without choosing the piece: pick it when you practise and switch whenever you like.
+• Note which part of the piece you worked on in each session.
+• In MusicXML scores, turn on MIDI follow: the score moves on when you play the right notes.
 
 WITH A MIDI KEYBOARD
 • Connect your keyboard by USB or Bluetooth MIDI: SPino checks every note, including two-hand chords.
@@ -127,11 +140,11 @@ Available in English and Spanish.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-First public release of SPino:
-• One- and two-hand sight-reading with a MIDI keyboard, a piano or the screen.
-• Hanon warm-up with a visual hand guide.
-• Practice planning, calendar and history.
-• Score library, annotated PDFs and pedal page turns.
+What's new in 5.1.1:
+• A cleaner practice screen with direct shortcuts for sound, guides, fingering and keyboard recentring.
+• Clear back, next-block and feedback navigation during exercises.
+• A more compact session overview with easier block editing and reordering.
+• Stability and layout improvements across phones and tablets.
 <!-- /field -->
 
 ## Other listing fields
@@ -140,7 +153,7 @@ First public release of SPino:
 |---|---|
 | App category | Education (alternative: Music & Audio) |
 | Tags (pick up to 5 in Play Console) | Music education, Piano, Practice tools, Sheet music, Learning |
-| Contact email | `cuoyot@gmail.com` |
+| Contact email | `support@spinoapp.com` |
 | Website | `https://spino.pages.dev/` (Cloudflare Pages project name; adjust if taken) |
 | Privacy policy URL | `https://spino.pages.dev/privacy/` |
 | Free or paid | Free (cannot be changed to paid later) |

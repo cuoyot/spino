@@ -41,7 +41,7 @@
       ],
       "baseline": "2026-10-01",
       "verifiedAgainst": "session/2026-10-01-block-controls-02",
-      "coverage": "Overview, live editing and confirmed feedback/lifecycle repairs; full exercise, score and feedback child reviews remain open.",
+      "coverage": "Overview, live editing and confirmed feedback/lifecycle repairs; full exercise, score and feedback child reviews remain open. D-008 warm-up sets, repertoire piece choice, parts and MusicXML follow verified by tests on 2026-10-03. D-010 generated-practice toolbar and D-011 directional block navigation were verified in four responsive layouts on 2026-10-04. D-012's consolidated menu is superseded by the implemented D-013 flat shortcuts; the new responsive/browser verification and native/accessibility gates remain open. D-015 replaces the Hanon SVG/3D motion with four soft snapshots; build, focused unit checks and live responsive-browser review pass, while owner acceptance, dated four-layout evidence and native coverage remain open.",
       "knownIssues": [
         "SESSION-F02",
         "SESSION-F08"
@@ -49,11 +49,40 @@
       "decisions": [
         "D-005",
         "D-006",
-        "D-007"
+        "D-007",
+        "D-008",
+        "D-010",
+        "D-011",
+        "D-012",
+        "D-013",
+        "D-014",
+        "D-015",
+        "D-016",
+        "D-017",
+        "D-018",
+        "D-019",
+        "D-020",
+        "D-021",
+        "D-022",
+        "D-023",
+        "D-024",
+        "D-025",
+        "D-026",
+        "D-027"
       ],
       "visualAcceptance": {
         "date": "2026-10-01",
         "scope": "Session layout and behavior approved except original movement controls; D-006 requests their long-press/bin replacement. Child/native/accessibility review remains open."
+      },
+      "freePracticeVisualAcceptance": {
+        "date": "2026-10-05",
+        "evidence": "session/2026-10-05-metronome-favorites-below",
+        "scope": "Presented D-022/D-023 free-practice and metronome responsive layout approved; repertoire, native, audio latency and accessibility gates remain open."
+      },
+      "pdfToolbarVisualAcceptance": {
+        "date": "2026-10-05",
+        "evidence": "session/2026-10-05-pdf-timer-bar-02",
+        "scope": "Presented D-024 compact PDF toolbar approved; expanded annotation/framing panels and native acceptance remain open."
       }
     }
   ],

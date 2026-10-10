@@ -1,7 +1,7 @@
 import { LETTERS, keyAccidentals, makeNote, rangeFor, clampRange, barRhythm, allowedUnits, TIME_SIGS, scaleFingering } from '../music.js';
 import { ui } from './locale.js';
 import { handRhythm } from './rhythm-levels.js';
-import { HANON, warmupLabel, warmupFocus, generateWarmupBars } from './warmups.js';
+import { HANON, warmupLabel, warmupFocus, warmupById, generateWarmupBars } from './warmups.js';
 
 const names = { C: 'Do', D: 'Re', E: 'Mi', F: 'Fa', G: 'Sol', A: 'La', B: 'Si' };
 const modes = { get major() { return ui('major', 'mayor'); }, get natural() { return ui('natural minor', 'menor natural'); }, get harmonic() { return ui('harmonic minor', 'menor armónica'); }, get dorian() { return ui('Dorian', 'dórico'); } };
@@ -119,7 +119,7 @@ function bassBars(opts, target, phase, candidates) {
 
 export function generateTargetBars(opts, targetId, technique = false, phase = 0) {
   const target = targetById(targetId);
-  if (target.warmup) return generateWarmupBars(opts, target.warmup, phase);
+  if (target.warmup) return generateWarmupBars(opts, opts.warmupSet?.map(warmupById).filter(Boolean).length ? opts.warmupSet.map(warmupById).filter(Boolean) : target.warmup, phase);
   if (!technique && opts.clef === 'grand') {
     // The right hand reads a melody; the left keeps one accompaniment pattern per section. Middle C separates their registers.
     if (phase === 0) bassSeed = Math.floor(Math.random() * 2 ** 31) + 1;

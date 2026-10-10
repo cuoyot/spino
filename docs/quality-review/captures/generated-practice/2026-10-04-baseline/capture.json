@@ -1,0 +1,5655 @@
+{
+  "runId": "2026-10-04-baseline",
+  "createdAt": "2026-10-04T06:35:54.554Z",
+  "screen": "PRACTICE-02",
+  "title": "Generated practice with on-screen keyboard",
+  "reviewHref": "../../../generated-practice.md",
+  "stateLabels": {
+    "timed-reading": "Timed reading · paused score and keyboard",
+    "self-paced-reading": "Self-paced reading · correct and wrong answer",
+    "adapted-range": "Self-paced reading · keyboard range changed",
+    "self-paced-technique": "Self-paced technique · active exercise"
+  },
+  "label": "Initial baseline for objective and findings; no design acceptance",
+  "packageVersion": "5.1.0",
+  "gitHead": "070bbe695ac2d0668c59e2450bb8a36964235dff",
+  "workingTree": "Uncommitted work included; use source hashes, not HEAD alone.",
+  "sourceSha256": "f166c74d384a63c0a92f584d67f670d1778bb096b5fff2dcbdbf8f42bf5023cb",
+  "sourceFiles": {
+    "index.html": "ddffea9dcd07012326a614c4fc33a576098f480ed0e7e5b703c36d783427cfc7",
+    "package-lock.json": "0491ecb4380bb929532feef47c29e3e5d5c91f626a5f6ab83541217f3aa1917a",
+    "package.json": "0487a835d7f7e4c920e2d78b2812711e655b59631a4a927c39d8c8850aa1b6e6",
+    "src/audio.js": "968290b288a2f407739aec4629321ffb2499155a0813b900c731fb8babe0e4a2",
+    "src/companion/agenda.js": "baeaa22756b1f20d8ad4924a3fcb6dd8d38cf1ede4217cbc11269f724b8040f8",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "3bef837e7e5e161cc5fb74d3ed9a239cd15a5ad277681e3dafa0a7b2264ff307",
+    "src/companion/app.js": "e2a956951ead273ab8807a0ae746c5ff6c0a8772bd34995088e63a8d88957756",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "47f973093c81bd583fcc049c49dac4bb96de9dd33a4341c6a18972a19cc2770a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "4331115a0f33032208f57c2ff8b9d9f9b0e8a9691f9f9ee7cd84f7b252357e16",
+    "src/companion/library-browse.js": "099886a094c23e3e3554d924ea248b223de7b2b7556846b19aca1d1ed62517d8",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "43461c9151ebf5b70c6f9893e41ce9a4e70f5fe6a6bfa808ed52c4aa07734977",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "7d08e435aba54f23528a301b2da52adfaaf9a03b98c15b51f3d9fba5db89c6f1",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-follow.js": "b5f2ff17672779803408c91f015d22cc85a3b4b3100cd32cd778a9a532c9c572",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "2e1684ae08d675efe93e9ab670896e0200caed6f0c7a3d5d425640c4324c052d",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "32cf8d0c67c2b5ec6cc4cadda23d64822a26952d6dc6c486416dc57741acbe61",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "01dac8fb76149bbbdf7dd41f4800d314fed381d6b296cf5d03a18914dde4d1a1",
+    "src/companion/pdf-viewer.js": "897534b9e4a4e17044de4fe036261f0aeaa172d703d7be06c59b9b547ad77a75",
+    "src/companion/pedals.js": "bbe002b0c44be7630ff5aedaa1c4bd21ff7132335771b03d852dac6ec1fe71b2",
+    "src/companion/photo-crop.js": "daf5222684f09a732117214cb42fe2250032c20d07b157eaba4357a66d48a650",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "2eb851a94d7ee6ff8f2e48e78b88b21703ce92334de31c06076a4f4665aa0ace",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "e43c3ed2a85ac1bb85bc8cfe6a5b3ecd28fd63914ae4475df02adf5bc4cc3e05",
+    "src/companion/profile.css": "dc1cdd259c8d5414f5b055e9707a72f9e493de6c3dc9f068c3854567015450bf",
+    "src/companion/repertoire.js": "7185afe7687b388da396e8310de1198f19b5ec0a55023946cc1bc380457190c7",
+    "src/companion/rhythm-levels.js": "5ed6155101cb8865bd9b0fab59cd6a16615a46f4c7ac5212d4350ca535f383c7",
+    "src/companion/score-controls.js": "01758ac183dbc52dc57096de8e47b8b6b3b7877977a20ac73f8466facaca8a1e",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "dfda2fd3813592b405bf1c5bf031df30dfe566e6acde7c863f6f80cb6ed5357f",
+    "src/companion/screen-awake.js": "f294af7bf03dd401ffb0db93d606791d2dafd0a23c0727b0088bf8edf4baa2c3",
+    "src/companion/session-block-editor.js": "fe01e9c3bfb1cc941547eab052531d32267f63cf95ccb127d79109a030278644",
+    "src/companion/session-drag.js": "99e8d5f6d8809131c4d0781109056897ddabe2890359d2f8debf407aec0bfd0f",
+    "src/companion/session-edit.js": "c261ad62ee5349ba7e7d60d8bf1686810dda48790c36ee7812972c21eda699c4",
+    "src/companion/session-view.css": "f641f0e7590adef1afcb2e499990b3890ec0e072013e35a6130433ee89d5d6a2",
+    "src/companion/session-view.js": "b24b22da894e4b60c5817da852f0877c07e4878886ff04e18743646510a39fe8",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "6fdc35095c46b0f3e88076f9515d82b7be1ec98314a7cab2323e892982746db4",
+    "src/companion/warmup-guide.css": "56f3efe337cc5c2d987901a4868273db176ac3a6faaa004f6e9146bcd8eb8297",
+    "src/companion/warmup-guide.js": "95bc54d4b94024dad5652b12a6602157f929aced18310bed01352b63fd7c4af0",
+    "src/companion/warmups.js": "676399b939692ff229aae2f8263caa453af5fca5678e8f8b0a0fc00ab15cfcf7",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "70e138d607d61a27b130e3e1133c55eab515e4b1187c4c6b80e0e0023f17062e",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "70d51e1cf136078998f676f3ad3dc59ce9ac321ddb23b6bf5830927c6edcbe58",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "9d73816cbb6614ddd2d988380cc2011e90aad9350eef876786f2b961927b9df3",
+    "src/music.js": "46c6317577685a517b063db503de48ec87efc5a22c81343b12a04f74db3acecd",
+    "src/render.js": "10d20a5c9d419311182377ca9042911dccd701fbc505d7c8bc6c4e3f090ec835",
+    "src/style.css": "7a8cfcca99b50282d9fbe01b91dc1b1b3cd84533c330fe644cebb954376da6cc",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+    "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "locale": "es",
+  "timezone": "Europe/Madrid",
+  "fixedTime": "2026-10-04T10:00:00+02:00",
+  "date": "2026-10-04",
+  "surface": "Production web build in Chromium with device metrics; not native-device acceptance.",
+  "devicePixelRatio": 1,
+  "fixtures": "Synthetic isolated notebooks with one active block; no installed app data changed.",
+  "randomness": "Math.random uses a fixed local seed before application code loads.",
+  "entryPolicy": "Fresh fixture per state and viewport; actual Today Resume and session Open exercise actions.",
+  "results": [
+    {
+      "state": "timed-reading",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 110,
+          "width": 374,
+          "height": 336,
+          "bottom": 446,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 562,
+          "width": 390,
+          "height": 226,
+          "bottom": 788,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 2,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 77.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 306.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 9,
+            "y": 59,
+            "width": 44,
+            "height": 42,
+            "bottom": 101,
+            "right": 53
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 103.390625,
+            "y": 59,
+            "width": 44,
+            "height": 42,
+            "bottom": 101,
+            "right": 147.390625
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 154.390625,
+            "y": 58,
+            "width": 65.171875,
+            "height": 44,
+            "bottom": 102,
+            "right": 219.5625
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 225.5625,
+            "y": 58,
+            "width": 85.25,
+            "height": 44,
+            "bottom": 102,
+            "right": 310.8125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 316.8125,
+            "y": 58,
+            "width": 65.171875,
+            "height": 44,
+            "bottom": 102,
+            "right": 381.984375
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 16,
+            "y": 448,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 492,
+            "right": 104.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 277.328125,
+            "y": 448,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 492,
+            "right": 374
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 8,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 54.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 40.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 69.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 54.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 101.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 87,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 115.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 101.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 148.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 133.75,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 162.734375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 148.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 195
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 195,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 241.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 227.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 256.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 241.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 288.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 274,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 302.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 288.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 335.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 335.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 72,
+            "y": 794,
+            "width": 44,
+            "height": 44,
+            "bottom": 838,
+            "right": 116
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 122,
+            "y": 794,
+            "width": 114.296875,
+            "height": 44,
+            "bottom": 838,
+            "right": 236.296875
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 242.296875,
+            "y": 794,
+            "width": 139.703125,
+            "height": 44,
+            "bottom": 838,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4b72e03463e98e8ead8b012bb532609c8d39339ccb3f402c8c9119b31091488f"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 52,
+          "width": 828,
+          "height": 112.5,
+          "bottom": 164.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 248.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 342,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 4,
+            "width": 59.5625,
+            "height": 44,
+            "bottom": 48,
+            "right": 67.5625
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 355.125,
+            "y": 4,
+            "width": 63.875,
+            "height": 44,
+            "bottom": 48,
+            "right": 419
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 426,
+            "y": 5,
+            "width": 44,
+            "height": 42,
+            "bottom": 47,
+            "right": 470
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 647,
+            "y": 5,
+            "width": 44,
+            "height": 42,
+            "bottom": 47,
+            "right": 691
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 696,
+            "y": 4,
+            "width": 44,
+            "height": 44,
+            "bottom": 48,
+            "right": 740
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 744,
+            "y": 4,
+            "width": 44,
+            "height": 44,
+            "bottom": 48,
+            "right": 788
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 792,
+            "y": 4,
+            "width": 44,
+            "height": 44,
+            "bottom": 48,
+            "right": 836
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 16,
+            "y": 166.5,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 210.5,
+            "right": 104.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 731.328125,
+            "y": 166.5,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 210.5,
+            "right": 828
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 8,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 71.6875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 51.9375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 91.421875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 71.6875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 135.375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 115.625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 155.109375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 135.375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 199.0625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 199.0625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 262.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.015625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 282.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.75,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 326.4375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.703125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 346.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326.4375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 390.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 370.40625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 409.890625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 390.125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 453.8125
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 453.8125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 517.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 497.78125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 537.265625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 517.5,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 581.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 561.484375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 600.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 581.1875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 644.875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 644.875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 708.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 688.859375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 728.34375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 708.5625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 772.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 752.5625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 792.046875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 772.25,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 835.9375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 90,
+            "y": 344,
+            "width": 44,
+            "height": 44,
+            "bottom": 388,
+            "right": 134
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 140,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 485
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 491,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "2b2d56707a451cdba75142799bbf804fe401e67c8a06f1c90c78a88be123c643"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 508,
+          "bottom": 620,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 716,
+          "width": 768,
+          "height": 252,
+          "bottom": 968,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 3,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 20,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 89.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 672.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 21,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 65
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 152.5,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 196.5
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 203.5,
+            "y": 60,
+            "width": 177.5,
+            "height": 44,
+            "bottom": 104,
+            "right": 381
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 387,
+            "y": 60,
+            "width": 177.5,
+            "height": 44,
+            "bottom": 104,
+            "right": 564.5
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 570.5,
+            "y": 60,
+            "width": 177.5,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 28,
+            "y": 622,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 666,
+            "right": 116.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 643.328125,
+            "y": 622,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 666,
+            "right": 740
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 20,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 80.65625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 61.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 99.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 80.65625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 141.3125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 141.3125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 201.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 183.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 220.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 201.96875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 262.625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 281.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 323.28125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 304.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 342.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 323.28125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 383.9375
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 383.9375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 444.59375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 425.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 463.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 444.59375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 505.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 486.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 524.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 505.25,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 565.90625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 565.90625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 626.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 607.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 645.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 626.5625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 668.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 706.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 687.21875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 747.875
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 396,
+            "y": 974,
+            "width": 44,
+            "height": 44,
+            "bottom": 1018,
+            "right": 440
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 446,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 594
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 600,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "30008fd4960417398c1c170d0b4a4c3c4a0fc526b0faa7679b6d78af7573ba1a"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 300.640625,
+          "bottom": 412.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 508.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 712,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 2,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 16,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 85.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 932.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 17,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 61
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 103,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 147
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 154,
+            "y": 60,
+            "width": 114,
+            "height": 44,
+            "bottom": 104,
+            "right": 268
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 274,
+            "y": 60,
+            "width": 114,
+            "height": 44,
+            "bottom": 104,
+            "right": 388
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 394,
+            "y": 60,
+            "width": 114,
+            "height": 44,
+            "bottom": 104,
+            "right": 508
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 24,
+            "y": 414.640625,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 458.640625,
+            "right": 112.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 903.328125,
+            "y": 414.640625,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 458.640625,
+            "right": 1000
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 16,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 78
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 78,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 140
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 120.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 159.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 140,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 202
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 182.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 221.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 202,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 264
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 264,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 326
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 345.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 388
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 368.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 407.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 388,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 450
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 430.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 469.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 450,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 512
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 512,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 574
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 554.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 593.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 574,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 636
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 616.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 655.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 636,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 698
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 698,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 760
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 740.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 779.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 760,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 822
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 802.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 841.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 822,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 884
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 864.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 903.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 884,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 946
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 946,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 1008
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 656,
+            "y": 718,
+            "width": 44,
+            "height": 44,
+            "bottom": 762,
+            "right": 700
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 706,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 854
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 860,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "45c5f1c1ffec6bb82ec99c149ae2a88988b5b3cc55fb39ea7616c60ca57b4b58"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 110,
+          "width": 374,
+          "height": 384,
+          "bottom": 494,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 562,
+          "width": 390,
+          "height": 226,
+          "bottom": 788,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 77.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 306.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 8,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 128.65625
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 134.65625,
+            "y": 58,
+            "width": 120.671875,
+            "height": 44,
+            "bottom": 102,
+            "right": 255.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 261.328125,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 381.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 8,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 54.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 40.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 69.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 54.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 101.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 87,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 115.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 101.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 148.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 133.75,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 162.734375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 148.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 195
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 195,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 241.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 227.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 256.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 241.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 288.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 274,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 302.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 288.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 335.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 335.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 72,
+            "y": 794,
+            "width": 44,
+            "height": 44,
+            "bottom": 838,
+            "right": 116
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 122,
+            "y": 794,
+            "width": 114.296875,
+            "height": 44,
+            "bottom": 838,
+            "right": 236.296875
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 242.296875,
+            "y": 794,
+            "width": 139.703125,
+            "height": 44,
+            "bottom": 838,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "63dc33ea587abc33eff71c4c221d86f39f79f35ab841fb8a6d0e2974a3768b08"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 52,
+          "width": 828,
+          "height": 160.5,
+          "bottom": 212.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 248.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 342,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 4,
+            "width": 59.5625,
+            "height": 44,
+            "bottom": 48,
+            "right": 67.5625
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 355.125,
+            "y": 4,
+            "width": 63.875,
+            "height": 44,
+            "bottom": 48,
+            "right": 419
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 425,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 559.328125
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 563.328125,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 697.65625
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 701.65625,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 835.984375
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 8,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 71.6875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 51.9375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 91.421875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 71.6875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 135.375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 115.625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 155.109375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 135.375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 199.0625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 199.0625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 262.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.015625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 282.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.75,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 326.4375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.703125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 346.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326.4375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 390.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 370.40625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 409.890625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 390.125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 453.8125
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 453.8125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 517.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 497.78125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 537.265625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 517.5,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 581.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 561.484375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 600.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 581.1875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 644.875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 644.875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 708.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 688.859375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 728.34375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 708.5625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 772.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 752.5625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 792.046875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 772.25,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 835.9375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 90,
+            "y": 344,
+            "width": 44,
+            "height": 44,
+            "bottom": 388,
+            "right": 134
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 140,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 485
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 491,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "8fd80030d563f6c20fc89cbc52f0c14ebe4a19debc2b5ddb6f7e7b99fe280166"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 556,
+          "bottom": 668,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 716,
+          "width": 768,
+          "height": 252,
+          "bottom": 968,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 20,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 89.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 672.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 20,
+            "y": 60,
+            "width": 238.65625,
+            "height": 44,
+            "bottom": 104,
+            "right": 258.65625
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 264.65625,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 503.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 509.328125,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 20,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 80.65625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 61.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 99.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 80.65625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 141.3125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 141.3125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 201.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 183.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 220.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 201.96875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 262.625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 281.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 323.28125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 304.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 342.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 323.28125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 383.9375
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 383.9375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 444.59375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 425.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 463.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 444.59375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 505.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 486.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 524.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 505.25,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 565.90625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 565.90625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 626.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 607.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 645.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 626.5625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 668.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 706.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 687.21875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 747.875
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 396,
+            "y": 974,
+            "width": 44,
+            "height": 44,
+            "bottom": 1018,
+            "right": 440
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 446,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 594
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 600,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "372f85a92f6ea13683386c0cbae25d050ee751d68bf42099398f2dac61462b57"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 348.640625,
+          "bottom": 460.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 508.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 712,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 16,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 85.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 932.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 16,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 176
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 182,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 342
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 348,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 508
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 16,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 78
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 78,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 140
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 120.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 159.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 140,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 202
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 182.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 221.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 202,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 264
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 264,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 326
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 345.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 388
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 368.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 407.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 388,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 450
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 430.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 469.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 450,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 512
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 512,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 574
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 554.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 593.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 574,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 636
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 616.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 655.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 636,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 698
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 698,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 760
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 740.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 779.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 760,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 822
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 802.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 841.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 822,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 884
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 864.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 903.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 884,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 946
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 946,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 1008
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 656,
+            "y": 718,
+            "width": 44,
+            "height": 44,
+            "bottom": 762,
+            "right": 700
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 706,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 854
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 860,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "496f74d97e667f213a32181f91d5a3a7cde4896b5fc3dad309427c2de2fde370"
+        }
+      ]
+    },
+    {
+      "state": "adapted-range",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 110,
+          "width": 374,
+          "height": 384,
+          "bottom": 494,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 562,
+          "width": 390,
+          "height": 226,
+          "bottom": 788,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "Rango actualizado · pulsa Continuar cuando quieras",
+        "timing": "wait",
+        "paused": true,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 77.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 306.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 8,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 128.65625
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 134.65625,
+            "y": 58,
+            "width": 120.671875,
+            "height": 44,
+            "bottom": 102,
+            "right": 255.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 261.328125,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 381.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 8,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 54.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 40.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 69.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 54.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 101.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 101.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 148.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 133.75,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 162.734375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 148.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 195
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 180.5,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 209.484375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 195,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 241.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 227.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 256.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 241.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 288.5
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 288.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 335.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 320.75,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 349.734375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 335.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 72,
+            "y": 794,
+            "width": 44,
+            "height": 44,
+            "bottom": 838,
+            "right": 116
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 122,
+            "y": 794,
+            "width": 114.296875,
+            "height": 44,
+            "bottom": 838,
+            "right": 236.296875
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 242.296875,
+            "y": 794,
+            "width": 139.703125,
+            "height": 44,
+            "bottom": 838,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "adapted-range-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "7af1fe4eb87702bf56498e74782ea604e7b66d82da9becb8fcd59510d394f75c"
+        }
+      ]
+    },
+    {
+      "state": "adapted-range",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 52,
+          "width": 828,
+          "height": 160.5,
+          "bottom": 212.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 248.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 342,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "Rango actualizado · pulsa Continuar cuando quieras",
+        "timing": "wait",
+        "paused": true,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 4,
+            "width": 59.5625,
+            "height": 44,
+            "bottom": 48,
+            "right": 67.5625
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 355.125,
+            "y": 4,
+            "width": 63.875,
+            "height": 44,
+            "bottom": 48,
+            "right": 419
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 425,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 559.328125
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 563.328125,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 697.65625
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 701.65625,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 835.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 8,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 71.6875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 51.9375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 91.421875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 71.6875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 135.375
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 135.375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 199.0625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 179.328125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 218.8125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 199.0625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 262.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.015625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 282.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.75,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 326.4375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326.4375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 390.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 370.40625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 409.890625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 390.125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 453.8125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 434.09375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 473.578125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 453.8125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 517.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 497.78125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 537.265625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 517.5,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 581.1875
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 581.1875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 644.875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 625.171875,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 664.65625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 644.875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 708.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 688.859375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 728.34375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 708.5625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 772.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 772.25,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 835.9375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 90,
+            "y": 344,
+            "width": 44,
+            "height": 44,
+            "bottom": 388,
+            "right": 134
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 140,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 485
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 491,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "adapted-range-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b88ae11229e309cc5748b38cdec8c691fdac53b0b10de955efe8df4d5d2365a4"
+        }
+      ]
+    },
+    {
+      "state": "adapted-range",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 556,
+          "bottom": 668,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 716,
+          "width": 768,
+          "height": 252,
+          "bottom": 968,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "Rango actualizado · pulsa Continuar cuando quieras",
+        "timing": "wait",
+        "paused": true,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 20,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 89.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 672.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 20,
+            "y": 60,
+            "width": 238.65625,
+            "height": 44,
+            "bottom": 104,
+            "right": 258.65625
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 264.65625,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 503.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 509.328125,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 20,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 80.65625
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 80.65625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 141.3125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 122.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 160.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 141.3125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 201.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 183.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 220.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 201.96875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 262.625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 323.28125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 304.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 342.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 323.28125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 383.9375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 365.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 402.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 383.9375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 444.59375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 425.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 463.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 444.59375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 505.25
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 505.25,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 565.90625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 547.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 584.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 565.90625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 626.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 607.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 645.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 626.5625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 687.21875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 747.875
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 396,
+            "y": 974,
+            "width": 44,
+            "height": 44,
+            "bottom": 1018,
+            "right": 440
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 446,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 594
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 600,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "adapted-range-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "cf07458a648a713126c28396d93332579571818a84bc48279ef4b4cd34b68d4c"
+        }
+      ]
+    },
+    {
+      "state": "adapted-range",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 348.640625,
+          "bottom": 460.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 508.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 712,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "Rango actualizado · pulsa Continuar cuando quieras",
+        "timing": "wait",
+        "paused": true,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 16,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 85.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 932.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 16,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 176
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 182,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 342
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 348,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 508
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 16,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 78
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 58.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 97.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 78,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 140
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 120.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 159.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 140,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 202
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 202,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 264
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 244.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 283.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 264,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 326
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 345.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 388
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 388,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 450
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 430.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 469.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 450,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 512
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 492.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 531.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 512,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 574
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 554.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 593.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 574,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 636
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 636,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 698
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 678.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 717.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 698,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 760
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 740.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 779.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 760,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 822
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 822,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 884
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 864.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 903.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 884,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 946
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 926.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 965.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 946,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 1008
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 656,
+            "y": 718,
+            "width": 44,
+            "height": 44,
+            "bottom": 762,
+            "right": 700
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 706,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 854
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 860,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "adapted-range-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "62d1d22e874dc8b141aab1e14e91b95caf798a3c97b5b6dad216d5d7418fd2a3"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 110,
+          "width": 374,
+          "height": 384,
+          "bottom": 494,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 562,
+          "width": 390,
+          "height": 226,
+          "bottom": 788,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Fa4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 77.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 306.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 8,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 128.65625
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 134.65625,
+            "y": 58,
+            "width": 120.671875,
+            "height": 44,
+            "bottom": 102,
+            "right": 255.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 261.328125,
+            "y": 58,
+            "width": 120.65625,
+            "height": 44,
+            "bottom": 102,
+            "right": 381.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 8,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 54.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 40.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 69.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 54.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 101.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 87,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 115.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 101.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 148.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 133.75,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 162.734375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 148.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 195
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 195,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 241.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 227.25,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 256.234375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 241.75,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 288.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 274,
+            "y": 562,
+            "width": 28.984375,
+            "height": 135.59375,
+            "bottom": 697.59375,
+            "right": 302.984375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 288.5,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 335.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 335.25,
+            "y": 562,
+            "width": 46.75,
+            "height": 226,
+            "bottom": 788,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 72,
+            "y": 794,
+            "width": 44,
+            "height": 44,
+            "bottom": 838,
+            "right": 116
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 122,
+            "y": 794,
+            "width": 114.296875,
+            "height": 44,
+            "bottom": 838,
+            "right": 236.296875
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 242.296875,
+            "y": 794,
+            "width": 139.703125,
+            "height": 44,
+            "bottom": 838,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4a18fb0c53244c2f63937cba8e697291e3d5cd78229740b35c219e41ef48ab5b"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 52,
+          "width": 828,
+          "height": 160.5,
+          "bottom": 212.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 248.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 342,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 8,
+            "y": 4,
+            "width": 59.5625,
+            "height": 44,
+            "bottom": 48,
+            "right": 67.5625
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 355.125,
+            "y": 4,
+            "width": 63.875,
+            "height": 44,
+            "bottom": 48,
+            "right": 419
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 425,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 559.328125
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 563.328125,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 697.65625
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 701.65625,
+            "y": 4,
+            "width": 134.328125,
+            "height": 44,
+            "bottom": 48,
+            "right": 835.984375
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 8,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 71.6875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 51.9375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 91.421875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 71.6875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 135.375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 115.625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 155.109375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 135.375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 199.0625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 199.0625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 262.75
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.015625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 282.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.75,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 326.4375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.703125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 346.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326.4375,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 390.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 370.40625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 409.890625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 390.125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 453.8125
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 453.8125,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 517.5
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 497.78125,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 537.265625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 517.5,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 581.1875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 561.484375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 600.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 581.1875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 644.875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 644.875,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 708.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 688.859375,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 728.34375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 708.5625,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 772.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 752.5625,
+            "y": 248.5,
+            "width": 39.484375,
+            "height": 56.09375,
+            "bottom": 304.59375,
+            "right": 792.046875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 772.25,
+            "y": 248.5,
+            "width": 63.6875,
+            "height": 93.5,
+            "bottom": 342,
+            "right": 835.9375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 90,
+            "y": 344,
+            "width": 44,
+            "height": 44,
+            "bottom": 388,
+            "right": 134
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 140,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 485
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 491,
+            "y": 344,
+            "width": 345,
+            "height": 44,
+            "bottom": 388,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "280f578dd6a2d7b8c6656c34b8f8660af7a050251ff5f93d26e54d4e7ded478b"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 556,
+          "bottom": 668,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 716,
+          "width": 768,
+          "height": 252,
+          "bottom": 968,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 20,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 89.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 672.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 20,
+            "y": 60,
+            "width": 238.65625,
+            "height": 44,
+            "bottom": 104,
+            "right": 258.65625
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 264.65625,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 503.328125
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 509.328125,
+            "y": 60,
+            "width": 238.671875,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 20,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 80.65625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 61.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 99.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 80.65625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 141.3125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 141.3125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 201.96875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 183.1875,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 220.796875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 201.96875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 262.625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 243.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 281.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 262.625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 323.28125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 304.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 342.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 323.28125,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 383.9375
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 383.9375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 444.59375
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 425.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 463.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 444.59375,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 505.25
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 486.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 524.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 505.25,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 565.90625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 565.90625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 626.5625
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 607.859375,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 645.46875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 626.5625,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 668.515625,
+            "y": 716,
+            "width": 37.609375,
+            "height": 151.1875,
+            "bottom": 867.1875,
+            "right": 706.125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 687.21875,
+            "y": 716,
+            "width": 60.65625,
+            "height": 252,
+            "bottom": 968,
+            "right": 747.875
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 396,
+            "y": 974,
+            "width": 44,
+            "height": 44,
+            "bottom": 1018,
+            "right": 440
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 446,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 594
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 600,
+            "y": 974,
+            "width": 148,
+            "height": 44,
+            "bottom": 1018,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "454d0d9c0b5b11c03e7cb0d7eda22b4801d83664495cd47d060fb693ef99a0a3"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 348.640625,
+          "bottom": 460.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 508.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 712,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "‹ Sesión",
+            "x": 16,
+            "y": 8,
+            "width": 69.9375,
+            "height": 44,
+            "bottom": 52,
+            "right": 85.9375
+          },
+          {
+            "id": "practice-finish",
+            "label": "Terminar",
+            "x": 932.65625,
+            "y": 8,
+            "width": 75.34375,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 16,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 176
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 182,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 342
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Silencio",
+            "x": 348,
+            "y": 60,
+            "width": 160,
+            "height": 44,
+            "bottom": 104,
+            "right": 508
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 16,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 78
+          },
+          {
+            "id": "",
+            "label": "Do4",
+            "x": 78,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 140
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 120.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 159.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 140,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 202
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 182.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 221.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 202,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 264
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 264,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 326
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 306.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 345.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 326,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 388
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 368.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 407.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 388,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 450
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 430.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 469.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 450,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 512
+          },
+          {
+            "id": "",
+            "label": "Do5",
+            "x": 512,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 574
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 554.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 593.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 574,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 636
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 616.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 655.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 636,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 698
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 698,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 760
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 740.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 779.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 760,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 822
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 802.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 841.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 822,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 884
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 864.765625,
+            "y": 508.640625,
+            "width": 38.4375,
+            "height": 122.015625,
+            "bottom": 630.65625,
+            "right": 903.203125
+          },
+          {
+            "id": "",
+            "label": "",
+            "x": 884,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 946
+          },
+          {
+            "id": "",
+            "label": "Do6",
+            "x": 946,
+            "y": 508.640625,
+            "width": 62,
+            "height": 203.359375,
+            "bottom": 712,
+            "right": 1008
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 656,
+            "y": 718,
+            "width": 44,
+            "height": 44,
+            "bottom": 762,
+            "right": 700
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 706,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 854
+          },
+          {
+            "id": "finger-btn",
+            "label": "Dedos: No",
+            "x": 860,
+            "y": 718,
+            "width": 148,
+            "height": 44,
+            "bottom": 762,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b58b563ecaad73c19a3844014a55594dd5b957fdd3551a244fa4dd928bce1fd7"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

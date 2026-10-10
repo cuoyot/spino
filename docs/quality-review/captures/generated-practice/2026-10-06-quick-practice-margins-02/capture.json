@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-06",
+  "title": "One-tap quick practice",
+  "surface": "Responsive browser, not native acceptance",
+  "fixtures": "Disposable notebook, randomized clef and keyboard start",
+  "sourceSha256": "f854987be20a7ef9e9e066cab30770e2f5cafe848e5746686a482f98367703fd",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "entry",
+      "frames": [
+        {
+          "path": "entry-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4aa124497b3e3cb422d10a96746ee661fd885baef24aaffe73ba4226dd50c11d"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d1b62dfe742016540c8ff70646dab67e75df627c5fd059818afa2e0d8d870257"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "entry",
+      "frames": [
+        {
+          "path": "entry-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b88105dd7687053506d7fcda48e82b63e9e9c11de803756871234fc7318cce52"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6ea82b649dbe1842655348588fb656cb011284185151b0bff6ecef42a3cf4f12"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "entry",
+      "frames": [
+        {
+          "path": "entry-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "eee2fd42c23183f1a33b6a55392f5fe5d640d667af584eb6fdc6872737d9e86b"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c421b584cea5ecafa25dd4ee58ea4dc9718b9bb65c1cd53dd39d31df8b080d0a"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "entry",
+      "frames": [
+        {
+          "path": "entry-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a5b1f70a84d5afe0b05eb140f1d9c3f1a6ad5ef4f0e8bbdfe2757b01f5de9be7"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "0c97212a5b3bd2fc37f938ae6e6303e63b5cd6f2409eae3a644acc8a40020140"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

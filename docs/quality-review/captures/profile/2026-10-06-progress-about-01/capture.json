@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-06",
+  "title": "Progress navigation and About",
+  "surface": "Responsive Chromium, not native acceptance",
+  "fixtures": "Disposable browser notebook",
+  "sourceSha256": "9667638df69dc132abe8a07add562dcd9e6daecaf644263b5d49eb259781ff94",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "progress",
+      "frames": [
+        {
+          "path": "progress-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5a70c078a3e3f8b1c1a02794471ceaee9f0f495262e59f1ab63fa3c93ed23f76"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "profile",
+      "frames": [
+        {
+          "path": "profile-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "8fae0a66d2c0fbdb5d7d16b9121935957f6ff6431ce87f04997a18b85baa12b8"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "credits",
+      "frames": [
+        {
+          "path": "credits-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "561fbbda29a5ae58dd5bde3a6e9c2a598903a06c8f0dad648daca1f5a8193b47"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "release-notes",
+      "frames": [
+        {
+          "path": "release-notes-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a93ab3e8f83e358baa7305dddbd1f42face798cb112cd04c7d87796bbc84fff7"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "progress",
+      "frames": [
+        {
+          "path": "progress-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "d9d65a5995432edaa566fda406b013d4a78b92fc6ef20da99f56ab8df3c0fa79"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "profile",
+      "frames": [
+        {
+          "path": "profile-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "568b7fbac8e11f6a8838cc018666412db9a585d87e72e41b29e78b8798dd9e3b"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "credits",
+      "frames": [
+        {
+          "path": "credits-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a1cc50b24fed1d8378f44432c3b00771ed50db12680d36fa7c678d5807c3e9cd"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "release-notes",
+      "frames": [
+        {
+          "path": "release-notes-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "1595fb4245bfcfd37919d389fa3c9e7f0c444159acf6d08e50f35957cb9f0eeb"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "progress",
+      "frames": [
+        {
+          "path": "progress-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "53bb49effea4d433831f82583c7a9681a856c9fd173c96439690859625455d6f"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "profile",
+      "frames": [
+        {
+          "path": "profile-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d49a46f76a5184bb209c4963c677a3a156c2840cadb5eb548058eb1c90ff3a28"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "credits",
+      "frames": [
+        {
+          "path": "credits-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "774197b277951711813dd74b6b34191a44b142fd27e9cb5140a109d39946d4fa"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "release-notes",
+      "frames": [
+        {
+          "path": "release-notes-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "b670fecd305b5dc12df3d29b0b1ab7c6e120987fbbe30bc11449a0ad38bcbc90"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "progress",
+      "frames": [
+        {
+          "path": "progress-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "c62111c1aff38ddbaa1116ff49ae1671ebaa805b1a6a3dba2b173dd506ce5937"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "profile",
+      "frames": [
+        {
+          "path": "profile-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f1bb21f3081b9f876d5b009b17ca42dce7b3b7a4ac25547c9f388c5e9ee5f902"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "credits",
+      "frames": [
+        {
+          "path": "credits-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b42c3aae44d8c8ce00a30669f02fe739e8a01dea035317aeac4c382fd99f8d2e"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "release-notes",
+      "frames": [
+        {
+          "path": "release-notes-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a39839ae942c86e9cd11cbafe48367211ea1c3753519360ffaa08393d384b617"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

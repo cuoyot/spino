@@ -1,12 +1,14 @@
 import { loadPDF, readableError } from './pdf-document.js';
 export { inspectPDF } from './pdf-document.js';
-import { validateAnnotations, MARK_COLORS, pagePoint, marginTurn, turnEdge } from './pdf-annotations.js';
+import { validateAnnotations, MARK_COLORS, pagePoint, marginTurn, turnEdge, moveMark } from './pdf-annotations.js';
 import { onPedalTurn } from './pedals.js';
-import { validateScoreView, fittedFrame, sortSections, sectionLayout } from './score-view.js';
+import { validateScoreView, fittedFrame, sortSections, sectionLayout, snapSectionPoint } from './score-view.js';
 import { scoreControlsMarkup, scoreIcon } from './score-controls.js';
 import { scoreFullscreen, native } from './platform.js';
 import { ui, localizeMessage } from './locale.js';
 import './pdf-viewer.css';
+import { printScore } from './score-print.js';
+import { pdfPrintPages, markNode as printableMarkNode } from './pdf-print.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const element = (name, attributes = {}) => {
@@ -22,6 +24,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   let draft = null, gesture = null, pinch = null, dirty = false, saving = null, editVersion = 0;
   let undo = [], redo = [];
   let finger = '1', expanded = false, panel = 'annotations', wasRunning = null, orientation, dock = null, widgetDrag = null;
+  let fontSize = .025, strokeWidth = .0035, selectedId = null;
   const pointers = new Map();
   // Page sections: free crops of a page that landscape reading shows one at a time, padded with white.
   let sections = views.sections || [], sectionIndex = 0, splitting = false, splitDraft = null;
@@ -32,10 +35,22 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   modal.innerHTML = `<div class="pdf-viewport" tabindex="0" aria-label="${ui('Score. Use arrow keys or page edges to turn pages.', 'Partitura. Usa las flechas del teclado o los bordes para pasar página.')}"><div class="pdf-stage"><div class="pdf-paper" aria-busy="true"><canvas></canvas><svg class="pdf-marks"></svg><svg class="pdf-sections" style="display:none"></svg></div></div></div><div class="pdf-turn-zone" data-side="prev" aria-hidden="true"></div><div class="pdf-turn-zone" data-side="next" aria-hidden="true"></div>${scoreControlsMarkup(session)}`;
   const $ = selector => modal.querySelector(selector);
   const viewport = $('.pdf-viewport'), stage = $('.pdf-stage'), paper = $('.pdf-paper'), canvas = $('canvas'), svg = $('.pdf-marks'), widget = $('.pdf-widget'), sectionLayer = $('.pdf-sections');
+  const quickPalette = document.createElement('div');
+  quickPalette.className = 'pdf-quick-palette'; quickPalette.hidden = true;
+  widget.append(quickPalette);
+  const fingers = $('.pdf-fingers'), palette = $('.pdf-palette'), markSettings = $('.pdf-mark-settings');
+  $('.pdf-hint').remove();
   $('.pdf-title').textContent = title || asset.name;
   document.body.append(modal); modal.showModal();
   const task = loadPDF(asset.base64);
   const running = () => !!session?.read().running;
+  const editing = () => !running() && (expanded || splitting || tool !== 'read');
+  async function leaveEditing() {
+    if (dirty && !await persistMarks()) return;
+    if (viewSaving) await viewSaving;
+    await setSplitting(false);
+    selectTool('read'); expanded = false; controls();
+  }
   const currentOrientation = () => viewport.clientWidth > viewport.clientHeight ? 'landscape' : 'portrait';
   orientation = currentOrientation();
   const pageSections = p => sortSections(sections.filter(section => section.page === p));
@@ -72,14 +87,17 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     $('[data-pdf=split]').textContent = splitting ? ui('Done', 'Hecho') : ui('Split page', 'Dividir página');
     $('[data-pdf=split]').setAttribute('aria-pressed', String(splitting));
     $('[data-pdf=split]').disabled = !ready;
-    $('[data-pdf=split-done]').hidden = !splitting || running();
+    $('[data-pdf=split-done]').hidden = !editing();
+    $('[data-pdf=split-done]').textContent = ui('Done editing', 'Salir de edición');
+    $('[data-pdf=split-done]').setAttribute('aria-label', ui('Done editing', 'Salir de edición'));
+    $('[data-pdf=timer]')?.toggleAttribute('hidden', editing());
     $('[data-pdf=split-clear]').hidden = !splitting; $('[data-pdf=split-clear]').disabled = !pageSections(page).length;
     $('.pdf-split-hint').textContent = splitting ? ui('Drag over the score to mark each part, such as one or two bars. Tap × to remove a part.', 'Arrastra sobre la partitura para marcar cada parte, por ejemplo uno o dos compases. Toca × para quitar una parte.') : ui('In landscape, split pages are shown part by part, filled with white to fit the screen.', 'En apaisado, las páginas divididas se muestran parte a parte, rellenando con blanco hasta ajustar la pantalla.');
     $('[data-pdf=reset-view]').disabled = !ready || !!viewSaving;
     $('[data-pdf=fullscreen]').hidden = native || !!document.fullscreenElement || !document.fullscreenEnabled;
     modal.dataset.running = String(running());
-    $('[data-pdf=close]').hidden = running(); $('[data-pdf=tools]').hidden = running();
-    $('[data-pdf=finish]')?.toggleAttribute('hidden', running());
+    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = running() || editing();
+    $('[data-pdf=finish]')?.toggleAttribute('hidden', running() || editing());
     $('.pdf-panel').hidden = running() || !expanded;
     $('[data-pdf=tools]').setAttribute('aria-expanded', String(expanded && !running()));
     $('.pdf-annotation-panel').hidden = panel !== 'annotations'; $('.pdf-view-panel').hidden = panel !== 'view';
@@ -89,6 +107,27 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     for (const button of modal.querySelectorAll('[data-color]')) button.setAttribute('aria-pressed', String(button.dataset.color === color));
     $('.pdf-zoom-value').textContent = `${Math.round(zoom * 100)} %`;
     paper.dataset.tool = tool;
+    const active = $('[data-pdf=active-tool]'), selected = annotations.marks.find(m => m.id === selectedId);
+    const markType = selected?.type || tool;
+    const textMark = ['text', 'fingering'].includes(markType);
+    const strokeMark = ['pen', 'highlight', 'underline', 'line', 'arrow', 'ellipse', 'rectangle'].includes(markType);
+    const quick = !running() && !expanded && !splitting && (textMark || strokeMark);
+    quickPalette.hidden = !quick;
+    const target = quick ? quickPalette : $('.pdf-annotation-panel');
+    for (const node of [fingers, palette, markSettings]) if (node.parentElement !== target) target.append(node);
+    fingers.hidden = quick && tool !== 'fingering';
+    markSettings.querySelector('[data-mark-setting=fontSize]').closest('label').hidden = !textMark;
+    markSettings.querySelector('[data-mark-setting=width]').closest('label').hidden = !strokeMark;
+    markSettings.hidden = !textMark && !strokeMark;
+    active.hidden = running() || expanded || tool === 'read';
+    const name = tool === 'fingering' ? ui(`Finger ${finger}`, `Dedo ${finger}`) : $(`button[data-tool="${tool}"]`)?.title || tool;
+    active.textContent = `${name}${selected ? ' · '+ui('Selected','Seleccionado') : ''} · ${ui('Options','Opciones')}`;
+    active.style.borderColor = color;
+    for (const key of ['fontSize','width']) {
+      const value = (key === 'fontSize' ? fontSize : strokeWidth) * 100;
+      $(`[data-mark-setting="${key}"]`).value = value;
+      $(`[data-mark-output="${key}"]`).textContent = `${Number(value.toFixed(2))}%`;
+    }
     clampWidget();
   }
 
@@ -113,42 +152,20 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     paint(); controls(); void persistMarks();
   }
 
-  function markNode(mark) {
-    const group = element('g', { 'data-mark-id': mark.id });
-    const points = mark.points.map(p => ({ x: p.x * pageWidth, y: p.y * pageHeight }));
-    const a = points[0], b = points.at(-1), width = mark.width * pageWidth;
-    const style = { stroke: mark.color, 'stroke-width': width, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
-    const left = Math.min(a.x, b.x), top = Math.min(a.y, b.y), w = Math.abs(b.x - a.x), h = Math.abs(b.y - a.y);
-    if (mark.type === 'text' || mark.type === 'fingering') {
-      const text = element('text', { x: a.x, y: a.y, fill: mark.color, 'font-size': pageWidth * .025, 'dominant-baseline': mark.type === 'fingering' ? 'central' : 'hanging',
-        ...(mark.type === 'fingering' ? { 'text-anchor': 'middle', 'font-weight': '650', stroke: '#fff', 'stroke-width': pageWidth * .0025, 'paint-order': 'stroke fill' } : {}) });
-      mark.text.split('\n').forEach((line, i) => { const span = element('tspan', { x: a.x, dy: i ? '1.2em' : '0' }); span.textContent = line; text.append(span); });
-      group.append(text);
-    } else if (mark.type === 'pen') {
-      const d = `M${a.x} ${a.y} ` + (points.length === 1 ? `l.01 .01` : points.slice(1).map(p => `L${p.x} ${p.y}`).join(' '));
-      group.append(element('path', { ...style, d }));
-    } else if (mark.type === 'highlight' || mark.type === 'rectangle') {
-      group.append(element('rect', { ...style, x: left, y: top, width: w, height: h,
-        ...(mark.type === 'highlight' ? { fill: mark.color, stroke: 'none', opacity: .24 } : {}) }));
-    } else if (mark.type === 'ellipse') {
-      group.append(element('ellipse', { ...style, cx: left + w / 2, cy: top + h / 2, rx: w / 2, ry: h / 2 }));
-    } else {
-      const endY = mark.type === 'underline' ? a.y : b.y;
-      group.append(element('line', { ...style, x1: a.x, y1: a.y, x2: b.x, y2: endY }));
-      if (mark.type === 'arrow') {
-        const angle = Math.atan2(b.y - a.y, b.x - a.x), size = Math.max(9, width * 4);
-        group.append(element('path', { ...style, d: `M${b.x - size * Math.cos(angle - .5)} ${b.y - size * Math.sin(angle - .5)} L${b.x} ${b.y} L${b.x - size * Math.cos(angle + .5)} ${b.y - size * Math.sin(angle + .5)}` }));
-      }
-    }
-    return group;
-  }
+  function markNode(mark, dimensions = { width: pageWidth, height: pageHeight }) { return printableMarkNode(mark, dimensions); }
   function paint() {
     svg.setAttribute('viewBox', `0 0 ${pageWidth} ${pageHeight}`);
     const marks = annotations.marks.filter(m => m.page === page);
     // Transparent highlighting stays below handwriting and text.
     marks.sort((a, b) => Number(b.type === 'highlight') - Number(a.type === 'highlight'));
-    svg.replaceChildren(...marks.map(markNode));
+    svg.replaceChildren(...marks.filter(m => m.id !== draft?.id).map(mark => markNode(mark)));
     if (draft) svg.append(markNode(draft));
+    const selected = draft?.id === selectedId ? draft : marks.find(m => m.id === selectedId);
+    if (selected && tool === 'select' && !running()) {
+      const node = svg.querySelector(`[data-mark-id="${CSS.escape(selected.id)}"]`), bounds = node.getBBox();
+      svg.append(element('rect', {x:bounds.x,y:bounds.y,width:Math.max(1,bounds.width),height:Math.max(1,bounds.height),fill:'none',stroke:'#4f8cff','stroke-width':1,'vector-effect':'non-scaling-stroke','pointer-events':'none'}));
+      if (selected.points.length === 2) selected.points.forEach((p,i) => svg.append(element('circle',{cx:p.x*pageWidth,cy:p.y*pageHeight,r:22*pageWidth/Math.max(1,paper.getBoundingClientRect().width),fill:'#4f8cff','fill-opacity':.3,stroke:'#fff','stroke-width':2,'vector-effect':'non-scaling-stroke','data-resize':i,tabindex:0,role:'button','aria-label':ui(`Resize endpoint ${i+1}`,`Redimensionar extremo ${i+1}`)})));
+    }
   }
   function paintSections() {
     if (!splitting) { sectionLayer.style.display = 'none'; return; }
@@ -317,8 +334,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
 
   function selectTool(next) {
     if (running()) return;
-    tool = next; draft = null; gesture = null; paint(); controls();
-    $('.pdf-hint').textContent = tool === 'read' ? ui('Drag to pan. Tap briefly at the edge to turn the page.', 'Arrastra para mover. Toque breve en el borde para pasar página.') : tool === 'fingering' ? ui(`Tap the score to place finger ${finger}.`, `Toca la partitura para colocar el dedo ${finger}.`) : tool === 'erase' ? ui('Tap a mark to erase it. You can undo this.', 'Toca una marca para borrarla. Puedes deshacer.') : tool === 'text' ? ui('Tap to write or edit text.', 'Toca para escribir o editar un texto.') : ui('Drag to annotate. Use two fingers to zoom or pan.', 'Arrastra para anotar. Dos dedos para ampliar o desplazar.');
+    tool = next; selectedId = null; draft = null; gesture = null; expanded = false; paint(); controls();
   }
 
   async function storeFrame(reset = false) {
@@ -353,7 +369,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
       event.preventDefault(); const text = textDialog.querySelector('textarea').value.trim(); if (!text) return;
       if (running()) { textDialog.close(); return; }
       try {
-        const mark = existing ? { ...existing, text, color } : { id: crypto.randomUUID(), page, type: 'text', color, width: .0035, points: [point], text };
+        const mark = existing ? { ...existing, text, color, fontSize } : { id: crypto.randomUUID(), page, type: 'text', color, width: strokeWidth, fontSize, points: [point], text };
         changed([...annotations.marks.filter(m => m.id !== mark.id), mark]); textDialog.close();
       } catch (error) { state(error.message, true); }
     };
@@ -377,10 +393,17 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     gesture = { x: event.clientX, y: event.clientY, lastX: event.clientX, lastY: event.clientY, time: performance.now(),
       scrollX: viewport.scrollLeft, scrollY: viewport.scrollTop, distance: 0, pointers: 1, inPage: paper.contains(event.target), rect };
     // A tap on × removes a part; a drag that starts there still draws a new one next to it.
-    if (splitting && gesture.inPage) { const p = pagePoint(event.clientX, event.clientY, rect); splitDraft = { x: p.x, y: p.y, x2: p.x, y2: p.y, removal: event.target.closest?.('[data-section-delete]')?.dataset.sectionDelete }; paintSections(); return; }
+    if (splitting && gesture.inPage) { const p = snapSectionPoint(pagePoint(event.clientX, event.clientY, rect), pageSections(page), rect); splitDraft = { x: p.x, y: p.y, x2: p.x, y2: p.y, removal: event.target.closest?.('[data-section-delete]')?.dataset.sectionDelete }; paintSections(); return; }
+    if (tool === 'select' && gesture.inPage && !running()) {
+      const handle = event.target.closest?.('[data-resize]');
+      const mark = handle ? annotations.marks.find(m => m.id === selectedId) : hitMark(event.clientX,event.clientY);
+      selectedId = mark?.id || null;
+      if(mark){fontSize=mark.fontSize ?? .025;strokeWidth=mark.width;color=mark.color;gesture.edit={original:structuredClone(mark),point:pagePoint(event.clientX,event.clientY,rect),endpoint:handle?Number(handle.dataset.resize):null};draft=structuredClone(mark);}
+      paint();controls();return;
+    }
     if (!gesture.inPage || ['read', 'text', 'fingering', 'erase'].includes(tool) || running()) return;
     const point = pagePoint(event.clientX, event.clientY, rect);
-    draft = { id: crypto.randomUUID(), page, type: tool, color, width: .0035, points: tool === 'pen' ? [point] : [point, point] };
+    draft = { id: crypto.randomUUID(), page, type: tool, color, width: strokeWidth, points: tool === 'pen' ? [point] : [point, point] };
     paint();
   });
   viewport.addEventListener('pointermove', event => {
@@ -398,8 +421,14 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (!gesture || gesture.pointers > 1) return;
     gesture.distance = Math.max(gesture.distance, Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y));
     if (splitDraft) {
-      const p = pagePoint(event.clientX, event.clientY, paper.getBoundingClientRect());
+      const rect = paper.getBoundingClientRect();
+      const p = snapSectionPoint(pagePoint(event.clientX, event.clientY, rect), pageSections(page), rect, splitDraft);
       splitDraft.x2 = Math.max(0, Math.min(1, p.x)); splitDraft.y2 = Math.max(0, Math.min(1, p.y)); paintSections();
+    } else if (gesture.edit && draft) {
+      const point=pagePoint(event.clientX,event.clientY,paper.getBoundingClientRect()), edit=gesture.edit;
+      if(edit.endpoint!=null){draft=structuredClone(edit.original);draft.points[edit.endpoint]=point;}
+      else draft=moveMark(edit.original,point.x-edit.point.x,point.y-edit.point.y);
+      paint();
     } else if (draft) {
       const point = pagePoint(event.clientX, event.clientY, paper.getBoundingClientRect());
       if (tool === 'pen') { if (draft.points.length < 4000) draft.points.push(point); }
@@ -428,13 +457,14 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     try {
       if (mark) {
         if (running()) { paint(); return; }
-        if (mark.type === 'pen' || g.distance > 3) changed([...annotations.marks, mark]); else paint();
+        if (g.edit) {if(g.distance>3)changed(annotations.marks.map(m=>m.id===mark.id?mark:m));else paint();}
+        else if (mark.type === 'pen' || g.distance > 3) changed([...annotations.marks, mark]); else paint();
       } else if ((g.inPage || activeSection()) && g.pointers === 1 && g.distance <= 7) {
         const point = pagePoint(event.clientX, event.clientY, g.rect);
         if (tool === 'text' && g.inPage && !running()) addText(point, hitMark(event.clientX, event.clientY, true));
         else if (tool === 'fingering' && g.inPage && !running()) {
           const hit = hitMark(event.clientX, event.clientY), existing = hit?.type === 'fingering' ? hit : null;
-          const digit = existing ? { ...existing, text: finger, color } : { id: crypto.randomUUID(), page, type: 'fingering', text: finger, color, width: .0035, points: [point] };
+          const digit = existing ? { ...existing, text: finger, color, fontSize } : { id: crypto.randomUUID(), page, type: 'fingering', text: finger, color, width: strokeWidth, fontSize, points: [point] };
           changed([...annotations.marks.filter(m => m.id !== digit.id), digit]);
         }
         else if (tool === 'erase' && !running()) { const hit = hitMark(event.clientX, event.clientY); if (hit) changed(annotations.marks.filter(m => m.id !== hit.id)); }
@@ -467,14 +497,15 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     modal.close(); modal.remove(); previousFocus?.focus(); onClose();
     return true;
   }
-  modal.addEventListener('cancel', event => { event.preventDefault(); void close(); });
+  modal.addEventListener('cancel', event => { event.preventDefault(); if (editing()) void leaveEditing(); else void close(); });
   modal.addEventListener('click', async event => {
     const toolButton = event.target.closest('[data-tool]'), digitButton = event.target.closest('[data-finger]'), colorButton = event.target.closest('[data-color]');
     if (toolButton && !running()) selectTool(toolButton.dataset.tool);
     if (digitButton && !running()) { finger = digitButton.dataset.finger; selectTool('fingering'); }
-    if (colorButton && !running()) { color = colorButton.dataset.color; controls(); }
+    if (colorButton && !running()) { color = colorButton.dataset.color;const selected=annotations.marks.find(m=>m.id===selectedId);if(selected)changed(annotations.marks.map(m=>m.id===selectedId?{...m,color}:m));expanded=false;controls(); }
     const action = event.target.closest('[data-pdf]')?.dataset.pdf;
     try {
+      if (editing() && ['timer', 'finish', 'close'].includes(action)) return;
       if (action === 'finish' && !running() && session?.finish) {
         if (await close()) await session.finish();
         return;
@@ -486,10 +517,17 @@ export async function openScore({ asset, title, save, saveView = async () => {},
         await session.toggle(); updateTimer(); return;
       }
       if (running()) return;
+      if (action === 'print' && ready) {
+        const button=$('[data-pdf=print]');button.disabled=true;button.textContent='…';button.setAttribute('aria-busy','true');
+        try {
+          await printScore(await pdfPrintPages({...asset,annotations:structuredClone(annotations)}),title);
+        } finally { button.disabled=false;button.innerHTML=scoreIcon('print');button.removeAttribute('aria-busy'); }
+      }
       if (action === 'tools') { expanded = !expanded; controls(); }
-      if (action === 'annotations' || action === 'view') { panel = action; selectTool('read'); if (action === 'annotations') await setSplitting(false); controls(); }
+      if (action === 'active-tool') {panel='annotations';expanded=true;controls();}
+      if (action === 'annotations' || action === 'view') { panel = action; if(action==='view')selectTool('read'); expanded=true;if (action === 'annotations') await setSplitting(false); controls(); }
       if (action === 'split') await setSplitting(!splitting);
-      if (action === 'split-done') await setSplitting(false);
+      if (action === 'split-done') await leaveEditing();
       if (action === 'split-clear' && splitting) await saveSections(sections.filter(part => part.page !== page));
       if (action === 'in' || action === 'out' || action === 'fit') {
         const frame = captureFrame();
@@ -505,14 +543,25 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   });
   modal.addEventListener('keydown', event => {
     if (event.target.closest('select, input, textarea') || textDialog?.open) return;
+    if(tool==='select' && selectedId && !running() && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)){
+      event.preventDefault();const dx=event.key==='ArrowLeft'?-.005:event.key==='ArrowRight'?.005:0,dy=event.key==='ArrowUp'?-.005:event.key==='ArrowDown'?.005:0,endpoint=event.target.dataset.resize;
+      changed(annotations.marks.map(m=>{if(m.id!==selectedId)return m;if(endpoint!=null)return{...m,points:m.points.map((p,i)=>i===Number(endpoint)?{x:Math.max(0,Math.min(1,p.x+dx)),y:Math.max(0,Math.min(1,p.y+dy))}:p)};return moveMark(m,dx,dy);}));return;
+    }
     if (['ArrowRight', 'PageDown', 'ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); turn(['ArrowRight', 'PageDown'].includes(event.key) ? 1 : -1); }
+  });
+  modal.addEventListener('change',event=>{
+    const key=event.target.dataset.markSetting;if(!key || running())return;
+    const value=Number(event.target.value)/100;if(!Number.isFinite(value))return;
+    if(key==='fontSize'){if(value<.01||value>.1)return;fontSize=value;}else{if(value<.0002||value>.02)return;strokeWidth=value;}
+    if(selectedId)changed(annotations.marks.map(m=>m.id===selectedId?{...m,...(key==='fontSize' ? (['text','fingering'].includes(m.type)?{fontSize}:{}):{width:strokeWidth})}:m));
+    controls();
   });
   function updateTimer() {
     if (closed) return;
     const info = session?.read() || { running: false, time: '' };
-    $('.pdf-time').textContent = info.time;
     if (session) {
-      $('[data-pdf=timer]').innerHTML = scoreIcon(info.running ? 'pause' : 'play');
+      $('[data-pdf=timer]').innerHTML = `${scoreIcon(info.running ? 'pause' : 'play')}<span class="pdf-time"></span>`;
+      $('.pdf-time').textContent = info.time;
       const label = info.running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
       $('[data-pdf=timer]').setAttribute('aria-label', label);
       $('[data-pdf=timer]').title = label;

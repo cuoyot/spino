@@ -24,8 +24,8 @@ test('sessions can finish without saving and saved sessions can be deleted safel
   await action('calendar'); await action('add-on-day'); await action('plan-practice');
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('#cp-dialog[open] form')`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`); await wait(`document.querySelector('[data-action=start-plan]')`);
-  await action('start-plan'); await wait(`document.querySelector('[data-action=next-block]')`);
-  await action('next-block'); await wait(`document.querySelector('#cp-dialog[open] [data-action=discard-session]')`);
+  await action('start-plan'); await wait(`document.querySelector('[data-action=session-end]')`);
+  await action('session-end'); await wait(`document.querySelector('#cp-dialog[open] [data-action=discard-session]')`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value=save]'))`);
   await wait(`document.querySelector('[data-action=delete-session]')`);
   data = await stored(); const id = data.sessions[0].id; assert.equal(data.plans[0].sessionId, id);

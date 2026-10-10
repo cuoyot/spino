@@ -25,7 +25,6 @@ header { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--gap); 
 .bar-top, .quick { display: grid; align-items: stretch; gap: 6px; width: auto; min-width: 0; order: 0; }
 .bar-top { grid-template-columns: 44px minmax(80px, .65fr) minmax(0, 1.35fr) 96px; }
 .quick { grid-template-columns: minmax(132px, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); }
-#reader-view .quick:has(.tempo[hidden]) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 header button, .tempo, .timing-group { min-width: 0; height: 44px; margin: 0; }
 header button { padding: 6px 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #rank-pill, #level-pill, #midi-pill, #q-clef, #q-sound { max-width: none; margin: 0; padding: 6px 8px; font-size: 13px; }
@@ -35,6 +34,8 @@ header button { padding: 6px 8px; overflow: hidden; text-overflow: ellipsis; whi
 .tempo button { padding: 0; height: 42px; }
 #bpm-show { min-width: 0; font-size: 13px; }
 #bpm-show::after { content: ''; }
+#timing-mode { min-width: 0; height: 44px; display: grid; place-items: center; border: 1px solid #353941; border-radius: 10px; background: #1e2127; color: var(--muted); font-size: 13px; }
+#timing-mode[hidden] { display: none; }
 
 main { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; justify-content: stretch; padding: 0 var(--edge); min-height: 0; }
 #staff-wrap { min-height: 0; max-height: none; }
@@ -51,11 +52,12 @@ main { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows:
   display: grid; grid-template-rows: 28px 36px; grid-template-columns: minmax(0, 1fr);
 }
 #status-row .hud {
-  position: static; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  height: auto; gap: 8px; font-size: 12px; align-items: center;
+  position: static; display: flex; justify-content: flex-start;
+  height: auto; gap: clamp(8px, 2vw, 18px); font-size: 12px; align-items: center;
 }
 .hud > span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .hud b { font-variant-numeric: tabular-nums; }
+.session-time-stat { color: var(--muted); }
 #status-row #feedback {
   position: static; inset: auto; height: auto; min-width: 0; padding: 0;
   display: flex; align-items: center; justify-content: center;
@@ -138,21 +140,58 @@ dialog .muted, .level-row .lname, .level-row .ldesc { overflow-wrap: anywhere; }
   .vf-stavenote { transition: none; }
 }
 
-/* Sessions with MIDI or a piano: no keyboard bar, so its two buttons join the statistics and feedback row. */
-#status-tools { display: none; }
-:root[data-compact-footer] #kb-bar { display: none; }
-:root[data-compact-footer] #status-tools { display: flex; gap: 6px; align-items: center; min-width: 0; }
-:root[data-compact-footer] #status-tools button { width: 128px; height: 40px; }
-:root[data-compact-footer] #status-row { grid-template-columns: minmax(0, 1fr) auto; }
-:root[data-compact-footer] #status-row .hud { grid-column: 1; grid-row: 1; }
-:root[data-compact-footer] #status-row #feedback { grid-column: 1; grid-row: 2; }
-:root[data-compact-footer] #status-tools { grid-column: 2; grid-row: 1 / span 2; }
-:root[data-compact-footer][data-device='tablet'] #status-row,
-:root[data-compact-footer][data-device='phone'][data-orientation='landscape'] #status-row { grid-template-columns: 280px minmax(0, 1fr) auto; }
-:root[data-compact-footer][data-device='tablet'] #status-row #feedback,
-:root[data-compact-footer][data-device='phone'][data-orientation='landscape'] #status-row #feedback { grid-column: 2; grid-row: 1; }
-:root[data-compact-footer][data-device='tablet'] #status-tools,
-:root[data-compact-footer][data-device='phone'][data-orientation='landscape'] #status-tools { grid-column: 3; grid-row: 1; }
-:root[data-compact-footer][data-device='phone'][data-orientation='landscape'] #status-tools button { width: 104px; height: 30px; font-size: 12px; }
-:root[data-compact-footer][data-device='phone'][data-orientation='portrait'] #status-tools { flex-direction: column; gap: 4px; }
-:root[data-compact-footer][data-device='phone'][data-orientation='portrait'] #status-tools button { width: 104px; height: 30px; font-size: 12px; }
+/* Managed practice keeps primary controls stable and exposes frequent actions directly. */
+.managed-practice header { grid-template-columns: minmax(0, 1fr) !important; position: relative; z-index: 6; }
+.managed-practice .quick {
+  grid-template-columns: minmax(116px, 1.2fr) minmax(44px, 1fr) 44px;
+  grid-template-areas: "timing start settings";
+}
+#practice-settings-shortcuts { display: flex; gap: 6px; align-items: center; justify-content: center; }
+#practice-settings-shortcuts[hidden] { display: none; }
+#practice-settings-shortcuts > button { grid-area: auto !important; }
+#settings .dialog-head { flex-wrap: wrap; }
+.managed-practice .tempo, .managed-practice #timing-mode { grid-area: timing; }
+.managed-practice .timing-group { grid-area: start; }
+.managed-practice #start { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.managed-practice #start #practice-clock { font-size: 16px; font-weight: 600; color: inherit; }
+.managed-practice .session-time-stat[hidden] { display: none; }
+.managed-practice #q-sound { grid-area: sound; }
+.managed-practice #guide-btn { grid-area: guide; }
+.managed-practice #finger-btn { grid-area: fingers; }
+.managed-practice #kb-auto { grid-area: recenter; }
+.managed-practice #q-clef { grid-area: settings; }
+.managed-practice #q-sound,
+.managed-practice #guide-btn,
+.managed-practice #finger-btn,
+.managed-practice #kb-auto,
+.managed-practice #q-clef { width: 44px; min-width: 44px; height: 44px; padding: 0; font-size: 15px; }
+.managed-practice #managed-keyboard-position {
+  margin: 4px 0 12px; padding: 10px; display: grid;
+  grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 8px;
+  border: 1px solid #353941; border-radius: 10px; background: #171a20;
+}
+.managed-practice #managed-keyboard-position[hidden] { display: none; }
+.managed-practice #managed-keyboard-position #kb-range { min-width: 0; }
+.managed-practice #managed-keyboard-position #kb-shift { width: 100%; }
+.managed-practice #managed-keyboard-position .kb-hint { grid-column: 1 / -1; white-space: normal; }
+.managed-practice #kb-bar { display: none; }
+:root[data-input='none'] body.managed-practice #guide-btn,
+:root[data-input='none'] body.managed-practice #kb-auto { display: none; }
+:root[data-device='phone'] body.managed-practice .quick { gap: 4px; }
+:root[data-device='phone'][data-orientation='portrait'] body.managed-practice #status-row {
+  height: 36px; grid-template-rows: 36px;
+  grid-template-columns: max-content minmax(0, 1fr); gap: 8px;
+}
+:root[data-device='phone'][data-orientation='portrait'] body.managed-practice #status-row .hud { gap: 6px; }
+:root[data-device='phone'][data-orientation='portrait'] body.managed-practice #feedback { font-size: 13px; }
+:root[data-device='phone'] body.managed-practice #guide-btn { grid-area: guide; }
+:root[data-device='phone'] body.managed-practice #finger-btn { grid-area: fingers; }
+:root[data-device='phone'] body.managed-practice #kb-auto { grid-area: recenter; }
+:root[data-device='phone'][data-orientation='landscape'] body.managed-practice .quick {
+  grid-template-columns: minmax(116px, 1.2fr) minmax(84px, 1fr) 44px;
+}
+:root[data-device='phone'][data-orientation='portrait'] body.managed-practice .quick {
+  grid-template-columns: minmax(44px, 1fr) minmax(44px, 1fr) minmax(84px, 1.2fr) 44px;
+  grid-template-areas: "timing timing start settings";
+}
+:root[data-device='phone'][data-orientation='portrait'] body.managed-practice .quick > button { justify-self: center; }

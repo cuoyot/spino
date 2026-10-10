@@ -3,8 +3,12 @@ import './midi-indicator.css';
 import { midiIndicatorMarkup, setMidiContext } from './midi-indicator.js';
 import './style.css';
 import './layout.css';
+import './keyboard-material.css';
+import './companion/print-controls.css';
+import './landscape-keyboard.css';
 import { KEYS, NAMINGS, generatePhrase, generateRandomBars, generateScaleBars, generateTwoHands, assignFingering, scaleNotes, pickKey, keyInfo, TIME_SIGS, allowedUnits, shortestUnit, noteLabel, noteId, rangeFor, makeNote, samePitchClass, setNaming, namingForLocale, letterName, labelFromId, pitchName } from './music.js';
 import { renderScore, renderPage, pxPerBeatFor, setUserZoom } from './render.js';
+import { pageSystemCount } from './page-layout.js';
 import { LANGUAGES, t, tError, setLanguage, languageForLocale, applyStatic } from './i18n.js';
 import { LEVELS, TEMPLATE_KEYS, levelIndex, isLevel, clone, exerciseOf, exportTemplate, importTemplate, DEFAULT_GOAL, prefersMidi } from './levels.js';
 import { playNote, holdNote, click, now as audioNow } from './audio.js';
@@ -13,6 +17,7 @@ import * as midi from './midi.js';
 import { bootCompanion } from './companion/app.js';
 import { generateTargetBars, targetById } from './companion/curriculum.js';
 import { rhythmFigures, rhythmLevel } from './companion/rhythm-levels.js';
+import { warmupExercises, warmupLabel } from './companion/warmups.js';
 
 // ---------- persistence ----------
 const DEFAULTS = {
@@ -171,12 +176,14 @@ const kbShift = $('#kb-shift');
 const kbRange = $('#kb-range');
 const kbAuto = $('#kb-auto');
 const kbHint = $('.kb-hint');
+const managedKeyboardPosition = $('#managed-keyboard-position');
+const quickControls = $('.quick');
+const practiceSettings = $('#q-clef');
+const soundControl = $('#q-sound');
 // Visible count-in before the first note, after a page turn and after moving the focus.
 const countEl = Object.assign(document.createElement('div'), { id: 'count-in', hidden: true });
 countEl.setAttribute('aria-hidden', 'true');
 $('#staff-wrap').append(countEl);
-const statusTools = Object.assign(document.createElement('div'), { id: 'status-tools' });
-$('#status-row').append(statusTools);
 const lightsEl = $('#lights');
 
 // ---------- session state ----------
@@ -184,6 +191,8 @@ const session = { correct: 0, wrong: 0, streak: 0, best: 0, times: [] };
 let line = null; // note stream: { notes, onsets, states, key, melody, beats, bars, idx, misses, shownAt }
 let timed = null; // tempo clock, independent of answers
 let waiting = null; // self-paced reading has no musical clock
+let waitingGuideTransition = 'none';
+let waitingGuideUntil = 0;
 let layout = null;
 let pianoVis = null; // visible keyboard window { lo, hi, loMidi, hiMidi }
 let practiceKeyboardRange = null; // window used to prepare the current mobile exercise
@@ -225,7 +234,7 @@ function record(n, ok, ms) {
 // Notes form an endless stream: chunks are appended ahead of the player so there is always music to
 // read ahead, and the score scrolls left as you go. line.idx is the first note not yet played.
 function genOpts() {
-  return { ...settings, clef: clef(), key: line.key, prevPos: line.lastPos, vis: settings.input === 'piano' ? { ...pianoVis, exact: settings.kbLo != null } : null };
+  return { ...settings, clef: clef(), key: line.key, prevPos: line.lastPos, vis: settings.input === 'piano' ? { ...pianoVis, exact: settings.kbLo != null } : null, warmupSet: managed?.block.type === 'warmup' ? managed.block.exercises : null };
 }
 
 function appendChunk() {
@@ -279,10 +288,8 @@ function ensureAhead(beat) {
 // systems is whatever fits at that size (smaller notation = more lines on the page).
 const pageZoom = () => Math.max(0.6, Math.min(2.4, 1.0 * (settings.zoom || 1)));
 function systemsFit() {
-  if (selfPaced()) return 1;
   const h = staffEl.clientHeight || 400;
-  const logicalH = clef() === 'grand' ? 210 : 130; // must match renderPage
-  return Math.max(1, Math.min(6, Math.floor(h / (logicalH * pageZoom()))));
+  return pageSystemCount(h,clef()==='grand',pageZoom()*1.08);
 }
 const pageBeats = () => systemsFit() * barsPerSystem() * beatsPerBar();
 const pageEnd = () => (line.pageStart || 0) + pageBeats();
@@ -369,14 +376,27 @@ function layoutPanels() {
   root.dataset.device = isPhone() ? 'phone' : 'tablet';
   root.dataset.orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
   root.dataset.input = settings.input;
+  root.dataset.landscapeKeyboard = String(mobileKeyboardPractice() && isPhone());
   lightsEl.hidden = !(settings.guide === 'lights' && settings.input === 'piano');
   root.dataset.lights = String(!lightsEl.hidden);
   $('#guide-btn').disabled = settings.input !== 'piano';
   kbAuto.disabled = settings.input !== 'piano' || settings.kbLo == null;
-  // Sessions without an on-screen keyboard fold the guide and fingering buttons into the status row.
-  const compact = !!managed && settings.input !== 'piano';
-  root.toggleAttribute('data-compact-footer', compact);
-  for (const id of ['#guide-btn', '#finger-btn']) (compact ? statusTools : kbBar).append($(id));
+  // Managed exercises expose common actions directly. Detailed keyboard positioning
+  // stays on the Practice settings tab instead of sitting behind a nested tools menu.
+  if (managed) {
+    for (const item of [soundControl, $('#guide-btn'), $('#finger-btn')]) $('#practice-settings-shortcuts').append(item);
+    $('#practice-settings-shortcuts').hidden = false;
+    quickControls.append(practiceSettings);
+    managedKeyboardPosition.append(kbAuto);
+    for (const item of [kbRange, kbShift, kbHint]) managedKeyboardPosition.append(item);
+    managedKeyboardPosition.hidden = settings.input !== 'piano';
+  } else {
+    $('#practice-settings-shortcuts').hidden = true;
+    quickControls.insertBefore(practiceSettings, $('.timing-group'));
+    quickControls.append(soundControl);
+    for (const item of [kbRange, kbShift, kbHint, kbAuto, $('#guide-btn'), $('#finger-btn')]) kbBar.append(item);
+    managedKeyboardPosition.hidden = true;
+  }
 }
 
 // A warm-up survives incidental restarts (resize, keyboard move, timed start); only applySettings decides it.
@@ -415,11 +435,13 @@ function setScroll(beat, animate) {
 function draw(animate = false) {
   syncPageControls();
   if (!line || !staffEl.clientWidth || !staffEl.clientHeight) return;
-  $('#key-name').textContent = managed ? `${targetById(managed.block.target).label} · ${settings.timeSig}` : line.warmup ? t('warmupOn', { k: keyName(line.key) }) : `${keyName(line.key)} · ${settings.timeSig}`;
+  $('#key-name').textContent = managed ? `${managedLabel()} · ${settings.timeSig}` : line.warmup ? t('warmupOn', { k: keyName(line.key) }) : `${keyName(line.key)} · ${settings.timeSig}`;
   $('#key-label').classList.toggle('warm', !!line.warmup);
   const target = readingBeat();
   if (pageMode()) {
     line.pageStart ||= 0;
+    // A shorter viewport may hide the active system: reframe without replacing notes.
+    if(selfPaced()&&target>=pageEnd())line.pageStart+=Math.floor((target-line.pageStart)/(barsPerSystem()*beatsPerBar()))*barsPerSystem()*beatsPerBar();
     ensureAhead(target);
     layout = renderPage(staffEl, { notes: line.notes, onsets: line.onsets, states: line.states, clef: clef(), key: line.key, beatsPerBar: beatsPerBar(), barsPerSystem: barsPerSystem(), systems: systemsFit(), startBeat: line.pageStart, zoomHint: pageZoom() * 1.08, widthHint: selfPaced() && barsPerSystem() === 2 ? 420 : 620, fingering: fingersShown() });
     showGuides();
@@ -581,8 +603,13 @@ function matches(n, answer) {
 }
 
 function answer(a) {
-  if (!readerVisible || managed?.context === 'piano' || !line || document.hidden || timed?.suspendedAt != null) return;
+  if (!readerVisible || managed?.context === 'piano' || !line || document.hidden) return;
+  if(timed?.suspendedAt!=null){
+    if(managed?.context!=='mobile')return;
+    startTimed();
+  }
   if (selfPaced()) {
+    if(managed?.context==='mobile'&&waiting?.paused)startWaiting();
     if (waiting && !waiting.paused) answerWaiting(a);
     return;
   }
@@ -590,31 +617,46 @@ function answer(a) {
   answerTimed(a);
 }
 
-// Keep the written line fixed. Only a completely answered system can reveal the next one.
+  // Keep the written page fixed until every visible system has been answered.
 function answerWaiting(a) {
   const index = currentGroup().find(i => ['pending','current'].includes(line.states[i]) && matches(line.notes[i], a));
   if (index == null) {
     const target = line.notes[line.idx];
     if (target) record(target, false, 0);
     session.wrong++; session.streak = 0;
+    if(managed?.block.quickPractice)readerEvent('quick-answer',{correct:false,ms:0});
     feedback('✗', 'bad'); updateHud();
     return;
   }
-  const note = line.notes[index], elapsed = Math.max(0, performance.now() - line.shownAt);
+  const note = line.notes[index], elapsed = Math.max(0, performance.now() - line.shownAt)+(line.responseElapsed||0);
   line.states[index] = 'correct';
   record(note, true, elapsed); session.times.push(elapsed);
   session.correct++; session.streak++;
+  line.responseElapsed=0;
   session.best = Math.max(session.best, session.streak);
   feedback('✓ ' + noteLabel(note), 'ok');
   const previousEnd = pageEnd();
+  const previousBeat = readingBeat();
+  const previousSystem=layout?.page?layout.systemOf(previousBeat):0;
   advance();
   if (line.idx === line.notes.length || line.onsets[line.idx] >= previousEnd) {
     line.pageStart = previousEnd;
     line.waitBars = responsiveBars();
     ensureAhead(previousEnd); setCurrentGroup(); draw();
-  } else refresh();
+  } else {
+    const distance = Math.abs(readingBeat() - previousBeat);
+    if(distance>0&&(!layout?.page||layout.systemOf(readingBeat())===previousSystem)&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const duration=Math.min(320,160+distance*35);
+      waitingGuideTransition=`left ${duration}ms cubic-bezier(0.42, 0, 0.58, 1)`;
+      waitingGuideUntil=performance.now()+duration;
+    } else {
+      waitingGuideTransition='none';waitingGuideUntil=0;
+    }
+    refresh();
+  }
   line.shownAt = performance.now();
   updateHud();
+  if(managed?.block.quickPractice)readerEvent('quick-answer',{correct:true,ms:elapsed});
 }
 
 function startWaiting() {
@@ -674,6 +716,7 @@ function stopTimed() {
   }
   timed = null;
   waiting = null;
+  waitingGuideTransition = 'none';
   syncStartButton();
 }
 
@@ -754,14 +797,14 @@ function showGuides() {
     const beat = Math.max(layout.startBeat, readingBeat());
     const row = layout.rows[layout.systemOf(beat)];
     const x = layout.xAtBeat(beat);
-    // The clock already provides smooth motion. Independent CSS transitions
-    // would lag behind the score when its size, page or presentation changes.
-    playheadEl.style.transition = 'none';
+    // Timed reading follows its clock; self-paced answers briefly ease the guide.
+    const transition=selfPaced()&&performance.now()<waitingGuideUntil&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches?waitingGuideTransition:'none';
+    playheadEl.style.transition = transition;
     Object.assign(playheadEl.style, { display: 'block', left: `${x}px`, top: `${row.top + row.staffTop}px`, height: `${row.staffH}px` });
     // bright part (up to 62% of the pool) covers at least a bar and a half ahead of the cursor
     const bars = 1.5 * beatsPerBar();
     const barPx = Math.abs(row.xAt(row.sysStart + bars) - row.xAt(row.sysStart));
-    lightAt(x, Math.max(220, (barPx + LIGHT_BEHIND) / 0.62), row.top + row.staffTop, row.staffH, 'none');
+    lightAt(x, Math.max(220, (barPx + LIGHT_BEHIND) / 0.62), row.top + row.staffTop, row.staffH, transition);
     layout.lightBeats = bars + 0.5;
     paintStates();
     return;
@@ -782,11 +825,28 @@ function showGuides() {
   paintStates();
 }
 
+// A warm-up set names the exercise being played ("Hanon No. 4 · 2/3").
+function managedLabel() {
+  const set = managed?.block.type === 'warmup' ? warmupExercises(managed.block) : [];
+  if (set.length < 2) return targetById(managed.block.target).label;
+  const index = Math.min(set.length - 1, line?.warmIndex || 0);
+  return `${warmupLabel(set[index])} · ${index + 1}/${set.length}`;
+}
+// Each exercise of a warm-up set starts 4 BPM faster than the previous one (from rhythm level 2); the set restarts at the first tempo.
+function followWarmupSet() {
+  const index = line.notes[line.idx]?.exercise;
+  if (managed?.block.type !== 'warmup' || index == null || index === line.warmIndex) return;
+  const previous = line.warmIndex;
+  line.warmIndex = index;
+  if (previous != null && rhythmLevel(managed.block.figures) > 1) nudgeBpm(4 * (index - previous));
+  $('#key-name').textContent = `${managedLabel()} · ${settings.timeSig}`;
+}
+
 // move line.idx past notes that have been judged, and mark the next one as current
 function advance() {
   if (line.states[line.idx] === 'current') line.states[line.idx] = 'pending';
   while (line.idx < line.notes.length && !['pending', 'current'].includes(line.states[line.idx])) line.idx++;
-  if (line.idx < line.notes.length) setCurrentGroup();
+  if (line.idx < line.notes.length) { setCurrentGroup(); followWarmupSet(); }
 }
 
 function tick() {
@@ -975,6 +1035,9 @@ function buildPiano() {
   const visLo = Math.max(PIANO_BOTTOM, Math.min(maxLo, settings.kbLo ?? autoLo));
   const visHi = visLo + count - 1;
   pianoVis = { lo: visLo, hi: visHi, loMidi: makeNote(visLo, '').midi, hiMidi: makeNote(visHi, '').midi };
+  // Only the physical A0/C8 endpoints have a case cheek; a cropped viewport does not.
+  pianoEl.classList.toggle('physical-start', pianoVis.loMidi === 21);
+  pianoEl.classList.toggle('physical-end', pianoVis.hiMidi === 108);
   kbShift.min = PIANO_BOTTOM;
   kbShift.max = maxLo;
   kbShift.value = visLo;
@@ -1333,7 +1396,7 @@ dialog.querySelector('select[name=lang]').innerHTML = Object.entries(LANGUAGES).
 // Key name in the chosen naming and language, e.g. "Sol mayor", "e-Moll", "ホ短調"
 function keyName(key) {
   const ki = keyInfo(key);
-  return t(ki.minor ? 'keyMinor' : 'keyMajor', { k: pitchName(ki.letter, ki.acc) });
+  return t(ki.minor ? 'keyMinor' : 'keyMajor', { k: pitchName(ki.letter, ki.acc, false) });
 }
 
 // settings names may be nested, e.g. "figures.q"
@@ -1455,7 +1518,7 @@ function openScaleView() {
   for (let i = 0; i < notes.length; i++) lay.setState(i, i % 7 === 0 ? 'current' : 'pending', 'near');
   // names with degrees
   const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
-  $('#scale-names').innerHTML = sc.map((s, i) => `<span class="${i === 0 ? 'tonic' : ''}">${pitchName(s.letter, s.acc)}<small>${ROMAN[i]}</small></span>`).join('');
+  $('#scale-names').innerHTML = sc.map((s, i) => `<span class="${i === 0 ? 'tonic' : ''}">${pitchName(s.letter, s.acc, false)}<small>${ROMAN[i]}</small></span>`).join('');
   // mini keyboard: tonic to tonic, one octave, scale keys lit
   const pcOf = (s) => ((makeNote(28 + 'cdefgab'.indexOf(s.letter), s.acc).midi % 12) + 12) % 12;
   const byPc = {};
@@ -1531,6 +1594,18 @@ function syncForm() {
     input.querySelector('[value="none"]').disabled = managed.context === 'mobile';
     input.disabled = managed.context !== 'mobile';
   }
+  const physicalInput = !!managed && managed.context !== 'mobile';
+  const manualPiano = managed?.context === 'piano';
+  const inputDescription = $('#practice-input-description');
+  inputDescription.hidden = !physicalInput;
+  inputDescription.textContent = manualPiano
+    ? ui('With piano · manual tracking. Notes are not evaluated automatically.', 'Con piano · registro manual. Las notas no se evalúan automáticamente.')
+    : ui('MIDI instrument · notes are evaluated automatically.', 'Instrumento MIDI · las notas se evalúan automáticamente.');
+  dialog.querySelector('[name=input]').closest('label').hidden = physicalInput;
+  dialog.querySelector('[name=kbZoom]').closest('label').hidden = settings.input !== 'piano';
+  dialog.querySelector('[data-i18n=keyboardGestures]').hidden = settings.input !== 'piano';
+  dialog.querySelector('[name=reveal]').closest('label').hidden = manualPiano;
+  for (const selector of ['[data-i18n=weakest]', '#stats-list', '#reset-stats']) dialog.querySelector(selector).hidden = manualPiano;
   $('#bpm-val').textContent = settings.bpm;
   $('#maxacc-val').textContent = settings.maxAcc;
   $('#zoom-val').textContent = `${Math.round((settings.zoom || 1) * 100)}%`;
@@ -1658,7 +1733,9 @@ $('#level-pill').onclick = () => {
 };
 
 $('#open-settings').onclick = () => {
-  if (managed) { companionPause(); showTab('practice'); } else stopTimed();
+  if (managed) {
+    companionPause(); showTab('practice');
+  } else stopTimed();
   syncForm();
   dialog.showModal();
 };
@@ -1690,9 +1767,22 @@ const SOUND_ORDER = ['off', 'tone', 'voice'];
 const SOUND_ICON = { off: '🔇', tone: '🎵', voice: '🗣' };
 const SOUND_SHORT = { off: 'soundOffShort', tone: 'soundTone', voice: 'soundVoiceShort' };
 function syncStartButton() {
+  const practiceClock = $('#practice-clock');
   const playing = timed && timed.suspendedAt == null || waiting && !waiting.paused;
   const label = managed ? (playing ? ui('Pause','Pausar') : ui('Continue','Continuar')) : t(playing ? 'stop' : 'start');
-  startBtn.textContent = isNarrow() ? (playing ? 'Ⅱ' : '▶') : label;
+  if (managed) {
+    startBtn.innerHTML = playing
+      ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor"/></svg>'
+      : '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M7 4L21 12L7 20Z" fill="currentColor"/></svg>';
+    startBtn.append(practiceClock);
+    $('.session-time-stat').hidden = true;
+    startBtn.setAttribute('aria-describedby', 'practice-clock');
+  } else {
+    $('.session-time-stat').append(practiceClock);
+    $('.session-time-stat').hidden = false;
+    startBtn.removeAttribute('aria-describedby');
+    startBtn.textContent = isNarrow() ? (playing ? 'Ⅱ' : '▶') : label;
+  }
   startBtn.setAttribute('aria-label', label);
   startBtn.title = label;
 }
@@ -1715,6 +1805,10 @@ function syncQuick() {
   $('#finger-btn').classList.toggle('on', fingersShown());
   $('#finger-btn').title = $('#finger-btn').textContent;
   $('#finger-btn').setAttribute('aria-pressed', String(fingersShown()));
+  if (managed) {
+    $('#guide-btn').textContent = '💡';
+    $('#finger-btn').textContent = '①';
+  }
   const clefLabel = t(settings.pianoMode ? 'qBoth' : CLEF_LABEL[clef()]);
   $('#q-clef').title = clefLabel;
   $('#q-clef').setAttribute('aria-label', clefLabel);
@@ -1724,11 +1818,15 @@ function syncQuick() {
 
   // the tempo only matters when playing in time; the start button sits right next to the timing toggle
   $('.tempo').hidden = selfPaced();
+  $('#timing-mode').hidden = !selfPaced();
+  if(!managed?.block.quickPractice){$('#timing-mode').classList.remove('quick-game-hud','is-record');$('#timing-mode').textContent = ui('No tempo', 'Sin tempo');}
+  $('.session-time-stat').title = ui('Practice time', 'Tiempo de práctica');
+  $('.session-time-stat').setAttribute('aria-label', $('.session-time-stat').title);
   startBtn.hidden = false;
   const snd = SOUND_ORDER.includes(settings.soundMode) ? settings.soundMode : 'tone';
   $('#q-sound').setAttribute('aria-label', `${t('soundMode')}: ${t(SOUND_SHORT[snd])}`);
   $('#q-sound').title = `${t('soundMode')}: ${t(SOUND_SHORT[snd])}`;
-  $('#q-sound').textContent = isNarrow() ? SOUND_ICON[snd] : `${SOUND_ICON[snd]} ${t(SOUND_SHORT[snd])}`;
+  $('#q-sound').textContent = managed || isNarrow() ? SOUND_ICON[snd] : `${SOUND_ICON[snd]} ${t(SOUND_SHORT[snd])}`;
 }
 $('#q-sound').onclick = () => {
   const cur = SOUND_ORDER.indexOf(settings.soundMode);
@@ -1778,7 +1876,10 @@ function applyKeyboardShift() {
     if (keyboardRangeChanged()) {
       companionPause();
       stopTimed();
-      // This is an explicit exercise-range change. Keep the chosen scale, clef and
+      // A dead band around middle C prevents repeated clef flips near the boundary.
+      const middle = (pianoVis.lo + pianoVis.hi) / 2;
+      settings.clef = middle < 26 ? 'bass' : middle > 30 ? 'treble' : settings.clef;
+      // This is an explicit exercise-range change. Keep the chosen scale and
       // session results; replace prefetched notes as well as the visible line.
       newLine(false, false);
       if (selfPaced()) waiting = { paused: true };
@@ -1894,7 +1995,11 @@ Object.defineProperty(window, '__sr', { get: () => ({ line, layout, settings, ti
 
 function companionPause() {
   countEl.hidden = true;
-  if (waiting) waiting.paused = true;
+  if (feedbackEl.textContent === t('countIn')) feedback(ui('Paused', 'En pausa'), '');
+  if (waiting) {
+    if(!waiting.paused&&line)line.responseElapsed=(line.responseElapsed||0)+Math.max(0,performance.now()-line.shownAt);
+    waiting.paused = true;
+  }
   if (timed && timed.suspendedAt == null) {
     timed.suspendedAt = performance.now(); cancelAnimationFrame(timed.raf); cancelClicks();
   }
@@ -1904,12 +2009,13 @@ function companionPause() {
 const reader = {
   setLanguage(language) {
     settings.lang = language; save('sr.settings', settings); syncQuick();
-    $('#practice-return').textContent = ui('‹ Session', '‹ Sesión');
-    $('#practice-finish').textContent = ui('Finish', 'Terminar');
+    $('#practice-return').textContent = '←';
+    $('#practice-advance').textContent = '→';
   },
   get devices() { return [...midiDevices]; },
+  get warmupIndex() { return line?.warmIndex || 0; },
   get measurement() { return { source: managed?.context === 'midi' ? 'midi' : 'screen', correct: session.correct, wrong: session.wrong, timing: selfPaced() ? 'wait' : 'timed', bpm: selfPaced() ? null : settings.bpm, input: settings.input, guide: settings.guide, fingering: settings.fingering, tolerance: selfPaced() ? null : settings.tolerance }; },
-  get snapshot() { return line ? { line: clone(line), beat: readingBeat(), settings: clone(settings) } : null; },
+  get snapshot() { return line ? { line: {...clone(line),responseElapsed:(line.responseElapsed||0)+(waiting&&!waiting.paused?Math.max(0,performance.now()-line.shownAt):0)}, beat: readingBeat(), settings: clone(settings) } : null; },
   configure(block, context, snapshot = null) {
     stopTimed(); setMidiContext(context); managed = { block, context }; readerVisible = true; suspendedByCompanion = false;
     settings.timing = selfPaced() ? 'wait' : 'timed';
@@ -1919,6 +2025,7 @@ const reader = {
     document.body.classList.add('managed-practice');
     $('#reader-view').hidden = false; $('#practice-toolbar').hidden = false;
     if (snapshot?.line && snapshot.line.notes?.length) {
+      if (mobileKeyboardPractice() && ['bass', 'treble'].includes(snapshot.settings?.clef)) settings.clef = snapshot.settings.clef;
       settings.bpm = Math.max(30, Math.min(160, Number(snapshot.settings?.bpm) || block.bpm));
       settings.kbLo = Number.isInteger(snapshot.settings?.kbLo) && snapshot.settings.kbLo >= PIANO_BOTTOM && snapshot.settings.kbLo <= PIANO_TOP ? snapshot.settings.kbLo : null;
       line = clone(snapshot.line); scrollTo = snapshot.beat; layoutPanels(); buildPiano(); draw();
@@ -1926,14 +2033,18 @@ const reader = {
       if (selfPaced()) waiting = { paused: true };
       else timed = { t0: performance.now() - snapshot.beat * beatMs(), audioOffset: 0, nextClick: Math.ceil(snapshot.beat), suspendedAt: performance.now(), clicks: [], raf: 0 };
       suspendedByCompanion = true;
-    } else newLine(false, false);
+    } else {
+      if(Number.isInteger(block.keyboardStart))settings.kbLo=block.keyboardStart;
+      newLine(false, false);
+    }
     syncQuick(); updateHud();
   },
   show() { readerVisible = true; $('#reader-view').hidden = false; layoutPanels(); draw(); },
   hide() { companionPause(); readerVisible = false; $('#reader-view').hidden = true; },
   pause: companionPause,
+  notify: toast,
   play: startTimed,
-  stop() { stopTimed(); managed = null; readerVisible = false; $('#reader-view').hidden = true; document.body.classList.remove('managed-practice'); },
+  stop() { stopTimed(); managed = null; readerVisible = false; $('#reader-view').hidden = true; document.body.classList.remove('managed-practice'); layoutPanels(); },
   async refreshMidi() { await midi.refreshMidi(); },
   settings() { showTab('general'); syncForm(); dialog.showModal(); },
 };

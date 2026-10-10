@@ -87,8 +87,8 @@ test('piano companion: local planning, practice, history, recovery and responsiv
   });
   await t.test('recovers an interrupted session paused and preserves earlier history',async()=>{
     await action('practice');await action('prepare','free');
-    await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('[data-action="toggle-session"]')`);
-    await action('toggle-session');await action('leave-session');
+    await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('[data-action="open-free-practice"]')`);
+    await action('open-free-practice');await action('toggle-session');await action('free-return');await action('leave-session');
     const before=await stored();assert.ok(before.active);const id=before.active.id;
     await send('Page.reload');await wait(`document.querySelector('[data-action="resume-session"]')`);
     const after=await stored();assert.equal(after.active.id,id);assert.equal(after.active.runningSince,null);assert.equal(after.sessions.length,2);
@@ -153,5 +153,22 @@ test('connected practice: manual mode never creates errors and MIDI disconnect f
   await evaluate(`frameAt(__sr.timed.t0);__sr.midi.simulateNote(__sr.line.notes[0].midi);window.statesBefore=JSON.stringify(__sr.line.states);__sr.midi.simulateDevices([]);frameAt(performance.now()+60000);`);
   assert.ok(await evaluate(`__sr.timed.suspendedAt!=null&&JSON.stringify(__sr.line.states)===statesBefore&&!document.querySelector('#app-shell').hidden`));
   assert.ok(await evaluate(`!!document.querySelector('[data-action="continue-piano"]')`));
+  const retained = await evaluate(`({notes:JSON.stringify(__sr.line.notes),correct:document.querySelector('#s-correct').textContent,wrong:document.querySelector('#s-wrong').textContent})`);
+  await evaluate(`__sr.midi.simulateDevices(['Test piano'])`);
+  await wait(`document.querySelector('[data-action="open-reader"]')`);
+  assert.ok(await evaluate(`__sr.timed.suspendedAt!=null`), 'Reconnection does not start practice automatically.');
+  await evaluate(`document.querySelector('[data-action="open-reader"]').click()`);
+  await wait(`__sr.timed.suspendedAt==null`);
+  assert.equal(await evaluate(`JSON.stringify(__sr.line.notes)`), retained.notes, 'Reconnect keeps generated material.');
+  assert.equal(await evaluate(`document.querySelector('#s-correct').textContent`), retained.correct);
+  await evaluate(`__sr.midi.simulateDevices([])`);
+  await wait(`document.querySelector('[data-action="continue-piano"]')`);
+  await evaluate(`document.querySelector('[data-action="continue-piano"]').click()`);
+  await wait(`document.querySelector('[data-action="open-reader"]')`);
+  await evaluate(`document.querySelector('[data-action="open-reader"]').click()`);
+  await wait(`__sr.timed.suspendedAt==null`);
+  assert.equal(await evaluate(`document.body.dataset.context`), 'piano');
+  await evaluate(`frameAt(performance.now()+60000)`);
+  assert.equal(await evaluate(`document.querySelector('#s-wrong').textContent`), retained.wrong, 'Manual fallback does not introduce missed-note errors.');
   assert.deepEqual(errors,[]);
 });

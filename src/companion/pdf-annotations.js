@@ -23,6 +23,10 @@ export function validateAnnotations(value) {
     ids.add(mark.id);
     const result = { id: mark.id, page: mark.page, type: mark.type, color: mark.color, width: mark.width, points };
     if (['text', 'fingering'].includes(mark.type)) {
+      if (mark.fontSize != null) {
+        if (!Number.isFinite(mark.fontSize) || mark.fontSize < .01 || mark.fontSize > .1) fail();
+        result.fontSize = mark.fontSize;
+      }
       if (typeof mark.text !== 'string' || !mark.text.trim() || mark.text.length > 500) fail();
       if (mark.type === 'fingering' && !/^[1-5]$/.test(mark.text)) fail();
       result.text = mark.text;
@@ -30,6 +34,13 @@ export function validateAnnotations(value) {
     return result;
   });
   return { version: 1, marks };
+}
+
+export function moveMark(mark, dx, dy) {
+  const xs = mark.points.map(p => p.x), ys = mark.points.map(p => p.y);
+  dx = Math.max(-Math.min(...xs), Math.min(1 - Math.max(...xs), dx));
+  dy = Math.max(-Math.min(...ys), Math.min(1 - Math.max(...ys), dy));
+  return { ...mark, points: mark.points.map(p => ({ x: p.x + dx, y: p.y + dy })) };
 }
 
 export function pagePoint(clientX, clientY, rect) {

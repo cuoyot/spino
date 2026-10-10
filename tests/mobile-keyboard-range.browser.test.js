@@ -83,7 +83,13 @@ for (const type of ['reading', 'technique']) for (const timing of ['wait', 'time
       await evaluate(`{const slider=document.querySelector('#kb-shift');slider.value=slider.min;slider.dispatchEvent(new Event('input'));slider.dispatchEvent(new Event('change'));}`);
       assert.equal(await evaluate('playable()'), true, 'A range near A0 also replaces high prefetched notes');
       assert.deepEqual(await evaluate('counts()'), counts);
-      assert.equal(await evaluate('__sr.settings.clef'), settings.clef, 'Moving low keeps the chosen staff');
+      assert.equal(await evaluate('__sr.settings.clef'), 'bass', 'Moving to low keys switches to bass clef');
+      await evaluate(`{const slider=document.querySelector('#kb-shift');slider.value=slider.max;slider.dispatchEvent(new Event('input'));slider.dispatchEvent(new Event('change'));}`);
+      assert.equal(await evaluate('__sr.settings.clef'), 'treble', 'Moving to high keys switches to treble clef');
+      assert.equal(await evaluate('playable()'), true);
+      assert.deepEqual(await evaluate('counts()'), counts);
+      // Leave room for the subsequent rightward pan instead of starting at C8.
+      await evaluate(`{const slider=document.querySelector('#kb-shift');slider.value=String(Math.floor((Number(slider.min)+Number(slider.max))/2));slider.dispatchEvent(new Event('input'));slider.dispatchEvent(new Event('change'));}`);
     }
 
     await evaluate(`document.querySelector('#start').click();window.sameRangeLine=__sr.line;window.sameRangeClock=__sr.timed;document.querySelector('#kb-shift').dispatchEvent(new Event('change'));`);

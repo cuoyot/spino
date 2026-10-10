@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "Pianista de prueba",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "language": "es"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": {
+    "id": "review-active-technique-wait",
+    "title": "Técnica sin piano",
+    "context": "mobile",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "review-technique-wait",
+        "type": "technique",
+        "minutes": 10,
+        "bpm": 60,
+        "timing": "wait",
+        "target": "D-natural",
+        "hand": "right",
+        "input": "names",
+        "figures": "hqe",
+        "passage": "",
+        "workId": "",
+        "presentation": "page"
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-10-04T08:00:00.000Z",
+    "date": "2026-10-04",
+    "elapsedMs": 0,
+    "blockElapsedMs": 0,
+    "runningSince": null,
+    "updatedAt": 1791100800000,
+    "notes": "",
+    "next": ""
+  },
+  "lastBackup": null
+}

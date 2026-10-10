@@ -12,7 +12,7 @@ function notebook({ sequence = false } = {}) {
     block('free', { id: 'current-block', minutes: 10 }),
     block('reading', { id: 'future-reading', minutes: 10 }),
     block('technique', { id: 'future-technique', minutes: 10 }),
-  ] : [block('free', { id: 'current-block', minutes: 40 })];
+  ] : [block('repertoire', { id: 'current-block', minutes: 40 })];
   const source = { title: 'Session regression fixture', context: 'piano', blocks };
   data.routines.push({ ...structuredClone(source), id: 'source-routine' });
   data.active = beginSession({ ...source, planId: 'source-plan' });
@@ -56,7 +56,7 @@ async function openSession(t, data) {
 test('cancelling final-block feedback keeps the current block usable and records it once', { timeout: 30000 }, async t => {
   const fixture = notebook();
   const { evaluate, wait, read, waitStored, action, click, errors } = await openSession(t, fixture);
-  await action('next-block');
+  await action('session-end');
   await wait(`document.querySelector('#cp-dialog[open] button[value=save]')`);
   await click('#cp-dialog [data-action=close-dialog]');
   await wait(`!document.querySelector('#cp-dialog').open && document.querySelector('[data-action=toggle-session]')`);
@@ -70,7 +70,7 @@ test('cancelling final-block feedback keeps the current block usable and records
   await evaluate(`window.__sessionTestNow += 60000`);
   await action('toggle-session');
   await waitStored(data => data.active.runningSince == null && data.active.elapsedMs === fixture.active.elapsedMs + 60000);
-  await action('next-block');
+  await action('session-end');
   await wait(`document.querySelector('#cp-dialog[open] button[value=save]')`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value=save]'))`);
   const saved = await waitStored(data => !data.active && data.sessions.length === 1);
@@ -103,7 +103,7 @@ test('a failed feedback save preserves the pending session and can be retried ex
 
 test('a simulated background pause refreshes the manual timer control before resuming', { timeout: 30000 }, async t => {
   const { evaluate, wait, waitStored, action, errors } = await openSession(t, notebook());
-  const label = () => evaluate(`document.querySelector('[data-action=toggle-session]').textContent.trim()`);
+  const label = () => evaluate(`document.querySelector('[data-action=toggle-session]').getAttribute('aria-label')`);
   const pausedLabel = await label();
   await action('toggle-session');
   await waitStored(data => data.active.runningSince != null);
@@ -112,7 +112,7 @@ test('a simulated background pause refreshes the manual timer control before res
   // This exercises the visibility handler; it does not emulate native OS suspension.
   await evaluate(`window.__sessionTestNow+=60000;Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));`);
   await waitStored(data => data.active.runningSince == null);
-  await wait(`document.querySelector('[data-action=toggle-session]').textContent.trim()===${JSON.stringify(pausedLabel)}`);
+  await wait(`document.querySelector('[data-action=toggle-session]').getAttribute('aria-label')===${JSON.stringify(pausedLabel)}`);
   await action('toggle-session');
   await waitStored(data => data.active.runningSince != null);
   assert.equal(await label(), runningLabel);
@@ -124,9 +124,9 @@ test('live session edits preserve completed work, source plans and routines acro
   fixture.works.push({ id: 'repertoire-work', title: 'Study in G', composer: '', stage: 'En estudio', notes: '', passage: 'Bars 1–8', target: 'G-major', bpm: 72 });
   const { send, evaluate, wait, waitStored, action, errors } = await openSession(t, fixture);
   assert.equal(await evaluate(`document.querySelector('[data-session-minutes="finished-block"]')`), null, 'Completed blocks are read-only.');
-  await action('toggle-session');
+  await action('open-free-practice');
   await waitStored(data => data.active.runningSince != null);
-  await evaluate(`window.__sessionTestNow+=60000;const input=document.querySelector('[data-session-minutes="current-block"]');input.value='17';input.dispatchEvent(new Event('change',{bubbles:true}));`);
+  await evaluate(`window.__sessionTestNow+=60000;document.querySelector('[data-action=free-return]').click();const input=document.querySelector('[data-session-minutes="current-block"]');input.value='17';input.dispatchEvent(new Event('change',{bubbles:true}));`);
   let changed = await waitStored(data => data.active.blocks[1].minutes === 17);
   assert.equal(changed.active.runningSince, null, 'Editing pauses and retains the time already played.');
   assert.equal(changed.active.elapsedMs, 19 * 60000);
@@ -149,9 +149,7 @@ test('live session edits preserve completed work, source plans and routines acro
   await action('session-add-block');
   await wait(`document.querySelector('#session-add-form')`);
   await evaluate(`const select=document.querySelector('#session-add-form [name=type]');select.value='repertoire';select.dispatchEvent(new Event('change',{bubbles:true}));`);
-  assert.deepEqual(await evaluate(`({visible:!document.querySelector('#session-add-form [data-session-work]').hidden,required:document.querySelector('#session-add-form [name=workId]').required})`), { visible: true, required: true });
-  await evaluate(`document.querySelector('#session-add-form').requestSubmit()`);
-  assert.equal(await evaluate(`document.querySelector('#cp-dialog').open`), true, 'A repertoire block needs a linked work.');
+  assert.deepEqual(await evaluate(`({visible:!document.querySelector('#session-add-form [data-session-work]').hidden,required:document.querySelector('#session-add-form [name=workId]').required})`), { visible: true, required: false }, 'The piece can also be chosen at practice time.');
   await evaluate(`document.querySelector('#session-add-form [name=workId]').value='repertoire-work';`);
   await evaluate(`document.querySelector('#session-add-form [name=minutes]').value='6';document.querySelector('#session-add-form').requestSubmit()`);
   await wait(`!document.querySelector('#cp-dialog').open`);
@@ -252,7 +250,7 @@ test('session orientation advice follows live rotation and excludes free practic
   await action('practice');
   await action('prepare', 'free');
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);
-  await wait(`document.querySelector('[data-action=toggle-session]')`);
+  await wait(`document.querySelector('[data-action=open-free-practice]')`);
   assert.equal(await evaluate(`document.querySelector('.cp-session-orientation')`), null, 'A free practice has no score for which to recommend orientation.');
   assert.deepEqual(errors, []);
 });

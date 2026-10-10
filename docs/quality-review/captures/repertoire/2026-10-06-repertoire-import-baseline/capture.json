@@ -1,0 +1,242 @@
+{
+  "runId": "2026-10-06-repertoire-import-baseline",
+  "date": "2026-10-06",
+  "title": "Repertoire and import baseline",
+  "reviewHref": "../../../repertoire-import.md",
+  "surface": "Responsive Chromium production browser, not native acceptance",
+  "fixtures": "Disposable empty notebook; synthetic PDF; no personal data",
+  "stateLabels": {
+    "empty": "Repertoire · empty",
+    "new-work": "Add work",
+    "study-details": "Add work · study details",
+    "pdf-selected": "Add work · PDF selected"
+  },
+  "sourceSha256": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+  "results": [
+    {
+      "state": "empty",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "empty-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "fc9aa4365b55d39652cb61c295dc42750569653f359a05e0008056b4c6d41e11"
+        }
+      ]
+    },
+    {
+      "state": "new-work",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "new-work-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "254ff77a503c8be43ccb7acc6706cadd4f07a292e74dc3d897c4b92b704c5500"
+        }
+      ]
+    },
+    {
+      "state": "study-details",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "study-details-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c835958a0cd0c840170acbedbd5a5a5a44aa0233b20235bd2200d0803cab92d7"
+        }
+      ]
+    },
+    {
+      "state": "pdf-selected",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "pdf-selected-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "0ce9cb4df5fa1f8166b59cbefab6378a4191763846d670f1b2f4efc4e73ac96d"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "empty-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "430bb2888a515038d0118ad7a855bc0fc275ffdb157f4b57b22f6a4ef376e357"
+        }
+      ]
+    },
+    {
+      "state": "new-work",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "new-work-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "9e22c8b03f320a7f05c97c875cc41172cf7637480021d7aba73fa97c1024c309"
+        }
+      ]
+    },
+    {
+      "state": "study-details",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "study-details-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6691bde8238e948dd903ace7c663ed85ee83ca0409ca49615723342cea62e47a"
+        }
+      ]
+    },
+    {
+      "state": "pdf-selected",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "pdf-selected-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f9f6c3eaf5afa9e39924d852273427336c5831ecc6d1ac95772df83f390f0acf"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "empty-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c9731130d877a12920fabb2566fedb2387c052e6e4be24b373593d6b111a75aa"
+        }
+      ]
+    },
+    {
+      "state": "new-work",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "new-work-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "840bcbcb26121f066e309c34c89414777a29c813be7b10a8d7f77a93689180f7"
+        }
+      ]
+    },
+    {
+      "state": "study-details",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "study-details-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3574acec1253d7b8347eca40e284ae0d2a9d810e48cb91448f2ebde85b7bb79a"
+        }
+      ]
+    },
+    {
+      "state": "pdf-selected",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "pdf-selected-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a32636ab116f83da85fdb04e87ee7709a57356100237ea8988f3a705f1914366"
+        }
+      ]
+    },
+    {
+      "state": "empty",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "empty-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "df63a0d2b32a88a7054fac553c3282c8a80b83713709f3400b90d318b5825c92"
+        }
+      ]
+    },
+    {
+      "state": "new-work",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "new-work-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "275b5addbee098b46ea234d56e7fea46402aad1f740282bf81e6c86ead381321"
+        }
+      ]
+    },
+    {
+      "state": "study-details",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "study-details-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "9979a3599cb0c1d951a42ab38a401a0bf4eb184a9236bf46e87027f22a9c395a"
+        }
+      ]
+    },
+    {
+      "state": "pdf-selected",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "pdf-selected-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "344cf9cac5976ca359b4f136120717399a54706ff066c4be379b5a6fc5e2977e"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

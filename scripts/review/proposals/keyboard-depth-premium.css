@@ -1,0 +1,27 @@
+/* Review-only piano-black surround and red felt; purely decorative overlays. */
+#piano {
+  position: relative;
+  background: linear-gradient(90deg, #050608, #24272a 1%, #090b0d 2%, #07090b 98%, #25282b 99%, #050608);
+}
+#piano::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 3px #07090b, inset 0 4px 0 #ffffff25, inset 0 -4px 0 #ffffff12;
+}
+#piano::before {
+  content: '';
+  position: absolute;
+  left: var(--edge, 12px);
+  right: var(--edge, 12px);
+  top: 3px;
+  height: 3px;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, #ffffff13 0, #ffffff13 1px, transparent 1px, transparent 3px),
+    linear-gradient(#681724, #b33e4e 55%, #741b2b);
+  box-shadow: 0 -1px 0 #230a10, 0 1px 1px #00000070;
+}

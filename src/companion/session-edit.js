@@ -99,7 +99,7 @@ export function editSession(input, action, options = {}) {
     if (!validMinutes(action.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));
     active.blocks[index].minutes = action.minutes;
   } else if (action.type === 'update') {
-    const allowed = ['type', 'minutes', 'target', 'bpm', 'level', 'hand', 'figures', 'timing', 'input', 'presentation', 'workId', 'passage'];
+    const allowed = ['type', 'minutes', 'target', 'exercises', 'bpm', 'level', 'hand', 'figures', 'timing', 'input', 'presentation', 'workId', 'passage'];
     if (!action.values || Object.keys(action.values).some(key => !allowed.includes(key))) throw new Error(ui('Choose valid block settings.', 'Elige ajustes válidos para el bloque.'));
     const before = active.blocks[index], updated = { ...before, ...copy(action.values) };
     if (!validMinutes(updated.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));

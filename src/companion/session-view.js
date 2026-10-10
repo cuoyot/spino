@@ -2,8 +2,9 @@ import { ui } from './locale.js';
 import { ACTIVITIES, CONTEXTS } from './model.js';
 import { targetById } from './curriculum.js';
 import { practiceMinutes } from './practice-duration.js';
-import { warmupById, warmupFocus } from './warmups.js';
-import { warmupDiagram } from './warmup-guide.js';
+import { warmupExercises, warmupFocus, warmupSetLabel } from './warmups.js';
+import { warmupSnapshotsMarkup } from './warmup-snapshots.js';
+import { isOnStand } from './repertoire.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const clock = ms => `${Math.floor(Math.max(0, ms) / 60000)}:${String(Math.floor(Math.max(0, ms) / 1000) % 60).padStart(2, '0')}`;
@@ -23,8 +24,9 @@ const glyph = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 const button = (action, text, { id = '', css = '', symbol = '', label = '', disabled = false, extra = '' } = {}) => `<button type="button" data-action="${action}" data-id="${esc(id)}" class="${css}"${label ? ` aria-label="${esc(label)}" title="${esc(label)}"` : ''}${disabled ? ' disabled' : ''}${extra ? ` ${extra}` : ''}>${symbol ? glyph(symbol) : ''}${text ? `<span>${text}</span>` : ''}</button>`;
 
 function blockTitle(block, workName) {
-  if (block.type === 'repertoire') return workName(block.workId);
+  if (block.type === 'repertoire') return block.workId ? workName(block.workId) : ui('Piece chosen when you practise', 'Obra a elegir al practicar');
   if (block.type === 'free') return block.passage || ui('Time at the piano', 'Tiempo al piano');
+  if (block.type === 'warmup') return warmupSetLabel(warmupExercises(block).map(exercise => exercise.id));
   return targetById(block.target).label;
 }
 
@@ -54,31 +56,43 @@ function sequenceMarkup(session, workName) {
     }).join('')}</ol><button type="button" data-session-bin class="cp-session-bin" hidden aria-label="${ui('Remove block', 'Eliminar bloque')}">${glyph('remove')}<span>${ui('Drop to remove', 'Suelta para eliminar')}</span></button><div class="cp-session-leave">${button('leave-session', ui('Continue later', 'Continuar después'), { css: 'quiet' })}${button('discard-session', ui('Discard', 'Descartar'), { css: 'danger quiet', label: ui('Discard session', 'Descartar sesión') })}</div></section>`;
 }
 
-export function sessionMarkup(data, { readerDevices = [], totalMs = 0, blockMs = 0, metronomeRunning = false, workName = id => data.works.find(work => work.id === id)?.title || ui('Piece', 'Obra'), width = globalThis.innerWidth, height = globalThis.innerHeight } = {}) {
+// Repertoire blocks can be planned without a piece: the stand comes first, the rest of the repertoire on demand.
+export function workPickerMarkup(data, currentId = '', playable = () => true) {
+  const works = data.works.filter(work => !work.trashedAt && work.id !== currentId);
+  const stand = works.filter(isOnStand), rest = works.filter(work => !isOnStand(work));
+  const choice = work => button('session-pick-work', `<b>${esc(work.title)}</b>${playable(work) ? work.composer ? `<small>${esc(work.composer)}</small>` : '' : `<small>${ui('Download its score in Library first', 'Descarga antes su partitura en la Biblioteca')}</small>`}`, { id: work.id, css: 'cp-work-choice', disabled: !playable(work) });
+  if (!works.length) return `<p class="muted">${ui('Add pieces to your repertoire from Library to choose them here.', 'Añade obras a tu repertorio desde la Biblioteca para elegirlas aquí.')}</p>`;
+  return `<div class="cp-work-picker">${stand.length ? `<p class="cp-work-picker-label">${ui('On the music stand', 'En el atril')}</p><div class="cp-work-choices">${stand.map(choice).join('')}</div>` : ''}${rest.length ? `<details${stand.length ? '' : ' open'}><summary>${ui('Rest of your repertoire', 'Resto del repertorio')} (${rest.length})</summary><div class="cp-work-choices">${rest.map(choice).join('')}</div></details>` : ''}</div>`;
+}
+
+export function sessionMarkup(data, { readerDevices = [], totalMs = 0, blockMs = 0, metronomeRunning = false, workName = id => data.works.find(work => work.id === id)?.title || ui('Piece', 'Obra'), workHasScore = work => !!work?.assetId, workPlayable = () => true, width = globalThis.innerWidth, height = globalThis.innerHeight } = {}) {
   const session = data.active;
   if (!session) return '';
   const block = session.blocks[session.blockIndex];
   const generated = ['reading', 'technique', 'warmup'].includes(block?.type);
-  const warmup = block?.type === 'warmup' ? warmupById(block.target) : null;
+  const warmup = block?.type === 'warmup' ? warmupExercises(block)[0] : null;
+  const warmupCount = block?.type === 'warmup' ? warmupExercises(block).length : 0;
   const midiNeeded = generated && session.context === 'midi' && !readerDevices.length;
   const running = session.runningSince != null;
   const state = midiNeeded ? 'midi-needed' : running ? 'running' : blockMs > 0 || session.currentMeasurement || session.readerSnapshot ? 'paused' : 'ready';
   const stateLabel = { 'midi-needed': ui('MIDI needed', 'Falta MIDI'), running: ui('Practising', 'En práctica'), paused: ui('Paused', 'En pausa'), ready: ui('Ready', 'Listo') }[state];
   const work = data.works.find(work => work.id === block?.workId);
-  const hasScore = generated || block?.type === 'repertoire' && !!work?.assetId;
+  const hasScore = generated || block?.type === 'repertoire' && workHasScore(work);
+  const choosing = block?.type === 'repertoire' && !block.workId;
   const advice = scoreOrientation(session.context, block?.presentation, width, height, hasScore);
   const selfPaced = session.context === 'mobile' && block?.timing === 'wait';
-  const primary = midiNeeded ? button('midi-settings', ui('Connect instrument', 'Conectar instrumento'), { css: 'primary' }) : generated ? button('open-reader', state === 'ready' ? ui('Start exercise', 'Empezar ejercicio') : ui('Continue exercise', 'Continuar ejercicio'), { symbol: 'play', css: 'primary' }) : button('toggle-session', running ? ui('Pause', 'Pausar') : state === 'ready' ? ui('Start', 'Empezar') : ui('Continue', 'Continuar'), { symbol: running ? 'pause' : 'play', css: 'primary' });
+  const primary = midiNeeded ? button('midi-settings', ui('Connect instrument', 'Conectar instrumento'), { css: 'primary' }) : generated ? button('open-reader', state === 'ready' ? ui('Start exercise', 'Empezar ejercicio') : ui('Continue exercise', 'Continuar ejercicio'), { symbol: 'play', css: 'primary' }) : button(block.type === 'free' ? 'open-free-practice' : 'toggle-session', `<b data-block-clock>${clock(blockMs)}</b>`, { symbol: running ? 'pause' : 'play', css: 'primary', label: block.type==='free' ? ui('Open free practice','Abrir práctica libre') : running ? ui('Pause practice','Pausar práctica') : ui('Continue practice','Continuar práctica') });
   const target = targetById(block?.target);
   return `<section class="cp-session"><header class="cp-row cp-session-heading"><div><h1>${esc(session.title || ui('Practice session', 'Sesión de práctica'))}</h1><p>${CONTEXTS[session.context]} <span aria-hidden="true">·</span> <span>${ui('Session', 'Sesión')} <b data-session-clock>${clock(totalMs)}</b></span></p></div>${button('session-end', ui('Finish session', 'Terminar sesión'), { symbol: 'finish', css: 'cp-session-finish' })}</header>
     <div class="cp-session-layout"><div class="cp-session-current-column">${block ? `<article class="cp-card cp-session-card" aria-labelledby="session-current-title"><div class="cp-session-current-heading"><p class="eyebrow">${ui(`Block ${session.blockIndex + 1} of ${session.blocks.length}`, `Bloque ${session.blockIndex + 1} de ${session.blocks.length}`)} <span aria-hidden="true">·</span> ${ACTIVITIES[block.type]}</p><span class="cp-session-state" data-session-state="${state}" role="status"><i aria-hidden="true"></i>${stateLabel}</span></div>
       <h2 id="session-current-title">${esc(blockTitle(block, workName))}</h2>${block.passage && block.type !== 'free' ? `<p class="cp-session-passage">${esc(block.passage)}</p>` : ''}
-      <div class="cp-session-timing"><div><span>${ui('This block', 'Este bloque')}</span><strong data-block-clock>${clock(blockMs)}</strong></div><div class="cp-session-duration"><b>${block.minutes} min</b><span>${ui('suggested', 'orientativos')}</span></div><div class="cp-session-tempo">${selfPaced ? ui('No tempo', 'Sin tempo') : `${block.bpm} <span>BPM</span>`}</div></div>
-      ${warmup ? `<div class="cp-session-warmup"><div class="wg-stage">${warmupDiagram(warmup, block.hand)}</div><p>${esc(warmupFocus(warmup))}</p></div>` : ''}
-      <div class="cp-session-primary-actions">${primary}${warmup ? button('warmup-guide', ui('How to play', 'Cómo se toca'), { css: 'quiet' }) : ''}${block.type === 'repertoire' && work?.assetId ? button('open-pdf', ui('Open score', 'Abrir partitura'), { id: block.workId }) : ''}${button('next-block', session.blockIndex < session.blocks.length - 1 ? ui('Next block', 'Siguiente bloque') : ui('Finish session', 'Terminar sesión'), { symbol: session.blockIndex < session.blocks.length - 1 ? 'next' : 'finish', css: 'quiet' })}</div>
+      <div class="cp-session-timing">${generated ? `<div><span>${ui('This block', 'Este bloque')}</span><strong data-block-clock>${clock(blockMs)}</strong></div>` : ''}<div class="cp-session-duration"><b>${block.minutes} min</b><span>${ui('suggested', 'orientativos')}</span></div><div class="cp-session-tempo">${selfPaced ? ui('No tempo', 'Sin tempo') : `${block.bpm} <span>BPM</span>`}</div></div>
+      ${choosing ? `<section class="cp-session-choose-work" aria-label="${ui('Choose a piece', 'Elige la obra')}"><h3>${ui('Which piece will you practise?', '¿Qué obra vas a trabajar?')}</h3>${workPickerMarkup(data, '', workPlayable)}<p class="muted">${ui('You can change it during the block; each piece keeps its own time.', 'Puedes cambiarla durante el bloque; cada obra conserva su tiempo.')}</p></section>` : ''}
+      ${warmup ? `<div class="cp-session-warmup">${warmupSnapshotsMarkup({ compact: true })}<p>${warmupCount > 1 ? `${ui(`${warmupCount} exercises, one after another, each one octave up and back. First:`, `${warmupCount} ejercicios seguidos, cada uno una octava arriba y abajo. Primero:`)} ` : ''}${esc(warmupFocus(warmup))}</p></div>` : ''}
+      <div class="cp-session-primary-actions">${primary}${warmup ? button('warmup-guide', ui('How to play', 'Cómo se toca'), { css: 'quiet' }) : ''}${block.type === 'repertoire' && workHasScore(work) ? button('open-pdf', ui('Open score', 'Abrir partitura'), { id: block.workId }) : ''}${block.type === 'repertoire' && block.workId ? button('session-change-work', ui('Change piece', 'Cambiar obra'), { css: 'quiet' }) : ''}${session.blockIndex < session.blocks.length - 1 ? button('next-block', ui('Next block', 'Siguiente bloque'), { symbol: 'next', css: 'quiet' }) : ''}</div>
       ${midiNeeded ? `<div class="cp-session-midi-note"><span>${ui('Input disconnected', 'Entrada desconectada')}</span>${button('continue-piano', ui('Use manual tracking', 'Usar registro manual'), { css: 'quiet' })}</div>` : generated && session.context !== 'midi' && readerDevices.length ? `<div class="cp-session-midi-note"><span>${ui('MIDI connected', 'MIDI conectado')}</span>${button('use-midi', ui('Use MIDI', 'Usar MIDI'), { css: 'quiet' })}</div>` : ''}
       ${block.type === 'theory' ? `<div class="cp-session-theory"><p>${esc(target.detail)}</p><div class="cp-notes">${target.notes.map(note => `<span>${esc(note.label)}</span>`).join('')}</div><h3>${esc(target.question)}</h3><div class="cp-actions">${target.options.map(option => button('quiz-answer', esc(option), { id: option })).join('')}</div><div class="cp-feedback" id="quiz-feedback" role="status">${session.currentMeasurement?.correct ? ui('Correct. Continue when ready.', 'Correcto. Continúa cuando quieras.') : ''}</div></div>` : ''}
-      ${!generated && block.type !== 'theory' ? `<div class="cp-session-manual-tools">${button('toggle-metronome', metronomeRunning ? ui('Stop metronome', 'Detener metrónomo') : ui('Metronome', 'Metrónomo'), { css: 'quiet', extra: `aria-pressed="${metronomeRunning}"` })}<details class="cp-session-timer-options"><summary>${ui('Timer options', 'Opciones de tiempo')}</summary><label class="check"><input id="background-timer" type="checkbox"${session.keepTimeInBackground ? ' checked' : ''} />${ui('Keep timing in the background', 'Seguir contando en segundo plano')}</label><p>${ui('Manual tracking · no accuracy score', 'Registro manual · sin puntuación de aciertos')}</p></details></div>` : ''}
+      ${!generated && block.type !== 'theory' ? `<div class="cp-session-manual-tools">${block.type === 'free' ? button('toggle-metronome', metronomeRunning ? ui('Stop metronome', 'Detener metrónomo') : ui('Metronome', 'Metrónomo'), { css: 'quiet', extra: `aria-pressed="${metronomeRunning}"` }) : ''}<details class="cp-session-timer-options"><summary>${ui('Timer options', 'Opciones de tiempo')}</summary><label class="check"><input id="background-timer" type="checkbox"${session.keepTimeInBackground ? ' checked' : ''} />${ui('Keep timing in the background', 'Seguir contando en segundo plano')}</label><p>${ui('Manual tracking · no accuracy score', 'Registro manual · sin puntuación de aciertos')}</p></details></div>` : ''}
       </article>` : `<article class="cp-card cp-session-card"><h2>${ui('Blocks completed', 'Bloques completados')}</h2><p>${ui('Finish the session or add another block.', 'Termina la sesión o añade otro bloque.')}</p></article>`}
       ${advice ? `<p class="cp-orientation cp-session-orientation">${advice}</p>` : ''}
     </div>${sequenceMarkup(session, workName)}</div></section>`;

@@ -1,0 +1,41 @@
+{
+  "width": 800,
+  "height": 800,
+  "left": 80,
+  "top": 70,
+  "keyWidth": 90,
+  "bottom": 450,
+  "blackBottom": 280,
+  "targets": [
+    {
+      "finger": 5,
+      "key": 0,
+      "y": 400,
+      "x": 125
+    },
+    {
+      "finger": 4,
+      "key": 2,
+      "y": 340,
+      "x": 305
+    },
+    {
+      "finger": 3,
+      "key": 3,
+      "y": 320,
+      "x": 395
+    },
+    {
+      "finger": 2,
+      "key": 4,
+      "y": 340,
+      "x": 485
+    },
+    {
+      "finger": 1,
+      "key": 5,
+      "y": 400,
+      "x": 575
+    }
+  ]
+}

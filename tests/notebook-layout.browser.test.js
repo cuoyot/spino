@@ -45,14 +45,14 @@ test('saved routines start directly and their configuration remains unchanged', 
   assert.deepEqual(errors,[]);
 });
 
-test('fixed-page browsing pauses evaluation, preserves notes and does not create errors', {timeout:60000}, async t=>{
+for (const context of ['piano', 'midi']) test(`fixed-page browsing preserves notes and pauses safely: ${context}`, {timeout:60000}, async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
   await send('Page.navigate',{url});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let count=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++count>200){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('#app-shell h1')`);
   await disableWarmup(evaluate);
-  await evaluate(`__sr.midi.simulateDevices(['Test piano']);document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="reading"]').click();document.querySelector('[name="context"]').value='midi';document.querySelector('[name="presentation-0"]').value='page';document.querySelector('#prepare-form').requestSubmit()`);
+  await evaluate(`__sr.midi.simulateDevices(['Test piano']);document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="reading"]').click();document.querySelector('[name="context"]').value='${context}';document.querySelector('[name="presentation-0"]').value='page';document.querySelector('#prepare-form').requestSubmit()`);
   await wait(`document.querySelector('[data-action="open-reader"]')`);
   await evaluate(`document.querySelector('[data-action="open-reader"]').click()`);
   await wait(`__sr.timed`);
@@ -63,10 +63,14 @@ test('fixed-page browsing pauses evaluation, preserves notes and does not create
   await evaluate(`document.querySelector('#score-prev').click()`);
   const after=await evaluate(`({notes:JSON.stringify(__sr.line.notes.slice(0,16)),wrong:document.querySelector('#s-wrong').textContent,correct:document.querySelector('#s-correct').textContent})`);
   assert.deepEqual(after,before);assert.equal(await evaluate(`__sr.line.pageStart`),0);
+  const focused = await evaluate(`(()=>{const i=__sr.line.onsets.findIndex(b=>b>=4),r=__sr.layout.elementOf(i).getBoundingClientRect(),el=document.querySelector('#staff-wrap'),opts={bubbles:true,clientX:r.x+r.width/2,clientY:r.y+r.height/2,pointerId:7,pointerType:'touch'};el.dispatchEvent(new PointerEvent('pointerdown',opts));el.dispatchEvent(new PointerEvent('pointerup',opts));return {expected:__sr.line.onsets[i],actual:__sr.line.onsets[__sr.line.idx],wrong:document.querySelector('#s-wrong').textContent};})()`);
+  assert.equal(focused.actual, focused.expected, 'Tapping a paused note moves focus to its onset.');
+  assert.equal(focused.wrong, before.wrong, 'Moving focus does not count skipped notes as errors.');
   await send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:true});
   await new Promise(r=>setTimeout(r,100));
   assert.equal(await evaluate(`__sr.timed.suspendedAt!=null`),true);
   assert.equal(await evaluate(`JSON.stringify(__sr.line.notes.slice(0,16))`),before.notes);
+  assert.equal(await evaluate(`__sr.line.onsets[__sr.line.idx]`), focused.actual, 'Rotation retains selected focus.');
   await evaluate(`document.querySelector('#start').click()`);
   assert.equal(await evaluate(`__sr.timed.suspendedAt`),null);
   assert.deepEqual(errors,[]);

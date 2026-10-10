@@ -1,0 +1,13 @@
+/* Review-only label refinement; the same keys and hit rectangles are preserved. */
+#piano .key.white {
+  padding-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .015em;
+  color: #515961;
+  text-shadow: 0 1px 0 #ffffffb3;
+}
+#piano .key.white.down, #piano .key.white:active {
+  color: #323a42;
+}

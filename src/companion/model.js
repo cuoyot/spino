@@ -6,8 +6,9 @@ import { validateAnnotations } from './pdf-annotations.js';
 import { validateScoreView } from './score-view.js';
 import { validateLibraryState } from './library.js';
 import { validPracticeDefaults } from './practice-defaults.js';
+import { validQuickScore } from './quick-score.js';
 import { RHYTHM_VALUES } from './rhythm-levels.js';
-import { WARMUP_IDS, validWarmupPreferences } from './warmups.js';
+import { WARMUP_IDS, WARMUP_SET_MAX, validWarmupPreferences } from './warmups.js';
 // Versioned, local product data. Dates without times are local calendar dates.
 export const VERSION = 1;
 export const CONTEXTS = { get mobile() { return ui('Without piano', 'Sin piano'); }, get piano() { return ui('With piano', 'Con piano'); }, get midi() { return ui('MIDI piano', 'Piano MIDI'); } };
@@ -52,12 +53,20 @@ export function finishBlock(active, measurement = null, now = Date.now()) {
   active.results.push({ block: copy(current), context: active.context, elapsedMs: active.blockElapsedMs, measurement: measurement ? copy(measurement) : null, material });
   active.blockIndex++; active.blockElapsedMs = 0;
 }
-export function saveSession(data, active, { title = active.title, mood = null, workIds = null, notes = '', next = '', partial = false, measurement = null } = {}, now = Date.now()) {
+// Repertoire parts in practice order (several parts can share a block when the piece changed mid-block).
+export const repertoireParts = session => [...(session.results || []).map(r => r.block), ...(session.blockIndex < (session.blocks || []).length ? [session.blocks[session.blockIndex]] : [])].filter(b => b?.type === 'repertoire' && b.workId);
+// `parts[n]` is the passage worked in the n-th repertoire part, e.g. "bars 1–16".
+export function applyWorkParts(session, parts) {
+  if (!Array.isArray(parts)) return;
+  session.results.map(r => r.block).filter(b => b.type === 'repertoire' && b.workId).forEach((b, n) => { if (typeof parts[n] === 'string') b.passage = parts[n].trim().slice(0, 1000); });
+}
+export function saveSession(data, active, { title = active.title, mood = null, workIds = null, notes = '', next = '', partial = false, measurement = null, parts = null } = {}, now = Date.now()) {
   if (mood !== null && (!Number.isInteger(mood) || mood < 1 || mood > 5)) throw new Error(ui("Choose a rating between 1 and 5.", "Elige una valoración entre 1 y 5."));
   if (data.sessions.some(s => s.id === active.id)) throw new Error(ui("This session has already been saved.", "Esta sesión ya está guardada."));
   pause(active, now);
   if (active.blockIndex < active.blocks.length) finishBlock(active, measurement, now);
   const session = { ...copy(active), title: title.trim() || active.title, mood, workIds: workIds || [...new Set(active.results.map(r => r.block.workId).filter(Boolean))], runningSince: null, endedAt: new Date(now).toISOString(), notes, next, status: partial ? 'partial' : 'completed', manual: false };
+  applyWorkParts(session, parts);
   data.sessions.unshift(session); if (data.active?.id === active.id) data.active = null;
   if (active.planId) {
     const plan = data.plans.find(p => p.id === active.planId);
@@ -91,9 +100,12 @@ const number = v => Number.isFinite(v) && v >= 0;
 const validTarget = v => TARGETS.some(t => t.id === v);
 const date = v => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v) && localDate(v) === v;
 function validBlock(b) {
+  if(b?.quickPractice!==undefined&&typeof b.quickPractice!=='boolean')return false;
+  if(b?.keyboardStart!==undefined&&(!Number.isInteger(b.keyboardStart)||b.keyboardStart<5||b.keyboardStart>56))return false;
   if (b?.level != null && (!Number.isInteger(b.level) || b.level < 0 || b.level > 2)) return false;
   if (b?.presentation != null && !['auto', 'page', 'scroll'].includes(b.presentation)) return false;
   if (b?.timing !== undefined && !['timed', 'wait'].includes(b.timing)) return false;
+  if (b?.exercises !== undefined && (b.type !== 'warmup' || !Array.isArray(b.exercises) || !b.exercises.length || b.exercises.length > WARMUP_SET_MAX || !b.exercises.every(id => WARMUP_IDS.includes(id)))) return false;
   return obj(b) && str(b.id, 100) && Object.hasOwn(ACTIVITIES,b.type) && number(b.minutes) && b.minutes <= 600 && number(b.bpm) && b.bpm >= 30 && b.bpm <= 160 && (b.type === 'warmup' ? WARMUP_IDS.includes(b.target) : validTarget(b.target) || b.target === null && ['repertoire','free'].includes(b.type)) && (['right', 'left'].includes(b.hand) || b.hand === 'both' && ['reading', 'technique', 'warmup'].includes(b.type)) && ['piano', 'names'].includes(b.input) && RHYTHM_VALUES.includes(b.figures) && str(b.passage) && str(b.workId, 100);
 }
 function validMusic(material) {
@@ -106,6 +118,7 @@ function validMeasurement(value) {
 function validReaderSnapshot(snap) {
   if (snap == null) return true;
   const line = snap.line;
+  if(line?.responseElapsed!==undefined&&!number(line.responseElapsed))return false;
   return obj(snap) && validMusic(line) && Array.isArray(line.states) && line.states.length === line.notes.length &&
     line.states.every(state => ['pending', 'current', 'correct', 'late', 'missed', 'played'].includes(state)) &&
     Object.hasOwn(KEYS, line.key) && Number.isInteger(line.idx) && line.idx >= 0 && line.idx <= line.notes.length &&
@@ -127,9 +140,11 @@ export function validateData(input) {
     if (!str(w.title, 200) || !str(w.composer, 200) || !STAGES.includes(w.stage) || !str(w.notes) || !str(w.passage) || !number(w.bpm) || w.target !== null && !validTarget(w.target)) fail();
     if (w.tags !== undefined && (!Array.isArray(w.tags) || w.tags.length > 20 || w.tags.some(t=>!str(t,40)||!t.trim()))) fail();
     if (w.favorite !== undefined && typeof w.favorite !== 'boolean') fail();
+    if (w.onStand !== undefined && typeof w.onStand !== 'boolean') fail();
     if (w.trashedAt !== undefined && (!str(w.trashedAt,40) || !Number.isFinite(Date.parse(w.trashedAt)))) fail();
   }
   for (const r of [...input.routines, ...input.plans]) if (!str(r.title, 200) || !CONTEXTS[r.context] || !Array.isArray(r.blocks) || !r.blocks.length || r.blocks.length > 30 || !r.blocks.every(validBlock)) fail();
+  for (const r of [...input.routines,...input.plans]) if(r.routinePolicy!==undefined) { const p=r.routinePolicy;if(!obj(p)||p.autoMidi!==true||p.dynamicTempo!==true||typeof p.warmup!=='boolean'||!Number.isInteger(p.warmupMinutes)||p.warmupMinutes<1||p.warmupMinutes>30)fail(); }
   for (const p of input.plans) if (!date(p.date) || !str(p.time, 5) || !['planned', 'completed', 'partial'].includes(p.status)) fail();
   for (const item of [...input.plans, ...input.events]) if (item.recurrence != null) {
     const r = item.recurrence;
@@ -137,6 +152,9 @@ export function validateData(input) {
   }
   for (const e of input.events) if (!date(e.date) || !str(e.title, 200) || !str(e.time, 5) || !str(e.notes) || !str(e.place, 200) || !Array.isArray(e.workIds) || !e.workIds.every(v => str(v, 100)) || (e.milestones != null && (!Array.isArray(e.milestones)||e.milestones.length>100||!e.milestones.every(m=>obj(m)&&str(m.title,200)&&typeof m.done==='boolean')))) fail();
   const checkSession = s => {
+    if(s?.quickBest!==undefined&&(!Number.isSafeInteger(s.quickBest)||s.quickBest<0))fail();
+    if(s?.quickRecordBeaten!==undefined&&typeof s.quickRecordBeaten!=='boolean')fail();
+    if(s?.quickScore!==undefined&&!validQuickScore(s.quickScore))fail();
     if (!obj(s) || !str(s.id, 100) || !str(s.title, 200) || !CONTEXTS[s.context] || !date(s.date) || !number(s.elapsedMs) || !Array.isArray(s.blocks) || !s.blocks.every(validBlock) || !Array.isArray(s.results) || !Number.isInteger(s.blockIndex) || s.blockIndex < 0 || s.blockIndex > s.blocks.length || !number(s.blockElapsedMs)) fail();
     for (const r of s.results) {
       if (!obj(r) || !validBlock(r.block) || !number(r.elapsedMs) || !CONTEXTS[r.context]) fail();

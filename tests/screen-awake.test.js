@@ -5,6 +5,7 @@ import {practiceNeedsScreen,createScreenAwake} from '../src/companion/screen-awa
 test('only visible running practice suppresses automatic screen locking',()=>{
   const state={active:{runningSince:1000},view:'session',readerVisible:false,scoreVisible:false,hidden:false};
   assert.equal(practiceNeedsScreen(state),true);
+  assert.equal(practiceNeedsScreen({...state,view:'free-practice'}),true);
   for(const view of ['home','calendar','repertoire','prepare','settings'])assert.equal(practiceNeedsScreen({...state,view}),false);
   assert.equal(practiceNeedsScreen({...state,active:null}),false);
   assert.equal(practiceNeedsScreen({...state,active:{runningSince:null}}),false);

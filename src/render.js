@@ -1,5 +1,6 @@
 import { Renderer, Stave, StaveNote, TickContext, ModifierContext, Accidental, Annotation, Beam, Dot, StaveConnector, BarlineType } from 'vexflow/bravura';
 import { clefOf, keyAccidentals } from './music.js';
+import { pageRows } from './page-layout.js';
 
 const COLORS = {
   pending: '#1a1a1a',
@@ -253,8 +254,8 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
   const clefs = grand ? ['treble', 'bass'] : [clef];
   const GAP = 90; // treble-to-bass stave distance on the sheet: compact, like printed piano music
   const logicalH = grand ? 40 + GAP + 80 : 130; // per system, with room for ledger lines
-  const zoom = Math.max(0.6, Math.min(zoomHint, ch / (systems * logicalH), (cw / widthHint) * userZoom));
-  const rowH = ch / systems; // CSS px
+  const zoom = Math.max(0.6, Math.min(zoomHint, Math.max(1,ch-48) / (systems * logicalH), (cw / widthHint) * userZoom));
+  const {rowHeight:rowH,offset}=pageRows(ch,systems,logicalH,zoom);
   const W = cw / zoom;
   const beatsPerSystem = barsPerSystem * beatsPerBar;
   const timeSig = `${beatsPerBar}/4`;
@@ -270,14 +271,17 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
     const sysStart = startBeat + s * beatsPerSystem;
     const rowEl = document.createElement('div');
     rowEl.className = 'page-row';
-    rowEl.style.cssText = `position:absolute;left:0;top:${s * rowH}px;width:${cw}px;height:${rowH}px`;
+    rowEl.style.cssText = `position:absolute;left:0;top:${offset+s * rowH}px;width:${cw}px;height:${rowH}px`;
     container.appendChild(rowEl);
     const r = new Renderer(rowEl, Renderer.Backends.SVG);
     const H = rowH / zoom;
     r.resize(W, H);
     const ctx = r.getContext();
     svgSize(rowEl, W, H, cw, rowH);
-    const top = Math.max(6, (H - logicalH) / 2) + (grand ? 30 : 36);
+    // Ledger lines and clef tails may extend beyond the nominal row, not the page.
+    rowEl.querySelector('svg').style.overflow='visible';
+    // VexFlow places the first staff line 40 logical pixels below Stave.y.
+    const top = (H - (grand ? GAP+40 : 40)) / 2 - 40;
     const staves = clefs.map((c, i) => {
       const st = new Stave(8 + (grand ? 18 : 0), top + i * GAP, W - 16 - (grand ? 18 : 0));
       st.addClef(c).addKeySignature(key);
@@ -344,7 +348,7 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       groups[d.i] = d.sn.getSVGElement();
       posOf.set(d.i, headCentre(d.sn) * zoom);
     });
-    rows.push({ top: s * rowH, height: rowH, sysStart, xAt: (beat) => (xLocal(beat) + headOffset) * zoom, ...staffGuide(staves, zoom) });
+    rows.push({ top: offset+s * rowH, height: rowH, sysStart, xAt: (beat) => (xLocal(beat) + headOffset) * zoom, ...staffGuide(staves, zoom) });
   }
 
   const systemOf = (beat) => Math.max(0, Math.min(systems - 1, Math.floor((beat - startBeat) / beatsPerSystem)));

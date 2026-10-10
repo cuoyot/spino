@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-06",
+  "title": "Quick practice score and records",
+  "surface": "Responsive browser, not native acceptance",
+  "fixtures": "Disposable notebook, one real on-screen answer per practice",
+  "sourceSha256": "6d513de8023426faebbde14e84915d905ac5a486ea42f2db3378ddcb3f3cc765",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "9f724ae78208be33ef5e0141af875f5c355c7e98642fd5eaaca6b746671cb3e6"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a8416d155a57c1e403368973096f23bc5cdbb49f2e54368632b9ad8f46d5c5d3"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "7eed77f505ee69c0d404ca0044058f996962ea2019b7ddf8ec9cd81f61489652"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "535bf8713ba94ddcf80942b5044f554698fb6cc392a184a2aa18c0191c52f0fe"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "40acd96f2d5bae439a7d34ca1462e4564151763ded084cbfeda05aaadd27fc0d"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "31a9c3ee915ac7d0a64e96968827160e18ede35e43ef6fe1393ae736a6c6e835"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d63d7e68921e3dfbbc6e3e04914eb70727cabaf4a7e522cc8d690978ec4171a5"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "adf1a399c564d3f95ff8f4d8ca35c1ba49fe7888eb9138ac274ecde2dce5aa89"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e55d949c0acc75afb6a16fcb6e26cc511b29502a8509217b8c76b51517575751"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "2aaf70781448f5d3f1f7b366f3d4a6dd63a4fb3b2ebcd18b6c5880ab77d0c9dd"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "3253b890a339c5a25fc61a351fa79fb1c785f0370ca345d43026b2955e8f2fe4"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "8453715048ab1a521aef44cd87aa4c1c6008629b709386fba6702ba9c7406be9"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

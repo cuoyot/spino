@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-07",
+  "runId": "2026-10-07-keyboard-depth-proposal",
+  "title": "Keyboard depth proposal — not applied",
+  "reviewHref": "../../../generated-practice.md",
+  "surface": "Responsive browser CSS injection only; not product or native acceptance",
+  "language": "ca",
+  "fixtures": "Disposable synthetic quick practice; real pointer press demonstration",
+  "geometry": "All key MIDI IDs, widths, heights, positions and decorative half-black edges equal before/after. No transforms or hit-area changes.",
+  "cssSha256": "5dc28d18aaead80515424f1bd8899dd569fa3d1e39de7e94d90c85e506567e8a",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "baseline",
+      "frames": [
+        {
+          "path": "baseline-phone-portrait.png",
+          "scrollTop": 0,
+          "sha256": "0f3114ae011692fa5ea4f73c4067c64b35e4d242fba85d75c2f07181b74ea143"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "proposal-idle",
+      "frames": [
+        {
+          "path": "proposal-idle-phone-portrait.png",
+          "scrollTop": 0,
+          "sha256": "f7cbe5433c710e8046c87a3f29733f9d5e8f435ac16a9771ea6dad1158123bb7"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "white-pressed",
+      "frames": [
+        {
+          "path": "white-pressed-phone-portrait.png",
+          "scrollTop": 0,
+          "sha256": "812c905502f3e8be805e5778850c3910e204c5d6752b09e6038a4a2d7c46adc4"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "black-pressed",
+      "frames": [
+        {
+          "path": "black-pressed-phone-portrait.png",
+          "scrollTop": 0,
+          "sha256": "f6d6bf8fc4e3719aa2e712573c1f8cab158a19d09138f11efc4467767e3213c4"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "baseline",
+      "frames": [
+        {
+          "path": "baseline-phone-landscape.png",
+          "scrollTop": 0,
+          "sha256": "8add631e8434ed5d491d247134b1bb3ad35662ca9107e58e466a580e145de0a9"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "proposal-idle",
+      "frames": [
+        {
+          "path": "proposal-idle-phone-landscape.png",
+          "scrollTop": 0,
+          "sha256": "b2334fc057d6bcd54de1e1a13efba5e1554264275e5097fd479b7aad7c81e894"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "white-pressed",
+      "frames": [
+        {
+          "path": "white-pressed-phone-landscape.png",
+          "scrollTop": 0,
+          "sha256": "7fc3f23308da1d99f071d899a9b12afae1094afb5d8f728bfcf2c546506d0496"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "black-pressed",
+      "frames": [
+        {
+          "path": "black-pressed-phone-landscape.png",
+          "scrollTop": 0,
+          "sha256": "e8c3cc9a590f33855e5d3d01df90b54a9916a0b29d82e654c2273f3735a34f0e"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "baseline",
+      "frames": [
+        {
+          "path": "baseline-tablet-portrait.png",
+          "scrollTop": 0,
+          "sha256": "812f6ffeb3f4474e16ef32f114f899301b1936972ee98599472e9f9066bbabee"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "proposal-idle",
+      "frames": [
+        {
+          "path": "proposal-idle-tablet-portrait.png",
+          "scrollTop": 0,
+          "sha256": "25c5c4c61da990da51760ca1a714c34782b9545c945ccf0ffdf50205a98830ab"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "white-pressed",
+      "frames": [
+        {
+          "path": "white-pressed-tablet-portrait.png",
+          "scrollTop": 0,
+          "sha256": "23437f127dd9d8c5ff784ccd2ad25b26813187dbce63dd0782a359b27094d68e"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "black-pressed",
+      "frames": [
+        {
+          "path": "black-pressed-tablet-portrait.png",
+          "scrollTop": 0,
+          "sha256": "dedf5803f3bb38621cc444f76b3461161bb926c6860018d7ac47dc0123743c9f"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "baseline",
+      "frames": [
+        {
+          "path": "baseline-tablet-landscape.png",
+          "scrollTop": 0,
+          "sha256": "107926bbbc60617f4878d36b307aa480dc451bed7e985eb8374bc4befdb920b4"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "proposal-idle",
+      "frames": [
+        {
+          "path": "proposal-idle-tablet-landscape.png",
+          "scrollTop": 0,
+          "sha256": "dd5ccd1cdaa85ceadaddefe8e21198cf8c8c6f97bfbb2fb491765d23a42313c4"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "white-pressed",
+      "frames": [
+        {
+          "path": "white-pressed-tablet-landscape.png",
+          "scrollTop": 0,
+          "sha256": "7f1f3e1108c5331e18b70b73c5aa2a9492d703de7c88b5e27b9651921ba351a6"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "black-pressed",
+      "frames": [
+        {
+          "path": "black-pressed-tablet-landscape.png",
+          "scrollTop": 0,
+          "sha256": "6e7f3a15fd1721fe936bb13d46193b2c34051f29426898be2de86f552cb72f75"
+        }
+      ]
+    }
+  ],
+  "stateLabels": {
+    "baseline": "Current flat keys",
+    "proposal-idle": "Proposal · ivory and textured ebony",
+    "white-pressed": "Proposal · white key held",
+    "black-pressed": "Proposal · black key held"
+  }
+}

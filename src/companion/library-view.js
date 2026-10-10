@@ -1,14 +1,15 @@
+import { printActionButton } from './score-controls.js';
 import { catalogueRecords } from './library.js';
 import { executionFor, manualPracticeState, currentAnalysis, acquisitionCandidates } from './library-state.js';
 import { escapeHTML as esc } from './views.js';
-import { libraryText, scoreStatus, downloadStatus } from './library-browse.js';
+import { libraryText, scoreStatus, downloadStatus, repertoireButton } from './library-browse.js';
 import { getAppLanguage, localizeMessage } from './locale.js';
 const button = (action, label, id = '', extra = '') => `<button type="button" data-action="${action}" data-id="${esc(id)}" ${extra}>${label}</button>`;
 export { libraryMarkup } from './library-browse.js';
 const link = (url, label) => typeof url === 'string' && /^https:\/\//.test(url) ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>` : esc(label);
 const rightsStatus = (status, t) => ({ public_domain_reported: t('Public domain reported', 'Dominio público declarado'), public_domain_claim_unverified: t('Public-domain claim unverified', 'Declaración de dominio público sin verificar'), pending_review: t('Pending review', 'Pendiente de revisión'), license_declared: t('License declared', 'Licencia declarada') })[status] || status;
 const reviewStatus = (status, t) => ({ approved: t('Approved', 'Aprobado'), rejected: t('Rejected', 'Rechazado') })[status] || t('Pending review', 'Pendiente de revisión');
-export function libraryDetailMarkup(library, id, selecting = false, lang = getAppLanguage()) {
+export function libraryDetailMarkup(library, id, selecting = false, lang = getAppLanguage(), repertoire = new Map()) {
   const t = libraryText(lang);
   const record = catalogueRecords(library).find(r => r.piece_id === id); if (!record) return `<p>${t('Catalogue record not found.', 'No se encuentra la referencia del catálogo.')}</p>`;
   const e = executionFor(library, id), state = manualPracticeState(record, e), m = currentAnalysis(e) ? e.analysis.metrics : null;
@@ -16,7 +17,7 @@ export function libraryDetailMarkup(library, id, selecting = false, lang = getAp
   const busy = ['queued', 'downloading', 'waiting-wifi'].includes(e.job?.status);
   const rejected = state.reasons.some(reason => /reviewed as unsuitable/.test(reason));
   return `<div class="cp-row"><h1>${esc(record.display_title)}</h1>${button('catalog', t('Library','Biblioteca'))}</div><p class="muted">${esc(record.known_metadata.composer || t('Composer unverified','Compositor sin verificar'))}</p>
-    <section class="cp-card"><h2>${esc(scoreStatus(record,e,state,lang))}</h2><div class="cp-actions">${state.playable ? button('library-practice', selecting ? t('Use in this practice','Usar en esta práctica') : t('Practice','Practicar'), id, 'class="primary"') : button('library-practice', t('Practice','Practicar'),id,'disabled')}${!e.assetId && assets.length ? button(busy ? 'downloads' : 'library-download',busy ? t('View download','Ver descarga') : t('Download score','Descargar partitura'),id,'class="primary"') : ''}${e.assetId && e.selection?.length ? button('library-preview',t('Open score','Abrir partitura'),id) : ''}${e.assetId && !state.playable ? button(rejected ? 'library-suitability' : e.selection?.length ? 'library-analyze' : 'library-parts',rejected ? t('Review selection','Revisar selección') : e.selection?.length ? t('Retry analysis','Reintentar análisis') : t('Select piano parts','Seleccionar partes de piano'),id) : ''}${!e.assetId && !assets.length ? button('library-attach',t('Attach a score','Adjuntar partitura'),id) : ''}</div>
+    <section class="cp-card"><h2>${esc(scoreStatus(record,e,state,lang))}</h2><div class="cp-actions">${state.playable ? button('library-practice', selecting ? t('Use in this practice','Usar en esta práctica') : t('Practice','Practicar'), id, 'class="primary"') : button('library-practice', t('Practice','Practicar'),id,'disabled')}${!e.assetId && assets.length ? button(busy ? 'downloads' : 'library-download',busy ? t('View download','Ver descarga') : t('Download score','Descargar partitura'),id,'class="primary"') : ''}${e.assetId && e.selection?.length ? button('library-preview',t('Open score','Abrir partitura'),id) : ''}${e.assetId ? printActionButton('library-print',id,esc) : ''}${repertoireButton(id, repertoire, t)}${e.assetId && !state.playable ? button(rejected ? 'library-suitability' : e.selection?.length ? 'library-analyze' : 'library-parts',rejected ? t('Review selection','Revisar selección') : e.selection?.length ? t('Retry analysis','Reintentar análisis') : t('Select piano parts','Seleccionar partes de piano'),id) : ''}${!e.assetId && !assets.length ? button('library-attach',t('Attach a score','Adjuntar partitura'),id) : ''}</div>
     <p class="muted">${t('Full-score practice with manual tracking. No automatic note evaluation.', 'Práctica con partitura completa y seguimiento manual. Sin evaluación automática de notas.')}</p>
     ${e.job?.error ? `<p role="alert">${esc(localizeMessage(e.job.error, lang))}</p>` : ''}${e.analysis?.error ? `<p role="alert">${esc(localizeMessage(e.analysis.error, lang))}</p>` : ''}
     ${e.assetId && !state.playable ? `<p class="muted">${esc(state.reasons.map(reason => localizeMessage(reason, lang)).join(' '))}</p>` : ''}

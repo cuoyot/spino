@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-06",
+  "title": "Progress consistency metrics",
+  "surface": "Responsive Chromium, not native acceptance",
+  "fixtures": "Disposable empty notebook and four synthetic weekly sessions; current calendar week",
+  "sourceSha256": "33bdeeffcff78266efba8bf439c80cdd0af134b740dc8cf1780953fbb3507d74",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "empty",
+      "frames": [
+        {
+          "path": "empty-phone-portrait-01.png",
+          "scrollTop": 16,
+          "sha256": "f013ab662619a76069aaab1bfba5b9ddc349bce0d60207193f6f4a78a345714f"
+        },
+        {
+          "path": "empty-phone-portrait-02.png",
+          "scrollTop": 772,
+          "sha256": "6ebaa435edba19c930f53d2c1f661aa86524793d5719eeb9cf1df88f5847dd58"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "populated",
+      "frames": [
+        {
+          "path": "populated-phone-portrait-01.png",
+          "scrollTop": 16,
+          "sha256": "3058f4096fc4773fb13e914db42b4af44b7de83744799564dceca865b611a6f4"
+        },
+        {
+          "path": "populated-phone-portrait-02.png",
+          "scrollTop": 772,
+          "sha256": "1cf9d9234edb69c386c394d0ccdaeccce3091591297768d231558a1dbe9c0953"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "empty",
+      "frames": [
+        {
+          "path": "empty-phone-landscape-01.png",
+          "scrollTop": 8,
+          "sha256": "b4a08b0d5965b28d1d99d74dd86987eca958e751c1cf20740b85901a899f0b42"
+        },
+        {
+          "path": "empty-phone-landscape-02.png",
+          "scrollTop": 580,
+          "sha256": "537f016f6f42ac82c18d1b484dfad95377f2ab91cc67ab80d540aaa128849e32"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "populated",
+      "frames": [
+        {
+          "path": "populated-phone-landscape-01.png",
+          "scrollTop": 8,
+          "sha256": "5db2618bcd62f3021716cd54fedfa78f8e6d170ae22481e8d2c057549148eb2f"
+        },
+        {
+          "path": "populated-phone-landscape-02.png",
+          "scrollTop": 580,
+          "sha256": "9559daff510b92e131bc74440a1fe6deb5eb09eb0d22efc86d59819dbb55ddec"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "empty",
+      "frames": [
+        {
+          "path": "empty-tablet-portrait-01.png",
+          "scrollTop": 30,
+          "sha256": "1e85cb6c4df6bf2753645924d9457d60906415500a4af4d92a7634d61d0b84fb"
+        },
+        {
+          "path": "empty-tablet-portrait-02.png",
+          "scrollTop": 575,
+          "sha256": "fcb1c9c51f8b7ed8917ab1f4dc06ca17ab00993b42c1bead3bcc5f55b2a2e3e2"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "populated",
+      "frames": [
+        {
+          "path": "populated-tablet-portrait-01.png",
+          "scrollTop": 30,
+          "sha256": "a3667fe0248b1ccc6f43c3bb5a0b7aef0ce90d3628da1e37b3819dc1a9e25fd5"
+        },
+        {
+          "path": "populated-tablet-portrait-02.png",
+          "scrollTop": 759,
+          "sha256": "20a3ed7286dc5afda79ffc4af589c681015c24d89f6b4f62bb13244704761522"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "empty",
+      "frames": [
+        {
+          "path": "empty-tablet-landscape-01.png",
+          "scrollTop": 12,
+          "sha256": "42a8a29e2bca8a18664792536c724e249f059700da297c2554f57d11dacb0cc5"
+        },
+        {
+          "path": "empty-tablet-landscape-02.png",
+          "scrollTop": 607,
+          "sha256": "c507737068c0428ebd0611f36fe1913bacd399e5ffac4b68dbb6d2c065560eb6"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "populated",
+      "frames": [
+        {
+          "path": "populated-tablet-landscape-01.png",
+          "scrollTop": 12,
+          "sha256": "f116439161b39af064dc5bb3498f1c2008127bc35967eea7847030f1a0394565"
+        },
+        {
+          "path": "populated-tablet-landscape-02.png",
+          "scrollTop": 607,
+          "sha256": "eeef105002478117d2a26021701d8a6f777b8002ff97c5bdcb81edec21fcf757"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

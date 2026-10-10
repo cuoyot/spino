@@ -24,6 +24,25 @@ export function validateScoreView(value) {
 
 export const fittedFrame = () => ({ zoom: 1, centerX: .5, centerY: .5 });
 
+// Snap within eight screen pixels, but let a deliberate larger drag escape.
+export function snapSectionPoint(point, sections, rect, origin = null) {
+  const nearest = (value, candidates, pixels) => {
+    let result = Math.max(0, Math.min(1, value)), distance = 8 / pixels;
+    for (const candidate of candidates) {
+      const delta = Math.abs(value - candidate);
+      if (candidate >= 0 && candidate <= 1 && delta <= distance) { result = candidate; distance = delta; }
+    }
+    return result;
+  };
+  const xs = sections.flatMap(s => [s.x, s.x + s.w]);
+  const ys = sections.flatMap(s => [s.y, s.y + s.h]);
+  if (origin) for (const s of sections) {
+    xs.push(origin.x + s.w, origin.x - s.w);
+    ys.push(origin.y + s.h, origin.y - s.h);
+  }
+  return { x: nearest(point.x, xs, rect.width), y: nearest(point.y, ys, rect.height) };
+}
+
 // Reading order: top to bottom, and left to right for parts that share a row.
 export function sortSections(sections) {
   return [...sections].sort((a, b) => {

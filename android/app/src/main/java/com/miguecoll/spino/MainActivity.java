@@ -28,6 +28,7 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(MidiPlugin.class);
         registerPlugin(NotebookPlugin.class);
+        registerPlugin(ScorePrinterPlugin.class);
         registerPlugin(CloudBackupPlugin.class);
         super.onCreate(savedInstanceState);
         // Let the app close overlays and traverse its screen history before exiting at the root.

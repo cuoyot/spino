@@ -99,13 +99,13 @@ AVD name: SightReader
 ```
 
 ```powershell
-.\scripts\build-apk.ps1       # Builds and copies SPino.apk to the repo root
+.\scripts\build-apk.ps1       # Builds and copies SPino-Test.apk to the repo root
 .\scripts\run-emulator.ps1    # Starts the AVD if needed, installs and opens the app
 ```
 
-Rebuild and rerun these commands to refresh the emulator after changes. Installation uses `adb install -r` to preserve app data. Native changes require a rebuild; `npm run dev` alone does not update an installed APK. Scripts assume one attached emulator/device.
+Rebuild and rerun these commands to refresh the emulator after changes. The debug APK is named **SPino Test**, uses an amber test icon and package `com.miguecoll.spino.test`, so it installs beside the store app with separate local data. Installation uses `adb install -r` to preserve that test notebook. Native changes require a rebuild; `npm run dev` alone does not update an installed APK. Scripts assume one attached emulator/device.
 
-The application ID remains `com.miguecoll.spino` so upgrades retain existing data. This candidate is version `5.0.0`, Android version code `29` (previous release: `4.0`, code `28`). Debug builds are for testing; public distribution needs the owner's production signing configuration and completed store listing.
+Release builds retain application ID `com.miguecoll.spino`, name **SPino** and the blue production icon, so store upgrades retain existing data. Debug builds use `com.miguecoll.spino.test`, name **SPino Test**, an amber test icon and version suffix `-test`; they do not share local data with production. This candidate is version `5.1.1`, Android version code `31` (previous: `5.1.0`, code `30`). Public distribution needs the owner's production signing configuration and completed store listing.
 
 The [SPino brand assets](assets/brand/README.md) include the generated source artwork, Google Play icon/feature graphic, web icons and Android adaptive/monochrome layers. Run `scripts/export-brand-assets.ps1` on Windows to regenerate size/format exports from the saved masters. The app and normal builds use the committed exports without calling an image service.
 

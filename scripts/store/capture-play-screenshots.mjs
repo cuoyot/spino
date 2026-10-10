@@ -52,7 +52,7 @@ try {
     await shot('warmup-score');
 
     // Two-hand sight-reading on the grand staff, with the bass holding its pattern.
-    await evaluate(`document.querySelector('#practice-finish').click()`); await wait(`document.querySelector('[data-action=open-reader]')`);
+    await evaluate(`document.querySelector('#practice-advance').click()`); await wait(`document.querySelector('[data-action=open-reader]')`);
     await act('next-block'); await wait(`document.querySelector('.cp-session-card .eyebrow')?.textContent.includes('3')`);
     await act('open-reader'); await wait(`window.__sr.timed && window.__sr.timed.suspendedAt==null`);
     await evaluate(`new Promise(r=>setTimeout(r,600))`); await evaluate(`document.querySelector('#start').click()`);

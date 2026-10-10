@@ -1,0 +1,219 @@
+{
+  "runId": "2026-10-06-routine-builder-02",
+  "date": "2026-10-06",
+  "title": "Dedicated routine builder",
+  "surface": "Responsive production Chromium; not native acceptance",
+  "fixtures": "Disposable routines, no personal notebook",
+  "sourceSha256": "28e8ea02579824c8c51e3b96bf6b5d5bebcace0430a15405c1b36040ab594b90",
+  "results": [
+    {
+      "state": "create",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "create-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "1f184345c1772b40142dc20f1885aa0b90114772ffb95eeda83d8260074e0055"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "block-editor-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3116946e1575182ac036030f711d29064a034ba24d1a527c8789c5d8f5fea456"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "sequence-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "37e041c5e0c1c4f7b15a81afc18bb56fc084cfe7ad9fcc7bd6474e459d560b77"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "move-options-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "fc06e321add5e6d819592d9db66a460b910e4b3757904caf1dbec1e6b6e5de3f"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "create-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b7b2e6d224911039435f1f7d9f4ff9c905e40d12861156c994324e34ba6b91dc"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "block-editor-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "1d8cb626d1d11253b33b47acf28274c462351f6f188a3158b64eec69da1c11d2"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "sequence-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "1ad39636c063cad4e1d5cbe1741fd741d0e4a5a24b976ff25dbf6f80202f1de5"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "move-options-phone-landscape-01.png",
+          "scrollTop": 230,
+          "sha256": "4a9778d8ef7780d913dbc593d7905aae2067c67bf85ca02ae3c6285bc711e382"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "create-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "00c3214ecd86bc3d6b86499424233b9da8e6a993476956cc74545b104e679a4f"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "block-editor-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "fea327da2e6a06baf7ed83625a24f564eb24169d3a3b2c77f9f32ce11ffbb774"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "sequence-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c092cd1502e4968875e652d50559aa72a8b393b732fd6c5fc9a36f4c6f1f8001"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "move-options-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "b23a79ffbc8156d09e5c111a566f6fc7ce19969e321806e0b7d0b8f017a43626"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "create-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "e18ae8c53a77aaff9a50cbd8c3389bbc351592ca4c3e939225b85b889e30ecc8"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "block-editor-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "bfbebaecba55625cd8bd60690b91ec3dbb260300750a5308a04ead1e853f042f"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "sequence-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "938a7ce6921917ef23d4542a03a9f07a1d6aebe1665c6d79101e0092704c8b53"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "move-options-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "bc39639588040e9e9ae022553a7d5dd8cf0fa768feaf8d360e2b0f1e0c4744d6"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

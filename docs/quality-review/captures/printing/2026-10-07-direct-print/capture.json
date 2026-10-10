@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-07",
+  "sourceVersion": "5.2.6 with unbundled direct-print changes",
+  "platform": "Responsive browser, not native-device acceptance",
+  "fixture": "Disposable imported synthetic PDF and downloaded synthetic MXL, no personal notebook",
+  "viewports": [[390,844],[844,390],[768,1024],[1024,768]],
+  "checks": "Print calls intercepted: no app preview or score viewer; current annotations and complete page formats retained"
+}

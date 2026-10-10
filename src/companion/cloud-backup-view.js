@@ -1,4 +1,5 @@
 import { getAppLanguage, localizeMessage } from './locale.js';
+import { catalanCopy } from './locale-ca.js';
 import { escapeHTML as esc } from './views.js';
 
 const messages = {
@@ -62,7 +63,7 @@ const messages = {
   },
 };
 
-const copy = options => messages[options?.lang || getAppLanguage()] || messages.en;
+const copy = options => (options?.lang || getAppLanguage()) === 'ca' ? catalanCopy(messages.en) : messages[options?.lang || getAppLanguage()] || messages.en;
 const symbols = {
   cloud: '<path d="M7 18a4 4 0 0 1-.8-7.9 6 6 0 0 1 11.6-1.8A5 5 0 0 1 18 18"/><path d="M12 13v8m-3-3 3 3 3-3"/>',
   devices: '<rect x="3" y="4" width="12" height="12" rx="2"/><path d="M7 20h5m-2-4v4"/><rect x="15" y="10" width="6" height="11" rx="1.5"/>',
@@ -75,7 +76,7 @@ const symbols = {
 const icon = (name = 'cloud') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbols[name] || ''}</svg>`;
 const button = (action, label, css = '', attributes = '') => `<button type="button" class="${css}" data-action="${action}" ${attributes}>${esc(label)}</button>`;
 const row = (action, title, detail, symbol, css = '', attributes = '') => `<button type="button" class="cp-cloud-option ${css}" data-action="${action}" ${attributes}><span class="cp-cloud-option-icon">${icon(symbol)}</span><span><strong>${esc(title)}</strong>${detail ? `<small>${esc(detail)}</small>` : ''}</span><span class="cp-cloud-chevron" aria-hidden="true">›</span></button>`;
-const providers = options => options.platform === 'ios' ? (options.lang === 'es' ? 'iCloud Drive o Google Drive' : 'iCloud Drive or Google Drive') : 'Google Drive';
+const providers = options => options.platform === 'ios' ? ((options.lang || getAppLanguage()) === 'en' ? 'iCloud Drive or Google Drive' : 'iCloud Drive o Google Drive') : 'Google Drive';
 const footer = t => `<div class="cp-cloud-footer">${button('close-dialog', t.done, 'quiet')}</div>`;
 const disabled = state => state.status === 'writing' ? 'disabled' : '';
 
@@ -86,7 +87,7 @@ export function cloudBackupMarkup(state, options = {}) {
   const primaryAction = !linked ? 'cloud-setup' : conflict ? 'cloud-conflicts' : state.status === 'error' || state.status === 'conflict' ? 'cloud-manage' : !state.enabled ? 'cloud-toggle' : 'cloud-sync';
   const primaryLabel = !linked ? t.connect : conflict ? t.review : state.status === 'error' || state.status === 'conflict' ? t.manage : !state.enabled ? t.resume : state.mode === 'sync' ? t.sync : t.backup;
   const timestamp = state.lastWrittenAt && !Number.isNaN(Date.parse(state.lastWrittenAt))
-    ? new Intl.DateTimeFormat(options.lang === 'es' ? 'es' : 'en', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.lastWrittenAt)) : null;
+    ? new Intl.DateTimeFormat(options.lang || getAppLanguage(), { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.lastWrittenAt)) : null;
   return `<section class="cp-card cp-cloud-card" id="cloud-backup" data-cloud-status="${esc(state.status || 'disconnected')}">
     <div class="cp-cloud-heading"><span class="cp-cloud-emblem">${icon()}</span><div><h2>${esc(linked ? t.title : t.connectTitle)}</h2><p class="muted">${esc(linked ? state.mode === 'sync' ? t.syncing : t.independent : t.includes)}</p></div></div>
     <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(status)}</p>

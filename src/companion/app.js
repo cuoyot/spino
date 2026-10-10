@@ -1,17 +1,26 @@
 import { ui, getAppLanguage, setAppLanguage, localizeMessage, APP_LANGUAGES } from './locale.js';
+import { printActionButton } from './score-controls.js';
 import { DEFAULT_PRACTICE_MINUTES, practiceMinutes, resizePractice } from './practice-duration.js';
 import { editSession, restoreCurrentRuntime, settleSuspendedBlocks } from './session-edit.js';
-import { sessionMarkup } from './session-view.js';
+import { sessionMarkup, workPickerMarkup } from './session-view.js';
+import { freePracticeMarkup, metronomeSettings } from './free-practice.js';
 import { bindSessionDrag } from './session-drag.js';
+import { routineBuilderMarkup } from './routine-builder.js';
+import { quickPractice } from './quick-practice.js';
+import { addQuickAnswer, emptyQuickScore, quickRecords, quickHudMarkup, quickResultMarkup } from './quick-score.js';
+import './quick-game.css';
+import { routineDraft, routineForPractice } from './routine-policy.js';
 import { sessionBlockEditorMarkup, bindSessionBlockEditor, readSessionBlockEditor } from './session-block-editor.js';
 import { midiIndicatorMarkup, setMidiContext } from '../midi-indicator.js';
 import { practiceDefaults, RANGE_LEVELS, HANDS } from './practice-defaults.js';
-import { parseTags, repertoireMarkup, setWorkTrashed } from './repertoire.js';
+import { parseTags, repertoireMarkup, setWorkTrashed, isOnStand, setWorkOnStand } from './repertoire.js';
 import { createScreenAwake, practiceNeedsScreen } from './screen-awake.js';
 import { practiceScreenAwake } from './platform.js';
 import { CloudBackup, cloudAvailable, cloudPlatform } from './cloud-backup.js';
 import { cloudBackupMarkup, cloudSetupMarkup, cloudManageMarkup, cloudConflictMarkup, cloudHelpMarkup } from './cloud-backup-view.js';
 import { photoCropMarkup, loadPhoto, bindPhotoCrop } from './photo-crop.js';
+import { progressMetricsMarkup } from './progress-metrics.js';
+import { aboutMarkup } from './about-view.js';
 import { profileNavigation, profileMarkup, profileHeading, practicePreferencesMarkup, identityMarkup, manualBackupMarkup, remindersMarkup, scoreFilesMarkup, fileSize } from './profile-view.js';
 import { instrumentMarkup, createInstrumentController } from './instrument-view.js';
 import { createNotebookCloud } from './cloud-sync.js';
@@ -23,9 +32,9 @@ import './dashboard.css';
 import './session-view.css';
 import './warmup-guide.css';
 import { openStore } from './store.js';
-import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, daysUntil, block, beginSession, accrue, pause, finishBlock, saveSession, deleteSession, summary, validateBackup } from './model.js';
+import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, daysUntil, block, beginSession, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
 import { TARGETS, targetById } from './curriculum.js';
-import { HANON, warmupById, warmupLabel, warmupBlockValues, warmupPreferences } from './warmups.js';
+import { warmupExercises, warmupChoices, warmupBlockValues, warmupPreferences, warmupSetLabel } from './warmups.js';
 import { warmupGuideMarkup, bindWarmupGuide } from './warmup-guide.js';
 import { exportFile, importFile, downloadPDF, syncReminders, native } from './platform.js';
 import { scoreImportMarkup, bindScoreImport } from './score-import.js';
@@ -44,7 +53,7 @@ import { click, now as audioNow } from '../audio.js';
 import { todayMarkup, practiceMarkup, weekAgendaMarkup, agendaEntries, agendaCard } from './agenda.js';
 import { plannerMarkup, bindPlanner, cancelSeries } from './planner.js';
 import { bindCalendarDrag } from './calendar-drag.js';
-import { calendarMarkup, shiftCalendar, dashboardMarkup, weeklyProgressMarkup, preparationMarkup, feedbackFields, readFeedback, FACES, MOODS } from './views.js';
+import { calendarMarkup, shiftCalendar, weeklyProgressMarkup, preparationMarkup, feedbackFields, readFeedback, FACES, MOODS } from './views.js';
 
 const $ = s => document.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -60,7 +69,7 @@ const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 
 export async function bootCompanion(reader) {
   const root = $('#app-shell');
-  setAppLanguage(document.documentElement.lang === 'es' ? 'es' : 'en');
+  setAppLanguage(document.documentElement.lang);
   const bootMessage = root.querySelector('.boot-message');
   if (bootMessage) bootMessage.textContent = ui('Opening your notebook…', 'Abriendo tu cuaderno…');
   let store, data;
@@ -73,6 +82,11 @@ export async function bootCompanion(reader) {
   let view = 'home', selectedDate = localDate(), detailId = '', draft = null, preparePurpose = 'start';
   let materialSelection = null;
   let repertoireFilters = {}, repertoireIndex = 0;
+  let libraryPane = 'repertoire';
+  let libraryFormDraft = null;
+  const libraryScroll = {repertoire:0,catalog:0};
+  const libraryRoute = route => ['piano','repertoire'].includes(route)?'repertoire':route==='catalog'?'catalog':null;
+  let tempoTaps = [];
   let saveError = '', toastTimer, readerMounted = false, readerBase = null, checkpointAt = 0, quiz = null, metro = null;
   let filteredTarget = '', pendingRestore = null, reminderState = null, calendarMode = 'week';
   let scoreViewer = null, openingScore = false, importingScore = false;
@@ -105,16 +119,30 @@ export async function bootCompanion(reader) {
     try { await store.save(data); saveError = ''; }
     catch (e) { saveError = ui("Could not save. Free up space and export a backup before closing.", "No se ha podido guardar. Libera espacio y exporta una copia antes de cerrar."); toast(saveError); throw e; }
   };
-  const toast = message => { status.textContent = localizeMessage(message); status.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => status.hidden = true, 6500); };
+  const toast = message => {
+    const text = localizeMessage(message);
+    clearTimeout(toastTimer);
+    if (root.hidden && readerMounted) { status.hidden = true; reader.notify(text); return; }
+    status.textContent = text; status.hidden = false;
+    toastTimer = setTimeout(() => status.hidden = true, 6500);
+  };
   const navigation = [];
   const routeSnapshot = () => ({ view, detailId, selectedDate, calendarMode, filteredTarget, libraryFilters: copy(libraryFilters), libraryPage, draft: copy(draft), preparePurpose, scroll: root.querySelector('.cp-page')?.scrollTop || 0 });
   const go = (next, id = '') => {
+    const leavingLibrary = libraryRoute(view), enteringLibrary = libraryRoute(next);
+    if(leavingLibrary) {
+      libraryScroll[leavingLibrary] = root.querySelector('.cp-page')?.scrollTop || 0;
+      if(leavingLibrary==='catalog' && $('#library-search')) libraryFormDraft=Object.fromEntries(new FormData($('#library-search')));
+    }
     if (view !== next || detailId !== id) {
       if (view === 'prepare') readDraft();
       navigation.push(routeSnapshot());
     }
-    if(view==='session'&&next!=='session'&&data.active)pauseSession();
-    view = next; detailId = id; render(); root.querySelector('.cp-page')?.scrollTo(0, 0);
+    if(['session','free-practice'].includes(view)&&next!==view&&data.active)pauseSession();
+    if(enteringLibrary) libraryPane=enteringLibrary;
+    view = next; detailId = id; render();
+    if(enteringLibrary==='catalog' && libraryFormDraft) for(const [name,value] of Object.entries(libraryFormDraft)) { const field=$('#library-search')?.elements.namedItem(name);if(field)field.value=value; }
+    root.querySelector('.cp-page')?.scrollTo(0, enteringLibrary?libraryScroll[enteringLibrary]:0);
   };
   function navigateBack() {
     if (sessionWriting) return true;
@@ -126,7 +154,7 @@ export async function bootCompanion(reader) {
       return true;
     }
     if (openingScore || importingScore) return true;
-    if (root.hidden) { hideReader(); render(); return true; }
+    if (root.hidden) { if(data.active?.quickScore){quickExitDialog();return true;}hideReader(); render(); return true; }
     if (view === 'prepare') readDraft();
     let previous;
     while ((previous = navigation.pop())) {
@@ -134,7 +162,7 @@ export async function bootCompanion(reader) {
       if (previous.view === 'work' && !data.works.some(w => w.id === previous.detailId)) continue;
       if (previous.view === 'event' && !data.events.some(e => e.id === previous.detailId)) continue;
       if (previous.view === 'session-detail' && !data.sessions.some(s => s.id === previous.detailId)) continue;
-      if (view === 'session') pauseSession();
+    if (view === 'session' || view === 'free-practice') pauseSession();
       ({ view, detailId, selectedDate, calendarMode, filteredTarget, libraryFilters, libraryPage, draft, preparePurpose } = previous);
       render(); root.querySelector('.cp-page')?.scrollTo(0, previous.scroll);
       return true;
@@ -151,6 +179,8 @@ export async function bootCompanion(reader) {
     const active = data.active;
     if (!active) return null;
     if (currentBlock()?.type === 'theory') return quiz || active.currentMeasurement || null;
+    // MusicXML follow mode reports MIDI notes for repertoire, whatever the session context.
+    if (currentBlock()?.type === 'repertoire') return active.currentMeasurement || null;
     if (active.context === 'piano') return null;
     if (!readerMounted) return active.currentMeasurement || null;
     const measured = reader.measurement;
@@ -164,6 +194,23 @@ export async function bootCompanion(reader) {
     persist().catch(() => {});
   }
   function stopMetro() { if (metro) { clearInterval(metro.interval); metro.clicks.forEach(c => c.stop()); metro = null; } }
+  function startMetro() {
+    if (!data.active || currentBlock()?.type !== 'free') return;
+    const options = currentBlock()?.type === 'free' ? metronomeSettings(data.active) : { bpm: currentBlock()?.bpm || 60, mode: 'audio', beats: 4, subdivision: 1 }, clicks = [];
+    if (data.active.runningSince == null) data.active.runningSince = Date.now();
+    let step = 0, next = performance.now();
+    metro = { clicks, interval: setInterval(() => {
+      const at = performance.now(); if (at < next) return;
+      const beat = Math.floor(step / options.subdivision) % options.beats, main = step % options.subdivision === 0;
+      if (options.mode !== 'visual' && (options.volume ?? 100) > 0) { while (clicks.length > 8) clicks.shift(); clicks.push(click(main && beat === 0, audioNow(), (options.volume ?? 100) / 100)); }
+      document.querySelectorAll('[data-metro-beat]').forEach((el,i) => el.classList.toggle('is-active', options.mode !== 'audio' && i === beat));
+      const dial = document.querySelector('.cp-tempo-dial');
+      if (dial) { dial.classList.toggle('is-accent', options.mode !== 'audio' && main && beat === 0); dial.style.setProperty('--beat-angle', `${360 * (step % (options.beats * options.subdivision)) / (options.beats * options.subdivision)}deg`); }
+      step++; next += 60000 / options.bpm / options.subdivision;
+      if (next < at) next = at + 60000 / options.bpm / options.subdivision;
+    }, 16) };
+    checkpoint();
+  }
   function pauseSession() {
     if (!data.active) return;
     pause(data.active); stopMetro();
@@ -198,7 +245,8 @@ export async function bootCompanion(reader) {
   const downloaded = () => [...data.downloads.map(d=>({...d,id:d.catalogId})),...data.works.filter(w=>w.assetId&&!data.downloads.some(d=>d.assetId===w.assetId))];
   const resource = id => data.works.find(w=>w.id===id) || data.downloads.find(d=>d.catalogId===id);
   const resultText = session => `${minutes(session.elapsedMs)} min · ${session.manual ? ui("Manual entry", "Registro manual") : CONTEXTS[session.context]}${session.status === 'partial' ? ui(' · Partial', ' · Parcial') : ''}${session.mood ? ` · ${FACES[session.mood-1]} ${MOODS[session.mood-1]}` : ''}`;
-  const sessionCards = sessions => sessions.length ? sessions.map(s => `<article class="cp-card"><div class="cp-row"><div><h3>${esc(s.title)}</h3><p class="muted">${esc(dayLabel(s.date))} · ${resultText(s)}</p></div>${btn('session-detail', ui("View session", "Ver sesión"), s.id)}</div></article>`).join('') : empty(ui("Your saved practices will appear here. Start with a few minutes at your own pace.", "Tus prácticas guardadas aparecerán aquí. Empieza con unos minutos, a tu ritmo."));
+  const workParts = (s, workId) => workId ? [...new Set(s.results.filter(r => r.block.workId === workId && r.block.passage).map(r => r.block.passage))] : [];
+  const sessionCards = (sessions, workId = null) => sessions.length ? sessions.map(s => `<article class="cp-card"><div class="cp-row"><div><h3>${esc(s.title)}</h3><p class="muted">${esc(dayLabel(s.date))} · ${resultText(s)}</p>${workParts(s, workId).length ? `<p class="cp-work-part">${ui("Part", "Parte")}: ${workParts(s, workId).map(esc).join(' · ')}</p>` : ''}</div>${btn('session-detail', ui("View session", "Ver sesión"), s.id)}</div></article>`).join('') : empty(ui("Your saved practices will appear here. Start with a few minutes at your own pace.", "Tus prácticas guardadas aparecerán aquí. Empieza con unos minutos, a tu ritmo."));
   function home() { return todayMarkup(data, icon); }
   function practice() { return practiceMarkup(data, icon); }
   function calendar() {
@@ -227,33 +275,43 @@ export async function bootCompanion(reader) {
     const result = data.sessions.find(s => s.id === p.sessionId);
     showDialog(p.title, '<p class="muted">' + esc(dayLabel(p.date)) + (p.time ? ' · ' + esc(p.time) : '') + ' · ' + CONTEXTS[p.context] + '</p><ul class="cp-list">' + p.blocks.map(b => '<li><b>' + ACTIVITIES[b.type] + '</b> · ' + b.minutes + ' min' + (['reading','technique','theory'].includes(b.type) ? '<br>' + esc(targetById(b.target).label) : '') + (b.passage ? '<br>' + esc(b.passage) : '') + '</li>').join('') + '</ul><div class="cp-actions">' + (result ? btn('session-detail', ui("View result", "Ver resultado"), result.id) : p.status === 'planned' ? btn('start-plan', ui("Start", "Empezar"), p.id, 'primary') : '') + (p.recurrence ? ui("<p class=\"muted\">Weekly series through ", "<p class=\"muted\">Serie semanal hasta ") + esc(p.recurrence.until) + ui(". Rescheduling changes this appointment only.</p>", ". Se reprogramará solo esta cita.</p>") + btn('cancel-series', ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"), p.id, 'quiet') : '') + btn('edit-plan', ui("Edit practice", "Editar práctica"), p.id) + btn('reschedule-plan', ui("Reschedule", "Reprogramar"), p.id) + btn('delete-plan', ui("Delete", "Eliminar"), p.id, 'quiet') + btn('close-dialog', ui("Close", "Cerrar")) + '</div>');
   }
-  function myPiano() { return dashboardMarkup(data); }
+  function myPiano() { return repertoire(); }
+  function libraryNavigation() {
+    const pane=libraryRoute(view);
+    if(!pane || materialSelection)return '';
+    return `<nav class="cp-library-navigation" aria-label="${ui('Library','Biblioteca')}"><button type="button" data-action="repertoire" ${pane==='repertoire'?'aria-current="page"':''}>${ui('My repertoire','Mi repertorio')}</button><button type="button" data-action="catalog" ${pane==='catalog'?'aria-current="page"':''}>${ui('Catalogue','Catálogo')}</button></nav>`;
+  }
   function progress() {
     const since = addDays(localDate(), -29); const sessions = data.sessions.filter(s=>s.date>=since && s.date<=localDate()); const stats = summary(sessions);
-    return `${titleRow(ui("Your progress", "Tu progreso"),ui("Last 30 days · each activity keeps its context.", "Últimos 30 días · cada actividad conserva su contexto."))}${weeklyProgressMarkup(data)}<div class="cp-card cp-stats"><div><b class="cp-number">${stats.minutes}${ui("</b>minutes</div><div><b class=\"cp-number\">", "</b>minutos</div><div><b class=\"cp-number\">")}${stats.count}${ui("</b>sessions</div><div><b class=\"cp-number\">", "</b>sesiones</div><div><b class=\"cp-number\">")}${stats.days}${ui("</b>practice days</div></div><div class=\"cp-grid\"><section class=\"cp-card\"><h2>Time by activity</h2>", "</b>días de práctica</div></div><div class=\"cp-grid\"><section class=\"cp-card\"><h2>Tiempo por actividad</h2>")}${Object.entries(stats.byType).length ? Object.entries(stats.byType).map(([type,ms])=>`<div class="cp-row"><span>${ACTIVITIES[type]}</span><b>${minutes(ms)} min</b></div><div class="cp-progress"><span style="width:${Math.min(100,ms/Math.max(1,...Object.values(stats.byType))*100)}%"></span></div>`).join('') : empty(ui("See how you have spent your practice time here.", "Aquí verás a qué has dedicado tu práctica."))}${ui("</section><section class=\"cp-card\"><h2>Scales and modes practiced</h2>", "</section><section class=\"cp-card\"><h2>Escalas y modos trabajados</h2>")}${Object.entries(stats.byTarget).length ? Object.entries(stats.byTarget).map(([id,ms])=>`<div class="cp-row"><span>${esc(targetById(id).label)} · ${minutes(ms)} min</span>${btn('target-history',ui("View", "Ver"),id)}</div>`).join('') : empty(ui("Practice reading or technique to track your musical goals.", "Practica lectura o técnica para seguir tus objetivos musicales."))}${ui("<p class=\"muted\" style=\"margin-top:16px\">Time shows dedication. Your musical progress is more than a percentage.</p></section></div><h2 class=\"cp-section\">History</h2>", "<p class=\"muted\" style=\"margin-top:16px\">El tiempo muestra dedicación. Tu dominio musical no se reduce a un porcentaje.</p></section></div><h2 class=\"cp-section\">Historial</h2>")}${sessionCards(data.sessions)}`;
+    return `<div class="cp-progress-page">${titleRow(ui("Progress", "Progreso"),ui("Last 30 days · each activity keeps its context.", "Últimos 30 días · cada actividad conserva su contexto."))}${weeklyProgressMarkup(data)}${progressMetricsMarkup(data)}<div class="cp-grid cp-progress-breakdown"><section class="cp-card"><h2>${ui("Time by activity · last 30 days","Tiempo por actividad · últimos 30 días")}</h2>${Object.entries(stats.byType).length ? Object.entries(stats.byType).map(([type,ms])=>`<div class="cp-row"><span>${ACTIVITIES[type]}</span><b>${minutes(ms)} min</b></div><div class="cp-progress"><span style="width:${Math.min(100,ms/Math.max(1,...Object.values(stats.byType))*100)}%"></span></div>`).join('') : empty(ui("See how you have spent your practice time here.", "Aquí verás a qué has dedicado tu práctica."))}${ui("</section><section class=\"cp-card\"><h2>Scales and modes practiced</h2>", "</section><section class=\"cp-card\"><h2>Escalas y modos trabajados</h2>")}${Object.entries(stats.byTarget).length ? Object.entries(stats.byTarget).map(([id,ms])=>`<div class="cp-row"><span>${esc(targetById(id).label)} · ${minutes(ms)} min</span>${btn('target-history',ui("View", "Ver"),id)}</div>`).join('') : empty(ui("Practice reading or technique to track your musical goals.", "Practica lectura o técnica para seguir tus objetivos musicales."))}${ui("<p class=\"muted\" style=\"margin-top:16px\">Time shows dedication. Your musical progress is more than a percentage.</p></section></div><h2 class=\"cp-section\">History</h2>", "<p class=\"muted\" style=\"margin-top:16px\">El tiempo muestra dedicación. Tu dominio musical no se reduce a un porcentaje.</p></section></div><h2 class=\"cp-section\">Historial</h2>")}${sessionCards(data.sessions)}</div>`;
   }
   function repertoire() {
-    return titleRow(ui("Your repertoire", "Tu repertorio"),ui("Find, organize and revisit your music.", "Encuentra, organiza y repasa tu música."),`<div class="cp-actions">${btn('import-pdf',ui("Import PDF", "Importar PDF"),'','primary')}${btn('new-work',ui("+ Add work", "+ Añadir obra"))}</div>`) + repertoireMarkup(data,repertoireFilters,repertoireIndex,{esc,opts,btn});
+    return `<div class="cp-repertoire-page"><header class="cp-repertoire-heading"><h1>${ui('Repertoire','Repertorio')}</h1><div class="cp-actions">${btn('import-pdf',ui('Import PDF','Importar PDF'),'','quiet')}${btn('new-work',ui('+ Add work','+ Añadir obra'),'','primary')}</div></header>${repertoireMarkup(data,repertoireFilters,repertoireIndex,{esc,opts,btn,canPrint:workHasScore})}</div>`;
   }
   function workDetail() {
     const w = data.works.find(w=>w.id===detailId); if(!w) return repertoire();
     const sessions = data.sessions.filter(s=>s.workIds?.includes(w.id)||s.results.some(r=>r.block.workId===w.id));
     if(w.trashedAt)return `${titleRow(esc(w.title),esc(w.composer))}${ui("<div class=\"cp-card\"><p>This work is in trash. Its score, annotations, history and existing plans are preserved.</p>", "<div class=\"cp-card\"><p>Esta obra está en la papelera. Conserva su partitura, anotaciones, historial y planes.</p>")}${btn('restore-work',ui("Restore work", "Restaurar obra"),w.id,'primary')}</div>${sessionCards(sessions)}`;
-    return `${titleRow(esc(w.title),esc(w.composer),btn('edit-work',ui("Edit", "Editar"),w.id))}<div class="cp-card"><div class="cp-row"><span class="cp-tag">${esc(stageLabel(w.stage))}</span><span>${esc(w.target ? targetById(w.target).label : ui("Target unknown", "Objetivo sin identificar"))}${ui("</span></div><h2 style=\"margin-top:20px\">Next step</h2><p>", "</span></div><h2 style=\"margin-top:20px\">Próximo paso</h2><p>")}${esc(w.passage || ui("Choose a passage and a clear goal for your next practice.", "Elige un pasaje y un objetivo concreto para la siguiente práctica."))}${ui("</p><p class=\"muted\">Target tempo: ", "</p><p class=\"muted\">Tempo objetivo: ")}${w.bpm} BPM</p>${w.tempoMark?`${ui("<p class=\"muted\">Printed tempo: ", "<p class=\"muted\">Tempo impreso: ")}${esc(w.tempoMark)}</p>`:''}<p style="white-space:pre-wrap">${esc(w.notes)}</p><div class="cp-actions">${btn('practice-work',ui("Practice", "Practicar"),w.id,'primary')}${btn('plan-work',ui("Schedule", "Planificar"),w.id)}${btn('delete-work',ui("Delete work", "Eliminar obra"),w.id,'danger quiet')}${w.assetId?btn('open-pdf',w.libraryId?ui("Open MusicXML score", "Abrir partitura MusicXML"):ui("Open and annotate PDF", "Abrir y anotar PDF"),w.id):btn('attach-pdf',ui("Add PDF", "Añadir PDF"),w.id)}</div>${w.libraryId?ui("<p class=\"muted\">MusicXML · manual tracking.</p>", "<p class=\"muted\">MusicXML · seguimiento manual.</p>"):w.assetId?ui("<p class=\"muted\" style=\"margin-top:12px\">Offline PDF and annotations · manual tracking.</p>", "<p class=\"muted\" style=\"margin-top:12px\">PDF y anotaciones sin conexión · seguimiento manual.</p>"):''}${ui("</div><h2 class=\"cp-section\">Sessions for this work</h2>", "</div><h2 class=\"cp-section\">Sesiones de esta obra</h2>")}${sessionCards(sessions)}`;
+    return `${titleRow(esc(w.title),esc(w.composer),btn('edit-work',ui("Edit", "Editar"),w.id))}<div class="cp-card"><div class="cp-row"><span class="cp-tag">${esc(stageLabel(w.stage))}${isOnStand(w)?` · ${ui("On the music stand", "En el atril")}`:''}</span><span>${esc(w.target ? targetById(w.target).label : ui("Target unknown", "Objetivo sin identificar"))}${ui("</span></div><h2 style=\"margin-top:20px\">Next step</h2><p>", "</span></div><h2 style=\"margin-top:20px\">Próximo paso</h2><p>")}${esc(w.passage || ui("Choose a passage and a clear goal for your next practice.", "Elige un pasaje y un objetivo concreto para la siguiente práctica."))}${ui("</p><p class=\"muted\">Target tempo: ", "</p><p class=\"muted\">Tempo objetivo: ")}${w.bpm} BPM</p>${w.tempoMark?`${ui("<p class=\"muted\">Printed tempo: ", "<p class=\"muted\">Tempo impreso: ")}${esc(w.tempoMark)}</p>`:''}<p style="white-space:pre-wrap">${esc(w.notes)}</p><div class="cp-actions">${btn('practice-work',ui("Practice", "Practicar"),w.id,'primary')}${btn('plan-work',ui("Schedule", "Planificar"),w.id)}${btn('stand-work',isOnStand(w)?ui("Take off the stand", "Retirar del atril"):ui("Put on the stand", "Poner en el atril"),w.id)}${btn('delete-work',ui("Delete work", "Eliminar obra"),w.id,'danger quiet')}${workHasScore(w)?btn('open-pdf',w.libraryId?ui("Open MusicXML score", "Abrir partitura MusicXML"):ui("Open and annotate PDF", "Abrir y anotar PDF"),w.id):w.libraryId?btn('library-detail',ui("View in the library", "Ver en la biblioteca"),w.libraryId):btn('attach-pdf',ui("Add PDF", "Añadir PDF"),w.id)}${workHasScore(w)?printActionButton('print-work',w.id,esc):''}</div>${w.libraryId?ui("<p class=\"muted\">MusicXML · manual tracking, or follow along with a MIDI keyboard.</p>", "<p class=\"muted\">MusicXML · registro manual o seguimiento con teclado MIDI.</p>"):w.assetId?ui("<p class=\"muted\" style=\"margin-top:12px\">Offline PDF and annotations · manual tracking.</p>", "<p class=\"muted\" style=\"margin-top:12px\">PDF y anotaciones sin conexión · seguimiento manual.</p>"):''}${ui("</div><h2 class=\"cp-section\">Sessions for this work</h2>", "</div><h2 class=\"cp-section\">Sesiones de esta obra</h2>")}${sessionCards(sessions, w.id)}`;
   }
   function routines() {
     return `${titleRow(ui("Your routines", "Tus rutinas"),ui("Prepare a sequence and use it again.", "Prepara una secuencia y vuelve a utilizarla."),btn('new-routine',ui("+ Create routine", "+ Crear rutina"),'','primary'))}${data.routines.length ? data.routines.map(r=>`<article class="cp-card"><h2>${esc(r.title)}</h2><p class="muted">${r.blocks.map(b=>`${ACTIVITIES[b.type]} ${b.minutes} min`).join(' · ')}</p><div class="cp-actions">${btn('start-routine',ui("Prepare session", "Preparar sesión"),r.id,'primary')}${btn('edit-routine',ui("Edit", "Editar"),r.id)}${btn('delete-routine',ui("Delete", "Eliminar"),r.id,'quiet')}</div></article>`).join('') : empty(ui("Save your warm-up, reading or repertoire blocks as a reusable routine.", "Guarda tus bloques de calentamiento, lectura o repertorio como una rutina reutilizable."))}`;
   }
 
   function catalog() {
-    return libraryReady ? libraryMarkup(library, libraryFilters, libraryPage, !!materialSelection, {lang:getAppLanguage(),pdfs:libraryFilters.format==='pdf'?reviewedCatalog():'',pdfCount:CATALOG.length}) : ui("<p role=\"status\">Loading bundled repertoire catalogue…</p>", "<p role=\"status\">Cargando el catálogo de repertorio…</p>");
+    return libraryReady ? libraryMarkup(library, libraryFilters, libraryPage, !!materialSelection, {lang:getAppLanguage(),pdfs:libraryFilters.format==='pdf'?reviewedCatalog():'',pdfCount:CATALOG.length,repertoire:libraryRepertoire()}) : ui("<p role=\"status\">Loading bundled repertoire catalogue…</p>", "<p role=\"status\">Cargando el catálogo de repertorio…</p>");
   }
+  // MusicXML works added from the catalogue get their score when the library download finishes.
+  const workHasScore = w => !!(w?.assetId || w?.libraryId && executionFor(library, w.libraryId)?.assetId);
+  const workPlayable = w => !w?.libraryId || manualPracticeState(catalogueRecords(library).find(r => r.piece_id === w.libraryId), executionFor(library, w.libraryId), library).playable;
+  const libraryRepertoire = () => new Map(data.works.filter(w=>w.libraryId&&!w.trashedAt).map(w=>[w.libraryId,w.id]));
+  const repertoireAction = (work, id) => work && !work.trashedAt ? btn('work-detail',ui("✓ In your repertoire", "✓ En tu repertorio"),work.id,'quiet') : btn('add-catalog-work',ui("+ Repertoire", "+ Repertorio"),id,'quiet');
   function reviewedCatalog() {
     const items = CATALOG.filter(c=>!filteredTarget || c.targets.includes(filteredTarget)).map(item => catalogPresentation(item));
     return `${ui("<section aria-label=\"PDF scores\"><p class=\"muted\">Complete scores to play and annotate offline.</p>", "<section aria-label=\"Partituras PDF\"><p class=\"muted\">Partituras completas para tocar y anotar, sin conexión.</p>")}${catalogChanges(data.downloads).length?`${ui("<div class=\"cp-notice\">New editions are available. ", "<div class=\"cp-notice\">Hay nuevas ediciones. ")}${btn('downloads',ui("View updates", "Ver actualizaciones"))}</div>`:''}${ui("<label>Musical goal<select id=\"catalog-target\"><option value=\"\">All pieces</option>", "<label>Objetivo musical<select id=\"catalog-target\"><option value=\"\">Todas las piezas</option>")}${targets(filteredTarget)}</select></label><div class="cp-library-list">${items.map(c=>{
       const w=data.works.find(w=>w.catalogId===c.id), saved=w?.assetId?w:data.downloads.find(d=>d.catalogId===c.id), job=data.downloadJobs.find(j=>j.catalogId===c.id);
       const busy=['downloading','queued','waiting-wifi'].includes(job?.status);
-      return `<article class="cp-card cp-score-card" data-pdf-id="${esc(c.id)}"><span class="cp-tag">PDF · ${saved?.assetId?ui("On this device", "En el dispositivo"):ui("Downloadable", "Descargable")}</span><h2>${esc(c.title)}</h2><p class="muted">${esc(c.composer)}</p><p class="cp-score-state">${job?.status==='waiting-wifi'?ui("Waiting for Wi-Fi · manage networks in Downloads", "Esperando Wi-Fi · configura la red en Descargas"):job?.status==='failed'?ui("Download failed · try again", "Descarga fallida · puedes reintentar"):esc(c.keyLabel)}</p><div class="cp-actions">${saved?.assetId ? btn(materialSelection?'select-catalogue-pdf':'practice-catalog-pdf',materialSelection?ui("Use in this practice", "Usar en esta práctica"):ui("Practice", "Practicar"),c.id,'primary')+btn('open-pdf',ui("Open", "Abrir"),w?.id||c.id) : btn('download-piece',busy?ui("View download", "Ver descarga"):ui("Download score", "Descargar partitura"),c.id,'primary')}${ui("</div><details><summary>Edition and source</summary><p>", "</div><details><summary>Edición y fuente</summary><p>")}${esc(c.reason)}</p><p class="muted">${esc(c.licenseLabel)} · ${esc(c.edition)}</p><a href="${esc(c.source)}${ui("\" target=\"_blank\" rel=\"noopener noreferrer\">View source and terms</a><div class=\"cp-actions\">", "\" target=\"_blank\" rel=\"noopener noreferrer\">Ver fuente y condiciones</a><div class=\"cp-actions\">")}${w?btn('work-detail',ui("View in repertoire", "Ver en repertorio"),w.id):btn('add-catalog-work',ui("Add to repertoire", "Añadir a repertorio"),c.id)}</div></details></article>`;
+      return `<article class="cp-card cp-score-card" data-pdf-id="${esc(c.id)}"><span class="cp-tag">PDF · ${saved?.assetId?ui("On this device", "En el dispositivo"):ui("Downloadable", "Descargable")}</span><h2>${esc(c.title)}</h2><p class="muted">${esc(c.composer)}</p><p class="cp-score-state">${job?.status==='waiting-wifi'?ui("Waiting for Wi-Fi · manage networks in Downloads", "Esperando Wi-Fi · configura la red en Descargas"):job?.status==='failed'?ui("Download failed · try again", "Descarga fallida · puedes reintentar"):esc(c.keyLabel)}</p><div class="cp-actions">${saved?.assetId ? btn(materialSelection?'select-catalogue-pdf':'practice-catalog-pdf',materialSelection?ui("Use in this practice", "Usar en esta práctica"):ui("Practice", "Practicar"),c.id,'primary')+btn('open-pdf',ui("Open", "Abrir"),w?.id||c.id)+printActionButton('print-work',w?.id||c.id,esc)+repertoireAction(w,c.id) : btn('download-piece',busy?ui("View download", "Ver descarga"):ui("Download score", "Descargar partitura"),c.id,'primary')+repertoireAction(w,c.id)}${ui("</div><details><summary>Edition and source</summary><p>", "</div><details><summary>Edición y fuente</summary><p>")}${esc(c.reason)}</p><p class="muted">${esc(c.licenseLabel)} · ${esc(c.edition)}</p><a href="${esc(c.source)}${ui("\" target=\"_blank\" rel=\"noopener noreferrer\">View source and terms</a><div class=\"cp-actions\">", "\" target=\"_blank\" rel=\"noopener noreferrer\">Ver fuente y condiciones</a><div class=\"cp-actions\">")}</div></details></article>`;
     }).join('') || ui("<p>No PDFs for this goal.</p>", "<p>No hay PDF para este objetivo.</p>")}</div></section>`;
   }
   function settingsPage() {
@@ -281,24 +339,27 @@ export async function bootCompanion(reader) {
     if (data.active && purpose === 'start') { go('session'); toast(ui("A session is pending. Save it or continue before starting another.", "Hay una sesión pendiente. Guárdala o continúa antes de empezar otra.")); return; }
     preparePurpose = purpose;
     draft = existing ? copy(existing) : { title: ACTIVITIES[type], context: ['free','repertoire'].includes(type) ? 'piano' : data.preferences.context, blocks: [block(type, {...practiceDefaults(data.preferences,type),minutes:DEFAULT_PRACTICE_MINUTES})] };
-    const firstWork=data.works.find(w=>!w.trashedAt);
-    if (type==='repertoire' && !draft.blocks[0].workId && firstWork) { draft.blocks[0].workId = firstWork.id; draft.blocks[0].target = firstWork.target; }
+    if(purpose==='routine'&&!existing) { draft.title='';draft.blocks[0].minutes=10; }
+    if(purpose==='routine')draft=routineDraft(draft,data);
+    if(purpose==='start'&&draft.routinePolicy) { draft=routineForPractice(draft,data,!!reader.devices.length);draft.routinePrepared=true; }
     go('prepare');
   }
   let durationWeights = null;
   function preparePage() {
     durationWeights = null;
-    return draft ? preparationMarkup(draft, preparePurpose, data) : home();
+    return draft ? preparePurpose==='routine'?routineBuilderMarkup(draft,data,{esc,opts,btn}):preparationMarkup(draft, preparePurpose, data) : home();
   }
   function readDraft() {
     const form = $('#prepare-form'); if (!form) return draft;
     const fields = new FormData(form);
-    draft.context = fields.get('context');
+    if(fields.has('routine-name')) draft.title=String(fields.get('routine-name')).trim();
+    draft.context = preparePurpose==='routine'?'piano':fields.get('context');
+    if(preparePurpose==='routine') { draft.routinePolicy.warmup=fields.has('routine-warmup');if(fields.has('warmup-minutes'))draft.routinePolicy.warmupMinutes=Number(fields.get('warmup-minutes')); }
     draft.blocks.forEach((b,i)=>{
       for (const key of ['type','target','hand','figures','input','workId','passage','presentation','timing']) if(fields.has(`${key}-${i}`)) b[key]=String(fields.get(`${key}-${i}`));
       for (const key of ['minutes','bpm','level']) if(fields.has(`${key}-${i}`)) b[key]=Number(fields.get(`${key}-${i}`));
       if(b.hand==='both' && (draft.context==='mobile' || !['reading','technique'].includes(b.type))) b.hand='right';
-      if(b.workId) { const work=data.works.find(w=>w.id===b.workId); if(work) b.target=work.target; }
+      if(b.type==='repertoire') { const work=data.works.find(w=>w.id===b.workId); b.target=work?work.target:null; }
     });
     return draft;
   }
@@ -306,12 +367,43 @@ export async function bootCompanion(reader) {
     readDraft();
     if(!$('#prepare-form').reportValidity()) return false;
     if(draft.context==='mobile' && draft.blocks.some(b=>['free','repertoire'].includes(b.type))) { $('#prepare-error').textContent=ui("For repertoire or free practice, choose With piano or MIDI piano. Without piano, practice reading or technique.", "Para repertorio o práctica libre, elige Con piano o Piano MIDI. Sin piano puedes trabajar lectura o técnica."); return false; }
-    draft.title ||= ACTIVITIES[draft.blocks[0].type];
+    if(preparePurpose!=='routine')draft.title ||= ACTIVITIES[draft.blocks[0].type];
     return true;
+  }
+  async function saveRoutineDraft() {
+    if(!validDraft())return;
+    showDialog(ui('Save routine','Guardar rutina'),`<form id="routine-name-form"><label>${ui('Routine name','Nombre de la rutina')}<input name="routine-name" maxlength="200" required autofocus value="${esc(draft.title)}" placeholder="${ui('For example, daily practice','Por ejemplo, práctica diaria')}" /></label>${formEnd(ui('Save routine','Guardar rutina'))}</form>`,async fields=>{
+      const title=String(fields.get('routine-name')).trim();
+      if(!title)throw Error(ui('Enter a routine name.','Escribe un nombre para la rutina.'));
+      const next=copy(data),existing=next.routines.find(r=>r.id===draft.id),value={...copy(draft),title,id:draft.id||uid()};
+      if(existing)Object.assign(existing,value);else next.routines.push(value);
+      await store.save(next);data=next;dialog.close();go('routines');toast(ui('Routine saved.','Rutina guardada.'));
+    });
+  }
+  async function changeRoutineBlocks(change) {
+    readDraft();
+    const index=draft.blocks.findIndex(b=>b.id===change.blockId);
+    if(index<0)return;
+    if(change.type==='remove') { if(draft.blocks.length===1)return;draft.blocks.splice(index,1); }
+    if(change.type==='move') { const [moved]=draft.blocks.splice(index,1);draft.blocks.splice(Math.max(0,Math.min(draft.blocks.length,change.toIndex)),0,moved); }
+    render();
+  }
+  function editRoutineBlock(id=null,type='reading') {
+    readDraft();
+    if(!id&&draft.blocks.length>=20) { toast(ui('A routine can contain up to 20 blocks.','Una rutina puede contener hasta 20 bloques.'));return; }
+    const original=id?copy(draft.blocks.find(b=>b.id===id)):block(type,{...practiceDefaults(data.preferences,type),minutes:10});
+    if(!original)return;
+    const editorData={...data,active:{context:draft.context}};
+    showDialog(id?ui('Edit block','Editar bloque'):ui('Add block','Añadir bloque'),sessionBlockEditorMarkup(original,editorData,{routine:true}),async f=>{
+      const values=readSessionBlockEditor(f,original,editorData), updated={...original,...values};
+      if(id) { const index=draft.blocks.findIndex(b=>b.id===id);if(index<0)return;draft.blocks[index]=updated; } else draft.blocks.push(updated);
+      dialog.close();render();
+    });
+    bindSessionBlockEditor(dialog.querySelector('form'),editorData);
   }
   function planForm(existing=null, source=draft) {
     if(preparePurpose==='edit-plan'&&!existing) throw Error(ui("This planned practice is no longer available.", "Esta práctica planificada ya no está disponible."));
-    const p=existing ? {...existing, ...(preparePurpose==='edit-plan' && source?.id===existing.id ? {title:source.title,context:source.context,blocks:copy(source.blocks)} : {})} : { title:source.title,context:source.context,blocks:copy(source.blocks),date:selectedDate,time:'',reminder:false,status:'planned' };
+    const p=existing ? {...existing, ...(preparePurpose==='edit-plan' && source?.id===existing.id ? {title:source.title,context:source.context,blocks:copy(source.blocks)} : {})} : { title:source.title,context:source.context,blocks:copy(source.blocks),...(source.routinePolicy?{routinePolicy:copy(source.routinePolicy)}:{}),date:selectedDate,time:'',reminder:false,status:'planned' };
     showDialog(existing?ui("Reschedule practice", "Reprogramar práctica"):ui("Schedule practice", "Planificar práctica"),`${ui("<form><label>Title<input name=\"title\" maxlength=\"200\" required value=\"", "<form><label>Título<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(p.title)}${ui("\" /></label><div class=\"cp-fields\"><label>Date<input name=\"date\" type=\"date\" required value=\"", "\" /></label><div class=\"cp-fields\"><label>Fecha<input name=\"date\" type=\"date\" required value=\"")}${p.date}${ui("\" /></label><label>Time (optional)<input name=\"time\" type=\"time\" value=\"", "\" /></label><label>Hora (opcional)<input name=\"time\" type=\"time\" value=\"")}${esc(p.time)}" /></label></div><label class="check"><input name="reminder" type="checkbox" ${p.reminder?'checked':''}${ui(" /> Reminder 15 minutes before (Android)</label><p class=\"muted\">", " /> Recordatorio 15 minutos antes (Android)</label><p class=\"muted\">")}${p.blocks.length}${ui(" blocks · ", " bloques · ")}${p.blocks.reduce((n,b)=>n+b.minutes,0)}${ui(" planned min · ", " min previstos · ")}${CONTEXTS[p.context]}</p>${formEnd()}</form>`,async f=>{
       const time=String(f.get('time')); if(f.has('reminder')&&!time) throw new Error(ui("Enter a time for the reminder.", "Indica una hora para el recordatorio."));
       const value={...p,id:p.id||uid(),title:String(f.get('title')).trim(),date:String(f.get('date')),time,reminder:f.has('reminder')};
@@ -327,10 +419,10 @@ export async function bootCompanion(reader) {
   function workForm(existing=null, initialFile=null) {
     const w=existing||{title:'',composer:'',stage:STAGES[0],notes:'',passage:'',target:'C-major',bpm:60};
     let attachment, saving=false;
-    showDialog(existing?ui("Edit work", "Editar obra"):ui("Add work", "Añadir obra"),`<form>${scoreImportMarkup(!!w.assetId)}${ui("<label>Title<input name=\"title\" maxlength=\"200\" required value=\"", "<label>Título<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(w.title)}${ui("\" /></label><label>Composer<input name=\"composer\" maxlength=\"200\" value=\"", "\" /></label><label>Compositor<input name=\"composer\" maxlength=\"200\" value=\"")}${esc(w.composer)}${ui("\" /></label><label>Tags<input name=\"tags\" maxlength=\"820\" placeholder=\"Baroque, lesson, recital\" value=\"", "\" /></label><label>Etiquetas<input name=\"tags\" maxlength=\"820\" placeholder=\"Barroco, clase, recital\" value=\"")}${esc((w.tags||[]).join(', '))}${ui("\" /></label><details class=\"cp-details\"><summary>Study details</summary><div class=\"cp-fields\"><label>Stage<select name=\"stage\">", "\" /></label><details class=\"cp-details\"><summary>Detalles de estudio</summary><div class=\"cp-fields\"><label>Etapa<select name=\"stage\">")}${opts(STAGES.map(s=>[s,stageLabel(s)]),w.stage)}${ui("</select></label><label>Target tempo<input type=\"number\" name=\"bpm\" min=\"30\" max=\"160\" value=\"", "</select></label><label>Tempo objetivo<input type=\"number\" name=\"bpm\" min=\"30\" max=\"160\" value=\"")}${w.bpm}${ui("\" required /></label></div><label>Printed tempo marking<input name=\"tempoMark\" maxlength=\"120\" placeholder=\"E.g.: ♩ = 80\" value=\"", "\" required /></label></div><label>Indicación de tempo impresa<input name=\"tempoMark\" maxlength=\"120\" placeholder=\"Ej.: ♩ = 80\" value=\"")}${esc(w.tempoMark||'')}${ui("\" /></label><label>Key or mode<select name=\"target\"><option value=\"\">Unknown</option>", "\" /></label><label>Tonalidad o modo<select name=\"target\"><option value=\"\">Desconocido</option>")}${targets(w.target)}${ui("</select></label><label>Passage / next goal<input name=\"passage\" maxlength=\"1000\" value=\"", "</select></label><label>Pasaje / próximo objetivo<input name=\"passage\" maxlength=\"1000\" value=\"")}${esc(w.passage)}${ui("\" /></label><label>Notes<textarea name=\"notes\" maxlength=\"10000\">", "\" /></label><label>Notas<textarea name=\"notes\" maxlength=\"10000\">")}${esc(w.notes)}</textarea></label></details>${formEnd()}</form>`,async (f,form)=>{
+    showDialog(existing?ui("Edit work", "Editar obra"):ui("Add work", "Añadir obra"),`<form>${scoreImportMarkup(!!w.assetId)}${ui("<label>Title<input name=\"title\" maxlength=\"200\" required value=\"", "<label>Título<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(w.title)}${ui("\" /></label><label>Composer<input name=\"composer\" maxlength=\"200\" value=\"", "\" /></label><label>Compositor<input name=\"composer\" maxlength=\"200\" value=\"")}${esc(w.composer)}${ui("\" /></label><label>Tags<input name=\"tags\" maxlength=\"820\" placeholder=\"Baroque, lesson, recital\" value=\"", "\" /></label><label>Etiquetas<input name=\"tags\" maxlength=\"820\" placeholder=\"Barroco, clase, recital\" value=\"")}${esc((w.tags||[]).join(', '))}" /></label><label class="check"><input type="checkbox" name="onStand" ${!existing||isOnStand(w)?'checked':''} />${ui("On the music stand: I am practising it now", "En el atril: la estoy trabajando ahora")}</label>${ui("<details class=\"cp-details\"><summary>Study details</summary><div class=\"cp-fields\"><label>Stage<select name=\"stage\">", "<details class=\"cp-details\"><summary>Detalles de estudio</summary><div class=\"cp-fields\"><label>Etapa<select name=\"stage\">")}${opts(STAGES.map(s=>[s,stageLabel(s)]),w.stage)}${ui("</select></label><label>Target tempo<input type=\"number\" name=\"bpm\" min=\"30\" max=\"160\" value=\"", "</select></label><label>Tempo objetivo<input type=\"number\" name=\"bpm\" min=\"30\" max=\"160\" value=\"")}${w.bpm}${ui("\" required /></label></div><label>Printed tempo marking<input name=\"tempoMark\" maxlength=\"120\" placeholder=\"E.g.: ♩ = 80\" value=\"", "\" required /></label></div><label>Indicación de tempo impresa<input name=\"tempoMark\" maxlength=\"120\" placeholder=\"Ej.: ♩ = 80\" value=\"")}${esc(w.tempoMark||'')}${ui("\" /></label><label>Key or mode<select name=\"target\"><option value=\"\">Unknown</option>", "\" /></label><label>Tonalidad o modo<select name=\"target\"><option value=\"\">Desconocido</option>")}${targets(w.target)}${ui("</select></label><label>Passage / next goal<input name=\"passage\" maxlength=\"1000\" value=\"", "</select></label><label>Pasaje / próximo objetivo<input name=\"passage\" maxlength=\"1000\" value=\"")}${esc(w.passage)}${ui("\" /></label><label>Notes<textarea name=\"notes\" maxlength=\"10000\">", "\" /></label><label>Notas<textarea name=\"notes\" maxlength=\"10000\">")}${esc(w.notes)}</textarea></label></details>${formEnd()}</form>`,async (f,form)=>{
       if(saving)return;
       const asset=attachment.asset();
-      const value={...w,id:w.id||uid(),title:String(f.get('title')).trim(),composer:String(f.get('composer')).trim(),stage:f.get('stage'),bpm:Number(f.get('bpm')),target:f.get('target')||null,passage:String(f.get('passage')),notes:String(f.get('notes')),tempoMark:String(f.get('tempoMark')||'').trim(),tags:parseTags(f.get('tags')||'')};
+      const value={...w,id:w.id||uid(),title:String(f.get('title')).trim(),composer:String(f.get('composer')).trim(),stage:f.get('stage'),bpm:Number(f.get('bpm')),target:f.get('target')||null,passage:String(f.get('passage')),notes:String(f.get('notes')),tempoMark:String(f.get('tempoMark')||'').trim(),tags:parseTags(f.get('tags')||''),onStand:f.has('onStand')};
       if(!value.title)throw new Error(ui("Enter a title for the work.", "Indica un título para la obra."));
       if(asset)value.assetId=asset.id;
       saving=true;form.setAttribute('aria-busy','true');
@@ -377,19 +469,22 @@ export async function bootCompanion(reader) {
 
   async function startSession(source) {
     if(data.active){go('session');return;}
+    if(source.routinePolicy) { try { await reader.refreshMidi(); } catch {} source=routineForPractice(source,data,!!reader.devices.length,{keepTempo:!!source.routinePrepared}); }
     for (const b of source.blocks) {
       const work = data.works.find(w => w.id === b.workId);
       if (work?.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw new Error(ui("The selected score needs validation, analysis or piano-part selection.", "La partitura seleccionada necesita validación, análisis o selección de las partes de piano."));
     }
     // Piano and MIDI sessions open with a Hanon warm-up, unless it is switched off or the plan already has one.
     const warm = warmupPreferences(data.preferences);
-    const planned = warm.enabled && source.context !== 'mobile' && !source.blocks.some(b => b.type === 'warmup') ? { ...source, blocks: [block('warmup', warmupBlockValues(data)), ...source.blocks] } : source;
+    const planned = !source.routinePolicy && warm.enabled && source.context !== 'mobile' && !source.blocks.some(b => b.type === 'warmup') ? { ...source, blocks: [block('warmup', warmupBlockValues(data)), ...source.blocks] } : source;
     const next=copy(data);next.active=beginSession(planned);
+    if(source.blocks.some(b=>b.quickPractice)){next.active.quickScore=emptyQuickScore();next.active.quickBest=quickRecords(data.sessions)[0]?.quickScore.points||0;}
+    if(source.routinePolicy)next.active.autoMidi=true;
     await store.save(next);data=next;readerMounted=false;readerBase=null;quiz=null;go('session');
   }
   function sessionPage() {
     if (!data.active) return home();
-    return sessionMarkup(data, { readerDevices: reader.devices, totalMs: totalMs(), blockMs: blockMs(), metronomeRunning: !!metro, workName, icon });
+    return sessionMarkup(data, { readerDevices: reader.devices, totalMs: totalMs(), blockMs: blockMs(), metronomeRunning: !!metro, workName, workHasScore, workPlayable, icon });
   }
   async function commitSessionChange(change) {
     if (!data.active || sessionWriting) return false;
@@ -424,6 +519,24 @@ export async function bootCompanion(reader) {
   async function changeSession(action) {
     return commitSessionChange(next => { next.active = editSession(next.active, action).active; });
   }
+  // Choosing the piece of a repertoire block: time already spent without a piece stays with it; switching from
+  // another piece keeps that piece's time as its own part. The chosen piece goes on the stand.
+  async function pickSessionWork(workId) {
+    const current = currentBlock(), work = data.works.find(w => w.id === workId && !w.trashedAt);
+    if (!data.active || current?.type !== 'repertoire' || !work) return;
+    if (work.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw Error(ui('This score is not ready to practise.', 'Esta partitura todavía no está lista para practicar.'));
+    const running = data.active.runningSince != null;
+    const values = { workId: work.id, target: work.target ?? null, bpm: Math.max(30, Math.min(160, work.bpm || 60)), passage: work.passage || '' };
+    const changed = await commitSessionChange(next => {
+      const block = next.active.blocks[next.active.blockIndex];
+      if (block.workId) next.active = editSession(next.active, { type: 'update', blockId: block.id, values }).active;
+      else Object.assign(block, values);
+      if (!isOnStand(work)) setWorkOnStand(next, work.id, true);
+    });
+    if (!changed) return;
+    if (dialog.open) dialog.close();
+    if (running && data.active) { data.active.runningSince = Date.now(); checkpoint(); updateClock(); render(); }
+  }
   function editSessionBlock(id) {
     const index = data.active?.blocks.findIndex(item => item.id === id);
     if (index == null || index < data.active.blockIndex) return;
@@ -442,14 +555,13 @@ export async function bootCompanion(reader) {
     pauseSession(); render();
     const types = data.active.context === 'mobile' ? ['reading', 'technique'] : ['warmup', 'reading', 'technique', 'repertoire', 'free'];
     const works = data.works.filter(w => !w.trashedAt);
-    const body = '<form id="session-add-form"><div class="cp-grid"><label>'+ui('Activity', 'Actividad')+'<select name="type">'+opts(types.map(type => [type, ACTIVITIES[type]]), 'reading')+'</select></label><label>'+ui('Minutes', 'Minutos')+'<input name="minutes" type="number" min="1" max="600" step="1" value="10" required></label></div><label data-session-target>'+ui('Scale or mode', 'Escala o modo')+'<select name="target">'+targets(TARGETS.some(t=>t.id===currentBlock()?.target) ? currentBlock().target : 'C-major')+'</select></label><label data-session-warmup hidden>'+ui('Exercise', 'Ejercicio')+'<select name="warmup">'+opts(HANON.map(exercise => [exercise.id, warmupLabel(exercise)]), HANON[0].id)+'</select></label><label data-session-work hidden>'+ui('Work', 'Obra')+'<select name="workId"><option value="">'+ui('Choose a work', 'Elige una obra')+'</option>'+opts(works.map(w => [w.id, w.title]), '')+'</select></label>'+formEnd(ui('Add block', 'Añadir bloque'))+'</form>';
+    const body = '<form id="session-add-form"><div class="cp-grid"><label>'+ui('Activity', 'Actividad')+'<select name="type">'+opts(types.map(type => [type, ACTIVITIES[type]]), 'reading')+'</select></label><label>'+ui('Minutes', 'Minutos')+'<input name="minutes" type="number" min="1" max="600" step="1" value="10" required></label></div><label data-session-target>'+ui('Scale or mode', 'Escala o modo')+'<select name="target">'+targets(TARGETS.some(t=>t.id===currentBlock()?.target) ? currentBlock().target : 'C-major')+'</select></label><label data-session-warmup hidden>'+ui('Exercises', 'Ejercicios')+'<select name="warmup">'+opts(warmupChoices(data), warmupChoices(data)[0][0])+'</select></label><label data-session-work hidden>'+ui('Work', 'Obra')+'<select name="workId"><option value="">'+ui('Choose when practising', 'Elegir al practicar')+'</option>'+opts(works.map(w => [w.id, w.title]), '')+'</select></label>'+formEnd(ui('Add block', 'Añadir bloque'))+'</form>';
     showDialog(ui('Add a block', 'Añadir un bloque'), body, async f => {
       const type = String(f.get('type'));
       if (!types.includes(type)) throw Error(ui('Choose an available activity.', 'Elige una actividad disponible.'));
       const work = works.find(w => w.id === f.get('workId'));
-      if (type === 'repertoire' && !work) throw Error(ui('Choose a repertoire work.', 'Elige una obra del repertorio.'));
-      if (type === 'repertoire' && work.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw Error(ui('This score is not ready to practise.', 'Esta partitura todavía no está lista para practicar.'));
-      const added = type === 'warmup' ? block('warmup', { ...warmupBlockValues(data, String(f.get('warmup'))), minutes: Number(f.get('minutes')) }) : block(type, { ...practiceDefaults(data.preferences, type), minutes: Number(f.get('minutes')), target: type === 'repertoire' ? work.target ?? null : String(f.get('target')), ...(type === 'repertoire' ? { workId: work.id, bpm: work.bpm || 60, passage: work.passage || '' } : {}) });
+      if (type === 'repertoire' && work?.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw Error(ui('This score is not ready to practise.', 'Esta partitura todavía no está lista para practicar.'));
+      const added = type === 'warmup' ? block('warmup', { ...warmupBlockValues(data, String(f.get('warmup'))), minutes: Number(f.get('minutes')) }) : block(type, { ...practiceDefaults(data.preferences, type), minutes: Number(f.get('minutes')), target: type === 'repertoire' ? work?.target ?? null : String(f.get('target')), ...(type === 'repertoire' ? { workId: work?.id || '', bpm: work?.bpm || 60, passage: work?.passage || '' } : {}) });
       if (await changeSession({ type: 'add', block: added })) dialog.close();
     });
     const form = dialog.querySelector('form');
@@ -458,7 +570,6 @@ export async function bootCompanion(reader) {
       form.querySelector('[data-session-target]').hidden = !['reading', 'technique'].includes(type);
       form.querySelector('[data-session-warmup]').hidden = type !== 'warmup';
       form.querySelector('[data-session-work]').hidden = type !== 'repertoire';
-      form.elements.workId.required = type === 'repertoire';
     });
   }
   async function switchSessionContext(context) {
@@ -472,30 +583,46 @@ export async function bootCompanion(reader) {
     })) go('session');
   }
   async function openReader() {
+    if(data.active?.autoMidi) { try { await reader.refreshMidi(); } catch {} const context=reader.devices.length?'midi':'piano';if(context!==data.active.context)await switchSessionContext(context); }
     const s=data.active,b=currentBlock();if(!s||!b)return;
     if(s.context==='midi'){try{await reader.refreshMidi();}catch(error){toast(ui('Could not open MIDI input: ', 'No se ha podido abrir la entrada MIDI: ')+localizeMessage(error.message));return;}}
     if(data.active!==s||currentBlock()!==b)return;
     if(s.context==='midi'&&!reader.devices.length){toast(ui("Connect MIDI or continue with manual tracking.", "Conecta el MIDI o elige continuar con registro manual."));return;}
     root.hidden=true;
     if(!readerMounted){readerBase=s.currentMeasurement||null;reader.configure(b,s.context,s.readerSnapshot);readerMounted=true;}else reader.show();
+    if (!status.hidden) {
+      clearTimeout(toastTimer); status.hidden = true; reader.notify(status.textContent);
+    }
     document.body.dataset.context=s.context;
-    $('#practice-title').textContent=`${ACTIVITIES[b.type]} · ${targetById(b.target).label}${s.context==='mobile'&&b.timing==='wait'?ui(' · No tempo', ' · Sin tempo'):''}`;
-    $('#practice-return').onclick=()=>{hideReader();go('session');};
-    // Finish only closes the session on its last block; earlier blocks advance to the next one.
+    $('#practice-title').textContent=`${b.quickPractice?ui('Quick practice','Práctica rápida'):ACTIVITIES[b.type]} · ${b.type==='warmup'?warmupSetLabel(warmupExercises(b).map(e=>e.id)):targetById(b.target).label}${s.context==='mobile'&&b.timing==='wait'?ui(' · No tempo', ' · Sin tempo'):''}`;
+    $('#timing-mode').classList.toggle('quick-game-hud',!!b.quickPractice);
+    $('#timing-mode').classList.remove('is-record');
+    if(b.quickPractice)$('#timing-mode').innerHTML=quickHudMarkup(s.quickScore?.points||0,s.quickBest??quickRecords(data.sessions)[0]?.quickScore.points??0);
+    const back=$('#practice-return');
+    back.innerHTML=`<span aria-hidden="true">←</span><span class="practice-nav-label">${ui('Session','Sesión')}</span>`;
+    back.setAttribute('aria-label',ui('Back to session','Volver a la sesión'));back.title=back.getAttribute('aria-label');
+    back.onclick=()=>{if(s.quickScore){quickExitDialog();return;}hideReader();go('session');};
+    if(s.quickScore){back.setAttribute('aria-label',ui('Finish or pause practice','Terminar o pausar práctica'));back.title=back.getAttribute('aria-label');}
+    // The forward action names its actual destination: the next block or final feedback.
     const lastBlock=s.blockIndex>=s.blocks.length-1;
-    $('#practice-finish').textContent=lastBlock?ui('Finish','Terminar'):ui('Finish block','Terminar bloque');
-    $('#practice-finish').onclick=()=>{hideReader();if(lastBlock)endSession();else nextBlock();};
+    const next=s.blocks[s.blockIndex+1],forward=$('#practice-advance');
+    const forwardLabel=lastBlock?ui('Feedback','Valoración'):`${ui('Next','Siguiente')}: ${ACTIVITIES[next.type]}`;
+    forward.innerHTML=`<span class="practice-nav-label">${esc(forwardLabel)}</span><span aria-hidden="true">→</span>`;
+    forward.setAttribute('aria-label',forwardLabel);forward.title=forwardLabel;
+    forward.onclick=()=>{hideReader();if(lastBlock)endSession();else nextBlock();};
     $('#practice-guide').hidden=b.type!=='warmup';$('#practice-guide').onclick=()=>{reader.pause();showWarmupGuide(b,true);};
     $('#practice-guide').setAttribute('aria-label',ui('How to play this warm-up','Cómo se toca este calentamiento'));$('#practice-guide').title=$('#practice-guide').getAttribute('aria-label');
     if(b.type==='warmup'&&!s.readerSnapshot&&!blockMs()){showWarmupGuide(b,true);updateClock();return;}
     reader.play();updateClock();
   }
   // Visual explanation of the warm-up; "Start" closes it and plays from the reader.
-  function showWarmupGuide(b,start=false){
-    const exercise=warmupById(b?.target);if(!exercise)return;
-    showDialog(ui('Warm-up', 'Calentamiento'),warmupGuideMarkup(exercise,{hand:b.hand,start}));
+  function showWarmupGuide(b,start=false,index=readerMounted?reader.warmupIndex:0){
+    const exercises=warmupExercises(b);if(!exercises.length)return;
+    const i=Math.max(0,Math.min(exercises.length-1,index||0)),exercise=exercises[i];
+    showDialog(ui('Warm-up', 'Calentamiento'),warmupGuideMarkup(exercise,{hand:b.hand,start,set:{index:i,exercises}}));
     const guide=dialog.querySelector('.cp-warmup-guide');
     dialogCleanup=bindWarmupGuide(guide,exercise,{hand:b.hand});
+    guide.querySelectorAll('[data-warmup-step]').forEach(button=>button.addEventListener('click',()=>showWarmupGuide(b,start,Number(button.dataset.warmupStep))));
     guide.querySelector('[data-warmup-start]')?.addEventListener('click',()=>{dialog.close();reader.play();updateClock();});
   }
   function resetBlockRuntime() {
@@ -512,6 +639,7 @@ export async function bootCompanion(reader) {
     })) go('session');
   }
   function endSession() {
+    if(data.active?.quickScore)return quickExitDialog();
     if(!data.active)return;pauseSession();hideReader();go('session');
     const s=data.active;const remaining=s.blockIndex<s.blocks.length-1;
     showDialog(ui("Save what you practiced", "Guarda lo que has practicado"),`<form><p><b>${clock(s.elapsedMs)}${ui("</b> of practice · ", "</b> de práctica · ")}${CONTEXTS[s.context]}</p>${feedbackFields(s,data.works)}<label class="check"><input name="partial" type="checkbox" ${remaining?'checked':''}${ui(" /> Save as a partial session</label>", " /> Guardar como sesión parcial</label>")}<div class="cp-save-actions"><div class="cp-save-main">${ui("<button type=\"submit\" class=\"primary\" value=\"save\">Save</button><button type=\"submit\" value=\"plan\">Save and schedule</button>", "<button type=\"submit\" class=\"primary\" value=\"save\">Guardar</button><button type=\"submit\" value=\"plan\">Guardar y planificar</button>")}</div><div class="cp-save-exits">${btn('close-dialog',ui("‹ Keep practicing", "‹ Seguir practicando"),'','quiet')}${btn('discard-session',ui("Finish without saving", "Terminar sin guardar"),'','danger quiet')}</div></div></form>`,async(f,form,submit)=>{
@@ -526,9 +654,21 @@ export async function bootCompanion(reader) {
       if(submit.value==='plan'){selectedDate=addDays(localDate(),1);planForm(null,source);}
     });
   }
+  function quickExitDialog() {
+    if(!data.active?.quickScore)return;
+    pauseSession();
+    showDialog(ui('Finish this practice?','¿Terminar esta práctica?'),`<div class="quick-exit"><p><strong>${data.active.quickScore.points}</strong> ${ui('points so far','puntos hasta ahora')}</p><p class="muted">${ui('Finish to save your score, or keep your place and continue later.','Termina para guardar tu puntuación o conserva tu progreso para continuar más tarde.')}</p><div class="quick-result-actions">${btn('quick-finish',ui('Finish and see score','Terminar y ver puntuación'),'','primary')}${btn('quick-later',ui('Continue later','Continuar más tarde'))}${btn('quick-continue',ui('Keep practising','Seguir practicando'),'','quiet')}</div></div>`);
+  }
+  async function endQuickPractice() {
+    const previousBest=data.active.quickBest??quickRecords(data.sessions)[0]?.quickScore.points??0;
+    pauseSession();hideReader();let saved;
+    if(!await commitSessionChange(next=>{saved=saveSession(next,next.active,{measurement:next.active.currentMeasurement});delete saved.readerSnapshot;delete saved.currentMeasurement;delete saved.blockRuntime;}))return;
+    resetBlockRuntime();root.hidden=false;go('practice');
+    showDialog(ui('Quick practice result','Resultado de práctica rápida'),quickResultMarkup(saved,previousBest));
+  }
   function sessionDetail() {
     const s=data.sessions.find(s=>s.id===detailId);if(!s)return myPiano();
-    return `${titleRow(esc(s.title),`${esc(dayLabel(s.date))} · ${resultText(s)}`)}<div class="cp-card"><b class="cp-number">${clock(s.elapsedMs)}${ui("</b><p class=\"muted\">Practice time", "</b><p class=\"muted\">Tiempo de práctica")}${s.manual?ui(' · entered manually', ' · registrado manualmente'):''}</p>${s.results.map(r=>`<div class="cp-block"><h3>${ACTIVITIES[r.block.type]} · ${clock(r.elapsedMs)}</h3><p class="muted">${CONTEXTS[r.context]}${['reading','technique','theory'].includes(r.block.type)?` · ${esc(targetById(r.block.target).label)}`:''}${r.block.workId?` · ${esc(workName(r.block.workId))}`:''}</p>${r.measurement?`<p>${r.measurement.correct}${ui(" correct · ", " aciertos · ")}${r.measurement.wrong}${ui(" errors</p><p class=\"muted\">", " errores</p><p class=\"muted\">")}${{screen:ui("On-screen responses", "Respuestas en pantalla"),midi:ui("Notes received via MIDI", "Notas recibidas por MIDI"),quiz:ui("Theory question", "Pregunta de teoría")}[r.measurement.source]}${r.measurement.timing==='wait'?ui(' · No tempo', ' · Sin tempo'):''}${r.measurement.bpm?` · ${r.measurement.bpm}${ui(" BPM · Aids: ", " BPM · Ayudas: ")}${r.measurement.guide==='off'?ui("without guide", "sin guía"):ui("with guide", "con guía")}`:''}</p>`:ui("<p class=\"muted\">Manual entry · no automatic evaluation.</p>", "<p class=\"muted\">Registro manual · sin evaluación automática.</p>")}</div>`).join('')}${s.workIds?.length?`${ui("<h3>Practiced works</h3><p>", "<h3>Obras practicadas</h3><p>")}${s.workIds.map(id=>esc(workName(id))).join(" · ")}</p>`:""}${ui("<h3 style=\"margin-top:22px\">Comments and annotations</h3><p style=\"white-space:pre-wrap\">", "<h3 style=\"margin-top:22px\">Comentarios y anotaciones</h3><p style=\"white-space:pre-wrap\">")}${esc(s.notes||ui("No annotations.", "Sin anotaciones."))}${ui("</p><h3>Next step</h3><p style=\"white-space:pre-wrap\">", "</p><h3>Próximo paso</h3><p style=\"white-space:pre-wrap\">")}${esc(s.next||ui("You can decide in your next practice.", "Puedes decidirlo en tu siguiente práctica."))}</p><div class="cp-actions">${btn('repeat-session',ui("Prepare another session", "Preparar otra sesión"),s.id,'primary')}${btn('edit-session-notes',ui("Edit feedback", "Editar valoración"),s.id)}${btn('delete-session',ui("Delete session", "Eliminar sesión"),s.id,'danger quiet')}</div></div>`;
+    return `${titleRow(esc(s.title),`${esc(dayLabel(s.date))} · ${resultText(s)}`)}<div class="cp-card"><b class="cp-number">${clock(s.elapsedMs)}${ui("</b><p class=\"muted\">Practice time", "</b><p class=\"muted\">Tiempo de práctica")}${s.manual?ui(' · entered manually', ' · registrado manualmente'):''}</p>${s.results.map(r=>`<div class="cp-block"><h3>${ACTIVITIES[r.block.type]} · ${clock(r.elapsedMs)}</h3><p class="muted">${CONTEXTS[r.context]}${['reading','technique','theory'].includes(r.block.type)?` · ${esc(targetById(r.block.target).label)}`:''}${r.block.workId?` · ${esc(workName(r.block.workId))}`:''}${r.block.type==='repertoire'&&r.block.workId&&r.block.passage?` · ${ui("Part", "Parte")}: ${esc(r.block.passage)}`:''}</p>${r.measurement?`<p>${r.measurement.correct}${ui(" correct · ", " aciertos · ")}${r.measurement.wrong}${ui(" errors</p><p class=\"muted\">", " errores</p><p class=\"muted\">")}${{screen:ui("On-screen responses", "Respuestas en pantalla"),midi:ui("Notes received via MIDI", "Notas recibidas por MIDI"),quiz:ui("Theory question", "Pregunta de teoría")}[r.measurement.source]}${r.measurement.timing==='wait'?ui(' · No tempo', ' · Sin tempo'):''}${r.measurement.bpm?` · ${r.measurement.bpm}${ui(" BPM · Aids: ", " BPM · Ayudas: ")}${r.measurement.guide==='off'?ui("without guide", "sin guía"):ui("with guide", "con guía")}`:''}</p>`:ui("<p class=\"muted\">Manual entry · no automatic evaluation.</p>", "<p class=\"muted\">Registro manual · sin evaluación automática.</p>")}</div>`).join('')}${s.workIds?.length?`${ui("<h3>Practiced works</h3><p>", "<h3>Obras practicadas</h3><p>")}${s.workIds.map(id=>esc(workName(id))).join(" · ")}</p>`:""}${ui("<h3 style=\"margin-top:22px\">Comments and annotations</h3><p style=\"white-space:pre-wrap\">", "<h3 style=\"margin-top:22px\">Comentarios y anotaciones</h3><p style=\"white-space:pre-wrap\">")}${esc(s.notes||ui("No annotations.", "Sin anotaciones."))}${ui("</p><h3>Next step</h3><p style=\"white-space:pre-wrap\">", "</p><h3>Próximo paso</h3><p style=\"white-space:pre-wrap\">")}${esc(s.next||ui("You can decide in your next practice.", "Puedes decidirlo en tu siguiente práctica."))}</p><div class="cp-actions">${btn('repeat-session',ui("Prepare another session", "Preparar otra sesión"),s.id,'primary')}${btn('edit-session-notes',ui("Edit feedback", "Editar valoración"),s.id)}${btn('delete-session',ui("Delete session", "Eliminar sesión"),s.id,'danger quiet')}</div></div>`;
   }
   function updateClock() {
     syncScreenAwake();
@@ -536,20 +676,28 @@ export async function bootCompanion(reader) {
     document.querySelectorAll('[data-block-clock]').forEach(el=>el.textContent=clock(blockMs()));
   }
   function render() {
+    if(libraryRoute(view)) libraryPane=libraryRoute(view);
     sessionDrag?.destroy(); sessionDrag = null;
     setMidiContext(view === 'prepare' ? draft?.context : data.active?.context || null);
     syncScreenAwake();
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
-    const section=['settings','progress','session-detail'].includes(view)||view.startsWith('profile-')?'settings':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session'].includes(view)?'practice':view==='home'?'home':'piano';
-    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,progress,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,native,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
+    const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
+    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,progress,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,native,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<div class="cp-page" data-view="${view}"><div class="cp-content"><div class="cp-header"><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div>${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${data.active&&!['session','home','practice'].includes(view)?`${ui("<div class=\"cp-notice cp-row\"><span>Pending session: ", "<div class=\"cp-notice cp-row\"><span>Sesión pendiente: ")}${esc(data.active.title)}</span>${btn('resume-session',ui("Continue", "Continuar"))}</div>`:''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo)}`;
+    if (view === 'free-practice') {
+      root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
+      root.querySelectorAll('.cp-nav [aria-current]').forEach(el=>el.removeAttribute('aria-current'));
+      root.querySelector('.cp-nav [data-action=practice]')?.setAttribute('aria-current','page');
+    }
     const heading = root.querySelector('.cp-content h1');
+    if(libraryRoute(view)) root.querySelector('.cp-header')?.insertAdjacentHTML('afterend',libraryNavigation());
     (heading?.closest('.cp-row,.cp-dashboard-heading,.cp-profile-heading') || heading)?.classList.add('cp-page-heading');
     if(materialSelection && ['catalog','library-detail','downloads'].includes(view)) root.querySelector('.cp-content').insertAdjacentHTML('afterbegin',`${ui("<section class=\"cp-notice\"><b>Choose a score</b><p>Your practice is kept. Download a score and choose “Use in this practice”. The practice will use “With piano”.</p>", "<section class=\"cp-notice\"><b>Elige una partitura</b><p>Conservamos tu práctica. Descarga una partitura y pulsa «Usar en esta práctica». Se utilizará el modo «Con piano».</p>")}${btn('return-to-preparation',ui("Back to practice", "Volver a la práctica"),'','quiet')}</section>`);
     if(view==='downloads')updateDownloadProgress([...data.downloadJobs,...Object.entries(library.executions).filter(([,e])=>e.job).map(([id,e])=>({...e.job,catalogId:id}))]);
     $('#library-search')?.addEventListener('submit', e => { e.preventDefault(); libraryFilters = Object.fromEntries(new FormData(e.target)); libraryPage = 0; render(); });
     if (view === 'session' && data.active) sessionDrag = bindSessionDrag(root.querySelector('.cp-session'), { change: changeSession, pickup: pauseSession, cancelled: render, report: toast });
+    if(view==='prepare'&&preparePurpose==='routine') sessionDrag=bindSessionDrag(root.querySelector('.cp-routine-builder'),{change:changeRoutineBlocks,pickup:readDraft,cancelled:()=>{},report:toast});
     if(view==='planner')bindPlanner($('#weekly-plan-form'),()=>data,saveWeek);
     if(view==='calendar') {
       const content=root.querySelector('.cp-content');content.dataset.calendar='true';
@@ -567,7 +715,7 @@ export async function bootCompanion(reader) {
       const submit=e.submitter;if(submit)submit.disabled=true;
       try{await store.save(next);data=next;e.target.removeAttribute('data-edited');toast(ui("Preferences saved.", "Preferencias guardadas."));}catch{toast(ui("Could not save changes.", "No se han podido guardar los cambios."));}finally{if(submit)submit.disabled=false;}
     });
-    $('#prepare-form')?.addEventListener('submit',async e=>{e.preventDefault();if(!validDraft())return;try{if(preparePurpose==='edit-plan')planForm(data.plans.find(p=>p.id===draft.id),draft);else if(preparePurpose==='plan')planForm();else await startSession(draft);}catch(e){toast(e.message);}});
+    $('#prepare-form')?.addEventListener('submit',async e=>{e.preventDefault();if(!validDraft())return;try{if(preparePurpose==='routine')await saveRoutineDraft();else if(preparePurpose==='edit-plan')planForm(data.plans.find(p=>p.id===draft.id),draft);else if(preparePurpose==='plan')planForm();else await startSession(draft);}catch(e){toast(e.message);}});
   }
 
   const downloads=createDownloads({getData:()=>data,store,platform:{downloadPDF,networkStatus},persist,isVisible:()=>!document.hidden&&!scoreViewer&&!openingScore,changed:progressOnly=>{
@@ -576,6 +724,20 @@ export async function bootCompanion(reader) {
   const libraryDownloads = createLibraryDownloads({ getLibrary: () => library, setLibrary: value => { library = value; }, store, getData: () => data, platform: { downloadScore, networkStatus }, isVisible: () => !document.hidden && !scoreViewer && !openingScore,
     changed: progressOnly => { if (progressOnly) updateDownloadProgress(Object.entries(library.executions).filter(([,e])=>e.job).map(([id,e])=>({...e.job,catalogId:id}))); else if (['catalog','library-detail','downloads'].includes(view)) render(); } });
   const pauseTransfers = async () => { await downloads.pauseAll(); await libraryDownloads.pauseAll(); };
+  async function printStoredScore(id, fromLibrary=false) {
+    if(openingScore)return;
+    openingScore=true;
+    try {
+      await pauseTransfers();pauseSession();
+      const work=fromLibrary?null:resource(id),libraryId=fromLibrary?id:work?.libraryId;
+      const assetId=libraryId?executionFor(library,libraryId).assetId:work?.assetId;
+      const asset=assetId&&await store.asset(assetId);
+      if(!asset)throw new Error(ui('Add or download the score again.','Vuelve a añadir o descargar la partitura.'));
+      const {printScoreAsset}=await import('./asset-print.js');
+      const title=work?.title||catalogueRecords(library).find(record=>record.piece_id===libraryId)?.display_title||asset.name||'Score';
+      await printScoreAsset(asset,title);
+    } finally { openingScore=false; }
+  }
   async function previewLibrary(id, segmentId = null, session = null) {
     if (openingScore || scoreViewer) return;
     openingScore = true;
@@ -587,6 +749,7 @@ export async function bootCompanion(reader) {
       const { openMusicScore } = await import('./musicxml-viewer.js');
       let alreadyClosed = false;
       const controller = await openMusicScore({ asset, selection: e.selection, start: segment?.start_measure_index || 0, end: segment?.end_measure_index_exclusive ?? e.analysis.metrics.measure_count ?? e.parts.find(p => p.id === e.selection[0]).measures, session,
+        saveMarks: async musicxmlMarks => { const current=await store.asset(e.assetId);if(!current)throw new Error('Score unavailable');await store.putAsset({...current,musicxmlMarks}); },
         onRendered: async () => { const stamp = { sha256: e.sha256, configHash: e.configHash, version: RENDERER_VERSION }; await libraryDownloads.update(id, segmentId ? { segmentRenders: { ...e.segmentRenders, [segmentId]: stamp } } : { render: stamp }); },
         onClose: () => { alreadyClosed = true; scoreViewer = null; render(); updateClock(); },
       });
@@ -601,7 +764,7 @@ export async function bootCompanion(reader) {
     if (!manualPracticeState(record, e, library).playable) throw new Error(ui("This edition is not ready for practice.", "Esta edición aún no está lista para practicar."));
     let work = data.works.find(w => w.libraryId === id);
     if (!await store.asset(e.assetId)) throw Error(ui("The local score is missing. Download or attach it before selecting it.", "No se encuentra la partitura local. Descárgala o impórtala antes de seleccionarla."));
-    if (!work) { work = { id: uid(), libraryId: id, title: record.display_title.slice(0, 200), composer: record.known_metadata.composer || '', stage: STAGES[0], target: null, bpm: 60, passage: '', notes: '', assetId: e.assetId, assetFormat: 'musicxml' }; const next=copy(data);next.works.push(work);await store.save(next);data=next; }
+    if (!work) { work = { id: uid(), libraryId: id, title: record.display_title.slice(0, 200), composer: record.known_metadata.composer || '', stage: STAGES[0], target: null, bpm: 60, passage: '', notes: '', assetId: e.assetId, assetFormat: 'musicxml', onStand: true }; const next=copy(data);next.works.push(work);await store.save(next);data=next; }
     if(work.trashedAt){const next=copy(data);setWorkTrashed(next,work.id,false);await store.save(next);data=next;work=data.works.find(w=>w.id===work.id);}
     if (materialSelection) { usePracticeMaterial(work); return; }
     prepare('repertoire', { title: work.title, context: 'piano', blocks: [block('repertoire', { workId: work.id, target: null, passage: work.passage, bpm: work.bpm, minutes: DEFAULT_PRACTICE_MINUTES })] });
@@ -638,10 +801,10 @@ export async function bootCompanion(reader) {
     });
     dialog.addEventListener('close', () => { restoringBackup = false; }, { once: true });
   }
-  async function catalogWork(id) {
+  async function catalogWork(id, onStand=false) {
     const source=CATALOG.find(c=>c.id===id);if(!source)return;const item=catalogPresentation(source);
     let w=data.works.find(w=>w.catalogId===id);
-    if(!w){w={id:uid(),catalogId:id,title:item.title,composer:item.composer,stage:STAGES[0],notes:item.reason,passage:item.passage,target:item.targets[0] || null,bpm:60,source:item.source};const cached=data.downloads.find(d=>d.catalogId===id);if(cached)w.assetId=cached.assetId;data.works.push(w);}
+    if(!w){w={id:uid(),catalogId:id,title:item.title,composer:item.composer,stage:STAGES[0],notes:item.reason,passage:item.passage,target:item.targets[0] || null,bpm:60,source:item.source,onStand};const cached=data.downloads.find(d=>d.catalogId===id);if(cached)w.assetId=cached.assetId;data.works.push(w);}
     if(w.trashedAt){const next=copy(data);setWorkTrashed(next,w.id,false);await store.save(next);data=next;}else await persist();render();toast(ui("Work added to your repertoire.", "Obra añadida a tu repertorio."));
   }
   // Profile pictures are framed by the user and stored as a small square JPEG so they travel with backups and sync.
@@ -701,6 +864,8 @@ export async function bootCompanion(reader) {
         finish: () => endSession(),
           read: () => ({ time: clock(totalMs()), running: data.active?.runningSince != null }),
         toggle: () => { if (!data.active) return; if (data.active.runningSince == null) { data.active.runningSince = Date.now(); checkpoint(); } else pauseSession(); updateClock(); },
+        measurement: () => data.active?.currentMeasurement?.source === 'midi' ? data.active.currentMeasurement : null,
+        measure: value => { if (data.active) data.active.currentMeasurement = { source: 'midi', correct: value.correct, wrong: value.wrong }; },
       } : null);
     }
     openingScore = true;
@@ -735,9 +900,13 @@ export async function bootCompanion(reader) {
     'library-research':()=>{libraryFilters={state:'missing'};libraryPage=0;render();},
     'library-all':()=>{libraryFilters={};libraryPage=0;render();},
     'library-page':id=>{libraryPage=Number(id);render();root.querySelector('.cp-page')?.scrollTo(0,0);},
-    home:()=>go('home'),practice:()=>go('practice'),'today-calendar':()=>{selectedDate=localDate();calendarMode='week';go('calendar');},calendar:()=>go('calendar'),piano:()=>go('piano'),settings:async()=>{go('settings');await refreshProfileFiles();},progress:()=>go('progress'),repertoire:()=>go('repertoire'),routines:()=>go('routines'),catalog:()=>{filteredTarget='';go('catalog');},
+    home:()=>go('home'),practice:()=>go('practice'),'today-calendar':()=>{selectedDate=localDate();calendarMode='week';go('calendar');},calendar:()=>go('calendar'),piano:()=>go(libraryPane==='catalog'?'catalog':'piano'),settings:async()=>{go('settings');await refreshProfileFiles();},progress:()=>go('progress'),repertoire:()=>go('repertoire'),routines:()=>go('routines'),catalog:()=>{filteredTarget='';go('catalog');},
+    'quick-practice':async()=>{if(dialog.open)dialog.close();if(data.active){go('session');toast(ui('Continue or finish your pending session first.','Continúa o termina primero tu sesión pendiente.'));return;}await startSession(quickPractice(data.preferences));await openReader();},
     prepare:id=>prepare(id||'reading'),
     'close-dialog':()=>dialog.close(),
+    'quick-finish':async()=>{dialog.close();await endQuickPractice();},
+    'quick-later':()=>{dialog.close();hideReader();checkpoint();go('practice');},
+    'quick-continue':()=>{dialog.close();reader.play();},
     'resume-session':()=>go('session'),
     'weekly-planner':()=>{dialog.close();go('planner');},
     'calendar-day':id=>{selectedDate=id;calendarMode='week';go('calendar');root.querySelector('.selected-day')?.scrollIntoView({block:'center'});},
@@ -748,7 +917,9 @@ export async function bootCompanion(reader) {
     'calendar-next':()=>{selectedDate=shiftCalendar(selectedDate,1,calendarMode);render();},
     'calendar-add':()=>addOnDay(),
     'week-prev':()=>{selectedDate=addDays(selectedDate,-7);render();},'week-next':()=>{selectedDate=addDays(selectedDate,7);render();},today:()=>{selectedDate=localDate();render();},'select-day':id=>{selectedDate=id;render();},
-    'plan-practice':()=>{dialog.close();prepare('reading',null,'plan');},
+    'plan-practice':()=>{if(!data.routines.length){dialog.close();prepare('reading',null,'plan');return;}showDialog(ui('Schedule practice','Planificar práctica'),`<p class="muted">${ui('Use a saved routine or prepare a new practice.','Usa una rutina guardada o prepara una práctica nueva.')}</p><div class="cp-routine-activities">${data.routines.map(r=>btn('schedule-routine',esc(r.title),r.id))}${btn('schedule-new-practice',ui('+ New practice','+ Práctica nueva'),'','quiet')}${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`);},
+    'schedule-new-practice':()=>{dialog.close();prepare('reading',null,'plan');},
+    'schedule-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;preparePurpose='plan';planForm(null,copy(routine));},
     'choose-catalogue':id=>{
       readDraft();const index=id==='add'?null:Number(id);
       if(index==null&&draft.blocks.length>=20)throw Error(ui("A practice can contain up to 20 blocks. Replace a repertoire block instead.", "Una práctica puede tener hasta 20 bloques. Sustituye un bloque de repertorio."));
@@ -766,11 +937,18 @@ export async function bootCompanion(reader) {
       if(work.trashedAt){const next=copy(data);setWorkTrashed(next,work.id,false);await store.save(next);data=next;work=data.works.find(w=>w.id===work.id);}
       usePracticeMaterial(work);
     },
-    'new-routine':()=>prepare('reading'),
+    'new-routine':()=>prepare('reading',null,'routine'),
     'quick-routine':async id=>{if(data.active){go('session');return;}await startSession(data.routines.find(r=>r.id===id));if(['reading','technique'].includes(currentBlock()?.type)&&(data.active.context!=='midi'||reader.devices.length))openReader();},
     'start-routine':id=>prepare('reading',data.routines.find(r=>r.id===id)),
-    'edit-routine':id=>prepare('reading',data.routines.find(r=>r.id===id)),
-    'delete-routine':id=>confirm(ui("Delete routine", "Eliminar rutina"),ui("Completed sessions will be kept.", "Las sesiones realizadas se conservarán."),async()=>{data.routines=data.routines.filter(r=>r.id!==id);await persist();render();}),
+    'edit-routine':id=>prepare('reading',data.routines.find(r=>r.id===id),'routine'),
+    'routine-add':()=>{readDraft();if(draft.blocks.length>=20){toast(ui('A routine can contain up to 20 blocks.','Una rutina puede contener hasta 20 bloques.'));return;}const types=['reading','technique','repertoire','free'];showDialog(ui('Add block','Añadir bloque'),`<div class="cp-routine-activities">${types.map(type=>btn('routine-add-type',ACTIVITIES[type],type,'quiet')).join('')}</div>`);},
+    'routine-add-type':type=>editRoutineBlock(null,type),
+    'routine-edit-block':id=>editRoutineBlock(id),
+    'routine-up':id=>changeRoutineBlocks({type:'move',blockId:id,toIndex:draft.blocks.findIndex(b=>b.id===id)-1}),
+    'routine-down':id=>changeRoutineBlocks({type:'move',blockId:id,toIndex:draft.blocks.findIndex(b=>b.id===id)+1}),
+    'routine-remove':id=>changeRoutineBlocks({type:'remove',blockId:id}),
+    'routine-cancel':()=>confirm(ui('Discard changes?','¿Descartar cambios?'),ui('Your saved routines stay unchanged.','Tus rutinas guardadas no cambian.'),()=>{dialog.close();go('routines');}),
+    'delete-routine':id=>confirm(ui("Delete routine", "Eliminar rutina"),ui("Delete this saved routine? Completed sessions and planned practices will be kept.", "¿Eliminar esta rutina guardada? Se conservarán las sesiones realizadas y las prácticas planificadas."),async()=>{const next=copy(data);next.routines=next.routines.filter(r=>r.id!==id);await store.save(next);data=next;dialog.close();if(view==='prepare')go('routines');else render();toast(ui('Routine deleted.','Rutina eliminada.'));}),
     'block-add':()=>{dialog.close();readDraft();if(draft.blocks.length>=20){toast(ui("You can include up to 20 blocks in a routine.", "Puedes incluir hasta 20 bloques en una rutina."));return;}const total=practiceMinutes(draft.blocks);draft.blocks.push(block('reading',practiceDefaults(data.preferences,'reading')));draft.blocks=resizePractice(draft.blocks,total);render();},
     'block-remove':id=>{readDraft();if(draft.blocks.length<=1)return;const total=practiceMinutes(draft.blocks);draft.blocks.splice(+id,1);draft.blocks=resizePractice(draft.blocks,total);render();},
     'block-up':id=>{readDraft();const i=+id;if(i>0)[draft.blocks[i-1],draft.blocks[i]]=[draft.blocks[i],draft.blocks[i-1]];render();},
@@ -781,7 +959,7 @@ export async function bootCompanion(reader) {
     'start-plan':id=>{dialog.close();const p=data.plans.find(p=>p.id===id);return startSession({title:p.title,context:p.context,blocks:p.blocks,planId:p.id});},
     'edit-plan':id=>{const plan=data.plans.find(p=>p.id===id);if(!plan||plan.status!=='planned'||data.active?.planId===id)throw Error(ui("Only pending practices can be edited.", "Solo puedes editar prácticas pendientes."));dialog.close();prepare(plan.blocks[0].type,plan,'edit-plan');},
     'reschedule-plan':id=>{preparePurpose='plan';planForm(data.plans.find(p=>p.id===id));},
-    'apply-plan-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;readDraft();draft={...draft,title:routine.title,context:routine.context,blocks:copy(routine.blocks)};render();},
+    'apply-plan-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;readDraft();draft={...draft,title:routine.title,context:routine.context,blocks:copy(routine.blocks),...(routine.routinePolicy?{routinePolicy:copy(routine.routinePolicy)}:{})};render();},
     'cancel-series':id=>{
       const item = [...data.plans, ...data.events].find(v=>v.id===id);
       if (!item?.recurrence) return;
@@ -797,22 +975,33 @@ export async function bootCompanion(reader) {
     'delete-plan':id=>confirm(ui("Delete planned practice", "Eliminar práctica prevista"),ui("Completed practice history will be kept.", "El historial de prácticas realizadas se conserva."),async()=>{data.plans=data.plans.filter(p=>p.id!==id);await persist();await reminders();render();}),
     'repertoire-page':id=>{repertoireIndex=Number(id);render();root.querySelector('.cp-page')?.scrollTo(0,0);},
     'repertoire-reset':()=>{repertoireFilters={};repertoireIndex=0;render();},
+    'repertoire-sort':id=>{repertoireFilters.direction=(repertoireFilters.sort||'title')===id&&repertoireFilters.direction!=='desc'?'desc':'asc';repertoireFilters.sort=id;repertoireIndex=0;render();},
     'favorite-work':async id=>{const next=copy(data),work=next.works.find(w=>w.id===id);if(!work)return;work.favorite=!work.favorite;await store.save(next);data=next;render();},
     'restore-work':async id=>{const next=copy(data);setWorkTrashed(next,id,false);await store.save(next);data=next;render();toast(ui("Work restored.", "Obra restaurada."));},
     'delete-work':id=>confirm(ui("Delete work", "Eliminar obra"), ui("Move this work to trash? Its PDF, annotations, practice history and existing plans will be kept. You can restore it from Repertoire → Collection → Trash.", "¿Mover esta obra a la papelera? Se conservarán su PDF, anotaciones, historial y planes. Puedes restaurarla desde Repertorio → Colección → Papelera."),async()=>{const next=copy(data);setWorkTrashed(next,id,true);await store.save(next);data=next;go('repertoire');}),
     'new-work':()=>workForm(),'edit-work':id=>workForm(data.works.find(w=>w.id===id)),
     'work-detail':id=>go('work',id),
+    'stand-work':async id=>{const work=data.works.find(w=>w.id===id);if(!work)return;const next=copy(data);setWorkOnStand(next,id,!isOnStand(work));await store.save(next);data=next;render();toast(isOnStand(next.works.find(w=>w.id===id))?ui("On the music stand.", "En el atril."):ui("Moved to the rest of your repertoire.", "Pasada al resto del repertorio."));},
+    'library-add-work':async id=>{
+      const record=catalogueRecords(library).find(r=>r.piece_id===id);if(!record)return;
+      const existing=data.works.find(w=>w.libraryId===id),next=copy(data);
+      if(existing)setWorkTrashed(next,existing.id,false);
+      else{const e=executionFor(library,id);next.works.push({id:uid(),libraryId:id,title:record.display_title.slice(0,200),composer:record.known_metadata.composer||'',stage:STAGES[0],target:null,bpm:60,passage:'',notes:'',onStand:false,...(e.assetId?{assetId:e.assetId,assetFormat:'musicxml'}:{})});}
+      await store.save(next);data=next;render();toast(ui("Work added to your repertoire.", "Obra añadida a tu repertorio."));
+    },
     'practice-work':id=>{const w=data.works.find(w=>w.id===id);prepare('repertoire',{title:w.title,context:'piano',blocks:[block('repertoire',{workId:id,target:w.target,passage:w.passage,bpm:w.bpm,minutes:15})]});},
     'plan-work':id=>{const w=data.works.find(w=>w.id===id);prepare('repertoire',{title:w.title,context:'piano',blocks:[block('repertoire',{workId:id,target:w.target,passage:w.passage,bpm:w.bpm,minutes:15})]},'plan');},
     'import-pdf':()=>importScore(), 'attach-pdf':importScore,
     'open-pdf':showScore,
+    'print-work':id=>printStoredScore(id),
+    'library-print':id=>printStoredScore(id,true),
     'remove-pdf':id=>confirm(ui("Delete PDF and annotations", "Eliminar PDF y sus anotaciones"),ui("The file and marks on its pages will be deleted. The work, notes and sessions will be kept. Export a backup to keep the annotations.", "Se borrarán el archivo y las marcas dibujadas sobre sus páginas. La ficha, las notas de la obra y las sesiones se conservarán. Exporta una copia si quieres conservar las anotaciones."),async()=>{if(downloads.busy||libraryDownloads.busy)throw new Error(ui("Pause downloads before deleting a file.", "Pausa las descargas antes de eliminar un archivo."));const assetId=resource(id).assetId;const nextLibrary=structuredClone(library);for(const e of Object.values(nextLibrary.executions)){if(e.assetId===assetId){delete e.assetId;e.validated=false;e.render=null;e.segments=[];}if(e.referencePDF===assetId)delete e.referencePDF;}await store.saveLibrary(nextLibrary);library=nextLibrary;data.works.filter(w=>w.assetId===assetId).forEach(w=>delete w.assetId);data.downloads=data.downloads.filter(d=>d.assetId!==assetId);data.downloadJobs=data.downloadJobs.filter(j=>data.downloads.some(d=>d.catalogId===j.catalogId));await persist();await store.removeAsset(assetId);await refreshProfileFiles();render();}),
     downloads:()=>go('downloads'),
     'download-piece':id=>{if(['queued','downloading','waiting-wifi'].includes(data.downloadJobs.find(j=>j.catalogId===id)?.status)){go('downloads');return;}const task=downloads.enqueue(id);toast(ui("Download added. View its progress in Downloads.", "Descarga añadida. Puedes ver el progreso en Descargas."));return task;},
     'download-updates':async()=>{for(const item of catalogChanges(data.downloads))await downloads.enqueue(item.id);},
     'pause-download':id=>downloads.pause(id),'pause-downloads':pauseTransfers,
     'add-catalog-work':id=>catalogWork(id),
-    'practice-catalog-pdf':async id=>{await catalogWork(id);const work=data.works.find(w=>w.catalogId===id);if(work?.assetId)actions['practice-work'](work.id);},
+    'practice-catalog-pdf':async id=>{await catalogWork(id,true);const work=data.works.find(w=>w.catalogId===id);if(work?.assetId)actions['practice-work'](work.id);},
     'catalog-target':id=>{filteredTarget=id;go('catalog');},
     'target-history':id=>{const sessions=data.sessions.filter(s=>s.results.some(r=>r.block.target===id));showDialog(targetById(id).label,`${sessionCards(sessions)}<div class="cp-actions">${btn('close-dialog',ui("Close", "Cerrar"))}</div>`);},
     'new-event':()=>{if(view==='home')selectedDate=localDate();eventForm();},'edit-event':id=>eventForm(data.events.find(e=>e.id===id)),
@@ -821,7 +1010,13 @@ export async function bootCompanion(reader) {
     'manual-session':manualForm,
     'open-reader':openReader,
     'toggle-session':()=>{if(!data.active)return;if(data.active.runningSince==null){data.active.runningSince=Date.now();checkpoint();}else pauseSession();render();},
-    'toggle-metronome':()=>{if(metro){stopMetro();render();return;}if(!data.active)return;if(data.active.runningSince==null)data.active.runningSince=Date.now();let beat=0;const bpm=currentBlock().bpm;const clicks=[];const sound=()=>{while(clicks.length>8)clicks.shift();clicks.push(click(beat++%4===0,audioNow()+.02));};sound();metro={interval:setInterval(sound,60000/bpm),clicks};render();},
+    'toggle-metronome':()=>{if(metro)stopMetro();else startMetro();render();},
+    'open-free-practice':()=>{if(currentBlock()?.type!=='free')return;go('free-practice');data.active.runningSince=Date.now();checkpoint();render();},
+    'free-return':()=>{pauseSession();go('session');},
+    'metro-favorite-add':()=>{const settings=metronomeSettings(data.active);data.active.freeMetronome={...settings,favorites:[...new Set([...settings.favorites,settings.bpm])].sort((a,b)=>a-b)};checkpoint();render();},
+    'metro-favorite-remove':id=>{const settings=metronomeSettings(data.active);data.active.freeMetronome={...settings,favorites:settings.favorites.filter(bpm=>bpm!==Number(id))};checkpoint();render();},
+    'metro-favorite':id=>{const settings=metronomeSettings(data.active);if(!settings.favorites.includes(Number(id)))return;data.active.freeMetronome={...settings,bpm:Number(id)};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();},
+    'tap-tempo':()=>{const at=performance.now();tempoTaps=tempoTaps.filter(t=>at-t<3000);tempoTaps.push(at);if(tempoTaps.length>6)tempoTaps.shift();if(tempoTaps.length>1){data.active.freeMetronome={...metronomeSettings(data.active),bpm:Math.max(30,Math.min(240,Math.round(60000*(tempoTaps.length-1)/(at-tempoTaps[0]))))};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();}},
     'quiz-answer':answer=>{if(!data.active||currentBlock()?.type!=='theory')return;if(!data.active.runningSince)data.active.runningSince=Date.now();quiz=quiz||data.active.currentMeasurement||{source:'quiz',correct:0,wrong:0};if(quiz.correct)return;const correct=answer===targetById(currentBlock().target).answer;quiz[correct?'correct':'wrong']++;$('#quiz-feedback').textContent=correct?ui("Correct. Now put the idea into practice.", "Correcto. Lleva ahora la idea a la práctica."):ui("Try again: count the degrees from the tonic.", "Prueba otra vez: cuenta los grados desde la tónica.");checkpoint();},
     'next-block':nextBlock,'session-end':endSession,
     'session-block-up':id=>changeSession({type:'move',blockId:id,toIndex:data.active.blocks.findIndex(b=>b.id===id)-1}),
@@ -835,7 +1030,7 @@ export async function bootCompanion(reader) {
     'delete-session':id=>confirm(ui("Delete saved session", "Eliminar sesión guardada"), ui("Delete this session and its feedback from history and progress totals? Any linked practice plan will become pending again. Works, scores and annotations will be kept.", "¿Eliminar esta sesión y su valoración del historial y del progreso? La práctica planificada asociada volverá a estar pendiente. Se conservarán las obras, partituras y anotaciones."), async()=>{const next=copy(data);deleteSession(next,id);await store.save(next);data=next;await reminders();go('progress');}),
     'session-detail':id=>{dialog.close();go('session-detail',id);},
     'repeat-session':id=>{const s=data.sessions.find(s=>s.id===id);prepare('reading',{title:s.title,context:s.context,blocks:s.blocks});},
-    'edit-session-notes':id=>{const s=data.sessions.find(s=>s.id===id);showDialog(ui("Session feedback", "Valoración de la sesión"),`<form>${feedbackFields(s,data.works)}${formEnd()}</form>`,async f=>{Object.assign(s,readFeedback(f));await persist();dialog.close();render();});},
+    'edit-session-notes':id=>{const s=data.sessions.find(s=>s.id===id);showDialog(ui("Session feedback", "Valoración de la sesión"),`<form>${feedbackFields(s,data.works)}${formEnd()}</form>`,async f=>{const {parts,...feedback}=readFeedback(f);Object.assign(s,feedback);applyWorkParts(s,parts);await persist();dialog.close();render();});},
     'use-midi':()=>switchSessionContext('midi'),
     'profile-back':()=>navigateBack(),
     'profile-practice':()=>go('profile-practice'),
@@ -851,6 +1046,7 @@ export async function bootCompanion(reader) {
     'profile-photo-gallery':()=>{dialog.close();choosePhoto();},
     'profile-photo-remove':async()=>{dialog.close();await savePhoto(null);toast(ui('Picture removed.','Foto eliminada.'));},
     'profile-edit':()=>showDialog(ui("Edit profile", "Editar perfil"),identityMarkup(data.preferences,getAppLanguage()),async f=>{const language=String(f.get('language'));if(!Object.hasOwn(APP_LANGUAGES,language))throw Error(ui('Choose a supported language.','Elige un idioma disponible.'));const level=Number(f.get('level'));if(!(Number.isInteger(level)&&level>=1&&level<=4))throw Error(ui('Choose a pianist level.','Elige un nivel de pianista.'));const next=copy(data);next.preferences={...next.preferences,name:String(f.get('name')).trim(),weeklyMinutes:Number(f.get('weeklyMinutes')),language,level};await store.save(next);data=next;setAppLanguage(language);reader.setLanguage?.(language);dialog.close();render();await reminders();toast(ui('Profile saved.','Perfil guardado.'));}),
+    about:()=>showDialog(ui('About SPino','Acerca de SPino'),aboutMarkup(getAppLanguage())),
     'profile-data':()=>showDialog(ui("Data on this device", "Datos de este dispositivo"),ui("<p class=\"muted\">Your history, repertoire and scores are stored on this device.</p><div class=\"cp-actions\">", "<p class=\"muted\">Tu historial, repertorio y partituras se guardan en este dispositivo.</p><div class=\"cp-actions\">")+btn('profile-data-backup',ui("Backup & sync", "Copia y sincronización"))+btn('erase-data',ui("Erase notebook", "Borrar cuaderno"),'','danger quiet')+btn('close-dialog',ui("Close", "Cerrar"))+'</div>'),
     'profile-data-backup':()=>{dialog.close();go('profile-backup');},
     'midi-settings':()=>{pauseSession();go('instrument');},
@@ -858,6 +1054,8 @@ export async function bootCompanion(reader) {
     'instrument-device':id=>instrument.connectDevice(id),
     'instrument-forget':id=>instrument.forgetDevice(id),
     'warmup-guide':()=>showWarmupGuide(currentBlock()),
+    'session-pick-work':id=>pickSessionWork(id),
+    'session-change-work':()=>showDialog(ui("Change piece", "Cambiar obra"),`${workPickerMarkup(data,currentBlock()?.workId,workPlayable)}<p class="muted">${ui("The time you have spent stays with the current piece.", "El tiempo que llevas se queda con la obra actual.")}</p><div class="cp-actions">${btn('close-dialog',ui("Cancel", "Cancelar"))}</div>`),
     'instrument-pedal':id=>instrument.learnPedal(id),'instrument-pedal-reset':()=>instrument.resetPedals(),
     'instrument-autoconnect':()=>instrument.setAutoConnect(!instrument.state.autoConnect),
     'notification-permission':async()=>{await reminders(true);render();},
@@ -879,7 +1077,7 @@ export async function bootCompanion(reader) {
     'cloud-recovery':async()=>{if(cloud?.busy)throw new Error(ui("Wait for the current backup to finish.", "Espera a que termine la copia en curso."));pauseSession();reviewBackupRestore((await CloudBackup.readRecovery()).text);},
     'erase-data':()=>confirm(ui("Erase the notebook", "Borrar el cuaderno"),ui("Local data and scores will be deleted. Exported backups will not be deleted.", "Se eliminarán los datos locales y las partituras. Las copias que hayas exportado no se borrarán."),async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause downloads before erasing the notebook.", "Pausa las descargas antes de borrar el cuaderno."));await syncReminders({plans:[],events:[]});await cloud?.disconnect();await store.clear();location.reload();}),
   };
-  const SCORE_OPENERS=new Set(['open-pdf','library-preview','library-segment-preview']);
+  const SCORE_OPENERS=new Set(['open-pdf','library-preview','library-segment-preview','print-work','library-print']);
   async function handleAction(e) {
     const button=e.target.closest('[data-action]');if(!button || sessionWriting)return;
     const action=actions[button.dataset.action];if(!action)return;
@@ -889,8 +1087,9 @@ export async function bootCompanion(reader) {
     try{await action(button.dataset.id);}catch(error){toast(error.message||ui("Could not complete the action. Please try again.", "No se ha podido completar. Puedes volver a intentarlo."));}finally{button.disabled=false;if(loading){button.classList.remove('cp-loading');button.removeAttribute('aria-busy');}}
   }
   root.addEventListener('click',handleAction);dialog.addEventListener('click',handleAction);
-  root.addEventListener('input',e=>{if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const resized=resizePractice(durationWeights,e.target.value);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();const total=practiceMinutes(draft.blocks),slider=$('#practice-duration');slider.max=Math.max(180,total);slider.value=total;root.querySelector('output[for=practice-duration]').value=total;}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range'){const output=root.querySelector(`output[for="${e.target.id}"]`);if(output)output.value=e.target.value;}});
+  root.addEventListener('input',e=>{if(view==='prepare'&&preparePurpose==='routine'&&e.target.closest('#prepare-form')){readDraft();const total=root.querySelector('output[for=practice-duration]');if(total)total.value=practiceMinutes(draft.blocks)+(draft.routinePolicy.warmup?draft.routinePolicy.warmupMinutes:0);if(e.target.name==='routine-warmup'){const minutes=root.querySelector('[name=warmup-minutes]');minutes.disabled=!draft.routinePolicy.warmup;minutes.required=draft.routinePolicy.warmup;}return;}if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const resized=resizePractice(durationWeights,e.target.value);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();const total=practiceMinutes(draft.blocks),slider=$('#practice-duration');slider.max=Math.max(180,total);slider.value=total;root.querySelector('output[for=practice-duration]').value=total;}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range'){const output=root.querySelector(`output[for="${e.target.id}"]`);if(output)output.value=e.target.value;}});
   root.addEventListener('change',async e=>{if(e.target.id==='practice-duration')durationWeights=null;
+    if(e.target.dataset.metroSetting && data.active){const key=e.target.dataset.metroSetting,value=key==='mode'?e.target.value:Number(e.target.value);if((key==='bpm'&&(!Number.isFinite(value)||value<30||value>240))||(key==='volume'&&(!Number.isFinite(value)||value<0||value>100))){e.target.value=metronomeSettings(data.active)[key];return;}data.active.freeMetronome={...metronomeSettings(data.active),[key]:value};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();return;}
     if (e.target.dataset.sessionMinutes || e.target.dataset.sessionDuration) {
       try { await changeSession({type:'minutes',blockId:e.target.dataset.sessionMinutes || e.target.dataset.sessionDuration,minutes:Number(e.target.value)}); }
       catch(error) { toast(error.message); }
@@ -903,17 +1102,26 @@ export async function bootCompanion(reader) {
     if(e.target.id==='background-timer'&&data.active){data.active.keepTimeInBackground=e.target.checked;checkpoint();}
     if(e.target.id==='calendar-date'){if(e.target.value){selectedDate=e.target.value;render();}}
     if(e.target.id==='catalog-target'){filteredTarget=e.target.value;render();}
-    if(view==='prepare'&&(e.target.name?.startsWith('type-')||e.target.name?.startsWith('timing-')||e.target.name==='context')){const wasMobile=draft.context==='mobile';readDraft();if(e.target.name==='context'&&wasMobile&&draft.context!=='mobile'&&!draft.id)for(const b of draft.blocks)if(['reading','technique'].includes(b.type))b.hand=practiceDefaults(data.preferences,b.type).hand;if(!draft.id&&draft.blocks.length===1)draft.title=ACTIVITIES[draft.blocks[0].type];render();}
+    if(view==='prepare'&&(e.target.name?.startsWith('type-')||e.target.name?.startsWith('timing-')||e.target.name==='context')){const wasMobile=draft.context==='mobile';readDraft();if(e.target.name==='context'&&wasMobile&&draft.context!=='mobile'&&!draft.id)for(const b of draft.blocks)if(['reading','technique'].includes(b.type))b.hand=practiceDefaults(data.preferences,b.type).hand;if(preparePurpose!=='routine'&&!draft.id&&draft.blocks.length===1)draft.title=ACTIVITIES[draft.blocks[0].type];render();}
     if(e.target.dataset.milestone!=null){const event=data.events.find(v=>v.id===detailId);if(event){event.milestones[+e.target.dataset.milestone].done=e.target.checked;try{await persist();}catch{}}}
   });
   window.addEventListener('piano:play',()=>{if(data.active){data.active.runningSince=Date.now();checkpoint();}});
+  window.addEventListener('piano:quick-answer',event=>{
+    if(!data.active?.quickScore||!currentBlock()?.quickPractice)return;
+    data.active.quickScore=addQuickAnswer(data.active.quickScore,event.detail.correct,event.detail.ms);
+    const display=$('#practice-quick-score');if(display){display.textContent=data.active.quickScore.points;display.classList.remove('is-gain','is-loss');void display.offsetWidth;display.classList.add(event.detail.correct?'is-gain':'is-loss');}
+    const best=data.active.quickBest??quickRecords(data.sessions)[0]?.quickScore.points??0;
+    const meter=$('#timing-mode .quick-game-meter i');if(meter)meter.style.width=`${best?Math.min(100,data.active.quickScore.points/best*100):0}%`;
+    if(best>0&&data.active.quickScore.points>best&&!data.active.quickRecordBeaten){data.active.quickRecordBeaten=true;$('#timing-mode').classList.add('is-record');}
+    checkpoint();
+  });
   window.addEventListener('piano:pause',()=>{if(data.active){pause(data.active);stopMetro();updateClock();}});
   window.addEventListener('piano:range-changed',()=>{if(data.active&&readerMounted){checkpoint();updateClock();}});
   window.addEventListener('piano:midi-lost',()=>{if(data.active?.context==='midi'){const returnToSession=root.hidden||view==='session';pauseSession();if(returnToSession){hideReader();go('session');}toast(ui("MIDI disconnected. Evaluation has been paused.", "MIDI desconectado. Se ha pausado la evaluación."));}});
   window.addEventListener('piano:devices',()=>{if(!root.hidden&&view==='session')render();});
   window.addEventListener('online',()=>{downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
   setInterval(()=>{if(!document.hidden){if(data.downloadJobs.some(j=>j.status==='waiting-wifi'))downloads.pump().catch(()=>{});if(Object.values(library.executions).some(e=>e.job?.status==='waiting-wifi'))libraryDownloads.pump().catch(()=>{});}},10000);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {if(data.active){checkpoint();updateClock();}if(['home','calendar','session'].includes(view)&&!dialog.open)render();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
   let sessionResize;
   window.addEventListener('resize', () => {
     clearTimeout(sessionResize);

@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {openBrowser} from '../../tests/browser.js';
+
+test('Hanon motion preview renders and responds without changing app data', {timeout:45000}, async t=>{
+  const {send,evaluate,errors}=await openBrowser(t);
+  const fragment=await readFile(new URL('./hanon-one-soft-hands.html',import.meta.url),'utf8');
+  assert.ok(!fragment.includes('<html'));
+  assert.ok(Buffer.byteLength(fragment)<1_000_000);
+  const source='<meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;background:#171b21}</style>'+fragment;
+  await send('Emulation.setDeviceMetricsOverride',{width:736,height:610,deviceScaleFactor:1,mobile:false});
+  await send('Page.navigate',{url:'data:text/html;charset=utf-8,'+encodeURIComponent(source)});
+  await evaluate(`new Promise((resolve,reject)=>{let tries=0;const timer=setInterval(()=>{const r=document.getElementById('hanon-soft-volume');if(r?.dataset.note){clearInterval(timer);resolve(true);}else if(++tries>180){clearInterval(timer);reject(Error(document.body.innerText));}},100);})`);
+  assert.equal(await evaluate('document.querySelectorAll(".hv-badge").length'),10);
+  assert.equal(await evaluate('document.querySelector("[data-left]").textContent'),'5 · C3');
+  assert.equal(await evaluate('document.querySelector("[data-right]").textContent'),'1 · C4');
+  const initial=await send('Page.captureScreenshot',{format:'png'});
+  await writeFile(new URL('./hanon-b-initial.png',import.meta.url),Buffer.from(initial.data,'base64'));
+  await evaluate('document.querySelector("[data-step]").click()');
+  assert.equal(await evaluate('document.querySelector("[data-right]").textContent'),'2 · E4');
+  await evaluate('document.querySelector("[data-play]").click()');
+  await evaluate('new Promise(resolve=>setTimeout(resolve,1400))');
+  assert.ok(Number(await evaluate('document.querySelector("#hanon-soft-volume").dataset.note'))>=3);
+  await evaluate('document.querySelector("[data-play]").click()');
+  const active=await send('Page.captureScreenshot',{format:'png'});
+  await writeFile(new URL('./hanon-b-playing.png',import.meta.url),Buffer.from(active.data,'base64'));
+  await send('Emulation.setDeviceMetricsOverride',{width:360,height:580,deviceScaleFactor:1,mobile:false});
+  await evaluate('new Promise(resolve=>setTimeout(resolve,200))');
+  assert.equal(await evaluate('document.documentElement.scrollWidth<=360'),true);
+  const phone=await send('Page.captureScreenshot',{format:'png'});
+  await writeFile(new URL('./hanon-b-phone.png',import.meta.url),Buffer.from(phone.data,'base64'));
+  assert.deepEqual(errors,[]);
+});

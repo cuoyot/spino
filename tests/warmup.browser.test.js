@@ -26,8 +26,10 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   assert.match(await evaluate(`(document.querySelector('.cp-nav [data-action=practice]').click(),document.querySelector('[data-action=prepare][data-id=reading]').click(),document.querySelector('[name=context]').value='piano',document.querySelector('[name=context]').dispatchEvent(new Event('change',{bubbles:true})),document.querySelector('.cp-warmup-note')?.textContent||'')`), /calentamiento Hanon de 3 min/);
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('[data-action=session-end]')`);
   assert.equal(await evaluate(`document.querySelector('.cp-session-card .eyebrow').textContent`), 'Bloque 1 de 2 · Calentamiento');
-  assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 1');
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-session-warmup .wg-tip').length`), 10);
+  // At pianist level 1 three minutes hold two exercises, played one after another.
+  assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 1 · 2');
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-session-warmup .ws-picture').length`), 1);
+  assert.equal(await evaluate(`document.querySelector('.cp-session-warmup img').getAttribute('src')`), './warmups/hanon-soft-snapshots.png');
   const stored = await read();
   assert.deepEqual(stored.active.blocks.map(b => b.type), ['warmup', 'reading']);
   assert.equal(stored.active.blocks[0].hand, 'both');
@@ -35,8 +37,13 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   // "How to play" opens the guide with its demonstration; the demo lights keys and fingers.
   await action('warmup-guide'); await wait(`document.querySelector('#cp-dialog[open] .cp-warmup-guide')`);
   assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog .wg-figure li').length`), 16);
-  await evaluate(`document.querySelector('[data-warmup-demo]').click()`);
-  await wait(`document.querySelectorAll('#cp-dialog .wg-key[data-active]').length===2 && document.querySelectorAll('#cp-dialog .wg-tip.active').length===2`);
+  assert.equal(await evaluate(`document.querySelector('#cp-dialog .wg-set b').textContent`), 'Ejercicio 1 de 2');
+  await evaluate(`document.querySelector('#cp-dialog [data-warmup-step="1"]').click()`);
+  assert.match(await evaluate(`document.querySelector('#cp-dialog .wg-focus').textContent`), /Hanon n\.º 2/);
+  await evaluate(`document.querySelector('#cp-dialog [data-warmup-step="0"]').click()`);
+  assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog .ws-frame').length`), 4);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('#cp-dialog .ws-frame b')].map(el=>el.textContent)`), ['1. Coloca','2. Toca la figura','3. Recoge','4. Desplaza y abre']);
+  assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog canvas, #cp-dialog svg.wg-diagram').length`), 0);
   await evaluate(`document.querySelector('#cp-dialog [data-action=close-dialog]').click()`);
   await wait(`!document.querySelector('#cp-dialog').open`);
 
@@ -44,26 +51,44 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   await action('open-reader'); await wait(`document.querySelector('#cp-dialog[open] [data-warmup-start]')`);
   assert.equal(await evaluate(`__sr.timed`), null);
   await evaluate(`document.querySelector('[data-warmup-start]').click()`); await wait(`__sr.timed && __sr.timed.suspendedAt==null`);
-  const reader = await evaluate(`({title:document.querySelector('#practice-title').textContent,guide:!document.querySelector('#practice-guide').hidden,finish:document.querySelector('#practice-finish').textContent,fingers:document.querySelector('#finger-btn').textContent,clef:__sr.layout.rows?__sr.layout.rows.length:0,treble:__sr.line.notes.filter(n=>n.clef==='treble').slice(0,5).map(n=>n.letter+n.octave+n.finger).join(' '),bass:__sr.line.notes.filter(n=>n.clef==='bass').slice(0,5).map(n=>n.letter+n.octave+n.finger).join(' ')})`);
-  assert.equal(reader.title, 'Calentamiento · Hanon n.º 1');
-  assert.ok(reader.guide); assert.equal(reader.finish, 'Terminar bloque');
+  const reader = await evaluate(`({title:document.querySelector('#practice-title').textContent,guide:!document.querySelector('#practice-guide').hidden,advance:document.querySelector('#practice-advance').getAttribute('aria-label'),fingers:document.querySelector('#finger-btn').title,clef:__sr.layout.rows?__sr.layout.rows.length:0,treble:__sr.line.notes.filter(n=>n.clef==='treble').slice(0,5).map(n=>n.letter+n.octave+n.finger).join(' '),bass:__sr.line.notes.filter(n=>n.clef==='bass').slice(0,5).map(n=>n.letter+n.octave+n.finger).join(' ')})`);
+  assert.equal(reader.title, 'Calentamiento · Hanon n.º 1 · 2');
+  assert.match(await evaluate(`document.querySelector('#key-name').textContent`), /Hanon n\.º 1 · 1\/2/);
+  assert.ok(reader.guide); assert.equal(reader.advance, 'Siguiente: Lectura');
   assert.match(reader.fingers, /Sí|On/);
   assert.equal(reader.treble, 'c41 e42 f43 g44 a45');
   assert.equal(reader.bass, 'c35 e34 f33 g32 a31');
+  // Common controls stay directly visible; Settings opens the Practice tab without
+  // putting a settings entry inside another menu.
+  const quickAccess = await evaluate(`({
+    menu:!!document.querySelector('#practice-tools-toggle'),
+    settings:document.querySelector('#q-clef').parentElement.className,
+    sound:document.querySelector('#q-sound').parentElement.id,
+    guide:document.querySelector('#guide-btn').parentElement.id,
+    fingers:document.querySelector('#finger-btn').parentElement.id,
+    recenter:document.querySelector('#kb-auto').parentElement.id,
+    range:document.querySelector('#kb-shift').parentElement.id,
+    soundLabel:document.querySelector('#q-sound').getAttribute('aria-label'),
+    clock:document.querySelector('#practice-clock').closest('#start')!==null
+  })`);
+  assert.deepEqual(quickAccess, { menu:false, settings:'quick', sound:'practice-settings-shortcuts', guide:'practice-settings-shortcuts', fingers:'practice-settings-shortcuts', recenter:'managed-keyboard-position', range:'managed-keyboard-position', soundLabel:'Sonido: Piano', clock:true });
+  await evaluate(`document.querySelector('#q-clef').click()`); await wait(`document.querySelector('#settings').open`);
+  assert.equal(await evaluate(`document.querySelector('#settings [data-tab="practice"]').classList.contains('on') && !document.querySelector('#settings [data-panel="practice"]').hidden`), true);
+  await evaluate(`document.querySelector('#settings button[value="close"]').click()`); await wait(`!document.querySelector('#settings').open`);
   // The toolbar "?" reopens the guide while pausing; the session continues afterwards.
   await evaluate(`document.querySelector('#practice-guide').click()`); await wait(`document.querySelector('#cp-dialog[open] .cp-warmup-guide')`);
   assert.ok(await evaluate(`__sr.timed.suspendedAt!=null`));
   await evaluate(`document.querySelector('[data-warmup-start]').click()`); await wait(`__sr.timed && __sr.timed.suspendedAt==null`);
 
   // Finishing the block moves on to the reading; saving the session makes the next warm-up Hanon No. 2.
-  await evaluate(`document.querySelector('#practice-finish').click()`); await wait(`document.querySelector('.cp-session-card .eyebrow')?.textContent.includes('Bloque 2 de 2')`);
+  await evaluate(`document.querySelector('#practice-advance').click()`); await wait(`document.querySelector('.cp-session-card .eyebrow')?.textContent.includes('Bloque 2 de 2')`);
   assert.equal((await read()).active.results[0].block.type, 'warmup');
   await action('session-end'); await wait(`document.querySelector('#cp-dialog[open] button[value=save]')`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value=save]'))`);
   await wait(`document.querySelector('[data-action="repeat-session"]')`);
   assert.equal((await read()).sessions[0].results.map(r => r.block.type).join(','), 'warmup,reading');
   await prepare('piano');
-  assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 2');
+  assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 2 · 3');
   await action('discard-session'); await evaluate(`document.querySelector('#cp-confirm').click()`); await wait(`document.querySelector('.cp-today')`);
 
   // Practice preferences switch the warm-up off.

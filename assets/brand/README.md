@@ -16,6 +16,7 @@ The symbol combines a notebook spine and page with piano-key shapes, suggesting 
 | `play-store-icon-512.png` | Google Play icon: 512 × 512, 32-bit PNG, square edges |
 | `spino-feature-master.png` | Generated wide composition with the wordmark and expansion |
 | `play-store-feature-1024x500.png` | Google Play feature graphic: 1024 × 500, 24-bit RGB PNG, no alpha |
+| `android/app/src/debug/res/drawable-nodpi/spino_test_launcher.png` | Amber launcher/splash icon used only by the side-by-side Android test build |
 | `PROMPTS.md` | Exact prompts and generation provenance |
 
 The web header and favicons are exported to `public/brand/`. Android density-specific resources are exported under `android/app/src/main/res/mipmap-*/spino_*.png` and `drawable-*/spino_mark.png`. Adaptive foregrounds use a 108 dp canvas with the artwork contained within 56 dp; Android 13+ also receives a monochrome alpha layer. Android supplies the adaptive mask. Legacy round icons are exported separately. Launch screens use the same artwork and charcoal background.

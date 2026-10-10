@@ -40,7 +40,7 @@ test('Edit profile applies and retains language across notebook, catalogue and m
   assert.equal(await evaluate(`__sr.settings.lang`), 'es');
   await click('[data-action=piano]');
   await click('[data-action=repertoire]');
-  assert.match(await evaluate(`document.querySelector('#app-shell').innerText`), /Tu repertorio/);
+  assert.match(await evaluate(`document.querySelector('#app-shell').innerText`), /Mi repertorio/);
   assert.doesNotMatch(await evaluate(`document.querySelector('#app-shell').innerText`), /Find, organize|Collection|Trash|Sort by/);
   await click('[data-action=new-work]');
   assert.match(await evaluate(`document.querySelector('#cp-dialog').innerText`), /Etiquetas/);
@@ -57,7 +57,7 @@ test('Edit profile applies and retains language across notebook, catalogue and m
   await wait(`document.querySelector('[data-action=open-reader]')`);
   await click('[data-action=open-reader]');
   assert.equal(await evaluate(`__sr.settings.lang`), 'es');
-  assert.equal(await evaluate(`document.querySelector('#practice-finish').textContent`), 'Terminar');
+  assert.equal(await evaluate(`document.querySelector('#practice-advance').getAttribute('aria-label')`), 'Valoración');
   await click('#practice-return');
   await click('[data-action=session-end]');
   assert.equal(await evaluate(`document.querySelector('#cp-dialog [data-action=discard-session]').textContent`), 'Terminar sin guardar');
@@ -71,7 +71,7 @@ test('Edit profile applies and retains language across notebook, catalogue and m
   await click('[data-action=resume-session]');
   await click('[data-action=open-reader]');
   assert.equal(await evaluate(`__sr.settings.lang`), 'en', 'resumed practice follows the profile language');
-  assert.equal(await evaluate(`document.querySelector('#practice-finish').textContent`), 'Finish');
+  assert.equal(await evaluate(`document.querySelector('#practice-advance').getAttribute('aria-label')`), 'Feedback');
   assert.deepEqual(errors, []);
 });
 

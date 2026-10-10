@@ -1,0 +1,346 @@
+{
+  "date": "2026-10-06",
+  "title": "Quick practice game HUD and personal best",
+  "surface": "Responsive browser, not native acceptance",
+  "fixtures": "Disposable notebook, 100-point previous record and two real answers per layout",
+  "sourceSha256": "2a8ff6d5a839c19f82a89896ce883d97263804822d7aa547df4cecd4b0db5bfa",
+  "results": [
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "9c29e18583480ea7702ec7c7e9e897c7b546f3112c860603e4fe1295857b8081"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "record-beaten",
+      "frames": [
+        {
+          "path": "record-beaten-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5bee0e16c146acc132190a856808082cebceebb8c872355f61127896ed985cd0"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "exit-choice",
+      "frames": [
+        {
+          "path": "exit-choice-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3aba787f084f0135ac84b6ed767daed1f7264d134a98a18a3cf0b2a73c9d541e"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "81c44eb2d3d47f74457e066b199805fd0d15f80ad03fc08c8630ccc4687a7bfd"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "practice-first",
+      "frames": [
+        {
+          "path": "practice-first-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3f488a9c8ec024bf674a982e850b32833bdceb0a405655bd7f9b97daab053463"
+        }
+      ]
+    },
+    {
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3f488a9c8ec024bf674a982e850b32833bdceb0a405655bd7f9b97daab053463"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "aff0a2de03a75f99cf6dc7aceb6ef27b0ac94bc20e78529bb748e04ae04c1a04"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "record-beaten",
+      "frames": [
+        {
+          "path": "record-beaten-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "09e400d3fb142c0740eb0bf0c9b741986cc19bf46b36a086bef3f3850b8b2915"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "exit-choice",
+      "frames": [
+        {
+          "path": "exit-choice-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "e0a9ed14e49e7fc11d255b6722803f0b2eb6d435b7adadc1976a093c7b243f66"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "7eb4418d671d51b2290154c1cd48c6ae7f1979f33fc0c3c8db067caf4b779cca"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "practice-first",
+      "frames": [
+        {
+          "path": "practice-first-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b1ab25758500e5abf528bd3e0cfc8bba3a468cbf1869c858f970242e8d5924c8"
+        }
+      ]
+    },
+    {
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "0594ff03aae105c8f7c1164ec41dcf258bf9640695b8c1208895a8d252ef430d"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "72cb3e8bebdb7593852443c0570f3964619950a2d4cb51412bd6624dad5f9a06"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "record-beaten",
+      "frames": [
+        {
+          "path": "record-beaten-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "f1a95ae1227bfaeb3ba1d34c078618fecc99ead89ec05ef0b33eb0c7d6e96dfb"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "exit-choice",
+      "frames": [
+        {
+          "path": "exit-choice-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "432bc46cb5a055638b283602f7a2056d67e08b541166bcc20eed0d84ecae8c2d"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "499004457da5716350a076cdc189bdcd288e98299f591051ecdbb61a5d81ca9f"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "practice-first",
+      "frames": [
+        {
+          "path": "practice-first-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d7b41cdcb891114b4f1c884432a37a0bdb429fe745af950bf140f1b6789bb39a"
+        }
+      ]
+    },
+    {
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d7b41cdcb891114b4f1c884432a37a0bdb429fe745af950bf140f1b6789bb39a"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "playing",
+      "frames": [
+        {
+          "path": "playing-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "92d613aa6ddf4ef1e102e32032ea3ae53adec9f694beb298c60730c518acac74"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "record-beaten",
+      "frames": [
+        {
+          "path": "record-beaten-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "c977d9d1439157c6dfb22d3fc2d3c4e6b74018bc5d466a3db6c3f6a08e17fc2f"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "exit-choice",
+      "frames": [
+        {
+          "path": "exit-choice-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "77797a9224b0fa6dfba4635830b7955b82baa8eec518758763b7a7cbd4aa6d3d"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "result",
+      "frames": [
+        {
+          "path": "result-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "099775435f7987d0b4d78386c9aa40a6074a5a917574790a09a5cd34d80e7d66"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "practice-first",
+      "frames": [
+        {
+          "path": "practice-first-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "403d3abad02abc7b7c58f32cf9deee744765565c1ad2bb8b57ce835529841d83"
+        }
+      ]
+    },
+    {
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "state": "records",
+      "frames": [
+        {
+          "path": "records-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "403d3abad02abc7b7c58f32cf9deee744765565c1ad2bb8b57ce835529841d83"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

@@ -1,0 +1,245 @@
+{
+  "runId": "2026-10-06-routine-dynamic-02",
+  "date": "2026-10-06",
+  "title": "Dedicated routine builder",
+  "surface": "Responsive production Chromium; not native acceptance",
+  "fixtures": "Disposable routines, no personal notebook",
+  "sourceSha256": "01f7bf6721d536457a91daa2aa752d99c3ce04113d299d1a3ccd07f002e4a9ff",
+  "results": [
+    {
+      "state": "create",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "create-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "72e2cd6b430b0ddf3a3c80fa3c337868d7e26af97e1960519f7572e93aea0586"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "block-editor-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a4e6ed064e9d90156d7bae4795bb9f74c213c582710cccf734102fd84ff165ce"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "sequence-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "798650e8557fb392fcecf9b53508f6ca83a879dde1545cec236031d671d7eb35"
+        }
+      ]
+    },
+    {
+      "state": "dragging",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "dragging-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a6a89ac1a67224b429837451da1986617d649e51f79fce978107f64da64bfacd"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "move-options-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "154a4700100fbfb2e0ba12ce339eb88cac3be48368a9a2bc226c718351d291f4"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "create-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "08a15067ae8ac0708efe839a26d869b8fd2517331936b4a5b93bf62394f161da"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "block-editor-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a55134b897d2a5bfe583c5dac6eea1262a33f3620e7f4f7c7f686b27a53e1d53"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "sequence-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b3536a99055a84b1049eee44e1031f7101ac18253d92e14face73221bd0131d6"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "move-options-phone-landscape-01.png",
+          "scrollTop": 224,
+          "sha256": "c0e8aaf7c552c2ae57ea97b8ff910616c4f9c56009ed6a11cfe72359bcd25e1c"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "create-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "ce33abe3b7e4c7937523de9ea69c0bda226eff4dace14fab716faa1253addf7d"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "block-editor-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "59174b108d4d74d1e08e08e66b4a4d02cbed3b6af2052118deb17273215de9b3"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "sequence-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d309b31e9d14208058ea0cb930983a702dd23f29f3f82d02271d6d937a966c46"
+        }
+      ]
+    },
+    {
+      "state": "dragging",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "dragging-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "1c607f7cb8d45a48497a44dc89aced510f2b8c4de12fa83d06ad3c55c1e08a9a"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "move-options-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "607a3881a14d5c5351779f63501e5d54552c828f4bbc285d68e1e0fc2d8f4cc9"
+        }
+      ]
+    },
+    {
+      "state": "create",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "create-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "9288efb01bbdef29180cd35e910767dc52c34dc1bb75b352ee9f6ccad28aeb9b"
+        }
+      ]
+    },
+    {
+      "state": "block-editor",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "block-editor-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "0076fe033d5c8982094140a77bf41a664c1bf5a53e741f0acdc1f67ce3235c95"
+        }
+      ]
+    },
+    {
+      "state": "sequence",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "sequence-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "e6f520741db477c5018322aa3693dc6ec59956a955baaf6ac9b0b7f809313f76"
+        }
+      ]
+    },
+    {
+      "state": "move-options",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "move-options-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "3e22c3c7a12ddd73532d5498a73049a3a0555d20f0b1fcc7c7d9b171cf4d771f"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

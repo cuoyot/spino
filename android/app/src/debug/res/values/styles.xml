@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="android:background">@drawable/spino_test_splash</item>
+        <item name="windowSplashScreenBackground">@color/spino_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/spino_test_launcher</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+    </style>
+</resources>

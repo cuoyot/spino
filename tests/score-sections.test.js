@@ -1,8 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateScoreView, sortSections, sectionLayout } from '../src/companion/score-view.js';
+import { validateScoreView, sortSections, sectionLayout, snapSectionPoint } from '../src/companion/score-view.js';
 
 const part = (id, page, x, y, w, h) => ({ id, page, x, y, w, h });
+
+test('section snapping aligns edges and repeats dimensions with a screen-pixel tolerance', () => {
+  const sections = [part('a', 1, .1, .1, .4, .2)], rect = { width: 400, height: 800 };
+  assert.deepEqual(snapSectionPoint({ x: .11, y: .105 }, sections, rect), { x: .1, y: .1 });
+  const result = snapSectionPoint({ x: .61, y: .705 }, sections, rect, { x: .2, y: .5 });
+  assert.ok(Math.abs(result.x - .6) < 1e-9 && Math.abs(result.y - .7) < 1e-9);
+  assert.deepEqual(snapSectionPoint({ x: .64, y: .72 }, sections, rect, { x: .2, y: .5 }), { x: .64, y: .72 });
+  assert.deepEqual(snapSectionPoint({ x: -.1, y: 1.1 }, [], rect), { x: 0, y: 1 });
+});
 
 test('score views keep valid page sections and reject malformed ones', () => {
   const view = validateScoreView({ version: 1, landscape: { zoom: 1, centerX: .5, centerY: .5 }, sections: [part('a', 1, .1, .1, .4, .1)] });

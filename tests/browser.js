@@ -26,10 +26,12 @@ function browserPath() {
   return exe;
 }
 
-export async function openBrowser(t, { companion = false, language = 'es' } = {}) {
-  const root = resolve('dist');
+export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = 'dist' } = {}) {
+  const root = resolve(rootDirectory);
   const server = createServer(async (req, res) => {
-    const path = resolve(root, '.' + (req.url === '/' ? '/index.html' : req.url));
+    const pathname = new URL(req.url, 'http://localhost').pathname;
+    const requestPath = pathname.endsWith('/') ? pathname + 'index.html' : pathname;
+    const path = resolve(root, '.' + requestPath);
     if (!path.startsWith(root + '/') && !path.startsWith(root + '\\')) { res.writeHead(403).end(); return; }
     try {
       const data = await readFile(path);

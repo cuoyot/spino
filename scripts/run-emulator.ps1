@@ -7,7 +7,7 @@ if (-not (& $adb devices | Select-String "emulator-")) {
   & $adb wait-for-device
   while ((& $adb shell getprop sys.boot_completed) -notmatch '1') { Start-Sleep 2 }
 }
-& $adb install -r (Join-Path (Split-Path $PSScriptRoot) 'SPino.apk')
+& $adb install -r (Join-Path (Split-Path $PSScriptRoot) 'SPino-Test.apk')
 if ($LASTEXITCODE -ne 0) { throw 'APK installation failed.' }
-& $adb shell am force-stop com.miguecoll.spino
-& $adb shell am start -n com.miguecoll.spino/.MainActivity
+& $adb shell am force-stop com.miguecoll.spino.test
+& $adb shell am start -n com.miguecoll.spino.test/com.miguecoll.spino.MainActivity

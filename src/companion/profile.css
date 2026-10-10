@@ -1,5 +1,12 @@
-/* Navigation keeps four destinations and an unlabeled profile avatar. */
-.cp-nav { grid-template-columns: repeat(4,minmax(0,1fr)) 56px; gap: 2px; padding: 6px 4px; }
+/* Five destinations and a separate profile avatar. */
+.cp-nav { grid-template-columns: repeat(5,minmax(0,1fr)) 48px; gap: 2px; padding: 6px 4px; }
+
+#app-shell .cp-about-link { text-align: left; }
+.cp-about section { margin: 20px 0; }
+.cp-about details { border-top: 1px solid var(--line); padding: 14px 0; }
+.cp-about summary { cursor: pointer; font-weight: 650; }
+.cp-about pre { white-space: pre-wrap; font: inherit; line-height: 1.6; overflow-wrap: anywhere; }
+.cp-about li { margin: 8px 0; }
 #app-shell .cp-nav button { padding: 7px 2px; gap: 4px; flex-direction: column; font-size: 11px; min-height: 60px; flex-shrink: 0; }
 .cp-practice-nav svg { fill: currentColor; stroke-width: 1; }
 .cp-avatar { width: 30px; height: 30px; display: inline-flex; flex: none; align-items: center; justify-content: center; border: 1px solid #69778a; border-radius: 50%; background: #2b3443; color: #dfebfa; font-size: 12px; font-weight: 650; }

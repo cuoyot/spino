@@ -64,7 +64,8 @@ test('mobile self-paced reading advances only after answers and replaces a compl
   const { evaluate, send, wait, errors } = browser;
   await prepareSelfPaced(browser, 'reading');
   assert.deepEqual(await evaluate(`({timing:__sr.settings.timing,timed:__sr.timed,page:__sr.layout.page,rows:__sr.layout.rows.length,paused:__sr.waiting.paused})`),
-    { timing: 'wait', timed: null, page: true, rows: 1, paused: false });
+    { timing: 'wait', timed: null, page: true, rows: await evaluate('__sr.layout.rows.length'), paused: false });
+  assert.ok(await evaluate('__sr.layout.rows.length > 1'),'Portrait uses available height for several systems');
   await captureScore(send, 390, 844);
 
   await t.test('idle time never scrolls, advances or marks a missed note', async () => {
@@ -93,7 +94,7 @@ test('mobile self-paced reading advances only after answers and replaces a compl
       await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true });
       await evaluate('settleScore()');
       assert.deepEqual(await evaluate('noteState()'), before, `${width}x${height}: rotating must not replace or shorten a partially answered line`);
-      assert.equal(await evaluate('__sr.layout.rows.length'), 1);
+      assert.ok(await evaluate('__sr.layout.rows.length>=1'));
       assert.equal(await evaluate('__sr.waiting.paused'), false);
       if (width > height) await captureScore(send, width, height);
     }
@@ -101,7 +102,7 @@ test('mobile self-paced reading advances only after answers and replaces a compl
 
   await t.test('all measures in the current line stay fixed until its final answer', async () => {
     const result = await evaluate(`(async()=>{
-      const pageStart=__sr.line.pageStart,end=pageStart+__sr.line.waitBars*4,geometry=JSON.stringify(scoreGeometry());
+      const pageStart=__sr.line.pageStart,end=pageStart+__sr.line.waitBars*4*__sr.layout.rows.length,geometry=JSON.stringify(scoreGeometry());
       let answers=0;const prematureChanges=[];
       while(__sr.line.pageStart===pageStart&&answers<64){
         const next=__sr.line.onsets[__sr.line.idx+1];
@@ -117,15 +118,15 @@ test('mobile self-paced reading advances only after answers and replaces a compl
     assert.ok(result.states.every(state => state === 'correct'));
   });
 
-  await t.test('pausing ignores input and resuming keeps the same notes and progress', async () => {
+  await t.test('a paused mobile key resumes and counts, with pause time excluded', async () => {
     await evaluate(`tapKey(__sr.line.notes[__sr.line.idx].midi);document.querySelector('#start').click()`);
     assert.equal(await evaluate('__sr.waiting.paused'), true);
     const before = await evaluate('noteState()');
-    await evaluate(`frameAt(performance.now()+60000);tapKey(__sr.line.notes[__sr.line.idx].midi)`);
+    await evaluate(`frameAt(performance.now()+60000)`);
     assert.deepEqual(await evaluate('noteState()'), before);
-    await evaluate(`document.querySelector('#start').click()`);
+    await evaluate(`tapKey(__sr.line.notes[__sr.line.idx].midi)`);
     assert.equal(await evaluate('__sr.waiting.paused'), false);
-    assert.deepEqual(await evaluate('noteState()'), before);
+    assert.ok(await evaluate(`__sr.line.idx`)>before.idx);
   });
 
   await t.test('an interrupted session restores its current line and answer states', async () => {

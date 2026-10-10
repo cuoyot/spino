@@ -3,7 +3,8 @@ import { practiceMinutes } from './practice-duration.js';
 import { RANGE_LEVELS, HANDS } from './practice-defaults.js';
 import { rhythmOptions, rhythmLevel } from './rhythm-levels.js';
 import { warmupPreferences } from './warmups.js';
-import { ACTIVITIES, CONTEXTS, stageLabel, localDate, addDays, weekOf, summary } from './model.js';
+import { ACTIVITIES, CONTEXTS, stageLabel, localDate, addDays, weekOf, summary, repertoireParts } from './model.js';
+import { isOnStand } from './repertoire.js';
 import { TARGETS, targetById } from './curriculum.js';
 
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -16,16 +17,18 @@ for (let index = 0; index < MOODS.length; index++) Object.defineProperty(MOODS, 
 export const FACES = ['😞', '🙁', '😐', '🙂', '😄'];
 export function feedbackFields(session, works) {
   const ids = session.workIds || [...new Set([...(session.results || []).map(r => r.block.workId), ...(session.blocks || []).map(b => b.workId)].filter(Boolean))];
+  const parts = repertoireParts(session), title = id => works.find(w => w.id === id)?.title || ui('Piece', 'Obra');
   works = works.filter(w=>!w.trashedAt || ids.includes(w.id));
   return `<label>${ui("Session name", "Nombre de la sesión")}<input name="title" maxlength="200" value="${esc(session.title)}" required /></label>
     <fieldset class="cp-rating"><legend>${ui("How did it feel? ", "¿Cómo te has sentido? ")}<small>${ui("Optional", "Opcional")}</small></legend><div>${MOODS.map((label, i) => `<label><input type="radio" name="mood" value="${i + 1}" ${session.mood === i + 1 ? 'checked' : ''} /><span aria-hidden="true">${FACES[i]}</span><small>${label}</small></label>`).join('')}</div></fieldset>
     <label>${ui("Comments and notes", "Comentarios y anotaciones")}<textarea name="notes" maxlength="10000" placeholder="${ui("What went well, difficult passages…", "Qué ha salido bien, pasajes difíciles…")}">${esc(session.notes)}</textarea></label>
+    ${parts.length ? `<fieldset class="cp-work-parts"><legend>${ui("Part of the piece you worked on", "Parte de la obra que has trabajado")}</legend>${parts.map((b, n) => `<label>${esc(title(b.workId))}<input name="part-${n}" maxlength="1000" value="${esc(b.passage)}" placeholder="${ui("E.g. bars 1–16, section B, coda", "Ej.: c. 1–16, sección B, coda")}" /></label>`).join('')}</fieldset>` : ''}
     <details class="cp-details"><summary>${ui("Pieces practised and next step", "Obras practicadas y próximo paso")}</summary>
       ${works.length ? works.map(w => `<label class="check"><input name="workIds" type="checkbox" value="${esc(w.id)}" ${ids.includes(w.id) ? 'checked' : ''} />${esc(w.title)}</label>`).join('') : `<p class="muted">${ui("List pieces in your notes or add them to your repertoire.", "Puedes anotar las piezas en los comentarios o añadirlas a tu repertorio.")}</p>`}
       <label>${ui("Next step", "Próximo paso")}<textarea name="next" maxlength="10000">${esc(session.next)}</textarea></label>
     </details>`;
 }
-export const readFeedback = form => ({ title: String(form.get('title')).trim(), mood: form.has('mood') ? Number(form.get('mood')) : null, notes: String(form.get('notes') || ''), next: String(form.get('next') || ''), workIds: form.getAll('workIds').map(String) });
+export const readFeedback = form => ({ title: String(form.get('title')).trim(), mood: form.has('mood') ? Number(form.get('mood')) : null, notes: String(form.get('notes') || ''), next: String(form.get('next') || ''), workIds: form.getAll('workIds').map(String), parts: [...form.keys()].filter(key => /^part-\d+$/.test(key)).map(key => [Number(key.slice(5)), String(form.get(key))]).reduce((list, [n, value]) => { list[n] = value; return list; }, []) });
 
 export function calendarDates(date, mode) {
   if (mode === 'week') return Array.from({ length: 7 }, (_, i) => addDays(weekOf(date), i));
@@ -80,7 +83,7 @@ export function weeklyProgressMarkup(data) {
 }
 
 export function dashboardMarkup(data) {
-  const repertoire = data.works.filter(w => !w.trashedAt), works = repertoire.filter(w => w.stage !== 'Archivada');
+  const repertoire = data.works.filter(w => !w.trashedAt), works = repertoire.filter(isOnStand);
   const glyph = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${{
     score: `<path d="M6 3h9l3 3v15H6zM14 3v5h4M9 11h6M9 14h6M9 17h4"/>`,
     play: `<path d="m9 6 9 6-9 6z" fill="currentColor" stroke="none"/>`,
@@ -115,7 +118,7 @@ export function preparationMarkup(draft, purpose, data) {
       ${d.blocks.length > 1 ? `<summary data-block-summary="${i}">${i+1}. ${ACTIVITIES[b.type]} · ${b.minutes} min</summary>` : ''}
       <div class="cp-fields cp-compact-fields">${d.blocks.length>1 ? blockFields(b,i) : ''}
       ${['reading','technique','theory'].includes(b.type) ? `<label>${ui("Scale or mode", "Escala o modo")}<select name="target-${i}">${options(TARGETS.map(t => [t.id,t.label]), b.target)}</select></label>` : ''}
-      ${b.type === 'repertoire' ? `<label class="wide">${ui("Piece", "Obra")}<select name="workId-${i}" required><option value="">${ui("Choose a piece", "Elige una obra")}</option>${options(data.works.filter(w=>!w.trashedAt||w.id===b.workId).map(w=>[w.id,w.title]),b.workId)}</select></label>${button('choose-catalogue',ui("Choose catalogue score", "Elegir partitura del catálogo"),String(i),'quiet')}${!data.works.length ? button('new-work',ui("+ Add piece", "+ Añadir obra")) : ''}` : ''}
+      ${b.type === 'repertoire' ? `<label class="wide">${ui("Piece", "Obra")}<select name="workId-${i}"><option value="">${ui("Choose when practising", "Elegir al practicar")}</option>${options(data.works.filter(w=>!w.trashedAt||w.id===b.workId).map(w=>[w.id,w.title]),b.workId)}</select></label>${button('choose-catalogue',ui("Choose catalogue score", "Elegir partitura del catálogo"),String(i),'quiet')}${!data.works.length ? button('new-work',ui("+ Add piece", "+ Añadir obra")) : ''}` : ''}
       ${['reading','technique'].includes(b.type) ? `<label>${ui("Hands", "Manos")}<select name="hand-${i}">${options(HANDS.filter(([hand]) => hand !== 'both' || d.context !== 'mobile'),b.hand)}${d.context === 'mobile' ? `<option disabled>${ui("Both hands: choose piano or MIDI", "Dos manos: elige piano o MIDI")}</option>` : ''}</select></label>` : ''}
       ${hasTimingChoice(b) ? `<label class="${waitsForAnswers(b) ? 'wide' : ''}">${ui("Timing", "Ritmo")}<select name="timing-${i}">${options([['timed',ui("With tempo", "Con tempo")],['wait',ui("No tempo", "Sin tempo")]],b.timing || 'timed')}</select></label>` : ''}
       ${b.type !== 'theory' && !waitsForAnswers(b) ? `<label class="${hasTimingChoice(b) ? '' : 'wide'} cp-tempo"><span>Tempo <output for="tempo-${i}">${b.bpm}</output> BPM</span><input id="tempo-${i}" name="bpm-${i}" type="range" min="30" max="160" value="${b.bpm}" /></label>` : ''}

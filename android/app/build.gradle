@@ -10,10 +10,15 @@ android {
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.miguecoll.spino"
+        manifestPlaceholders = [
+            appLabel: "@string/app_name",
+            appIcon: "@mipmap/spino_launcher",
+            appRoundIcon: "@mipmap/spino_launcher_round"
+        ]
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 29
-        versionName "5.0.0"
+        versionCode 39
+        versionName "5.2.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -32,6 +37,16 @@ android {
         }
     }
     buildTypes {
+        debug {
+            // The test APK installs beside the store app and is unmistakable on the launcher.
+            applicationIdSuffix ".test"
+            versionNameSuffix "-test"
+            manifestPlaceholders = [
+                appLabel: "SPino Test",
+                appIcon: "@drawable/spino_test_launcher",
+                appRoundIcon: "@drawable/spino_test_launcher"
+            ]
+        }
         release {
             if (keystorePropertiesFile.exists()) signingConfig signingConfigs.release
             minifyEnabled false

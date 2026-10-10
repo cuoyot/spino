@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { HANON, warmupById, warmupCycle, generateWarmupBars, nextWarmupId, warmupBlockValues, WARMUP_IDS } from '../src/companion/warmups.js';
-import { warmupGuideMarkup, warmupDiagram } from '../src/companion/warmup-guide.js';
+import { HANON, warmupById, warmupCycle, generateWarmupBars, nextWarmupId, warmupBlockValues, WARMUP_IDS, warmupSetSize, nextWarmupSet, readWarmupChoice, warmupChoices, warmupExercises } from '../src/companion/warmups.js';
+import { warmupGuideMarkup } from '../src/companion/warmup-guide.js';
 import { emptyData, block, beginSession, validateData } from '../src/companion/model.js';
 import { generateTargetBars, targetById } from '../src/companion/curriculum.js';
 
@@ -68,14 +68,71 @@ test('warm-up blocks and preferences validate, rotate and stay out of phone sess
   assert.ok(WARMUP_IDS.every(id => warmupById(id)));
 });
 
-test('the guide draws numbered fingers on their keys for one or both hands', () => {
+test('Hanon Nos. 6-10 follow the Mutopia edition', () => {
+  assert.deepEqual(WARMUP_IDS, Array.from({ length: 10 }, (_, i) => `hanon-${i + 1}`));
+  const right = id => warmupCycle(warmupById(id), { unit: 2, hands: ['treble'] }).notes;
+  // No. 6: the fifth finger returns between the others, then the mirrored figure descends from G5 around the thumb.
+  assert.equal(names(right('hanon-6').slice(0, 8)), 'C4 A4 G4 A4 F4 A4 E4 A4');
+  assert.equal(right('hanon-6').slice(0, 8).map(n => n.finger).join(''), '15453525');
+  assert.equal(names(right('hanon-6').slice(56, 64)), 'G5 B4 C5 B4 D5 B4 E5 B4');
+  assert.equal(right('hanon-6').slice(56, 64).map(n => n.finger).join(''), '51213141');
+  assert.equal(names(right('hanon-7').slice(0, 8)), 'C4 E4 D4 F4 E4 G4 F4 E4');
+  assert.equal(right('hanon-7').slice(56, 64).map(n => n.finger).join(''), '53423134');
+  assert.equal(names(right('hanon-8').slice(0, 8)), 'C4 E4 G4 A4 F4 G4 E4 F4');
+  assert.equal(names(right('hanon-9').slice(0, 8)), 'C4 E4 F4 E4 G4 F4 A4 G4');
+  assert.equal(names(right('hanon-10').slice(0, 8)), 'C4 A4 G4 F4 E4 F4 E4 F4');
+  const left = warmupCycle(warmupById('hanon-10'), { unit: 2, hands: ['bass'] }).notes;
+  assert.equal(left.slice(0, 8).map(n => n.finger).join(''), '51234343');
+});
+
+test('warm-ups are sets of exercises that rotate by one and fit the minutes', () => {
+  // One pass is about two minutes in quarter notes and one minute in eighths at 60 BPM.
+  assert.equal(warmupSetSize({ minutes: 3, figures: '1' }), 2);
+  assert.equal(warmupSetSize({ minutes: 3, figures: '2' }), 3);
+  assert.equal(warmupSetSize({ minutes: 1, figures: '2' }), 2);
+  assert.equal(warmupSetSize({ minutes: 30, figures: '4' }), 5);
+  const data = emptyData(); data.preferences.level = 2;
+  assert.deepEqual(warmupBlockValues(data).exercises, ['hanon-1', 'hanon-2', 'hanon-3']);
+  data.sessions.push({ id: 's1', results: [{ block: { type: 'warmup' } }] });
+  assert.deepEqual(warmupBlockValues(data).exercises, ['hanon-2', 'hanon-3', 'hanon-4']);
+  for (let i = 0; i < 8; i++) data.sessions.push({ id: `w${i}`, results: [{ block: { type: 'warmup' } }] });
+  assert.deepEqual(nextWarmupSet(data, 3), ['hanon-10', 'hanon-1', 'hanon-2']);
+  // A fixed exercise in the preferences plays alone; the block editor can still pick a set or one exercise.
+  data.preferences.warmup = { enabled: true, minutes: 3, exercise: 'hanon-7' };
+  assert.deepEqual(warmupBlockValues(data).exercises, ['hanon-7']);
+  assert.match(warmupChoices(data)[0][0], /^set:hanon-10,hanon-1,hanon-2$/);
+  assert.deepEqual(readWarmupChoice('set:hanon-3,hanon-4'), { target: 'hanon-3', exercises: ['hanon-3', 'hanon-4'] });
+  assert.deepEqual(readWarmupChoice('hanon-9'), { target: 'hanon-9', exercises: ['hanon-9'] });
+  assert.throws(() => readWarmupChoice('set:hanon-3,C-major'));
+  assert.deepEqual(warmupExercises({ target: 'hanon-2' }).map(e => e.id), ['hanon-2']);
+  // Old single-exercise blocks stay valid; sets are validated.
+  const routine = blocks => ({ ...emptyData(), routines: [{ id: 'r', title: 'R', context: 'piano', blocks }] });
+  assert.ok(validateData(routine([block('warmup', warmupBlockValues(emptyData()))])));
+  assert.ok(validateData(routine([block('warmup', { target: 'hanon-1', hand: 'both' })])));
+  assert.throws(() => validateData(routine([block('warmup', { target: 'hanon-1', hand: 'both', exercises: [] })])));
+  assert.throws(() => validateData(routine([block('warmup', { target: 'hanon-1', hand: 'both', exercises: ['hanon-1', 'x'] })])));
+  assert.throws(() => validateData(routine([block('reading', { exercises: ['hanon-1'] })])));
+});
+
+test('a warm-up set streams each exercise once, then starts again', () => {
+  const opts = { clef: 'treble', timeSig: '4/4', rhythm: '2', warmupSet: ['hanon-3', 'hanon-4'] };
+  const bars = phase => generateTargetBars(opts, 'hanon-3', false, phase);
+  // Each pass is 15 bars: 14 figures and the final C. Bar 15 starts No. 4, bar 30 starts No. 3 again.
+  assert.ok(bars(0).every(n => n.exercise === 0));
+  const turn = bars(14);
+  assert.equal(turn.filter(n => n.bar === 0).length, 1);
+  assert.ok(turn.filter(n => n.bar === 1).every(n => n.exercise === 1));
+  assert.equal(names(turn.filter(n => n.bar === 1)), 'C4 D4 C4 E4 A4 G4 F4 E4');
+  assert.ok(bars(30).every(n => n.exercise === 0));
+});
+
+test('the guide explains movement with four soft snapshots instead of a generated hand animation', () => {
   const both = warmupGuideMarkup(warmupById('hanon-1'), { hand: 'both', start: true });
-  assert.equal((both.match(/class="wg-tip"/g) || []).length, 10);
-  assert.match(both, /data-warmup-start/); assert.match(both, /data-warmup-demo/);
+  assert.match(both, /data-warmup-snapshots/);
+  assert.equal((both.match(/class="ws-frame"/g) || []).length, 4);
+  assert.doesNotMatch(both, /class="wg-diagram"/);
+  assert.match(both, /data-warmup-start/);
+  assert.doesNotMatch(both, /data-wv-play|data-warmup-demo/);
   assert.match(both, /Right|Derecha/); assert.match(both, /Left|Izquierda/);
-  const left = warmupDiagram(warmupById('hanon-5'), 'left');
-  assert.equal((left.match(/class="wg-tip"/g) || []).length, 5);
-  assert.doesNotMatch(left, /data-hand="treble"/);
-  // The thumb badge sits on middle C in the right hand: key d=28 is marked as used.
-  assert.match(warmupDiagram(warmupById('hanon-1'), 'right'), /data-used="28"/);
+  assert.match(both, /advance the hand|avanza un poco la mano/);
 });

@@ -1,6 +1,7 @@
 // Small, reviewed PDF collection. Score viewing/manual tracking only; no inferred difficulty.
 // Edition evidence and source links are retained in exported attachments.
 import { getAppLanguage } from './locale.js';
+import { catalanCopy } from './locale-ca.js';
 export const CATALOG_VERSION = 2;
 export const CATALOG = [
   {
@@ -149,5 +150,9 @@ const GUIDANCE = {
 };
 
 export function catalogPresentation(item, lang = getAppLanguage()) {
+  if (lang === 'ca') {
+    const guidance = { keyLabel: item.keyLabel, reason: item.reason, passage: item.passage, ...GUIDANCE[item.id]?.en };
+    return { ...item, ...catalanCopy(guidance) };
+  }
   return { ...item, ...GUIDANCE[item.id]?.[lang === 'es' ? 'es' : 'en'] };
 }

@@ -50,7 +50,7 @@ test('Today keeps the next practice action visible and Practice owns activity sh
   assert.equal(await evaluate(`document.querySelector('#cp-dialog [name=date]').value`), REVIEW_DATE);
   await action('close-dialog');
   await action('piano');
-  assert.equal(await evaluate(`document.querySelector('#app-shell h1').textContent`), 'Biblioteca');
+  assert.equal(await evaluate(`document.querySelector('#app-shell h1').textContent`), 'Repertorio');
   assert.equal(await evaluate(`document.querySelector('.cp-dashboard-week')`), null);
   assert.ok(await evaluate(`document.querySelector('[data-action=catalog]').textContent.includes('Catálogo')`));
   assert.equal(await evaluate(`document.querySelector('[data-action=session-detail]')`), null, 'Library does not duplicate practice history');

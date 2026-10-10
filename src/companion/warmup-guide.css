@@ -1,51 +1,44 @@
-/* Hanon warm-up guide: keyboard diagram with cartoon hands, finger figure and steps. */
 .cp-warmup-guide { display: grid; gap: 12px; }
 .cp-warmup-guide .wg-focus { margin: 0; color: var(--subtle, #aeb7c4); font-size: 14px; }
 .cp-warmup-guide .wg-focus b { color: #e8eaed; }
-.wg-stage { background: linear-gradient(180deg, #1a1d23, #0f1115); border: 1px solid #2c313a; border-radius: 14px; padding: 8px; }
-.wg-diagram { display: block; width: 100%; height: auto; max-height: 300px; margin: 0 auto; }
-.wg-felt { fill: #a9343f; }
-.wg-key { fill: url(#wg-white); stroke: #9aa0a6; stroke-width: 1; }
-.wg-key[data-active='treble'] { fill: #ff8a3d; }
-.wg-key[data-active='bass'] { fill: #4f8cff; }
-.wg-black { fill: url(#wg-blackkey); stroke: #0b0c0f; stroke-width: .8; }
-.wg-octave { fill: #8b929c; font: 600 9px system-ui, sans-serif; text-anchor: middle; }
-.wg-used { fill: var(--hand); opacity: .3; transition: transform .25s ease; }
-.wg-hand { transition: transform .25s ease; }
-.wg-skin { fill: url(#wg-skin); stroke: #b57d5e; stroke-width: 1.6; stroke-linejoin: round; }
-.wg-nail { fill: #fbe6db; stroke: #d2a08c; stroke-width: 1; }
-.wg-crease { fill: none; stroke: #c48d6b; stroke-width: 1.3; stroke-linecap: round; opacity: .8; }
-.wg-cuff { fill: var(--hand); stroke: rgba(0, 0, 0, .3); stroke-width: 1; }
-.wg-cuff-stripe { fill: #fff; opacity: .35; }
-.wg-tip circle { fill: var(--hand); stroke: #fff; stroke-width: 2; transition: r .12s ease; }
-.wg-tip text { fill: #fff; font: 700 11px system-ui, sans-serif; text-anchor: middle; }
-.wg-tip.active circle { r: 11.5; stroke: #fff; }
-.wg-hand-label { fill: #fff; font: 700 10px system-ui, sans-serif; text-anchor: middle; letter-spacing: .3px; }
+
 .wg-figures { display: grid; gap: 8px; }
 .wg-figure { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: end; gap: 8px; }
-.wg-figure > span { color: var(--hand); font-size: 13px; font-weight: 650; padding-bottom: 6px; }
-.wg-figure ol { display: flex; gap: 4px; margin: 0; padding: 18px 0 0; list-style: none; }
-.wg-figure li { flex: 1; min-width: 0; display: grid; justify-items: center; gap: 1px; padding: 4px 0; border-radius: 8px;
-  background: #22262e; border: 1px solid #343a45; transform: translateY(calc(var(--step) * -3px)); transition: background .1s ease; }
-.wg-figure li b { font-size: 16px; color: #fff; }
-.wg-figure li small { font-size: 11px; color: #aeb7c4; }
-.wg-figure li.active { background: var(--hand); border-color: var(--hand); }
-.wg-figure li.active small { color: #fff; }
-.wg-demo-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.wg-demo-state { font-size: 13px; color: var(--subtle, #aeb7c4); }
-.wg-steps { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.wg-figure > span { padding-bottom: 6px; color: var(--hand); font-size: 13px; font-weight: 650; }
+.wg-figure ol { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.wg-figure li { flex: 1; min-width: 0; display: grid; justify-items: center; gap: 1px; padding: 4px 0; border: 1px solid #343a45; border-radius: 8px; background: #1d2129; }
+.wg-figure li b { color: #fff; font-size: 16px; }
+.wg-figure li small { color: #aeb7c4; font-size: 11px; }
+.wg-steps { display: grid; gap: 8px; margin: 0; padding-left: 22px; }
 .wg-steps li b { display: block; }
 .wg-steps li span { color: var(--subtle, #aeb7c4); font-size: 14px; }
-.wg-tips { margin: 0; padding: 10px 12px 10px 28px; border-radius: 12px; background: #1d2129; color: #cdd3dc; font-size: 13px; display: grid; gap: 4px; }
-.wg-source { margin: 0; font-size: 11px; color: #7d8590; }
-/* The guide gets a wider dialog than forms. */
-#cp-dialog:has(.cp-warmup-guide) { width: min(720px, calc(100vw - 24px)); max-width: none; }
-/* Compact preview inside the session card. */
+.wg-tips { display: grid; gap: 4px; margin: 0; padding: 10px 12px 10px 28px; border-radius: 12px; background: #1d2129; color: #cdd3dc; font-size: 13px; }
+.wg-source { margin: 0; color: #7d8590; font-size: 11px; }
+.wg-set { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.wg-set b { color: #e8eaed; font-size: 14px; }
+.wg-set span { display: flex; gap: 6px; flex-wrap: wrap; }
+.wg-set button { min-height: 32px; padding: 4px 10px; font-size: 13px; }
+.wg-set button[aria-current="step"] { border-color: #2f6fe0; background: #2f6fe0; color: #fff; }
+
+.ws-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ws-frame { overflow: hidden; border: 1px solid #303744; border-radius: 12px; background: #171b21; }
+.ws-picture { position: relative; aspect-ratio: 1.5; overflow: hidden; background: #171b21; }
+.ws-picture img { display: block; width: 200%; height: 200%; max-width: none; user-select: none; }
+.ws-picture.snapshot-0 img { transform: translate(0, 0); }
+.ws-picture.snapshot-1 img { transform: translate(-50%, 0); }
+.ws-picture.snapshot-2 img { transform: translate(0, -50%); }
+.ws-picture.snapshot-3 img { transform: translate(-50%, -50%); }
+.ws-frame > div:last-child { padding: 9px 10px 11px; }
+.ws-frame b { color: #f0f2f5; font-size: 13px; }
+.ws-frame p { margin: 3px 0 0; color: var(--subtle, #aeb7c4); font-size: 12px; line-height: 1.4; }
+.ws-snapshots.is-compact .ws-picture { aspect-ratio: 1.5; border-radius: 12px; }
+
+#cp-dialog:has(.cp-warmup-guide) { width: min(780px, calc(100vw - 24px)); max-width: none; }
 .cp-session-warmup { display: grid; gap: 6px; margin-top: 4px; }
-.cp-session-warmup .wg-stage { padding: 4px 6px; }
-.cp-session-warmup .wg-diagram { max-height: 170px; }
-.cp-session-warmup p { margin: 0; font-size: 13px; color: var(--subtle, #aeb7c4); }
-@media (max-width: 480px) {
+.cp-session-warmup p { margin: 0; color: var(--subtle, #aeb7c4); font-size: 13px; }
+
+@media (max-width: 560px) {
+  .ws-grid { grid-template-columns: 1fr; }
   .wg-figure { grid-template-columns: 1fr; }
   .wg-figure > span { padding: 0; }
 }

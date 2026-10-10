@@ -1,0 +1,322 @@
+{
+  "runId": "2026-10-06-library-tabs-02",
+  "date": "2026-10-06",
+  "title": "Music stand and repertoire table",
+  "surface": "Responsive production Chromium; not native acceptance",
+  "fixtures": "Disposable four-work notebook; no personal data",
+  "results": [
+    {
+      "state": "collection",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "collection-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "d3b578cc58647a8143a92686216aa42a0bd45f0df24bb4714c068cc489377af8"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "stand-toggled-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5ed4da6d8b44b8b98da979d351be91adb9f1d05118449bc5a9936517015e0d34"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "descending-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "65afe83107f53b41d3382f186e17789900cf7c57024bd6c37780661f34ca3150"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "filtered-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c003b839070bbe13a20a19e0a3bcdd782be26590e9f0065a17799a441a550fa8"
+        }
+      ]
+    },
+    {
+      "state": "catalogue",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "catalogue-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "510c2ebdfccf95ec7be2b84e57312355ee5b60b49d5269ccceb68d897af84b52"
+        }
+      ]
+    },
+    {
+      "state": "practice-routines",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "practice-routines-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "992b6d034cb53d6e113b832283899dda6ad07d35dc0320d59c683ab1a627867c"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "collection-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "3fc126f555aeaab672f276cd9ada28e741d62a027c733fbcf3225efdee52b358"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "stand-toggled-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "fa239ca8ca04d15616a7addd60ca1cbc81d564b052d171f9ed52c84d06f3e2ad"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "descending-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "fd413d288eda0891e0da377a5499b53b577505f9f998eeeca251b27639573ebb"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "filtered-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "fadf0eb2d951112802e2b195733bf00689f6729293b07c01ef4a9b532fe8d3f3"
+        }
+      ]
+    },
+    {
+      "state": "catalogue",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "catalogue-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "22193f7aa04cf9f4017c5f552aa077634a656f2492864983a5803705ef27d5a8"
+        }
+      ]
+    },
+    {
+      "state": "practice-routines",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "practice-routines-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "ad64668a8ca154b523d051214a54ba51273c1d53923b2a312c458c6712ebbaf7"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "collection-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "85ad101f352584eee7e0ea5a01f64d60dcc7b18717442c6a99f76b42d6c1f1c4"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "stand-toggled-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e52af6cd53ed622e810445a59caec61b39c4e0999ee662d058ed0dd8fe4255c6"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "descending-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "47f66993520ef95c479370cf6d5bbf4f2b26d30233a4e0e2f1257c1f8195486b"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "filtered-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "fc25195535502203ffe4161573c686e847a6cc0a97a123613a2ffc254e9edc64"
+        }
+      ]
+    },
+    {
+      "state": "catalogue",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "catalogue-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "607ed6ececa96f97593704173db3cf69b2497c8bb0b65c51ffd0acb0a7a122d8"
+        }
+      ]
+    },
+    {
+      "state": "practice-routines",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "practice-routines-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "66ee807055ba217ad5022d601f460cfbaf50186a1dade87c00a34f73d733ff48"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "collection-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "dfecbea794a49dac29a19edd15e498d1cd97b547d4c516260c14feae8ceb42e2"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "stand-toggled-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "78d479428585aceb5cadbaaa79f546fa2be215bd1e13e90579ddbb02e0dd62b5"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "descending-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "5027858435cc4279fc0ad56b1df657a8b00d58cf204523baba86e3d2e2facb89"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "filtered-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "8d011e16497141b776124279bcfacfc6a895598d14fa2f3ad02b0ba3b7204859"
+        }
+      ]
+    },
+    {
+      "state": "catalogue",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "catalogue-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "e650bf146161db98085fec5feb6ec26646b3ed3ffd0bf5c9e0131c162db12dc0"
+        }
+      ]
+    },
+    {
+      "state": "practice-routines",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "practice-routines-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "471af147c90bba9732925a98f867ffdb96d9183512afec8728de1fe7069d3abb"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

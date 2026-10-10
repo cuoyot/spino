@@ -1,0 +1,391 @@
+{
+  "runId": "2026-10-05-pdf-timer-bar",
+  "date": "2026-10-05",
+  "createdAt": "2026-10-05T15:11:54.866Z",
+  "title": "Repertoire PDF practice",
+  "screen": "PRACTICE-05 / SCORE-01 / SCORE-03",
+  "reviewHref": "../../../manual-practice.md",
+  "stateLabels": {
+    "session": "Session · open score",
+    "running": "PDF · practising",
+    "paused": "PDF · paused",
+    "annotation-tools": "PDF · annotation tools",
+    "framing-tools": "PDF · framing tools"
+  },
+  "surface": "Production responsive Chromium browser; not native acceptance",
+  "fixtures": "Disposable notebook; synthetic two-page PDF (staff-line fixture, not real musical notation). Personal app untouched.",
+  "sourceFiles": {
+    "src/audio.js": "26d398504aa36e0cc083fb3a1572937433ca51615cd90e9f7ba0d3bbfc479674",
+    "src/companion/agenda.js": "baeaa22756b1f20d8ad4924a3fcb6dd8d38cf1ede4217cbc11269f724b8040f8",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "3dc8284d608593c5d31b9a762fb249539c0cae7a165ecef4a1dc3f97930a26d8",
+    "src/companion/app.js": "f8326e7e14aa8db2c2591cfa92264e74aef1b4a84d5c7888688d8a83aa4c0d62",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "47f973093c81bd583fcc049c49dac4bb96de9dd33a4341c6a18972a19cc2770a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/free-practice.js": "c229628861c09da6652e1f0da8f76d4a4d965bb259ba4728d9d2f574439800ed",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "4331115a0f33032208f57c2ff8b9d9f9b0e8a9691f9f9ee7cd84f7b252357e16",
+    "src/companion/library-browse.js": "099886a094c23e3e3554d924ea248b223de7b2b7556846b19aca1d1ed62517d8",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "43461c9151ebf5b70c6f9893e41ce9a4e70f5fe6a6bfa808ed52c4aa07734977",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "7d08e435aba54f23528a301b2da52adfaaf9a03b98c15b51f3d9fba5db89c6f1",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-follow.js": "b5f2ff17672779803408c91f015d22cc85a3b4b3100cd32cd778a9a532c9c572",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "2e1684ae08d675efe93e9ab670896e0200caed6f0c7a3d5d425640c4324c052d",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "32cf8d0c67c2b5ec6cc4cadda23d64822a26952d6dc6c486416dc57741acbe61",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "3aecce1a1e53892edbe823b27d89b5c88f9462cb97b53c6a40ed15d4ac7079ab",
+    "src/companion/pdf-viewer.js": "c5037a5fa09bf42db7a9986df5123f6033f4097a66ea3c1244f0705e8d41d631",
+    "src/companion/pedals.js": "bbe002b0c44be7630ff5aedaa1c4bd21ff7132335771b03d852dac6ec1fe71b2",
+    "src/companion/photo-crop.js": "daf5222684f09a732117214cb42fe2250032c20d07b157eaba4357a66d48a650",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "2eb851a94d7ee6ff8f2e48e78b88b21703ce92334de31c06076a4f4665aa0ace",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "e43c3ed2a85ac1bb85bc8cfe6a5b3ecd28fd63914ae4475df02adf5bc4cc3e05",
+    "src/companion/profile.css": "dc1cdd259c8d5414f5b055e9707a72f9e493de6c3dc9f068c3854567015450bf",
+    "src/companion/repertoire.js": "7185afe7687b388da396e8310de1198f19b5ec0a55023946cc1bc380457190c7",
+    "src/companion/rhythm-levels.js": "5ed6155101cb8865bd9b0fab59cd6a16615a46f4c7ac5212d4350ca535f383c7",
+    "src/companion/score-controls.js": "f6a7d48b33357ce398ec283dde065274530c594db371027f77aa9bcc0767a5c1",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "dfda2fd3813592b405bf1c5bf031df30dfe566e6acde7c863f6f80cb6ed5357f",
+    "src/companion/screen-awake.js": "553448a468f67ad3d434b1d1a7d06b5a51bac25635f8da815f8dcabd1b73fb68",
+    "src/companion/session-block-editor.js": "fe01e9c3bfb1cc941547eab052531d32267f63cf95ccb127d79109a030278644",
+    "src/companion/session-drag.js": "99e8d5f6d8809131c4d0781109056897ddabe2890359d2f8debf407aec0bfd0f",
+    "src/companion/session-edit.js": "c261ad62ee5349ba7e7d60d8bf1686810dda48790c36ee7812972c21eda699c4",
+    "src/companion/session-view.css": "664d1ab0de64c1116806e36a2a466d9c53c8dcce1d8c3166e03068d845f796eb",
+    "src/companion/session-view.js": "1c5062e431426462104f54d010b4dbb441d2ee0be9d095740e259122a3e3f0f1",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "6fdc35095c46b0f3e88076f9515d82b7be1ec98314a7cab2323e892982746db4",
+    "src/companion/warmup-guide.css": "ed8ffab1471c1a51ae0d683229cee0e06c239ffe424825af5eb15a157fe05fb2",
+    "src/companion/warmup-guide.js": "b20f2a5495674c53777cd0b731c59c2fe57f5be2f557ef6b002f92caa2aaed4a",
+    "src/companion/warmup-snapshots.js": "9c786d79ff1c22fb264ed7f084b7cc6067d6a428cbcc8b1711b1d763ae79a2af",
+    "src/companion/warmups.js": "676399b939692ff229aae2f8263caa453af5fca5678e8f8b0a0fc00ab15cfcf7",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "868fac0eea7af6fb95369caaf8d9bcbad53045d5b8211f94a13dd486f34131d5",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "1e7517a6805c7b98b86bb78328d8e97b27fb9c6e5a1df18a7ddf9b6e43935ccf",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "9d73816cbb6614ddd2d988380cc2011e90aad9350eef876786f2b961927b9df3",
+    "src/music.js": "46c6317577685a517b063db503de48ec87efc5a22c81343b12a04f74db3acecd",
+    "src/render.js": "10d20a5c9d419311182377ca9042911dccd701fbc505d7c8bc6c4e3f090ec835",
+    "src/style.css": "7a8cfcca99b50282d9fbe01b91dc1b1b3cd84533c330fe644cebb954376da6cc",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097"
+  },
+  "sourceSha256": "966b422722532e7e1e86109a3436a9af6ad38017f128262a01a5a32cbde89c7d",
+  "packageVersion": "5.1.1",
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "results": [
+    {
+      "state": "session",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "session-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "654e2f3f7b7fc4f519ef30826845815a4e12d7cd1bfa197ff380130f5ba67658"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "running-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "bf4e9daff5a5c1e983a166dd84e9a5ee58e7c684d926ca4dd5f0ded5d3784920"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "paused-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4a727235eeb5f3dcb2de9387dd834189d4c446a779bf5daeff562704856ba365"
+        }
+      ]
+    },
+    {
+      "state": "annotation-tools",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "annotation-tools-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "4343643557ba8d63d03b00fa7126d97e680a9842a66ddf049e9198d145ec0e24"
+        }
+      ]
+    },
+    {
+      "state": "framing-tools",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "framing-tools-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "c7db8692a22cd074e00213b40eef1794c95ccd34cfbb562f9441f1aa0b18843a"
+        }
+      ]
+    },
+    {
+      "state": "session",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "session-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "5a9205643b6b024cce57bdada30a14bc7427cc838834cddc616f51c995b2e956"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "running-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "ed695963ebafe64e9f904c6f5ee5673b20d04a6ac18c10eef565fbfc9ac96ccd"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "paused-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f2189b94a18df4f6804ad8e7cf81c246f5194e28c389d8b205ddb2aeff7e275f"
+        }
+      ]
+    },
+    {
+      "state": "annotation-tools",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "annotation-tools-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "4e8cc4d56ce68f649f83cb9d02f85111c446e591b4e0c8070b1edd580cbea325"
+        }
+      ]
+    },
+    {
+      "state": "framing-tools",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "framing-tools-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "d05304222e636986f19b075b71b5933a086ae95fce4c1e7972aafd5d606fd351"
+        }
+      ]
+    },
+    {
+      "state": "session",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "session-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "1976f16618588c3e5631777ebb3ca713a76f9636868b3ca26263f16ab21e0af7"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "running-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "624ed540f703961ac5b4a22a48f34fe596f4b79b92bc0ef29b78a720134a04db"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "paused-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3a91df8f7facab9ddbb910807dfe70de1d3f127ee40baaf0fe57ae0084214a08"
+        }
+      ]
+    },
+    {
+      "state": "annotation-tools",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "annotation-tools-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "11e2422a45c959494b71a7c3af455a4d832fa3e4a047451a4ab033956e90da3c"
+        }
+      ]
+    },
+    {
+      "state": "framing-tools",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "framing-tools-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5102785968968142d2b7cbf45f7aa5968b1e532709b84f4d3c9509749d3f9f0c"
+        }
+      ]
+    },
+    {
+      "state": "session",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "session-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "ae7a420c1986843f28f5e2b3d81d1264de8dc5c1e7176c80b674ee2bc2efb303"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "running-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "b972e703830ab137020b162ba4ee80e582085707fd401bc6ccce99d45f030093"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "paused-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "d5e6511fb19a25c67da5af3de9bf522db889c65313e72b21f4a851647020cb2e"
+        }
+      ]
+    },
+    {
+      "state": "annotation-tools",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "annotation-tools-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "93bf769f90dd9474353cc8564d6975351c1d05293397fc35aced2d04a96a5d12"
+        }
+      ]
+    },
+    {
+      "state": "framing-tools",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "framing-tools-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "164c1b167535c87970c7409ea09c077a38929965a22659bd05202ad1fb5fbf0d"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

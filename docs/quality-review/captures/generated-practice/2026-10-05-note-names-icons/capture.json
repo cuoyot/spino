@@ -1,0 +1,2971 @@
+{
+  "runId": "2026-10-05-note-names-icons",
+  "createdAt": "2026-10-05T11:50:56.651Z",
+  "screen": "PRACTICE-03",
+  "title": "Generated practice with note-name answers",
+  "reviewHref": "../../../note-name-practice.md",
+  "stateLabels": {
+    "timed-reading": "Timed reading · paused score and keyboard",
+    "next-block": "Timed reading · next block is Technique",
+    "self-paced-reading": "Self-paced reading · correct and wrong answer",
+    "adapted-range": "Self-paced reading · keyboard range changed",
+    "self-paced-technique": "Self-paced technique · active exercise"
+  },
+  "label": "Initial baseline for objective and findings; no design acceptance",
+  "packageVersion": "5.1.1",
+  "gitHead": "070bbe695ac2d0668c59e2450bb8a36964235dff",
+  "workingTree": "Uncommitted work included; use source hashes, not HEAD alone.",
+  "sourceSha256": "05c54d86377433ccb8a34525066b8765a1b911613a1aaaa8f15f6c9c0b81f55f",
+  "sourceFiles": {
+    "index.html": "6032f6f218f84bc817f82a2e0522cb856f090ceb20f1520fc8eb8a57e1a7ff38",
+    "package-lock.json": "2fc2ea327a15411c404bce4abbc122696004c3ddb41aec488cf08d0df652793c",
+    "package.json": "6f870701ab23f385a089a847f87f32e9b6cbd86dd5bea10959bb73d915c91e76",
+    "src/audio.js": "968290b288a2f407739aec4629321ffb2499155a0813b900c731fb8babe0e4a2",
+    "src/companion/agenda.js": "baeaa22756b1f20d8ad4924a3fcb6dd8d38cf1ede4217cbc11269f724b8040f8",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app.css": "3dc8284d608593c5d31b9a762fb249539c0cae7a165ecef4a1dc3f97930a26d8",
+    "src/companion/app.js": "adc1f0a396cb99cf5ab6727e07203390dea298bd25d613c85e125d53898a61ee",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/catalog.js": "4e46e5aa57d5feac09c41801b77ddc1b4c5dec6d2d4d4959302fee02a8f05abb",
+    "src/companion/cloud-backup-view.js": "79c2b1c13e18589617f9a37932fa2db952448ab1fb53b9d98b6e9ddcf7810139",
+    "src/companion/cloud-backup.css": "e2c3584935582a274ad204df0f4293bcaadad9defc5acda3d4d1975bd592f35c",
+    "src/companion/cloud-backup.js": "e7f1bb2cb02aa26d7e979734d38008ea98bc684b9a5eadc9cec27672301800fa",
+    "src/companion/cloud-merge.js": "c8b94adb67e7f8509eed6686d56bc1a3e9fb6092dbf4201b4842334f377a247c",
+    "src/companion/cloud-sync.js": "a760bcd1139da5a211e89bd639181d6c9d720c52d51bf8d1437e839380a8815e",
+    "src/companion/curriculum.js": "47f973093c81bd583fcc049c49dac4bb96de9dd33a4341c6a18972a19cc2770a",
+    "src/companion/dashboard.css": "1a89e62dd00f61f8af2618dd47412086ca1710fbffbf13a92240b3348cd5b337",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "4fbef47ec5bacb431e84d25e19616203fb0111a270e068ef95cc9183f425965a",
+    "src/companion/downloads.js": "4d18735e0cea4dfd6aca68a8d406eff69c87962b91d3568c7ea78551425fb7a7",
+    "src/companion/instrument-view.css": "6e3ff59ff785e29d673db056dfa01ad82cd3e6a076be64ff21ff7fb2e5efe57b",
+    "src/companion/instrument-view.js": "4331115a0f33032208f57c2ff8b9d9f9b0e8a9691f9f9ee7cd84f7b252357e16",
+    "src/companion/library-browse.js": "099886a094c23e3e3554d924ea248b223de7b2b7556846b19aca1d1ed62517d8",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "08164c8848fb7573b1c5c45b061f0cb399b779d899712469e9e06935208fc160",
+    "src/companion/library-state.js": "fa24c4b5b477182b8d2c1ea39d93aff2f57c55e141213d9018b8f4c55f87d541",
+    "src/companion/library-ui.js": "62428138347036d253883d4f7aadfdbfb1ea39b9fd8a31652f8798d09e787465",
+    "src/companion/library-view.js": "43461c9151ebf5b70c6f9893e41ce9a4e70f5fe6a6bfa808ed52c4aa07734977",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-messages.js": "0c4ff8447a080af5f8feb5b188e23fc0ee85c613b5382b5210b3963a22261aa8",
+    "src/companion/locale.js": "15c024f3684477ed3cf53cfbf8e65b4145da98a27b101c2030f79f845d539480",
+    "src/companion/model.js": "7d08e435aba54f23528a301b2da52adfaaf9a03b98c15b51f3d9fba5db89c6f1",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-follow.js": "b5f2ff17672779803408c91f015d22cc85a3b4b3100cd32cd778a9a532c9c572",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "2e1684ae08d675efe93e9ab670896e0200caed6f0c7a3d5d425640c4324c052d",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/pdf-annotations.js": "32cf8d0c67c2b5ec6cc4cadda23d64822a26952d6dc6c486416dc57741acbe61",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-viewer.css": "01dac8fb76149bbbdf7dd41f4800d314fed381d6b296cf5d03a18914dde4d1a1",
+    "src/companion/pdf-viewer.js": "897534b9e4a4e17044de4fe036261f0aeaa172d703d7be06c59b9b547ad77a75",
+    "src/companion/pedals.js": "bbe002b0c44be7630ff5aedaa1c4bd21ff7132335771b03d852dac6ec1fe71b2",
+    "src/companion/photo-crop.js": "daf5222684f09a732117214cb42fe2250032c20d07b157eaba4357a66d48a650",
+    "src/companion/planner.js": "03f19ef16a774e4fccb2d40922940d51d9a215193ef9c7c2c5732f771a882603",
+    "src/companion/platform.js": "c863b909282532e98379ffc107f9bde5936f13aaefa10b521cb0ef96d0181860",
+    "src/companion/practice-defaults.js": "2eb851a94d7ee6ff8f2e48e78b88b21703ce92334de31c06076a4f4665aa0ace",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/profile-view.js": "e43c3ed2a85ac1bb85bc8cfe6a5b3ecd28fd63914ae4475df02adf5bc4cc3e05",
+    "src/companion/profile.css": "dc1cdd259c8d5414f5b055e9707a72f9e493de6c3dc9f068c3854567015450bf",
+    "src/companion/repertoire.js": "7185afe7687b388da396e8310de1198f19b5ec0a55023946cc1bc380457190c7",
+    "src/companion/rhythm-levels.js": "5ed6155101cb8865bd9b0fab59cd6a16615a46f4c7ac5212d4350ca535f383c7",
+    "src/companion/score-controls.js": "01758ac183dbc52dc57096de8e47b8b6b3b7877977a20ac73f8466facaca8a1e",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-transfer.js": "cb03fb61ebdf8595e94eb202d8461011002fe5300e98ce4dd1ee7af53056598c",
+    "src/companion/score-view.js": "dfda2fd3813592b405bf1c5bf031df30dfe566e6acde7c863f6f80cb6ed5357f",
+    "src/companion/screen-awake.js": "f294af7bf03dd401ffb0db93d606791d2dafd0a23c0727b0088bf8edf4baa2c3",
+    "src/companion/session-block-editor.js": "fe01e9c3bfb1cc941547eab052531d32267f63cf95ccb127d79109a030278644",
+    "src/companion/session-drag.js": "99e8d5f6d8809131c4d0781109056897ddabe2890359d2f8debf407aec0bfd0f",
+    "src/companion/session-edit.js": "c261ad62ee5349ba7e7d60d8bf1686810dda48790c36ee7812972c21eda699c4",
+    "src/companion/session-view.css": "f641f0e7590adef1afcb2e499990b3890ec0e072013e35a6130433ee89d5d6a2",
+    "src/companion/session-view.js": "0302d99480507fac270740cedf8dff1ac0f88ebf6661fe21808a5ecfefeef8e6",
+    "src/companion/store.js": "b68922e37a918a62321679b0d953a28cb52f7ab1749e70850bbe2f37450d157b",
+    "src/companion/views.js": "6fdc35095c46b0f3e88076f9515d82b7be1ec98314a7cab2323e892982746db4",
+    "src/companion/warmup-guide.css": "ed8ffab1471c1a51ae0d683229cee0e06c239ffe424825af5eb15a157fe05fb2",
+    "src/companion/warmup-guide.js": "b20f2a5495674c53777cd0b731c59c2fe57f5be2f557ef6b002f92caa2aaed4a",
+    "src/companion/warmup-snapshots.js": "9c786d79ff1c22fb264ed7f084b7cc6067d6a428cbcc8b1711b1d763ae79a2af",
+    "src/companion/warmups.js": "676399b939692ff229aae2f8263caa453af5fca5678e8f8b0a0fc00ab15cfcf7",
+    "src/i18n.js": "927789bf58595cb701eb6cc28af0a2e815a969f1f129ad9344e38297025b5737",
+    "src/layout.css": "eafcf1442cb93a94e48c71c96afa28ee555ffdca194c8669225a3363a137e598",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "d5b1f1512623eb9d11b813b159b66b3bc7d1a4a15f472a74be5e7a45ee99292b",
+    "src/midi-indicator.css": "e92395eed97b7d860c7d51c84c990aaafcb4512aff882973548784dbc5055b80",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "9d73816cbb6614ddd2d988380cc2011e90aad9350eef876786f2b961927b9df3",
+    "src/music.js": "46c6317577685a517b063db503de48ec87efc5a22c81343b12a04f74db3acecd",
+    "src/render.js": "10d20a5c9d419311182377ca9042911dccd701fbc505d7c8bc6c4e3f090ec835",
+    "src/style.css": "7a8cfcca99b50282d9fbe01b91dc1b1b3cd84533c330fe644cebb954376da6cc",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+    "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "locale": "es",
+  "timezone": "Europe/Madrid",
+  "fixedTime": "2026-10-04T10:00:00+02:00",
+  "date": "2026-10-04",
+  "surface": "Production web build in Chromium with device metrics; not native-device acceptance.",
+  "devicePixelRatio": 1,
+  "fixtures": "Synthetic isolated notebooks with one active block; no installed app data changed.",
+  "randomness": "Math.random uses a fixed local seed before application code loads.",
+  "entryPolicy": "Fresh fixture per state and viewport; actual Today Resume and session Open exercise actions.",
+  "results": [
+    {
+      "state": "timed-reading",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 158,
+          "width": 374,
+          "height": 344,
+          "bottom": 502,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 618,
+          "width": 390,
+          "height": 226,
+          "bottom": 844,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 2,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 52
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 338,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 9,
+            "y": 59,
+            "width": 44,
+            "height": 42,
+            "bottom": 101,
+            "right": 53
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 165.75,
+            "y": 59,
+            "width": 44,
+            "height": 42,
+            "bottom": 101,
+            "right": 209.75
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 214.75,
+            "y": 58,
+            "width": 119.25,
+            "height": 44,
+            "bottom": 102,
+            "right": 334
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 35.6875,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 79.6875
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 252.375,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 296.375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 338,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 139.0625,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 183.0625
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 338,
+            "y": 58,
+            "width": 44,
+            "height": 44,
+            "bottom": 102,
+            "right": 382
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 16,
+            "y": 504,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 548,
+            "right": 104.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 277.328125,
+            "y": 504,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 548,
+            "right": 374
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 37
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 41,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 81.5625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 85.5625,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 126.140625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 130.140625,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 170.703125
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 174.703125,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 215.28125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 219.28125,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 259.84375
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 263.84375,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 304.421875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 308.421875,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 349
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 353,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "09763c0bf574dc8f940bea3ed0d25b811e6e82b89808a5fd241dc55836338ecd"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 102,
+          "width": 828,
+          "height": 110.5,
+          "bottom": 212.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 296.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 390,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 4,
+            "width": 67.84375,
+            "height": 44,
+            "bottom": 48,
+            "right": 75.84375
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 747.46875,
+            "y": 4,
+            "width": 88.53125,
+            "height": 44,
+            "bottom": 48,
+            "right": 836
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 9,
+            "y": 55,
+            "width": 44,
+            "height": 42,
+            "bottom": 97,
+            "right": 53
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 281.53125,
+            "y": 55,
+            "width": 44,
+            "height": 42,
+            "bottom": 97,
+            "right": 325.53125
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 330.53125,
+            "y": 54,
+            "width": 265.453125,
+            "height": 44,
+            "bottom": 98,
+            "right": 595.984375
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 647.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 691.984375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 330.53125,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 374.53125
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 791.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 835.984375
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 16,
+            "y": 214.5,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 258.5,
+            "right": 104.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 731.328125,
+            "y": 214.5,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 258.5,
+            "right": 828
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 74.828125
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 78.828125,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 173.453125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 177.453125,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 272.0625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 276.0625,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 370.6875
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 374.6875,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 469.296875
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 473.296875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 567.921875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 571.921875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 666.546875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 670.546875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 765.171875
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 769.171875,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "616941ab83e9877c0e78c541799a66c324878adccb278c8b55095a4c18a81dfb"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 564,
+          "bottom": 676,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 772,
+          "width": 768,
+          "height": 252,
+          "bottom": 1024,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 4,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 20,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 99.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 643.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 21,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 65
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 232.453125,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 276.453125
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 283.453125,
+            "y": 60,
+            "width": 214.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 498
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 504,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 548
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 554,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 598
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 604,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 648
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 654,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 698
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 704,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 28,
+            "y": 678,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 722,
+            "right": 116.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 643.328125,
+            "y": 678,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 722,
+            "right": 740
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 20,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 78.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 82.5,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 165.203125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 169.203125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 251.921875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 255.921875,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 338.625
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 342.625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 425.34375
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 429.34375,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 512.0625
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 516.0625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 598.78125
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 602.78125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 685.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 689.5,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "5878f070bbdc9633cf259760e7443cb41e37c1478ede553c9a833ed4f739e0fb"
+        }
+      ]
+    },
+    {
+      "state": "timed-reading",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 356.640625,
+          "bottom": 468.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 564.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 768,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 0,
+        "wrong": 0,
+        "feedback": "Cuenta atrás…",
+        "timing": "timed",
+        "paused": false,
+        "rows": 2,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 16,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 95.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 903.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "bpm-down",
+            "label": "Más lento",
+            "x": 17,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 61
+          },
+          {
+            "id": "bpm-up",
+            "label": "Más rápido",
+            "x": 372.453125,
+            "y": 61,
+            "width": 44,
+            "height": 42,
+            "bottom": 103,
+            "right": 416.453125
+          },
+          {
+            "id": "start",
+            "label": "Continuar",
+            "x": 423.453125,
+            "y": 60,
+            "width": 334.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 758
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 764,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 808
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 814,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 858
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 864,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 908
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 914,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 958
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 964,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 1008
+          },
+          {
+            "id": "score-prev",
+            "label": "Página anterior",
+            "x": 24,
+            "y": 470.640625,
+            "width": 88.796875,
+            "height": 44,
+            "bottom": 514.640625,
+            "right": 112.796875
+          },
+          {
+            "id": "score-next",
+            "label": "Página siguiente",
+            "x": 903.328125,
+            "y": 470.640625,
+            "width": 96.671875,
+            "height": 44,
+            "bottom": 514.640625,
+            "right": 1000
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 16,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 96.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 100.5,
+            "y": 564.640625,
+            "width": 114.15625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 214.65625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 218.65625,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 332.796875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 336.796875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 450.9375
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 454.9375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 569.078125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 573.078125,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 691.21875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 805.359375
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 809.359375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 923.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 927.5,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "timed-reading-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "c13b5172dc35171a3a99add27ba4b653c2a5e40e43ab0b388335141b321a98fe"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 158,
+          "width": 374,
+          "height": 392,
+          "bottom": 550,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 618,
+          "width": 390,
+          "height": 226,
+          "bottom": 844,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 52
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 338,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 214.75,
+            "y": 58,
+            "width": 119.25,
+            "height": 44,
+            "bottom": 102,
+            "right": 334
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 35.6875,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 79.6875
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 252.375,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 296.375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 338,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 139.0625,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 183.0625
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 338,
+            "y": 58,
+            "width": 44,
+            "height": 44,
+            "bottom": 102,
+            "right": 382
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 37
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 41,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 81.5625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 85.5625,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 126.140625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 130.140625,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 170.703125
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 174.703125,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 215.28125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 219.28125,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 259.84375
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 263.84375,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 304.421875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 308.421875,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 349
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 353,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "11a302a8e073fcebbf1702b2d61967fddbd659f11ff22cd53ef410f1dc5ee19f"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 102,
+          "width": 828,
+          "height": 158.5,
+          "bottom": 260.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 296.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 390,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 4,
+            "width": 67.84375,
+            "height": 44,
+            "bottom": 48,
+            "right": 75.84375
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 747.46875,
+            "y": 4,
+            "width": 88.53125,
+            "height": 44,
+            "bottom": 48,
+            "right": 836
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 330.53125,
+            "y": 54,
+            "width": 265.453125,
+            "height": 44,
+            "bottom": 98,
+            "right": 595.984375
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 647.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 691.984375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 330.53125,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 374.53125
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 791.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 835.984375
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 74.828125
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 78.828125,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 173.453125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 177.453125,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 272.0625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 276.0625,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 370.6875
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 374.6875,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 469.296875
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 473.296875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 567.921875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 571.921875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 666.546875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 670.546875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 765.171875
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 769.171875,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "4e3a349543d904c89b31a3a4a55d05e68f238999ccc5546a761ff3fd7c268eea"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 612,
+          "bottom": 724,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 772,
+          "width": 768,
+          "height": 252,
+          "bottom": 1024,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 20,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 99.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 643.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 283.453125,
+            "y": 60,
+            "width": 214.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 498
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 504,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 548
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 554,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 598
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 604,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 648
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 654,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 698
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 704,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 20,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 78.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 82.5,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 165.203125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 169.203125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 251.921875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 255.921875,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 338.625
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 342.625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 425.34375
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 429.34375,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 512.0625
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 516.0625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 598.78125
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 602.78125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 685.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 689.5,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "a14907f37ac82e828b73a0b913162d1882e5fd03690f3d4ba02c225df79ebaa6"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-reading",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 404.640625,
+          "bottom": 516.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 564.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 768,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 1,
+        "feedback": "✗",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 16,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 95.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 903.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 423.453125,
+            "y": 60,
+            "width": 334.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 758
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 764,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 808
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 814,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 858
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 864,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 908
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 914,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 958
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 964,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 1008
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 16,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 96.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 100.5,
+            "y": 564.640625,
+            "width": 114.15625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 214.65625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 218.65625,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 332.796875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 336.796875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 450.9375
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 454.9375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 569.078125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 573.078125,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 691.21875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 805.359375
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 809.359375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 923.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 927.5,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-reading-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "80626f0325875d7ce9ba46c95977f35b9184df74ecb210e626bdf2a1021d7e3f"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 158,
+          "width": 374,
+          "height": 392,
+          "bottom": 550,
+          "right": 382
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 618,
+          "width": 390,
+          "height": 226,
+          "bottom": 844,
+          "right": 390
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 52
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 338,
+            "y": 8,
+            "width": 44,
+            "height": 44,
+            "bottom": 52,
+            "right": 382
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 214.75,
+            "y": 58,
+            "width": 119.25,
+            "height": 44,
+            "bottom": 102,
+            "right": 334
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 35.6875,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 79.6875
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 252.375,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 296.375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 338,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 382
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 139.0625,
+            "y": 106,
+            "width": 44,
+            "height": 44,
+            "bottom": 150,
+            "right": 183.0625
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 338,
+            "y": 58,
+            "width": 44,
+            "height": 44,
+            "bottom": 102,
+            "right": 382
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 37
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 41,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 81.5625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 85.5625,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 126.140625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 130.140625,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 170.703125
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 174.703125,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 215.28125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 219.28125,
+            "y": 618,
+            "width": 40.5625,
+            "height": 226,
+            "bottom": 844,
+            "right": 259.84375
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 263.84375,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 304.421875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 308.421875,
+            "y": 618,
+            "width": 40.578125,
+            "height": 226,
+            "bottom": 844,
+            "right": 349
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 353,
+            "y": 618,
+            "width": 29,
+            "height": 226,
+            "bottom": 844,
+            "right": 382
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "280378484e0e427570477df34e19341ad04ea5f7596fea0c068d0de144e96922"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "metrics": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 8,
+          "y": 102,
+          "width": 828,
+          "height": 158.5,
+          "bottom": 260.5,
+          "right": 836
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 296.5,
+          "width": 844,
+          "height": 93.5,
+          "bottom": 390,
+          "right": 844
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 8,
+            "y": 4,
+            "width": 67.84375,
+            "height": 44,
+            "bottom": 48,
+            "right": 75.84375
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 747.46875,
+            "y": 4,
+            "width": 88.53125,
+            "height": 44,
+            "bottom": 48,
+            "right": 836
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 330.53125,
+            "y": 54,
+            "width": 265.453125,
+            "height": 44,
+            "bottom": 98,
+            "right": 595.984375
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 599.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 643.984375
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 647.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 691.984375
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 330.53125,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 374.53125
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 791.984375,
+            "y": 54,
+            "width": 44,
+            "height": 44,
+            "bottom": 98,
+            "right": 835.984375
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 8,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 74.828125
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 78.828125,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 173.453125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 177.453125,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 272.0625
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 276.0625,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 370.6875
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 374.6875,
+            "y": 296.5,
+            "width": 94.609375,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 469.296875
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 473.296875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 567.921875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 571.921875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 666.546875
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 670.546875,
+            "y": 296.5,
+            "width": 94.625,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 765.171875
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 769.171875,
+            "y": 296.5,
+            "width": 66.828125,
+            "height": 93.5,
+            "bottom": 390,
+            "right": 836
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "5bc8c79fa16e31151ae7f6bde9075f48c896f6e7fbcc3b06d37c363bed51f3ed"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "metrics": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 20,
+          "y": 112,
+          "width": 728,
+          "height": 612,
+          "bottom": 724,
+          "right": 748
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 772,
+          "width": 768,
+          "height": 252,
+          "bottom": 1024,
+          "right": 768
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 20,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 99.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 643.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 748
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 283.453125,
+            "y": 60,
+            "width": 214.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 498
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 504,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 548
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 554,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 598
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 604,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 648
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 654,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 698
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 704,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 748
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 20,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 78.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 82.5,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 165.203125
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 169.203125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 251.921875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 255.921875,
+            "y": 772,
+            "width": 82.703125,
+            "height": 252,
+            "bottom": 1024,
+            "right": 338.625
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 342.625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 425.34375
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 429.34375,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 512.0625
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 516.0625,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 598.78125
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 602.78125,
+            "y": 772,
+            "width": 82.71875,
+            "height": 252,
+            "bottom": 1024,
+            "right": 685.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 689.5,
+            "y": 772,
+            "width": 58.5,
+            "height": 252,
+            "bottom": 1024,
+            "right": 748
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "788fb707aa2a1f83ba7c690e1b012138f399ba7324f0c2d841f0204899e35b93"
+        }
+      ]
+    },
+    {
+      "state": "self-paced-technique",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "metrics": {
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "reader": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "score": {
+          "x": 16,
+          "y": 112,
+          "width": 992,
+          "height": 404.640625,
+          "bottom": 516.640625,
+          "right": 1008
+        },
+        "keyboard": {
+          "x": 0,
+          "y": 564.640625,
+          "width": 1024,
+          "height": 203.359375,
+          "bottom": 768,
+          "right": 1024
+        },
+        "horizontalOverflow": false,
+        "verticalOverflow": false,
+        "correct": 1,
+        "wrong": 0,
+        "feedback": "✓ Re4",
+        "timing": "wait",
+        "paused": false,
+        "rows": 1,
+        "controls": [
+          {
+            "id": "practice-return",
+            "label": "Volver a la sesión",
+            "x": 16,
+            "y": 8,
+            "width": 79.046875,
+            "height": 44,
+            "bottom": 52,
+            "right": 95.046875
+          },
+          {
+            "id": "practice-advance",
+            "label": "Valoración",
+            "x": 903.078125,
+            "y": 8,
+            "width": 104.921875,
+            "height": 44,
+            "bottom": 52,
+            "right": 1008
+          },
+          {
+            "id": "start",
+            "label": "Pausar",
+            "x": 423.453125,
+            "y": 60,
+            "width": 334.546875,
+            "height": 44,
+            "bottom": 104,
+            "right": 758
+          },
+          {
+            "id": "q-sound",
+            "label": "Sonido: Piano",
+            "x": 764,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 808
+          },
+          {
+            "id": "guide-btn",
+            "label": "Guía: No",
+            "x": 814,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 858
+          },
+          {
+            "id": "finger-btn",
+            "label": "①",
+            "x": 864,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 908
+          },
+          {
+            "id": "kb-auto",
+            "label": "⟲",
+            "x": 914,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 958
+          },
+          {
+            "id": "q-clef",
+            "label": "Ajustes de práctica",
+            "x": 964,
+            "y": 60,
+            "width": 44,
+            "height": 44,
+            "bottom": 104,
+            "right": 1008
+          },
+          {
+            "id": "",
+            "label": "♭",
+            "x": 16,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 96.5
+          },
+          {
+            "id": "",
+            "label": "Do",
+            "x": 100.5,
+            "y": 564.640625,
+            "width": 114.15625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 214.65625
+          },
+          {
+            "id": "",
+            "label": "Re",
+            "x": 218.65625,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 332.796875
+          },
+          {
+            "id": "",
+            "label": "Mi",
+            "x": 336.796875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 450.9375
+          },
+          {
+            "id": "",
+            "label": "Fa",
+            "x": 454.9375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 569.078125
+          },
+          {
+            "id": "",
+            "label": "Sol",
+            "x": 573.078125,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 687.21875
+          },
+          {
+            "id": "",
+            "label": "La",
+            "x": 691.21875,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 805.359375
+          },
+          {
+            "id": "",
+            "label": "Si",
+            "x": 809.359375,
+            "y": 564.640625,
+            "width": 114.140625,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 923.5
+          },
+          {
+            "id": "",
+            "label": "♯",
+            "x": 927.5,
+            "y": 564.640625,
+            "width": 80.5,
+            "height": 203.359375,
+            "bottom": 768,
+            "right": 1008
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "self-paced-technique-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "98ca8ccfd015e23f1ad78d1cc2dc144a1fc182ee5a57362224374c56c1a97c4e"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

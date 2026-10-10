@@ -1,0 +1,1462 @@
+{
+  "runId": "2026-10-05-musicxml-compact-fingering-02",
+  "date": "2026-10-05",
+  "createdAt": "2026-10-05T16:37:00.441Z",
+  "title": "MusicXML practice baseline",
+  "reviewHref": "../../../manual-practice.md",
+  "screen": "PRACTICE-05 / SCORE MusicXML",
+  "surface": "Responsive production Chromium, not native acceptance",
+  "fixtures": "Disposable browser notebook; original synthetic MusicXML piano part; direct viewer entry with synthetic session clock, no personal data or real MIDI.",
+  "stateLabels": {
+    "running": "MusicXML · practising",
+    "paused": "MusicXML · paused",
+    "follow": "MusicXML · MIDI follow (no device)"
+  },
+  "sourceSha256": "1bc0471e9c887e9520eee1c357210fba271f8ff9efd357a149184ab5eaa5648b",
+  "buildSha256": "fbc44188b026049a5d60eb792aa8bf5518a199c023323b7581592315ab47376a",
+  "fixtureSha256": "4887ffca40e19571cef6a5f1feac3cb17e9f24392bf2d74099f685ee63616320",
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "results": [
+    {
+      "state": "running",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 120,
+          "y": 780,
+          "width": 262,
+          "height": 56
+        },
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "15696b1225b82a94940ce769643ecfac4601434a5ec8677df65d9805fadb083b"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 32,
+          "y": 732,
+          "width": 350,
+          "height": 104
+        },
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "563920b4552c8e124518e87fc6ad4a4a2ed628fb45d9e20ebc0658b190b6e08b"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 8,
+          "y": 236,
+          "width": 374,
+          "height": 600
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e07554d938e900cba66ab8379e89b2c7164e19c26014f32d8774ddd781695619"
+        }
+      ]
+    },
+    {
+      "state": "annotations",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 85.609375,
+          "y": 435.9375,
+          "width": 296.390625,
+          "height": 400.0625
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "label": "Dedo 3 · Opciones"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "annotations-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "2885d868314111f30a3c7a66ced3e5cf3cdaff7076198003a464e12dc6ace28a"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 548,
+          "y": 326,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "5b124fca400391d2848a5c67d4685e2856a033dfac0bdae391a08d7c87db217a"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 449,
+          "y": 278,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "73f44cb8fc2a315e5657fb823f43a61e7a068ee3394b836bbdd85b0ed2388464"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 276,
+          "y": 20,
+          "width": 560,
+          "height": 362
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a4fc2e608a8cf4f28f28458e41a269bd9d0d3428d001760fb2cc3e504d6dac92"
+        }
+      ]
+    },
+    {
+      "state": "annotations",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 336,
+          "y": 116.3125,
+          "width": 500,
+          "height": 265.6875
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "label": "Dedo 3 · Opciones"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "annotations-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "c54b9caecb82990a092ebe01790497b88a7a51950faee182fd35c2a3349ee972"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 472,
+          "y": 960,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "aa355db884edbc257bf4a9fd389a6ddae2a7e1e014c822c270fef9b4aed86409"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 373,
+          "y": 912,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "f644e79d198481bb844d42cf967794a75d86300854e58212ec97133bad2d249c"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 340,
+          "y": 416,
+          "width": 420,
+          "height": 600
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "50a957637f6d2f68ccc32cb9185a2266d93b112f1598fed83b6bcb4e9db53a5a"
+        }
+      ]
+    },
+    {
+      "state": "annotations",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 437.609375,
+          "y": 615.9375,
+          "width": 322.390625,
+          "height": 400.0625
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "label": "Dedo 3 · Opciones"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "annotations-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "8326eec941369b51745ea45753be65af4fa988f5b7161c96c874ef5ffaacac20"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 728,
+          "y": 704,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f058dce665d140c3e2f3b10df955648794d71c29595f0e939be49a99abe951ab"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 629,
+          "y": 656,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f19a685efd95161cc802c4f6adc2167053756f862c6f0f45be06860088e570b3"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 596,
+          "y": 160,
+          "width": 420,
+          "height": 600
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "9e96b2cc1ca9957a2018db1b5cdc529a202d27279ade65bef4dc7af7d88b98f6"
+        }
+      ]
+    },
+    {
+      "state": "annotations",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 693.609375,
+          "y": 359.9375,
+          "width": 322.390625,
+          "height": 400.0625
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "done",
+            "label": "Salir de edición"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "label": "Dedo 3 · Opciones"
+          },
+          {
+            "label": "Dedo 1"
+          },
+          {
+            "label": "Dedo 2"
+          },
+          {
+            "label": "Dedo 3"
+          },
+          {
+            "label": "Dedo 4"
+          },
+          {
+            "label": "Dedo 5"
+          },
+          {
+            "label": "Rojo"
+          },
+          {
+            "label": "Azul"
+          },
+          {
+            "label": "Ocre"
+          },
+          {
+            "label": "Verde"
+          },
+          {
+            "label": "Tinta"
+          },
+          {
+            "label": "Leer"
+          },
+          {
+            "label": "Borrar digitación"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "annotations-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f45afecf0fe26a75bb9070fdcf2bd25c00c8ec80cf540df0da1500a4090f7eac"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

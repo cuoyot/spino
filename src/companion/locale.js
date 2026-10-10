@@ -1,10 +1,12 @@
 import { MESSAGE_PAIRS, MESSAGE_PATTERNS } from './locale-messages.js';
+import { catalan, catalanCopy } from './locale-ca.js';
 
 // One runtime language for the notebook, score viewers and managed practice.
-export const APP_LANGUAGES = { en: 'English', es: 'Español' };
+export const APP_LANGUAGES = { en: 'English', es: 'Español', ca: 'Català' };
 let language = 'en';
 export const getAppLanguage = () => language;
-export const ui = (english, spanish) => language === 'es' ? spanish : english;
+export const localize = (english, spanish, locale = language) => locale === 'ca' ? catalanCopy(english) : locale === 'es' ? spanish : english;
+export const ui = (english, spanish) => localize(english, spanish);
 export function setAppLanguage(value) {
   language = Object.hasOwn(APP_LANGUAGES, value) ? value : 'en';
   if (typeof document !== 'undefined') document.documentElement.lang = language;
@@ -31,10 +33,13 @@ const messages = [
 export function localizeMessage(message, locale = language) {
   const value = String(message ?? '');
   const known = messages.find(pair => pair.includes(value));
-  if (known) return known[locale === 'es' ? 1 : 0];
+  if (known) return localize(known[0], known[1], locale);
   for (const { pattern, translate } of MESSAGE_PATTERNS) {
     const match = value.match(pattern);
-    if (match) return translate(match, locale, nested => localizeMessage(nested, locale));
+    if (match) {
+      const translated = translate(match, locale === 'ca' ? 'en' : locale, nested => localizeMessage(nested, locale));
+      return locale === 'ca' ? catalan(translated) : translated;
+    }
   }
   return value;
 }

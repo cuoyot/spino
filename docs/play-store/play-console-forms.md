@@ -6,7 +6,7 @@ analytics, ads or new permissions.
 
 ## Privacy policy
 
-`https://spino.pages.dev/privacy/` (support contact `cuoyot@gmail.com`). See README for hosting.
+`https://spino.pages.dev/privacy/` (support contact `support@spinoapp.com`). See README for hosting.
 
 ## Ads
 

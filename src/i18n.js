@@ -1,8 +1,10 @@
 // Interface translations. Placeholders: {n} note, {k} key name, {ok}/{total} counts, {name} device.
+import { catalanCopy } from './companion/locale-ca.js';
 
 export const LANGUAGES = {
   en: 'English',
   es: 'Español',
+  ca: 'Català',
   it: 'Italiano',
   pt: 'Português',
   fr: 'Français',
@@ -1220,11 +1222,12 @@ const STRINGS = {
   },
 };
 
+STRINGS.ca = catalanCopy(STRINGS.en);
 let lang = 'en';
 
 export function languageForLocale(locale = '') {
   const l = locale.toLowerCase().slice(0, 2);
-  return STRINGS[l] ? l : l === 'ca' || l === 'gl' ? 'es' : 'en';
+  return STRINGS[l] ? l : l === 'gl' ? 'es' : 'en';
 }
 
 export function setLanguage(l) {

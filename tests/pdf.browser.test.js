@@ -13,9 +13,12 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
   const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
   const wait = expression => evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve(true);}else if(++n>500){clearInterval(timer);reject(Error('Timeout: '+${JSON.stringify(expression)}));}},20);})`);
   const action = name => evaluate(`document.querySelector('[data-action="${name}"]').click()`);
-  const control = name => evaluate(`document.querySelector('[data-pdf="${name}"]').click()`);
+  const control = async name => {
+    if (['timer','close','finish'].includes(name)) await evaluate(`(()=>{const done=document.querySelector('[data-pdf=split-done]');if(done&&!done.hidden)done.click();})()`);
+    return evaluate(`document.querySelector('[data-pdf="${name}"]').click()`);
+  };
   const ready = () => wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
-  const tool = name => evaluate(`(()=>{if(document.querySelector('.pdf-panel').hidden)document.querySelector('[data-pdf=tools]').click();document.querySelector('[data-pdf=annotations]').click();document.querySelector('[data-tool="${name}"]').click();document.querySelector('[data-pdf=tools]').click();})()`);
+  const tool = name => evaluate(`(()=>{if(document.querySelector('.pdf-panel').hidden)document.querySelector('[data-pdf=tools]').click();document.querySelector('[data-pdf=annotations]').click();document.querySelector('[data-tool="${name}"]').click();if(!document.querySelector('.pdf-panel').hidden)document.querySelector('[data-pdf=tools]').click();})()`);
   const rect = () => evaluate(`(()=>{const r=document.querySelector('.pdf-paper').getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};})()`);
   const tap = async (x, y, hold = 0) => {
     await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y, id: 1 }] });
@@ -63,7 +66,7 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
     for (const [index, name] of ['pen', 'line', 'arrow', 'ellipse', 'rectangle', 'underline', 'highlight'].entries()) {
       await tool(name); await stroke(.2, .15 + index * .09, .75, .19 + index * .09); await saved();
     }
-    await tool('text'); const r = await rect(); await tap(r.x + r.width * .15, r.y + r.height * .85);
+    await tool('text'); const r = await rect(); await tap(r.x + r.width * .15, r.y + r.height * .08);
     await wait(`document.querySelector('.pdf-text-dialog[open]')`);
     await evaluate(`document.querySelector('.pdf-text-dialog textarea').value=${JSON.stringify('<img onerror=alert(1)>\nRepetir lento')};document.querySelector('.pdf-text-dialog form').requestSubmit()`); await saved();
     assert.equal(await evaluate(`document.querySelectorAll('.pdf-marks [data-mark-id]').length`), 8);
@@ -137,7 +140,7 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
     await wait(`document.querySelector('[data-pdf=timer]').getAttribute('aria-label')==='Continuar práctica'`);
     const after = await readStore('state', 'current'); assert.equal(after.active.runningSince, null); assert.ok(after.active.elapsedMs >= before.active.elapsedMs);
     await control('close'); await wait(`!document.querySelector('.pdf-viewer')`);
-    assert.equal(await evaluate(`document.querySelector('[data-action="toggle-session"]').textContent.trim()`),'Continuar');
+    assert.match(await evaluate(`document.querySelector('[data-action="toggle-session"]').getAttribute('aria-label')`),/Continuar/);
   });
   await t.test('save failures keep the PDF open and allow a retry without losing annotations', async () => {
     const chunk = await pdfViewerChunk();

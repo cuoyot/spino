@@ -1,6 +1,6 @@
 // Keep the device policy tied to visible, running practice, never to app startup.
 export function practiceNeedsScreen({active, view, readerVisible, scoreVisible, hidden}) {
-  return !hidden && active?.runningSince != null && (view === 'session' || readerVisible || scoreVisible);
+  return !hidden && active?.runningSince != null && (view === 'session' || view === 'free-practice' || readerVisible || scoreVisible);
 }
 
 export function createScreenAwake(apply) {

@@ -1,4 +1,6 @@
 import * as deviceMidi from '../midi.js';
+import { catalanCopy } from './locale-ca.js';
+import { localize } from './locale.js';
 import { midiIndicatorMarkup } from '../midi-indicator.js';
 import { readPedals, savePedals, DEFAULT_PEDALS, PEDAL_NAMES } from './pedals.js';
 
@@ -138,14 +140,14 @@ const keyboard = '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect 
 const bluetooth = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg>';
 
 export function instrumentMarkup(state, { lang = 'en' } = {}) {
-  const t = labels[lang] || labels.en, esc = escapeHTML;
+  const t = lang === 'ca' ? catalanCopy(labels.en) : labels[lang] || labels.en, esc = escapeHTML;
   const disabled = state.connecting || state.scanning;
   const deviceRow = (device, saved) => {
     const connected = state.devices.includes(device.connectedName || device.name);
     return `<li class="cp-instrument-row"><span class="cp-instrument-device-icon">${bluetooth}</span><div><strong>${esc(device.name)}</strong><small>${esc(connected ? t.connected : t.disconnectedDevice)}</small></div>${connected ? '<span class="cp-instrument-status-dot" aria-hidden="true"></span>' : `<button type="button" data-action="instrument-device" data-id="${esc(device.address)}" ${state.connecting ? 'disabled' : ''}>${esc(state.connecting === device.address ? t.connecting : t.reconnect)}</button>`}${saved ? `<button type="button" class="cp-instrument-forget" data-action="instrument-forget" data-id="${esc(device.address)}" aria-label="${esc(t.forget + ': ' + device.name)}" title="${esc(t.forget)}">×</button>` : ''}</li>`;
   };
   const nearby = state.nearby.filter(device => !state.remembered.some(saved => saved.address === device.address));
-  const pedalName = cc => { const name = PEDAL_NAMES[cc]; return `CC ${cc}${name ? ' · ' + (lang === 'es' ? name[1] : name[0]) : ''}`; };
+  const pedalName = cc => { const name = PEDAL_NAMES[cc]; return `CC ${cc}${name ? ' · ' + localize(name[0], name[1], lang) : ''}`; };
   const pedalRow = (action, label) => `<li class="cp-instrument-row cp-pedal-row"><div><strong>${esc(label)}</strong><small>${esc(state.learning === action ? t.press : pedalName(state.pedals[action]))}</small></div><button type="button" data-action="instrument-pedal" data-id="${action}" ${state.learning === action ? 'class="primary"' : ''}>${esc(state.learning === action ? t.cancel : t.change)}</button></li>`;
   const pedals = state.available ? `<section class="cp-card cp-instrument-devices cp-instrument-pedals"><h3>${t.pedals}</h3><p class="muted">${t.pedalsHint}</p><ul>${pedalRow('next', t.nextPage)}${pedalRow('prev', t.prevPage)}</ul><p class="muted" role="status">${state.lastControl ? `${t.lastSignal}: ${esc(pedalName(state.lastControl.controller))} · ${state.lastControl.value}` : t.noSignal}</p>${state.pedals.next !== DEFAULT_PEDALS.next || state.pedals.prev !== DEFAULT_PEDALS.prev ? `<button type="button" class="quiet" data-action="instrument-pedal-reset">${t.reset}</button>` : ''}</section>` : '';
   return `<section id="instrument-panel" class="cp-instrument-panel" aria-label="${esc(t.instruments)}">

@@ -105,8 +105,13 @@ export function letterName(letter) {
   return NAMINGS[naming].names[LETTERS.indexOf(letter)];
 }
 
-// Name without octave, e.g. "Sol♯", "F♯", German "B" for B♭
-export function pitchName(letter, acc) {
+// Prefer common flat equivalents for standalone labels, without changing stored pitches.
+// Written key/scale names can retain their context-sensitive spelling.
+export function pitchName(letter, acc, preferCommonFlats = true) {
+  if (preferCommonFlats && acc === '#') {
+    const flatLetter = { a: 'b', d: 'e', g: 'a' }[letter];
+    if (flatLetter) { letter = flatLetter; acc = 'b'; }
+  }
   if (naming === 'german' && letter === 'b' && acc === 'b') return 'B';
   const sym = { '#': '♯', b: '♭', '##': '♯♯', bb: '♭♭' }[acc] || '';
   return letterName(letter) + sym;

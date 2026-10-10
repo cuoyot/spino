@@ -29,18 +29,50 @@
 .pdf-widget:has(.pdf-panel:not([hidden])) { width: min(420px, calc(100% - 16px)); }
 .pdf-widget-bar { display: flex; flex: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 3px; }
 .pdf-widget-bar button { background: transparent; border-color: transparent; }
-.pdf-widget-bar [data-pdf=timer] { background: #355c98; }
+.pdf-widget-bar [data-pdf=timer] { background: #355c98; display: flex; align-items: center; gap: 5px; }
+.pdf-widget-bar [data-pdf=timer] svg { width: 20px; margin: 0; }
+.pdf-widget-bar [data-pdf=timer] .pdf-time { min-width: 32px; }
 .pdf-widget-bar .pdf-finish { background: #734038; border-color: #ce9187; font-weight: 650; padding-inline: 12px; }
 .pdf-widget-bar [data-pdf=drag] { cursor: move; touch-action: none; color: #a7aeb9; }
 .pdf-time { min-width: 46px; font-size: 13px; font-variant-numeric: tabular-nums; text-align: center; }
 .pdf-time:empty { display: none; }
 .pdf-page-count { min-width: 38px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
 .pdf-pagination { display: flex; align-items: center; gap: 3px; }
+@media (max-width: 440px) {
+  .pdf-widget-bar { flex-wrap: nowrap; gap: 0; }
+  .pdf-widget-bar .pdf-pagination { gap: 0; }
+  .pdf-widget-bar .pdf-finish { padding-inline: 7px; }
+  .pdf-widget-bar .pdf-page-count { min-width: 28px; }
+}
+@media (max-width: 350px) {
+  .pdf-widget-bar [data-pdf=timer] { gap: 2px; padding-inline: 4px; }
+  .pdf-widget-bar .pdf-page-count { display: none; }
+}
 .pdf-panel { min-height: 0; max-height: min(540px, calc(100dvh - 135px)); overflow-y: auto; overscroll-behavior: contain; padding: 7px; border-bottom: 1px solid #414650; margin-bottom: 4px; }
 .pdf-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 2px 0 10px; }
 .pdf-title { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-weight: 650; }
 .pdf-paused { color: #b6caff; font-size: 12px; flex: none; }
 .pdf-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+.pdf-mark-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.pdf-mark-settings label { display: flex; flex-direction: column; gap: 5px; font-size: 12px; min-width: 0; }
+.pdf-mark-settings input { width: 100%; min-height: 44px; }
+.pdf-quick-palette { padding: 6px; max-height: 40dvh; overflow-y: auto; }
+.pdf-quick-palette .pdf-fingers { margin-bottom: 4px; }
+.xml-score-viewer [data-xml=pause] { display: flex; align-items: center; gap: 5px; background: #355c98; }
+.xml-score-viewer .pdf-panel label { display: flex; align-items: center; gap: 8px; margin-block: 8px; }
+.xml-score-viewer [data-xml-zoom] { width: 90px; min-height: 44px; }
+.xml-score-viewer .pdf-widget { background: #191d24; }
+.xml-options-section + .xml-options-section { margin-top: 14px; border-top: 1px solid #414650; padding-top: 12px; }
+.xml-options-section h3 { font-size: 13px; margin: 0 0 8px; color: #adb7c6; }
+.xml-option-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.xml-zoom-row { flex-wrap: nowrap; }
+.xml-score-viewer .xml-zoom-row label { margin: 0; }
+.xml-score-viewer [data-xml=close] { margin-top: 4px; font-size: 12px; }
+.pdf-viewer [hidden] { display: none !important; }
+.pdf-active-tool { margin-top: 4px; max-width: 100%; font-size: 12px !important; }
+.pdf-active-tool[hidden] { display: none; }
+.pdf-paper[data-tool=select] { cursor: move; }
+.pdf-marks [data-resize] { cursor: nwse-resize; }
 .pdf-fingers { display: flex; align-items: center; justify-content: space-between; gap: 3px; margin-bottom: 10px; }
 .pdf-fingers > span { font-size: 12px; color: #adb7c6; }
 .pdf-fingers button { font-size: 22px; font-weight: 650; }
@@ -51,12 +83,28 @@
 .pdf-palette [data-color] { padding: 7px; background: transparent; border-color: transparent; }
 .pdf-palette [data-color] span { display: block; width: 26px; height: 26px; border-radius: 50%; background: var(--swatch); border: 2px solid #dce2e9; }
 .pdf-palette [data-color][aria-pressed=true] { outline: 2px solid #9bbdff; outline-offset: -3px; }
+.pdf-palette [data-xml-color] { padding: 7px; background: transparent; border-color: transparent; }
+.pdf-palette [data-xml-color] span { display: block; width: 26px; height: 26px; border-radius: 50%; background: var(--swatch); border: 2px solid #dce2e9; }
+.pdf-palette [data-xml-color][aria-pressed=true] { outline: 2px solid #9bbdff; outline-offset: -3px; }
+.xml-score-viewer .pdf-quick-palette .xml-options-section { margin: 0; padding: 0; border: 0; }
+.xml-score-viewer .pdf-mark-settings { display: block; }
+.xml-score-viewer .pdf-quick-palette { max-height: calc(100dvh - 110px); }
+.xml-score-viewer .pdf-quick-palette [data-xml-mark=read] { display: none; }
+@media (orientation: landscape) and (max-height: 500px) {
+  .xml-score-viewer .pdf-quick-palette .xml-options-section { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+  .xml-score-viewer .pdf-quick-palette .pdf-fingers { grid-column: 1 / -1; }
+  .xml-score-viewer .pdf-quick-palette .pdf-palette { margin: 0; flex-wrap: nowrap; }
+  .xml-score-viewer .pdf-quick-palette .xml-option-row { grid-column: 1; }
+  .xml-score-viewer .pdf-quick-palette .pdf-mark-settings { grid-column: 2; grid-row: 2 / 4; margin: 0; }
+}
 .pdf-hint, .pdf-view-panel p, .pdf-save-state { font-size: 12px; color: #aeb7c4; margin: 8px 0; }
 .pdf-state-row { display: flex; gap: 8px; align-items: center; }
 .pdf-save-state.error { color: #ffaaa1; }
 .pdf-zoom { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .pdf-zoom-value { min-width: 55px; text-align: center; }
 .pdf-view-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.pdf-framing-extra { margin-top: 8px; }
+.pdf-framing-extra summary { min-height: 44px; display: list-item; padding: 12px 4px; cursor: pointer; }
 #app-shell ~ dialog .pdf-split-done, .pdf-split-done { background: #4f8cff; border-color: #4f8cff; color: #fff; padding: 0 14px; }
 .pdf-split { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .pdf-split [data-pdf=split][aria-pressed=true] { background: #4f8cff; border-color: #4f8cff; color: #fff; }

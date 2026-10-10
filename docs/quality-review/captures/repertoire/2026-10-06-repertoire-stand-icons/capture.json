@@ -1,0 +1,218 @@
+{
+  "runId": "2026-10-06-repertoire-stand-icons",
+  "date": "2026-10-06",
+  "title": "Music stand and repertoire table",
+  "surface": "Responsive production Chromium; not native acceptance",
+  "fixtures": "Disposable four-work notebook; no personal data",
+  "results": [
+    {
+      "state": "collection",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "collection-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "36db72195cfeb64ed1f191b352613ac7906033913f7c4340db8f4201a6634cbf"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "stand-toggled-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "9c1ac83b79cd7962115684fdb0dda2b10246bd6bc2af7d6d64821ad71eaf7243"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "descending-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "ab22428b7e91a215817c282243904e1b7ed560b86ccdea0f69684d353f60e9bb"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "filtered-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "308e2155c913bfee1601fea9a0de06adfa593440cc7ee069f10cecde1df5436d"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "collection-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "17bbd72fd6cef9a84a75ebfe435f725dd8e7ed3e2fa44d8fe0c9751014b41680"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "stand-toggled-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6f482f1493884e3e898226915050f1219902fb198768fe0a9c1164f55e4eb9aa"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "descending-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "d76ee8082b61593355845bc703db253b00f6fb0f9246c99bcb5db639799d0466"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "filtered-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "87dd72e4afd9587cc3690e657145f472ab3b51df101f18e707e2c522dd5df126"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "collection-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "036dd17a8e0ce8b276357890aefb1a02cc6a584d40cfff27eb4fe7c48df4365a"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "stand-toggled-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "fdcd368a1391ab59c7ba9fc5f1e8d1c678b5fcbc5a0b1dde3a84fc766dece9d7"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "descending-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "36f016d8cec6d3c68104cfee843c1c7230c9b8b89a7a88c58bb53c39519e7135"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "filtered-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "12ebe49daa494ae2e03806ec746716b7897494d8ebc37fd47b7c135b2869a3e2"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "collection-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "8a2f688ddba069df13476457f2efda0d3c051df89aece4075989c76d034247c3"
+        }
+      ]
+    },
+    {
+      "state": "stand-toggled",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "stand-toggled-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "7f8bc8c81e5f4f3b474f04f65eafd4e4b36c5f24f30708617d9ba8349d483125"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "descending-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "46f7ca7915bc4e2aad8375c4dd5f7faaf85fc586ef84b9c5167bb817d51e9c0b"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "filtered-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "a5515a0e3bf5bcae14e83a86698d6c02207346ad2a0fd28644b4f67594973dd3"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

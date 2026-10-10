@@ -16,5 +16,5 @@ try {
   .\gradlew.bat assembleDebug --console=plain
   if ($LASTEXITCODE -ne 0) { throw 'Android build failed.' }
 } finally { Pop-Location }
-Copy-Item android\app\build\outputs\apk\debug\app-debug.apk SPino.apk -Force
-Write-Host "APK: $(Resolve-Path SPino.apk)"
+Copy-Item android\app\build\outputs\apk\debug\app-debug.apk SPino-Test.apk -Force
+Write-Host "Test APK: $(Resolve-Path SPino-Test.apk)"

@@ -90,6 +90,16 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await action('toggle-session'); await action('open-pdf'); await wait(`document.querySelector('.xml-score svg') && document.querySelector('.xml-status').textContent.startsWith('Partitura escrita')`);
   await shot('synthetic-practice');
   assert.equal(await evaluate(`document.querySelector('[data-xml=close]').hidden`), true);
+  // Optional MIDI follow: the cursor waits for C4 + C3, skips the tied F#4 continuation and counts a wrong key.
+  await evaluate(`__sr.midi.simulateDevices(['Test piano']);document.querySelector('[data-xml=follow]').click()`);
+  await wait(`document.querySelector('.xml-score-viewer').dataset.followPending==='60 48'`);
+  await evaluate(`__sr.midi.simulateNote(60);__sr.midi.simulateNote(61);__sr.midi.simulateNote(48)`);
+  await wait(`document.querySelector('.xml-score-viewer').dataset.followPending==='66 50'`);
+  await evaluate(`__sr.midi.simulateNote(66);__sr.midi.simulateNote(50)`);
+  await wait(`document.querySelector('.xml-score-viewer').dataset.followPending==='67'`);
+  assert.match(await evaluate(`document.querySelector('.xml-follow').textContent`), /4 aciertos · 1 errores/);
+  await evaluate(`document.querySelector('[data-xml=follow]').click();__sr.midi.simulateDevices([])`);
+  assert.equal(await evaluate(`document.querySelector('.xml-follow').hidden`), true);
   await evaluate(`document.querySelector('.xml-score-viewer').dispatchEvent(new Event('cancel',{cancelable:true}))`); await wait(`document.querySelector('.xml-score-viewer').dataset.running==='false'`);
   await evaluate(`document.querySelector('[data-xml=close]').click()`); await wait(`!document.querySelector('.xml-score-viewer')`);
   assert.equal((await read('current')).active.runningSince, null);

@@ -22,6 +22,11 @@ test('open Web MIDI input survives consecutive reading sessions and activity sta
     await wait(`document.querySelector('[data-action=open-reader]')`);
     await evaluate(`document.querySelector('[data-action=open-reader]').click()`);
     await wait(`__sr.timed`);
+    await evaluate(`document.querySelector('#q-clef').click()`);
+    assert.equal(await evaluate(`document.querySelector('[name=kbZoom]').closest('label').hidden`), true);
+    assert.equal(await evaluate(`document.querySelector('[name=reveal]').closest('label').hidden`), false);
+    assert.match(await evaluate(`document.querySelector('#practice-input-description').textContent`), /MIDI/);
+    await evaluate(`document.querySelector('#settings button[value=close]').click();document.querySelector('#start').click()`);
     await evaluate(`frameAt(__sr.timed.t0);testInput.onmidimessage({data:[0x91,__sr.line.notes[0].midi,80]})`);
     assert.equal(await evaluate(`Number(document.querySelector('#s-correct').textContent)`), 1);
     assert.ok(await evaluate(`document.querySelector('#practice-midi [data-active=true][data-connected=true][data-input=midi]').getBoundingClientRect().width>0`));

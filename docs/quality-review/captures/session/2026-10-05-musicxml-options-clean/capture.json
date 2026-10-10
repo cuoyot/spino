@@ -1,0 +1,662 @@
+{
+  "runId": "2026-10-05-musicxml-options-clean",
+  "date": "2026-10-05",
+  "createdAt": "2026-10-05T16:25:36.425Z",
+  "title": "MusicXML practice baseline",
+  "reviewHref": "../../../manual-practice.md",
+  "screen": "PRACTICE-05 / SCORE MusicXML",
+  "surface": "Responsive production Chromium, not native acceptance",
+  "fixtures": "Disposable browser notebook; original synthetic MusicXML piano part; direct viewer entry with synthetic session clock, no personal data or real MIDI.",
+  "stateLabels": {
+    "running": "MusicXML · practising",
+    "paused": "MusicXML · paused",
+    "follow": "MusicXML · MIDI follow (no device)"
+  },
+  "sourceSha256": "571fe3da7c12bbbabaf67e4bbff1a29bf9c69142688b50e0215083b93cba7868",
+  "buildSha256": "fe5328b72d741d2121b394ed49477fb83c3274aabc31257ed77ffb63425e4660",
+  "fixtureSha256": "4887ffca40e19571cef6a5f1feac3cb17e9f24392bf2d74099f685ee63616320",
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "HeadlessChrome/148.0.7778.96",
+    "revision": "@8625e066febc721e015ea99842da12901eb7ed73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "jsVersion": "14.8.178.14"
+  },
+  "results": [
+    {
+      "state": "running",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 120,
+          "y": 780,
+          "width": 262,
+          "height": 56
+        },
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "ee7e8eef3cf3207c2f04655cbe942052c23328106fd083cb4206f64c3dd9dd2d"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 32,
+          "y": 732,
+          "width": 350,
+          "height": 104
+        },
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "563920b4552c8e124518e87fc6ad4a4a2ed628fb45d9e20ebc0658b190b6e08b"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "phone-portrait",
+      "label": "Phone portrait",
+      "width": 390,
+      "height": 844,
+      "probes": {
+        "widget": {
+          "x": 8,
+          "y": 508.71875,
+          "width": 374,
+          "height": 327.28125
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Hecho"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "7997e453d8589e10d138420a4774e3115d5438d8f559f7736bedbae25b8577c5"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 548,
+          "y": 326,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "8be5866b0106cb2bcae8d2ecd94fcd4fb4601ca49415a2213720f1c6e3003904"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 449,
+          "y": 278,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "73f44cb8fc2a315e5657fb823f43a61e7a068ee3394b836bbdd85b0ed2388464"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "phone-landscape",
+      "label": "Phone landscape",
+      "width": 844,
+      "height": 390,
+      "probes": {
+        "widget": {
+          "x": 276,
+          "y": 54.71875,
+          "width": 560,
+          "height": 327.28125
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Hecho"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "cb55025d824b2e58a5db440038cdff3d2bf541c60efa40dd55dca8a87aecf58b"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 472,
+          "y": 960,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "aa355db884edbc257bf4a9fd389a6ddae2a7e1e014c822c270fef9b4aed86409"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 373,
+          "y": 912,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "f644e79d198481bb844d42cf967794a75d86300854e58212ec97133bad2d249c"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "tablet-portrait",
+      "label": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "probes": {
+        "widget": {
+          "x": 340,
+          "y": 688.71875,
+          "width": 420,
+          "height": 327.28125
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Hecho"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "e77c5cc18433ba77e31912cb688a31692ed43f7cb6f64354e6edcc2f6ef584be"
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 728,
+          "y": 704,
+          "width": 288,
+          "height": 56
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Pausar práctica"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "running-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f058dce665d140c3e2f3b10df955648794d71c29595f0e939be49a99abe951ab"
+        }
+      ]
+    },
+    {
+      "state": "paused",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 629,
+          "y": 656,
+          "width": 387,
+          "height": 104
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "drag",
+            "label": "Mover controles"
+          },
+          {
+            "action": "pause",
+            "label": "Continuar práctica"
+          },
+          {
+            "action": "finish",
+            "label": "Terminar práctica"
+          },
+          {
+            "action": "options",
+            "label": "Opciones de partitura"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          },
+          {
+            "action": "close",
+            "label": "Volver a la sesión"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "paused-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "f19a685efd95161cc802c4f6adc2167053756f862c6f0f45be06860088e570b3"
+        }
+      ]
+    },
+    {
+      "state": "follow",
+      "id": "tablet-landscape",
+      "label": "Tablet landscape",
+      "width": 1024,
+      "height": 768,
+      "probes": {
+        "widget": {
+          "x": 596,
+          "y": 432.71875,
+          "width": 420,
+          "height": 327.28125
+        },
+        "followPending": "60 48",
+        "buttons": [
+          {
+            "action": "follow",
+            "label": "Seguir"
+          },
+          {
+            "action": "out",
+            "label": "Reducir zoom"
+          },
+          {
+            "action": "in",
+            "label": "Ampliar zoom"
+          },
+          {
+            "action": "done",
+            "label": "Hecho"
+          },
+          {
+            "action": "prev",
+            "label": "Página anterior"
+          },
+          {
+            "action": "next",
+            "label": "Página siguiente"
+          }
+        ]
+      },
+      "frames": [
+        {
+          "path": "follow-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "e7401d03c658c4fd201b7d695be4f8f208c3c203552b1fe1f31fc15dc847784d"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

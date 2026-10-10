@@ -1,0 +1,76 @@
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {openBrowser} from '../../tests/browser.js';
+import {writeGallery} from './build-gallery.mjs';
+const runId=process.argv[2],folder=resolve('docs/quality-review/captures/routines',runId),cleanup=[],results=[];
+await mkdir(folder,{recursive:true});
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+try {
+ const {send,evaluate,url,errors}=await openBrowser({after:fn=>cleanup.push(fn)},{companion:true,language:'es'});
+ const wait=c=>evaluate(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(${c}){clearInterval(t);resolve();}else if(++n>500){clearInterval(t);reject(Error('Routine timeout'));}},20);})`);
+ const click=action=>evaluate(`document.querySelector('[data-action="${action}"]').click()`);
+ const stored=()=>evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const db=r.result,q=db.transaction('state').objectStore('state').get('current');q.onsuccess=()=>{resolve(q.result);db.close();};};})`);
+ for(const device of [{id:'phone-portrait',width:390,height:844},{id:'phone-landscape',width:844,height:390},{id:'tablet-portrait',width:768,height:1024},{id:'tablet-landscape',width:1024,height:768}]) {
+  await send('Emulation.setDeviceMetricsOverride',{...device,deviceScaleFactor:1,mobile:true});await send('Page.navigate',{url});await wait(`document.querySelector('.cp-today')`);
+  await click('practice');await click('routines');await click('new-routine');
+  assert.equal(await evaluate(`document.querySelector('#prepare-form [name=routine-name]')`),null);
+  assert.equal(await evaluate(`document.querySelector('#prepare-form button[type=submit]').textContent`),'Guardar rutina');
+  assert.equal(await evaluate(`document.querySelector('[data-action=prepare-more]')`),null);
+  assert.equal(await evaluate(`document.querySelector('#prepare-form [name=context]')`),null);
+  assert.equal(await evaluate(`document.querySelector('.cp-routine-blocks').compareDocumentPosition(document.querySelector('[data-action=routine-add]')) & Node.DOCUMENT_POSITION_FOLLOWING`),4);
+  const alignment=await evaluate(`['warmup-minutes','minutes-0'].map(name=>{const e=document.querySelector('[name="'+name+'"]'),r=e.getBoundingClientRect();return {name,x:r.x,width:r.width,label:e.parentElement.getBoundingClientRect().width};})`);
+  assert.ok(Math.abs(alignment[0].x-alignment[1].x)<2,JSON.stringify(alignment));
+  await evaluate(`document.querySelector('[name=routine-warmup]').click()`);
+  assert.equal(await evaluate(`document.querySelector('output[for=practice-duration]').value`),'10');
+  await evaluate(`document.querySelector('[name=routine-warmup]').click()`);
+  const capture=async state=>{const path=`${state}-${device.id}-01.png`,bytes=Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64');await writeFile(join(folder,path),bytes);results.push({state,...device,frames:[{path,scrollTop:await evaluate(`document.querySelector('.cp-page').scrollTop`),sha256:hash(bytes)}]});};
+  await capture('create');await click('routine-add');await click('routine-add-type');
+  await evaluate(`document.querySelector('#session-block-form [name=type]').value='technique';document.querySelector('#session-block-form [name=type]').dispatchEvent(new Event('change'));document.querySelector('#session-block-form [name=minutes]').value='15'`);
+  await capture('block-editor');await evaluate(`document.querySelector('#session-block-form').requestSubmit()`);await wait(`!document.querySelector('#cp-dialog').open`);
+  assert.equal(await evaluate(`document.querySelector('output[for=practice-duration]').textContent`),'28');
+  const ids=await evaluate(`[...document.querySelectorAll('[data-session-block]')].map(e=>e.dataset.sessionBlock)`);
+  await capture('sequence');
+  if(device.height>device.width) {
+   const points=await evaluate(`(()=>{const rows=[...document.querySelectorAll('[data-session-block]')];const a=rows[0].getBoundingClientRect(),b=rows[1].querySelector('[data-session-options]').getBoundingClientRect();return {x:b.x+b.width/2,y:b.y+b.height/2,target:a.y+10};})()`);
+   await send('Input.dispatchMouseEvent',{type:'mousePressed',x:points.x,y:points.y,button:'left',clickCount:1});await evaluate(`new Promise(resolve=>setTimeout(resolve,450))`);
+   await capture('dragging');await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:points.x,y:points.target,button:'left',buttons:1});await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:points.x,y:points.target,button:'left',clickCount:1});
+   assert.deepEqual(await evaluate(`[...document.querySelectorAll('[data-session-block]')].map(e=>e.dataset.sessionBlock)`),[ids[1],ids[0]]);
+   await evaluate(`document.querySelectorAll('[data-session-options]')[0].click();document.querySelector('[data-session-menu]:not([hidden]) [data-action=routine-down]').click()`);
+  }
+  await evaluate(`document.querySelectorAll('[data-session-options]')[1].click()`);await capture('move-options');
+  await evaluate(`document.querySelector('[data-session-menu]:not([hidden]) [data-action=routine-up]').click()`);assert.deepEqual(await evaluate(`[...document.querySelectorAll('[data-session-block]')].map(e=>e.dataset.sessionBlock)`),[ids[1],ids[0]]);
+  await evaluate(`document.querySelectorAll('[data-session-options]')[1].click();document.querySelector('[data-session-menu]:not([hidden]) [data-action=routine-remove]').click()`);
+  assert.equal(await evaluate(`document.querySelector('output[for=practice-duration]').textContent`),'18');
+  await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('#routine-name-form')`);await capture('save-name');
+  await click('close-dialog');assert.equal(await evaluate(`document.querySelectorAll('[data-session-block]').length`),1);
+  await evaluate(`document.querySelector('#prepare-form').requestSubmit();document.querySelector('#routine-name-form [name=routine-name]').value='Daily routine '+${JSON.stringify(device.id)};document.querySelector('#routine-name-form').requestSubmit()`);await wait(`document.querySelector('[data-action=new-routine]')`);
+  const saved=(await stored()).routines.find(r=>r.title==='Daily routine '+device.id);assert.ok(saved);assert.equal(saved.blocks[0].id,ids[1]);assert.equal((await stored()).active,null);
+  await evaluate(`document.querySelector('[data-action=edit-routine][data-id="'+${JSON.stringify(saved.id)}+'"]').click()`);
+  await capture('edit');await click('delete-routine');await capture('delete-confirm');await click('close-dialog');
+  assert.ok((await stored()).routines.some(r=>r.id===saved.id));
+  await evaluate(`document.querySelector('[name=minutes-0]').value='18';document.querySelector('[name=minutes-0]').dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('#prepare-form').requestSubmit()`);
+  assert.equal(await evaluate(`document.querySelector('#routine-name-form [name=routine-name]').value`),saved.title);
+  await evaluate(`document.querySelector('#routine-name-form').requestSubmit()`);
+  await wait(`document.querySelector('[data-action=new-routine]')`);const edited=(await stored()).routines.find(r=>r.id===saved.id);assert.equal(edited.blocks[0].id,ids[1]);assert.equal(edited.blocks[0].minutes,18);
+  const routinesBeforePlan=(await stored()).routines;
+  await click('calendar');await click('add-on-day');await click('plan-practice');await capture('calendar-routine-choice');
+  await evaluate(`document.querySelector('[data-action=schedule-routine][data-id="'+${JSON.stringify(saved.id)}+'"]').click()`);await capture('calendar-routine-date');
+  await evaluate(`document.querySelector('#cp-dialog [name=date]').value='2026-10-20';document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`!document.querySelector('#cp-dialog').open`);
+  const plannedData=await stored(),plan=plannedData.plans.at(-1);assert.equal(plan.date,'2026-10-20');assert.equal(plan.title,edited.title);assert.deepEqual(plan.blocks,edited.blocks);assert.deepEqual(plan.routinePolicy,edited.routinePolicy);assert.deepEqual(plannedData.routines,routinesBeforePlan);
+ }
+ const routine=(await stored()).routines[0];
+ await click('practice');await click('routines');
+ await evaluate(`document.querySelector('[data-action=start-routine][data-id="'+${JSON.stringify(routine.id)}+'"]').click();document.querySelector('#prepare-form').requestSubmit()`);
+ await wait(`document.querySelector('[data-action=session-end]')`);
+ await click('practice');await click('routines');
+ await evaluate(`document.querySelector('[data-action=edit-routine][data-id="'+${JSON.stringify(routine.id)}+'"]').click()`);
+ const active=(await stored()).active;
+ await evaluate(`document.querySelector('#prepare-form').requestSubmit();document.querySelector('#routine-name-form').requestSubmit()`);await wait(`document.querySelector('[data-action=new-routine]')`);
+ assert.deepEqual((await stored()).active,active);
+ await evaluate(`document.querySelector('[data-action=edit-routine][data-id="'+${JSON.stringify(routine.id)}+'"]').click()`);
+ const beforeDelete=await stored();await click('delete-routine');await evaluate(`document.querySelector('#cp-confirm').click()`);await wait(`document.querySelector('[data-action=new-routine]')`);
+ const expected=structuredClone(beforeDelete);expected.routines=expected.routines.filter(r=>r.id!==routine.id);assert.deepEqual(await stored(),expected);
+ const metadata={runId,date:'2026-10-06',title:'Dedicated routine builder',surface:'Responsive production Chromium; not native acceptance',fixtures:'Disposable routines, no personal notebook',sourceSha256:hash(await readFile('src/companion/routine-builder.js')),results,runtimeErrors:errors};await writeFile(join(folder,'capture.json'),JSON.stringify(metadata,null,2));await writeGallery(folder,metadata);console.log(JSON.stringify({folder,views:results.length,errors}));
+} finally {for(const close of cleanup.reverse())await close();}

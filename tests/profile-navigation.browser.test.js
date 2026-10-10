@@ -8,8 +8,8 @@ test('profile detail navigation preserves edits and scales saved scores across d
   await send('Page.navigate',{url});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++n>500){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('.cp-profile-nav')`);
-  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.dataset.action)`),['home','practice','calendar','piano','settings']);
-  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button > span:not(.cp-avatar)')].map(s=>s.textContent)`),['Hoy','Practicar','Calendario','Biblioteca']);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.dataset.action)`),['home','practice','calendar','piano','progress','settings']);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button > span:not(.cp-avatar)')].map(s=>s.textContent)`),['Hoy','Practicar','Calendario','Biblioteca','Progreso']);
   assert.equal(await evaluate(`document.querySelector('.cp-profile-nav').getAttribute('aria-label')`),'Perfil');
   assert.equal(await evaluate(`document.querySelector('.cp-nav [data-action=midi-settings]')`),null,'MIDI is a utility rather than a primary destination');
   await evaluate(`new Promise((resolve,reject)=>{const request=indexedDB.open('cuaderno-piano',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('assets','readwrite');for(let i=0;i<29;i++)tx.objectStore('assets').put({id:'layout-'+i,name:'Piano score '+String(i).padStart(2,'0')+' — A deliberately long title for a complete edition with annotations and several movements.pdf',type:'application/pdf',base64:'YWJjZA=='});tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};})`);
@@ -24,8 +24,8 @@ test('profile detail navigation preserves edits and scales saved scores across d
   await evaluate(`document.querySelector('[data-action=profile-back]').click()`);
   assert.equal(await evaluate(`document.querySelector('.cp-profile-identity h2').textContent`),'Alex Pianist','saving practice preferences retains identity');
   assert.ok(await evaluate(`document.querySelector('.cp-profile-identity p').textContent.includes('240')`));
-  await evaluate(`document.querySelector('.cp-setting-row[data-action=progress]').click()`);
-  assert.equal(await evaluate(`document.querySelector('.cp-nav [aria-current=page]').dataset.action`),'settings','progress belongs to Profile');
+  await evaluate(`document.querySelector('.cp-nav [data-action=progress]').click()`);
+  assert.equal(await evaluate(`document.querySelector('.cp-nav [aria-current=page]').dataset.action`),'progress','progress is a main destination');
   for(const [width,height] of [[320,568],[390,844],[844,390],[768,1024],[1180,820]]) {
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
     for(const [action,name] of [['practice','practice'],['settings','profile'],['profile-practice','preferences'],['settings',null],['profile-backup','backup'],['settings',null],['profile-files','files'],['midi-settings','instrument'],['piano','library']]) {

@@ -1,11 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateAnnotations, pagePoint, marginTurn } from '../src/companion/pdf-annotations.js';
+import { validateAnnotations, pagePoint, marginTurn, moveMark } from '../src/companion/pdf-annotations.js';
 import { emptyData, validateBackup } from '../src/companion/model.js';
 import { scorePDF } from './pdf-fixture.js';
 import { validateScoreView } from '../src/companion/score-view.js';
 
 const mark = { id: 'a', page: 1, type: 'pen', color: '#d64545', width: .0035, points: [{ x: .2, y: .4 }] };
+
+test('optional text size preserves old annotations and bounds whole-mark movement',()=>{
+  const sized={...mark,type:'fingering',text:'3',fontSize:.05};
+  assert.equal(validateAnnotations({version:1,marks:[sized]}).marks[0].fontSize,.05);
+  assert.throws(()=>validateAnnotations({version:1,marks:[{...sized,fontSize:1}]}));
+  const moved=moveMark({...mark,points:[{x:.2,y:.3},{x:.8,y:.6}]},1,-1);
+  assert.deepEqual(moved.points,[{x:.39999999999999997,y:0},{x:1,y:.3}]);
+  assert.equal(moved.id,mark.id);
+});
 test('annotations round-trip through backups while older unannotated PDFs remain valid', () => {
   const backup = { format: 'cuaderno-piano', version: 1, data: emptyData(), assets: [{ id: 'pdf', name: 'Score.pdf', type: 'application/pdf', base64: scorePDF() }] };
   assert.equal(validateBackup(JSON.stringify(backup)).assets[0].annotations, undefined);

@@ -1,0 +1,166 @@
+{
+  "runId": "2026-10-06-repertoire-table-01",
+  "date": "2026-10-06",
+  "title": "Music stand and repertoire table",
+  "surface": "Responsive production Chromium; not native acceptance",
+  "fixtures": "Disposable four-work notebook; no personal data",
+  "results": [
+    {
+      "state": "collection",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "collection-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "3d3bab3549d5eabb6be2393432c8440cf62e30342b90cbe90b93667280acd021"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "descending-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "ef02c5ba6acb4d02a86ce6ceaefced6e1b4ba2095d46a75e79f6d7e3fabff99a"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "filtered-phone-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "9537ef9a4a6162e0bbeee444d1d72db617f03dba1344395168b0b3155fec9087"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "collection-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "60658e7925ed28c5a7a92b6fa41f248f15f402af8f7aadf6aaf1d646936fa4a6"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "descending-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "7ac0ef1e27c7e3c298a8c61922214ad6a2406f2473a6eb10ed7daba03e8cbd6a"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "filtered-phone-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "ddebd7fdaaeba9b8954387e135497bc89e69c970441d30a12784ff2419b4c62a"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "collection-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "8281e4f3b0cb92ee228271f6c56b29f19737e85084b44a0b72027a4454ecaec9"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "descending-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "7ba57757708ac286c5b87396c4aa992bce6ca60041866a72c309b9bc424be9db"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "filtered-tablet-portrait-01.png",
+          "scrollTop": 0,
+          "sha256": "03270e6e83f7047c7155bc01fa11dd0692e3f7696c8d3a77c5f5b778348bc979"
+        }
+      ]
+    },
+    {
+      "state": "collection",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "collection-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "da9620c06844c278cb598708d7ea2e86bc8ee0ebe1f65da18275cd85be48b3c6"
+        }
+      ]
+    },
+    {
+      "state": "descending",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "descending-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "081acb3ec729f52a8f95390ee792a37dc50bce42f52de3a512f5770428768fd1"
+        }
+      ]
+    },
+    {
+      "state": "filtered",
+      "id": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "filtered-tablet-landscape-01.png",
+          "scrollTop": 0,
+          "sha256": "6abdee50c16fe0e6fb36f4aeb53062f29f8ac8f33c7de1aedaea401ec69600ba"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

@@ -1,11 +1,12 @@
+import { printActionButton } from './score-controls.js';
 import { catalogueRecords } from './library.js';
 import { libraryCounts, filterCatalogue, executionFor, manualPracticeState, acquisitionCandidates } from './library-state.js';
 import { escapeHTML as esc } from './views.js';
-import { getAppLanguage, localizeMessage } from './locale.js';
+import { getAppLanguage, localizeMessage, localize } from './locale.js';
 
 const button = (action, label, id = '', extra = '') => `<button type="button" data-action="${action}" data-id="${esc(id)}" ${extra}>${label}</button>`;
 const options = (items, selected) => items.map(([value, label]) => `<option value="${esc(value)}" ${value === selected ? 'selected' : ''}>${esc(label)}</option>`).join('');
-export const libraryText = (lang = getAppLanguage()) => (en, es) => lang === 'es' ? es : en;
+export const libraryText = (lang = getAppLanguage()) => (en, es) => localize(en, es, lang);
 
 export function downloadStatus(status, lang = getAppLanguage()) {
   const t = libraryText(lang);
@@ -30,7 +31,9 @@ export function scoreStatus(record, execution, state, lang = getAppLanguage()) {
   return record.assets?.some(a => a.download_url) ? t('Available to download', 'Disponible para descargar') : t('No score file is attached.', 'No hay un archivo de partitura asociado.');
 }
 
-export function libraryMarkup(library, filters = { state: 'usable' }, page = 0, selecting = false, { lang = getAppLanguage(), pdfs = '', pdfCount = 0 } = {}) {
+// Catalogue pieces can join the repertoire without being practised; `repertoire` maps library ids to work ids.
+export const repertoireButton = (id, repertoire, t) => repertoire.has(id) ? button('work-detail', t('✓ In your repertoire', '✓ En tu repertorio'), repertoire.get(id), 'class="quiet"') : button('library-add-work', t('+ Repertoire', '+ Repertorio'), id, 'class="quiet"');
+export function libraryMarkup(library, filters = { state: 'usable' }, page = 0, selecting = false, { lang = getAppLanguage(), pdfs = '', pdfCount = 0, repertoire = new Map() } = {}) {
   const t = libraryText(lang), counts = libraryCounts(library), isPDF = filters.format === 'pdf';
   const records = filterCatalogue(library, filters), pages = Math.max(1, Math.ceil(records.length / 24)), current = Math.min(page, pages - 1);
   const composers = [...new Set(catalogueRecords(library).map(r => r.known_metadata.composer).filter(Boolean))].sort();
@@ -61,7 +64,7 @@ export function libraryMarkup(library, filters = { state: 'usable' }, page = 0, 
         const e = executionFor(library, record.piece_id), state = manualPracticeState(record, e), downloadable = acquisitionCandidates(library, record).length > 0;
         const busy = ['queued','downloading','waiting-wifi'].includes(e.job?.status);
         return `<article class="cp-card cp-score-card" data-piece-id="${esc(record.piece_id)}"><span class="cp-tag">${e.assetId ? t('On device','En el dispositivo') : downloadable ? 'MusicXML' : t('Reference','Referencia')}</span><h2>${esc(record.display_title)}</h2><p class="muted">${esc(record.known_metadata.composer || (record.catalogue_group === 'piano_candidates' ? 'MuseTrainer · MusicXML' : t('Composer unverified','Compositor sin verificar')))}${record.known_metadata.opus_or_catalogue ? ` · ${esc(record.known_metadata.opus_or_catalogue)}` : ''}</p><p class="cp-score-state" id="reason-${esc(record.piece_id)}">${esc(scoreStatus(record,e,state,lang))}</p>
-          <div class="cp-actions">${state.playable ? button('library-practice', selecting ? t('Use in this practice','Usar en esta práctica') : t('Practice','Practicar'),record.piece_id,'class="primary"') : !e.assetId && downloadable ? button(busy ? 'downloads' : 'library-download',busy ? t('View download','Ver descarga') : t('Download score','Descargar partitura'),record.piece_id,'class="primary"') : ''}${button('library-detail',t('Details','Detalle'),record.piece_id)}</div></article>`;
+          <div class="cp-actions">${state.playable ? button('library-practice', selecting ? t('Use in this practice','Usar en esta práctica') : t('Practice','Practicar'),record.piece_id,'class="primary"') : !e.assetId && downloadable ? button(busy ? 'downloads' : 'library-download',busy ? t('View download','Ver descarga') : t('Download score','Descargar partitura'),record.piece_id,'class="primary"') : ''}${e.assetId ? printActionButton('library-print',record.piece_id,esc) : ''}${repertoireButton(record.piece_id, repertoire, t)}${button('library-detail',t('Details','Detalle'),record.piece_id)}</div></article>`;
       }).join('') || `<p class="cp-empty">${t('No scores match these filters.', 'No hay partituras con estos filtros.')} ${button('library-clear',t('Show available scores','Ver partituras disponibles'))} ${button('library-all',t('Search research too','Buscar también en investigación'))}</p>`}</div>
       ${pages > 1 ? `<div class="cp-actions cp-library-pages">${button('library-page',t('Previous','Anterior'),String(Math.max(0,current-1)),current === 0 ? 'disabled' : '')}${button('library-page',t('Next','Siguiente'),String(current+1),current >= pages-1 ? 'disabled' : '')}</div>` : ''}`}
     <details class="cp-library-maintenance"><summary>${t('Catalogue information and tools','Información y herramientas del catálogo')}</summary>

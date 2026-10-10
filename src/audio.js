@@ -74,14 +74,14 @@ export function holdNote(midi, gain = 0.25) {
   return { stop };
 }
 
-export function click(accent = false, when = 0) {
+export function click(accent = false, when = 0, volume = 1) {
   const a = ac();
   // AudioContext can resume later than the visual clock after a device interruption.
   const t = Math.max(a.currentTime, Number.isFinite(when) ? when : 0);
   const o = a.createOscillator();
   const g = a.createGain();
   o.frequency.value = accent ? 1600 : 1000;
-  g.gain.setValueAtTime(0.3, t);
+  g.gain.setValueAtTime(Math.max(0.0001, 0.3 * Math.max(0, Math.min(1, volume))), t);
   g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
   o.connect(g).connect(a.destination);
   o.start(t);

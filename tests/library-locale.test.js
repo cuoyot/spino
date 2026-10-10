@@ -77,13 +77,13 @@ test('repertoire filters translate stored stage labels without modifying titles,
   const before = structuredClone(data);
   setAppLanguage('es');
   assert.match(render(), /Todas las obras/);
-  assert.match(render(), /Quitar de favoritas: The Entertainer/);
+  assert.doesNotMatch(render(), /Quitar de favoritas/);
   assert.match(render(), /Borrar filtros/);
   assert.doesNotMatch(render(), /All works|Collection|Clear filters/);
   assert.throws(() => parseTags('a'.repeat(41)), /Usa hasta 20 etiquetas/);
   setAppLanguage('en');
   assert.match(render(), /value="En estudio">Learning/);
-  assert.match(render(), /Remove from favorites: The Entertainer/);
+  assert.doesNotMatch(render(), /Remove from favorites/);
   assert.deepEqual(data, before);
 });
 

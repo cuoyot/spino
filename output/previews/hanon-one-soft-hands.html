@@ -1,0 +1,208 @@
+<div id="hanon-soft-volume">
+  <div class="hv-heading"><div><span class="hv-eyebrow">B · SOFT VOLUME · MOTION STUDY</span><h2>Hanon No. 1</h2></div><span class="hv-excerpt">Opening four patterns</span></div>
+  <div class="hv-stage" role="img" aria-label="Two softly shaded cartoon hands play the opening four ascending patterns of Hanon No. 1, an octave apart. Fingers bend onto the keys and the hands shift together between patterns."><div class="hv-loading">Preparing the hands…</div><div class="hv-badges" aria-hidden="true"></div></div>
+  <div class="hv-reading"><span class="hv-left">Left <b data-left>5 · C3</b></span><span data-pattern>Pattern 1 / 4</span><span class="hv-right">Right <b data-right>1 · C4</b></span></div>
+  <div class="hv-notes" aria-label="Notes in the current pattern"></div>
+  <div class="hv-controls"><button type="button" class="cursor-interaction" data-play>Play</button><button type="button" class="cursor-interaction" data-step>Next note</button><label>Speed <select aria-label="Playback speed" class="cursor-interaction" data-speed><option value="0.5">Slow</option><option value="1" selected>Normal</option></select></label><button type="button" class="cursor-interaction hv-sound" data-sound aria-pressed="false">Sound off</button></div>
+  <div class="hv-status" aria-live="polite">Preview only · Not integrated into the app</div>
+</div>
+<style>
+#hanon-soft-volume{--hv-bg:#171b21;--hv-fg:#f3f0eb;--hv-muted:#b3bac5;--hv-line:#343c47;--hv-blue:#72a8ff;--hv-orange:#ffad70;background:var(--hv-bg);color:var(--hv-fg);font-family:Inter,system-ui,sans-serif;border-radius:18px;overflow:hidden;padding:22px 20px 16px;color-scheme:dark}
+#hanon-soft-volume *{box-sizing:border-box}
+#hanon-soft-volume .hv-heading{display:flex;align-items:end;gap:14px;flex-wrap:wrap;padding-right:80px}
+#hanon-soft-volume .hv-eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--hv-muted)}
+#hanon-soft-volume h2{font-size:24px;font-weight:500;margin:5px 0 0}
+#hanon-soft-volume .hv-excerpt{font-size:12px;color:var(--hv-muted);padding-bottom:3px}
+#hanon-soft-volume .hv-stage{position:relative;aspect-ratio:1.78;min-height:220px;margin:12px -14px 0;overflow:hidden}
+#hanon-soft-volume canvas{display:block;width:100%;height:100%}
+#hanon-soft-volume .hv-loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--hv-muted);font-size:14px}
+#hanon-soft-volume .hv-badges{position:absolute;inset:0;pointer-events:none}
+#hanon-soft-volume .hv-badge{position:absolute;transform:translate(-50%,-50%);display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#38332fdc;color:#fff;font-size:13px;font-weight:500;box-shadow:0 1px 3px #0005;transition:background .1s}
+#hanon-soft-volume .hv-badge.is-active{background:#f6eee3;color:#27231f;box-shadow:0 0 0 2px var(--hand-color),0 1px 4px #0007}
+#hanon-soft-volume .hv-reading{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--hv-muted);margin:0 0 16px}
+#hanon-soft-volume .hv-reading b{font-size:14px;font-weight:500;margin-left:5px;font-variant-numeric:tabular-nums;color:var(--hv-fg)}
+#hanon-soft-volume .hv-left{color:var(--hv-blue)}
+#hanon-soft-volume .hv-right{color:var(--hv-orange)}
+#hanon-soft-volume .hv-notes{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-bottom:18px}
+#hanon-soft-volume .hv-note{text-align:center;color:var(--hv-muted);font-size:13px;padding:8px 0;border-bottom:2px solid var(--hv-line)}
+#hanon-soft-volume .hv-note.is-active{color:var(--hv-fg);border-color:var(--hv-orange);background:#ffffff08}
+#hanon-soft-volume .hv-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#hanon-soft-volume button,#hanon-soft-volume select{font:inherit;font-size:13px;min-height:40px;border:1px solid var(--hv-line);border-radius:9px;padding:9px 13px;background:#222831;color:var(--hv-fg)}
+#hanon-soft-volume button[data-play]{background:#f1ede6;color:#20242a;border-color:#f1ede6;min-width:75px}
+#hanon-soft-volume label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--hv-muted)}
+#hanon-soft-volume .hv-sound{margin-left:auto}
+#hanon-soft-volume .hv-status{font-size:11px;color:var(--hv-muted);margin-top:14px}
+@media(max-width:440px){#hanon-soft-volume{padding:16px 12px 14px}#hanon-soft-volume .hv-heading{padding-right:65px}#hanon-soft-volume .hv-excerpt{display:none}#hanon-soft-volume .hv-stage{aspect-ratio:1.35;margin-left:-10px;margin-right:-10px}#hanon-soft-volume .hv-reading{gap:4px;font-size:11px}#hanon-soft-volume .hv-reading b{font-size:12px;margin-left:2px}#hanon-soft-volume .hv-badge{width:17px;height:17px;font-size:11px}#hanon-soft-volume button,#hanon-soft-volume select{min-height:44px;padding:8px 10px}#hanon-soft-volume .hv-sound{margin-left:0}}
+</style>
+<script type="module">
+const root = document.getElementById('hanon-soft-volume');
+const stage = root.querySelector('.hv-stage');
+const ui = name => root.querySelector('[data-' + name + ']');
+try {
+  const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js');
+  const scene = new THREE.Scene();
+  const renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  stage.prepend(renderer.domElement);
+  root.querySelector('.hv-loading').remove();
+  const camera = new THREE.OrthographicCamera(-8,8,5,-5,0.1,80);
+  camera.position.set(0,22,13);
+  camera.lookAt(0,0,2.0);
+  scene.add(new THREE.HemisphereLight(0xffeee0,0x555e70,1.55));
+  const light = new THREE.DirectionalLight(0xfff0dd,1.8);
+  light.position.set(-5,14,4); light.castShadow = true;
+  light.shadow.mapSize.set(2048,2048);
+  Object.assign(light.shadow.camera,{left:-12,right:12,top:12,bottom:-12,near:1,far:40});
+  light.shadow.bias=-0.0004; light.shadow.normalBias=0.025;
+  light.shadow.radius=4; scene.add(light);
+  const fill = new THREE.DirectionalLight(0xd5e5ff,.75); fill.position.set(8,7,-6); scene.add(fill);
+  const skin = new THREE.MeshStandardMaterial({color:0xdca080,roughness:0.67});
+  const nails = new THREE.MeshStandardMaterial({color:0xf4c5ac,roughness:0.55});
+  const ivory = new THREE.MeshStandardMaterial({color:0xece5d9,roughness:0.46});
+  const black = new THREE.MeshStandardMaterial({color:0x24272d,roughness:0.38});
+  const body = new THREE.MeshStandardMaterial({color:0x20242a,roughness:0.78});
+  const sphere = new THREE.SphereGeometry(1,32,24);
+  const v = (x,y,z) => new THREE.Vector3(x,y,z);
+  function ellipsoid(group,material,position,scale){const m=new THREE.Mesh(sphere,material);m.position.set(...position);m.scale.set(...scale);m.castShadow=true;m.receiveShadow=true;group.add(m);return m;}
+  function box(group,material,x,y,z,w,h,d){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),material);m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;group.add(m);return m;}
+  const keyW=.74, count=20;
+  const keyX=n=>(n-(count-1)/2)*keyW;
+  box(scene,body,0,-.38,.8,count*keyW+.35,.65,6.2);
+  const keys=[];
+  for(let i=0;i<count;i++){
+    const pivot = new THREE.Group(); pivot.position.set(keyX(i),0,-2.2);scene.add(pivot);
+    const material=ivory.clone();
+    box(pivot,material,0,-.045,2.6,keyW-.028,.24,5.2);
+    keys.push({pivot,material});
+    if(![2,6].includes(i%7)&&i<count-1)box(scene,black,keyX(i)+keyW/2,.19,-.64,.43,.55,3.12);
+  }
+  const floor=box(scene,new THREE.ShadowMaterial({opacity:.12}),0,-.78,2,40,.1,30);
+  // A continuous, tapered surface follows each articulated finger's centre line.
+  function fingerGeometry(points,radius){
+    const curve=new THREE.CatmullRomCurve3(points), segments=28, sides=12, vertices=[], normals=[], indices=[];
+    for(let i=0;i<=segments;i++){
+      const t=i/segments,p=curve.getPoint(t),tangent=curve.getTangent(t).normalize();
+      const side=v(0,1,0).cross(tangent).normalize(),up=tangent.clone().cross(side).normalize();
+      const cap=t>.86?Math.sqrt(Math.max(.0005,1-Math.pow((t-.86)/.14,2))):1;
+      const r=radius*(1-.20*t)*cap;
+      for(let j=0;j<=sides;j++){
+        const a=j/sides*Math.PI*2,n=side.clone().multiplyScalar(Math.cos(a)).addScaledVector(up,Math.sin(a));
+        vertices.push(p.x+n.x*r,p.y+n.y*r*.87,p.z+n.z*r);normals.push(n.x,n.y,n.z);
+        if(i<segments&&j<sides){const q=i*(sides+1)+j;indices.push(q,q+1,q+sides+1,q+1,q+sides+2,q+sides+1);}
+      }
+    }
+    const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));geo.setIndex(indices);geo.computeVertexNormals();return geo;
+  }
+  function palmGeometry(){
+    const profile=new THREE.CatmullRomCurve3([v(.15,.16,3.21),v(1.04,.35,3.37),v(1.32,.42,3.76),v(1.30,.44,4.22),v(1.13,.42,4.75),v(.87,.35,5.40),v(.78,.32,5.98)]);
+    const vertices=[],indices=[],rows=36,sides=48;
+    for(let i=0;i<=rows;i++){
+      const p=profile.getPoint(i/rows),centre=.92-(p.z-3.21)*.082;
+      for(let j=0;j<=sides;j++){
+        const a=j/sides*Math.PI*2;
+        vertices.push(Math.cos(a)*p.x,centre+Math.sin(a)*p.y,p.z);
+        if(i<rows&&j<sides){const q=i*(sides+1)+j;indices.push(q,q+1,q+sides+1,q+1,q+sides+2,q+sides+1);}
+      }
+    }
+    const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geo.setIndex(indices);geo.computeVertexNormals();return geo;
+  }
+  function makeHand(left){
+    const group=new THREE.Group();scene.add(group);const sign=left?-1:1;
+    const palm=new THREE.Mesh(palmGeometry(),skin);palm.castShadow=true;palm.receiveShadow=true;group.add(palm);
+    ellipsoid(group,skin,[sign*-.73,.77,4.55],[.57,.34,.86]);
+    ellipsoid(group,skin,[0,.69,5.71],[.78,.32,.76]);
+    const sleeveMaterial=new THREE.MeshStandardMaterial({color:left?0x447dc7:0xde803d,roughness:.94});
+    const sleeve=new THREE.Mesh(new THREE.CylinderGeometry(.91,1.03,1.07,48),sleeveMaterial);
+    sleeve.rotation.x=Math.PI/2;sleeve.scale.z=.58;sleeve.position.set(0,.72,6.46);sleeve.castShadow=true;group.add(sleeve);
+    const fingers=[];
+    for(let f=1;f<=5;f++){
+      const mesh=new THREE.Mesh(new THREE.BufferGeometry(),skin);mesh.castShadow=true;mesh.receiveShadow=true;group.add(mesh);
+      const nail=ellipsoid(group,nails,[0,0,0],[f===1?.19:.15,.035,f===1?.23:.19]);
+      const badge=document.createElement('span');badge.className='hv-badge';badge.textContent=f;badge.style.setProperty('--hand-color',left?'#72a8ff':'#ffad70');root.querySelector('.hv-badges').append(badge);
+      fingers.push({mesh,nail,badge,tip:v(0,0,0)});
+    }
+    return {group,fingers,left,sign};
+  }
+  const hands=[makeHand(true),makeHand(false)];
+  const steps=[0,2,3,4,5,4,3,2],rh=[1,2,3,4,5,4,3,2],lh=[5,4,3,2,1,2,3,4];
+  const names=['C','D','E','F','G','A','B'];
+  const noteEls=steps.map(()=>{const e=document.createElement('span');e.className='hv-note';root.querySelector('.hv-notes').append(e);return e;});
+  let position=0,playing=false,speed=1,sound=false,audio=null,lastAudio=-1,lastTime=0,lastUI=-1;
+  const duration=.48,total=32;
+  const ease=t=>t*t*(3-2*t);
+  const noteName=n=>names[n%7]+(3+Math.floor(n/7));
+  function applyState(state){const saved=state?.privateContent;if(!saved)return;position=Math.max(0,Math.min(total-0.001,Number(saved.position)||0));speed=saved.speed===.5?.5:1;ui('speed').value=String(speed);playing=false;ui('play').textContent='Play';lastUI=-1;}
+  applyState(window.openai?.widgetState);
+  window.addEventListener('openai:set_globals',e=>{if(e.detail?.globals?.widgetState)applyState(e.detail.globals.widgetState);});
+  function save(){window.openai?.setWidgetState?.({modelContent:{design:'B · Soft volume',exercise:'Hanon No. 1',preview:'Opening four ascending patterns'},privateContent:{position,speed}})?.catch(()=>{});}
+  function tone(index){
+    if(!sound||!audio)return;
+    const semitones=[0,2,4,5,7,9,11];const g=Math.floor(index/8),k=index%8,d=g+steps[k];
+    for(const octave of [0,12]){
+      const midi=48+Math.floor(d/7)*12+semitones[d%7]+octave;
+      const osc=audio.createOscillator(),gain=audio.createGain();osc.type='triangle';osc.frequency.value=440*2**((midi-69)/12);
+      gain.gain.setValueAtTime(0,audio.currentTime);gain.gain.linearRampToValueAtTime(.08,audio.currentTime+.008);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.5/speed);
+      osc.connect(gain).connect(audio.destination);osc.start();osc.stop(audio.currentTime+.55/speed);
+    }
+  }
+  function updateHand(hand,base,finger,press,shift){
+    const {group,left,sign}=hand;
+    const centre=base+(left?2.65:2.8);
+    group.position.x=keyX(centre+shift);
+    group.position.y=.025*Math.sin(press*Math.PI);
+    const map=left?[5,4,3,2,0]:[0,2,3,4,5];
+    for(let f=1;f<=5;f++){
+      const obj=hand.fingers[f-1],active=f===finger,down=active?press:0;
+      const targetX=(base+map[f-1]-centre)*keyW;
+      let points;
+      if(f===1){
+        points=[v(sign*-.70,.85,4.85),v(sign*-1.10,.87,4.10),v(targetX*.93,.68-down*.12,3.28),v(targetX,.39-down*.19,2.82)];
+      }else{
+        const roots=[0,0,-.88,-.15,.58,1.17];
+        const tipZ=[0,0,1.47,1.20,1.48,2.06][f];
+        const startX=sign*roots[f],startZ=f===5?3.97:3.65;
+        points=[v(startX,1.02,startZ),v(startX*.53+targetX*.47,1.31-down*.11,(startZ+tipZ)/2+.13),v(targetX,.80-down*.25,tipZ+.44),v(targetX,.39-down*.19,tipZ)];
+      }
+      const old=obj.mesh.geometry;obj.mesh.geometry=fingerGeometry(points,f===1?.31:f===5?.225:.255);old.dispose();
+      const tip=points[3];obj.nail.position.copy(tip).add(v(0,.19,.16));obj.nail.rotation.x=-.38-down*.24;
+      obj.tip.copy(tip);obj.badge.classList.toggle('is-active',active);
+      const projected=tip.clone().add(v(0,.56,.45));group.localToWorld(projected);projected.project(camera);
+      obj.badge.style.left=((projected.x+1)/2*stage.clientWidth)+'px';obj.badge.style.top=((-projected.y+1)/2*stage.clientHeight)+'px';
+    }
+  }
+  function draw(){
+    const index=Math.min(total-1,Math.floor(position)),g=Math.floor(index/8),k=index%8,p=position-index;
+    const press=playing?(p<.18?ease(p/.18):p<.68?1:1-ease((p-.68)/.32)):1;
+    const shift=k===7&&g<3?ease(Math.max(0,(p-.76)/.24)):0;
+    for(let i=0;i<keys.length;i++){
+      const left=i===g+steps[k],right=i===7+g+steps[k];
+      keys[i].pivot.rotation.x=(left||right)?.031*press:0;
+      keys[i].material.color.setHex(left?0x81b0ec:right?0xf1af74:0xece5d9);
+    }
+    updateHand(hands[0],g,lh[k],press,shift);updateHand(hands[1],7+g,rh[k],press,shift);
+    if(index!==lastUI){
+      ui('left').textContent=lh[k]+' · '+noteName(g+steps[k]);ui('right').textContent=rh[k]+' · '+noteName(7+g+steps[k]);
+      ui('pattern').textContent='Pattern '+(g+1)+' / 4';
+      noteEls.forEach((e,j)=>{e.textContent=names[(g+steps[j])%7];e.classList.toggle('is-active',j===k);});lastUI=index;
+    }
+    if(playing&&index!==lastAudio){tone(index);lastAudio=index;}
+    renderer.render(scene,camera);
+    root.dataset.note=String(index);root.dataset.playing=String(playing);
+  }
+  function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);const halfWidth=8.1;camera.left=-halfWidth;camera.right=halfWidth;camera.top=halfWidth*h/w;camera.bottom=-camera.top;camera.updateProjectionMatrix();draw();}
+  new ResizeObserver(resize).observe(stage);
+  ui('play').onclick=()=>{if(position>=total-.01){position=0;lastAudio=-1;}playing=!playing;ui('play').textContent=playing?'Pause':'Play';if(audio?.state==='suspended')audio.resume();save();draw();};
+  ui('step').onclick=()=>{playing=false;position=(Math.floor(position)+1)%total;ui('play').textContent='Play';tone(Math.floor(position));lastAudio=-1;save();draw();};
+  ui('speed').onchange=()=>{speed=Number(ui('speed').value);save();};
+  ui('sound').onclick=async()=>{sound=!sound;ui('sound').textContent=sound?'Sound on':'Sound off';ui('sound').setAttribute('aria-pressed',String(sound));if(sound){audio||=new(window.AudioContext||window.webkitAudioContext)();await audio.resume();if(!playing)tone(Math.floor(position));}};
+  function animate(now){const dt=lastTime?Math.min((now-lastTime)/1000,.08):0;lastTime=now;if(playing){position+=dt*speed/duration;if(position>=total){position=total-.001;playing=false;ui('play').textContent='Replay';save();}draw();}requestAnimationFrame(animate);}
+  resize();requestAnimationFrame(animate);
+} catch(error) {
+  const message=document.createElement('div');message.className='hv-loading';message.setAttribute('role','alert');message.textContent='The 3D preview could not start. Please reopen it in a browser with WebGL enabled.';stage.replaceChildren(message);console.error(error);
+}
+</script>

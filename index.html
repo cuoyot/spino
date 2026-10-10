@@ -8,17 +8,24 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/brand/spino-icon-64.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/brand/spino-icon-180.png" />
   <title>SPino: Smart Piano Notebook</title>
+  <style>
+    .boot-loader { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; background: #14161a; color: #adb7c6; font: 14px/1.5 system-ui, sans-serif; }
+    .boot-spinner { width: 52px; height: 52px; box-sizing: border-box; border: 4px solid #29364d; border-top-color: #86afff; border-radius: 50%; animation: boot-spin .9s linear infinite; }
+    .boot-loader .boot-message { margin: 0; padding: 0; }
+    @keyframes boot-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .boot-spinner { animation: none; } }
+  </style>
 </head>
 <body>
-  <div id="app-shell" role="application" aria-label="SPino: Smart Piano Notebook"><p class="boot-message">Opening your notebook…</p></div>
+  <div id="app-shell" role="application" aria-label="SPino: Smart Piano Notebook"><div class="boot-loader" role="status" aria-live="polite"><span class="boot-spinner" aria-hidden="true"></span><p class="boot-message">Opening your notebook…</p></div></div>
   <div id="reader-view" hidden>
   <header>
     <div id="practice-toolbar" hidden>
-      <button id="practice-return" type="button">‹ Session</button>
+      <button id="practice-return" type="button">←</button>
       <span id="practice-title"></span>
       <button id="practice-guide" type="button" hidden>?</button>
-      <span class="practice-time"><span id="practice-clock">0:00</span><span id="practice-midi"></span></span>
-      <button id="practice-finish" type="button">Finish</button>
+      <span class="practice-time"><span id="practice-midi"></span></span>
+      <button id="practice-advance" type="button">→</button>
     </div>
     <div class="bar-top">
       <button id="open-settings" data-i18n-aria="settings">⚙</button>
@@ -27,6 +34,7 @@
       <button id="midi-pill">No MIDI</button>
     </div>
     <div class="quick">
+      <div id="timing-mode" hidden></div>
       <div class="tempo">
         <button id="bpm-down" data-i18n-aria="slower">−</button>
         <span id="bpm-show">60</span>
@@ -52,6 +60,7 @@
     </div>
     <div id="status-row">
       <div class="hud">
+        <span class="session-time-stat">◷ <b id="practice-clock">0:00</b></span>
         <span data-i18n-title="correct">✓ <b id="s-correct">0</b></span>
         <span data-i18n-title="wrong">✗ <b id="s-wrong">0</b></span>
         <span data-i18n-title="streak">🔥 <b id="s-streak">0</b></span>
@@ -86,6 +95,7 @@
     <form method="dialog">
       <div class="dialog-head">
         <h2 data-i18n="settings">Settings</h2>
+        <div id="practice-settings-shortcuts" hidden></div>
         <button class="primary small" value="close" data-i18n="done">Done</button>
       </div>
       <nav class="tabs" id="tabs">
@@ -197,6 +207,7 @@
 
       <!-- ===== Practice (how you answer) ===== -->
       <section data-panel="practice" hidden>
+        <p id="practice-input-description" class="muted" hidden></p>
         <label><span data-i18n="input">On-screen input</span>
           <select name="input"><option value="piano" data-i18n="inputPiano">Piano keys</option><option value="names" data-i18n="inputNames">Note names (travel)</option><option value="none" data-i18n="inputNone">None (MIDI only)</option></select>
         </label>
@@ -207,6 +218,7 @@
           <input type="range" name="kbZoom" min="1" max="2.5" step="0.1" />
         </label>
         <p class="muted" data-i18n="keyboardGestures">Pinch to resize the keys. Slide with two fingers to reach other notes.</p>
+        <div id="managed-keyboard-position" hidden></div>
         <label><span><span data-i18n="scoreZoom">Score size</span>: <b id="zoom-val"></b></span>
           <input type="range" name="zoom" min="0.7" max="1.5" step="0.05" />
         </label>
