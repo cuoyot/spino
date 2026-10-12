@@ -37,7 +37,7 @@ export function scoreControlsMarkup(session) {
   const colors = [ui('Red', 'Rojo'), ui('Blue', 'Azul'), ui('Ochre', 'Ocre'), ui('Green', 'Verde'), ui('Ink', 'Tinta')];
   return `<aside class="pdf-widget" aria-label="${ui('Score controls', 'Controles de la partitura')}">
     <div class="pdf-panel" id="pdf-panel" hidden>
-      <div class="pdf-panel-heading">${midiIndicatorMarkup()}<span class="pdf-title"></span><span class="pdf-paused">${session ? ui('Paused', 'En pausa') : ui('Study', 'Estudio')}</span></div>
+      <div class="pdf-panel-heading"><button type="button" data-action="midi-settings" aria-label="${ui('MIDI instrument','Instrumento MIDI')}">${midiIndicatorMarkup()}</button><span class="pdf-title"></span><span class="pdf-paused">${session ? ui('Paused', 'En pausa') : ui('Study', 'Estudio')}</span></div>
       <div class="pdf-tabs" role="group" aria-label="${ui('Options', 'Opciones')}">${scoreButton('annotations', ui('Annotate', 'Anotar'), ui('Annotate', 'Anotar'), 'aria-pressed="true"')}${scoreButton('view', ui('Framing', 'Encuadre'), ui('Framing', 'Encuadre'), 'aria-pressed="false"')}</div>
       <div class="pdf-annotation-panel">
         <div class="pdf-fingers" role="group" aria-label="${ui('Fingering', 'Digitación')}"><span>${ui('Fingers', 'Dedos')}</span>${[1, 2, 3, 4, 5].map(n => `<button type="button" data-finger="${n}" aria-label="${ui(`Finger ${n}`, `Dedo ${n}`)}" aria-pressed="false">${n}</button>`).join('')}</div>

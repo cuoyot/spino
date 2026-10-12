@@ -8,16 +8,16 @@ const defaultSettings = {
   save: value => localStorage.setItem(KEY, JSON.stringify(value)),
 };
 
-export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible,
-  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 30000,
+export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible, canApply = eligible,
+  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000,
   validate = validateBackup, backupFactory = createCloudBackup }) {
   let state = { mode: 'backup', enabled: false, status: 'disconnected', name: '', ...settings.read() };
   let task = null, timer = null, revision = 0, applying = false;
   const independent = backupFactory({ adapter, snapshot, eligible, changed, delay });
   const publish = () => { settings.save(state); changed(); };
   const schedule = () => {
-    clearTimeout(timer);
-    if (state.mode === 'sync' && state.enabled && !['error', 'conflict'].includes(state.status)) timer = setTimeout(() => void sync(), delay);
+    if (timer) return;
+    if (state.mode === 'sync' && state.enabled && !['error', 'conflict'].includes(state.status)) timer = setTimeout(() => { timer = null; void sync(); }, delay);
   };
   const content = text => notebookContent(validate(text));
   const encode = backup => {
@@ -50,9 +50,10 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     }
     // An edit during provider I/O must be merged on the next pass, never replaced.
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
+    if (localChanged && !canApply()) { state.status = 'waiting'; return; }
     if (localChanged) {
       await adapter.saveRecovery({ text: original });
-      if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
+      if (!eligible() || !canApply() || captured !== revision) { state.status = 'waiting'; return; }
       applying = true;
       try { await apply(encode(merged), merged); } finally { applying = false; }
     } else await saveBase(merged);
@@ -63,7 +64,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   async function sync(preference = null) {
     if (state.mode !== 'sync') return independent.retry();
     if (task || !state.enabled) return task;
-    clearTimeout(timer);
+    clearTimeout(timer); timer = null;
     if (!eligible()) { state.status = 'waiting'; publish(); schedule(); return; }
     task = (async () => {
       try { state.status = 'writing'; state.error = ''; publish(); await reconcile(preference); }
@@ -75,7 +76,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   async function connectShared(join) {
     if (task || independent.busy) throw new Error('Wait for the current backup operation.');
     if (!eligible()) throw new Error('Finish practice and close editors and downloads before connecting a shared notebook.');
-    clearTimeout(timer); independent.stop();
+    clearTimeout(timer); timer = null; independent.stop();
     await independent.setEnabled(false);
     const previous = { ...state };
     let linked = false;
@@ -120,7 +121,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     },
     async connect() {
       if (task) throw new Error('Wait for synchronization.');
-      clearTimeout(timer);
+      clearTimeout(timer); timer = null;
       const connected = await independent.connect();
       // Cancellation leaves the shared destination and selected mode unchanged.
       if (connected) {
@@ -137,11 +138,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       state.enabled = enabled; state.status = enabled ? 'pending' : 'paused'; publish(); schedule();
     },
     async disconnect() {
-      clearTimeout(timer); if (task) await task; clearTimeout(timer);
+      clearTimeout(timer); timer = null; if (task) await task; clearTimeout(timer); timer = null;
       await independent.disconnect(); await saveBase(null);
       state = { mode: 'backup', enabled: false }; publish();
     },
     retry: () => sync(), sync: () => sync(),
-    stop() { clearTimeout(timer); independent.stop(); },
+    stop() { clearTimeout(timer); timer = null; independent.stop(); },
   };
 }

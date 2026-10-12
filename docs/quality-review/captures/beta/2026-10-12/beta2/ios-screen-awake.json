@@ -1,0 +1,18 @@
+[
+  {
+    "enabled": true,
+    "nativeState": {
+      "awake": true,
+      "presenting": false,
+      "presented": ""
+    }
+  },
+  {
+    "enabled": false,
+    "nativeState": {
+      "presented": "",
+      "awake": false,
+      "presenting": false
+    }
+  }
+]

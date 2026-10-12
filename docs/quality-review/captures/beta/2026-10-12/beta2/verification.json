@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-12",
+  "version": "6.0.0-beta.2",
+  "build": 41,
+  "baseCommit": "8b843b2",
+  "identicalWebFiles": 256,
+  "unit": {
+    "passed": 178,
+    "failed": 0,
+    "skipped": 1
+  },
+  "focusedBrowser": {
+    "passed": 11,
+    "failed": 0
+  },
+  "siteBrowser": {
+    "passed": 1,
+    "failed": 0
+  },
+  "android": {
+    "installation": "replacement; no data clearing",
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+    "versionCode": 41
+  },
+  "evidenceScope": "Responsive browser practice/form captures; native emulator installation and foreground only. Physical BLE and cloud-provider acceptance remain open.",
+  "nativeIOSScreenAwake": "enabled/disabled states verified",
+  "nativeIOSClosedNotification": "Synthetic notification delivered with app process terminated",
+  "headerEvidence": "../beta2-header/responsive",
+  "notchHeaderEvidence": "../beta2-notch/responsive",
+  "notchHeader": {
+    "minimumContentHeight": 68,
+    "portraitTopInset": 59,
+    "landscapeSideInsets": 62,
+    "states": 48,
+    "scope": "Responsive browser; not physical device acceptance"
+  },
+  "artifacts": "../../../../../releases/6.0.0-beta.2-artifacts.json"
+}

@@ -230,3 +230,9 @@ Use this map when deciding whether a change belongs only to the current screen o
 
 
 2026-10-12 beta follow-up: shared Profile appearance and walkthrough are implemented and covered by responsive captures in light/dark across all six main screens. C-DIALOG warm-up initial focus/scroll is verified natively on iPhone and iPad portrait/landscape; other long dialogs retain their earlier findings. Core MIDI is simulator-compiled; physical acceptance and closed-app notifications remain open. See ../releases/6.0.0-beta.1.md.
+
+
+Beta 2 (2026-10-12) reopens shared practice timing (PRACTICE-01/05/06), PDF pause/edit/resume (SCORE-02/03), MIDI indicator gestures (MIDI-01/02) and configured cloud synchronization. Four responsive practice/save layouts and existing PDF editing regressions pass. Android beta41 replacement installation/foreground is confirmed; native Android/iOS screen-awake bridge checks are separate from responsive captures. Prior physical/provider acceptance gates remain open. See ../releases/6.0.0-beta.2.md.
+
+
+Persistent-header follow-up (2026-10-12): all six main screens and shared navigation chrome reopened. Profile moves from base navigation to the top left; title/context controls and MIDI remain fixed while .cp-page scrolls. Fullscreen reader/score chrome remains separate. Header stability, control placement and light MIDI checked in 48 responsive states; dated evidence: captures/beta/2026-10-12/beta2-header.

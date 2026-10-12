@@ -1,0 +1,41 @@
+{
+  "scheduled": {
+    "device": "ios-phone",
+    "value": {
+      "pending": [
+        {
+          "body": "Synthetic closed-app delivery check",
+          "id": 241012,
+          "title": "SPino beta audit",
+          "schedule": {
+            "at": "2026-10-12T15:34:29Z"
+          },
+          "extra": {
+            "audit": true
+          }
+        }
+      ],
+      "permission": {
+        "display": "granted"
+      }
+    },
+    "id": 11
+  },
+  "applicationTerminatedBeforeDelivery": true,
+  "delivered": [
+    {
+      "actionTypeId": "",
+      "id": 241012,
+      "title": "SPino beta audit",
+      "extra": {
+        "audit": true
+      },
+      "attachments": [],
+      "sound": "",
+      "body": "Synthetic closed-app delivery check",
+      "schedule": {
+        "at": "2026-10-12T15:34:29Z"
+      }
+    }
+  ]
+}

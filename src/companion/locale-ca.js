@@ -1,5 +1,12 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Practice time (minutes)|Temps practicat (minuts)
+Synchronization needs attention|La sincronització necessita atenció
+Resolve sync problem|Resol la sincronització
+Review pending synchronization before starting practice.|Revisa la sincronització pendent abans de començar.
+Enter a practice time between 0 and 720 minutes.|Introdueix un temps de pràctica entre 0 i 720 minuts.
+Could not reconnect MIDI. Hold the icon to open MIDI settings.|No s’ha pogut reconnectar el MIDI. Mantén premuda la icona per obrir els ajustos.
+
 Appearance|Aparença
 Light, dark or match your device|Clar, fosc o segons el dispositiu
 App tour|Recorregut de l’app

@@ -9,7 +9,12 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   const wait = expression => evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve(true);}else if(++n>700){clearInterval(timer);reject(Error('Timeout: '+${JSON.stringify(expression)}));}},20);})`);
   const action = name => evaluate(`document.querySelector('[data-action="${name}"]').click()`);
   const control = async name => {
-    if (['timer','close','finish'].includes(name)) await evaluate(`(()=>{const done=document.querySelector('[data-pdf=split-done]');if(done&&!done.hidden)done.click();})()`);
+    if (name==='timer' && await evaluate(`!document.querySelector('[data-pdf=split-done]').hidden`)) {await evaluate(`document.querySelector('[data-pdf=split-done]').click()`);await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);return;}
+    if (['close','finish'].includes(name) && await evaluate(`!document.querySelector('[data-pdf=split-done]').hidden`)) {
+      await evaluate(`document.querySelector('[data-pdf=split-done]').click()`);
+      await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);
+      await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+    }
     return evaluate(`document.querySelector('[data-pdf="${name}"]').click()`);
   };
   const ready = () => wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
@@ -31,7 +36,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`); await wait(`document.querySelector('[data-action=practice-work]')`);
   const state = await read('state', 'current'), assetId = state.works[0].assetId;
   await action('practice-work'); await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);
-  await wait(`document.querySelector('[data-action=toggle-session]')`); await action('toggle-session'); await action('open-pdf'); await ready();
+  await wait(`document.querySelector('[data-action=toggle-session]')`); assert.notEqual((await read('state','current')).active.runningSince,null); await action('open-pdf'); await ready();
 
   await evaluate(`__sr.midi.simulateDevices(['Test piano']);__sr.midi.simulateNote(60)`);
   assert.ok(await evaluate(`!!document.querySelector('.pdf-widget [data-midi-indicator][data-active=true][data-connected=true]')`));
@@ -132,7 +137,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     }
   });
   await t.test('visible finish action opens feedback without automatically saving the session', async () => {
-    await control('split-done');
+    if(await evaluate(`!document.querySelector('[data-pdf=split-done]').hidden`)){await control('split-done');await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);await control('timer');}
     assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').hidden`), false);
     assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').getAttribute('aria-label')`), 'Terminar práctica');
     await control('finish'); await wait(`!document.querySelector('.pdf-viewer')`);

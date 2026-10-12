@@ -9,3 +9,11 @@
 #midi-pill { display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
 .pdf-widget-bar [data-midi-indicator] { margin-inline: 4px; }
 .practice-time { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+
+#practice-midi {padding:0;border:0;background:none;color:inherit;touch-action:manipulation;}
+
+:root[data-theme=light] [data-midi-indicator] {color:#526075;}
+:root[data-theme=light] [data-midi-indicator][data-connected=true] {color:#16734b;}
+:root[data-theme=light] .midi-connection,:root[data-theme=light] .midi-activity {border-color:#fff;}
+:root[data-theme=light] .midi-activity {background:#16865b;}
+:root[data-theme=light] [data-midi-indicator][data-active=true] .midi-activity {box-shadow:0 0 5px #16865b;}

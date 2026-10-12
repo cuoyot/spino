@@ -74,6 +74,21 @@ export function saveSession(data, active, { title = active.title, mood = null, w
   }
   return session;
 }
+// Preserve the measured duration while keeping edited totals consistent with activity breakdowns.
+export function adjustPracticeTime(session, elapsedMs) {
+  if (!Number.isInteger(elapsedMs) || elapsedMs < 0 || elapsedMs > 720 * 60000) throw new Error('Enter a practice time between 0 and 720 minutes.');
+  const original = session.elapsedMs;
+  if (elapsedMs === original) return session;
+  session.recordedElapsedMs ??= original;
+  let assigned = 0;
+  session.results.forEach((result, index) => {
+    const value = index === session.results.length - 1 ? elapsedMs - assigned : original ? Math.min(elapsedMs-assigned,Math.round(result.elapsedMs * elapsedMs / original)) : 0;
+    result.elapsedMs = value; assigned += value;
+  });
+  session.elapsedMs = elapsedMs;
+  return session;
+}
+
 export function summary(sessions) {
   const byType = {}; const byTarget = {};
   for (const session of sessions) for (const result of session.results || []) {

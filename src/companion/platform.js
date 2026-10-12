@@ -5,12 +5,14 @@ import { Capacitor, registerPlugin } from '@capacitor/core';
 import { CloudBackup, cloudAvailable } from './cloud-backup.js';
 import { getAppLanguage } from './locale.js';
 export const Native = registerPlugin('Notebook');
+const AppActions = registerPlugin('AppActions');
 // Notebook provides Android-specific services; iOS uses individual Capacitor plugins.
 export const native = Capacitor.isPluginAvailable('Notebook');
 export const remindersAvailable = native || Capacitor.getPlatform() === 'ios' && Capacitor.isPluginAvailable('LocalNotifications');
 const syncIOSReminders = createReminderScheduler(LocalNotifications);
 export async function practiceScreenAwake(enabled) {
-  if (native) await Native.practiceScreenAwake({ enabled });
+  if (Capacitor.getPlatform() === 'ios' && Capacitor.isPluginAvailable('AppActions')) await AppActions.practiceScreenAwake({enabled});
+  else if (native) await Native.practiceScreenAwake({ enabled });
 }
 export async function scoreFullscreen() {
   let owned = false;

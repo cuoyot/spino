@@ -1,8 +1,10 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.1 (40). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.2 (40). Historical screen objectives and evidence remain preserved below.
 
-Current focus (2026-10-12): [6.0.0 beta implementation and release verification](../releases/6.0.0-beta.1.md). Core MIDI, themes, engagement actions, walkthrough and warm-up focus are implemented. Physical MIDI acceptance and closed-app notification delivery checks are tracked there. Earlier review records below are historical.
+Current focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
+
+Previous beta focus (2026-10-12): [6.0.0 beta implementation and release verification](../releases/6.0.0-beta.1.md). Core MIDI, themes, engagement actions, walkthrough and warm-up focus are implemented. Physical MIDI acceptance and closed-app notification delivery checks are tracked there. Earlier review records below are historical.
 
 Previous focus:  [selected iOS parity fixes and MIDI options](platform-ios-followup.md), following the owner-requested [native Android/iOS comparison](platform-comparison.md). Date/time geometry, landscape safe areas and unrestricted iOS network type are implemented and verified; local notifications are integrated with delivery acceptance open. MIDI is required and its bridge implementation remains pending. The prior PRACTICE-05 review, Hanon work and physical-device/accessibility gates remain recorded below.
 

@@ -25,17 +25,17 @@ test('delete versus edit and same annotation edits require explicit choices',()=
  assert.equal(mergeNotebooks(a,x,y).conflicts.length,1);
 });
 function device(t, shared, initial) {
- let local=clone(initial),base=null,meta={},recovery=null,allowed=true,gate=null;
+ let local=clone(initial),base=null,meta={},recovery=null,allowed=true,applyAllowed=true,gate=null;
  const adapter={status:async()=>({linked:!!shared.text,name:'shared.json'}),
  create:async({text})=>{shared.text=text;return {name:'shared.json'};},
  pickBackup:async()=>({text:shared.text,name:'shared.json'}),readLinked:async()=>{if(gate)await gate;return {text:shared.text};},
  write:async({text,expectedHash})=>{assert.equal(await backupHash(shared.text),expectedHash);shared.text=text;},
  saveRecovery:async({text})=>{recovery=text;},disconnect:async()=>{}};
  const engine=createNotebookCloud({adapter,settings:{read:()=>meta,save:v=>{meta=clone(v);}},snapshot:async()=>JSON.stringify(local),
- eligible:()=>allowed,readBase:async()=>base,saveBase:async v=>{base=clone(v);},apply:async(text,b)=>{local=JSON.parse(text);base=clone(b);},
+ eligible:()=>allowed,canApply:()=>applyAllowed,readBase:async()=>base,saveBase:async v=>{base=clone(v);},apply:async(text,b)=>{local=JSON.parse(text);base=clone(b);},
  validate:JSON.parse,delay:100000,backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
  t.after(()=>engine.stop());
- return {engine,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},gate:v=>{gate=v;}};
+ return {engine,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},applyAllowed:v=>{applyAllowed=v;},gate:v=>{gate=v;}};
 }
 test('two devices combine offline additions, pull without local edits and preserve recovery',async t=>{
  const shared={};const a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));
@@ -72,4 +72,12 @@ test('cloud overview opens a separate conflict review with escaped paths and bot
  assert.match(review,/Repertorio/);assert.match(review,/&lt;id&gt;/);assert.ok(!html.includes('<file>'));
  assert.match(setup,/data-action="cloud-create-shared"/);assert.match(setup,/data-action="cloud-join-shared"/);
  assert.match(setup,/data-action="cloud-connect"/);assert.match(setup,/iCloud Drive o Google Drive/);
+});
+
+test('automatic sync uploads local changes while editing and defers incoming adoption',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book());
+ await a.engine.createShared();await b.engine.joinShared();
+ a.applyAllowed(false);a.edit(v=>v.data.sessions.push({id:'practice'}));b.edit(v=>v.data.works.push({id:'remote'}));await b.engine.sync();await a.engine.sync();
+ assert.equal(a.engine.state.status,'waiting');assert.equal(a.get().data.works.length,1);assert.equal(JSON.parse(shared.text).data.sessions[0].id,'practice');assert.equal(a.recovery(),null);
+ a.applyAllowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works.length,2);assert.equal(a.get().data.sessions[0].id,'practice');
 });

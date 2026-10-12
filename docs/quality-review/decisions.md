@@ -385,3 +385,15 @@ The owner requires MIDI and notifications on iOS, approves PLATFORM-04 date/time
 The owner requests a custom Apple Core MIDI bridge, iOS closed-app reminders with Android review, and the PLATFORM-15 warm-up initial focus/scroll fix. The owner also requests light/dark/system themes from Profile, native rating/share actions and an initial skippable walkthrough. Current dark appearance is preserved; old notebooks retain dark while new notebooks default to system. Stable record IDs and notebook schema stay unchanged.
 
 The owner identifies stable as 5.2.3 (35) and has no Apple Developer account. The new major package is 6.0.0-beta.1 (40). Android beta uses a separate application ID to protect installed notebooks. iOS distribution is limited to an explicitly labelled Mac/Xcode simulator archive; signed device/TestFlight delivery remains unavailable. Website publication is authorized by the original request. Printing/keyboard and Android PDF acceptance are reserved for the owner's testing. See [release verification](../releases/6.0.0-beta.1.md).
+
+
+## 2026-10-12 — Beta practice behavior refinements
+
+The owner requests autoplay/timing for new practice, resumption after annotation editing, screen-awake release on pause, direct sync-problem resolution, ongoing automatic synchronization, editable practiced duration at save, and MIDI short reconnect/long settings gestures. Implemented as recorded in ../releases/6.0.0-beta.2.md. Existing notebook schema and stable IDs are preserved. Active work gates incoming synchronization; cloud connection/opt-out choices remain respected. Existing PDF practice and annotation reviews were reopened for the shared pause/edit transition and verified in responsive browser checks. These checks do not close physical MIDI, cloud-provider or native notification delivery gates.
+
+
+## 2026-10-12 — Persistent app header requested
+
+The owner requests stable top chrome alongside fixed base navigation, with Profile at the top left, the page title and contextual controls in the middle, and MIDI on the right. Content scrolls independently; immersive practice/readers hide or cover app chrome. The owner also requests lighter MIDI styling in light mode. This applies to all six main screens, calendar Week/Month, library repertoire/catalogue and Quick practice. Existing tablet/landscape side-navigation objectives are retained; Profile is relocated to the top header. Implemented and verified in 48 responsive screen/theme/layout states and existing practice/PDF/theme/tour/safe-area regressions; native Android replacement install/foreground is separate evidence. No physical/native layout acceptance is inferred from browser captures.
+
+The beta header keeps at least 68 px of usable height, plus device safe-area insets. Notch-specific responsive browser checks cover portrait and landscape; these are distinct from physical-device acceptance.

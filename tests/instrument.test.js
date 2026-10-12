@@ -95,3 +95,9 @@ test('device preferences discard malformed and duplicate Bluetooth identifiers',
   assert.deepEqual(readInstrumentPreferences(storage), { autoConnect: false, remembered: [{ address: ADDRESS, name: 'Piano', connectedName: 'Piano' }] });
   assert.deepEqual(readInstrumentPreferences({ getItem() { throw Error('Unavailable'); } }), { autoConnect: false, remembered: [] });
 });
+
+test('indicator reconnect opens the most recently remembered input without scanning',async t=>{
+ const f=fixture(t,{remembered:[{address:ADDRESS,name:'Piano',connectedName:'Piano USB port name'}],autoConnect:false});
+ await f.controller.reconnectLast();assert.equal(f.connections,1);assert.equal(f.scans,0);
+ await f.controller.reconnectLast();assert.equal(f.connections,1);
+});

@@ -107,6 +107,14 @@ export function createInstrumentController({ changed = () => {}, midi = deviceMi
       })();
       return initialized;
     },
+    async reconnectLast() {
+      if (disposed || state.connecting || state.scanning || state.devices.length) return;
+      try { await midi.refreshMidi(); } catch (error) { state.error = errorCode(error); update(); return; }
+      if (state.devices.length) return;
+      if (state.native && !state.systemBluetoothPicker && state.remembered.length) await connectDevice(state.remembered[0].address);
+      else if (state.systemBluetoothPicker) await midi.showBluetoothPicker();
+      else { state.error = state.available ? 'failed' : 'unsupported'; update(); }
+    },
     async connect() {
       if (disposed || state.connecting || state.scanning) return;
       if (!state.available) { state.error = 'unsupported'; update(); return; }

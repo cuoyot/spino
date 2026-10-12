@@ -11,11 +11,11 @@ export const cloudSettings = {
 export const backupHash = async text => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)))].map(n => n.toString(16).padStart(2, '0')).join('');
 
 // One device owns one backup file. Restoration is always a separate, explicit operation.
-export function createCloudBackup({ adapter = CloudBackup, settings = cloudSettings, snapshot, eligible, changed = () => {}, delay = 30000, hash = backupHash }) {
+export function createCloudBackup({ adapter = CloudBackup, settings = cloudSettings, snapshot, eligible, changed = () => {}, delay = 5000, hash = backupHash }) {
   let state = { deviceId: crypto.randomUUID(), enabled: false, hash: null, contentHash: null, lastWrittenAt: null, name: '', status: 'disconnected', error: '', ...settings.read() };
   let timer = null, task = null, revision = 0, dirty = false;
   const publish = () => { settings.save(state); changed({ ...state }); };
-  const schedule = () => { clearTimeout(timer); if (state.enabled && dirty) timer = setTimeout(() => { timer = null; void sync(); }, delay); };
+  const schedule = () => { if (timer) return; if (state.enabled && dirty) timer = setTimeout(() => { timer = null; void sync(); }, delay); };
   async function payload() {
     const backup = JSON.parse(await snapshot());
     // Export time does not make unchanged notebook data a new backup.
@@ -87,10 +87,10 @@ export function createCloudBackup({ adapter = CloudBackup, settings = cloudSetti
       return task;
     },
     markDirty() { revision++; dirty = true; if (state.enabled && !['error', 'conflict'].includes(state.status)) { if (!task) state.status = 'pending'; schedule(); } },
-    async setEnabled(enabled) { if (task) throw new Error('Wait for the current backup operation.'); state.enabled = enabled; if (enabled) { dirty = true; state.status = 'pending'; schedule(); } else { clearTimeout(timer); state.status = 'paused'; } publish(); },
-    async disconnect() { clearTimeout(timer); if (task) await task; clearTimeout(timer); state.enabled = false; await adapter.disconnect(); dirty = false; state = { ...state, status: 'disconnected', hash: null, contentHash: null, name: '', error: '' }; publish(); },
+    async setEnabled(enabled) { if (task) throw new Error('Wait for the current backup operation.'); state.enabled = enabled; if (enabled) { dirty = true; state.status = 'pending'; schedule(); } else { clearTimeout(timer); timer = null; state.status = 'paused'; } publish(); },
+    async disconnect() { clearTimeout(timer); timer = null; if (task) await task; clearTimeout(timer); timer = null; state.enabled = false; await adapter.disconnect(); dirty = false; state = { ...state, status: 'disconnected', hash: null, contentHash: null, name: '', error: '' }; publish(); },
     async retry() { dirty = true; return sync(); },
     sync,
-    stop() { clearTimeout(timer); },
+    stop() { clearTimeout(timer); timer = null; },
   };
 }

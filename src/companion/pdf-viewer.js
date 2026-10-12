@@ -43,13 +43,16 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   $('.pdf-title').textContent = title || asset.name;
   document.body.append(modal); modal.showModal();
   const task = loadPDF(asset.base64);
+  let editingRequested=false;
   const running = () => !!session?.read().running;
-  const editing = () => !running() && (expanded || splitting || tool !== 'read');
+  const editing = () => !running() && (editingRequested || splitting || tool !== 'read');
   async function leaveEditing() {
     if (dirty && !await persistMarks()) return;
-    if (viewSaving) await viewSaving;
+    if (viewSaving && !await viewSaving) return;
     await setSplitting(false);
-    selectTool('read'); expanded = false; controls();
+    selectTool('read'); expanded = false; editingRequested=false;
+    if (session && ready && !running()) await session.toggle();
+    updateTimer(); controls();
   }
   const currentOrientation = () => viewport.clientWidth > viewport.clientHeight ? 'landscape' : 'portrait';
   orientation = currentOrientation();
@@ -523,9 +526,9 @@ export async function openScore({ asset, title, save, saveView = async () => {},
           await printScore(await pdfPrintPages({...asset,annotations:structuredClone(annotations)}),title);
         } finally { button.disabled=false;button.innerHTML=scoreIcon('print');button.removeAttribute('aria-busy'); }
       }
-      if (action === 'tools') { expanded = !expanded; controls(); }
-      if (action === 'active-tool') {panel='annotations';expanded=true;controls();}
-      if (action === 'annotations' || action === 'view') { panel = action; if(action==='view')selectTool('read'); expanded=true;if (action === 'annotations') await setSplitting(false); controls(); }
+      if (action === 'tools') { expanded = !expanded; editingRequested=expanded; controls(); }
+      if (action === 'active-tool') {panel='annotations';expanded=true;editingRequested=true;controls();}
+      if (action === 'annotations' || action === 'view') { panel = action; editingRequested=true; if(action==='view')selectTool('read'); expanded=true;if (action === 'annotations') await setSplitting(false); controls(); }
       if (action === 'split') await setSplitting(!splitting);
       if (action === 'split-done') await leaveEditing();
       if (action === 'split-clear' && splitting) await saveSections(sections.filter(part => part.page !== page));
@@ -567,7 +570,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
       $('[data-pdf=timer]').title = label;
     }
     if (wasRunning !== !!info.running) {
-      if (info.running) { tool = 'read'; draft = null; gesture = null; paint(); expanded = false; textDialog?.close(); if (splitting) void setSplitting(false); }
+      if (info.running) { editingRequested=false; tool = 'read'; draft = null; gesture = null; paint(); expanded = false; textDialog?.close(); if (splitting) void setSplitting(false); }
       else if (wasRunning) expanded = true;
       wasRunning = !!info.running; controls();
     }

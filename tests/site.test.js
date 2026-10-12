@@ -12,7 +12,8 @@ test('website language variants use matching feature coverage and localized app 
     const html = page(copy), folder = language === 'es' ? resolve('site') : resolve('site', language);
     assert.match(html, new RegExp(`<html lang="${language}">`));
     assert.match(html, new RegExp(`img/${language}/01-today.png`));
-    assert.equal((html.match(/class="feature"/g) || []).length, 9);
+    const features=html.match(/<section id="features">([\s\S]*?)<\/section>/)[1];
+    assert.equal((features.match(/class="feature"/g) || []).length,copy.features.length);
     for (const [, reference] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
       if (/^(https?:|#|mailto:)/.test(reference)) continue;
       const pathname = reference.split('?')[0];

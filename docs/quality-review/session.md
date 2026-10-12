@@ -131,3 +131,8 @@ Evidence: [overview and held states](captures/session/2026-10-01-block-controls-
 Production web build passed. [Twenty-four focused tests](../../artifacts/session-block-edit-tests.log) pass: 13 model/editor cases, seven session browser regressions, touch drag/bin and notebook layout checks. Coverage includes preview versus commit, cancel, musical edits, unchanged defaults, failed save/retry, reload and preserved earlier work. The manual now describes verified editing behavior. Do not start a new screen in this conversation; next review remains PRACTICE-02 after this final refinement.
 
 The Android APK built successfully and was installed and launched in the existing emulator. [Native navigation/Back check](../../artifacts/session-block-edit-native-check.log) passed with the notebook and all 55 assets/annotations unchanged. Editing was exercised in disposable browser fixtures; physical touch, MIDI, iOS and native keyboard/orientation remain separate coverage gates.
+
+
+## Beta 2 practice behavior — 2026-10-12
+
+New sessions autoplay the timer; saving allows duration adjustment while retaining measured duration and consistent breakdowns. PDF Done editing resumes only after successful persistence; a pause releases screen-awake policy and permits finishing. Ongoing cloud writes preserve revision/conflict/recovery guards and defer incoming changes during practice/editing. MIDI short reconnect and held-settings apply to main screens and score/generated readers. Four responsive layout checks and the PDF regression suite pass; native Android installation/foreground is confirmed, with physical MIDI/cloud and notification delivery acceptance still open. See ../releases/6.0.0-beta.2.md and captures/beta/2026-10-12/beta2.

@@ -88,3 +88,10 @@ If feedback cannot be saved, your paused session and form stay available for ret
 **Continue later** pauses and keeps the unfinished session, then returns to Today. Use **Resume session** when you return. This checkpoint is separate from a completed practice in your history.
 
 **Discard session** asks for confirmation before removing the unfinished session. Existing saved practices, works, scores and annotations remain available.
+
+
+## Beta 2 timing and MIDI
+
+New practices start with the timer running. Pause stops timing and allows the device to sleep normally. Recovered practices remain paused. In PDF practice, Done editing saves pending changes before resuming timing; a save error leaves practice paused. When saving the activity, adjust Practice time (minutes) if necessary. SPino keeps the original measured duration and updates the activity breakdown consistently.
+
+Tap the MIDI icon when disconnected to refresh inputs and attempt the last remembered Android Bluetooth instrument. Hold it to open MIDI settings. On iOS, unavailable Bluetooth inputs use Apple's connection panel. Configured automatic cloud sync saves changes throughout the app; incoming changes wait until practice and editing finish. A sync problem at practice start offers a direct route to resolve it.

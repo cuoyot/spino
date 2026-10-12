@@ -99,7 +99,7 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
 // the warm-up off through Practice preferences, the way a player would, and return to Today.
 export const disableWarmup = evaluate => evaluate(`(async()=>{
   const until=fn=>new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{let value;try{value=fn();}catch{}if(value){clearInterval(timer);resolve(value);}else if(++n>500){clearInterval(timer);reject(Error('Warm-up preference timeout'));}},20);});
-  document.querySelector('.cp-nav [data-action=settings]').click();
+  document.querySelector('#app-shell [data-action=settings]').click();
   await until(()=>document.querySelector('[data-action=profile-practice]'));
   document.querySelector('[data-action=profile-practice]').click();
   await until(()=>document.querySelector('#preferences-form [name=warmup-enabled]'));
