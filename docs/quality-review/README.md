@@ -271,3 +271,5 @@ The [session review](session.md) now links the preserved baseline and the new co
 Beta 2 publication verified on 2026-10-12: source ad9c93d, Cloudflare success, three language pages and public APK/iOS Simulator hashes checked. The owner-requested iOS availability notice explains the lack of an iPhone and approximately $100 annual developer membership, with support@spinoapp.com for interest. Native-device acceptance gates remain as listed above.
 
 Beta 3 publication verified on 2026-10-12: source 2fc8442, Cloudflare success, public three-language pages and artifact hashes checked. Android build42 installed and focused without clearing notebook data. QR/format conversion implemented and synthetic browser verified; physical camera/cloud-provider gates remain open.
+
+Latest review steering, 2026-10-12: tablet warm-up Next action occupies an extra row. Source now fits all five tablet toolbar elements on one row; responsive evidence and scope are recorded in session.md. Browser-only layout review is newer than the published beta 4 package. The beta 4 synchronization repair and public downloads are verified; actual stable/beta tablet Drive acceptance remains open.

@@ -405,3 +405,7 @@ Owner accepted linking the existing Google Drive/iCloud notebook, rather than in
 ## Existing-file connection and sync deferral repair — 2026-10-12
 
 Owner requests placing direct file selection inside Connect another device/Manage and reports failed stable/beta Drive synchronization on one tablet. Implemented nested selection; fixed closed retained forms as false adoption blockers and retained conflict choices across deferral with snapshot revalidation. User data/practices are protected; paused pending practice remains a genuine blocker with an explicit finish/save message. Synthetic browser policy, older-client metadata simulation and two-device conflict deferral checks pass. Actual tablet/provider acceptance remains open; no personal notebook imported or cleared for testing. See beta 4 handoff.
+
+## Tablet warm-up Next action — 2026-10-12
+
+Owner requests reviewing the extra line occupied by Next: Free practice on portrait tablet. Implemented five-column tablet toolbar and verified a single row in both tablet orientations without changing the phone breakpoints. Before/after responsive evidence is linked from session.md. The screenshot arrangement is a review proposal; native acceptance and a package containing this CSS are pending, distinct from the published beta 4 synchronization repair.

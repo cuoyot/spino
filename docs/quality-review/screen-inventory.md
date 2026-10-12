@@ -240,3 +240,5 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 2026-10-12 beta 3 reopens PROFILE-01, CLOUD-02 and CLOUD-05: QR/code linking, matching-file validation, compatible/organized backup export, conversion and annotated restore counts. Four-layout responsive evidence is in captures/beta/2026-10-12/beta3-device-link. Physical native camera/provider acceptance remains open.
 
 2026-10-12 beta 4 reopens CLOUD-01–04 and PROFILE-01 after the owner's tablet report. Direct file selection is nested under device linking/manage; waiting messages and deferred conflict choices are repaired. Closed-dialog browser and two-device synthetic sync checks are distinct from personal tablet/provider acceptance. Evidence: captures/beta/2026-10-12/beta4-device-link.
+
+2026-10-12: generated warm-up/free-practice toolbar reopened for a portrait-tablet extra-row report. Tablet-only five-column header passes responsive geometry and phone/landscape safe-area regression; browser before/after evidence in captures/generated-practice/2026-10-12-tablet-toolbar-review. Current beta 4 downloads retain the earlier header pending a later package.

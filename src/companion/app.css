@@ -130,6 +130,7 @@
 .managed-practice #settings [data-tab=levels], .managed-practice #settings [data-tab=exercise] { display: none; }
 .managed-practice[data-context=piano] .hud { visibility: hidden; }
 @media (min-width: 600px) and (min-height: 600px) {
+  .managed-practice #practice-toolbar { grid-template-columns: auto minmax(0, 1fr) auto auto auto; }
   #app-shell { grid-template-columns: 180px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
   .cp-page { grid-column: 2; grid-row: 1; padding: 30px 24px 48px; }
   .cp-nav { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; padding: 32px 14px; border-top: 0; border-right: 1px solid var(--line); gap: 10px; }
