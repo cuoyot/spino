@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.2 (40). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.2 (41). Historical screen objectives and evidence remain preserved below.
 
 Current focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
 
@@ -263,3 +263,5 @@ Existing product constraints remain in force: local notebook and optional user-c
 ## Current session-review findings
 
 The [session review](session.md) now links the preserved baseline and the new compact session/editor evidence. Suggested minutes, remaining-block order, removal and addition are editable without changing source routines or losing performed work. Final-block cancellation, feedback retry, stale pause labels and orientation advice are repaired and regression-tested. D-005 is approved except its old movement controls, replaced under D-006. The session manual is updated and remains draft. The updated APK is installed; Android navigation/Back smoke checks preserve the notebook and all 55 assets.
+
+Beta 2 publication verified on 2026-10-12: source ad9c93d, Cloudflare success, three language pages and public APK/iOS Simulator hashes checked. The owner-requested iOS availability notice explains the lack of an iPhone and approximately $100 annual developer membership, with support@spinoapp.com for interest. Native-device acceptance gates remain as listed above.
