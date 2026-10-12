@@ -70,7 +70,7 @@ test('cloud overview opens a separate conflict review with escaped paths and bot
  assert.match(html,/data-action="cloud-conflicts"/);assert.doesNotMatch(html,/data-action="cloud-resolve-/);
  assert.match(review,/data-action="cloud-resolve-local"/);assert.match(review,/data-action="cloud-resolve-remote"/);
  assert.match(review,/Repertorio/);assert.match(review,/&lt;id&gt;/);assert.ok(!html.includes('<file>'));
- assert.match(setup,/data-action="cloud-create-shared"/);assert.match(setup,/data-action="cloud-join-shared"/);
+ assert.match(setup,/data-action="cloud-create-shared"/);assert.match(setup,/data-action="device-link"/);assert.doesNotMatch(setup,/data-action="cloud-join-shared"/);
  assert.match(setup,/data-action="cloud-connect"/);assert.match(setup,/iCloud Drive o Google Drive/);
 });
 
@@ -86,4 +86,28 @@ test('QR join checks notebook identity and maintains it across two-device edits'
  const shared={},a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));await a.engine.createShared();const link=await a.engine.deviceLink();
  assert.equal(JSON.parse(shared.text).cloudBackup.sharedNotebookId,link.id);await b.engine.joinShared(link.code);await a.engine.sync();assert.equal(b.engine.state.notebookId,link.id);assert.equal(a.get().data.works.length,2);
  const wrong=link.code.replace(link.id,'6ce8d640-d2e3-4fcb-8fa3-885d36b2cc52');await b.engine.joinShared(wrong);assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.notebookId,link.id);assert.equal(b.get().data.works.length,2);
+});
+
+test('reviewed cloud choice waits safely then applies without reopening the same conflict',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}])),b=device(t,shared,book());await a.engine.createShared();await b.engine.joinShared();
+ a.edit(v=>v.data.works[0].title='Local');b.edit(v=>v.data.works[0].title='Cloud');await b.engine.sync();await a.engine.sync();assert.equal(a.engine.state.status,'conflict');
+ a.applyAllowed(false);const before=shared.text;await a.engine.resolve('remote');assert.equal(a.engine.state.status,'waiting');assert.equal(shared.text,before);assert.equal(a.get().data.works[0].title,'Local');assert.equal(a.engine.state.resolution.preference,'remote');
+ a.applyAllowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].title,'Cloud');assert.equal(a.engine.state.resolution,null);assert.ok(a.recovery());
+});
+test('deferred conflict choice requires fresh review after a new remote edit',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}])),b=device(t,shared,book());await a.engine.createShared();await b.engine.joinShared();a.edit(v=>v.data.works[0].title='Local');b.edit(v=>v.data.works[0].title='Cloud');await b.engine.sync();await a.engine.sync();a.applyAllowed(false);await a.engine.resolve('remote');b.edit(v=>v.data.works[0].title='Changed after review');await b.engine.sync();a.applyAllowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'conflict');assert.equal(a.get().data.works[0].title,'Local');assert.equal(a.engine.state.resolution,null);
+});
+
+test('an older client can update a format 1 file without retaining additive QR metadata',async t=>{
+ const shared={},a=device(t,shared,book([{id:'stable-work',title:'Original'}]));await a.engine.createShared();const id=a.engine.state.notebookId;const oldClient=JSON.parse(shared.text);delete oldClient.cloudBackup;oldClient.data.works[0].title='Stable app change';shared.text=JSON.stringify(oldClient);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].id,'stable-work');assert.equal(a.get().data.works[0].title,'Stable app change');assert.equal(JSON.parse(shared.text).cloudBackup.sharedNotebookId,id);
+});
+
+test('file selection is nested in linking and available from manage',async()=>{
+ const {deviceLinkMarkup}=await import('../src/companion/device-link.js');const {cloudSetupMarkup,cloudManageMarkup,cloudBackupMarkup}=await import('../src/companion/cloud-backup-view.js');
+ for(const lang of ['en','es','ca']){const options={lang,available:true};assert.match(deviceLinkMarkup({},options),/data-action="cloud-join-shared"/);assert.doesNotMatch(cloudSetupMarkup(options),/data-action="cloud-join-shared"/);assert.match(cloudManageMarkup({mode:'sync',name:'shared.json'},options),/data-action="device-link"/);}
+ const html=cloudBackupMarkup({mode:'sync',name:'shared.json',status:'waiting',waitReason:'practice'},{available:true,lang:'es'});assert.match(html,/Termina y guarda/);assert.match(html,/resume-session/);
+});
+
+test('a reviewed choice survives outbound transfer deferral',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}])),b=device(t,shared,book());await a.engine.createShared();await b.engine.joinShared();a.edit(v=>v.data.works[0].title='Local');b.edit(v=>v.data.works[0].title='Cloud');await b.engine.sync();await a.engine.sync();a.allowed(false);await a.engine.resolve('remote');assert.equal(a.engine.state.status,'waiting');a.allowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].title,'Cloud');
 });

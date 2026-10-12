@@ -1,3 +1,4 @@
+import { cloudApplyBlocker } from './cloud-policy.js';
 import { inspectBackup, convertBackup, backupCounts } from './backup-format.js';
 import { deviceLinkCopy, deviceLinkMarkup, deviceLinkQRMarkup, deviceLinkManualMarkup, deviceLinkConfirmMarkup, parseDeviceLink, encodeDeviceLink, startNotebookScanner } from './device-link.js';
 import { bindMidiShortcuts } from './midi-shortcuts.js';
@@ -812,7 +813,8 @@ export async function bootCompanion(reader) {
   const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
   if (cloudAvailable()) {
     cloud = createNotebookCloud({ snapshot: () => store.export(data), eligible: () => !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting,
-      canApply: () => !data.active && !dialog.open && !scoreViewer && !openingScore && !document.querySelector('form'),
+      canApply: () => !cloudApplyBlocker({active:data.active,dialog,scoreViewer,openingScore,document}),
+      applyBlocker: () => cloudApplyBlocker({active:data.active,dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
       apply: async (text, syncBase) => { root.inert=true; try { data = await store.restore(text, { syncBase }); await reminders(); } finally {root.inert=false;} },
       adopted: () => {cloudAdopted=true;location.reload();},

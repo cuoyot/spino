@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.3 (42). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.4 (43). Historical screen objectives and evidence remain preserved below.
 
 Previous beta 2 focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
 
@@ -8,7 +8,9 @@ Previous beta focus (2026-10-12): [6.0.0 beta implementation and release verific
 
 Previous focus:  [selected iOS parity fixes and MIDI options](platform-ios-followup.md), following the owner-requested [native Android/iOS comparison](platform-comparison.md). Date/time geometry, landscape safe areas and unrestricted iOS network type are implemented and verified; local notifications are integrated with delivery acceptance open. MIDI is required and its bridge implementation remains pending. The prior PRACTICE-05 review, Hanon work and physical-device/accessibility gates remain recorded below.
 
-Current focus (2026-10-12): [beta 3 QR linking and backup compatibility](../releases/6.0.0-beta.3.md). Responsive four-layout and synthetic QR/data round trips pass. Native camera/provider acceptance remains open.
+Previous beta 3 focus (2026-10-12): [beta 3 QR linking and backup compatibility](../releases/6.0.0-beta.3.md). Responsive four-layout and synthetic QR/data round trips pass. Native camera/provider acceptance remains open.
+
+Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4.md). Owner reports stable/beta on one tablet using Drive. Closed-dialog form blocking and lost reviewed choices reproduced/corrected in synthetic tests. Direct file selection nested in device linking/manage. Actual personal tablet acceptance pending.
 
 ## Resume work here
 

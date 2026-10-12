@@ -9,7 +9,7 @@ const defaultSettings = {
   save: value => localStorage.setItem(KEY, JSON.stringify(value)),
 };
 
-export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible, canApply = eligible,
+export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible, canApply = eligible, applyBlocker = () => 'editor',
   readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000,
   validate = validateBackup, backupFactory = createCloudBackup }) {
   let state = { mode: 'backup', enabled: false, status: 'disconnected', name: '', ...settings.read() };
@@ -38,31 +38,39 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     state.notebookId ||= remoteId || crypto.randomUUID();
     const remote = content(remoteFile.text);
     const base = await readBase();
-    const result = mergeNotebooks(base, local, remote, preference);
+    let result = mergeNotebooks(base, local, remote);
     const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote })) : null;
-    if (result.conflicts.length && (!preference || state.conflictHash !== conflictHash)) {
+    const selected = preference || state.resolution?.preference;
+    const reviewedHash = preference ? state.conflictHash : state.resolution?.hash;
+    if (result.conflicts.length && (!selected || reviewedHash !== conflictHash)) {
+      state.resolution = null;
       state.status = 'conflict'; state.conflicts = result.conflicts;
       state.conflictHash = conflictHash;
       state.error = 'Both devices changed the same data. Choose which conflicting values to keep. Independent changes will be kept from both devices.';
       return;
     }
+    if (result.conflicts.length) {
+      result = mergeNotebooks(base, local, remote, selected);
+      state.resolution = { preference: selected, hash: conflictHash };
+    } else state.resolution = null;
     const merged = content(encode(result.backup));
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     const localChanged = stableJSON(local) !== stableJSON(merged);
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
+    if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (!remoteId || stableJSON(remote) !== stableJSON(merged)) {
       await adapter.write({ text: encode(merged), expectedHash: await backupHash(remoteFile.text) });
     }
     // An edit during provider I/O must be merged on the next pass, never replaced.
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
-    if (localChanged && !canApply()) { state.status = 'waiting'; return; }
+    if (localChanged && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (localChanged) {
       await adapter.saveRecovery({ text: original });
       if (!eligible() || !canApply() || captured !== revision) { state.status = 'waiting'; return; }
       applying = true;
       try { await apply(encode(merged), merged); } finally { applying = false; }
     } else await saveBase(merged);
-    state.status = 'saved'; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastWrittenAt = new Date().toISOString();
+    state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastWrittenAt = new Date().toISOString();
     publish();
     if (localChanged) adopted();
   }
@@ -72,7 +80,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     clearTimeout(timer); timer = null;
     if (!eligible()) { state.status = 'waiting'; publish(); schedule(); return; }
     task = (async () => {
-      try { state.status = 'writing'; state.error = ''; publish(); await reconcile(preference); }
+      try { state.status = 'writing'; state.waitReason = null; state.error = ''; publish(); await reconcile(preference); }
       catch (error) { state.status = 'error'; state.error = error.message || String(error); }
       finally { task = null; publish(); schedule(); }
     })();
@@ -145,7 +153,12 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if (state.status !== 'saved') throw new Error('Finish practice and resolve sync problems before showing the notebook QR.');
       return { id: state.notebookId, name: state.name, code: encodeDeviceLink({ id: state.notebookId, name: state.name }) };
     },
-    resolve: preference => sync(preference),
+    resolve: preference => {
+      if (!['local','remote'].includes(preference)) throw new Error('Choose local or cloud changes.');
+      if (task) throw new Error('Wait for synchronization to finish before reviewing changes.');
+      state.resolution = { preference, hash: state.conflictHash };
+      return sync(preference);
+    },
     markDirty() { if (applying) return; revision++; if (state.mode === 'sync') schedule(); else independent.markDirty(); },
     async setEnabled(enabled) {
       if (state.mode !== 'sync') return independent.setEnabled(enabled);

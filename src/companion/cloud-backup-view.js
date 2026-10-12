@@ -11,7 +11,7 @@ const messages = {
     noWrite: 'No file update yet', help: 'How it works', done: 'Done', resume: 'Resume',
     unavailable: 'Cloud connection is available in the installed app.',
     status: { disconnected: 'Not connected', paused: 'Automatic updates paused', pending: 'Changes pending',
-      waiting: 'Waiting for a break in practice', writing: 'Updating file…', saved: 'Saved to your file provider',
+      waiting: 'Waiting to receive changes', writing: 'Updating file…', saved: 'Saved to your file provider',
       error: 'Connection needs attention', conflict: 'Changes need review' },
     setupNote: 'Choose {provider} in the file picker.',
     start: 'Start on this device', startDetail: 'Create a file to keep your devices in sync.',
@@ -40,7 +40,7 @@ const messages = {
     noWrite: 'Sin actualizaciones todavía', help: 'Cómo funciona', done: 'Listo', resume: 'Reanudar',
     unavailable: 'Conecta la nube desde la app instalada.',
     status: { disconnected: 'Sin conectar', paused: 'Actualizaciones automáticas en pausa', pending: 'Cambios pendientes',
-      waiting: 'Esperando una pausa', writing: 'Actualizando archivo…', saved: 'Guardado en tu proveedor de archivos',
+      waiting: 'Esperando recibir los cambios', writing: 'Actualizando archivo…', saved: 'Guardado en tu proveedor de archivos',
       error: 'Revisa la conexión', conflict: 'Hay cambios que revisar' },
     setupNote: 'Elige {provider} en el selector de archivos.',
     start: 'Empezar en este dispositivo', startDetail: 'Crea un archivo para sincronizar tus dispositivos.',
@@ -81,7 +81,7 @@ const footer = t => `<div class="cp-cloud-footer">${button('close-dialog', t.don
 const disabled = state => state.status === 'writing' ? 'disabled' : '';
 
 export function cloudBackupMarkup(state, options = {}) {
-  const t = copy(options), linked = Boolean(state.name), status = t.status[state.status] || t.status.disconnected;
+  const t = copy(options), linked = Boolean(state.name), waiting = {en:{practice:'Finish and save your pending practice to receive changes.',editor:'Finish editing to receive changes.',dialog:'Close the open dialog to receive changes.',score:'Close the score to receive changes.'},es:{practice:'Termina y guarda la práctica pendiente para recibir los cambios.',editor:'Termina de editar para recibir los cambios.',dialog:'Cierra el diálogo abierto para recibir los cambios.',score:'Cierra la partitura para recibir los cambios.'}}, status = state.status === 'waiting' && state.waitReason ? (waiting[options.lang||getAppLanguage()]||waiting.en)[state.waitReason] || t.status.waiting : t.status[state.status] || t.status.disconnected;
   if (!options.available) return `<section class="cp-card cp-cloud-card" id="cloud-backup"><span class="cp-cloud-emblem">${icon()}</span><h2>${esc(t.connectTitle)}</h2><p class="muted">${esc(t.includes)}</p><p class="cp-cloud-browser">${esc(t.unavailable)}</p></section>`;
   const conflict = state.status === 'conflict' && state.mode === 'sync';
   const primaryAction = !linked ? 'cloud-setup' : conflict ? 'cloud-conflicts' : state.status === 'error' || state.status === 'conflict' ? 'cloud-manage' : !state.enabled ? 'cloud-toggle' : 'cloud-sync';
@@ -91,6 +91,7 @@ export function cloudBackupMarkup(state, options = {}) {
   return `<section class="cp-card cp-cloud-card" id="cloud-backup" data-cloud-status="${esc(state.status || 'disconnected')}">
     <div class="cp-cloud-heading"><span class="cp-cloud-emblem">${icon()}</span><div><h2>${esc(linked ? t.title : t.connectTitle)}</h2><p class="muted">${esc(linked ? state.mode === 'sync' ? t.syncing : t.independent : t.includes)}</p></div></div>
     <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(status)}</p>
+    ${state.status==='waiting' && state.waitReason==='practice' ? button('resume-session', (options.lang||getAppLanguage())==='es'?'Abrir práctica pendiente':'Open pending practice', 'quiet') : ''}
     ${linked ? `<div class="cp-cloud-file">${icon('file')}<div><strong title="${esc(state.name)}">${esc(state.name)}</strong><small>${esc(timestamp ? `${t.savedAt}: ${timestamp}` : t.noWrite)}</small></div></div>` : ''}
     <div class="cp-cloud-actions">${button(primaryAction, primaryLabel, 'primary', `${disabled(state)} ${primaryAction === 'cloud-toggle' ? 'data-id="true"' : ''}`)}${button(primaryAction === 'cloud-manage' ? 'cloud-help' : linked ? 'cloud-manage' : 'cloud-help', primaryAction === 'cloud-manage' ? t.help : linked ? t.manage : t.help, 'quiet', disabled(state))}</div>
   </section>`;
@@ -98,7 +99,7 @@ export function cloudBackupMarkup(state, options = {}) {
 
 export function cloudSetupMarkup(options = {}) {
   const t = copy(options);
-  return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p class="muted">${esc(t.setupNote.replace('{provider}', providers(options)))}</p><div class="cp-cloud-options">${row('cloud-create-shared', t.start, t.startDetail, 'devices')}${row('device-link', t.join, t.joinDetail, 'link')}${row('cloud-join-shared', t.joinDetail, '', 'file')}</div><details class="cp-cloud-details"><summary>${esc(t.backupOnly)}</summary>${row('cloud-connect', t.backupOnly, t.backupOnlyDetail, 'file')}</details>${footer(t)}</div>`;
+  return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p class="muted">${esc(t.setupNote.replace('{provider}', providers(options)))}</p><div class="cp-cloud-options">${row('cloud-create-shared', t.start, t.startDetail, 'devices')}${row('device-link', t.join, t.joinDetail, 'link')}</div><details class="cp-cloud-details"><summary>${esc(t.backupOnly)}</summary>${row('cloud-connect', t.backupOnly, t.backupOnlyDetail, 'file')}</details>${footer(t)}</div>`;
 }
 
 export function cloudManageMarkup(state, options = {}) {
@@ -106,7 +107,7 @@ export function cloudManageMarkup(state, options = {}) {
   return `<div class="cp-cloud-dialog" data-cloud-dialog="manage">
     ${linked ? `<div class="cp-cloud-toggle-row"><div><strong>${esc(t.automatic)}</strong><small>${esc(t.automaticDetail)}</small></div><button class="cp-cloud-switch" type="button" role="switch" aria-label="${esc(t.automatic)}" aria-checked="${Boolean(state.enabled)}" data-action="cloud-toggle" data-id="${!state.enabled}" ${busy}><span></span></button></div>` : ''}
     ${state.status === 'error' || state.status === 'conflict' ? `<div class="cp-cloud-problem"><strong>${esc(t.status[state.status])}</strong>${state.status === 'conflict' && state.mode === 'sync' ? button('cloud-conflicts', t.review, 'primary', busy) : linked ? button('cloud-sync', t.retry, 'primary', `${busy} ${state.enabled ? '' : 'disabled'}`) : ''}${state.error ? `<details class="cp-cloud-details"><summary>${esc(t.errorDetail)}</summary><p class="cp-cloud-technical">${esc(localizeMessage(state.error, options.lang || getAppLanguage()))}</p></details>` : ''}</div>` : ''}
-    <div class="cp-cloud-options">${options.available ? row('cloud-setup', t.location, t.locationDetail, 'cloud', '', busy) : ''}${row('cloud-help', t.help, '', 'help')}</div>
+    <div class="cp-cloud-options">${options.available ? row('cloud-setup', t.location, t.locationDetail, 'cloud', '', busy) : ''}${options.available ? row('device-link', t.join, t.joinDetail, 'devices', '', busy) : ''}${row('cloud-help', t.help, '', 'help')}</div>
     ${options.available && (state.mode === 'sync' || ['error', 'conflict'].includes(state.status)) ? `<details class="cp-cloud-details"><summary>${esc(t.recovery)}</summary>${row('cloud-recovery', t.recover, t.recoverDetail, 'restore', '', busy)}</details>` : ''}
     ${linked ? `<div class="cp-cloud-disconnect">${row('cloud-disconnect', t.disconnect, t.disconnectDetail, 'off', 'cp-cloud-danger', busy)}</div>` : ''}${footer(t)}
   </div>`;

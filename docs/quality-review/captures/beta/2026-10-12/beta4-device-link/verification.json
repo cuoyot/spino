@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-12",
+  "version": "6.0.0-beta.4",
+  "build": 43,
+  "baseCommit": "e478e80",
+  "unit": {
+    "passed": 188,
+    "failed": 0,
+    "skipped": 1
+  },
+  "browser": {
+    "closedDialogPolicy": "passed",
+    "deviceLinkFourLayouts": "passed",
+    "siteThreeLanguages": "passed"
+  },
+  "identicalWebFiles": 259,
+  "android": {
+    "replacementInstall": true,
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+    "versionCode": 43,
+    "emulatorRecovery": "Existing AVD restarted with software renderer; user-data disk preserved."
+  },
+  "compatibility": "Synthetic old-client format 1 write removes QR metadata; current sync reads it and retains identity. Actual tablet/provider file not accessed.",
+  "fixture": "Disposable synthetic notebook/code/QR. No personal tablet/emulator notebook imported, cleared or restored."
+}
