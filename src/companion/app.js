@@ -1,3 +1,5 @@
+import { inspectBackup, convertBackup, backupCounts } from './backup-format.js';
+import { deviceLinkCopy, deviceLinkMarkup, deviceLinkQRMarkup, deviceLinkManualMarkup, deviceLinkConfirmMarkup, parseDeviceLink, encodeDeviceLink, startNotebookScanner } from './device-link.js';
 import { bindMidiShortcuts } from './midi-shortcuts.js';
 import { createWalkthrough } from './walkthrough.js';
 import { rateApp, shareApp } from './app-actions.js';
@@ -92,6 +94,7 @@ export async function bootCompanion(reader) {
   const libraryRoute = route => ['piano','repertoire'].includes(route)?'repertoire':route==='catalog'?'catalog':null;
   let tempoTaps = [];
   let saveError = '', toastTimer, readerMounted = false, readerBase = null, checkpointAt = 0, quiz = null, metro = null;
+  let pendingDeviceLink = null;
   let filteredTarget = '', pendingRestore = null, reminderState = null, calendarMode = 'week';
   let scoreViewer = null, openingScore = false, importingScore = false;
   let sessionWriting = false, sessionDrag = null;
@@ -817,13 +820,23 @@ export async function bootCompanion(reader) {
     store.onChange(() => cloud.markDirty());
     CloudBackup.addListener('setupComplete', () => { if (!cloud.busy) cloud.init().catch(error => toast(error.message)); });
   }
+  function backupExportOptions(converting) {
+    showDialog(ui(converting?'Convert a backup':'Export a backup',converting?'Convertir una copia':'Exportar una copia'),`<form><p>${ui('Repertoire, practice history, scores, annotations and score views are included in one portable file.','El repertorio, el historial, las partituras, las anotaciones y sus vistas se incluyen en un único archivo portátil.')}</p><label>${ui('Backup format','Formato de copia')}<select name="format"><option value="1">${ui('Compatible copy · JSON format 1','Copia compatible · formato JSON 1')}</option><option value="2">${ui('Organized copy · JSON format 2','Copia organizada · formato JSON 2')}</option></select></label><p class="muted">${ui('Format 2 separates repertoire, scores and annotations into sections. It needs SPino 6.0.0-beta.3 or later. Older versions cannot open this new copy; they can still use format 1. Converting creates a separate file and keeps the original. Cloud synchronization continues using format 1.','El formato 2 separa repertorio, partituras y anotaciones en secciones. Requiere SPino 6.0.0-beta.3 o posterior. Las versiones anteriores no pueden abrir esta nueva copia; pueden seguir usando el formato 1. La conversión crea otro archivo y conserva el original. La sincronización en nube sigue usando el formato 1.')}</p><label class="check" data-format-warning hidden><input name="compatibility" type="checkbox"/>${ui('I understand that older versions cannot open the format 2 copy.','Entiendo que las versiones anteriores no pueden abrir la copia en formato 2.')}</label>${formEnd(ui(converting?'Choose and convert a copy':'Export',converting?'Elegir y convertir una copia':'Exportar'))}</form>`,async(f)=>{
+      if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui('Pause transfers before exporting or converting a backup.','Pausa las transferencias antes de exportar o convertir una copia.'));
+      const format=Number(f.get('format'));if(format===2&&!f.has('compatibility'))throw new Error(ui('Confirm the format compatibility warning.','Confirma el aviso de compatibilidad del formato.'));
+      pauseSession();let original;if(converting){original=await importFile();if(!original)return;}else{await persist();original=await store.export(data);}
+      const text=convertBackup(original,format),result=await exportFile(`spino-${localDate()}-${converting?'converted-':''}format-${format}.json`,text);if(result?.cancelled)return;
+      if(!converting){data.lastBackup=new Date().toISOString();await persist();render();}dialog.close();toast(ui('Backup saved with repertoire, scores and annotations.','Copia guardada con repertorio, partituras y anotaciones.'));
+    });
+    const select=dialog.querySelector('[name=format]'),warning=dialog.querySelector('[data-format-warning]'),check=warning.querySelector('input');select.addEventListener('change',()=>{warning.hidden=select.value!=='2';check.required=select.value==='2';});
+  }
   function reviewBackupRestore(text) {
-    const backup = validateBackup(text);
-    pendingRestore = text;
+    const inspection = inspectBackup(text), backup = inspection.backup, counts = backupCounts(backup);
+    pendingRestore = inspection.text;
     restoringBackup = true;
     confirm(ui('Restore this backup', 'Restaurar esta copia'), ui(
-      `${backup.data.sessions.length} sessions, ${backup.data.works.length} works, ${backup.data.plans.length} plans and ${backup.assets.length} scores. This will replace the data on this device. Export a backup first if you want to keep it. Automatic backup will be disconnected; existing cloud files will remain.`,
-      `${backup.data.sessions.length} sesiones, ${backup.data.works.length} obras, ${backup.data.plans.length} planes y ${backup.assets.length} partituras. Se reemplazarán los datos de este dispositivo. Exporta primero una copia si quieres conservarlos. Se desconectará la copia automática; los archivos existentes en la nube se conservarán.`
+      `${inspection.converted ? "This organized copy will be converted to the supported notebook format before restoration. Its original file is kept. " : ""}${counts.annotatedScores} annotated scores (${counts.marks} marks). ${backup.data.sessions.length} sessions, ${backup.data.works.length} works, ${backup.data.plans.length} plans and ${backup.assets.length} scores. This will replace the data on this device. Export a backup first if you want to keep it. Automatic backup will be disconnected; existing cloud files will remain.`,
+      `${inspection.converted ? "Esta copia organizada se convertirá al formato de cuaderno compatible antes de restaurarla. El archivo original se conserva. " : ""}${counts.annotatedScores} partituras anotadas (${counts.marks} anotaciones). ${backup.data.sessions.length} sesiones, ${backup.data.works.length} obras, ${backup.data.plans.length} planes y ${backup.assets.length} partituras. Se reemplazarán los datos de este dispositivo. Exporta primero una copia si quieres conservarlos. Se desconectará la copia automática; los archivos existentes en la nube se conservarán.`
     ), async () => {
       await cloud?.disconnect(); await store.restore(pendingRestore); data = backup.data; await reminders(); location.reload();
     });
@@ -1092,8 +1105,15 @@ export async function bootCompanion(reader) {
     'instrument-pedal':id=>instrument.learnPedal(id),'instrument-pedal-reset':()=>instrument.resetPedals(),
     'instrument-autoconnect':()=>instrument.setAutoConnect(!instrument.state.autoConnect),
     'notification-permission':async()=>{await reminders(true);render();},
-    'export-backup':async()=>{if(downloads.busy||libraryDownloads.busy)throw new Error(ui("Pause downloads before exporting a backup.", "Pausa las descargas antes de exportar una copia."));pauseSession();await persist();const text=await store.export(data);const result=await exportFile(`spino-${localDate()}.json`,text);if(result?.cancelled)return;data.lastBackup=new Date().toISOString();await persist();render();toast(ui("Backup exported with history and scores.", "Copia exportada con historial y partituras."));},
+    'export-backup':()=>backupExportOptions(false),
+    'convert-backup':()=>backupExportOptions(true),
     'import-backup':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const text=await importFile();if(text)reviewBackupRestore(text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
+    'device-link':()=>{pendingDeviceLink=null;showDialog(deviceLinkCopy().title,deviceLinkMarkup(cloud?.state||{}, {available:cloudAvailable()}));},
+    'device-link-show':async()=>{dialog.close();const link=await cloud.deviceLink();showDialog(deviceLinkCopy().title,await deviceLinkQRMarkup(link));},
+    'device-link-scan':()=>{pauseSession();const t=deviceLinkCopy();showDialog(t.title,`<div id="device-link-camera"></div><p role="status">${esc(t.scan)}</p><div class="cp-actions">${btn('device-link-manual',t.manual)}${btn('close-dialog',t.close)}</div>`);const controller=new AbortController();dialogCleanup=()=>controller.abort();const stopHidden=()=>{if(document.hidden){controller.abort();document.removeEventListener('visibilitychange',stopHidden);}};document.addEventListener('visibilitychange',stopHidden);controller.signal.addEventListener('abort',()=>document.removeEventListener('visibilitychange',stopHidden),{once:true});void startNotebookScanner(document.querySelector('#device-link-camera'),{signal:controller.signal,onScan:link=>{pendingDeviceLink=link;showDialog(t.title,deviceLinkConfirmMarkup(link));},onError:error=>{if(dialog.open)document.querySelector('#cp-form-error').textContent=localizeMessage(error.message);}});},
+    'device-link-manual':()=>showDialog(deviceLinkCopy().title,deviceLinkManualMarkup(),f=>{pendingDeviceLink=parseDeviceLink(f.get('code'));showDialog(deviceLinkCopy().title,deviceLinkConfirmMarkup(pendingDeviceLink));}),
+    'device-link-copy':async()=>{await navigator.clipboard.writeText(document.querySelector('#device-link-code').value);toast(ui('Connection code copied.','Código de conexión copiado.'));},
+    'device-link-connect':async()=>{if(!pendingDeviceLink)return;if(!cloudAvailable())throw new Error(ui('Open the installed app to select your cloud file.','Abre la app instalada para seleccionar el archivo de nube.'));const code=encodeDeviceLink(pendingDeviceLink);dialog.close();await cloud.joinShared(code);if(cloud.state.status==='error')throw new Error(cloud.state.error);if(cloud.state.name)pendingDeviceLink=null;},
     'cloud-setup':()=>showDialog(ui("Connect backup", "Conectar copia"),cloudSetupMarkup(cloudOptions())),
     'cloud-manage':()=>showDialog(ui("Manage connection", "Gestionar conexión"),cloudManageMarkup(cloud?.state||{},cloudOptions())),
     'cloud-conflicts':()=>{pauseSession();hideReader();go('profile-backup');showDialog(ui("Review changes", "Revisar cambios"),cloudConflictMarkup(cloud?.state||{},cloudOptions()));},

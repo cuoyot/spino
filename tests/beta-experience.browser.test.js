@@ -19,7 +19,7 @@ test('initial tour can skip, replay and finish without modifying notebook data; 
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-color-scheme',value:'light'}]});await wait(`document.documentElement.dataset.theme==='light'`);
  await evaluate(`document.querySelector('[data-action=close-dialog]').click()`);
  assert.equal(await evaluate(`!!document.querySelector('[data-action=rate-app]')&&!!document.querySelector('[data-action=share-app]')`),true);
- const folder='artifacts/beta/2026-10-12/beta2-header/theme-tour';await mkdir(folder,{recursive:true});
+ const folder='artifacts/beta/2026-10-12/beta3-header/theme-tour';await mkdir(folder,{recursive:true});
  for(const theme of ['light','dark']){
   await evaluate(`document.querySelector('[data-action=profile-appearance]').click();document.querySelector('[data-action=set-theme][data-id=${theme}]').click();document.querySelector('[data-action=close-dialog]').click()`);
   for(const [name,width,height] of [['phone-portrait',402,874],['phone-landscape',874,402],['tablet-portrait',820,1180],['tablet-landscape',1180,820]]){

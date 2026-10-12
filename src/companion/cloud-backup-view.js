@@ -98,7 +98,7 @@ export function cloudBackupMarkup(state, options = {}) {
 
 export function cloudSetupMarkup(options = {}) {
   const t = copy(options);
-  return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p class="muted">${esc(t.setupNote.replace('{provider}', providers(options)))}</p><div class="cp-cloud-options">${row('cloud-create-shared', t.start, t.startDetail, 'devices')}${row('cloud-join-shared', t.join, t.joinDetail, 'link')}</div><details class="cp-cloud-details"><summary>${esc(t.backupOnly)}</summary>${row('cloud-connect', t.backupOnly, t.backupOnlyDetail, 'file')}</details>${footer(t)}</div>`;
+  return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p class="muted">${esc(t.setupNote.replace('{provider}', providers(options)))}</p><div class="cp-cloud-options">${row('cloud-create-shared', t.start, t.startDetail, 'devices')}${row('device-link', t.join, t.joinDetail, 'link')}${row('cloud-join-shared', t.joinDetail, '', 'file')}</div><details class="cp-cloud-details"><summary>${esc(t.backupOnly)}</summary>${row('cloud-connect', t.backupOnly, t.backupOnlyDetail, 'file')}</details>${footer(t)}</div>`;
 }
 
 export function cloudManageMarkup(state, options = {}) {

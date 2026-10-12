@@ -236,3 +236,5 @@ Beta 2 (2026-10-12) reopens shared practice timing (PRACTICE-01/05/06), PDF paus
 
 
 Persistent-header follow-up (2026-10-12): all six main screens and shared navigation chrome reopened. Profile moves from base navigation to the top left; title/context controls and MIDI remain fixed while .cp-page scrolls. Fullscreen reader/score chrome remains separate. Header stability, control placement and light MIDI checked in 48 responsive states; dated evidence: captures/beta/2026-10-12/beta2-header.
+
+2026-10-12 beta 3 reopens PROFILE-01, CLOUD-02 and CLOUD-05: QR/code linking, matching-file validation, compatible/organized backup export, conversion and annotated restore counts. Four-layout responsive evidence is in captures/beta/2026-10-12/beta3-device-link. Physical native camera/provider acceptance remains open.

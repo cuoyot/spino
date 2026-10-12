@@ -97,6 +97,19 @@
       ],
       "verifiedAgainst": "beta/2026-10-12",
       "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately."
+    },
+    {
+      "id": "backup",
+      "title": "Back up and synchronize your notebook",
+      "order": 110,
+      "source": "en/backup.md",
+      "status": "draft",
+      "reviewIds": [
+        "CLOUD-01",
+        "CLOUD-02",
+        "CLOUD-05"
+      ],
+      "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending."
     }
   ],
   "plannedChapters": [
@@ -144,11 +157,6 @@
       "id": "profile",
       "title": "Profile, progress and preferences",
       "order": 100
-    },
-    {
-      "id": "backup",
-      "title": "Back up and synchronize your notebook",
-      "order": 110
     }
   ]
 }

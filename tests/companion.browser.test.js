@@ -114,7 +114,7 @@ test('piano companion: local planning, practice, history, recovery and responsiv
     data=await stored();assert.equal(data.works.length,2);assert.equal(data.works[1].assetId,data.downloads[0].assetId);
     await action('settings');await action('profile-backup');
     await evaluate(`window.nativeObjectURL=URL.createObjectURL;URL.createObjectURL=blob=>{window.exportedBlob=blob;return nativeObjectURL(blob);};window.nativeAnchorClick=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(!this.download)nativeAnchorClick.call(this);};`);
-    await action('export-backup');await wait(`window.exportedBlob`);
+    await action('export-backup');await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`window.exportedBlob`);
     const backup=await evaluate(`exportedBlob.text().then(text=>{window.backupText=text;return JSON.parse(text);})`);
     assert.equal(backup.assets.length,1);assert.equal(backup.data.sessions.length,2);assert.ok(backup.data.sessions[0].results);
     await action('settings');await action('profile-edit');

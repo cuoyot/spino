@@ -123,6 +123,13 @@ public class CloudBackupPlugin: CAPPlugin, CAPBridgedPlugin, UIDocumentPickerDel
                 } else {
                     guard let text = String(data: value, encoding: .utf8) else { throw self.failure("This backup is not UTF-8 JSON.") }
                     if call.getBool("link", false) {
+                        if let expected = call.getString("expectedNotebookId") {
+                            let notebook = try JSONSerialization.jsonObject(with: value) as? [String: Any]
+                            let metadata = notebook?["cloudBackup"] as? [String: Any]
+                            guard metadata?["sharedNotebookId"] as? String == expected else {
+                                throw self.failure("The selected file does not match the notebook QR. Your current connection was kept.")
+                            }
+                        }
                         let access = url.startAccessingSecurityScopedResource(); defer { if access { url.stopAccessingSecurityScopedResource() } }
                         let bookmark = try url.bookmarkData(options: [.minimalBookmark], includingResourceValuesForKeys: nil, relativeTo: nil)
                         self.defaults.set(bookmark, forKey: self.prefix + "bookmark")

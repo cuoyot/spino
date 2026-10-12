@@ -60,3 +60,7 @@
   .cp-cloud-actions { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) { .cp-cloud-switch > span, .cp-cloud-switch > span::before { transition: none; } }
+
+.cp-device-qr{display:block;width:min(100%,300px);height:auto;margin:16px auto;background:#fff;border-radius:12px;}
+.cp-device-link .cp-cloud-options{display:grid;gap:12px;}
+.cp-device-link textarea{width:100%;box-sizing:border-box;overflow-wrap:anywhere;font:13px/1.5 monospace;}

@@ -81,3 +81,9 @@ test('automatic sync uploads local changes while editing and defers incoming ado
  assert.equal(a.engine.state.status,'waiting');assert.equal(a.get().data.works.length,1);assert.equal(JSON.parse(shared.text).data.sessions[0].id,'practice');assert.equal(a.recovery(),null);
  a.applyAllowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works.length,2);assert.equal(a.get().data.sessions[0].id,'practice');
 });
+
+test('QR join checks notebook identity and maintains it across two-device edits',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));await a.engine.createShared();const link=await a.engine.deviceLink();
+ assert.equal(JSON.parse(shared.text).cloudBackup.sharedNotebookId,link.id);await b.engine.joinShared(link.code);await a.engine.sync();assert.equal(b.engine.state.notebookId,link.id);assert.equal(a.get().data.works.length,2);
+ const wrong=link.code.replace(link.id,'6ce8d640-d2e3-4fcb-8fa3-885d36b2cc52');await b.engine.joinShared(wrong);assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.notebookId,link.id);assert.equal(b.get().data.works.length,2);
+});

@@ -139,6 +139,13 @@ public class CloudBackupPlugin extends Plugin {
             try {
                 Uri uri = result.getData().getData(); byte[] value = read(uri);
                 if (call.getBoolean("link", false)) {
+                    String expected = call.getString("expectedNotebookId");
+                    if (expected != null) {
+                        org.json.JSONObject notebook = new org.json.JSONObject(new String(value, StandardCharsets.UTF_8));
+                        org.json.JSONObject metadata = notebook.optJSONObject("cloudBackup");
+                        if (metadata == null || !expected.equals(metadata.optString("sharedNotebookId")))
+                            throw new IOException("The selected file does not match the notebook QR. Your current connection was kept.");
+                    }
                     int flags = result.getData().getFlags() & 3;
                     if (flags != 3) throw new IOException("This provider must grant persistent read/write access for synchronization.");
                     getContext().getContentResolver().takePersistableUriPermission(uri, flags);
