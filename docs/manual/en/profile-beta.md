@@ -6,6 +6,6 @@ The first launch offers a six-screen introduction: Today, Practice, Calendar, Li
 
 Rate app opens Google Play on Android or requests Apple's in-app review on iOS. Apple decides whether to display its review panel. Share app opens the system sharing sheet with the public SPino website; notebook contents are not included.
 
-The warm-up introduction opens at its heading and initial scroll position. Targeted iPhone simulator portrait/landscape checks verified this in the beta.
+The warm-up introduction opens at its heading and initial scroll position. Targeted iPhone and iPad simulator portrait/landscape checks verified this in the beta.
 
 The beta includes iOS Core MIDI and the Apple Bluetooth MIDI connection panel. USB/Bluetooth instrument and pedal acceptance still requires physical hardware. Local reminder integration is implemented; notification delivery acceptance is recorded separately in the release verification document.

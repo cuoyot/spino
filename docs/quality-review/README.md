@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01 before SPino is considered ready for product version 1.0. The installed technical version remains 5.0.0; this review does not renumber packages or publish a release.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: stable is 5.2.3 (35), and the current major beta is 6.0.0-beta.1 (40). Historical screen objectives and evidence remain preserved below.
 
 Current focus (2026-10-12): [6.0.0 beta implementation and release verification](../releases/6.0.0-beta.1.md). Core MIDI, themes, engagement actions, walkthrough and warm-up focus are implemented. Physical MIDI acceptance and closed-app notification delivery checks are tracked there. Earlier review records below are historical.
 

@@ -1,0 +1,1661 @@
+[
+  {
+    "id": "today-empty",
+    "surface": "TODAY-01",
+    "title": "Today empty",
+    "steps": [],
+    "fixture": "empty"
+  },
+  {
+    "id": "today",
+    "surface": "TODAY-01 TODAY-02 TODAY-05",
+    "title": "Today populated",
+    "steps": [],
+    "fixture": "typical"
+  },
+  {
+    "id": "today-pending",
+    "surface": "TODAY-03",
+    "title": "Pending session",
+    "steps": [],
+    "fixture": "pending"
+  },
+  {
+    "id": "practice",
+    "surface": "HUB-01",
+    "title": "Practice chooser",
+    "steps": [
+      "[data-action=\"practice\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "calendar-week",
+    "surface": "CAL-01",
+    "title": "Week calendar",
+    "steps": [
+      "[data-action=\"calendar\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "calendar-month",
+    "surface": "CAL-02",
+    "title": "Month calendar",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"calendar-mode\"][data-id=\"month\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "calendar-add",
+    "surface": "CAL-03",
+    "title": "Add on day",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"add-on-day\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "weekly-planner",
+    "surface": "CAL-04",
+    "title": "Weekly planner",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"weekly-planner\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "planned-detail",
+    "surface": "CAL-05",
+    "title": "Planned practice detail",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"plan-detail\"][data-id=\"review-next\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "planned-edit",
+    "surface": "PREP-03",
+    "title": "Edit planned practice",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"plan-detail\"][data-id=\"review-next\"]",
+      "[data-action=\"edit-plan\"][data-id=\"review-next\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "planned-date",
+    "surface": "CAL-05",
+    "title": "Reschedule planned practice",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"plan-detail\"][data-id=\"review-next\"]",
+      "[data-action=\"reschedule-plan\"][data-id=\"review-next\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "planned-delete",
+    "surface": "CAL-05",
+    "title": "Delete planned practice confirmation",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"plan-detail\"][data-id=\"review-next\"]",
+      "[data-action=\"delete-plan\"][data-id=\"review-next\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "event-new",
+    "surface": "CAL-06",
+    "title": "New event form",
+    "steps": [
+      "[data-action=\"new-event\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "event-detail",
+    "surface": "CAL-07",
+    "title": "Event detail",
+    "steps": [
+      "[data-action=\"event-detail\"][data-id=\"review-audition\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "event-edit",
+    "surface": "CAL-06",
+    "title": "Edit event form",
+    "steps": [
+      "[data-action=\"event-detail\"][data-id=\"review-audition\"]",
+      "[data-action=\"edit-event\"][data-id=\"review-audition\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "event-delete",
+    "surface": "CAL-07",
+    "title": "Delete event confirmation",
+    "steps": [
+      "[data-action=\"event-detail\"][data-id=\"review-audition\"]",
+      "[data-action=\"delete-event\"][data-id=\"review-audition\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "manual-log",
+    "surface": "CAL-09",
+    "title": "Log completed practice",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"add-on-day\"]",
+      "[data-action=\"manual-session\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-reading",
+    "surface": "PREP-01",
+    "title": "Prepare reading",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"reading\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-technique",
+    "surface": "PREP-01",
+    "title": "Prepare technique",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"technique\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-repertoire",
+    "surface": "PREP-01",
+    "title": "Prepare repertoire",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"repertoire\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-free",
+    "surface": "PREP-01",
+    "title": "Prepare free",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"free\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-more",
+    "surface": "PREP-02",
+    "title": "Practice organization",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"reading\"]",
+      "[data-action=\"prepare-more\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-schedule",
+    "surface": "PREP-03",
+    "title": "Schedule practice form",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"reading\"]",
+      "[data-action=\"prepare-more\"]",
+      "[data-action=\"schedule-draft\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-name",
+    "surface": "PREP-02",
+    "title": "Save practice as routine",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"reading\"]",
+      "[data-action=\"prepare-more\"]",
+      "[data-action=\"save-routine\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routines",
+    "surface": "PIANO-04",
+    "title": "Routines list",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-new",
+    "surface": "PREP-02",
+    "title": "New routine editor",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"new-routine\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-add",
+    "surface": "PREP-02",
+    "title": "Routine activity picker",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"new-routine\"]",
+      "[data-action=\"routine-add\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-block",
+    "surface": "PREP-02",
+    "title": "Routine block form",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"new-routine\"]",
+      "[data-action=\"routine-add\"]",
+      "[data-action=\"routine-add-type\"][data-id=\"reading\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-edit",
+    "surface": "PIANO-04",
+    "title": "Edit saved routine",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"edit-routine\"][data-id=\"review-routine\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-delete",
+    "surface": "PIANO-04",
+    "title": "Delete routine confirmation",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"delete-routine\"][data-id=\"review-routine\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "routine-cancel",
+    "surface": "PREP-02",
+    "title": "Discard routine draft",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"new-routine\"]",
+      "[data-action=\"routine-cancel\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "session",
+    "surface": "PRACTICE-01",
+    "title": "Session overview",
+    "steps": [
+      "[data-action=\"resume-session\"]"
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "session-add",
+    "surface": "PRACTICE-08",
+    "title": "Add session block",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"session-add-block\"]"
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "session-edit",
+    "surface": "PRACTICE-09",
+    "title": "Edit session block",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"session-block-edit\"][data-id=\"audit-block\"]"
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "session-feedback",
+    "surface": "PRACTICE-06",
+    "title": "Finish session feedback",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"session-end\"]"
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "session-discard",
+    "surface": "PRACTICE-06",
+    "title": "Discard pending session",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"discard-session\"]"
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "midi-disconnected",
+    "surface": "PRACTICE-04 MIDI-02",
+    "title": "MIDI session without instrument",
+    "steps": [
+      "[data-action=\"resume-session\"]"
+    ],
+    "fixture": "midi"
+  },
+  {
+    "id": "reader-reading",
+    "surface": "PRACTICE-02",
+    "title": "Generated reading",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      }
+    ],
+    "fixture": "reading",
+    "ready": "#reader-view:not([hidden])"
+  },
+  {
+    "id": "reader-reading-settings",
+    "surface": "READER-01",
+    "title": "Practice settings reading",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      },
+      "#open-settings"
+    ],
+    "fixture": "reading",
+    "ready": "#settings[open]"
+  },
+  {
+    "id": "reader-names",
+    "surface": "PRACTICE-03",
+    "title": "Generated names",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      }
+    ],
+    "fixture": "names",
+    "ready": "#reader-view:not([hidden])"
+  },
+  {
+    "id": "reader-names-settings",
+    "surface": "READER-01",
+    "title": "Practice settings names",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      },
+      "#open-settings"
+    ],
+    "fixture": "names",
+    "ready": "#settings[open]"
+  },
+  {
+    "id": "reader-technique",
+    "surface": "PRACTICE-02",
+    "title": "Generated technique",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      }
+    ],
+    "fixture": "technique",
+    "ready": "#reader-view:not([hidden])"
+  },
+  {
+    "id": "reader-technique-settings",
+    "surface": "READER-01",
+    "title": "Practice settings technique",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      },
+      "#open-settings"
+    ],
+    "fixture": "technique",
+    "ready": "#settings[open]"
+  },
+  {
+    "id": "reader-piano",
+    "surface": "PRACTICE-04",
+    "title": "Generated piano",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      }
+    ],
+    "fixture": "piano",
+    "ready": "#reader-view:not([hidden])"
+  },
+  {
+    "id": "reader-piano-settings",
+    "surface": "READER-01",
+    "title": "Practice settings piano",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      },
+      "#open-settings"
+    ],
+    "fixture": "piano",
+    "ready": "#settings[open]"
+  },
+  {
+    "id": "warmup-guide",
+    "surface": "READER-05",
+    "title": "Warm-up guide",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"warmup-guide\"]"
+    ],
+    "fixture": "warmup"
+  },
+  {
+    "id": "free-practice",
+    "surface": "PRACTICE-05",
+    "title": "Free practice and metronome",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-free-practice\"]",
+      "[data-action=\"toggle-session\"]"
+    ],
+    "fixture": "free"
+  },
+  {
+    "id": "repertoire-session",
+    "surface": "PRACTICE-05",
+    "title": "Repertoire session",
+    "steps": [
+      "[data-action=\"resume-session\"]"
+    ],
+    "fixture": "repertoire"
+  },
+  {
+    "id": "repertoire-change",
+    "surface": "PRACTICE-05",
+    "title": "Change piece",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"session-change-work\"]"
+    ],
+    "fixture": "repertoire"
+  },
+  {
+    "id": "quick-practice",
+    "surface": "PRACTICE-02",
+    "title": "Quick practice game",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"quick-practice\"]",
+      {
+        "script": "document.querySelector('#start')?.click()"
+      }
+    ],
+    "fixture": "empty",
+    "ready": "#reader-view:not([hidden])"
+  },
+  {
+    "id": "quick-exit",
+    "surface": "PRACTICE-06",
+    "title": "Quick-practice exit choice",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"quick-practice\"]",
+      "#practice-return"
+    ],
+    "fixture": "empty",
+    "ready": "#cp-dialog[open]"
+  },
+  {
+    "id": "quick-result",
+    "surface": "PRACTICE-06",
+    "title": "Quick-practice result",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"quick-practice\"]",
+      "#practice-return",
+      "[data-action=\"quick-finish\"]"
+    ],
+    "fixture": "empty",
+    "ready": "#cp-dialog[open]"
+  },
+  {
+    "id": "library",
+    "surface": "PIANO-01 REP-01",
+    "title": "Library / Repertoire",
+    "steps": [
+      "[data-action=\"piano\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-detail",
+    "surface": "REP-02",
+    "title": "Work detail",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-new",
+    "surface": "REP-03",
+    "title": "New work form",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"new-work\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-details",
+    "surface": "REP-03",
+    "title": "New work study details",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"new-work\"]",
+      {
+        "script": "document.querySelectorAll('#cp-dialog details').forEach(d=>d.open=true)"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-edit",
+    "surface": "REP-03",
+    "title": "Edit work",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"edit-work\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-delete",
+    "surface": "REP-02",
+    "title": "Trash work confirmation",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"delete-work\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "pdf-remove",
+    "surface": "REP-04",
+    "title": "Remove PDF confirmation",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-files\"]",
+      "[data-action=\"profile-file\"][data-id=\"audit-pdf\"]",
+      "[data-action=\"profile-file-remove\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue",
+    "surface": "CAT-01",
+    "title": "Catalogue MusicXML",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue-filters",
+    "surface": "CAT-01 CAT-05",
+    "title": "Catalogue expanded filters",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      {
+        "script": "document.querySelectorAll('#app-shell details').forEach(d=>d.open=true)"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue-pdf",
+    "surface": "CAT-02",
+    "title": "Catalogue PDF",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-pdfs\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue-research",
+    "surface": "CAT-03",
+    "title": "Catalogue research",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-research\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue-reference",
+    "surface": "CAT-04",
+    "title": "Unavailable catalogue detail",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-research\"]",
+      "[data-action=\"library-detail\"][data-id=\"czerny_op821_001\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "catalogue-attach",
+    "surface": "CAT-08",
+    "title": "Attach local edition",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-research\"]",
+      "[data-action=\"library-detail\"][data-id=\"czerny_op821_001\"]",
+      "[data-action=\"library-attach\"][data-id=\"czerny_op821_001\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "downloads",
+    "surface": "CAT-10",
+    "title": "Download jobs",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-files\"]",
+      "[data-action=\"downloads\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "progress",
+    "surface": "PIANO-02",
+    "title": "Progress",
+    "steps": [
+      "[data-action=\"progress\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "session-history",
+    "surface": "PIANO-03",
+    "title": "Saved session detail",
+    "steps": [
+      "[data-action=\"progress\"]",
+      "[data-action=\"session-detail\"][data-id=\"review-today-result\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "history-feedback",
+    "surface": "PIANO-03",
+    "title": "Edit saved feedback",
+    "steps": [
+      "[data-action=\"progress\"]",
+      "[data-action=\"session-detail\"][data-id=\"review-today-result\"]",
+      "[data-action=\"edit-session-notes\"][data-id=\"review-today-result\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "history-delete",
+    "surface": "PIANO-03",
+    "title": "Delete saved session",
+    "steps": [
+      "[data-action=\"progress\"]",
+      "[data-action=\"session-detail\"][data-id=\"review-today-result\"]",
+      "[data-action=\"delete-session\"][data-id=\"review-today-result\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "profile",
+    "surface": "PROFILE-01",
+    "title": "Profile",
+    "steps": [
+      "[data-action=\"settings\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "profile-edit",
+    "surface": "PROFILE-02",
+    "title": "Edit profile form",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-edit\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "profile-photo",
+    "surface": "PROFILE-02",
+    "title": "Choose profile photo",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-photo\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "practice-defaults",
+    "surface": "PROFILE-03",
+    "title": "Practice defaults",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-practice\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "local-scores",
+    "surface": "PROFILE-04",
+    "title": "Saved scores",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-files\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "local-file",
+    "surface": "PROFILE-04",
+    "title": "Local score detail",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-files\"]",
+      "[data-action=\"profile-file\"][data-id=\"audit-pdf\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "reminders",
+    "surface": "PROFILE-05",
+    "title": "Reminders",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-reminders\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "local-data",
+    "surface": "PROFILE-06",
+    "title": "Local data dialog",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-data\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "erase-confirm",
+    "surface": "PROFILE-06",
+    "title": "Erase notebook confirmation only",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-data\"]",
+      "[data-action=\"erase-data\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "about",
+    "surface": "PROFILE-01",
+    "title": "Credits and version",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"about\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "release-notes",
+    "surface": "PROFILE-01",
+    "title": "Release notes expanded",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"about\"]",
+      {
+        "script": "document.querySelectorAll('#cp-dialog details').forEach(d=>d.open=true)"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup",
+    "surface": "CLOUD-01 CLOUD-05",
+    "title": "Backup and sync",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-connect",
+    "surface": "CLOUD-02",
+    "title": "Connect backup form",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      "[data-action=\"cloud-setup\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-help",
+    "surface": "CLOUD-06",
+    "title": "Backup help",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      "[data-action=\"cloud-help\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "instrument",
+    "surface": "MIDI-01 MIDI-02",
+    "title": "Instrument and pedals",
+    "steps": [
+      "[data-action=\"midi-settings\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "legacy-settings-practice",
+    "surface": "READER-01 READER-02 READER-03 READER-04",
+    "title": "Retained reader practice",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      },
+      {
+        "script": "document.querySelector('#open-settings').click()"
+      },
+      "[data-tab=\"practice\"]"
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "legacy-settings-levels",
+    "surface": "READER-01 READER-02 READER-03 READER-04",
+    "title": "Retained reader levels",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      },
+      {
+        "script": "document.querySelector('#open-settings').click()"
+      },
+      "[data-tab=\"levels\"]"
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "legacy-settings-exercise",
+    "surface": "READER-01 READER-02 READER-03 READER-04",
+    "title": "Retained reader exercise",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      },
+      {
+        "script": "document.querySelector('#open-settings').click()"
+      },
+      "[data-tab=\"exercise\"]"
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "legacy-settings-general",
+    "surface": "READER-01 READER-02 READER-03 READER-04",
+    "title": "Retained reader general",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      },
+      {
+        "script": "document.querySelector('#open-settings').click()"
+      },
+      "[data-tab=\"general\"]"
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "pdf-viewer",
+    "surface": "SCORE-01 SCORE-03",
+    "title": "PDF viewer",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-tools",
+    "surface": "SCORE-03",
+    "title": "PDF tools",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-annotations",
+    "surface": "SCORE-04",
+    "title": "PDF annotations",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=annotations]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-framing",
+    "surface": "SCORE-05",
+    "title": "PDF framing",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=view]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-split",
+    "surface": "SCORE-05",
+    "title": "PDF split",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=view]",
+      "[data-pdf=split]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-page-two",
+    "surface": "SCORE-01",
+    "title": "PDF page-two",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=next]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "xml-downloaded",
+    "surface": "CAT-04",
+    "title": "Downloaded synthetic MusicXML",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      }
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "xml-parts",
+    "surface": "CAT-06",
+    "title": "Piano parts and hand assignments",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-parts\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('#cp-dialog details').forEach(e=>e.open=true)"
+      }
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "xml-suitability",
+    "surface": "CAT-07",
+    "title": "Suitability review form",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-suitability\"][data-id=\"mt_eb69b7b3cfc165d7\"]"
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "xml-rights",
+    "surface": "CAT-07",
+    "title": "Edition rights review form",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-rights\"][data-id=\"mt_eb69b7b3cfc165d7\"]"
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "xml-preview",
+    "surface": "SCORE-01 SCORE-02",
+    "title": "Synthetic MusicXML full score",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-preview\"][data-id=\"mt_eb69b7b3cfc165d7\"]"
+    ],
+    "fixture": "xml",
+    "ready": ".xml-score svg"
+  },
+  {
+    "id": "xml-excerpt",
+    "surface": "CAT-09",
+    "title": "Excerpt boundary review",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-segment\"]"
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "xml-excerpt-preview",
+    "surface": "CAT-09",
+    "title": "Excerpt preview",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-segment\"]",
+      "[data-action=\"library-segment-preview\"]"
+    ],
+    "fixture": "xml",
+    "ready": ".xml-score svg"
+  },
+  {
+    "id": "xml-prepare",
+    "surface": "PREP-04",
+    "title": "Prepare catalogue score",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-practice\"][data-id=\"mt_eb69b7b3cfc165d7\"]"
+    ],
+    "fixture": "xml"
+  },
+  {
+    "id": "legacy-reader",
+    "surface": "READER-06",
+    "title": "Direct reader",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      }
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "event-new-keyboard-dismissed",
+    "surface": "CAL-06",
+    "title": "New event form (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"new-event\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "work-new-keyboard-dismissed",
+    "surface": "REP-03",
+    "title": "New work form (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"new-work\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "profile-edit-keyboard-dismissed",
+    "surface": "PROFILE-02",
+    "title": "Edit profile form (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-edit\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "manual-log-keyboard-dismissed",
+    "surface": "CAL-09",
+    "title": "Log completed practice (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"add-on-day\"]",
+      "[data-action=\"manual-session\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "planned-date-keyboard-dismissed",
+    "surface": "CAL-05",
+    "title": "Reschedule planned practice (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"plan-detail\"][data-id=\"review-next\"]",
+      "[data-action=\"reschedule-plan\"][data-id=\"review-next\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "prepare-name-keyboard-dismissed",
+    "surface": "PREP-02",
+    "title": "Save practice as routine (keyboard dismissed)",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"prepare\"][data-id=\"reading\"]",
+      "[data-action=\"prepare-more\"]",
+      "[data-action=\"save-routine\"]",
+      {
+        "script": "document.activeElement?.blur();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-manage-mock",
+    "surface": "CLOUD-03",
+    "title": "Manage connection (offline mock provider)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      {
+        "script": "window.auditNativePromise=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='CloudBackup'?Promise.resolve(['pickBackup','readLinked'].includes(method)?{text:\"{\\\"format\\\":\\\"cuaderno-piano\\\",\\\"version\\\":1,\\\"exportedAt\\\":\\\"2026-10-01T10:00:00Z\\\",\\\"data\\\":{\\\"schemaVersion\\\":1,\\\"preferences\\\":{\\\"name\\\":\\\"Remote synthetic profile\\\",\\\"context\\\":\\\"piano\\\",\\\"weeklyMinutes\\\":200,\\\"wifiOnly\\\":true,\\\"theme\\\":\\\"system\\\",\\\"language\\\":\\\"es\\\"},\\\"works\\\":[{\\\"id\\\":\\\"review-work\\\",\\\"title\\\":\\\"Minuet in G · BWV Anh. 114\\\",\\\"composer\\\":\\\"Christian Petzold\\\",\\\"stage\\\":\\\"En estudio\\\",\\\"notes\\\":\\\"Remote synthetic edit\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"target\\\":\\\"G-major\\\",\\\"bpm\\\":60,\\\"assetId\\\":\\\"audit-pdf\\\"}],\\\"downloads\\\":[],\\\"downloadJobs\\\":[],\\\"routines\\\":[{\\\"id\\\":\\\"review-routine\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}]},{\\\"id\\\":\\\"review-routine-mobile\\\",\\\"title\\\":\\\"Lectura sin piano\\\",\\\"context\\\":\\\"mobile\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-mobile\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"wait\\\",\\\"target\\\":\\\"C-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}]}],\\\"plans\\\":[{\\\"id\\\":\\\"review-next\\\",\\\"title\\\":\\\"Lectura y repertorio\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false},{\\\"id\\\":\\\"review-completed\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"done-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"08:30\\\",\\\"status\\\":\\\"completed\\\",\\\"reminder\\\":false,\\\"sessionId\\\":\\\"review-today-result\\\"},{\\\"id\\\":\\\"review-tomorrow\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-02\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false}],\\\"events\\\":[{\\\"id\\\":\\\"review-tutor-today\\\",\\\"title\\\":\\\"Clase con mi profesora\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-audition\\\",\\\"title\\\":\\\"Audición de otoño\\\",\\\"type\\\":\\\"Audición\\\",\\\"date\\\":\\\"2026-10-10\\\",\\\"time\\\":\\\"17:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-tutor-next\\\",\\\"title\\\":\\\"Clase de piano\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-06\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]}],\\\"sessions\\\":[{\\\"id\\\":\\\"review-today-result\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":\\\"review-completed\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":1200000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"elapsedMs\\\":1200000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"Pulso más estable. Repasar el cambio de posición.\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-wed\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2100000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-30\\\",\\\"elapsedMs\\\":2100000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-mon\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2400000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-28\\\",\\\"elapsedMs\\\":2400000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false}],\\\"active\\\":null,\\\"lastBackup\\\":null},\\\"assets\\\":[{\\\"id\\\":\\\"audit-pdf\\\",\\\"name\\\":\\\"Synthetic score.pdf\\\",\\\"type\\\":\\\"application/pdf\\\",\\\"format\\\":\\\"pdf\\\",\\\"base64\\\":\\\"JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==\\\"}],\\\"legacy\\\":{}}\",name:'Synthetic shared notebook.json',linked:true,lastHash:'synthetic'}:method==='create'?{name:'Synthetic shared notebook.json',linked:true,cancelled:false}:{linked:true,name:'Synthetic shared notebook.json'}):auditNativePromise(plugin,method,options)"
+      },
+      "[data-action=\"cloud-setup\"]",
+      "[data-action=\"cloud-connect\"]",
+      {
+        "script": "await new Promise((ok,no)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('[data-action=cloud-manage]')){clearInterval(t);ok()}else if(++n>100){clearInterval(t);no(Error('Mock provider did not connect'))}},100)})"
+      },
+      "[data-action=\"cloud-manage\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-disconnect-mock",
+    "surface": "CLOUD-03",
+    "title": "Disconnect confirmation (offline mock provider)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      {
+        "script": "window.auditNativePromise=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='CloudBackup'?Promise.resolve(['pickBackup','readLinked'].includes(method)?{text:\"{\\\"format\\\":\\\"cuaderno-piano\\\",\\\"version\\\":1,\\\"exportedAt\\\":\\\"2026-10-01T10:00:00Z\\\",\\\"data\\\":{\\\"schemaVersion\\\":1,\\\"preferences\\\":{\\\"name\\\":\\\"Remote synthetic profile\\\",\\\"context\\\":\\\"piano\\\",\\\"weeklyMinutes\\\":200,\\\"wifiOnly\\\":true,\\\"theme\\\":\\\"system\\\",\\\"language\\\":\\\"es\\\"},\\\"works\\\":[{\\\"id\\\":\\\"review-work\\\",\\\"title\\\":\\\"Minuet in G · BWV Anh. 114\\\",\\\"composer\\\":\\\"Christian Petzold\\\",\\\"stage\\\":\\\"En estudio\\\",\\\"notes\\\":\\\"Remote synthetic edit\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"target\\\":\\\"G-major\\\",\\\"bpm\\\":60,\\\"assetId\\\":\\\"audit-pdf\\\"}],\\\"downloads\\\":[],\\\"downloadJobs\\\":[],\\\"routines\\\":[{\\\"id\\\":\\\"review-routine\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}]},{\\\"id\\\":\\\"review-routine-mobile\\\",\\\"title\\\":\\\"Lectura sin piano\\\",\\\"context\\\":\\\"mobile\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-mobile\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"wait\\\",\\\"target\\\":\\\"C-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}]}],\\\"plans\\\":[{\\\"id\\\":\\\"review-next\\\",\\\"title\\\":\\\"Lectura y repertorio\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false},{\\\"id\\\":\\\"review-completed\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"done-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"08:30\\\",\\\"status\\\":\\\"completed\\\",\\\"reminder\\\":false,\\\"sessionId\\\":\\\"review-today-result\\\"},{\\\"id\\\":\\\"review-tomorrow\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-02\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false}],\\\"events\\\":[{\\\"id\\\":\\\"review-tutor-today\\\",\\\"title\\\":\\\"Clase con mi profesora\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-audition\\\",\\\"title\\\":\\\"Audición de otoño\\\",\\\"type\\\":\\\"Audición\\\",\\\"date\\\":\\\"2026-10-10\\\",\\\"time\\\":\\\"17:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-tutor-next\\\",\\\"title\\\":\\\"Clase de piano\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-06\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]}],\\\"sessions\\\":[{\\\"id\\\":\\\"review-today-result\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":\\\"review-completed\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":1200000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"elapsedMs\\\":1200000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"Pulso más estable. Repasar el cambio de posición.\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-wed\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2100000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-30\\\",\\\"elapsedMs\\\":2100000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-mon\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2400000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-28\\\",\\\"elapsedMs\\\":2400000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false}],\\\"active\\\":null,\\\"lastBackup\\\":null},\\\"assets\\\":[{\\\"id\\\":\\\"audit-pdf\\\",\\\"name\\\":\\\"Synthetic score.pdf\\\",\\\"type\\\":\\\"application/pdf\\\",\\\"format\\\":\\\"pdf\\\",\\\"base64\\\":\\\"JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==\\\"}],\\\"legacy\\\":{}}\",name:'Synthetic shared notebook.json',linked:true,lastHash:'synthetic'}:method==='create'?{name:'Synthetic shared notebook.json',linked:true,cancelled:false}:{linked:true,name:'Synthetic shared notebook.json'}):auditNativePromise(plugin,method,options)"
+      },
+      "[data-action=\"cloud-setup\"]",
+      "[data-action=\"cloud-connect\"]",
+      {
+        "script": "await new Promise((ok,no)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('[data-action=cloud-manage]')){clearInterval(t);ok()}else if(++n>100){clearInterval(t);no(Error('Mock provider did not connect'))}},100)})"
+      },
+      "[data-action=\"cloud-manage\"]",
+      "[data-action=\"cloud-disconnect\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-conflicts-mock",
+    "surface": "CLOUD-04",
+    "title": "Review conflicts (offline mock provider)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      {
+        "script": "window.auditNativePromise=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='CloudBackup'?Promise.resolve(['pickBackup','readLinked'].includes(method)?{text:\"{\\\"format\\\":\\\"cuaderno-piano\\\",\\\"version\\\":1,\\\"exportedAt\\\":\\\"2026-10-01T10:00:00Z\\\",\\\"data\\\":{\\\"schemaVersion\\\":1,\\\"preferences\\\":{\\\"name\\\":\\\"Remote synthetic profile\\\",\\\"context\\\":\\\"piano\\\",\\\"weeklyMinutes\\\":200,\\\"wifiOnly\\\":true,\\\"theme\\\":\\\"system\\\",\\\"language\\\":\\\"es\\\"},\\\"works\\\":[{\\\"id\\\":\\\"review-work\\\",\\\"title\\\":\\\"Minuet in G · BWV Anh. 114\\\",\\\"composer\\\":\\\"Christian Petzold\\\",\\\"stage\\\":\\\"En estudio\\\",\\\"notes\\\":\\\"Remote synthetic edit\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"target\\\":\\\"G-major\\\",\\\"bpm\\\":60,\\\"assetId\\\":\\\"audit-pdf\\\"}],\\\"downloads\\\":[],\\\"downloadJobs\\\":[],\\\"routines\\\":[{\\\"id\\\":\\\"review-routine\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}]},{\\\"id\\\":\\\"review-routine-mobile\\\",\\\"title\\\":\\\"Lectura sin piano\\\",\\\"context\\\":\\\"mobile\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-mobile\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"wait\\\",\\\"target\\\":\\\"C-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}]}],\\\"plans\\\":[{\\\"id\\\":\\\"review-next\\\",\\\"title\\\":\\\"Lectura y repertorio\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false},{\\\"id\\\":\\\"review-completed\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"done-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"08:30\\\",\\\"status\\\":\\\"completed\\\",\\\"reminder\\\":false,\\\"sessionId\\\":\\\"review-today-result\\\"},{\\\"id\\\":\\\"review-tomorrow\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-02\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false}],\\\"events\\\":[{\\\"id\\\":\\\"review-tutor-today\\\",\\\"title\\\":\\\"Clase con mi profesora\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-audition\\\",\\\"title\\\":\\\"Audición de otoño\\\",\\\"type\\\":\\\"Audición\\\",\\\"date\\\":\\\"2026-10-10\\\",\\\"time\\\":\\\"17:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-tutor-next\\\",\\\"title\\\":\\\"Clase de piano\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-06\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]}],\\\"sessions\\\":[{\\\"id\\\":\\\"review-today-result\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":\\\"review-completed\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":1200000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"elapsedMs\\\":1200000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"Pulso más estable. Repasar el cambio de posición.\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-wed\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2100000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-30\\\",\\\"elapsedMs\\\":2100000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-mon\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2400000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-28\\\",\\\"elapsedMs\\\":2400000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false}],\\\"active\\\":null,\\\"lastBackup\\\":null},\\\"assets\\\":[{\\\"id\\\":\\\"audit-pdf\\\",\\\"name\\\":\\\"Synthetic score.pdf\\\",\\\"type\\\":\\\"application/pdf\\\",\\\"format\\\":\\\"pdf\\\",\\\"base64\\\":\\\"JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==\\\"}],\\\"legacy\\\":{}}\",name:'Synthetic shared notebook.json',linked:true,lastHash:'synthetic'}:method==='create'?{name:'Synthetic shared notebook.json',linked:true,cancelled:false}:{linked:true,name:'Synthetic shared notebook.json'}):auditNativePromise(plugin,method,options)"
+      },
+      "[data-action=\"cloud-setup\"]",
+      "[data-action=\"cloud-join-shared\"]",
+      {
+        "script": "await new Promise((ok,no)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('[data-action=cloud-manage]')){clearInterval(t);ok()}else if(++n>100){clearInterval(t);no(Error('Mock provider did not connect'))}},100)})"
+      },
+      "[data-action=\"cloud-manage\"]",
+      "[data-action=\"cloud-conflicts\"]"
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "backup-restore-mock",
+    "surface": "CLOUD-05",
+    "title": "Restore review (offline mock provider)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      {
+        "script": "window.auditNativePromise=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='CloudBackup'?Promise.resolve(['pickBackup','readLinked'].includes(method)?{text:\"{\\\"format\\\":\\\"cuaderno-piano\\\",\\\"version\\\":1,\\\"exportedAt\\\":\\\"2026-10-01T10:00:00Z\\\",\\\"data\\\":{\\\"schemaVersion\\\":1,\\\"preferences\\\":{\\\"name\\\":\\\"Remote synthetic profile\\\",\\\"context\\\":\\\"piano\\\",\\\"weeklyMinutes\\\":200,\\\"wifiOnly\\\":true,\\\"theme\\\":\\\"system\\\",\\\"language\\\":\\\"es\\\"},\\\"works\\\":[{\\\"id\\\":\\\"review-work\\\",\\\"title\\\":\\\"Minuet in G · BWV Anh. 114\\\",\\\"composer\\\":\\\"Christian Petzold\\\",\\\"stage\\\":\\\"En estudio\\\",\\\"notes\\\":\\\"Remote synthetic edit\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"target\\\":\\\"G-major\\\",\\\"bpm\\\":60,\\\"assetId\\\":\\\"audit-pdf\\\"}],\\\"downloads\\\":[],\\\"downloadJobs\\\":[],\\\"routines\\\":[{\\\"id\\\":\\\"review-routine\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}]},{\\\"id\\\":\\\"review-routine-mobile\\\",\\\"title\\\":\\\"Lectura sin piano\\\",\\\"context\\\":\\\"mobile\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-mobile\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"wait\\\",\\\"target\\\":\\\"C-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}]}],\\\"plans\\\":[{\\\"id\\\":\\\"review-next\\\",\\\"title\\\":\\\"Lectura y repertorio\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false},{\\\"id\\\":\\\"review-completed\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"done-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"08:30\\\",\\\"status\\\":\\\"completed\\\",\\\"reminder\\\":false,\\\"sessionId\\\":\\\"review-today-result\\\"},{\\\"id\\\":\\\"review-tomorrow\\\",\\\"title\\\":\\\"Mi rutina de 40 minutos\\\",\\\"context\\\":\\\"piano\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"routine-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-reading\\\",\\\"type\\\":\\\"reading\\\",\\\"minutes\\\":10,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},{\\\"id\\\":\\\"routine-repertoire\\\",\\\"type\\\":\\\"repertoire\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"right\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"Compases 1–8\\\",\\\"workId\\\":\\\"review-work\\\"}],\\\"date\\\":\\\"2026-10-02\\\",\\\"time\\\":\\\"18:00\\\",\\\"status\\\":\\\"planned\\\",\\\"reminder\\\":false}],\\\"events\\\":[{\\\"id\\\":\\\"review-tutor-today\\\",\\\"title\\\":\\\"Clase con mi profesora\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-audition\\\",\\\"title\\\":\\\"Audición de otoño\\\",\\\"type\\\":\\\"Audición\\\",\\\"date\\\":\\\"2026-10-10\\\",\\\"time\\\":\\\"17:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]},{\\\"id\\\":\\\"review-tutor-next\\\",\\\"title\\\":\\\"Clase de piano\\\",\\\"type\\\":\\\"Clase\\\",\\\"date\\\":\\\"2026-10-06\\\",\\\"time\\\":\\\"19:00\\\",\\\"place\\\":\\\"\\\",\\\"notes\\\":\\\"\\\",\\\"workIds\\\":[\\\"review-work\\\"],\\\"reminder\\\":false,\\\"milestones\\\":[]}],\\\"sessions\\\":[{\\\"id\\\":\\\"review-today-result\\\",\\\"title\\\":\\\"Técnica en Sol mayor\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":\\\"review-completed\\\",\\\"blocks\\\":[{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-today-result-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":20,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":1200000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-10-01\\\",\\\"elapsedMs\\\":1200000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"Pulso más estable. Repasar el cambio de posición.\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-wed\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-wed-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":35,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2100000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-30\\\",\\\"elapsedMs\\\":2100000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false},{\\\"id\\\":\\\"review-mon\\\",\\\"title\\\":\\\"Práctica de piano\\\",\\\"context\\\":\\\"piano\\\",\\\"planId\\\":null,\\\"blocks\\\":[{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"}],\\\"blockIndex\\\":1,\\\"results\\\":[{\\\"block\\\":{\\\"id\\\":\\\"review-mon-technique\\\",\\\"type\\\":\\\"technique\\\",\\\"minutes\\\":40,\\\"bpm\\\":60,\\\"timing\\\":\\\"timed\\\",\\\"target\\\":\\\"G-major\\\",\\\"hand\\\":\\\"both\\\",\\\"input\\\":\\\"piano\\\",\\\"figures\\\":\\\"1\\\",\\\"passage\\\":\\\"\\\",\\\"workId\\\":\\\"\\\"},\\\"context\\\":\\\"piano\\\",\\\"elapsedMs\\\":2400000,\\\"measurement\\\":null,\\\"material\\\":null}],\\\"startedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"date\\\":\\\"2026-09-28\\\",\\\"elapsedMs\\\":2400000,\\\"blockElapsedMs\\\":0,\\\"runningSince\\\":null,\\\"updatedAt\\\":1790848800000,\\\"notes\\\":\\\"\\\",\\\"next\\\":\\\"\\\",\\\"mood\\\":4,\\\"workIds\\\":[],\\\"endedAt\\\":\\\"2026-10-01T10:00:00.000Z\\\",\\\"status\\\":\\\"completed\\\",\\\"manual\\\":false}],\\\"active\\\":null,\\\"lastBackup\\\":null},\\\"assets\\\":[{\\\"id\\\":\\\"audit-pdf\\\",\\\"name\\\":\\\"Synthetic score.pdf\\\",\\\"type\\\":\\\"application/pdf\\\",\\\"format\\\":\\\"pdf\\\",\\\"base64\\\":\\\"JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==\\\"}],\\\"legacy\\\":{}}\",name:'Synthetic shared notebook.json',linked:true,lastHash:'synthetic'}:method==='create'?{name:'Synthetic shared notebook.json',linked:true,cancelled:false}:{linked:true,name:'Synthetic shared notebook.json'}):auditNativePromise(plugin,method,options)"
+      },
+      {
+        "script": "document.querySelector('[data-action=cloud-restore],[data-action=import-backup]').click();await new Promise(r=>setTimeout(r,500))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "reader-scale",
+    "surface": "READER-05",
+    "title": "Generated scale guide",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"open-reader\"]",
+      "#key-scale"
+    ],
+    "fixture": "reading",
+    "ready": "#scale-dialog[open]"
+  },
+  {
+    "id": "archived-learning",
+    "surface": "PRACTICE-07",
+    "title": "Retained archived learning block",
+    "steps": [
+      "[data-action=\"resume-session\"]"
+    ],
+    "fixture": "theory"
+  },
+  {
+    "id": "legacy-custom-exercise",
+    "surface": "READER-02",
+    "title": "Custom exercise editor",
+    "steps": [
+      {
+        "script": "location.hash='reader';location.reload();true"
+      },
+      "#open-settings",
+      "[data-tab=\"levels\"]",
+      "#tpl-customize"
+    ],
+    "fixture": "empty"
+  },
+  {
+    "id": "session-edit-expanded",
+    "surface": "PRACTICE-09",
+    "title": "Edit session block expanded",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      "[data-action=\"session-block-edit\"][data-id=\"audit-block\"]",
+      {
+        "script": "document.querySelectorAll('#cp-dialog details').forEach(e=>e.open=true)"
+      }
+    ],
+    "fixture": "reading"
+  },
+  {
+    "id": "routine-block-expanded",
+    "surface": "PREP-02",
+    "title": "Routine block form expanded",
+    "steps": [
+      "[data-action=\"practice\"]",
+      "[data-action=\"routines\"]",
+      "[data-action=\"new-routine\"]",
+      "[data-action=\"routine-add\"]",
+      "[data-action=\"routine-add-type\"][data-id=\"reading\"]",
+      {
+        "script": "document.querySelectorAll('#cp-dialog details').forEach(e=>e.open=true)"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "repertoire-timer-options",
+    "surface": "PRACTICE-05 TODAY-04",
+    "title": "Manual timer background options",
+    "steps": [
+      "[data-action=\"resume-session\"]",
+      {
+        "script": "document.querySelectorAll('.cp-session-timer-options').forEach(e=>e.open=true)"
+      }
+    ],
+    "fixture": "repertoire"
+  },
+  {
+    "id": "weekly-planner-series",
+    "surface": "CAL-04 CAL-08",
+    "title": "Weekly series with tutor form",
+    "steps": [
+      "[data-action=\"calendar\"]",
+      "[data-action=\"weekly-planner\"]",
+      {
+        "script": "const f=document.querySelector('#weekly-plan-form');f.elements.weeks.value='4';f.elements.tutor.checked=true;f.elements.tutor.dispatchEvent(new Event('change',{bubbles:true}))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "xml-options",
+    "surface": "SCORE-02 SCORE-03",
+    "title": "MusicXML options and fingering",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "document.querySelectorAll('.cp-library-maintenance').forEach(e=>e.open=true)"
+      },
+      "[data-action=\"library-preview\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      "[data-xml=options]"
+    ],
+    "fixture": "xml",
+    "ready": ".xml-score svg"
+  },
+  {
+    "id": "pdf-text",
+    "surface": "SCORE-04",
+    "title": "Text annotation form (synthetic pointer entry)",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      {
+        "script": "await new Promise((ok,no)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'){clearInterval(t);ok()}else if(document.querySelector('#cp-toast')?.textContent.includes('withResolvers')||++n>100){clearInterval(t);no(Error('PDF text editor blocked by viewer readiness'))}},100)});document.querySelector('[data-pdf=tools]').click();document.querySelector('[data-pdf=annotations]').click();document.querySelector('[data-tool=text]').click();const v=document.querySelector('.pdf-viewport'),c=document.querySelector('.pdf-paper canvas'),r=c.getBoundingClientRect();v.setPointerCapture=()=>{};for(const type of ['pointerdown','pointerup'])c.dispatchEvent(new PointerEvent(type,{bubbles:true,pointerId:42,pointerType:'touch',isPrimary:true,button:0,clientX:r.x+r.width*.5,clientY:r.y+r.height*.5}));"
+      }
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-text-dialog[open]"
+  },
+  {
+    "id": "pdf-viewer-compat",
+    "surface": "SCORE-01 SCORE-03",
+    "title": "PDF viewer (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-tools-compat",
+    "surface": "SCORE-03",
+    "title": "PDF tools (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-annotations-compat",
+    "surface": "SCORE-04",
+    "title": "PDF annotations (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=annotations]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-framing-compat",
+    "surface": "SCORE-05",
+    "title": "PDF framing (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=view]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-split-compat",
+    "surface": "SCORE-05",
+    "title": "PDF split (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=tools]",
+      "[data-pdf=view]",
+      "[data-pdf=split]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-page-two-compat",
+    "surface": "SCORE-01",
+    "title": "PDF page-two (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      "[data-pdf=next]"
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-paper[aria-busy=false]"
+  },
+  {
+    "id": "pdf-text-compat",
+    "surface": "SCORE-04",
+    "title": "Text annotation form (synthetic pointer entry) (temporary old-WebView compatibility shim)",
+    "steps": [
+      {
+        "script": "if(!Promise.withResolvers){const shim=\"Promise.withResolvers=function(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};\";eval(shim);const NativeWorker=Worker;window.Worker=class extends NativeWorker{constructor(url,options){if(String(url).includes('pdf.worker')){super(URL.createObjectURL(new Blob([shim+'import('+JSON.stringify(String(url))+');'],{type:'text/javascript'})),{...options,type:'module'})}else super(url,options)}};window.__auditCompatibility='Promise.withResolvers shim in main page and PDF worker';}"
+      },
+      "[data-action=\"piano\"]",
+      "[data-action=\"work-detail\"][data-id=\"review-work\"]",
+      "[data-action=\"open-pdf\"][data-id=\"review-work\"]",
+      {
+        "script": "await new Promise((ok,no)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'){clearInterval(t);ok()}else if(document.querySelector('#cp-toast')?.textContent.includes('withResolvers')||++n>100){clearInterval(t);no(Error('PDF text editor blocked by viewer readiness'))}},100)});document.querySelector('[data-pdf=tools]').click();document.querySelector('[data-pdf=annotations]').click();document.querySelector('[data-tool=text]').click();const v=document.querySelector('.pdf-viewport'),c=document.querySelector('.pdf-paper canvas'),r=c.getBoundingClientRect();v.setPointerCapture=()=>{};for(const type of ['pointerdown','pointerup'])c.dispatchEvent(new PointerEvent(type,{bubbles:true,pointerId:42,pointerType:'touch',isPrimary:true,button:0,clientX:r.x+r.width*.5,clientY:r.y+r.height*.5}));"
+      }
+    ],
+    "fixture": "typical",
+    "ready": ".pdf-text-dialog[open]"
+  },
+  {
+    "id": "download-wifi-only",
+    "surface": "CAT-04 CAT-10 SYSTEM-04",
+    "title": "Wi-Fi-only download (synthetic transport)",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "const original=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='Notebook'&&method==='downloadScore'?Promise.resolve({complete:true,base64:\"UEsDBBQAAAAIANlsTF1uss/fEgAAABAAAAANAAAAdW5yZWxhdGVkLnhtbLPJyy/RLclI1S1Ozi9K1bcDAFBLAwQUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAE1FVEEtSU5GL2NvbnRhaW5lci54bWxNjkEOgzAMBL+Ccq0gHwj8xUqMasmxLcdU7e/bXoDbHnY0U6pKAAn6Vlw1dmIc15z2g3k2iOeaRlXHkY1AdOnHoPrunKaOjWCOj+GawIypQpBKfklbHH9MA8fz//gzeSv5JstXwxdQSwMEFAAAAAgA2WxMXY/Z/H15AwAAkhoAABUAAABzY29yZXMvcGlhbm8ubXVzaWN4bWztWdtymzAQ/RWG145DnFvTGVmZ3qdPzUw7eZeFCGoAUUnY8d93hcBGYOzQOGno5MXosrs6u0csKxld3aeJt2BScZHN/OnRsX+FkaJCsklOpF5yxTbTZzCN0VLIO/s70VwnDP9YZTpmmlMv5yQTnmIJoxo0vIjf60IyFDSkbQcjHrJM84hTYkQxopIRLaSnVzmb+VSkuVBM+vgnU3pjqJLCSPLbWCv8HZ48I4mnHbFqFgXtVYxTk4Qr3fTS4+HMvwHXytmMpAzfCE7BzmYABRv5ju61o3ttouDoWnGeKS2LFABZpW+gtRlzdNvDTTkliizEd2w1F0SGR2XMHQ0rUAPeTLR8sABtLJwopIwoiKKXFemcyZlvSCdaSz4vIMoYhXzBzYZQ+AwFmw4CSBhFPNKxwscoqFooKMc1N27Mgb1SzTbK/sQwXo/ZDgqseNBcNhMahnKuaQwR1SzHH8Eh80SCarJg+AIFVQucs3JhIS3zU5hcd9DC0IunKLANVK76u4AoMAmLlxiUJlFkZGwDBRZAUIWnG6cpxOnFgzwZA8jTMYA8GwPI8zGAvBgDyLcvEWSZwxvp23yIuunb42mecMr1zF8x1ZvNDbzt2RwQ1Nk8FSHDKfklAGTZfkx+B7cWgOGkdNC0EE1Y5CRUxW8z/BUEzBMlPGNGvHxCNQDSLR2T30rZL44OLO/oDPyygHovrYdidU7oXQFLbjcc1NP7wZ4OAwvh3AvWMvSIr6Bho8RIEjBunLeNhwT4xJQZa9Cas6pGBERS+0FP0JexSKCC2x5yAFiaA/LBXtg2aJys5/vYcVHtoOfTAHpco0/DDzk4Qc6mavIj8l569rwTfQRZi1v46XpkksYTv8OdsHdRvB+AAsztQcHMuSauQZgkOoEk3DjfEKoLkkwMDmV2mtMHeDJd92A1p2+TcsveLl6KPGH6Aa9ONygf/q+g9PrZzszn4/azn/wBr+WQmDxPEd8sBZpVz6RR9nSLnNM3EMNOmXP5F8fY9dtgMy4cnR+eet8NjVAoNDBFKC1vRuDihJLCaBO5qqrDjMAdCknM9qmFdtD5+R9USruPOy/yqqJdBOwKE+yhg4TJ/tJYyBAo3/qxPwiamCRRDaVaOhJyCZdTDTNutbSef9yG2lItPcvR9JXNcbK5/Qz/yuY42bx8ZXPEbFZXV42/JMyfTfgPUEsBAhQAFAAAAAgA2WxMXW6yz98SAAAAEAAAAA0AAAAAAAAAAAAAAAAAAAAAAHVucmVsYXRlZC54bWxQSwECFAAUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAAAAAAAAAAAAAAA9AAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFBLAQIUABQAAAAIANlsTF2P2fx9eQMAAJIaAAAVAAAAAAAAAAAAAAAAANcAAABzY29yZXMvcGlhbm8ubXVzaWN4bWxQSwUGAAAAAAMAAwDCAAAAgwQAAAAA\",httpStatus:200}):original(plugin,method,options);const originalFetch=fetch;window.fetch=(url,options)=>String(url).startsWith('https://raw.githubusercontent.com/')?Promise.resolve(new Response(Uint8Array.from(atob(\"UEsDBBQAAAAIANlsTF1uss/fEgAAABAAAAANAAAAdW5yZWxhdGVkLnhtbLPJyy/RLclI1S1Ozi9K1bcDAFBLAwQUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAE1FVEEtSU5GL2NvbnRhaW5lci54bWxNjkEOgzAMBL+Ccq0gHwj8xUqMasmxLcdU7e/bXoDbHnY0U6pKAAn6Vlw1dmIc15z2g3k2iOeaRlXHkY1AdOnHoPrunKaOjWCOj+GawIypQpBKfklbHH9MA8fz//gzeSv5JstXwxdQSwMEFAAAAAgA2WxMXY/Z/H15AwAAkhoAABUAAABzY29yZXMvcGlhbm8ubXVzaWN4bWztWdtymzAQ/RWG145DnFvTGVmZ3qdPzUw7eZeFCGoAUUnY8d93hcBGYOzQOGno5MXosrs6u0csKxld3aeJt2BScZHN/OnRsX+FkaJCsklOpF5yxTbTZzCN0VLIO/s70VwnDP9YZTpmmlMv5yQTnmIJoxo0vIjf60IyFDSkbQcjHrJM84hTYkQxopIRLaSnVzmb+VSkuVBM+vgnU3pjqJLCSPLbWCv8HZ48I4mnHbFqFgXtVYxTk4Qr3fTS4+HMvwHXytmMpAzfCE7BzmYABRv5ju61o3ttouDoWnGeKS2LFABZpW+gtRlzdNvDTTkliizEd2w1F0SGR2XMHQ0rUAPeTLR8sABtLJwopIwoiKKXFemcyZlvSCdaSz4vIMoYhXzBzYZQ+AwFmw4CSBhFPNKxwscoqFooKMc1N27Mgb1SzTbK/sQwXo/ZDgqseNBcNhMahnKuaQwR1SzHH8Eh80SCarJg+AIFVQucs3JhIS3zU5hcd9DC0IunKLANVK76u4AoMAmLlxiUJlFkZGwDBRZAUIWnG6cpxOnFgzwZA8jTMYA8GwPI8zGAvBgDyLcvEWSZwxvp23yIuunb42mecMr1zF8x1ZvNDbzt2RwQ1Nk8FSHDKfklAGTZfkx+B7cWgOGkdNC0EE1Y5CRUxW8z/BUEzBMlPGNGvHxCNQDSLR2T30rZL44OLO/oDPyygHovrYdidU7oXQFLbjcc1NP7wZ4OAwvh3AvWMvSIr6Bho8RIEjBunLeNhwT4xJQZa9Cas6pGBERS+0FP0JexSKCC2x5yAFiaA/LBXtg2aJys5/vYcVHtoOfTAHpco0/DDzk4Qc6mavIj8l569rwTfQRZi1v46XpkksYTv8OdsHdRvB+AAsztQcHMuSauQZgkOoEk3DjfEKoLkkwMDmV2mtMHeDJd92A1p2+TcsveLl6KPGH6Aa9ONygf/q+g9PrZzszn4/azn/wBr+WQmDxPEd8sBZpVz6RR9nSLnNM3EMNOmXP5F8fY9dtgMy4cnR+eet8NjVAoNDBFKC1vRuDihJLCaBO5qqrDjMAdCknM9qmFdtD5+R9USruPOy/yqqJdBOwKE+yhg4TJ/tJYyBAo3/qxPwiamCRRDaVaOhJyCZdTDTNutbSef9yG2lItPcvR9JXNcbK5/Qz/yuY42bx8ZXPEbFZXV42/JMyfTfgPUEsBAhQAFAAAAAgA2WxMXW6yz98SAAAAEAAAAA0AAAAAAAAAAAAAAAAAAAAAAHVucmVsYXRlZC54bWxQSwECFAAUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAAAAAAAAAAAAAAA9AAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFBLAQIUABQAAAAIANlsTF2P2fx9eQMAAJIaAAAVAAAAAAAAAAAAAAAAANcAAABzY29yZXMvcGlhbm8ubXVzaWN4bWxQSwUGAAAAAAMAAwDCAAAAgwQAAAAA\"),c=>c.charCodeAt(0)),{headers:{'Content-Type':'application/octet-stream'}})):originalFetch(url,options)"
+      },
+      "[data-action=\"library-download\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "await new Promise(r=>setTimeout(r,1800))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "download-other-networks",
+    "surface": "CAT-04 CAT-10 SYSTEM-04",
+    "title": "Download allowing other networks (synthetic transport)",
+    "steps": [
+      "[data-action=\"piano\"]",
+      "[data-action=\"catalog\"]",
+      "[data-action=\"library-detail\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "const original=Capacitor.nativePromise.bind(Capacitor);Capacitor.nativePromise=(plugin,method,options)=>plugin==='Notebook'&&method==='downloadScore'?Promise.resolve({complete:true,base64:\"UEsDBBQAAAAIANlsTF1uss/fEgAAABAAAAANAAAAdW5yZWxhdGVkLnhtbLPJyy/RLclI1S1Ozi9K1bcDAFBLAwQUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAE1FVEEtSU5GL2NvbnRhaW5lci54bWxNjkEOgzAMBL+Ccq0gHwj8xUqMasmxLcdU7e/bXoDbHnY0U6pKAAn6Vlw1dmIc15z2g3k2iOeaRlXHkY1AdOnHoPrunKaOjWCOj+GawIypQpBKfklbHH9MA8fz//gzeSv5JstXwxdQSwMEFAAAAAgA2WxMXY/Z/H15AwAAkhoAABUAAABzY29yZXMvcGlhbm8ubXVzaWN4bWztWdtymzAQ/RWG145DnFvTGVmZ3qdPzUw7eZeFCGoAUUnY8d93hcBGYOzQOGno5MXosrs6u0csKxld3aeJt2BScZHN/OnRsX+FkaJCsklOpF5yxTbTZzCN0VLIO/s70VwnDP9YZTpmmlMv5yQTnmIJoxo0vIjf60IyFDSkbQcjHrJM84hTYkQxopIRLaSnVzmb+VSkuVBM+vgnU3pjqJLCSPLbWCv8HZ48I4mnHbFqFgXtVYxTk4Qr3fTS4+HMvwHXytmMpAzfCE7BzmYABRv5ju61o3ttouDoWnGeKS2LFABZpW+gtRlzdNvDTTkliizEd2w1F0SGR2XMHQ0rUAPeTLR8sABtLJwopIwoiKKXFemcyZlvSCdaSz4vIMoYhXzBzYZQ+AwFmw4CSBhFPNKxwscoqFooKMc1N27Mgb1SzTbK/sQwXo/ZDgqseNBcNhMahnKuaQwR1SzHH8Eh80SCarJg+AIFVQucs3JhIS3zU5hcd9DC0IunKLANVK76u4AoMAmLlxiUJlFkZGwDBRZAUIWnG6cpxOnFgzwZA8jTMYA8GwPI8zGAvBgDyLcvEWSZwxvp23yIuunb42mecMr1zF8x1ZvNDbzt2RwQ1Nk8FSHDKfklAGTZfkx+B7cWgOGkdNC0EE1Y5CRUxW8z/BUEzBMlPGNGvHxCNQDSLR2T30rZL44OLO/oDPyygHovrYdidU7oXQFLbjcc1NP7wZ4OAwvh3AvWMvSIr6Bho8RIEjBunLeNhwT4xJQZa9Cas6pGBERS+0FP0JexSKCC2x5yAFiaA/LBXtg2aJys5/vYcVHtoOfTAHpco0/DDzk4Qc6mavIj8l569rwTfQRZi1v46XpkksYTv8OdsHdRvB+AAsztQcHMuSauQZgkOoEk3DjfEKoLkkwMDmV2mtMHeDJd92A1p2+TcsveLl6KPGH6Aa9ONygf/q+g9PrZzszn4/azn/wBr+WQmDxPEd8sBZpVz6RR9nSLnNM3EMNOmXP5F8fY9dtgMy4cnR+eet8NjVAoNDBFKC1vRuDihJLCaBO5qqrDjMAdCknM9qmFdtD5+R9USruPOy/yqqJdBOwKE+yhg4TJ/tJYyBAo3/qxPwiamCRRDaVaOhJyCZdTDTNutbSef9yG2lItPcvR9JXNcbK5/Qz/yuY42bx8ZXPEbFZXV42/JMyfTfgPUEsBAhQAFAAAAAgA2WxMXW6yz98SAAAAEAAAAA0AAAAAAAAAAAAAAAAAAAAAAHVucmVsYXRlZC54bWxQSwECFAAUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAAAAAAAAAAAAAAA9AAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFBLAQIUABQAAAAIANlsTF2P2fx9eQMAAJIaAAAVAAAAAAAAAAAAAAAAANcAAABzY29yZXMvcGlhbm8ubXVzaWN4bWxQSwUGAAAAAAMAAwDCAAAAgwQAAAAA\",httpStatus:200}):original(plugin,method,options);const originalFetch=fetch;window.fetch=(url,options)=>String(url).startsWith('https://raw.githubusercontent.com/')?Promise.resolve(new Response(Uint8Array.from(atob(\"UEsDBBQAAAAIANlsTF1uss/fEgAAABAAAAANAAAAdW5yZWxhdGVkLnhtbLPJyy/RLclI1S1Ozi9K1bcDAFBLAwQUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAE1FVEEtSU5GL2NvbnRhaW5lci54bWxNjkEOgzAMBL+Ccq0gHwj8xUqMasmxLcdU7e/bXoDbHnY0U6pKAAn6Vlw1dmIc15z2g3k2iOeaRlXHkY1AdOnHoPrunKaOjWCOj+GawIypQpBKfklbHH9MA8fz//gzeSv5JstXwxdQSwMEFAAAAAgA2WxMXY/Z/H15AwAAkhoAABUAAABzY29yZXMvcGlhbm8ubXVzaWN4bWztWdtymzAQ/RWG145DnFvTGVmZ3qdPzUw7eZeFCGoAUUnY8d93hcBGYOzQOGno5MXosrs6u0csKxld3aeJt2BScZHN/OnRsX+FkaJCsklOpF5yxTbTZzCN0VLIO/s70VwnDP9YZTpmmlMv5yQTnmIJoxo0vIjf60IyFDSkbQcjHrJM84hTYkQxopIRLaSnVzmb+VSkuVBM+vgnU3pjqJLCSPLbWCv8HZ48I4mnHbFqFgXtVYxTk4Qr3fTS4+HMvwHXytmMpAzfCE7BzmYABRv5ju61o3ttouDoWnGeKS2LFABZpW+gtRlzdNvDTTkliizEd2w1F0SGR2XMHQ0rUAPeTLR8sABtLJwopIwoiKKXFemcyZlvSCdaSz4vIMoYhXzBzYZQ+AwFmw4CSBhFPNKxwscoqFooKMc1N27Mgb1SzTbK/sQwXo/ZDgqseNBcNhMahnKuaQwR1SzHH8Eh80SCarJg+AIFVQucs3JhIS3zU5hcd9DC0IunKLANVK76u4AoMAmLlxiUJlFkZGwDBRZAUIWnG6cpxOnFgzwZA8jTMYA8GwPI8zGAvBgDyLcvEWSZwxvp23yIuunb42mecMr1zF8x1ZvNDbzt2RwQ1Nk8FSHDKfklAGTZfkx+B7cWgOGkdNC0EE1Y5CRUxW8z/BUEzBMlPGNGvHxCNQDSLR2T30rZL44OLO/oDPyygHovrYdidU7oXQFLbjcc1NP7wZ4OAwvh3AvWMvSIr6Bho8RIEjBunLeNhwT4xJQZa9Cas6pGBERS+0FP0JexSKCC2x5yAFiaA/LBXtg2aJys5/vYcVHtoOfTAHpco0/DDzk4Qc6mavIj8l569rwTfQRZi1v46XpkksYTv8OdsHdRvB+AAsztQcHMuSauQZgkOoEk3DjfEKoLkkwMDmV2mtMHeDJd92A1p2+TcsveLl6KPGH6Aa9ONygf/q+g9PrZzszn4/azn/wBr+WQmDxPEd8sBZpVz6RR9nSLnNM3EMNOmXP5F8fY9dtgMy4cnR+eet8NjVAoNDBFKC1vRuDihJLCaBO5qqrDjMAdCknM9qmFdtD5+R9USruPOy/yqqJdBOwKE+yhg4TJ/tJYyBAo3/qxPwiamCRRDaVaOhJyCZdTDTNutbSef9yG2lItPcvR9JXNcbK5/Qz/yuY42bx8ZXPEbFZXV42/JMyfTfgPUEsBAhQAFAAAAAgA2WxMXW6yz98SAAAAEAAAAA0AAAAAAAAAAAAAAAAAAAAAAHVucmVsYXRlZC54bWxQSwECFAAUAAAACADZbExd7oIhN2YAAACPAAAAFgAAAAAAAAAAAAAAAAA9AAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFBLAQIUABQAAAAIANlsTF2P2fx9eQMAAJIaAAAVAAAAAAAAAAAAAAAAANcAAABzY29yZXMvcGlhbm8ubXVzaWN4bWxQSwUGAAAAAAMAAwDCAAAAgwQAAAAA\"),c=>c.charCodeAt(0)),{headers:{'Content-Type':'application/octet-stream'}})):originalFetch(url,options)"
+      },
+      "[data-action=\"library-download\"][data-id=\"mt_eb69b7b3cfc165d7\"]",
+      {
+        "script": "await new Promise(r=>setTimeout(r,1800))"
+      }
+    ],
+    "fixture": "download-any"
+  },
+  {
+    "id": "native-backup-create-picker",
+    "surface": "CLOUD-02",
+    "title": "Native create backup picker (cancelled)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      "[data-action=\"cloud-setup\"]",
+      "[data-action=\"cloud-connect\"]",
+      {
+        "script": "await new Promise(r=>setTimeout(r,1000))"
+      }
+    ],
+    "fixture": "typical"
+  },
+  {
+    "id": "native-backup-open-picker",
+    "surface": "CLOUD-02 CLOUD-05",
+    "title": "Native open backup picker (cancelled)",
+    "steps": [
+      "[data-action=\"settings\"]",
+      "[data-action=\"profile-backup\"]",
+      "[data-action=\"cloud-setup\"]",
+      "[data-action=\"cloud-join-shared\"]",
+      {
+        "script": "await new Promise(r=>setTimeout(r,1000))"
+      }
+    ],
+    "fixture": "typical"
+  }
+]

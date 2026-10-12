@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-12",
+  "commit": "7dd5110822db9584a5bd63177fa71f01341f6216",
+  "cloudflareCheck": "Workers Builds: spino \u2014 completed/success",
+  "checks": [
+    {
+      "path": "",
+      "bytes": 13728,
+      "sha256": "7361a94a3011b7e22beac6f102005c39814b887d99ade62b146151e89b04aec0"
+    },
+    {
+      "path": "en/",
+      "bytes": 13482,
+      "sha256": "746f5d4a92a8eaab87bd6711caa11e2f62bd107c3d09d1ed5062f80a8082481e"
+    },
+    {
+      "path": "ca/",
+      "bytes": 13785,
+      "sha256": "03c0084761fedde68c1f9f6fde43f83b709e3590f441eda14f945e4bdaf89a32"
+    },
+    {
+      "path": "downloads/spino-6.0.0-beta.1-checksums.json",
+      "bytes": 740,
+      "sha256": "316259402fef7be4ebb012ab74f23725b81a47f84466d4764a86593c6d685176"
+    },
+    {
+      "path": "downloads/spino-6.0.0-beta.1-40-android.apk",
+      "bytes": 22881157,
+      "sha256": "7417c0ed0a12bd3f182c61ae37915b9130f72fed078b456a1728aa29e87b7ae6"
+    },
+    {
+      "path": "downloads/spino-6.0.0-beta.1-40-ios-simulator.zip",
+      "bytes": 17799651,
+      "sha256": "84afa286f4c429eecb6ec5b85afdb50f2fdba5f4b1a9f49522292f1ef4ee5eb4"
+    }
+  ]
+}
