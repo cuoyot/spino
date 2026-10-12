@@ -12,7 +12,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", exact: "8.5.2"),
-        .package(name: "SpinoCloudBackup", path: "../../../plugins/cloud-backup")
+        .package(name: "CapacitorLocalNotifications", path: "../../../node_modules/@capacitor/local-notifications"),
+        .package(name: "CapacitorShare", path: "../../../node_modules/@capacitor/share"),
+        .package(name: "SpinoAppActions", path: "../../../plugins/app-actions"),
+        .package(name: "SpinoCloudBackup", path: "../../../plugins/cloud-backup"),
+        .package(name: "SpinoMidi", path: "../../../plugins/midi")
     ],
     targets: [
         .target(
@@ -20,7 +24,11 @@ let package = Package(
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm"),
-                .product(name: "SpinoCloudBackup", package: "SpinoCloudBackup")
+                .product(name: "CapacitorLocalNotifications", package: "CapacitorLocalNotifications"),
+                .product(name: "CapacitorShare", package: "CapacitorShare"),
+                .product(name: "SpinoAppActions", package: "SpinoAppActions"),
+                .product(name: "SpinoCloudBackup", package: "SpinoCloudBackup"),
+                .product(name: "SpinoMidi", package: "SpinoMidi")
             ]
         )
     ]

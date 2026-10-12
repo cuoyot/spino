@@ -34,7 +34,7 @@ header button { padding: 6px 8px; overflow: hidden; text-overflow: ellipsis; whi
 .tempo button { padding: 0; height: 42px; }
 #bpm-show { min-width: 0; font-size: 13px; }
 #bpm-show::after { content: ''; }
-#timing-mode { min-width: 0; height: 44px; display: grid; place-items: center; border: 1px solid #353941; border-radius: 10px; background: #1e2127; color: var(--muted); font-size: 13px; }
+#timing-mode { min-width: 0; height: 44px; display: grid; place-items: center; border: 1px solid var(--theme-line, #353941); border-radius: 10px; background: var(--theme-panel, #1e2127); color: var(--muted); font-size: 13px; }
 #timing-mode[hidden] { display: none; }
 
 main { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; justify-content: stretch; padding: 0 var(--edge); min-height: 0; }
@@ -168,7 +168,7 @@ dialog .muted, .level-row .lname, .level-row .ldesc { overflow-wrap: anywhere; }
 .managed-practice #managed-keyboard-position {
   margin: 4px 0 12px; padding: 10px; display: grid;
   grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 8px;
-  border: 1px solid #353941; border-radius: 10px; background: #171a20;
+  border: 1px solid var(--theme-line, #353941); border-radius: 10px; background: var(--theme-control, #171a20);
 }
 .managed-practice #managed-keyboard-position[hidden] { display: none; }
 .managed-practice #managed-keyboard-position #kb-range { min-width: 0; }

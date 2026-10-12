@@ -17,8 +17,8 @@ android {
         ]
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 39
-        versionName "5.2.7"
+        versionCode 40
+        versionName "6.0.0-beta.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -38,11 +38,11 @@ android {
     }
     buildTypes {
         debug {
-            // The test APK installs beside the store app and is unmistakable on the launcher.
-            applicationIdSuffix ".test"
-            versionNameSuffix "-test"
+            // The beta installs beside both the store app and the previous test channel.
+            applicationIdSuffix ".beta"
+            versionNameSuffix ""
             manifestPlaceholders = [
-                appLabel: "SPino Test",
+                appLabel: "SPino Beta",
                 appIcon: "@drawable/spino_test_launcher",
                 appRoundIcon: "@drawable/spino_test_launcher"
             ]

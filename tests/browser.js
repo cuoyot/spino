@@ -26,7 +26,7 @@ function browserPath() {
   return exe;
 }
 
-export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = 'dist' } = {}) {
+export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = 'dist', onboarding = false } = {}) {
   const root = resolve(rootDirectory);
   const server = createServer(async (req, res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname;
@@ -90,6 +90,7 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
   };
   await send('Runtime.enable');
   await send('Page.enable');
+  if(!onboarding) await send('Page.addScriptToEvaluateOnNewDocument',{source:'window.__SPINO_DISABLE_TOUR=true;'});
   if (companion) await send('Page.addScriptToEvaluateOnNewDocument', {source: `Object.defineProperty(navigator, 'language', { get: () => ${JSON.stringify(language)} });`});
   return { send, evaluate, errors, url: `http://127.0.0.1:${server.address().port}/${companion ? '' : '#reader'}` };
 }

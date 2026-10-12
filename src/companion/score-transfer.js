@@ -1,3 +1,4 @@
+import { effectiveWifiOnly } from './network-policy.js';
 import { native, networkStatus, Native } from './platform.js';
 import { bytesFromBase64, bytesToBase64, SCORE_LIMITS } from './musicxml-document.js';
 
@@ -14,6 +15,7 @@ export function retryAfter(value, now = Date.now()) {
   return Number.isFinite(delay) ? now + Math.max(0, delay) : null;
 }
 export async function downloadScore(url, { id, wifiOnly = true, signal, partial = null, onProgress = () => {}, fetcher = fetch, network = networkStatus, timeout = 30000 } = {}) {
+  wifiOnly = effectiveWifiOnly(wifiOnly);
   url = scoreURL(url);
   if (partial?.url !== url || !partial.validator) partial = null;
   if (native) {

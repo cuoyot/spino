@@ -200,3 +200,12 @@ These checks confirm behavior, not visual acceptance. The responsive legacy-read
 ## Manual status
 
 No manual behavior was added in this baseline pass. The existing session chapter remains draft and already describes verified self-paced and keyboard-range behavior. A dedicated generated-practice chapter remains pending until the objective and visible presentation are accepted and the outstanding branches above are checked.
+
+
+## 2026-10-11 — Native sidebar safe-area comparison reopened
+
+The [Android/iOS audit](platform-comparison.md) adds native evidence for PRACTICE-02 and Quick practice. On iPhone landscape, measured safe insets are 62px left/right, but the accepted on-screen-keyboard sidebar implementation fixes controls at 8px. PLATFORM-13 proposes safe-area compensation without changing the accepted sidebar objective or keyboard-note geometry. This is a native geometry finding; physical-device tap/accessibility acceptance remains open. No product fix is implemented by this review.
+
+PLATFORM-15 also reopens the current warm-up guide's native entry position: iPad portrait initially scrolls to the focused closing button (332px / 332px), skipping the illustrated introduction. A top-of-content screenshot is retained separately. This does not approve the replacement Hanon animation or alter existing hand illustrations.
+
+2026-10-11 follow-up: the owner approved PLATFORM-13 safe-area compensation. Both sidebars and the central score/keyboard now respect native insets; targeted iPhone evidence and regression results are recorded in the [iOS follow-up](platform-ios-followup.md). PLATFORM-15 warm-up focus/scroll remains open.

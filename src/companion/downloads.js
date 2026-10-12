@@ -1,3 +1,4 @@
+import { effectiveWifiOnly } from './network-policy.js';
 import { CATALOG } from './catalog.js';
 import { reserveDownload } from './download-slot.js';
 
@@ -35,15 +36,15 @@ export function createDownloads({ getData, store, platform, persist, changed, is
         const network = await platform.networkStatus();
         if (!isVisible()) break;
         if (!['queued','waiting-wifi'].includes(job.status)) continue;
-        if (!canDownload(network, data.preferences.wifiOnly)) {
-          job.status = data.preferences.wifiOnly && network.online ? 'waiting-wifi' : 'paused';
+        if (!canDownload(network, effectiveWifiOnly(data.preferences.wifiOnly))) {
+          job.status = effectiveWifiOnly(data.preferences.wifiOnly) && network.online ? 'waiting-wifi' : 'paused';
           job.error = !network.online ? 'Sin conexión. Reintenta cuando estés conectado.' : network.wifi == null ? 'El navegador no puede comprobar el Wi-Fi. Usa Android o permite cualquier red.' : 'La descarga continuará con Wi-Fi sin consumo medido.';
           await publish(); break;
         }
         controller = new AbortController(); activeId = job.catalogId;
         job.status = 'downloading'; job.revision = item.revision; job.loaded = 0; job.total = 0; job.error = ''; await publish();
         try {
-          const base64 = await platform.downloadPDF(item.download, { id: item.id, wifiOnly: data.preferences.wifiOnly, signal: controller.signal, onProgress: p => { job.loaded = p.loaded; job.total = p.total || 0; changed(true); } });
+          const base64 = await platform.downloadPDF(item.download, { id: item.id, wifiOnly: effectiveWifiOnly(data.preferences.wifiOnly), signal: controller.signal, onProgress: p => { job.loaded = p.loaded; job.total = p.total || 0; changed(true); } });
           controller.signal.throwIfAborted();
           if (!base64.startsWith('JVBERi0')) throw new Error('La fuente no ha devuelto un PDF válido.');
           const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
@@ -101,7 +102,7 @@ export function createDownloads({ getData, store, platform, persist, changed, is
       for (const job of getData().downloadJobs) if (['queued','downloading','waiting-wifi'].includes(job.status)) job.status = 'paused';
       controller?.abort(); await publish();
     },
-    async policyChanged() { if (getData().preferences.wifiOnly) controller?.abort(); await publish(); if (!running) return pump(); },
+    async policyChanged() { if (effectiveWifiOnly(getData().preferences.wifiOnly)) controller?.abort(); await publish(); if (!running) return pump(); },
     pump,
     get busy() { return running; },
   };

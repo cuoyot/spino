@@ -4,5 +4,14 @@
   "webDir": "dist",
   "android": {
     "backgroundColor": "#14161a"
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "presentationOptions": [
+        "sound",
+        "banner",
+        "list"
+      ]
+    }
   }
 }

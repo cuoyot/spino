@@ -1,9 +1,9 @@
 #app-shell .cp-instrument-panel{display:grid;gap:16px;max-width:760px;margin-inline:auto}
 #app-shell .cp-instrument-hero{padding:24px}
 #app-shell .cp-instrument-hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-#app-shell .cp-instrument-keyboard{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;color:#99b9ff;background:#28364c}
+#app-shell .cp-instrument-keyboard{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;color:#99b9ff;background:var(--theme-control, #28364c)}
 #app-shell .cp-instrument-keyboard svg{width:38px;height:38px;stroke:currentColor;stroke-width:1.6}
-#app-shell .cp-instrument-signal{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#171b21}
+#app-shell .cp-instrument-signal{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--theme-control, #171b21)}
 #app-shell .cp-instrument-hero h2{font-size:clamp(20px,4vw,26px);margin:0 0 8px;letter-spacing:-.035em}
 #app-shell .cp-instrument-hero p{color:var(--subtle);font-size:14px;margin:0;line-height:1.5}
 #app-shell .cp-instrument-connected{padding:0;margin:20px 0;list-style:none;display:grid;gap:10px}
@@ -32,9 +32,9 @@
 #app-shell .cp-instrument-toggle{border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 0 0;margin-top:4px;background:transparent;width:100%;display:flex;align-items:center;justify-content:space-between;text-align:start;gap:16px}
 #app-shell .cp-instrument-toggle strong{display:block;font-size:14px}
 #app-shell .cp-instrument-toggle small{display:block;color:var(--subtle);margin-top:4px;font-size:12px}
-#app-shell .cp-instrument-toggle i{width:42px;height:26px;border-radius:99px;background:#484e58;padding:3px;flex-shrink:0}
+#app-shell .cp-instrument-toggle i{width:42px;height:26px;border-radius:99px;background:var(--theme-control, #484e58);padding:3px;flex-shrink:0}
 #app-shell .cp-instrument-toggle i:after{content:'';display:block;width:20px;height:20px;border-radius:50%;background:#d9dde4;transition:transform .15s}
-#app-shell .cp-instrument-toggle[aria-checked=true] i{background:#4f8cff}
+#app-shell .cp-instrument-toggle[aria-checked=true] i{background:var(--theme-accent, #4f8cff)}
 #app-shell .cp-instrument-toggle[aria-checked=true] i:after{transform:translateX(16px);background:#fff}
 #app-shell .cp-instrument-searching{width:12px;height:12px;border:2px solid var(--line);border-top-color:#80aaff;border-radius:50%;animation:cp-instrument-spin 1s linear infinite}
 @keyframes cp-instrument-spin{to{transform:rotate(360deg)}}

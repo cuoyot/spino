@@ -1,4 +1,4 @@
-[data-midi-indicator] { position: relative; display: inline-flex; width: 26px; height: 26px; flex: 0 0 26px; align-items: center; justify-content: center; color: #9aa0a6; vertical-align: middle; }
+[data-midi-indicator] { position: relative; display: inline-flex; width: 26px; height: 26px; flex: 0 0 26px; align-items: center; justify-content: center; color: var(--theme-muted, #9aa0a6); vertical-align: middle; }
 [data-midi-indicator] svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .midi-connection, .midi-activity { position: absolute; width: 7px; height: 7px; border-radius: 50%; border: 1px solid #17191e; background: #767b84; right: -1px; bottom: 0; }
 .midi-activity { top: 0; bottom: auto; background: #b4ffe4; opacity: .2; }

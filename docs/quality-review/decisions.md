@@ -365,3 +365,23 @@ Verified: production browser build, four-layout navigation bounds/profile/dialog
 - Implementation follow-up: src/landscape-keyboard.css is imported by main.js and scoped to managed mobile keyboard practice on short phone-landscape screens. Production quick/self-paced/timed captures inspected in 2026-10-07-landscape-applied; focused rotation, tools/sound and pause/resume checks pass in phone/tablet portrait/landscape. Existing keyboard geometry and standalone layout regression pass. Manual session overview reflects verified browser behavior. Native acceptance remains open; no APK or publication.
 
 For each new decision record: ID/title/date, exact accepted behavior, evidence/rationale, exceptions, current and previously reviewed affected screens, shared components, migration/data impact, implementation references, manual/translation impact, verification evidence and closure state. Avoid recording a suggestion or a preselected answer as an accepted decision.
+
+
+### Native Android/iOS parity review requested — 2026-10-11
+
+The owner requested screenshots and a difference list across both platforms and four device layouts. The [audit](platform-comparison.md) records proposed priorities and observed evidence. It accepts no new product layout, platform scope or implementation. Evaluate PLATFORM findings before selecting fixes. Earlier accepted screen objectives and browser approvals remain valid; native comparative evidence does not close physical MIDI, cloud-provider, printer or accessibility gates.
+
+Native follow-up to the accepted phone-landscape sidebar layout: PLATFORM-13 records 8px fixed control offsets against 62px iPhone horizontal safe insets. Reopen native verification of PRACTICE-02 and Quick practice; safe-area compensation is proposed, not implemented or accepted. The existing layout objective is preserved.
+
+PLATFORM-15 reopens C-DIALOG initial focus/scroll behavior for warm-up and other long dialogs. Native iPad evidence starts at the closing action rather than the introduction; the focus/scroll repair is proposed. No guide artwork or new layout is accepted by this finding.
+
+## 2026-10-11 — iOS parity requirements and selected fixes
+
+The owner requires MIDI and notifications on iOS, approves PLATFORM-04 date/time sizing and PLATFORM-13 safe-area compensation, and directs PLATFORM-12 to ignore Wi-Fi/metered-network type on iOS. The [implementation follow-up](platform-ios-followup.md) records source changes and targeted evidence. Notification delivery acceptance and MIDI implementation remain open; the Swift Core MIDI bridge is proposed. No printing, warm-up focus, icon redesign or old-WebView compatibility fix is accepted by this decision.
+
+
+## 2026-10-12 — Major beta scope approved by owner
+
+The owner requests a custom Apple Core MIDI bridge, iOS closed-app reminders with Android review, and the PLATFORM-15 warm-up initial focus/scroll fix. The owner also requests light/dark/system themes from Profile, native rating/share actions and an initial skippable walkthrough. Current dark appearance is preserved; old notebooks retain dark while new notebooks default to system. Stable record IDs and notebook schema stay unchanged.
+
+The owner identifies stable as 5.2.3 (35) and has no Apple Developer account. The new major package is 6.0.0-beta.1 (40). Android beta uses a separate application ID to protect installed notebooks. iOS distribution is limited to an explicitly labelled Mac/Xcode simulator archive; signed device/TestFlight delivery remains unavailable. Website publication is authorized by the original request. Printing/keyboard and Android PDF acceptance are reserved for the owner's testing. See [release verification](../releases/6.0.0-beta.1.md).

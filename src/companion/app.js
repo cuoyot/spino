@@ -1,3 +1,6 @@
+import { createWalkthrough } from './walkthrough.js';
+import { rateApp, shareApp } from './app-actions.js';
+import { applyTheme } from './theme.js';
 import { ui, getAppLanguage, setAppLanguage, localizeMessage, APP_LANGUAGES } from './locale.js';
 import { printActionButton } from './score-controls.js';
 import { DEFAULT_PRACTICE_MINUTES, practiceMinutes, resizePractice } from './practice-duration.js';
@@ -21,7 +24,7 @@ import { cloudBackupMarkup, cloudSetupMarkup, cloudManageMarkup, cloudConflictMa
 import { photoCropMarkup, loadPhoto, bindPhotoCrop } from './photo-crop.js';
 import { progressMetricsMarkup } from './progress-metrics.js';
 import { aboutMarkup } from './about-view.js';
-import { profileNavigation, profileMarkup, profileHeading, practicePreferencesMarkup, identityMarkup, manualBackupMarkup, remindersMarkup, scoreFilesMarkup, fileSize } from './profile-view.js';
+import { appearanceMarkup, profileNavigation, profileMarkup, profileHeading, practicePreferencesMarkup, identityMarkup, manualBackupMarkup, remindersMarkup, scoreFilesMarkup, fileSize } from './profile-view.js';
 import { instrumentMarkup, createInstrumentController } from './instrument-view.js';
 import { createNotebookCloud } from './cloud-sync.js';
 import './app.css';
@@ -36,7 +39,7 @@ import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, lo
 import { TARGETS, targetById } from './curriculum.js';
 import { warmupExercises, warmupChoices, warmupBlockValues, warmupPreferences, warmupSetLabel } from './warmups.js';
 import { warmupGuideMarkup, bindWarmupGuide } from './warmup-guide.js';
-import { exportFile, importFile, downloadPDF, syncReminders, native } from './platform.js';
+import { exportFile, importFile, downloadPDF, syncReminders, remindersAvailable, native } from './platform.js';
 import { scoreImportMarkup, bindScoreImport } from './score-import.js';
 import { CATALOG, catalogPresentation } from './catalog.js';
 import { emptyLibrary, importLibrary, catalogueRecords, legacyMigrationReport } from './library.js';
@@ -128,6 +131,7 @@ export async function bootCompanion(reader) {
   };
   const navigation = [];
   const routeSnapshot = () => ({ view, detailId, selectedDate, calendarMode, filteredTarget, libraryFilters: copy(libraryFilters), libraryPage, draft: copy(draft), preparePurpose, scroll: root.querySelector('.cp-page')?.scrollTop || 0 });
+  const walkthrough=createWalkthrough({navigate:next=>{view=next;detailId='';render();root.querySelector('.cp-page')?.scrollTo(0,0);},restore:snapshot=>{if(snapshot){Object.assign(libraryFilters,snapshot.libraryFilters);view=snapshot.view;detailId=snapshot.detailId;selectedDate=snapshot.selectedDate;calendarMode=snapshot.calendarMode;libraryPage=snapshot.libraryPage;render();root.querySelector('.cp-page')?.scrollTo(0,snapshot.scroll);}}});
   const go = (next, id = '') => {
     const leavingLibrary = libraryRoute(view), enteringLibrary = libraryRoute(next);
     if(leavingLibrary) {
@@ -218,9 +222,9 @@ export async function bootCompanion(reader) {
     checkpoint(); updateClock();
   }
   function hideReader() { if (readerMounted) { pauseSession(); reader.hide(); } root.hidden = false; }
-  function showDialog(title, body, onSubmit = null) {
+  function showDialog(title, body, onSubmit = null, introduction = false) {
     dialogCleanup?.(); dialogCleanup = null;
-    dialog.innerHTML = `<div class="cp-dialog-body"><h2>${esc(title)}</h2>${body}<p id="cp-form-error" role="alert"></p></div>`;
+    dialog.innerHTML = `<div class="cp-dialog-body"><h2 ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2>${body}<p id="cp-form-error" role="alert"></p></div>`;
     dialog.querySelector('form')?.addEventListener('submit', async e => {
       e.preventDefault();
       if (e.target.getAttribute('aria-busy') === 'true') return;
@@ -233,6 +237,7 @@ export async function bootCompanion(reader) {
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
     dialog.querySelector('.cp-dialog-body').scrollTop = 0;
+    if(introduction){const heading=dialog.querySelector('h2');heading.focus({preventScroll:true});requestAnimationFrame(()=>{if(dialog.open&&dialog.contains(heading)){heading.focus({preventScroll:true});dialog.scrollTop=0;dialog.querySelector('.cp-dialog-body').scrollTop=0;}});}
   }
   function confirm(title, description, accept) {
     showDialog(title, `<p>${esc(description)}</p><div class="cp-actions">${btn('close-dialog', ui("Cancel", "Cancelar"))}${ui("<button type=\"button\" id=\"cp-confirm\" class=\"primary\">Confirm</button></div>", "<button type=\"button\" id=\"cp-confirm\" class=\"primary\">Confirmar</button></div>")}`);
@@ -315,7 +320,7 @@ export async function bootCompanion(reader) {
     }).join('') || ui("<p>No PDFs for this goal.</p>", "<p>No hay PDF para este objetivo.</p>")}</div></section>`;
   }
   function settingsPage() {
-    return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native,lang:getAppLanguage()});
+    return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,lang:getAppLanguage()});
   }
   async function refreshProfileFiles() {
     const index = await store.assetIndex();
@@ -404,7 +409,7 @@ export async function bootCompanion(reader) {
   function planForm(existing=null, source=draft) {
     if(preparePurpose==='edit-plan'&&!existing) throw Error(ui("This planned practice is no longer available.", "Esta práctica planificada ya no está disponible."));
     const p=existing ? {...existing, ...(preparePurpose==='edit-plan' && source?.id===existing.id ? {title:source.title,context:source.context,blocks:copy(source.blocks)} : {})} : { title:source.title,context:source.context,blocks:copy(source.blocks),...(source.routinePolicy?{routinePolicy:copy(source.routinePolicy)}:{}),date:selectedDate,time:'',reminder:false,status:'planned' };
-    showDialog(existing?ui("Reschedule practice", "Reprogramar práctica"):ui("Schedule practice", "Planificar práctica"),`${ui("<form><label>Title<input name=\"title\" maxlength=\"200\" required value=\"", "<form><label>Título<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(p.title)}${ui("\" /></label><div class=\"cp-fields\"><label>Date<input name=\"date\" type=\"date\" required value=\"", "\" /></label><div class=\"cp-fields\"><label>Fecha<input name=\"date\" type=\"date\" required value=\"")}${p.date}${ui("\" /></label><label>Time (optional)<input name=\"time\" type=\"time\" value=\"", "\" /></label><label>Hora (opcional)<input name=\"time\" type=\"time\" value=\"")}${esc(p.time)}" /></label></div><label class="check"><input name="reminder" type="checkbox" ${p.reminder?'checked':''}${ui(" /> Reminder 15 minutes before (Android)</label><p class=\"muted\">", " /> Recordatorio 15 minutos antes (Android)</label><p class=\"muted\">")}${p.blocks.length}${ui(" blocks · ", " bloques · ")}${p.blocks.reduce((n,b)=>n+b.minutes,0)}${ui(" planned min · ", " min previstos · ")}${CONTEXTS[p.context]}</p>${formEnd()}</form>`,async f=>{
+    showDialog(existing?ui("Reschedule practice", "Reprogramar práctica"):ui("Schedule practice", "Planificar práctica"),`${ui("<form><label>Title<input name=\"title\" maxlength=\"200\" required value=\"", "<form><label>Título<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(p.title)}${ui("\" /></label><div class=\"cp-fields\"><label>Date<input name=\"date\" type=\"date\" required value=\"", "\" /></label><div class=\"cp-fields\"><label>Fecha<input name=\"date\" type=\"date\" required value=\"")}${p.date}${ui("\" /></label><label>Time (optional)<input name=\"time\" type=\"time\" value=\"", "\" /></label><label>Hora (opcional)<input name=\"time\" type=\"time\" value=\"")}${esc(p.time)}" /></label></div><label class="check"><input name="reminder" type="checkbox" ${p.reminder?'checked':''}${ui(" /> Reminder 15 minutes before</label><p class=\"muted\">", " /> Recordatorio 15 minutos antes</label><p class=\"muted\">")}${p.blocks.length}${ui(" blocks · ", " bloques · ")}${p.blocks.reduce((n,b)=>n+b.minutes,0)}${ui(" planned min · ", " min previstos · ")}${CONTEXTS[p.context]}</p>${formEnd()}</form>`,async f=>{
       const time=String(f.get('time')); if(f.has('reminder')&&!time) throw new Error(ui("Enter a time for the reminder.", "Indica una hora para el recordatorio."));
       const value={...p,id:p.id||uid(),title:String(f.get('title')).trim(),date:String(f.get('date')),time,reminder:f.has('reminder')};
       const next=copy(data);
@@ -442,7 +447,7 @@ export async function bootCompanion(reader) {
   }
   function eventForm(existing=null) {
     const e=existing||{title:'',type:'Audición',date:selectedDate,time:'',place:'',notes:'',workIds:[],reminder:false,milestones:[]};
-    showDialog(existing?ui("Edit event", "Editar evento"):ui("New event", "Nuevo evento"),`${ui("<form><label>Title<input name=\"title\" maxlength=\"200\" value=\"", "<form><label>Título<input name=\"title\" maxlength=\"200\" value=\"")}${esc(e.title)}${ui("\" required /></label><label>Type<select name=\"type\">", "\" required /></label><label>Tipo<select name=\"type\">")}${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}${ui("</select></label><div class=\"cp-fields\"><label>Date<input type=\"date\" name=\"date\" value=\"", "</select></label><div class=\"cp-fields\"><label>Fecha<input type=\"date\" name=\"date\" value=\"")}${e.date}${ui("\" required /></label><label>Time<input type=\"time\" name=\"time\" value=\"", "\" required /></label><label>Hora<input type=\"time\" name=\"time\" value=\"")}${esc(e.time)}${ui("\" /></label></div><label>Place<input name=\"place\" maxlength=\"200\" value=\"", "\" /></label></div><label>Lugar<input name=\"place\" maxlength=\"200\" value=\"")}${esc(e.place)}${ui("\" /></label><label>Notes<textarea name=\"notes\" maxlength=\"10000\">", "\" /></label><label>Notas<textarea name=\"notes\" maxlength=\"10000\">")}${esc(e.notes)}${ui("</textarea></label><p>Works you are preparing</p>", "</textarea></label><p>Obras que estás preparando</p>")}${data.works.filter(w=>!w.trashedAt||e.workIds.includes(w.id)).map(w=>`<label class="check"><input type="checkbox" name="workIds" value="${w.id}" ${e.workIds.includes(w.id)?'checked':''} />${esc(w.title)}</label>`).join('')||ui("<p class=\"muted\">You can link works after adding them to your repertoire.</p>", "<p class=\"muted\">Puedes vincular obras después de añadirlas al repertorio.</p>")}<label class="check"><input type="checkbox" name="reminder" ${e.reminder?'checked':''}${ui(" /> Reminder 15 minutes before (Android)</label>", " /> Recordatorio 15 minutos antes (Android)</label>")}${formEnd()}</form>`,async f=>{
+    showDialog(existing?ui("Edit event", "Editar evento"):ui("New event", "Nuevo evento"),`${ui("<form><label>Title<input name=\"title\" maxlength=\"200\" value=\"", "<form><label>Título<input name=\"title\" maxlength=\"200\" value=\"")}${esc(e.title)}${ui("\" required /></label><label>Type<select name=\"type\">", "\" required /></label><label>Tipo<select name=\"type\">")}${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}${ui("</select></label><div class=\"cp-fields\"><label>Date<input type=\"date\" name=\"date\" value=\"", "</select></label><div class=\"cp-fields\"><label>Fecha<input type=\"date\" name=\"date\" value=\"")}${e.date}${ui("\" required /></label><label>Time<input type=\"time\" name=\"time\" value=\"", "\" required /></label><label>Hora<input type=\"time\" name=\"time\" value=\"")}${esc(e.time)}${ui("\" /></label></div><label>Place<input name=\"place\" maxlength=\"200\" value=\"", "\" /></label></div><label>Lugar<input name=\"place\" maxlength=\"200\" value=\"")}${esc(e.place)}${ui("\" /></label><label>Notes<textarea name=\"notes\" maxlength=\"10000\">", "\" /></label><label>Notas<textarea name=\"notes\" maxlength=\"10000\">")}${esc(e.notes)}${ui("</textarea></label><p>Works you are preparing</p>", "</textarea></label><p>Obras que estás preparando</p>")}${data.works.filter(w=>!w.trashedAt||e.workIds.includes(w.id)).map(w=>`<label class="check"><input type="checkbox" name="workIds" value="${w.id}" ${e.workIds.includes(w.id)?'checked':''} />${esc(w.title)}</label>`).join('')||ui("<p class=\"muted\">You can link works after adding them to your repertoire.</p>", "<p class=\"muted\">Puedes vincular obras después de añadirlas al repertorio.</p>")}<label class="check"><input type="checkbox" name="reminder" ${e.reminder?'checked':''}${ui(" /> Reminder 15 minutes before</label>", " /> Recordatorio 15 minutos antes</label>")}${formEnd()}</form>`,async f=>{
       if(f.has('reminder')&&!f.get('time')) throw new Error(ui("Enter a time for the notification.", "Indica una hora para el aviso."));
       const value={...e,id:e.id||uid(),title:String(f.get('title')).trim(),type:f.get('type'),date:f.get('date'),time:f.get('time'),place:String(f.get('place')),notes:String(f.get('notes')),workIds:f.getAll('workIds'),reminder:f.has('reminder'),milestones:e.milestones?.length?e.milestones:[ui("First reading", "Primera lectura"),ui("Work through passages", "Resolver pasajes"),ui("Play through the whole piece", "Tocar de principio a fin"),ui("Simulate the performance", "Simular la actuación")].map(title=>({title,done:false}))};
       if(existing)Object.assign(existing,value);else data.events.push(value);
@@ -463,7 +468,7 @@ export async function bootCompanion(reader) {
     });
   }
   async function reminders(request=false) {
-    try { reminderState=await syncReminders(data,request); if(request&&!reminderState.enabled)toast(native?ui("Plan saved; reminders are disabled.", "El plan se ha guardado; los avisos están desactivados."):ui("Plan saved. Reminders with the app closed require the Android app.", "Plan guardado. Los avisos con la app cerrada necesitan la app Android.")); }
+    try { reminderState=await syncReminders(data,request); if(request&&!reminderState.enabled)toast(remindersAvailable?ui("Plan saved; reminders are disabled.", "El plan se ha guardado; los avisos están desactivados."):ui("Plan saved. Reminders with the app closed require the Android or iOS app.", "Plan guardado. Los avisos con la app cerrada necesitan la app Android o iOS.")); }
     catch { toast(ui("Plan saved, but the reminder could not be scheduled.", "El plan está guardado, pero no se ha podido programar el aviso.")); }
   }
 
@@ -619,7 +624,7 @@ export async function bootCompanion(reader) {
   function showWarmupGuide(b,start=false,index=readerMounted?reader.warmupIndex:0){
     const exercises=warmupExercises(b);if(!exercises.length)return;
     const i=Math.max(0,Math.min(exercises.length-1,index||0)),exercise=exercises[i];
-    showDialog(ui('Warm-up', 'Calentamiento'),warmupGuideMarkup(exercise,{hand:b.hand,start,set:{index:i,exercises}}));
+    showDialog(ui('Warm-up', 'Calentamiento'),warmupGuideMarkup(exercise,{hand:b.hand,start,set:{index:i,exercises}}),null,true);
     const guide=dialog.querySelector('.cp-warmup-guide');
     dialogCleanup=bindWarmupGuide(guide,exercise,{hand:b.hand});
     guide.querySelectorAll('[data-warmup-step]').forEach(button=>button.addEventListener('click',()=>showWarmupGuide(b,start,Number(button.dataset.warmupStep))));
@@ -676,6 +681,7 @@ export async function bootCompanion(reader) {
     document.querySelectorAll('[data-block-clock]').forEach(el=>el.textContent=clock(blockMs()));
   }
   function render() {
+    applyTheme(data.preferences.theme);
     if(libraryRoute(view)) libraryPane=libraryRoute(view);
     sessionDrag?.destroy(); sessionDrag = null;
     setMidiContext(view === 'prepare' ? draft?.context : data.active?.context || null);
@@ -683,7 +689,7 @@ export async function bootCompanion(reader) {
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
-    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,progress,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,native,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
+    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,progress,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<div class="cp-page" data-view="${view}"><div class="cp-content"><div class="cp-header"><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div>${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${data.active&&!['session','home','practice'].includes(view)?`${ui("<div class=\"cp-notice cp-row\"><span>Pending session: ", "<div class=\"cp-notice cp-row\"><span>Sesión pendiente: ")}${esc(data.active.title)}</span>${btn('resume-session',ui("Continue", "Continuar"))}</div>`:''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo)}`;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
@@ -1045,6 +1051,11 @@ export async function bootCompanion(reader) {
     'profile-photo':()=>showDialog(ui('Profile picture','Foto de perfil'),`<div class="cp-photo-options">${btn('profile-photo-gallery',ui('Choose from gallery','Elegir de la galería'),'','primary')}${data.preferences.photo?btn('profile-photo-remove',ui('Remove picture','Quitar foto')):''}${btn('close-dialog',ui('Cancel','Cancelar'))}</div>`),
     'profile-photo-gallery':()=>{dialog.close();choosePhoto();},
     'profile-photo-remove':async()=>{dialog.close();await savePhoto(null);toast(ui('Picture removed.','Foto eliminada.'));},
+    'profile-appearance':()=>showDialog(ui('Appearance','Apariencia'),appearanceMarkup(data.preferences)+'<div class="cp-actions">'+btn('close-dialog',ui('Done','Hecho'))+'</div>'),
+    'set-theme':async mode=>{if(!['light','dark','system'].includes(mode))return;data.preferences.theme=mode;applyTheme(mode);await persist();dialog.querySelectorAll('[data-action=set-theme]').forEach(b=>{const selected=b.dataset.id===mode;b.setAttribute('aria-pressed',String(selected));b.classList.toggle('primary',selected);});},
+    'walkthrough':()=>{if(dialog.open)dialog.close();walkthrough.start(routeSnapshot());},
+    'rate-app':()=>rateApp().catch(()=>toast(ui('Could not open the app rating.','No se pudo abrir la valoración de la app.'))),
+    'share-app':async()=>{try{const shared=await shareApp();if(!shared)toast(ui('App link copied.','Enlace de la app copiado.'));}catch(error){if(error.name!=='AbortError')toast(ui('Could not share the app.','No se pudo compartir la app.'));}},
     'profile-edit':()=>showDialog(ui("Edit profile", "Editar perfil"),identityMarkup(data.preferences,getAppLanguage()),async f=>{const language=String(f.get('language'));if(!Object.hasOwn(APP_LANGUAGES,language))throw Error(ui('Choose a supported language.','Elige un idioma disponible.'));const level=Number(f.get('level'));if(!(Number.isInteger(level)&&level>=1&&level<=4))throw Error(ui('Choose a pianist level.','Elige un nivel de pianista.'));const next=copy(data);next.preferences={...next.preferences,name:String(f.get('name')).trim(),weeklyMinutes:Number(f.get('weeklyMinutes')),language,level};await store.save(next);data=next;setAppLanguage(language);reader.setLanguage?.(language);dialog.close();render();await reminders();toast(ui('Profile saved.','Perfil guardado.'));}),
     about:()=>showDialog(ui('About SPino','Acerca de SPino'),aboutMarkup(getAppLanguage())),
     'profile-data':()=>showDialog(ui("Data on this device", "Datos de este dispositivo"),ui("<p class=\"muted\">Your history, repertoire and scores are stored on this device.</p><div class=\"cp-actions\">", "<p class=\"muted\">Tu historial, repertorio y partituras se guardan en este dispositivo.</p><div class=\"cp-actions\">")+btn('profile-data-backup',ui("Backup & sync", "Copia y sincronización"))+btn('erase-data',ui("Erase notebook", "Borrar cuaderno"),'','danger quiet')+btn('close-dialog',ui("Close", "Cerrar"))+'</div>'),
@@ -1140,6 +1151,7 @@ export async function bootCompanion(reader) {
   library = await importLibrary({ previous: library, save: value => store.saveLibrary(value) });
   let legacyProgress = {}; try { legacyProgress = JSON.parse(localStorage.getItem('sr.progress') || '{}'); } catch {}
   library.legacyMigration = legacyMigrationReport(data, legacyProgress);
+  if(!data.active&&walkthrough.needsIntroduction())setTimeout(()=>{if(!data.active&&!dialog.open&&!root.hidden)walkthrough.start(routeSnapshot());},400);
   const localAssets = new Set((await store.assets()).map(a => a.id));
   for (const e of Object.values(library.executions)) if (e.assetId && !localAssets.has(e.assetId)) { e.validated = false; e.render = null; }
   await store.saveLibrary(library); libraryReady = true;

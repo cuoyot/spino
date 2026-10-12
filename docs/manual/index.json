@@ -20,7 +20,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -84,6 +84,19 @@
         "evidence": "session/2026-10-05-pdf-timer-bar-02",
         "scope": "Presented D-024 compact PDF toolbar approved; expanded annotation/framing panels and native acceptance remain open."
       }
+    },
+    {
+      "id": "profile-beta",
+      "title": "Profile and the beta introduction",
+      "order": 100,
+      "source": "en/profile-beta.md",
+      "status": "draft",
+      "reviewIds": [
+        "PROFILE-01",
+        "READER-05"
+      ],
+      "verifiedAgainst": "beta/2026-10-12",
+      "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately."
     }
   ],
   "plannedChapters": [

@@ -1,0 +1,1 @@
+{"name":"@spino/midi","version":"1.0.0","private":true,"license":"GPL-3.0-or-later","description":"SPino Core MIDI input bridge for iOS","type":"module","main":"index.js","capacitor":{"ios":{"src":"ios"}}}

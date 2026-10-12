@@ -1,9 +1,14 @@
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { createReminderScheduler } from './reminders.js';
+import { effectiveWifiOnly } from './network-policy.js';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { CloudBackup, cloudAvailable } from './cloud-backup.js';
 import { getAppLanguage } from './locale.js';
 export const Native = registerPlugin('Notebook');
-// Notebook currently provides Android-specific services. iOS uses the cloud file bridge.
+// Notebook provides Android-specific services; iOS uses individual Capacitor plugins.
 export const native = Capacitor.isPluginAvailable('Notebook');
+export const remindersAvailable = native || Capacitor.getPlatform() === 'ios' && Capacitor.isPluginAvailable('LocalNotifications');
+const syncIOSReminders = createReminderScheduler(LocalNotifications);
 export async function practiceScreenAwake(enabled) {
   if (native) await Native.practiceScreenAwake({ enabled });
 }
@@ -51,6 +56,7 @@ export async function networkStatus() {
   return { online: navigator.onLine, wifi: connection?.type ? connection.type === 'wifi' : null, metered: connection?.saveData || false };
 }
 export async function downloadPDF(url, { id = crypto.randomUUID(), wifiOnly = true, signal, onProgress = () => {} } = {}) {
+  wifiOnly = effectiveWifiOnly(wifiOnly);
   if (native) {
     const listener = await Native.addListener('downloadProgress', event => { if (event.id === id) onProgress(event); });
     const cancel = () => { Native.cancelDownload({ id }).catch(() => {}); };
@@ -89,6 +95,7 @@ export async function fileBase64(file) {
   return btoa(binary);
 }
 export async function syncReminders(data, requestPermission = false) {
+  if (Capacitor.getPlatform() === 'ios' && remindersAvailable) return syncIOSReminders(data, requestPermission, getAppLanguage());
   if (!native) return { enabled: false, browser: true };
   const items = [...data.plans.filter(p => p.status === 'planned'), ...data.events].filter(x => x.reminder && x.time).map(x => ({ id: x.id, title: x.title, language: getAppLanguage(), at: new Date(`${x.date}T${x.time}:00`).getTime() - 15 * 60000 })).filter(x => x.at > Date.now());
   return Native.reminders({ items, requestPermission });

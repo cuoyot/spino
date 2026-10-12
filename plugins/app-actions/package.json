@@ -1,0 +1,1 @@
+{"name":"@spino/app-actions","version":"1.0.0","private":true,"license":"GPL-3.0-or-later","type":"module","main":"index.js","capacitor":{"ios":{"src":"ios"}}}

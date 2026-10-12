@@ -1,3 +1,4 @@
+import { effectiveWifiOnly } from './network-policy.js';
 import { readMusicXML, bytesFromBase64 } from './musicxml-document.js';
 import { parseScore, analyzeScore, selectionHash } from './musicxml-analysis.js';
 import { generateSegments } from './musicxml-segments.js';
@@ -64,11 +65,11 @@ export function createLibraryDownloads({ getLibrary, setLibrary, store, getData,
         if (current.job.nextAttemptAt > Date.now()) { await update(id, { job: { ...current.job, status: 'paused', error: `Source requested a retry after ${new Date(current.job.nextAttemptAt).toISOString()}.` } }); continue; }
         const network = await platform.networkStatus();
         if (!isVisible() || !['queued', 'waiting-wifi'].includes(execution(id).job?.status)) continue;
-        if (!canDownload(network, getData().preferences.wifiOnly)) { await update(id, { job: { ...current.job, status: network.online ? 'waiting-wifi' : 'paused', error: network.online ? 'Waiting for verified unmetered Wi-Fi. You can allow other networks in Downloads.' : 'Offline. Retry when connected.' } }); break; }
+        if (!canDownload(network, effectiveWifiOnly(getData().preferences.wifiOnly))) { await update(id, { job: { ...current.job, status: network.online ? 'waiting-wifi' : 'paused', error: network.online ? 'Waiting for verified unmetered Wi-Fi. You can allow other networks in Downloads.' : 'Offline. Retry when connected.' } }); break; }
         controller = new AbortController(); activeId = id;
         await update(id, { job: { ...current.job, status: 'downloading', error: '' } });
         try {
-          const receipt = await platform.downloadScore(descriptor.download_url, { id, wifiOnly: getData().preferences.wifiOnly, signal: controller.signal, partial: current.partial,
+          const receipt = await platform.downloadScore(descriptor.download_url, { id, wifiOnly: effectiveWifiOnly(getData().preferences.wifiOnly), signal: controller.signal, partial: current.partial,
             onProgress: progress => { const job = execution(id).job; Object.assign(job, progress); changed(true); } });
           if (!receipt.complete) { await update(id, { partial: receipt.partial || null, lastAttempt: { ...receipt, partial: undefined }, job: { ...execution(id).job, status: controller.signal.aborted ? 'paused' : /WIFI_REQUIRED/.test(receipt.error) ? 'waiting-wifi' : receipt.nextAttemptAt ? 'paused' : 'failed', error: receipt.error, nextAttemptAt: receipt.nextAttemptAt || null } }); if (execution(id).job.status === 'failed') continue; break; }
           controller.signal.throwIfAborted();
@@ -115,7 +116,7 @@ export function createLibraryDownloads({ getLibrary, setLibrary, store, getData,
     },
     async pause(id) { const e = execution(id); if (!e.job || e.job.status === 'complete') return; if (activeId === id) controller?.abort(); await update(id, { job: { ...e.job, status: 'paused' } }); },
     async pauseAll() { controller?.abort(); const next = structuredClone(getLibrary()); for (const e of Object.values(next.executions)) if (['queued', 'downloading', 'waiting-wifi'].includes(e.job?.status)) e.job.status = 'paused'; await publish(next); },
-    async policyChanged() { if (getData().preferences.wifiOnly) controller?.abort(); return pump(); },
+    async policyChanged() { if (effectiveWifiOnly(getData().preferences.wifiOnly)) controller?.abort(); return pump(); },
     pump, analyze, update, get busy() { return running; },
   };
 }

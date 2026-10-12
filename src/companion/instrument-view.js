@@ -36,7 +36,7 @@ function errorCode(error, fallback = 'failed') {
 /** Device preferences stay local: a notebook sync must not pair another device's hardware. */
 export function createInstrumentController({ changed = () => {}, midi = deviceMidi, storage = globalThis.localStorage, scanTimeoutMs = 10000, webAvailable = typeof navigator !== 'undefined' && typeof navigator.requestMIDIAccess === 'function' } = {}) {
   const preferences = readInstrumentPreferences(storage);
-  const state = { pedals: readPedals(storage), learning: null, lastControl: null, devices: midi.connectedDevices(), native: midi.isNative, available: midi.isNative || webAvailable, remembered: preferences.remembered, autoConnect: preferences.autoConnect, nearby: [], scanning: false, searched: false, connecting: '', error: '' };
+  const state = { pedals: readPedals(storage), learning: null, lastControl: null, devices: midi.connectedDevices(), native: midi.isNative, systemBluetoothPicker: !!midi.systemBluetoothPicker, available: midi.isNative || webAvailable, remembered: preferences.remembered, autoConnect: preferences.autoConnect, nearby: [], scanning: false, searched: false, connecting: '', error: '' };
   let initialized = null, scanTimer = null, disposed = false;
   const update = () => { if (!disposed) changed(state); };
   const stopScanning = () => { clearTimeout(scanTimer); scanTimer = null; state.scanning = false; };
@@ -98,7 +98,7 @@ export function createInstrumentController({ changed = () => {}, midi = deviceMi
         if (!state.available || !state.native) return;
         try { await midi.refreshMidi(); }
         catch (error) { state.error = errorCode(error); update(); return; }
-        if (state.native && state.autoConnect) {
+        if (state.native && !state.systemBluetoothPicker && state.autoConnect) {
           for (const device of [...state.remembered]) {
             if (disposed) break;
             if (!state.devices.includes(device.connectedName)) await connectDevice(device.address, { automatic: true });
@@ -114,7 +114,8 @@ export function createInstrumentController({ changed = () => {}, midi = deviceMi
       try {
         await midi.refreshMidi();
         if (disposed) return;
-        if (state.native) {
+        if (state.systemBluetoothPicker) { await midi.showBluetoothPicker(); }
+        else if (state.native) {
           state.nearby = []; state.scanning = true; state.searched = true; update();
           await midi.scanBluetooth();
           if (disposed) return;
@@ -157,8 +158,8 @@ export function instrumentMarkup(state, { lang = 'en' } = {}) {
       ${state.error ? `<p class="cp-instrument-error" role="alert">${esc(t[state.error] || t.failed)}</p>` : ''}
     </div>
     ${state.available && state.native ? `<div class="cp-instrument-usb"><span>${keyboard}</span><div><strong>${t.usb}</strong><p>${t.usbHint}</p></div></div>` : ''}
-    ${state.native && state.remembered.length ? `<section class="cp-card cp-instrument-devices"><h3>${t.saved}</h3><ul>${state.remembered.map(device => deviceRow(device, true)).join('')}</ul><button type="button" data-action="instrument-autoconnect" class="cp-instrument-toggle" role="switch" aria-checked="${state.autoConnect}"><span><strong>${t.auto}</strong><small>${t.autoHint}</small></span><i aria-hidden="true"></i></button></section>` : ''}
-    ${state.native && (state.scanning || state.searched || nearby.length) ? `<section class="cp-card cp-instrument-devices"><h3>${t.nearby}${state.scanning ? '<span class="cp-instrument-searching" aria-hidden="true"></span>' : ''}</h3>${nearby.length ? `<ul>${nearby.map(device => deviceRow(device, false)).join('')}</ul>` : `<p role="status">${state.scanning ? t.scanning : t.empty}</p>`}</section>` : ''}
+    ${state.native && !state.systemBluetoothPicker && state.remembered.length ? `<section class="cp-card cp-instrument-devices"><h3>${t.saved}</h3><ul>${state.remembered.map(device => deviceRow(device, true)).join('')}</ul><button type="button" data-action="instrument-autoconnect" class="cp-instrument-toggle" role="switch" aria-checked="${state.autoConnect}"><span><strong>${t.auto}</strong><small>${t.autoHint}</small></span><i aria-hidden="true"></i></button></section>` : ''}
+    ${state.native && !state.systemBluetoothPicker && (state.scanning || state.searched || nearby.length) ? `<section class="cp-card cp-instrument-devices"><h3>${t.nearby}${state.scanning ? '<span class="cp-instrument-searching" aria-hidden="true"></span>' : ''}</h3>${nearby.length ? `<ul>${nearby.map(device => deviceRow(device, false)).join('')}</ul>` : `<p role="status">${state.scanning ? t.scanning : t.empty}</p>`}</section>` : ''}
     ${pedals}
   </section>`;
 }

@@ -3,14 +3,14 @@
 .cp-cloud-heading > div { min-width: 0; }
 .cp-cloud-heading h2, .cp-cloud-card > h2 { margin: 0 0 6px; }
 .cp-cloud-heading p, .cp-cloud-card > p { margin: 0; }
-.cp-cloud-emblem { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; border-radius: 16px; color: #86b3ff; background: #25344c; }
+.cp-cloud-emblem { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; border-radius: 16px; color: #86b3ff; background: var(--theme-control, #25344c); }
 .cp-cloud-emblem svg { width: 30px; height: 30px; }
 .cp-cloud-status { display: flex; align-items: center; gap: 9px; margin: 22px 0 16px !important; color: #b4bbc8; font-size: 14px; }
 .cp-cloud-status > span { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: #818999; }
 [data-cloud-status="saved"] .cp-cloud-status > span { background: #73cdb0; box-shadow: 0 0 0 4px #73cdb012; }
 [data-cloud-status="writing"] .cp-cloud-status > span { background: #86b3ff; }
 [data-cloud-status="error"] .cp-cloud-status > span, [data-cloud-status="conflict"] .cp-cloud-status > span { background: #e9bb72; }
-.cp-cloud-file { display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 12px; background: #14181f; margin-bottom: 20px; }
+.cp-cloud-file { display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 12px; background: var(--theme-control, #14181f); margin-bottom: 20px; }
 .cp-cloud-file > svg { width: 23px; height: 23px; flex: 0 0 23px; color: #9ea9bb; }
 .cp-cloud-file > div { min-width: 0; }
 .cp-cloud-file strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 600; }
@@ -21,7 +21,7 @@
 .cp-cloud-card > .cp-cloud-emblem { margin-bottom: 16px; }
 .cp-cloud-dialog { min-width: 0; }
 .cp-cloud-options { display: grid; gap: 2px; margin: 16px 0; }
-#app-shell .cp-cloud-option, #cp-dialog .cp-cloud-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 68px; padding: 14px 8px; border: 0; border-radius: 12px; text-align: left; background: transparent; color: #e8eaed; }
+#app-shell .cp-cloud-option, #cp-dialog .cp-cloud-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 68px; padding: 14px 8px; border: 0; border-radius: 12px; text-align: left; background: transparent; color: var(--theme-text, #e8eaed); }
 #app-shell .cp-cloud-option:hover, #cp-dialog .cp-cloud-option:hover { background: #ffffff07; }
 .cp-cloud-option-icon { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 10px; background: #ffffff06; color: #a7bce0; }
 .cp-cloud-option-icon svg { width: 21px; height: 21px; }
@@ -29,10 +29,10 @@
 .cp-cloud-option strong { display: block; font-size: 14px; font-weight: 650; line-height: 1.4; }
 .cp-cloud-option small, .cp-cloud-toggle-row small { display: block; font-size: 12px; line-height: 1.5; font-weight: 400; color: #9ca7ba; margin-top: 3px; }
 .cp-cloud-chevron { flex: 0 0 12px; font-size: 24px; color: #768397; }
-.cp-cloud-toggle-row { display: flex; align-items: center; gap: 16px; padding: 14px 0 18px; border-bottom: 1px solid #353941; }
+.cp-cloud-toggle-row { display: flex; align-items: center; gap: 16px; padding: 14px 0 18px; border-bottom: 1px solid var(--theme-line, #353941); }
 .cp-cloud-toggle-row > div { flex: 1; min-width: 0; font-size: 14px; }
 #app-shell .cp-cloud-switch, #cp-dialog .cp-cloud-switch { flex: 0 0 48px; width: 48px; min-height: 44px; padding: 8px 0; border: 0; background: transparent; }
-.cp-cloud-switch > span { display: block; width: 46px; height: 28px; border-radius: 18px; background: #414b5c; position: relative; transition: background .15s; }
+.cp-cloud-switch > span { display: block; width: 46px; height: 28px; border-radius: 18px; background: var(--theme-control, #414b5c); position: relative; transition: background .15s; }
 .cp-cloud-switch > span::before { content: ''; position: absolute; width: 20px; height: 20px; left: 4px; top: 4px; background: #edf1f8; border-radius: 50%; transition: transform .15s; }
 .cp-cloud-switch[aria-checked="true"] > span { background: #3974d7; }
 .cp-cloud-switch[aria-checked="true"] > span::before { transform: translateX(18px); }
@@ -40,11 +40,11 @@
 .cp-cloud-details summary { padding: 12px 0; cursor: pointer; }
 .cp-cloud-technical { overflow-wrap: anywhere; font-size: 12px; line-height: 1.6; color: #9da8ba; }
 .cp-cloud-details .cp-cloud-technical { margin: 8px 0; }
-.cp-cloud-disconnect { border-top: 1px solid #353941; margin-top: 18px; }
+.cp-cloud-disconnect { border-top: 1px solid var(--theme-line, #353941); margin-top: 18px; }
 #app-shell .cp-cloud-danger, #cp-dialog .cp-cloud-danger { color: #e9a39d; }
 .cp-cloud-danger .cp-cloud-option-icon { color: #e9a39d; }
 .cp-cloud-footer { display: flex; justify-content: flex-end; margin-top: 12px; }
-.cp-cloud-problem { border: 1px solid #695538; background: #2f2a23; border-radius: 12px; padding: 14px; margin-top: 18px; }
+.cp-cloud-problem { border: 1px solid #695538; background: var(--theme-control, #2f2a23); border-radius: 12px; padding: 14px; margin-top: 18px; }
 .cp-cloud-problem > strong { display: block; font-size: 14px; margin-bottom: 12px; }
 .cp-cloud-conflict-summary { background: #ffffff05; padding: 16px; border-radius: 12px; margin: 18px 0; }
 .cp-cloud-conflict-summary p { color: #adb9cb; font-size: 13px; margin: 6px 0 0; }

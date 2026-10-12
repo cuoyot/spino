@@ -4,27 +4,27 @@
   :root[data-landscape-keyboard="true"] #practice-toolbar, :root[data-landscape-keyboard="true"] #reader-view .bar-top, :root[data-landscape-keyboard="true"] #reader-view .quick { display: contents !important; }
   :root[data-landscape-keyboard="true"] #reader-view .timing-group { display: contents !important; }
   :root[data-landscape-keyboard="true"] #rank-pill, :root[data-landscape-keyboard="true"] #level-pill, :root[data-landscape-keyboard="true"] #q-clef, :root[data-landscape-keyboard="true"] #midi-pill { display: none !important; }
-  :root[data-landscape-keyboard="true"] #practice-return { position: fixed; left: 8px; top: 8px; width: 100px; height: 44px; }
-  :root[data-landscape-keyboard="true"] #practice-title { position: fixed; left: 124px; right: 124px; top: 7px; height: 20px; font-size: 12px; text-align: left; }
-  :root[data-landscape-keyboard="true"] #start { position: fixed; right: 8px; top: 60px; width: 100px !important; height: 66px; white-space: normal; display: flex; flex-direction: column; justify-content: center; gap: 5px; padding: 6px !important; }
-  :root[data-landscape-keyboard="true"] #open-settings { position: fixed; right: 8px; top: 134px; width: 100px; height: 44px; }
-  :root[data-landscape-keyboard="true"] .practice-time { position: fixed; right: 8px; top: 186px; width: 100px; display: grid; place-items: center; }
-  :root[data-landscape-keyboard="true"] #practice-advance { position: fixed; right: 8px; top: 8px; width: 100px; height: 44px; }
-  :root[data-landscape-keyboard="true"] #timing-mode { position: fixed; left: 8px; top: 60px; width: 100px; height: 100px; }
+  :root[data-landscape-keyboard="true"] #practice-return { position: fixed; left: calc(8px + env(safe-area-inset-left, 0px)); top: calc(8px + env(safe-area-inset-top, 0px)); width: 100px; height: 44px; }
+  :root[data-landscape-keyboard="true"] #practice-title { position: fixed; left: calc(124px + env(safe-area-inset-left, 0px)); right: calc(124px + env(safe-area-inset-right, 0px)); top: calc(7px + env(safe-area-inset-top, 0px)); height: 20px; font-size: 12px; text-align: left; }
+  :root[data-landscape-keyboard="true"] #start { position: fixed; right: calc(8px + env(safe-area-inset-right, 0px)); top: calc(60px + env(safe-area-inset-top, 0px)); width: 100px !important; height: 66px; white-space: normal; display: flex; flex-direction: column; justify-content: center; gap: 5px; padding: 6px !important; }
+  :root[data-landscape-keyboard="true"] #open-settings { position: fixed; right: calc(8px + env(safe-area-inset-right, 0px)); top: calc(134px + env(safe-area-inset-top, 0px)); width: 100px; height: 44px; }
+  :root[data-landscape-keyboard="true"] .practice-time { position: fixed; right: calc(8px + env(safe-area-inset-right, 0px)); top: calc(186px + env(safe-area-inset-top, 0px)); width: 100px; display: grid; place-items: center; }
+  :root[data-landscape-keyboard="true"] #practice-advance { position: fixed; right: calc(8px + env(safe-area-inset-right, 0px)); top: calc(8px + env(safe-area-inset-top, 0px)); width: 100px; height: 44px; }
+  :root[data-landscape-keyboard="true"] #timing-mode { position: fixed; left: calc(8px + env(safe-area-inset-left, 0px)); top: calc(60px + env(safe-area-inset-top, 0px)); width: 100px; height: 100px; }
   :root[data-landscape-keyboard="true"] #timing-mode.quick-game-hud { position: fixed !important; display: flex !important; flex-wrap: wrap; padding: 8px; align-items: center; justify-content: space-between; }
   :root[data-landscape-keyboard="true"] #timing-mode .quick-game-points { width: 100%; }
   :root[data-landscape-keyboard="true"] #timing-mode .quick-game-points strong { font-size: 27px; }
   :root[data-landscape-keyboard="true"] #timing-mode .quick-game-best { width: 100%; justify-content: flex-start; gap: 6px; }
   :root[data-landscape-keyboard="true"] #timing-mode .quick-game-best svg { width: 20px; }
   :root[data-landscape-keyboard="true"] #timing-mode .quick-game-best b { font-size: 16px; }
-  :root[data-landscape-keyboard="true"] #reader-view > main { position: fixed; left: 116px; right: 116px; top: 32px; height: calc(52dvh - 36px); padding: 0; display: block; }
+  :root[data-landscape-keyboard="true"] #reader-view > main { position: fixed; left: calc(116px + env(safe-area-inset-left, 0px)); right: calc(116px + env(safe-area-inset-right, 0px)); top: calc(32px + env(safe-area-inset-top, 0px)); height: calc(52dvh - 36px - env(safe-area-inset-top, 0px)); padding: 0; display: block; }
   :root[data-landscape-keyboard="true"] #staff-wrap { width: 100%; height: 100%; }
-  :root[data-landscape-keyboard="true"] #status-row { position: fixed; left: 8px; top: 172px; width: 100px; height: auto; display: flex; flex-direction: column; gap: 12px; }
+  :root[data-landscape-keyboard="true"] #status-row { position: fixed; left: calc(8px + env(safe-area-inset-left, 0px)); top: calc(172px + env(safe-area-inset-top, 0px)); width: 100px; height: auto; display: flex; flex-direction: column; gap: 12px; }
   :root[data-landscape-keyboard="true"] #status-row .hud { display: flex; flex-direction: column; align-items: stretch; gap: 8px; font-size: 13px; width: 100%; }
   :root[data-landscape-keyboard="true"] #status-row .hud > span { width: 100%; display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: center; padding: 0 8px; }
   :root[data-landscape-keyboard="true"] #status-row .hud > span b { text-align: right; font-variant-numeric: tabular-nums; }
   :root[data-landscape-keyboard="true"] #status-row #feedback { white-space: normal; font-size: 13px; text-align: left; justify-content: flex-start; }
-  :root[data-landscape-keyboard="true"] #input-area { position: fixed; left: 116px; right: 116px; bottom: 8px; height: calc(48dvh - 8px); padding: 0; }
+  :root[data-landscape-keyboard="true"] #input-area { position: fixed; left: calc(116px + env(safe-area-inset-left, 0px)); right: calc(116px + env(safe-area-inset-right, 0px)); bottom: calc(8px + env(safe-area-inset-bottom, 0px)); height: calc(48dvh - 8px - env(safe-area-inset-bottom, 0px)); padding: 0; }
   :root[data-landscape-keyboard="true"] #piano { padding: 0; --edge: 0px; }
   :root[data-landscape-keyboard="true"] #key-label { height: 26px; max-width: 180px; font-size: 12px; }
 }
@@ -32,7 +32,7 @@
 
 @media (orientation: landscape) and (max-height: 500px) {
   :root[data-landscape-keyboard="true"] #reader-view .tempo {
-    position: fixed; left: 8px; top: 60px; width: 100px; height: 100px;
+    position: fixed; left: calc(8px + env(safe-area-inset-left, 0px)); top: calc(60px + env(safe-area-inset-top, 0px)); width: 100px; height: 100px;
     grid-template-columns: 1fr 1fr; grid-template-rows: 44px 44px; gap: 4px;
   }
   :root[data-landscape-keyboard="true"] #bpm-show { grid-column: 1 / -1; grid-row: 1; text-align: center; align-self: center; }

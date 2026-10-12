@@ -1,4 +1,4 @@
-// MIDI input: native Android plugin (USB + Bluetooth LE) with Web MIDI fallback for desktop browsers.
+// MIDI input: native Android/iOS bridges with Web MIDI fallback for desktop browsers.
 import { Capacitor, registerPlugin } from '@capacitor/core';
 
 const Native = registerPlugin('Midi');
@@ -8,6 +8,8 @@ let subscriptions = [];
 export const connectedDevices = () => [...devices];
 
 export const isNative = Capacitor.isPluginAvailable('Midi');
+export const systemBluetoothPicker = isNative && Capacitor.getPlatform() === 'ios';
+export async function showBluetoothPicker() { await Native.showBluetoothPicker(); }
 
 export function on(event, cb) {
   listeners[event].push(cb);

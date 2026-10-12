@@ -9,3 +9,8 @@
   Content-Type: application/vnd.android.package-archive
   Content-Disposition: attachment
   Cache-Control: public, max-age=300
+
+/downloads/*.zip
+  Content-Type: application/zip
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=300

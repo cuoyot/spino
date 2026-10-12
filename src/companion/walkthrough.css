@@ -1,0 +1,6 @@
+#cp-walkthrough { position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;padding:0;background:transparent;overflow:hidden; }
+#cp-walkthrough::backdrop { background:#0008; }
+.cp-tour-highlight { position:fixed;border:3px solid var(--theme-accent,#4f8cff);border-radius:10px;pointer-events:none;box-shadow:0 0 0 6px #4f8cff33; }
+.cp-tour-card { position:absolute;bottom:calc(100px + env(safe-area-inset-bottom));right:calc(20px + env(safe-area-inset-right));left:calc(20px + env(safe-area-inset-left));max-width:430px;margin:auto;padding:20px;border-radius:18px;background:var(--theme-panel,#1e2127);color:var(--theme-text,#e8eaed);box-shadow:0 8px 40px #0007; }
+.cp-tour-card h2 { margin:8px 0; }.cp-tour-card small { color:var(--theme-muted,#9aa0a6); }.cp-tour-card button { min-height:44px; }
+@media(orientation:landscape) and (max-height:500px) { .cp-tour-card { left:auto;bottom:calc(12px + env(safe-area-inset-bottom));max-width:350px;padding:14px; }.cp-tour-card p { font-size:14px;margin:10px 0; } }

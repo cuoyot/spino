@@ -1,5 +1,22 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Appearance|Aparença
+Light, dark or match your device|Clar, fosc o segons el dispositiu
+App tour|Recorregut de l’app
+Explore the main screens|Explora les pantalles principals
+Rate app|Valorar l’app
+Share app|Compartir l’app
+Light theme|Tema clar
+Dark theme|Tema fosc
+Match device theme|Seguir el tema del dispositiu
+Practice piano with SPino.|Practica piano amb SPino.
+Share SPino|Compartir SPino
+Copy this link to share SPino.|Copia aquest enllaç per compartir SPino.
+App link copied.|Enllaç de l’app copiat.
+Could not share the app.|No s’ha pogut compartir l’app.
+Could not open the app rating.|No s’ha pogut obrir la valoració de l’app.
+Downloads use any available internet connection.|Les descàrregues fan servir qualsevol connexió a internet disponible.
+Upcoming reminders are scheduled first. Later reminders refresh when you open the app.|Es programen primer els recordatoris més propers. Els posteriors s’actualitzen quan obres l’app.
 Print score|Imprimir partitura
 Print|Imprimir
 Save PDF|Desar PDF
@@ -798,7 +815,7 @@ Edit block|Editar el bloc
 This planned practice is no longer available.|Aquesta pràctica prevista ja no està disponible.
 Reschedule practice|Reprogramar la pràctica
 Time (optional)|Hora (opcional)
-Reminder 15 minutes before (Android)|Recordatori 15 minuts abans (Android)
+Reminder 15 minutes before|Recordatori 15 minuts abans
  blocks · | blocs · 
  planned min · | min previstos · 
 Enter a time for the reminder.|Indica una hora per al recordatori.
@@ -839,7 +856,7 @@ Work (optional)|Obra (opcional)
 No linked work|Cap obra vinculada
 Piano practice|Pràctica de piano
 Plan saved; reminders are disabled.|Pla desat; els recordatoris estan desactivats.
-Plan saved. Reminders with the app closed require the Android app.|Pla desat. Els recordatoris amb l’app tancada requereixen l’app Android.
+Plan saved. Reminders with the app closed require the Android or iOS app.|Pla desat. Els recordatoris amb l’app tancada requereixen l’app Android o iOS.
 Plan saved, but the reminder could not be scheduled.|Pla desat, però no s’ha pogut programar el recordatori.
 The selected score needs validation, analysis or piano-part selection.|Cal validar o analitzar la partitura seleccionada o triar-ne les parts de piano.
 This score is not ready to practise.|Aquesta partitura encara no està preparada per practicar.
@@ -1330,7 +1347,7 @@ Available on this device|Disponibles en aquest dispositiu
 Reminders|Recordatoris
 Enabled|Activats
 Disabled|Desactivats
-Available in the Android app|Disponible a l’app Android
+Available in the Android or iOS app|Disponible a l’app Android o iOS
 Search scores|Cercar partitures
 No saved scores yet|Encara no hi ha partitures desades
 Import a PDF or download a score from the catalogue.|Importa un PDF o descarrega una partitura del catàleg.

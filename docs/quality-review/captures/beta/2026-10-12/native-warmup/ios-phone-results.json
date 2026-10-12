@@ -1,0 +1,1041 @@
+[
+  {
+    "case": "warmup-guide",
+    "surface": "READER-05",
+    "title": "Warm-up guide",
+    "orientation": "portrait",
+    "target": "ios-phone",
+    "status": "captured",
+    "metrics": {
+      "toast": "Tu sesión se ha recuperado en pausa. El tiempo con la app cerrada no se ha contado.",
+      "focus": {
+        "id": "",
+        "tag": "H2"
+      },
+      "safeArea": [
+        "62px",
+        "0px",
+        "34px",
+        "0px"
+      ],
+      "horizontalOverflow": false,
+      "readerSnapshot": {
+        "line": {
+          "idx": 0,
+          "lastD": 34,
+          "states": [
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending"
+          ],
+          "shownAt": 347,
+          "warmPhase": 0,
+          "warmup": false,
+          "hand": null,
+          "bars": 4,
+          "key": "C",
+          "melody": true,
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "fingerWin": {
+            "treble": 34
+          },
+          "notes": [
+            {
+              "start": 0,
+              "pos": null,
+              "acc": "",
+              "bar": 0,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 4,
+              "pos": null,
+              "acc": "",
+              "bar": 0,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 8,
+              "pos": null,
+              "acc": "",
+              "bar": 0,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 12,
+              "pos": null,
+              "acc": "",
+              "bar": 0,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 16,
+              "pos": null,
+              "acc": "",
+              "bar": 1,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 20,
+              "pos": null,
+              "bar": 1,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "finger": 1,
+              "d": 34,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 24,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 1,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 28,
+              "pos": null,
+              "acc": "",
+              "bar": 1,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 32,
+              "pos": null,
+              "bar": 2,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "finger": 1,
+              "d": 34,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 36,
+              "pos": null,
+              "acc": "",
+              "bar": 2,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 40,
+              "pos": null,
+              "bar": 2,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 44,
+              "pos": null,
+              "bar": 2,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 48,
+              "pos": null,
+              "acc": "",
+              "bar": 3,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 52,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 3,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 56,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 3,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 60,
+              "pos": null,
+              "acc": "",
+              "bar": 3,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            }
+          ],
+          "beats": 16,
+          "misses": 0,
+          "together": false
+        },
+        "beat": 0,
+        "settings": {
+          "layoutMode": "scroll",
+          "figures": {
+            "w": false,
+            "e": false,
+            "q": true,
+            "h": false,
+            "s": false
+          },
+          "naming": "english",
+          "lang": "es",
+          "position": "five",
+          "metronome": true,
+          "hands": "alternate",
+          "maxAcc": 0,
+          "timing": "timed",
+          "input": "piano",
+          "stopOnMiss": false,
+          "templateId": "l1",
+          "accidentals": false,
+          "timeSig": "4/4",
+          "reveal": true,
+          "dotted": false,
+          "pianoMode": false,
+          "clef": "treble",
+          "level": 0,
+          "guide": "off",
+          "soundMode": "tone",
+          "scale": "major",
+          "tolerance": "relaxed",
+          "fingering": false,
+          "kbZoom": 1,
+          "zoom": 1,
+          "bpm": 40,
+          "mode": "melody",
+          "light": "normal"
+        }
+      },
+      "native": true,
+      "viewport": {
+        "visualTop": 0,
+        "dpr": 3,
+        "visualHeight": 874,
+        "width": 402,
+        "height": 874
+      },
+      "title": "Calentamiento",
+      "capabilities": {
+        "fullscreen": true,
+        "promiseWithResolvers": "function"
+      },
+      "plugins": [
+        {
+          "name": "Notebook",
+          "available": false
+        },
+        {
+          "name": "CloudBackup",
+          "available": true
+        },
+        {
+          "name": "ScorePrinter",
+          "available": false
+        },
+        {
+          "name": "SystemBars",
+          "available": true
+        }
+      ],
+      "view": "session",
+      "visibility": "visible",
+      "text": "Calentamiento\n\nHanon n.º 1 · Trabaja la extensión entre los dedos 4 y 5.\n\n1. Coloca\n\nRelaja ambas muñecas. Empieza con una octava de separación y la misma forma abierta en las dos manos.\n\n2. Toca la figura\n\nMantén los dedos curvados y deja que cada dedo que toca se apoye en su tecla.\n\n3. Recoge\n\nDespués de la octava nota, acerca los dedos y avanza un poco la mano hacia el fondo de las teclas.\n\n4. Desplaza y abre\n\nDesplaza una tecla y vuelve a abrir más arriba, para que pulgar y meñique lleguen más perpendiculares.\n\nMano derecha\n1\nDo\n2\nMi\n3\nFa\n4\nSol\n5\nLa\n4\nSol\n3\nFa\n2\nMi\nMano izquierda\n5\nDo\n4\nMi\n3\nFa\n2\nSol\n1\nLa\n2\nSol\n3\nFa\n4\nMi\nColoca las manos\nPulgar derecho en el Do central y meñique izquierdo en el Do una octava más abajo. Mantén ambas muñecas relajadas.\nToca la figura de 8 notas\nLas dos manos a la vez, a una octava: Do – Mi – Fa – Sol – La – Sol – Fa – Mi.\nRecoge, desplaza y vuelve a abrir\nDespués de cada figura, mueve las dos manos juntas una tecla blanca. Si necesitas abarcar más, avanza la mano hacia el fondo de las teclas para que pulgar y meñique lleguen más perpendiculares; no tuerzas la muñeca.\nVuelve\nDespués de una octava, usa la figura invertida para volver hasta el Do.\nMantén los dedos curvados y levanta cada uno con claridad.\nPrimero lento y regular: acelera solo cuando todas las notas suenen igual.\nUsa la posición, no la tensión lateral, para abrir la mano.\n\nDe C.-L. Hanon, El pianista virtuoso (1873).\n\nCerrar",
+      "controls": [
+        {
+          "right": 367,
+          "label": "Cerrar",
+          "x": 289.125,
+          "width": 77.875,
+          "y": 2159.203125,
+          "disabled": false,
+          "type": "button",
+          "tag": "BUTTON",
+          "action": "close-dialog",
+          "height": 44,
+          "bottom": 2203.203125
+        }
+      ],
+      "pdfCanvas": null,
+      "nav": [
+        {
+          "x": 4,
+          "action": "home",
+          "height": 60,
+          "bottom": 834,
+          "y": 774,
+          "width": 67.1875,
+          "label": "Hoy",
+          "right": 71.1875
+        },
+        {
+          "bottom": 834,
+          "x": 73.1875,
+          "height": 60,
+          "action": "practice",
+          "y": 774,
+          "width": 67.203125,
+          "label": "Practicar",
+          "right": 140.390625
+        },
+        {
+          "x": 142.390625,
+          "height": 60,
+          "action": "calendar",
+          "bottom": 834,
+          "y": 774,
+          "width": 67.203125,
+          "label": "Calendario",
+          "right": 209.59375
+        },
+        {
+          "x": 211.59375,
+          "height": 60,
+          "action": "piano",
+          "bottom": 834,
+          "y": 774,
+          "width": 67.203125,
+          "label": "Biblioteca",
+          "right": 278.796875
+        },
+        {
+          "x": 280.796875,
+          "height": 60,
+          "action": "progress",
+          "y": 774,
+          "bottom": 834,
+          "width": 67.203125,
+          "label": "Progreso",
+          "right": 348
+        },
+        {
+          "action": "settings",
+          "x": 350,
+          "bottom": 834,
+          "height": 60,
+          "y": 774,
+          "width": 48,
+          "label": "Perfil",
+          "right": 398
+        }
+      ],
+      "scrollContainers": [
+        {
+          "id": "",
+          "top": 0,
+          "class": "cp-page",
+          "max": 193,
+          "tag": "DIV"
+        },
+        {
+          "id": "cp-dialog",
+          "top": 0,
+          "class": "",
+          "max": 27,
+          "tag": "DIALOG"
+        },
+        {
+          "id": "",
+          "top": 0,
+          "max": 1400,
+          "tag": "DIV",
+          "class": "cp-dialog-body"
+        }
+      ],
+      "compatibility": null,
+      "errors": []
+    },
+    "frames": [
+      {
+        "path": "ios-phone/portrait/warmup-guide-01.png",
+        "scroll": 0,
+        "state": "Initial focus state",
+        "sha256": "d964a3bb2dcfaf4088b6149b11252711894150070f56cd1f96ac33a31f9a8920"
+      },
+      {
+        "path": "ios-phone/portrait/warmup-guide-02.png",
+        "scroll": 623.2,
+        "state": "Scrolled content",
+        "sha256": "f5377dc685c8de7aac236f84edc0991580e97177fd254ce4211a0f6b85c851ce"
+      },
+      {
+        "path": "ios-phone/portrait/warmup-guide-03.png",
+        "scroll": 1246.4,
+        "state": "Scrolled content",
+        "sha256": "3340924836534245e9405f264b545a62ace324e72d3409365c85be1e0c4cb122"
+      },
+      {
+        "path": "ios-phone/portrait/warmup-guide-04.png",
+        "scroll": 1400,
+        "state": "Scrolled content",
+        "sha256": "c0d99d534bbad7ebbfa41715e7efe926e999e5a7c329d6ea74f2981e2e0a2e1e"
+      }
+    ]
+  },
+  {
+    "case": "warmup-guide",
+    "surface": "READER-05",
+    "title": "Warm-up guide",
+    "orientation": "landscape",
+    "target": "ios-phone",
+    "status": "captured",
+    "metrics": {
+      "errors": [],
+      "visibility": "visible",
+      "horizontalOverflow": false,
+      "safeArea": [
+        "0px",
+        "62px",
+        "20px",
+        "62px"
+      ],
+      "native": true,
+      "readerSnapshot": {
+        "beat": 0,
+        "line": {
+          "idx": 0,
+          "lastD": 34,
+          "shownAt": 72,
+          "states": [
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending",
+            "pending"
+          ],
+          "warmPhase": 0,
+          "warmup": false,
+          "hand": null,
+          "bars": 4,
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "notes": [
+            {
+              "start": 0,
+              "pos": null,
+              "bar": 0,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 4,
+              "pos": null,
+              "bar": 0,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 8,
+              "pos": null,
+              "bar": 0,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "finger": 1,
+              "d": 34,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 12,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 0,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 16,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 1,
+              "octave": 4,
+              "units": 4,
+              "midi": 71,
+              "d": 34,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 20,
+              "pos": null,
+              "bar": 1,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "midi": 71,
+              "d": 34,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 24,
+              "pos": null,
+              "acc": "",
+              "bar": 1,
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 28,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 1,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 32,
+              "pos": null,
+              "bar": 2,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 36,
+              "pos": null,
+              "bar": 2,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 40,
+              "pos": null,
+              "bar": 2,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 44,
+              "pos": null,
+              "acc": "",
+              "letter": "b",
+              "bar": 2,
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 48,
+              "pos": null,
+              "bar": 3,
+              "acc": "",
+              "letter": "b",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "finger": 1,
+              "midi": 71,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 52,
+              "pos": null,
+              "bar": 3,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 56,
+              "pos": null,
+              "bar": 3,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            },
+            {
+              "start": 60,
+              "pos": null,
+              "bar": 3,
+              "letter": "b",
+              "acc": "",
+              "octave": 4,
+              "units": 4,
+              "d": 34,
+              "midi": 71,
+              "finger": 1,
+              "clef": "treble",
+              "shift": false,
+              "dur": "q"
+            }
+          ],
+          "key": "C",
+          "fingerWin": {
+            "treble": 34
+          },
+          "beats": 16,
+          "melody": true,
+          "misses": 0,
+          "together": false
+        },
+        "settings": {
+          "layoutMode": "scroll",
+          "figures": {
+            "w": false,
+            "s": false,
+            "q": true,
+            "h": false,
+            "e": false
+          },
+          "lang": "es",
+          "naming": "english",
+          "position": "five",
+          "metronome": true,
+          "hands": "alternate",
+          "maxAcc": 0,
+          "timing": "timed",
+          "input": "piano",
+          "stopOnMiss": false,
+          "reveal": true,
+          "accidentals": false,
+          "templateId": "l1",
+          "timeSig": "4/4",
+          "dotted": false,
+          "pianoMode": false,
+          "clef": "treble",
+          "level": 0,
+          "guide": "off",
+          "soundMode": "tone",
+          "scale": "major",
+          "kbZoom": 1,
+          "fingering": false,
+          "tolerance": "relaxed",
+          "zoom": 1,
+          "bpm": 40,
+          "mode": "melody",
+          "light": "normal"
+        }
+      },
+      "viewport": {
+        "dpr": 3,
+        "visualTop": 0,
+        "visualHeight": 402,
+        "width": 874,
+        "height": 402
+      },
+      "capabilities": {
+        "promiseWithResolvers": "function",
+        "fullscreen": true
+      },
+      "title": "Calentamiento",
+      "plugins": [
+        {
+          "name": "Notebook",
+          "available": false
+        },
+        {
+          "name": "CloudBackup",
+          "available": true
+        },
+        {
+          "name": "ScorePrinter",
+          "available": false
+        },
+        {
+          "name": "SystemBars",
+          "available": true
+        }
+      ],
+      "view": "session",
+      "focus": {
+        "id": "",
+        "tag": "H2"
+      },
+      "text": "Calentamiento\n\nHanon n.º 1 · Trabaja la extensión entre los dedos 4 y 5.\n\n1. Coloca\n\nRelaja ambas muñecas. Empieza con una octava de separación y la misma forma abierta en las dos manos.\n\n2. Toca la figura\n\nMantén los dedos curvados y deja que cada dedo que toca se apoye en su tecla.\n\n3. Recoge\n\nDespués de la octava nota, acerca los dedos y avanza un poco la mano hacia el fondo de las teclas.\n\n4. Desplaza y abre\n\nDesplaza una tecla y vuelve a abrir más arriba, para que pulgar y meñique lleguen más perpendiculares.\n\nMano derecha\n1\nDo\n2\nMi\n3\nFa\n4\nSol\n5\nLa\n4\nSol\n3\nFa\n2\nMi\nMano izquierda\n5\nDo\n4\nMi\n3\nFa\n2\nSol\n1\nLa\n2\nSol\n3\nFa\n4\nMi\nColoca las manos\nPulgar derecho en el Do central y meñique izquierdo en el Do una octava más abajo. Mantén ambas muñecas relajadas.\nToca la figura de 8 notas\nLas dos manos a la vez, a una octava: Do – Mi – Fa – Sol – La – Sol – Fa – Mi.\nRecoge, desplaza y vuelve a abrir\nDespués de cada figura, mueve las dos manos juntas una tecla blanca. Si necesitas abarcar más, avanza la mano hacia el fondo de las teclas para que pulgar y meñique lleguen más perpendiculares; no tuerzas la muñeca.\nVuelve\nDespués de una octava, usa la figura invertida para volver hasta el Do.\nMantén los dedos curvados y levanta cada uno con claridad.\nPrimero lento y regular: acelera solo cuando todas las notas suenen igual.\nUsa la posición, no la tensión lateral, para abrir la mano.\n\nDe C.-L. Hanon, El pianista virtuoso (1873).\n\nCerrar",
+      "controls": [
+        {
+          "right": 804,
+          "label": "Cerrar",
+          "x": 726.125,
+          "y": 1311.578125,
+          "disabled": false,
+          "width": 77.875,
+          "type": "button",
+          "action": "close-dialog",
+          "tag": "BUTTON",
+          "height": 44,
+          "bottom": 1355.578125
+        }
+      ],
+      "pdfCanvas": null,
+      "compatibility": null,
+      "nav": [
+        {
+          "height": 52,
+          "action": "home",
+          "x": 70,
+          "bottom": 61,
+          "y": 9,
+          "width": 73,
+          "label": "Hoy",
+          "right": 143
+        },
+        {
+          "height": 52,
+          "x": 70,
+          "bottom": 113,
+          "y": 61,
+          "action": "practice",
+          "width": 73,
+          "label": "Practicar",
+          "right": 143
+        },
+        {
+          "height": 52,
+          "x": 70,
+          "bottom": 165,
+          "y": 113,
+          "action": "calendar",
+          "width": 73,
+          "label": "Calendario",
+          "right": 143
+        },
+        {
+          "action": "piano",
+          "x": 70,
+          "height": 52,
+          "y": 165,
+          "bottom": 217,
+          "width": 73,
+          "label": "Biblioteca",
+          "right": 143
+        },
+        {
+          "action": "progress",
+          "height": 52,
+          "x": 70,
+          "y": 217,
+          "bottom": 269,
+          "width": 73,
+          "label": "Progreso",
+          "right": 143
+        },
+        {
+          "action": "settings",
+          "x": 70,
+          "bottom": 374,
+          "y": 314,
+          "height": 60,
+          "width": 73,
+          "label": "Perfil",
+          "right": 143
+        }
+      ],
+      "scrollContainers": [
+        {
+          "id": "",
+          "top": 0,
+          "max": 175,
+          "tag": "DIV",
+          "class": "cp-page"
+        },
+        {
+          "id": "",
+          "top": 0,
+          "class": "cp-dialog-body",
+          "tag": "DIV",
+          "max": 1014
+        }
+      ],
+      "toast": "Tu sesión se ha recuperado en pausa. El tiempo con la app cerrada no se ha contado."
+    },
+    "frames": [
+      {
+        "path": "ios-phone/landscape/warmup-guide-01.png",
+        "scroll": 0,
+        "state": "Initial focus state",
+        "sha256": "d23e40cd74d3b3a24b11b39cd72a363a55d1bcb76abcf5cd6f2c43c90b61ba62"
+      },
+      {
+        "path": "ios-phone/landscape/warmup-guide-02.png",
+        "scroll": 283.2,
+        "state": "Scrolled content",
+        "sha256": "0ac132d30d5108efb53313c63b9361453fb375814ae9d7fed6f8f530e14c49e1"
+      },
+      {
+        "path": "ios-phone/landscape/warmup-guide-03.png",
+        "scroll": 566.4,
+        "state": "Scrolled content",
+        "sha256": "054fc8b85ac4aaf858c2bce6b8f48d7b2871e79db99f84ef648ed08000cb3c92"
+      },
+      {
+        "path": "ios-phone/landscape/warmup-guide-04.png",
+        "scroll": 849.5999999999999,
+        "state": "Scrolled content",
+        "sha256": "f9e8ea013f387ead34e5d8f36edc55db4291d3e3320c5361e0f022d3ae673478"
+      },
+      {
+        "path": "ios-phone/landscape/warmup-guide-05.png",
+        "scroll": 1014,
+        "state": "Scrolled content",
+        "sha256": "3828c9505524ea6cf126d0d1599f1fcc59400c820f07f9ccacb5ab7c6167cf7c"
+      }
+    ]
+  }
+]

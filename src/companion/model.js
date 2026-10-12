@@ -27,7 +27,7 @@ export function addDays(date, count) { const d = new Date(date + 'T12:00:00'); d
 export function weekOf(date) { const d = new Date(date + 'T12:00:00'); return addDays(date, -((d.getDay() + 6) % 7)); }
 export function daysUntil(date, from = localDate()) { return Math.round((Date.parse(date + 'T12:00:00Z') - Date.parse(from + 'T12:00:00Z')) / 86400000); }
 export function emptyData() {
-  return { schemaVersion: VERSION, preferences: { name: '', context: 'mobile', weeklyMinutes: 90, wifiOnly: true }, works: [], downloads: [], downloadJobs: [], routines: [], plans: [], events: [], sessions: [], active: null, lastBackup: null };
+  return { schemaVersion: VERSION, preferences: { name: '', context: 'mobile', weeklyMinutes: 90, wifiOnly: true, theme: 'system' }, works: [], downloads: [], downloadJobs: [], routines: [], plans: [], events: [], sessions: [], active: null, lastBackup: null };
 }
 export function block(type = 'reading', values = {}) {
   return { id: uid(), type, minutes: 5, bpm: 60, timing: 'timed', target: 'C-major', hand: 'right', input: 'piano', figures: '1', passage: '', workId: '', ...values };
@@ -182,6 +182,8 @@ export function validateData(input) {
   const safe = JSON.parse(JSON.stringify(input), (key, value) => ['__proto__', 'constructor', 'prototype'].includes(key) ? undefined : value);
   safe.downloads ||= [];
   safe.preferences.wifiOnly ??= true;
+  safe.preferences.theme ??= 'dark';
+  if (!['light','dark','system'].includes(safe.preferences.theme)) fail();
   if (typeof safe.preferences.wifiOnly !== 'boolean') fail();
   safe.downloadJobs ||= [];
   if (!Array.isArray(safe.downloadJobs) || safe.downloadJobs.length > 500 || !safe.downloadJobs.every(j => obj(j) && str(j.catalogId,100) && str(j.revision,100) && ['queued','downloading','paused','waiting-wifi','failed','complete'].includes(j.status) && number(j.loaded) && number(j.total))) fail();

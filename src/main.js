@@ -1,3 +1,4 @@
+import './companion/theme.js';
 import { ui, getAppLanguage } from './companion/locale.js';
 import './midi-indicator.css';
 import { midiIndicatorMarkup, setMidiContext } from './midi-indicator.js';

@@ -48,6 +48,16 @@ public class NotebookPlugin extends Plugin {
         if (practiceAwakeRequested) getActivity().getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
+    @PluginMethod public void applyAppearance(PluginCall call) {
+        boolean dark = call.getBoolean("dark", true);
+        getActivity().runOnUiThread(() -> {
+            int color = android.graphics.Color.parseColor(dark ? "#14161a" : "#f3f5fa");
+            getActivity().getWindow().setStatusBarColor(color);
+            getActivity().getWindow().setNavigationBarColor(color);
+            call.resolve();
+        });
+    }
+
     @PluginMethod public void scoreFullscreen(PluginCall call) {
         boolean enabled = call.getBoolean("enabled", false);
         getActivity().runOnUiThread(() -> {

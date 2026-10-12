@@ -2,9 +2,15 @@
 
 This workspace records the screen-by-screen review requested on 2026-10-01 before SPino is considered ready for product version 1.0. The installed technical version remains 5.0.0; this review does not renumber packages or publish a release.
 
-Current focus: [PRACTICE-05, free and repertoire practice](manual-practice.md), including the owner-requested dedicated metronome workspace D-022. Native/accessibility coverage remains open. Hanon remains parked. Earlier generated-practice approvals remain unchanged.
+Current focus (2026-10-12): [6.0.0 beta implementation and release verification](../releases/6.0.0-beta.1.md). Core MIDI, themes, engagement actions, walkthrough and warm-up focus are implemented. Physical MIDI acceptance and closed-app notification delivery checks are tracked there. Earlier review records below are historical.
+
+Previous focus:  [selected iOS parity fixes and MIDI options](platform-ios-followup.md), following the owner-requested [native Android/iOS comparison](platform-comparison.md). Date/time geometry, landscape safe areas and unrestricted iOS network type are implemented and verified; local notifications are integrated with delivery acceptance open. MIDI is required and its bridge implementation remains pending. The prior PRACTICE-05 review, Hanon work and physical-device/accessibility gates remain recorded below.
 
 ## Resume work here
+
+2026-10-11 follow-up: owner requires iOS MIDI/notifications and approves PLATFORM-04/13, with unrestricted network type on iOS under PLATFORM-12. See [implemented changes, validation and MIDI options](platform-ios-followup.md). MIDI implementation and notification delivery acceptance remain open; prior comparison evidence is preserved.
+
+2026-10-11: Native platform comparison completed: 134 scenarios × 8 layouts, 1072 evaluated states, 2341 PNG frames; 32 legacy-Android PDF states blocked. Captured states are comparative evidence, not blanket functional acceptance. Used the verified 5.2.7/code39 Android APK and a temporary iOS comparison container using its 255 identical web files. Disposable devices and synthetic notebooks only. See [findings, methodology and coverage limits](platform-comparison.md). Evaluate platform capability gaps separately from layout defects and old-WebView PDF failures.
 
 2026-10-09: Hanon animation work reopened at the owner's request. See the [frame-animation inventory and effort proposal](generated-practice.md#2026-10-09--2d-frame-animation-production-proposal). Static generated 2D frames, active fingers, depressed keys and movement arrows are requested; the new visual pilot is not integrated or anatomically approved. D-015 remains the current app implementation until the replacement is verified.
 
