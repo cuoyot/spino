@@ -109,7 +109,8 @@
         "CLOUD-02",
         "CLOUD-05"
       ],
-      "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending."
+      "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending. Persistent local continuation, pending-provider escape, practice/save/restart and same-notebook repair verified with synthetic browser providers on 2026-10-15; Android replacement install retains all notebook file hashes. Real Drive/provider and physical-device acceptance remain open.",
+      "verifiedAgainst": "profile/2026-10-15-sync-local"
     },
     {
       "id": "calendar",

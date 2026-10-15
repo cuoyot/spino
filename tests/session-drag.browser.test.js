@@ -20,7 +20,7 @@ test('long press moves and bins remaining blocks without losing performed work',
   const touch = (type, p) => send('Input.dispatchTouchEvent', { type, touchPoints: p ? [{ ...p, id: 1 }] : [] });
   const order = () => evaluate('[...document.querySelectorAll("[data-session-block]")].map(e=>e.dataset.sessionBlock)');
   const hold = async id => {
-    await evaluate('document.querySelector("[data-session-block=' + id + ']").scrollIntoView({block:"nearest"})');
+    await evaluate('document.querySelector("[data-session-block=' + id + ']").scrollIntoView({block:"center"})');
     await new Promise(resolve => setTimeout(resolve, 250));
     await touch('touchStart', await point('[data-session-block=' + id + '] .cp-session-block-copy'));
     await wait('!!document.querySelector(".cp-session-drag-ghost")');

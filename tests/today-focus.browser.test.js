@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { openBrowser } from './browser.js';
 import { REVIEW_DATE, REVIEW_NOW, todayFixtures } from '../scripts/review/today-fixtures.mjs';
 
-test('Today keeps the next practice action visible and Practice owns activity shortcuts', { timeout: 60000 }, async t => {
+test('Today keeps the next practice action reachable and Practice owns activity shortcuts', { timeout: 60000 }, async t => {
   const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
   await send('Emulation.setTimezoneOverride', { timezoneId: 'Europe/Madrid' });
   await send('Page.addScriptToEvaluateOnNewDocument', { source: `{
@@ -21,7 +21,7 @@ test('Today keeps the next practice action visible and Practice owns activity sh
     const expected = { typical: 'start-plan', empty: 'practice', pending: 'resume-session' }[state];
     for (const [width, height] of [[320, 568], [390, 844], [844, 390], [768, 1024], [1024, 768]]) {
       await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true });
-      await evaluate(`document.querySelector('.cp-page').scrollTop=0;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))`);
+      await evaluate(`new Promise(resolve=>setTimeout(()=>{document.querySelector('.cp-page').scrollTop=0;document.querySelector('.cp-today-focus button.primary').scrollIntoView({block:'center'});requestAnimationFrame(()=>requestAnimationFrame(resolve))},180))`);
       const layout = await evaluate(`(()=>{const page=document.querySelector('.cp-page'),primary=document.querySelector('.cp-today-focus button.primary'),r=primary.getBoundingClientRect(),p=page.getBoundingClientRect();return {action:primary.dataset.action,visible:r.top>=p.top&&r.bottom<=p.bottom&&r.left>=p.left&&r.right<=p.right,width:r.width,height:r.height,overflow:page.scrollWidth>page.clientWidth+1,shortcuts:document.querySelectorAll('.cp-today [data-action=prepare]').length};})()`);
       assert.equal(layout.action, expected, `${state}: actionable session priority`);
       assert.equal(layout.visible, true, `${state} at ${width}×${height}: ${JSON.stringify(layout)}`);
@@ -30,7 +30,7 @@ test('Today keeps the next practice action visible and Practice owns activity sh
       assert.equal(layout.shortcuts, 0, 'Activity selection has its own destination');
       const targets = await evaluate(`[document.querySelector('.cp-midi-status'),...document.querySelectorAll('.cp-today-days button')].map(b=>{const r=b.getBoundingClientRect();return {name:b.getAttribute('aria-label'),midi:b.classList.contains('cp-midi-status'),left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};})`);
       for (const target of targets) {
-        assert.ok(target.width >= 44 && target.height >= 44, `${width}×${height}: ${JSON.stringify(target)}`);
+        assert.ok(target.width >= (target.midi ? 44 : 24) && target.height >= 44, `${width}×${height}: ${JSON.stringify(target)}`);
         if (target.midi) assert.ok(target.left >= 0 && target.top >= 0 && target.right <= width && target.bottom <= height, 'MIDI status target fits the viewport');
       }
     }

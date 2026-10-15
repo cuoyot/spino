@@ -121,7 +121,7 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
     assert.deepEqual((await readStore('assets', assetId)).annotations, snapshot.annotations);
     await control('close'); await wait(`!document.querySelector('.pdf-viewer')`); await action('settings'); await action('profile-backup');
     await evaluate(`window.nativeObjectURL=URL.createObjectURL;URL.createObjectURL=blob=>{window.exportedBlob=blob;return nativeObjectURL(blob);};HTMLAnchorElement.prototype.click=function(){};`);
-    await action('export-backup'); await wait(`window.exportedBlob`);
+    await action('export-backup'); await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`); await wait(`window.exportedBlob`);
     const backup = await evaluate(`exportedBlob.text().then(text=>JSON.parse(text))`);
     assert.deepEqual(backup.assets[0].annotations, snapshot.annotations); assert.equal(backup.assets[0].base64, scorePDF());
     await evaluate(`(async()=>{window.backupText=await exportedBlob.text();HTMLInputElement.prototype.click=function(){if(this.type==='file'){const data=new DataTransfer();data.items.add(new File([window.backupText],'backup.json',{type:'application/json'}));this.files=data.files;this.dispatchEvent(new Event('change'));}};})()`);
@@ -132,15 +132,14 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
   });
   await t.test('PDF practice keeps the running timer and exposes pause/resume inside the viewer', async () => {
     await action('piano'); await action('repertoire'); await action('work-detail'); await action('practice-work');
-    await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('[data-action="toggle-session"]')`);
-    await action('toggle-session'); await action('open-pdf'); await ready();
+    await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await ready();
     assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').getAttribute('aria-label')`), 'Pausar práctica');
     const before = await readStore('state', 'current'); assert.ok(before.active.runningSince);
     await control('timer'); assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').getAttribute('aria-label')`), 'Continuar práctica');
     await wait(`document.querySelector('[data-pdf=timer]').getAttribute('aria-label')==='Continuar práctica'`);
     const after = await readStore('state', 'current'); assert.equal(after.active.runningSince, null); assert.ok(after.active.elapsedMs >= before.active.elapsedMs);
     await control('close'); await wait(`!document.querySelector('.pdf-viewer')`);
-    assert.match(await evaluate(`document.querySelector('[data-action="toggle-session"]').getAttribute('aria-label')`),/Continuar/);
+    assert.match(await evaluate(`document.querySelector('[data-action="open-score-practice"]').textContent`),/Continuar/);
   });
   await t.test('save failures keep the PDF open and allow a retry without losing annotations', async () => {
     const chunk = await pdfViewerChunk();

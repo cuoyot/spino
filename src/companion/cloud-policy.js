@@ -2,7 +2,7 @@
 export function cloudApplyBlocker({active,dialog,scoreViewer,openingScore,document}) {
   if(active)return 'practice';
   if(scoreViewer||openingScore)return 'score';
-  if(dialog?.open)return 'dialog';
+  if(dialog?.open && !dialog.querySelector?.('[data-cloud-preflight]'))return 'dialog';
   if([...document.querySelectorAll('form')].some(form=>form.getClientRects().length && form.id!=='library-search'))return 'editor';
   return null;
 }

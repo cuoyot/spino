@@ -7,8 +7,8 @@ test('profile defaults prefill new reading and session overrides leave them unch
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url });
   const wait = expression => evaluate(`new Promise((resolve,reject)=>{let i=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++i>500){clearInterval(timer);reject(Error('timeout'));}},20);})`);
-  await wait(`document.querySelector('.cp-nav [data-action=settings]')`);
-  await evaluate(`document.querySelector('.cp-nav [data-action=settings]').click();`);
+  await wait(`document.querySelector('.cp-app-header [data-action=settings]')`);
+  await evaluate(`document.querySelector('.cp-app-header [data-action=settings]').click();`);
   assert.equal(await evaluate(`document.querySelector('#app-shell h1').textContent`), 'Perfil');
   // The pianist level lives in Edit profile and sets the default rhythm level and reading range.
   await evaluate(`document.querySelector('[data-action=profile-edit]').click()`);

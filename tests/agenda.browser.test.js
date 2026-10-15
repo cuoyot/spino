@@ -20,7 +20,8 @@ test('Today and weekly calendar show results and add practices on the chosen dat
   await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(data)},'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=reject;};})`);
   await send('Page.reload');
   await wait(`document.querySelector('.cp-today [data-entry-id="done"]')`);
-  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.getAttribute('aria-label')||b.textContent.trim())`), ['Hoy', 'Practicar', 'Calendario', 'Biblioteca', 'Progreso', 'Perfil']);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.getAttribute('aria-label')||b.textContent.trim())`), ['Hoy', 'Practicar', 'Calendario', 'Biblioteca', 'Progreso']);
+  assert.equal(await evaluate(`!!document.querySelector('.cp-app-header [data-action=settings]')`), true);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-today-sessions .cp-agenda-card').length`), 1);
   assert.match(await evaluate(`document.querySelector('[data-entry-id="done"]').textContent`), /10 min practicados/);
   assert.match(await evaluate(`document.querySelector('.cp-entry-note').textContent`), /Pulso más estable/);

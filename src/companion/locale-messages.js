@@ -123,6 +123,7 @@ export const MESSAGE_PAIRS = [
   ['The provider does not allow writing this backup.', 'El proveedor no permite escribir esta copia.'],
   ['The provider did not return the complete written backup. The last good local recovery copy is retained.', 'El proveedor no ha devuelto la copia completa guardada. Se conserva la última copia local de recuperación válida.'],
   ['Choose a backup destination first.', 'Elige primero un destino para la copia.'],
+  ['Connect a shared notebook first.', 'Conecta primero un cuaderno compartido.'],
   ['A file picker is already open.', 'Ya hay un selector de archivos abierto.'],
   ['This provider did not grant read/write access. Choose another destination.', 'El proveedor no ha concedido acceso de lectura y escritura. Elige otro destino.'],
   ['This backup changed outside this device. Restore it manually or create a separate backup file; it has not been overwritten.', 'Esta copia ha cambiado desde otro dispositivo. Restáurala manualmente o crea un archivo de copia separado; no se ha sobrescrito.'],

@@ -1,5 +1,15 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Continue locally|Continuar en local
+Changes stay on this device until you resume synchronization.|Els canvis es desen en aquest dispositiu fins que reprenguis la sincronització.
+Select the sync file again|Torna a seleccionar el fitxer de sincronització
+The selected cloud file is unavailable. Open your file provider, check your account, then select the same sync file again.|El fitxer del núvol seleccionat no està disponible. Obre el proveïdor de fitxers, comprova el compte i torna a seleccionar el mateix fitxer de sincronització.
+You can keep practising locally. Changes stay on this device until you resume synchronization.|Pots continuar practicant en local. Els canvis es desen en aquest dispositiu fins que reprenguis la sincronització.
+Synchronizing notebook…|Sincronitzant el quadern…
+Checking for changes from your other devices.|Comprovant els canvis dels altres dispositius.
+The notebook could not finish synchronizing. Your saved notebook is available on this device.|No s’ha pogut completar la sincronització. El quadern desat està disponible en aquest dispositiu.
+Working locally. Resume synchronization from Backup & sync.|Treballant en local. Reprèn la sincronització des de Còpia i sincronització.
+Connect a shared notebook first.|Connecta primer un quadern compartit.
 Saved practices · scroll horizontally|Pràctiques desades · llisca horitzontalment
 Practised this week|Practicat aquesta setmana
 View progress|Veure el progrés

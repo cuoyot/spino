@@ -122,3 +122,12 @@ test('manual write failure cancels the scheduled attempt and remains stopped aft
   assert.equal(second.state.status, 'error'); assert.equal(f.writes(), 0);
   await second.retry(); assert.equal(f.writes(), 1);
 });
+
+test('local backup pause survives restart and a late write without losing the acknowledged hash',async t=>{
+ const f=fixture(t);await f.engine.connect();let release;f.gate(new Promise(resolve=>{release=resolve;}));f.change();const pending=f.engine.sync();
+ while(!f.writes())await new Promise(resolve=>setTimeout(resolve,1));
+ f.engine.continueLocal();f.change();assert.equal(f.engine.state.enabled,false);assert.equal(f.engine.state.status,'paused');
+ release();await pending;assert.equal(f.engine.state.status,'paused');
+ const second=createCloudBackup(f.options);t.after(()=>second.stop());await second.init();assert.equal(second.state.enabled,false);assert.equal(second.state.status,'paused');
+ f.gate(null);await second.setEnabled(true);await second.sync();assert.equal(second.state.status,'saved');assert.equal(JSON.parse(f.remote()).data.version,3);
+});

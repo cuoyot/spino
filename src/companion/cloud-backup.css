@@ -17,6 +17,8 @@
 .cp-cloud-file small { display: block; margin-top: 4px; font-size: 12px; color: var(--theme-muted, #9aa4b5); line-height: 1.5; }
 .cp-cloud-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .cp-cloud-actions button { flex: 1 1 auto; }
+.cp-cloud-local { margin: 16px 0; }
+.cp-cloud-local p { font-size: 13px; line-height: 1.5; margin: 8px 0; }
 .cp-cloud-browser { margin-top: 18px !important; font-size: 14px; color: var(--theme-muted, #b5bdcb); }
 .cp-cloud-card > .cp-cloud-emblem { margin-bottom: 16px; }
 .cp-cloud-dialog { min-width: 0; }

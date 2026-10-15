@@ -85,9 +85,8 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').textContent`),'Usar en esta práctica');
   await action('library-practice',id);await wait(`document.querySelector('#prepare-form')`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-block').length`),1);
-  await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('[data-action=toggle-session]')`);
+  await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('.xml-score svg') && document.querySelector('.xml-status').textContent.startsWith('Partitura escrita')`);
   const data = await read('current'); assert.equal(data.works.at(-1).target, null); assert.equal(data.active.blocks[0].target, null);
-  await action('toggle-session'); await action('open-pdf'); await wait(`document.querySelector('.xml-score svg') && document.querySelector('.xml-status').textContent.startsWith('Partitura escrita')`);
   await shot('synthetic-practice');
   assert.equal(await evaluate(`document.querySelector('[data-xml=close]').hidden`), true);
   // Optional MIDI follow: the cursor waits for C4 + C3, skips the tied F#4 continuation and counts a wrong key.
@@ -106,9 +105,7 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   // A first-open validation failure must stop the practice timer before any viewer exists.
   const replaceAssetBytes = value => evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('cuaderno-piano',1);r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result,tx=db.transaction('assets','readwrite'),assets=tx.objectStore('assets'),q=assets.get(${JSON.stringify(execution.assetId)});q.onsuccess=()=>assets.put({...q.result,base64:${JSON.stringify(value)}});tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};})`);
   await replaceAssetBytes(Buffer.from('Corrupted disposable score bytes').toString('base64'));
-  await action('toggle-session');
-  assert.notEqual((await read('current')).active.runningSince, null);
-  await action('open-pdf');
+  await action('open-score-practice');
   await wait(`document.querySelector('#cp-toast').textContent.includes('El archivo local de la partitura ha cambiado. Valídalo de nuevo antes de abrirlo.')`);
   assert.equal((await read('current')).active.runningSince, null, 'failed opening pauses the running session');
   assert.equal(await evaluate(`!!document.querySelector('.xml-score-viewer') || !!document.fullscreenElement`), false, 'a pre-render failure leaves no fullscreen viewer');

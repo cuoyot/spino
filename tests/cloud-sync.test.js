@@ -35,7 +35,7 @@ function device(t, shared, initial, delay = 100000) {
  eligible:()=>allowed,canApply:()=>applyAllowed,readBase:async()=>base,saveBase:async v=>{base=clone(v);},apply:async(text,b)=>{local=JSON.parse(text);base=clone(b);},
  validate:JSON.parse,delay,backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
  t.after(()=>engine.stop());
- return {engine,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},applyAllowed:v=>{applyAllowed=v;},gate:v=>{gate=v;}};
+ return {engine,adapter,base:()=>base,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},applyAllowed:v=>{applyAllowed=v;},gate:v=>{gate=v;}};
 }
 test('two devices combine offline additions, pull without local edits and preserve recovery',async t=>{
  const shared={};const a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));
@@ -179,4 +179,55 @@ test('overview exposes escaped error details and retry without implying every fa
  const {cloudBackupMarkup}=await import('../src/companion/cloud-backup-view.js');
  const html=cloudBackupMarkup({mode:'sync',enabled:true,status:'error',name:'shared.json',operation:'snapshot',error:'IndexedDB <unavailable>'},{available:true,lang:'es'});
  assert.match(html,/Lectura del cuaderno local/);assert.match(html,/IndexedDB &lt;unavailable&gt;/);assert.match(html,/data-action="cloud-sync"/);assert.doesNotMatch(html,/Revisa la conexión/);
+});
+
+test('a missing Android provider requires reselecting the file rather than scheduled retries',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}]),10);await a.engine.createShared();let reads=0;
+ shared.beforeRead=()=>{reads++;throw Object.assign(Error('Shared notebook could not be read: No content provider: content://com.google.android.apps.docs.storage/document/synthetic'),{code:'PROVIDER_ERROR'});};
+ await a.engine.sync();assert.equal(a.engine.state.errorCode,'PROVIDER_UNAVAILABLE');assert.equal(a.engine.state.retryable,false);
+ await new Promise(resolve=>setTimeout(resolve,80));assert.equal(reads,1);
+ const {cloudManageMarkup}=await import('../src/companion/cloud-backup-view.js');
+ const html=cloudManageMarkup(a.engine.state,{available:true,lang:'es'});
+ assert.match(html,/data-action="cloud-relink"/);assert.match(html,/data-action="cloud-continue-local"/);assert.match(html,/comprueba tu cuenta/);
+});
+
+test('local mode cancels scheduled retries and resumes with local and remote records and annotations intact',async t=>{
+ const shared={},initial=book([{id:'work'}]);initial.assets=[{id:'score',base64:'original-pdf',annotations:{marks:[{id:'mark',text:'fingering'}]}}];
+ const a=device(t,shared,initial,10);await a.engine.createShared();const original=shared.text;
+ shared.beforeRead=()=>{throw Object.assign(Error('Offline'),{code:'PROVIDER_ERROR'});};await a.engine.sync();
+ a.engine.continueLocal();a.edit(v=>v.data.sessions.push({id:'local-session'}));
+ await new Promise(resolve=>setTimeout(resolve,80));assert.equal(a.engine.state.status,'paused');assert.equal(shared.text,original);
+ delete shared.beforeRead;const remote=JSON.parse(shared.text);remote.data.works.push({id:'remote-work'});shared.text=JSON.stringify(remote);
+ await a.engine.setEnabled(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');
+ assert.equal(a.get().data.sessions[0].id,'local-session');assert.equal(a.get().data.works.length,2);assert.deepEqual(a.get().assets,initial.assets);
+});
+
+for(const lateFailure of [false,true])test(`local mode immediately releases a pending provider read (${lateFailure?'late failure':'late changes'})`,async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();
+ let release,entered;const started=new Promise(resolve=>{entered=resolve;});const gate=new Promise(resolve=>{release=resolve;});
+ shared.beforeRead=async()=>{entered();await gate;if(lateFailure)throw Object.assign(Error('Provider unavailable'),{code:'PROVIDER_ERROR'});};
+ const pending=a.engine.sync();await started;a.engine.continueLocal();
+ a.edit(v=>v.data.works[0].title='Local practice');const remote=JSON.parse(shared.text);remote.data.works[0].title='Late remote';shared.text=JSON.stringify(remote);
+ assert.equal(a.engine.state.enabled,false);assert.equal(a.engine.state.status,'paused');release();await pending;
+ assert.equal(a.get().data.works[0].title,'Local practice');assert.equal(a.engine.state.status,'paused');assert.equal(a.engine.state.retryable,false);
+});
+
+test('pausing during an acknowledged write keeps its baseline without adopting incoming data',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();
+ const remote=JSON.parse(shared.text);remote.data.works.push({id:'remote'});shared.text=JSON.stringify(remote);
+ a.edit(v=>v.data.works[0].title='First');let release,entered;const started=new Promise(resolve=>{entered=resolve;});
+ shared.afterWrite=async()=>{entered();await new Promise(resolve=>{release=resolve;});};
+ const pending=a.engine.sync();await started;a.engine.continueLocal();a.edit(v=>v.data.works[0].title='Second');release();await pending;
+ assert.equal(a.engine.state.status,'paused');assert.equal(a.get().data.works.length,1);assert.equal(a.base().data.works[0].title,'First');
+ delete shared.afterWrite;await a.engine.setEnabled(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].title,'Second');assert.equal(a.get().data.works.length,2);
+});
+
+test('reselecting the same notebook preserves deletions, baseline, cancellation and identity checks',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'},{id:'deleted'}]));await a.engine.createShared();a.engine.continueLocal();
+ a.edit(v=>{v.data.works.pop();v.data.sessions.push({id:'local'});});const beforeBase=clone(a.base()),before=clone(a.get()),id=a.engine.state.notebookId;
+ a.adapter.pickBackup=async()=>({cancelled:true});await a.engine.relink();assert.equal(a.engine.state.status,'paused');assert.deepEqual(a.base(),beforeBase);
+ a.adapter.pickBackup=async()=>({text:JSON.stringify({...JSON.parse(shared.text),cloudBackup:{sharedNotebookId:crypto.randomUUID()}})});await a.engine.relink();assert.equal(a.engine.state.status,'error');assert.deepEqual(a.get(),before);assert.deepEqual(a.base(),beforeBase);
+ const remote=JSON.parse(shared.text);remote.data.sessions.push({id:'remote'});shared.text=JSON.stringify(remote);
+ a.adapter.pickBackup=async options=>{assert.deepEqual(options,{link:true,expectedNotebookId:id,reconnect:true});return {text:shared.text,name:'reselected.json'};};
+ await a.engine.relink();assert.equal(a.engine.state.status,'saved');assert.equal(a.engine.state.name,'reselected.json');assert.deepEqual(a.get().data.works,[{id:'a',title:'Original'}]);assert.equal(a.get().data.sessions.length,2);
 });

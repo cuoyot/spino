@@ -17,7 +17,7 @@ test('catalogue tabs preserve a planned draft and add a downloaded PDF without s
   await action('calendar');await action('add-on-day');await action('plan-practice');
   await evaluate(`document.querySelector('[name="minutes-0"]').value='17';document.querySelector('[name="bpm-0"]').value='90'`);
   await action('choose-catalogue');await wait(`document.querySelector('#library-search')`);
-  assert.equal(await evaluate(`document.querySelector('#library-results').textContent.startsWith('55 resultados')`),true);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^618 resultados/);
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=library-practice]').length`),0,'unacquired cards offer downloading, not a disabled practice action');
   assert.equal(await evaluate(`!!document.querySelector('[data-action=select-catalogue-pdf]')`),false);
   await action('library-research');

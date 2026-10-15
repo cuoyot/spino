@@ -1,4 +1,5 @@
 import { Capacitor, registerPlugin } from '@capacitor/core';
+import { cloudErrorCode } from './cloud-errors.js';
 
 export const CloudBackup = registerPlugin('CloudBackup');
 export const cloudAvailable = () => Capacitor.isPluginAvailable('CloudBackup');
@@ -36,15 +37,18 @@ export function createCloudBackup({ adapter = CloudBackup, settings = cloudSetti
       try {
         state.status = 'writing'; state.error = ''; publish();
         const value = await payload();
+        if (!state.enabled) return;
         if (!eligible()) { state.status = 'waiting'; return; }
         if (value.contentHash !== state.contentHash) {
           await adapter.write({ text: value.text, expectedHash: state.hash });
           state.hash = value.hash; state.contentHash = value.contentHash; state.lastWrittenAt = new Date().toISOString();
         }
         dirty = revision !== capturedRevision;
-        state.status = dirty ? 'pending' : 'saved';
+        state.status = !state.enabled ? 'paused' : dirty ? 'pending' : 'saved';
       } catch (error) {
+        if (!state.enabled) return;
         state.status = error.code === 'CONFLICT' ? 'conflict' : 'error'; state.error = error.message || String(error);
+        state.errorCode = cloudErrorCode(error);
         // Failed writes need an explicit retry; never spin on a revoked permission or conflict.
       } finally { task = null; publish(); if (dirty && ['pending', 'waiting'].includes(state.status)) schedule(); }
     })();
@@ -87,7 +91,8 @@ export function createCloudBackup({ adapter = CloudBackup, settings = cloudSetti
       return task;
     },
     markDirty() { revision++; dirty = true; if (state.enabled && !['error', 'conflict'].includes(state.status)) { if (!task) state.status = 'pending'; schedule(); } },
-    async setEnabled(enabled) { if (task) throw new Error('Wait for the current backup operation.'); state.enabled = enabled; if (enabled) { dirty = true; state.status = 'pending'; schedule(); } else { clearTimeout(timer); timer = null; state.status = 'paused'; } publish(); },
+    continueLocal() { clearTimeout(timer); timer = null; revision++; state.enabled = false; state.status = 'paused'; publish(); },
+    async setEnabled(enabled) { if (!enabled) return this.continueLocal(); if (task) throw new Error('Wait for the current backup operation.'); state.enabled = true; dirty = true; state.status = 'pending'; schedule(); publish(); },
     async disconnect() { clearTimeout(timer); timer = null; if (task) await task; clearTimeout(timer); timer = null; state.enabled = false; await adapter.disconnect(); dirty = false; state = { ...state, status: 'disconnected', hash: null, contentHash: null, name: '', error: '' }; publish(); },
     async retry() { dirty = true; return sync(); },
     sync,

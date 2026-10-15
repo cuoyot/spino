@@ -428,3 +428,7 @@ Owner requests placing direct file selection inside Connect another device/Manag
 ## Tablet warm-up Next action — 2026-10-12
 
 Owner requests reviewing the extra line occupied by Next: Free practice on portrait tablet. Implemented five-column tablet toolbar and verified a single row in both tablet orientations without changing the phone breakpoints. Before/after responsive evidence is linked from session.md. The screenshot arrangement is a review proposal; native acceptance and a package containing this CSS are pending, distinct from the published beta 4 synchronization repair.
+
+## Local continuation and provider repair — 2026-10-15
+
+Owner requests repairing synchronization failures and an explicit option to continue locally. Continue locally persistently pauses this device's cloud connection, retains its file and merge history, and allows the selected practice to start/save without waiting for the provider. Automatic writes/incoming adoption remain paused until explicit resume/reselection. Missing provider, permission and file errors offer selection of the same notebook file without resetting the merge baseline. Conflict resolution remains explicit after resuming. Objective authorized by the owner; synthetic implementation/evidence is verified, while actual Drive and physical-device acceptance remain open. See captures/profile/2026-10-15-sync-local/README.md.

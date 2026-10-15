@@ -60,8 +60,17 @@ public class CloudBackupPlugin extends Plugin {
     }
     private File recoveryFile() { return new File(getContext().getFilesDir(), "cloud-last-good.json"); }
     private File pendingFile() { return new File(getContext().getFilesDir(), "cloud-picker-pending.json"); }
+    private String providerErrorCode(Exception error) {
+        if (error instanceof SecurityException) return "PERMISSION_REQUIRED";
+        if (error.getMessage() != null && error.getMessage().contains("No content provider")) return "PROVIDER_UNAVAILABLE";
+        if (error instanceof FileNotFoundException) return "FILE_UNAVAILABLE";
+        return "PROVIDER_ERROR";
+    }
     private void setupComplete(String mode) {
-        preferences().edit().putBoolean("setupPending", true).putString("mode", mode).commit();
+        setupComplete(mode, false);
+    }
+    private void setupComplete(String mode, boolean preserveSyncBase) {
+        preferences().edit().putBoolean("setupPending", true).putString("mode", mode).putBoolean("preserveSyncBase", preserveSyncBase).commit();
         notifyListeners("setupComplete", new JSObject(), true);
     }
     @PluginMethod public void acknowledgeSetup(PluginCall call) {
@@ -76,6 +85,7 @@ public class CloudBackupPlugin extends Plugin {
     @PluginMethod public void status(PluginCall call) {
         call.resolve(new JSObject().put("linked", preferences().contains("uri")).put("name", preferences().getString("name", ""))
             .put("lastHash", preferences().getString("hash", null)).put("recoveryAvailable", recoveryFile().exists())
+            .put("preserveSyncBase", preferences().getBoolean("preserveSyncBase", false))
             .put("setupPending", preferences().getBoolean("setupPending", false)).put("mode", preferences().getString("mode", "backup")));
     }
     @PluginMethod public void create(PluginCall call) {
@@ -123,7 +133,7 @@ public class CloudBackupPlugin extends Plugin {
                 writeVerified(uri, value);
                 preferences().edit().putString("hash", hash(value)).commit();
                 call.resolve(new JSObject().put("providerAccepted", true));
-            } catch (Exception error) { call.reject("Backup could not be updated: " + error.getMessage(), "PROVIDER_ERROR"); }
+            } catch (Exception error) { call.reject("Backup could not be updated: " + error.getMessage(), providerErrorCode(error)); }
         } }).start();
     }
     @PluginMethod public void pickBackup(PluginCall call) {
@@ -152,17 +162,17 @@ public class CloudBackupPlugin extends Plugin {
                     String old = preferences().getString("uri", null);
                     preferences().edit().putString("uri", uri.toString()).putString("name", name(uri)).putString("hash", hash(value)).commit();
                     if (old != null && !old.equals(uri.toString())) release(Uri.parse(old));
-                    setupComplete("sync");
+                    setupComplete("sync", expected != null && call.getBoolean("reconnect", false));
                 }
                 call.resolve(new JSObject().put("text", new String(value, StandardCharsets.UTF_8)).put("name", name(uri)).put("hash", hash(value)));
             }
-            catch (Exception error) { call.reject("Backup could not be read: " + error.getMessage()); }
+            catch (Exception error) { call.reject("Backup could not be read: " + error.getMessage(), providerErrorCode(error)); }
         }).start();
     }
     @PluginMethod public void readLinked(PluginCall call) {
         new Thread(() -> { synchronized (writeLock) {
             try { byte[] value = read(destination()); call.resolve(new JSObject().put("text", new String(value, StandardCharsets.UTF_8)).put("hash", hash(value))); }
-            catch (Exception error) { call.reject("Shared notebook could not be read: " + error.getMessage(), "PROVIDER_ERROR"); }
+            catch (Exception error) { call.reject("Shared notebook could not be read: " + error.getMessage(), providerErrorCode(error)); }
         } }).start();
     }
     @PluginMethod public void saveRecovery(PluginCall call) {

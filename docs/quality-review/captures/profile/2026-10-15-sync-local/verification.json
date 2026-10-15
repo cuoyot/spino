@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-15",
+  "version": "6.0.0-beta.13",
+  "build": 52,
+  "surface": "Responsive browser with synthetic providers; native installation verified separately.",
+  "sourceHashes": {
+    "src/companion/app.js": "a9bba0fbefd4c59f94854838256d656fd6a356672e476cd661abdc6c13021ca2",
+    "src/companion/cloud-sync.js": "c8c92a40c67674df9b941178d2a999a93727a9901637badf86874c51897ecc3f",
+    "src/companion/cloud-backup.js": "43714dc95ac94aa761dc4d0134765106d9bc86c4934ee44ed279a22606fcf402",
+    "android/app/src/main/java/com/miguecoll/spino/CloudBackupPlugin.java": "6debd60817094522eb8590e91dd713093e2fd70956ba0868bbdf6baf8371ba09"
+  },
+  "layouts": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "browserChecks": 6,
+  "providerFixture": "scripts/review/cloud-recovery-fixture.mjs",
+  "nativeProviderAcceptance": false
+}

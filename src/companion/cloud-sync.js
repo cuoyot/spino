@@ -2,6 +2,7 @@ import { validNotebookId, parseDeviceLink, encodeDeviceLink } from './device-lin
 import { CloudBackup, backupHash, createCloudBackup } from './cloud-backup.js';
 import { validateBackup } from './model.js';
 import { mergeNotebooks, notebookContent, stableJSON } from './cloud-merge.js';
+import { cloudErrorCode } from './cloud-errors.js';
 
 const KEY = 'spino.cloud-sync.device.v1';
 const defaultSettings = {
@@ -31,9 +32,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     const captured = revision;
     state.operation = 'snapshot';
     const original = await snapshot();
+    if (!state.enabled) return;
     const local = content(original);
     state.operation = 'read';
     const remoteFile = await adapter.readLinked();
+    if (!state.enabled) return;
     state.operation = 'validate';
     const remoteId = JSON.parse(remoteFile.text).cloudBackup?.sharedNotebookId;
     if (remoteId && !validNotebookId(remoteId)) throw new Error('The shared notebook identity is invalid.');
@@ -42,9 +45,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     const remote = content(remoteFile.text);
     state.operation = 'baseline';
     const base = await readBase();
+    if (!state.enabled) return;
     state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
     const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote })) : null;
+    if (!state.enabled) return;
     const selected = preference || state.resolution?.preference;
     const reviewedHash = preference ? state.conflictHash : state.resolution?.hash;
     if (result.conflicts.length && (!selected || reviewedHash !== conflictHash)) {
@@ -65,7 +70,9 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (!remoteId || stableJSON(remote) !== stableJSON(merged)) {
       state.operation = 'write';
-      await adapter.write({ text: encode(merged), expectedHash: await backupHash(remoteFile.text) });
+      const expectedHash = await backupHash(remoteFile.text);
+      if (!state.enabled) return;
+      await adapter.write({ text: encode(merged), expectedHash });
     }
     // The provider has accepted this local snapshot, even if incoming changes
     // cannot yet be adopted. Advancing to `merged` here would turn those pending
@@ -73,16 +80,19 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     // instead would conflict with our own already-published edits.
     state.operation = 'baseline';
     await saveBase(local);
+    if (!state.enabled) return;
     // An edit during provider I/O must be merged on the next pass, never replaced.
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (localChanged) {
       state.operation = 'recovery';
       await adapter.saveRecovery({ text: original });
+      if (!state.enabled) return;
       if (!eligible() || !canApply() || captured !== revision) { state.status = 'waiting'; return; }
       state.operation = 'apply';
       applying = true;
       try { await apply(encode(merged), merged); } finally { applying = false; }
+      if (!state.enabled) return;
     }
     state.operation = null; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
     state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastWrittenAt = new Date().toISOString();
@@ -96,6 +106,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       try { await reconcile(preference); return; }
       catch (error) {
         if (!['CONFLICT', 'LOCKED', 'BUSY'].includes(error.code)) throw error;
+        if (!state.enabled) return;
         state.status = 'waiting';
         if (!eligible() || attempt === 2) return;
       }
@@ -113,12 +124,13 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         await reconcileWithRetry(preference);
       }
       catch (error) {
+        if (!state.enabled) return;
         state.status = 'error'; state.error = error.message || String(error);
-        state.errorCode = error.code || '';
+        state.errorCode = cloudErrorCode(error);
         // Retry only failed provider reads. A failed write may already have
         // committed; malformed data and local storage failures need attention.
         state.retryCount = (state.retryCount || 0) + 1;
-        state.retryable = state.operation === 'read' && error.code === 'PROVIDER_ERROR' && state.retryCount <= 3;
+        state.retryable = state.operation === 'read' && state.errorCode === 'PROVIDER_ERROR' && state.retryCount <= 3;
       }
       finally { task = null; publish(); schedule(); }
     })();
@@ -164,7 +176,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       const destination = await adapter.status();
       if (destination.linked && destination.setupPending) {
         if (destination.mode === 'sync') {
-          await saveBase(null);
+          if (!destination.preserveSyncBase) await saveBase(null);
           state = { mode: 'sync', enabled: true, status: 'pending', name: destination.name, error: '' };
           publish(); await adapter.acknowledgeSetup?.();
         } else { state = { mode: 'backup', enabled: false }; publish(); }
@@ -185,6 +197,35 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     },
     createShared: () => connectShared(false),
     joinShared: code => connectShared(true, code ? parseDeviceLink(code) : null),
+    async relink() {
+      if (state.mode !== 'sync' || !state.notebookId) throw new Error('Connect a shared notebook first.');
+      if (task || independent.busy) throw new Error('Wait for synchronization.');
+      clearTimeout(timer); timer = null;
+      task = (async () => {
+        try {
+          // Regrant access to the same notebook without forgetting its merge history.
+          const result = await adapter.pickBackup({ link: true, expectedNotebookId: state.notebookId, reconnect: true });
+          if (result.cancelled) return;
+          if (JSON.parse(result.text).cloudBackup?.sharedNotebookId !== state.notebookId) throw new Error('The selected file does not match the notebook QR. Your current connection was kept.');
+          content(result.text);
+          state.name = result.name; state.enabled = true; state.status = 'pending';
+          state.error = ''; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
+          publish();
+          await adapter.acknowledgeSetup?.();
+        } catch (error) { state.status = 'error'; state.error = error.message || String(error); state.errorCode = cloudErrorCode(error); state.retryable = false; }
+        finally { task = null; publish(); schedule(); }
+      })();
+      await task;
+      if (state.status === 'pending') await sync();
+    },
+    continueLocal() {
+      if (state.mode !== 'sync') return independent.continueLocal();
+      clearTimeout(timer); timer = null;
+      // Do not wait for a stalled provider. Late I/O cannot apply incoming data.
+      revision++; state.enabled = false; state.status = 'paused'; state.waitReason = null;
+      state.retryable = false; state.retryCount = 0; state.resolution = null;
+      publish();
+    },
     async deviceLink() {
       if (state.mode !== 'sync' || !state.name || !state.enabled) throw new Error('Connect and enable shared notebook synchronization first.');
       await sync();
@@ -200,6 +241,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     markDirty() { if (applying) return; revision++; if (state.mode === 'sync') schedule(); else independent.markDirty(); },
     async setEnabled(enabled) {
       if (state.mode !== 'sync') return independent.setEnabled(enabled);
+      if (!enabled) return this.continueLocal();
       if (task) throw new Error('Wait for synchronization.');
       state.enabled = enabled; state.status = enabled ? 'pending' : 'paused'; publish(); schedule();
     },

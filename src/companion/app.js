@@ -103,6 +103,7 @@ export async function bootCompanion(reader) {
   let scoreViewer = null, openingScore = false, importingScore = false;
   let sessionWriting = false, sessionDrag = null;
   let cloud = null, restoringBackup = false, cloudAdopted = false;
+  let pendingLocalPractice = null;
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudOptions = () => ({ available: cloudAvailable(), platform: cloudPlatform(), lang: getAppLanguage() });
   const instrument = createInstrumentController({ changed: () => {
@@ -503,14 +504,23 @@ export async function bootCompanion(reader) {
     catch { toast(ui("Plan saved, but the reminder could not be scheduled.", "El plan está guardado, pero no se ha podido programar el aviso.")); }
   }
 
-  async function startSession(source) {
+  async function startSession(source, afterStart = null) {
     if (!data.active && cloud?.state.enabled) {
+      const pending = { source: copy(source), afterStart };
+      pendingLocalPractice = pending;
+      const localActions = `<p>${ui('You can keep practising locally. Changes stay on this device until you resume synchronization.','Puedes seguir practicando en local. Los cambios se guardan en este dispositivo hasta que reanudes la sincronización.')}</p><div class="cp-actions">${btn('cloud-continue-local',ui('Continue locally','Continuar en local'),'','primary')}${btn('close-dialog',ui('Cancel','Cancelar'))}</div>`;
+      showDialog(ui('Synchronizing notebook…','Sincronizando cuaderno…'),`<p role="status" data-cloud-preflight>${ui('Checking for changes from your other devices.','Buscando cambios de tus otros dispositivos.')}</p>${localActions}`);
+      dialogCleanup = () => { if (pendingLocalPractice === pending) pendingLocalPractice = null; };
       await cloud.sync();
-      if (cloudAdopted) return;
+      if (cloudAdopted || pendingLocalPractice !== pending) return;
       if (['error','conflict','waiting'].includes(cloud.state.status)) {
-        showDialog(ui('Synchronization needs attention','La sincronización necesita atención'),`<p>${esc(localizeMessage(cloud.state.error || ui('Review pending synchronization before starting practice.','Revisa la sincronización pendiente antes de empezar.')))}</p><div class="cp-actions">${btn(cloud.state.status==='conflict'?'cloud-conflicts':'profile-data-backup',ui('Resolve sync problem','Resolver sincronización'),'','primary')}${btn('close-dialog',ui('Cancel','Cancelar'))}</div>`);
+        showDialog(ui('Synchronization needs attention','La sincronización necesita atención'),`<p>${ui('The notebook could not finish synchronizing. Your saved notebook is available on this device.','No se ha podido completar la sincronización. Tu cuaderno guardado está disponible en este dispositivo.')}</p>${localActions}<div class="cp-actions">${btn(cloud.state.status==='conflict'?'cloud-conflicts':'profile-data-backup',ui('Resolve sync problem','Resolver sincronización'))}</div>`);
+        pendingLocalPractice = pending;
+        dialogCleanup = () => { if (pendingLocalPractice === pending) pendingLocalPractice = null; };
         return;
       }
+      pendingLocalPractice = null;
+      dialog.close();
     }
     if(data.active){go('session');return;}
     if(source.routinePolicy) { try { await reader.refreshMidi(); } catch {} source=routineForPractice(source,data,!!reader.devices.length,{keepTempo:!!source.routinePrepared}); }
@@ -526,6 +536,7 @@ export async function bootCompanion(reader) {
     if(source.routinePolicy)next.active.autoMidi=true;
     await store.save(next);data=next;readerMounted=false;readerBase=null;quiz=null;go('session');
     if (currentBlock()?.type === 'repertoire' && workHasScore(resource(currentBlock().workId))) await openScorePractice();
+    await afterStart?.();
   }
   function sessionPage() {
     if (!data.active) return home();
@@ -999,7 +1010,7 @@ export async function bootCompanion(reader) {
     'library-all':()=>{libraryFilters={};libraryPage=0;render();},
     'library-page':id=>{libraryPage=Number(id);render();root.querySelector('.cp-page')?.scrollTo(0,0);},
     home:()=>go('home'),practice:()=>go('practice'),'today-calendar':()=>{selectedDate=localDate();calendarMode='week';go('calendar');},calendar:()=>go('calendar'),piano:()=>go(libraryPane==='catalog'?'catalog':'piano'),settings:async()=>{go('settings');await refreshProfileFiles();},progress:()=>go('progress'),repertoire:()=>go('repertoire'),routines:()=>go('routines'),catalog:()=>{filteredTarget='';go('catalog');},
-    'quick-practice':async()=>{if(dialog.open)dialog.close();if(data.active){go('session');toast(ui('Continue or finish your pending session first.','Continúa o termina primero tu sesión pendiente.'));return;}await startSession(quickPractice(data.preferences));await openReader();},
+    'quick-practice':async()=>{if(dialog.open)dialog.close();if(data.active){go('session');toast(ui('Continue or finish your pending session first.','Continúa o termina primero tu sesión pendiente.'));return;}await startSession(quickPractice(data.preferences),()=>openReader());},
     prepare:id=>prepare(id||'reading'),
     'close-dialog':()=>dialog.close(),
     'quick-finish':async()=>{dialog.close();await endQuickPractice();},
@@ -1041,7 +1052,7 @@ export async function bootCompanion(reader) {
       usePracticeMaterial(work);
     },
     'new-routine':()=>prepare('reading',null,'routine'),
-    'quick-routine':async id=>{if(data.active){go('session');return;}await startSession(data.routines.find(r=>r.id===id));if(['reading','technique'].includes(currentBlock()?.type)&&(data.active.context!=='midi'||reader.devices.length))openReader();},
+    'quick-routine':async id=>{if(data.active){go('session');return;}await startSession(data.routines.find(r=>r.id===id),()=>{if(['reading','technique'].includes(currentBlock()?.type)&&(data.active.context!=='midi'||reader.devices.length))return openReader();});},
     'start-routine':id=>prepare('reading',data.routines.find(r=>r.id===id)),
     'edit-routine':id=>prepare('reading',data.routines.find(r=>r.id===id),'routine'),
     'routine-add':()=>{readDraft();if(draft.blocks.length>=20){toast(ui('A routine can contain up to 20 blocks.','Una rutina puede contener hasta 20 bloques.'));return;}const types=['reading','technique','repertoire','free'];showDialog(ui('Add block','Añadir bloque'),`<div class="cp-routine-activities">${types.map(type=>btn('routine-add-type',ACTIVITIES[type],type,'quiet')).join('')}</div>`);},
@@ -1190,6 +1201,8 @@ export async function bootCompanion(reader) {
     'cloud-resolve-remote':()=>{dialog.close();return cloud?.resolve('remote');},
     'cloud-toggle':value=>{dialog.close();return cloud?.setEnabled(value==='true');},
     'cloud-sync':()=>{dialog.close();return cloud?.retry();},
+    'cloud-relink':()=>{dialog.close();return cloud?.relink();},
+    'cloud-continue-local':async()=>{const pending=pendingLocalPractice;pendingLocalPractice=null;cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Backup & sync.','Trabajando en local. Reanuda la sincronización desde Copia y sincronización.'));if(pending)await startSession(pending.source,pending.afterStart);},
     'cloud-disconnect':()=>confirm(ui("Disconnect backup", "Desconectar copia"),ui("The connection on this device will stop. Files saved in the cloud will be kept.", "Se detendrá la conexión en este dispositivo. Los archivos guardados en la nube se conservarán."),()=>cloud.disconnect()),
     'cloud-restore':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const result=await CloudBackup.pickBackup();if(result.text)reviewBackupRestore(result.text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
     'cloud-recovery':async()=>{if(cloud?.busy)throw new Error(ui("Wait for the current backup to finish.", "Espera a que termine la copia en curso."));pauseSession();reviewBackupRestore((await CloudBackup.readRecovery()).text);},

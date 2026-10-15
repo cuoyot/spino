@@ -92,7 +92,7 @@ test('a failed feedback save preserves the pending session and can be retried ex
   assert.equal(failed.sessions.length, 0);
   assert.equal(failed.plans[0].status, 'planned');
   await evaluate(`IDBObjectStore.prototype.put=originalPut;document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value=save]'))`);
-  await wait(`!document.querySelector('#cp-dialog').open && document.querySelector('[data-action=repeat-session]')`);
+  await wait(`!document.querySelector('#cp-dialog').open && document.querySelector('.cp-today')`);
   const saved = await waitStored(data => !data.active && data.sessions.length === 1);
   assert.equal(saved.sessions[0].id, fixture.active.id);
   assert.equal(saved.sessions[0].notes, 'Keep this feedback after retry');

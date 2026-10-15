@@ -56,7 +56,7 @@ test('piano companion: local planning, practice, history, recovery and responsiv
     assert.equal(initial.key,'C');assert.equal(initial.input,'piano');assert.ok(initial.visible);assert.ok(initial.notes.every(n=>[0,2,4,5,7,9,11].includes(n)));
     await evaluate(`document.querySelector('#practice-return').click();document.querySelector('[data-action="session-end"]').click()`);
     await evaluate(`document.querySelector('#cp-dialog [name="notes"]').value='Practiqué Re dórico';document.querySelector('#cp-dialog [name="mood"][value="4"]').checked=true;document.querySelector('#cp-dialog [name="title"]').value='Mi primera lección';document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value="save"]'))`);
-    await wait(`document.querySelector('[data-action="repeat-session"]')`);
+    await wait(`document.querySelector('.cp-today')`);
     const data=await stored();assert.equal(data.sessions.length,1);assert.equal(data.active,null);assert.equal(data.sessions[0].results[0].measurement.source,'screen');assert.equal(data.sessions[0].notes,'Practiqué Re dórico');
     assert.equal(data.sessions[0].mood,4);assert.equal(data.sessions[0].title,'Mi primera lección');
   });
@@ -71,7 +71,7 @@ test('piano companion: local planning, practice, history, recovery and responsiv
     const before=await stored();assert.equal(before.plans.length,1);
     await action('start-plan');await wait(`document.querySelector('[data-action="session-end"]')`);await action('session-end');
     await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('#cp-dialog button[value="save"]'))`);
-    await wait(`document.querySelector('[data-action="repeat-session"]')`);
+    await wait(`document.querySelector('.cp-today')`);
     const after=await stored();assert.equal(after.sessions.length,2);assert.equal(after.plans[0].sessionId,after.sessions[0].id);assert.equal(after.plans[0].status,'completed');
   });
   await t.test('persists repertoire and events, escaping user-provided titles',async()=>{

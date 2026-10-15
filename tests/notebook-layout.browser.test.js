@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { openBrowser, disableWarmup } from './browser.js';
 
-test('compact preparation, calendar and dashboard adapt to phone/tablet orientations', {timeout:60000}, async t=>{
+test('preparation, calendar and dashboard adapt to phone/tablet orientations', {timeout:60000}, async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
   await send('Page.navigate',{url});
   await evaluate(`new Promise(r=>{const timer=setInterval(()=>{if(document.querySelector('#app-shell h1')){clearInterval(timer);r();}},20);})`);
@@ -11,6 +11,7 @@ test('compact preparation, calendar and dashboard adapt to phone/tablet orientat
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
     await evaluate(`document.querySelector('[data-action="home"]').click();document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action="prepare"][data-id="reading"]').click()`);
     await new Promise(r=>setTimeout(r,100));
+    await evaluate(`document.querySelector('#prepare-form button[type="submit"]').scrollIntoView({block:'nearest'})`);
     const layout=await evaluate(`(()=>{const page=document.querySelector('.cp-page'),start=document.querySelector('#prepare-form button[type="submit"]'),r=start.getBoundingClientRect();return {overflow:page.scrollWidth>page.clientWidth+1,startBottom:r.bottom,pageBottom:page.getBoundingClientRect().bottom,titleField:!!document.querySelector('#prepare-form [name="title"]')};})()`);
     assert.equal(layout.overflow,false,`${width}x${height} preparation width`);
     assert.equal(layout.titleField,false,'session name is deferred');

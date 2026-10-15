@@ -15,3 +15,11 @@ Convert a backup creates a separate compatible or organized copy without restori
 Open Profile → Connect another device → Select an existing cloud file. Manage connection also opens Connect another device. Select the same file used by your other SPino installation in the provider's picker; stable and beta each need their own grant even on the same tablet.
 
 A pending practice must be finished and saved before incoming data can replace its state; simply pausing preserves it. Waiting now identifies the blocking practice, visible editor, score or dialog. Closed dialogs do not block incoming sync. A reviewed conflict choice is retained while waiting, and is applied once safe; if either copy changes, SPino requests a new review. Independent records from both notebooks are kept.
+
+## Continue locally when synchronization needs attention
+
+Choose **Continue locally** from the synchronization check before practice, the cloud overview, or Manage connection. SPino pauses automatic synchronization on this device and keeps the selected file, notebook, scores, annotations and merge history. You can start and save practice immediately, including when the provider is still responding. The pause remains after restarting the app. Changes stay on this device until you resume synchronization.
+
+If Android can no longer open the selected provider or its permission is lost, choose **Select the sync file again**. Open your provider and check its account first, then select the same notebook file. SPino checks its notebook identity and keeps the existing merge history, so local deletions and independent edits are reconciled when access returns. Cancelling the picker keeps the current connection. **Resume** enables the existing connection again; overlapping edits still need review.
+
+These flows are verified with synthetic provider failures in the production browser UI. Android compilation, replacement installation, retained notebook file hashes and foreground launch are verified separately. The reported physical tablet's Drive access still requires device verification.

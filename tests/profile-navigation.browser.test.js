@@ -8,7 +8,8 @@ test('profile detail navigation preserves edits and scales saved scores across d
   await send('Page.navigate',{url});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++n>500){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   await wait(`document.querySelector('.cp-profile-nav')`);
-  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.dataset.action)`),['home','practice','calendar','piano','progress','settings']);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.dataset.action)`),['home','practice','calendar','piano','progress']);
+  assert.equal(await evaluate(`!!document.querySelector('.cp-app-header .cp-profile-nav')`),true);
   assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button > span:not(.cp-avatar)')].map(s=>s.textContent)`),['Hoy','Practicar','Calendario','Biblioteca','Progreso']);
   assert.equal(await evaluate(`document.querySelector('.cp-profile-nav').getAttribute('aria-label')`),'Perfil');
   assert.equal(await evaluate(`document.querySelector('.cp-nav [data-action=midi-settings]')`),null,'MIDI is a utility rather than a primary destination');
@@ -35,7 +36,7 @@ test('profile detail navigation preserves edits and scales saved scores across d
       const layout=await evaluate(`(()=>{const p=document.querySelector('.cp-page');return{overflow:p.scrollWidth>p.clientWidth+1,nav:[...document.querySelectorAll('.cp-nav button')].map(b=>{const r=b.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}}),fields:[...document.querySelectorAll('#preferences-form select')].map(f=>f.getBoundingClientRect().width)}})()`);
       assert.equal(layout.overflow,false,`${name} ${width}x${height}`);
       for(const b of layout.nav)assert.ok(b.width>=44&&b.height>=44&&b.x>=0&&b.y>=0&&b.right<=width+1&&b.bottom<=height+1,JSON.stringify({name,width,height,b}));
-      assert.ok(await evaluate(`document.querySelector('.cp-profile-nav .cp-avatar').getBoundingClientRect().width>=42`),'profile avatar has a distinct, readable size');
+      assert.ok(await evaluate(`document.querySelector('.cp-profile-nav').getBoundingClientRect().width>=44`),'profile avatar retains a complete touch target');
       assert.ok(layout.fields.every(w=>w>=90),'fields remain usable');
       if(process.env.UI_SCREENSHOTS){await mkdir('artifacts/review',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/review/new-${name}-${width}x${height}.png`,Buffer.from(shot.data,'base64'));}
     }

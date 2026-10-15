@@ -10,12 +10,12 @@ test('public site distinguishes stable and beta in every language',async t=>{
   await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(document.querySelector('#downloads')){clearInterval(timer);resolve()}},20)})`);
   const links=await evaluate(`Array.from(document.querySelectorAll('#downloads a')).map(a=>({text:a.textContent,href:a.getAttribute('href')}))`);
   assert.ok(links.some(a=>a.href==='https://play.google.com/store/apps/details?id=com.miguecoll.spino'));
-  for(const file of ['spino-6.0.0-beta.12-51-android.apk','spino-6.0.0-beta.9-48-ios-simulator.zip'])assert.ok(links.some(a=>a.href.endsWith(file)));
-  const text=await evaluate(`document.querySelector('#downloads').innerText`);assert.ok(text.includes('5.2.3 (35)'));assert.ok(text.includes('6.0.0-beta.12 (51)'));assert.ok(links.some(a=>a.href.endsWith('ios-simulator.zip')&&a.text.includes('beta 9')));assert.ok(text.includes('Apple Developer'));assert.ok(text.includes('TestFlight'));assert.ok(text.includes('100'));assert.ok(links.some(a=>a.href==='mailto:support@spinoapp.com'));
+  for(const file of ['spino-6.0.0-beta.13-52-android.apk','spino-6.0.0-beta.9-48-ios-simulator.zip'])assert.ok(links.some(a=>a.href.endsWith(file)));
+  const text=await evaluate(`document.querySelector('#downloads').innerText`);assert.ok(text.includes('5.2.3 (35)'));assert.ok(text.includes('6.0.0-beta.13 (52)'));assert.ok(links.some(a=>a.href.endsWith('ios-simulator.zip')&&a.text.includes('beta 9')));assert.ok(text.includes('Apple Developer'));assert.ok(text.includes('TestFlight'));assert.ok(text.includes('100'));assert.ok(links.some(a=>a.href==='mailto:support@spinoapp.com'));
   await send('Emulation.setDeviceMetricsOverride',{width:402,height:874,deviceScaleFactor:1,mobile:true});assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth+1`),false);
-  await mkdir('artifacts/beta/2026-10-15/beta12/site',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/beta/2026-10-15/beta12/site/${language}.png`,Buffer.from(shot.data,'base64'));
+  await mkdir('artifacts/beta/2026-10-15/beta13/site',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/beta/2026-10-15/beta13/site/${language}.png`,Buffer.from(shot.data,'base64'));
  }
- const manifest=JSON.parse(await readFile('docs/releases/6.0.0-beta.12-artifacts.json','utf8'));
+ const manifest=JSON.parse(await readFile('docs/releases/6.0.0-beta.13-artifacts.json','utf8'));
  for(const artifact of manifest.artifacts)assert.equal((await readFile('site/downloads/'+artifact.file)).byteLength,artifact.bytes);
  assert.deepEqual(errors,[]);
 });

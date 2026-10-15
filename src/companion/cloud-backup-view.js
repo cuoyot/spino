@@ -1,6 +1,7 @@
 import { getAppLanguage, localizeMessage } from './locale.js';
 import { catalanCopy } from './locale-ca.js';
 import { escapeHTML as esc } from './views.js';
+import { needsCloudRelink } from './cloud-errors.js';
 
 const messages = {
   en: {
@@ -23,6 +24,9 @@ const messages = {
     recovery: 'Recovery options', recover: 'Restore local recovery copy',
     recoverDetail: 'Review the copy saved before the last incoming sync.',
     errorDetail: 'Connection details',
+    continueLocal: 'Continue locally', localDetail: 'Changes stay on this device until you resume synchronization.',
+    relink: 'Select the sync file again',
+    providerUnavailable: 'The selected cloud file is unavailable. Open your file provider, check your account, then select the same sync file again.',
     conflictNote: 'Only overlapping edits need a choice. Other changes are kept from both devices.',
     conflictCount: '{count} conflicting values', local: 'Use this device’s edits', remote: 'Use the cloud edits',
     technical: 'Technical details',
@@ -52,6 +56,9 @@ const messages = {
     recovery: 'Opciones de recuperación', recover: 'Recuperar la copia local',
     recoverDetail: 'Revisa la copia anterior a la última sincronización recibida.',
     errorDetail: 'Detalles de la conexión',
+    continueLocal: 'Continuar en local', localDetail: 'Los cambios se guardan en este dispositivo hasta que reanudes la sincronización.',
+    relink: 'Volver a seleccionar el archivo',
+    providerUnavailable: 'El archivo de nube seleccionado no está disponible. Abre tu proveedor de archivos, comprueba tu cuenta y vuelve a seleccionar el mismo archivo de sincronización.',
     conflictNote: 'Solo debes elegir entre los cambios que coinciden. El resto se conserva de ambos dispositivos.',
     conflictCount: '{count} valores en conflicto', local: 'Usar los cambios de este dispositivo', remote: 'Usar los cambios de la nube',
     technical: 'Detalles técnicos',
@@ -79,6 +86,8 @@ const row = (action, title, detail, symbol, css = '', attributes = '') => `<butt
 const providers = options => options.platform === 'ios' ? ((options.lang || getAppLanguage()) === 'en' ? 'iCloud Drive or Google Drive' : 'iCloud Drive o Google Drive') : 'Google Drive';
 const footer = t => `<div class="cp-cloud-footer">${button('close-dialog', t.done, 'quiet')}</div>`;
 const disabled = state => state.status === 'writing' ? 'disabled' : '';
+const localOption = (state, t) => state.enabled ? `<div class="cp-cloud-local">${button('cloud-continue-local', t.continueLocal)}<p class="muted">${esc(t.localDetail)}</p></div>` : '';
+const relinkOption = (state, t) => state.mode === 'sync' && state.notebookId && needsCloudRelink(state) ? `<p>${esc(t.providerUnavailable)}</p>${button('cloud-relink', t.relink, 'primary', disabled(state))}` : '';
 
 const errorMarkup = (state, options) => {
   if (state.status !== 'error' || !state.error) return '';
@@ -100,10 +109,12 @@ export function cloudBackupMarkup(state, options = {}) {
   return `<section class="cp-card cp-cloud-card" id="cloud-backup" data-cloud-status="${esc(state.status || 'disconnected')}">
     <div class="cp-cloud-heading"><span class="cp-cloud-emblem">${icon()}</span><div><h2>${esc(linked ? t.title : t.connectTitle)}</h2><p class="muted">${esc(linked ? state.mode === 'sync' ? t.syncing : t.independent : t.includes)}</p></div></div>
     <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(status)}</p>
-    ${errorMarkup(state, options)}
+    ${state.status === 'error' ? relinkOption(state, t) : ''}${errorMarkup(state, options)}
+    ${state.status === 'paused' ? `<p class="cp-cloud-local muted">${esc(t.localDetail)}</p>${relinkOption(state, t)}` : ''}
     ${state.status==='waiting' && state.waitReason==='practice' ? button('resume-session', (options.lang||getAppLanguage())==='es'?'Abrir práctica pendiente':'Open pending practice', 'quiet') : ''}
     ${linked ? `<div class="cp-cloud-file">${icon('file')}<div><strong title="${esc(state.name)}">${esc(state.name)}</strong><small>${esc(timestamp ? `${t.savedAt}: ${timestamp}` : t.noWrite)}</small></div></div>` : ''}
     <div class="cp-cloud-actions">${button(primaryAction, primaryLabel, 'primary', `${disabled(state)} ${primaryAction === 'cloud-toggle' ? 'data-id="true"' : ''}`)}${button(primaryAction === 'cloud-manage' ? 'cloud-help' : linked ? 'cloud-manage' : 'cloud-help', primaryAction === 'cloud-manage' ? t.help : linked ? t.manage : t.help, 'quiet', disabled(state))}</div>
+    ${['error','conflict','waiting','writing'].includes(state.status) ? localOption(state, t) : ''}
   </section>`;
 }
 
@@ -117,6 +128,8 @@ export function cloudManageMarkup(state, options = {}) {
   return `<div class="cp-cloud-dialog" data-cloud-dialog="manage">
     ${linked ? `<div class="cp-cloud-toggle-row"><div><strong>${esc(t.automatic)}</strong><small>${esc(t.automaticDetail)}</small></div><button class="cp-cloud-switch" type="button" role="switch" aria-label="${esc(t.automatic)}" aria-checked="${Boolean(state.enabled)}" data-action="cloud-toggle" data-id="${!state.enabled}" ${busy}><span></span></button></div>` : ''}
     ${state.status === 'error' || state.status === 'conflict' ? `<div class="cp-cloud-problem"><strong>${esc(t.status[state.status])}</strong>${state.status === 'conflict' && state.mode === 'sync' ? button('cloud-conflicts', t.review, 'primary', busy) : linked ? button('cloud-sync', t.retry, 'primary', `${busy} ${state.enabled ? '' : 'disabled'}`) : ''}${state.error ? `<details class="cp-cloud-details"><summary>${esc(t.errorDetail)}</summary><p class="cp-cloud-technical">${esc(localizeMessage(state.error, options.lang || getAppLanguage()))}</p></details>` : ''}</div>` : ''}
+    ${['error','paused'].includes(state.status) ? relinkOption(state, t) : ''}
+    ${localOption(state, t)}
     <div class="cp-cloud-options">${options.available ? row('cloud-setup', t.location, t.locationDetail, 'cloud', '', busy) : ''}${options.available ? row('device-link', t.join, t.joinDetail, 'devices', '', busy) : ''}${row('cloud-help', t.help, '', 'help')}</div>
     ${options.available && (state.mode === 'sync' || ['error', 'conflict'].includes(state.status)) ? `<details class="cp-cloud-details"><summary>${esc(t.recovery)}</summary>${row('cloud-recovery', t.recover, t.recoverDetail, 'restore', '', busy)}</details>` : ''}
     ${linked ? `<div class="cp-cloud-disconnect">${row('cloud-disconnect', t.disconnect, t.disconnectDetail, 'off', 'cp-cloud-danger', busy)}</div>` : ''}${footer(t)}
