@@ -826,6 +826,16 @@ export async function bootCompanion(reader) {
       try{await store.save(next);data=next;e.target.removeAttribute('data-edited');toast(ui("Preferences saved.", "Preferencias guardadas."));}catch{toast(ui("Could not save changes.", "No se han podido guardar los cambios."));}finally{if(submit)submit.disabled=false;}
     });
     $('#prepare-form')?.addEventListener('submit',async e=>{e.preventDefault();if(!validDraft())return;try{if(preparePurpose==='routine')await saveRoutineDraft();else if(preparePurpose==='edit-plan')planForm(data.plans.find(p=>p.id===draft.id),draft);else if(preparePurpose==='plan')planForm();else await startSession(draft);}catch(e){toast(e.message);}});
+    if(view==='prepare')requestAnimationFrame(revealStandSelection);
+  }
+
+  function revealStandSelection() {
+    for(const row of root.querySelectorAll('.cp-practice-stand')) {
+      const selected=row.querySelector('[aria-pressed=true]');if(!selected)continue;
+      const card=selected.getBoundingClientRect(),bounds=row.getBoundingClientRect();
+      if(card.left<bounds.left)row.scrollLeft+=card.left-bounds.left-3;
+      else if(card.right>bounds.right)row.scrollLeft+=card.right-bounds.right+3;
+    }
   }
 
   const downloads=createDownloads({getData:()=>data,store,platform:{downloadPDF,networkStatus},persist,isVisible:()=>!document.hidden&&!scoreViewer&&!openingScore,changed:progressOnly=>{
@@ -1059,13 +1069,32 @@ export async function bootCompanion(reader) {
     'schedule-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;preparePurpose='plan';planForm(null,copy(routine));},
     'prepare-select-work':id=>{
       readDraft();const [index,workId]=JSON.parse(id),work=data.works.find(w=>w.id===workId&&!w.trashedAt);
-      if(!work||draft.blocks[index]?.type!=='repertoire')return;
-      draft.blocks[index].workId=work.id;draft.blocks[index].target=work.target;render();
+      if((workId&&!work)||draft.blocks[index]?.type!=='repertoire')return;
+      draft.blocks[index].workId=workId;draft.blocks[index].target=work?.target||null;
+      root.querySelector(`[name="workId-${index}"]`).value=workId;
+      const pieces=root.querySelector(`[data-practice-pieces="${index}"]`);
+      for(const choice of pieces.querySelectorAll('[data-action=prepare-select-work]'))choice.setAttribute('aria-pressed',String(JSON.parse(choice.dataset.id)[1]===workId));
+      pieces.querySelector('[data-practice-selected]').textContent=work?.title||ui('Choose when practising','Elegir al practicar');
+      if(dialog.querySelector('[data-practice-search]'))dialog.close();
+      const selected=[...pieces.querySelectorAll('[aria-pressed=true]')][0];
+      (selected||pieces.querySelector('[data-action=prepare-other-pieces]'))?.focus({preventScroll:true});
+      selected?.scrollIntoView({block:'nearest',inline:'nearest'});
+    },
+    'prepare-other-pieces':id=>{
+      readDraft();const index=Number(id);if(draft.blocks[index]?.type!=='repertoire')return;
+      showDialog(ui('Other pieces','Otras piezas'),`<div class="cp-actions">${btn('choose-catalogue',ui('Search the full catalogue','Buscar en todo el catálogo'),id,'quiet')}</div><label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-practice-search="${index}" placeholder="${ui('Title or composer','Título o compositor')}" /></label><div data-practice-results="${index}" class="cp-practice-results" aria-live="polite"></div><div class="cp-actions">${btn('prepare-select-work',ui('Choose when practising','Elegir al practicar'),JSON.stringify([index,'']),'quiet')}${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`);
+      const search=dialog.querySelector('[data-practice-search]');search.addEventListener('input',()=>{
+        const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+        const query=normalize(search.value.trim()),matches=data.works.filter(w=>!w.trashedAt&&normalize(w.title+' '+(w.composer||'')).includes(query));
+        dialog.querySelector('[data-practice-results]').innerHTML=matches.map(w=>`<button type="button" data-action="prepare-select-work" data-id="${esc(JSON.stringify([index,w.id]))}" aria-pressed="${draft.blocks[index].workId===w.id}"><b>${esc(w.title)}</b>${w.composer?`<small>${esc(w.composer)}</small>`:''}</button>`).join('')||`<p class="muted">${ui('No matching pieces in your repertoire.','No hay coincidencias en tu repertorio.')}</p>`;
+      });
+      search.dispatchEvent(new Event('input'));search.focus({preventScroll:true});
     },
     'choose-catalogue':id=>{
       readDraft();const index=id==='add'?null:Number(id);
       if(index==null&&draft.blocks.length>=20)throw Error(ui("A practice can contain up to 20 blocks. Replace a repertoire block instead.", "Una práctica puede tener hasta 20 bloques. Sustituye un bloque de repertorio."));
       materialSelection={draft:copy(draft),purpose:preparePurpose,date:selectedDate,index};
+      dialog.close();
       filteredTarget='';libraryFilters={};libraryPage=0;go('catalog');
     },
     'return-to-preparation':()=>{if(!materialSelection)return;draft=copy(materialSelection.draft);preparePurpose=materialSelection.purpose;selectedDate=materialSelection.date;materialSelection=null;go('prepare');},
@@ -1249,15 +1278,6 @@ export async function bootCompanion(reader) {
   }
   root.addEventListener('click',handleAction);dialog.addEventListener('click',handleAction);
   bindMidiShortcuts(document,{connected:()=>instrument.state.devices.length>0,connect:()=>instrument.reconnectLast().then(()=>{if(instrument.state.error)toast(ui('Could not reconnect MIDI. Hold the icon to open MIDI settings.','No se pudo reconectar el MIDI. Mantén pulsado el icono para abrir los ajustes.'));}).catch(error=>toast(error.message)),settings:()=>actions['midi-settings']().catch(error=>toast(error.message))});
-  root.addEventListener('input',e=>{
-    if(e.target.dataset.practiceSearch!==undefined){
-      const index=Number(e.target.dataset.practiceSearch),normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),query=normalize(e.target.value.trim());
-      const matches=query?data.works.filter(w=>!w.trashedAt&&normalize(w.title+' '+(w.composer||'')).includes(query)):[];
-      const results=root.querySelector('[data-practice-results="'+index+'"]');
-      results.innerHTML=matches.map(w=>btn('prepare-select-work',esc(w.title)+(w.composer?' · '+esc(w.composer):''),JSON.stringify([index,w.id]))).join('')||(query?'<p class="muted">'+ui('No matching pieces in your library. Try the full catalogue below.','No hay coincidencias en tu biblioteca. Prueba el catálogo completo debajo.')+'</p>':'');
-      return;
-    }
-  });
   root.addEventListener('input',e=>{if(view==='prepare'&&preparePurpose==='routine'&&e.target.closest('#prepare-form')){readDraft();const total=root.querySelector('output[for=practice-duration]');if(total)total.value=practiceMinutes(draft.blocks)+(draft.routinePolicy.warmup?draft.routinePolicy.warmupMinutes:0);if(e.target.name==='routine-warmup'){const minutes=root.querySelector('[name=warmup-minutes]');minutes.disabled=!draft.routinePolicy.warmup;minutes.required=draft.routinePolicy.warmup;}return;}if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const resized=resizePractice(durationWeights,e.target.value);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();const total=practiceMinutes(draft.blocks),slider=$('#practice-duration');slider.max=Math.max(180,total);slider.value=total;root.querySelector('output[for=practice-duration]').value=total;}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range'){const output=root.querySelector(`output[for="${e.target.id}"]`);if(output)output.value=e.target.value;}});
   root.addEventListener('change',async e=>{if(e.target.id==='media-work'||e.target.id==='media-type'){mediaFilters[e.target.id==='media-work'?'workId':'type']=e.target.value;render();return;}if(view==='progress-time'&&['type','workId'].includes(e.target.dataset.timeFilter)){const id=e.target.id;timeFilters[e.target.dataset.timeFilter]=e.target.value;render();root.querySelector('#'+id)?.focus({preventScroll:true});return;}if(e.target.id==='practice-duration')durationWeights=null;
     if(e.target.dataset.metroSetting && data.active){const key=e.target.dataset.metroSetting,value=key==='mode'?e.target.value:Number(e.target.value);if((key==='bpm'&&(!Number.isFinite(value)||value<30||value>240))||(key==='volume'&&(!Number.isFinite(value)||value<0||value>100))){e.target.value=metronomeSettings(data.active)[key];return;}data.active.freeMetronome={...metronomeSettings(data.active),[key]:value};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();return;}
@@ -1292,9 +1312,10 @@ export async function bootCompanion(reader) {
   window.addEventListener('piano:devices',()=>{if(!root.hidden&&view==='session')render();});
   window.addEventListener('online',()=>{if(cloud?.state.enabled&&cloud.state.status!=='conflict')cloud.retry().catch(error=>toast(error.message));downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
   setInterval(()=>{if(!document.hidden){if(data.downloadJobs.some(j=>j.status==='waiting-wifi'))downloads.pump().catch(()=>{});if(Object.values(library.executions).some(e=>e.job?.status==='waiting-wifi'))libraryDownloads.pump().catch(()=>{});}},10000);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
   let sessionResize;
   window.addEventListener('resize', () => {
+    if(view==='prepare')requestAnimationFrame(revealStandSelection);
     clearTimeout(sessionResize);
     sessionResize = setTimeout(() => {
       if (view === 'session' && !root.hidden && !dialog.open && !sessionWriting && !sessionDrag?.active && !document.activeElement?.matches('[data-session-minutes],[data-session-duration]')) {

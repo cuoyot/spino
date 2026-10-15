@@ -1,0 +1,16 @@
+{
+  "version": "6.1.0-beta.2",
+  "build": 55,
+  "files": {
+    "package.json": "d54261203fea67d4f8d00ec6d69aa96833aaaf7d4fea5f9fafac045615fd91bf",
+    "package-lock.json": "111f63d97dfcfac53e361d6bbba0302b7a62c51c5c2a720851ebe866eb86d9e6",
+    "android/app/build.gradle": "6b090d48c146934cf3cbf08c90fe5dd393c61d4bb6f790a5e343581bdb021018",
+    "android/app/src/main/AndroidManifest.xml": "c1a196004fe2bc59760544ec1b7b360ac29fd642ec17e22126be76b88f98b458",
+    "src/companion/app.js": "e92f88b0e79aa7cd3af6fe9157fd114b90c2a0a562fd4f602c3d926f91b263c5",
+    "src/companion/app.css": "4b9d44c5c64d468b5cba8881f9082c6c53548f80802b68a1c46d62816f9c00d7",
+    "src/companion/media-view.js": "c39f89b5aeffda1eb08f62e235d41caa1ea53a0a7346684461897bd3f1527720",
+    "src/companion/views.js": "047866815b4c8ea925cb7d4c8fbd56822a7d221a07eabab9308c1068822cbb77",
+    "src/companion/locale-ca.js": "6f747d57507987c5329cb2f01aef263c18046ad6aa13e11508c23bd0d7af8a9a"
+  },
+  "productionIndexSha256": "58f7ed4ff924be66206325e528b4731ea83b57000beb971aa89900a7954dd13b"
+}

@@ -34,7 +34,7 @@ test('catalogue tabs preserve a planned draft and add a downloaded PDF without s
   assert.equal(await evaluate(`[...document.querySelectorAll('[name^=minutes-]')].reduce((sum,field)=>sum+Number(field.value),0)`),17,'adding a score preserves the selected total duration');
   assert.equal(await evaluate(`document.querySelector('[name="bpm-0"]').value`),'90');
   const workId=await evaluate(`document.querySelector('[name="workId-1"]').value`);assert.ok(workId);
-  await evaluate(`document.querySelector('[data-action=choose-catalogue][data-id="1"]').click()`);await action('library-pdfs');await action('select-catalogue-pdf');await wait(`document.querySelector('#prepare-form')`);
+  await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="1"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);await action('library-pdfs');await action('select-catalogue-pdf');await wait(`document.querySelector('#prepare-form')`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-block').length`),2);
   assert.equal(await evaluate(`document.querySelector('[name="workId-1"]').value`),workId);
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('#cp-dialog[open] form')`);

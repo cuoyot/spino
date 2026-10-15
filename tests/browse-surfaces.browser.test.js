@@ -62,7 +62,7 @@ test('Navigation palette covers both themes while preserving practice screens', 
  assert.equal(await evaluate(`!!document.querySelector('.cp-browse-surface')`),true);
  await evaluate(`document.querySelector('[data-action=prepare][data-id=repertoire]').click()`);
  assert.equal(await evaluate(`!!document.querySelector('.cp-browse-surface')`),false);
- await evaluate(`document.querySelector('[data-action=choose-catalogue]').click()`);
+ await evaluate(`document.querySelector('[data-action=prepare-other-pieces]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);
  assert.equal(await evaluate(`!!document.querySelector('.cp-browse-surface')`),false);
  assert.deepEqual(errors,[]);
  if(capture){

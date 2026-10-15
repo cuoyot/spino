@@ -1505,6 +1505,10 @@ Prepare your practice|Prepara la teva pràctica
 Where will you practise?|On practicaràs?
 + Catalogue|+ Catàleg
 Scale or mode|Escala o mode
+Other pieces|Altres peces
+Search your repertoire|Cercar al teu repertori
+No matching pieces in your repertoire.|No hi ha coincidències al teu repertori.
+On your stand|Al faristol
 Choose when practising|Triar en practicar
 Choose catalogue score|Triar una partitura del catàleg
 Both hands: choose piano or MIDI|Totes dues mans: tria piano o MIDI

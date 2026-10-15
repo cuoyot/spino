@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-15",
+  "surface": "Responsive Chromium browser; synthetic notebook; not native acceptance",
+  "frames": [
+    {
+      "state": "selected",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "file": "light-selected-390x844.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "file": "light-other-pieces-390x844.png"
+    },
+    {
+      "state": "selected",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "file": "light-selected-844x390.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "file": "light-other-pieces-844x390.png"
+    },
+    {
+      "state": "selected",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "file": "light-selected-768x1024.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "file": "light-other-pieces-768x1024.png"
+    },
+    {
+      "state": "selected",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "file": "light-selected-1024x768.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "file": "light-other-pieces-1024x768.png"
+    },
+    {
+      "state": "selected",
+      "theme": "light",
+      "width": 320,
+      "height": 568,
+      "file": "light-selected-320x568.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "light",
+      "width": 320,
+      "height": 568,
+      "file": "light-other-pieces-320x568.png"
+    },
+    {
+      "state": "selected",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "file": "dark-selected-390x844.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "file": "dark-other-pieces-390x844.png"
+    },
+    {
+      "state": "selected",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "file": "dark-selected-844x390.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "file": "dark-other-pieces-844x390.png"
+    },
+    {
+      "state": "selected",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "file": "dark-selected-768x1024.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "file": "dark-other-pieces-768x1024.png"
+    },
+    {
+      "state": "selected",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "file": "dark-selected-1024x768.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "file": "dark-other-pieces-1024x768.png"
+    },
+    {
+      "state": "selected",
+      "theme": "dark",
+      "width": 320,
+      "height": 568,
+      "file": "dark-selected-320x568.png"
+    },
+    {
+      "state": "other-pieces",
+      "theme": "dark",
+      "width": 320,
+      "height": 568,
+      "file": "dark-other-pieces-320x568.png"
+    }
+  ],
+  "errors": [],
+  "sources": {
+    "views.js": "047866815b4c8ea925cb7d4c8fbd56822a7d221a07eabab9308c1068822cbb77",
+    "app.js": "e92f88b0e79aa7cd3af6fe9157fd114b90c2a0a562fd4f602c3d926f91b263c5",
+    "app.css": "4b9d44c5c64d468b5cba8881f9082c6c53548f80802b68a1c46d62816f9c00d7",
+    "media-view.js": "c39f89b5aeffda1eb08f62e235d41caa1ea53a0a7346684461897bd3f1527720"
+  },
+  "checks": [
+    "Uniform 176×100 cards and selected check/color in both themes",
+    "Single Other pieces entry; accent-insensitive repertoire search excludes trash",
+    "Off-stand selection, choose later and catalogue return preserve draft and per-practice warmup",
+    "Notebook work IDs/content unchanged"
+  ],
+  "buildIndexSha256": "6fe66b0f9e2dee7f6b20dbb83d31df1b43a4f4b7a9ccebd9d791bb398c72fe78",
+  "baseCommit": "bd8914f3e7903062c296519fd468cb3d677ac2cd",
+  "workingSource": "Uncommitted D-043 source; individual source hashes above",
+  "packageVersion": "6.1.0-beta.1 (54), local review rebuild"
+}

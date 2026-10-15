@@ -79,7 +79,7 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await action('library-detail', id);
   assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').disabled`), false);
   await action('library-practice', id); await wait(`document.querySelector('#prepare-form')`);
-  await evaluate(`document.querySelector('[data-action=choose-catalogue][data-id="0"]').click()`);
+  await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="0"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);
   await wait(`document.querySelector('#library-search')`);
   await evaluate(`document.querySelector('#library-search [name=query]').value=${JSON.stringify(id)};document.querySelector('#library-search').requestSubmit()`);
   assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').textContent`),'Usar en esta práctica');

@@ -24,9 +24,21 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await click('[data-action=resume-session]');await evaluate(until("document.querySelector('.cp-session [data-action=record-work]')"));
  await click('.cp-session [data-action=record-work]');
  for(const [name,width,height] of layouts)await capture('choose','light',name,width,height);
- await evaluate(`window.denyCapture=true`);await click('[data-media=audio]');await evaluate(until("document.querySelector('#cp-toast')?.textContent.includes('denied')"));
+ await evaluate(`window.denyCapture=true`);await click('[data-media=audio]');await evaluate(until("document.querySelector('#cp-media-capture [role=alert]')?.textContent.includes('denied')"));
  assert.equal(await evaluate(`document.querySelectorAll('#cp-media-capture [data-media=audio]').length`),1);
- await evaluate(`window.denyCapture=false`);await click('[data-media=audio]');await evaluate(until("document.querySelector('[data-media-clock]')?.textContent==='0:02'"));
+ await evaluate(`window.denyCapture=false;window.originalCapture=navigator.mediaDevices.getUserMedia;Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async constraints=>{const stream=await originalCapture(constraints);window.pendingCaptureStream=stream;await new Promise(resolve=>window.resolveCapturePermission=resolve);return stream;}});`);
+ // Cancel both before permission resolves and after acquisition while waiting for foreground.
+ for(const acquiredWhileHidden of [false,true]){
+  await click('[data-media=audio]');await evaluate(until('!!window.resolveCapturePermission'));
+  if(acquiredWhileHidden){await evaluate(`Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));resolveCapturePermission();resolveCapturePermission=null;`);await evaluate(`new Promise(resolve=>requestAnimationFrame(resolve))`);}
+  await click('[data-media=cancel-request]');
+  if(!acquiredWhileHidden)await evaluate(`resolveCapturePermission();resolveCapturePermission=null;`);
+  await evaluate(until("pendingCaptureStream.getTracks().every(t=>t.readyState==='ended')"));
+  assert.equal(await evaluate(`!!document.querySelector('[data-media-clock]')`),false);
+  if(acquiredWhileHidden)await evaluate(`Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));`);
+ }
+ await evaluate(`Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:originalCapture})`);
+ await click('[data-media=audio]');await evaluate(until("document.querySelector('[data-media-clock]')?.textContent==='0:02'"));
  await click('[data-media=stop]');await evaluate(until("document.querySelector('#media-title')&&!document.querySelector('[data-media=save]').disabled"));
  assert.equal(await evaluate(`captureTracks.every(t=>t.readyState==='ended')`),true);
  // Force a failed final write, keeping the automatically stored draft and preview.

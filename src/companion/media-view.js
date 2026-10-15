@@ -8,7 +8,7 @@ export function mediaMarkup(records, works, {workId = '', type = ''} = {}) {
 }
 export function createMediaCapture({store, changed, report, getWork}) {
   const panel = document.createElement('aside'); panel.id = 'cp-media-capture'; panel.hidden = true; panel.setAttribute('aria-label', ui('Recording','Grabación')); document.body.append(panel);
-  let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0;
+  let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0, captureError = '', resumeRequest = null;
   const scoreButtons = () => [...document.querySelectorAll('.pdf-viewer [data-pdf=record],.pdf-viewer [data-xml=record]')];
   function syncScoreControls() {
     const state = stage==='recording'?'recording':stage==='stopping'?'stopping':stage==='closed'?'idle':'pending';
@@ -40,6 +40,7 @@ export function createMediaCapture({store, changed, report, getWork}) {
     panel.hidden = false; panel.classList.toggle('is-recording', stage==='recording'); panel.classList.toggle('is-minimized', minimized && stage==='recording');
     const button = (id,label,css='') => `<button type="button" data-media="${id}" class="${css}" ${busy?'disabled':''}>${label}</button>`;
     panel.innerHTML = `<header><b>${esc(record?.workTitle)}</b>${stage==='recording'?button('minimize',minimized?ui('Expand','Ampliar'):ui('Minimize','Minimizar'),'quiet'):''}</header>${stage==='choose'?`<p>${ui('Record your progress','Graba tus progresos')}</p><p class="muted">${ui('Local only · up to 15 minutes or 250 MB per take.','Solo en este dispositivo · hasta 15 minutos o 250 MB por toma.')}</p><div class="cp-actions cp-media-choose-actions">${button('audio',ui('Record audio','Grabar audio'),'primary')}${button('video',ui('Record video','Grabar vídeo'))}${button('close',ui('Cancel','Cancelar'),'quiet')}</div>`:stage==='requesting'?`<p role="status">${ui('Waiting for microphone/camera permission…','Esperando permiso de micrófono/cámara…')}</p>${button('cancel-request',ui('Cancel','Cancelar'))}`:stage==='recording'?`<p class="cp-recording-status" role="status">● ${ui('Recording','Grabando')} <span data-media-clock>0:00</span></p>${record.kind==='video'?'<video class="cp-media-live" muted autoplay playsinline></video>':''}<div class="cp-actions">${button('stop',minimized?ui('Stop','Detener'):ui('Stop and review','Detener y revisar'),'primary')}</div>`:stage==='stopping'?`<p role="status">${ui('Preparing recording…','Preparando grabación…')}</p>`:`${stopReason?`<p role="status">${esc(stopReason)}</p>`:''}<${record.kind==='video'?'video':'audio'} controls playsinline src="${url}"></${record.kind==='video'?'video':'audio'}><label>${ui('Title','Título')}<input id="media-title" maxlength="200" ${busy?'disabled':''} value="${esc(record.title)}" /></label><p class="muted">${ui('Saved only on this device. Not included in notebook backups.','Se guarda solo en este dispositivo. No se incluye en las copias del cuaderno.')}</p><p data-media-error role="alert"></p><div class="cp-actions">${button('save',ui('Save','Guardar'),'primary')}${button('delete',record.draft?ui('Discard','Descartar'):ui('Delete recording','Eliminar grabación'),'danger quiet')}${record.draft?'':button('close',ui('Close','Cerrar'),'quiet')}</div>`}`;
+    if (captureError) { const error=document.createElement('p');error.setAttribute('role','alert');error.textContent=captureError;panel.append(error); }
     if (stage==='recording' && stream && record.kind==='video') panel.querySelector('video').srcObject = stream;
     placePanel();
   }
@@ -62,13 +63,19 @@ export function createMediaCapture({store, changed, report, getWork}) {
   }
   async function start(kind) {
     if (stage!=='choose') return;
-    if (!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder) { report(ui('Recording is not supported on this device.','Este dispositivo no admite la grabación.')); return; }
+    captureError='';
+    if (!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder) { captureError=ui('Recording is not supported on this device.','Este dispositivo no admite la grabación.');draw(); return; }
     const attempt = ++requestId;
     stage='requesting'; draw();
     try {
       const acquired = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}, video:kind==='video'?{facingMode:'user',width:{ideal:1280},height:{ideal:720}}:false});
       if (attempt!==requestId || stage!=='requesting') { acquired.getTracks().forEach(t=>t.stop()); return; }
       stream=acquired;
+      // A native permission prompt can temporarily hide the WebView. Keep its request alive,
+      // but wait for the app to be visible before starting the microphone/camera.
+      if(document.hidden)await new Promise(resolve=>{resumeRequest=resolve;});
+      resumeRequest=null;
+      if(attempt!==requestId||stage!=='requesting')return;
       const types=kind==='video'?['video/webm;codecs=vp8,opus','video/mp4','video/webm']:['audio/webm;codecs=opus','audio/mp4','audio/webm'];
       const mimeType=types.find(type=>MediaRecorder.isTypeSupported(type));
       recorder=new MediaRecorder(stream,{...(mimeType?{mimeType}:{}),...(kind==='video'?{videoBitsPerSecond:2000000}:{audioBitsPerSecond:128000})});
@@ -80,7 +87,7 @@ export function createMediaCapture({store, changed, report, getWork}) {
       recorder.start(1000); startingAt=Date.now(); stage='recording'; draw();
       if(panel.hidden)scoreButtons()[0]?.focus();
       timer=setInterval(()=>{const elapsed=Date.now()-startingAt;syncScoreControls();const clock=panel.querySelector('[data-media-clock]');if(clock)clock.textContent=time(elapsed);if(elapsed>=15*60000)stop(ui('Time limit reached. Review and save your take.','Límite de tiempo alcanzado. Revisa y guarda la toma.'));},500);
-    } catch(error) { if(attempt!==requestId)return;releaseTracks();stage='choose';draw();report(error.name==='NotAllowedError'?ui('Microphone/camera permission was denied. Allow access in device settings and try again.','Se ha denegado el permiso de micrófono/cámara. Permite el acceso en los ajustes y vuelve a intentarlo.'):ui('Could not start recording. Check the microphone/camera and try again.','No se ha podido empezar a grabar. Comprueba el micrófono/cámara y vuelve a intentarlo.')); }
+    } catch(error) { if(attempt!==requestId)return;releaseTracks();recorder=null;stage='choose';captureError=error.name==='NotAllowedError'?ui('Microphone/camera permission was denied. Allow access in device settings and try again.','Se ha denegado el permiso de micrófono/cámara. Permite el acceso en los ajustes y vuelve a intentarlo.'):ui('Could not start recording. Check the microphone/camera and try again.','No se ha podido empezar a grabar. Comprueba el micrófono/cámara y vuelve a intentarlo.');draw(); }
   }
   panel.addEventListener('keydown',event=>{
     event.stopPropagation();
@@ -89,7 +96,7 @@ export function createMediaCapture({store, changed, report, getWork}) {
   panel.addEventListener('click',async event=>{
     const action=event.target.closest('[data-media]')?.dataset.media; if(!action||busy)return;
     if(action==='audio'||action==='video')return start(action);
-    if(action==='cancel-request'){requestId++;stage='choose';draw();return;}
+    if(action==='cancel-request'){requestId++;releaseTracks();resumeRequest?.();stage='choose';draw();return;}
     if(action==='stop')return stop();
     if(action==='minimize'){minimized=!minimized;draw();return;}
     if(action==='close')return close();
@@ -105,14 +112,15 @@ export function createMediaCapture({store, changed, report, getWork}) {
       try{await store.remove(record.id);await changed();busy=false;close();}catch{busy=false;report(ui('Could not delete the recording.','No se ha podido eliminar la grabación.'));}
     }
   });
-  document.addEventListener('visibilitychange',()=>{if(document.hidden&&stage==='requesting'){requestId++;stage='choose';draw();}if(document.hidden)stop(ui('Recording stopped when the app went into the background.','La grabación se ha detenido al pasar la app a segundo plano.'));});
-  window.addEventListener('pagehide',()=>stop());
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)resumeRequest?.();if(document.hidden)stop(ui('Recording stopped when the app went into the background.','La grabación se ha detenido al pasar la app a segundo plano.'));});
+  window.addEventListener('pagehide',()=>{if(stage==='requesting'){requestId++;releaseTracks();resumeRequest?.();stage='choose';draw();}stop();});
   window.addEventListener('beforeunload',event=>{if(stage!=='closed'&&stage!=='choose'){event.preventDefault();event.returnValue='';}});
   return {
     get busy(){return stage!=='closed';},
     get recording(){return stage==='recording';},
+    get requesting(){return stage==='requesting';},
     stop,
-    open(workId,sessionId=null){if(stage!=='closed'){panel.hidden=false;report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}const work=getWork(workId);if(!work)return;returnFocus=document.activeElement;record={id:crypto.randomUUID(),workId,workTitle:work.title,title:work.title,sessionId,createdAt:new Date().toISOString(),draft:true};stage='choose';stopReason='';draw();panel.querySelector('button')?.focus();},
+    open(workId,sessionId=null){if(stage!=='closed'){panel.hidden=false;report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}const work=getWork(workId);if(!work)return;returnFocus=document.activeElement;record={id:crypto.randomUUID(),workId,workTitle:work.title,title:work.title,sessionId,createdAt:new Date().toISOString(),draft:true};stage='choose';stopReason='';captureError='';draw();panel.querySelector('button')?.focus();},
     async play(id){if(stage!=='closed'){report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}returnFocus=document.activeElement;stage='loading';busy=true;try{const found=await store.get(id);if(!found){await changed();report(ui('This recording is not available on this device.','Esta grabación no está disponible en este dispositivo.'));stage='closed';return;}record=found;releaseURL();url=URL.createObjectURL(record.blob);stage='review';stopReason='';busy=false;draw();panel.querySelector('input')?.focus();}catch(error){stage='closed';report(ui('Could not open the recording.','No se ha podido abrir la grabación.'));}finally{busy=false;}},
   };
 }

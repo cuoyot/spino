@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-15",
+  "kind": "Native Android emulator; local review APK, same beta1 version; not published",
+  "apkSha256": "de5b9122718e26f87ff6863249a6c98f57e01c1f576f2db0052bbe0c48a471e7",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "indexedDBBefore": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "cd5967999c27e6dbd1dd70ff639d13027e99d8fb572295c4b772690c95dfe4ac",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "408e6f1269a9d39c4a7b950ffabc6d127d005c23a330b4cdcee6e1127921ee1c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "a2ffac9d72900acdd2e5beda7112cde593cb752065f492d6eba4320dcbb882a6",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/29": "a39cf7d1d8a67a2ece82e2d1e3726b994bdad9db69b61ba7b5f53ad08695d365"
+  },
+  "indexedDBAfter": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "cd5967999c27e6dbd1dd70ff639d13027e99d8fb572295c4b772690c95dfe4ac",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "408e6f1269a9d39c4a7b950ffabc6d127d005c23a330b4cdcee6e1127921ee1c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "a2ffac9d72900acdd2e5beda7112cde593cb752065f492d6eba4320dcbb882a6",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/29": "a39cf7d1d8a67a2ece82e2d1e3726b994bdad9db69b61ba7b5f53ad08695d365"
+  },
+  "retainedFiles": 7
+}

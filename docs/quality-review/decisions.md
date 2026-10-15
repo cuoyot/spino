@@ -2,6 +2,13 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-043 — One repertoire picker and resilient recording permissions
+
+- Status: **owner requested and authorized**, 2026-10-15. Objectives accepted; local implementation browser-verified. Owner acceptance of the implemented layout remains open.
+- PREP-01: uniform horizontal stand cards with selected color/border/check, full selected title, and one **Other pieces** dialog for whole-repertoire search and catalogue access. Replace the overlapping inline search/select/catalogue controls; preserve draft, stable work IDs, warm-up choice and planned duration.
+- MEDIA-02/PRACTICE-05/SCORE-03: declare the Android audio-settings permission required by the installed WebChromeClient, retain pending capture through permission-dialog visibility changes, start only in the foreground, and show errors inside the capture panel. Explicit cancellation/page exit releases late tracks; active capture still stops on backgrounding.
+- Shared impact: C-DIALOG/C-PRACTICE/C-SCORE; repertoire selection, catalogue planning, PDF editing and existing recording storage are rechecked. [Review and evidence](preparation.md). Native/physical coverage is labeled separately; no publication or release-wide approval is implied.
+
 ## D-042 — Practice-time trend and filtered details
 
 - Status: owner requested and authorized the Strava-inspired objective on 2026-10-15 as the first beta 6.1 change. Implemented and responsive-browser verified; owner visual/native acceptance remains open.

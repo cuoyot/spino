@@ -47,8 +47,12 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     await wait(`document.querySelector('.pdf-viewer #cp-media-capture [data-media=audio]')`);
     const choices = await evaluate(`(()=>{const audio=document.querySelector('#cp-media-capture [data-media=audio]'),video=document.querySelector('#cp-media-capture [data-media=video]'),style=getComputedStyle(audio);return{audio:audio.textContent,video:video.textContent,background:style.backgroundColor,color:style.color,running:document.querySelector('.pdf-viewer').dataset.running};})()`);
     assert.equal(choices.audio,'Grabar audio');assert.equal(choices.video,'Grabar vídeo');assert.notEqual(choices.background,choices.color);assert.equal(choices.running,'true');
-    await evaluate(`window.pdfCaptureTracks=[];Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{const context=new AudioContext(),oscillator=context.createOscillator(),output=context.createMediaStreamDestination();oscillator.connect(output);oscillator.start();await context.resume();pdfCaptureTracks=output.stream.getTracks();return output.stream;}});`);
+    await evaluate(`window.pdfCaptureTracks=[];Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{const context=new AudioContext(),oscillator=context.createOscillator(),output=context.createMediaStreamDestination();oscillator.connect(output);oscillator.start();await context.resume();pdfCaptureTracks=output.stream.getTracks();await new Promise(resolve=>window.resolvePDFPermission=resolve);return output.stream;}});`);
     await send('Runtime.evaluate',{expression:`document.querySelector('[data-media=audio]').click()`,userGesture:true});
+    await evaluate(`Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));resolvePDFPermission();`);
+    await wait(`document.querySelector('[data-media=cancel-request]')`);
+    assert.equal(await evaluate(`pdfCaptureTracks.every(t=>t.readyState==='live')`),true);
+    await evaluate(`Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));`);
     await wait(`document.querySelector('[data-pdf=record]').dataset.recording==='true'&&document.querySelector('#cp-media-capture').hidden`);
     assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').getAttribute('aria-label')`),'Detener grabación y revisar');
     assert.equal(await evaluate(`!!document.querySelector('[data-pdf=record] rect')`),true);

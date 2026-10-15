@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "system",
+    "warmup": {
+      "enabled": true,
+      "minutes": 3,
+      "exercise": "rotate"
+    }
+  },
+  "works": [
+    {
+      "composer": "Review composer",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "stand",
+      "title": "Ballade — synthetic score",
+      "onStand": true
+    },
+    {
+      "composer": "J. S. Bach",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "long",
+      "title": "Prelude in C major BWV 846 — Well Tempered Clavier First Book",
+      "onStand": true
+    },
+    {
+      "composer": "Erik Satie",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "third",
+      "title": "Gymnopédie No. 1",
+      "onStand": true
+    },
+    {
+      "composer": "Ludwig van Beethoven",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "fourth",
+      "title": "Für Elise",
+      "onStand": true
+    },
+    {
+      "composer": "Debussy",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "shelf",
+      "title": "Été",
+      "onStand": false
+    },
+    {
+      "composer": "",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "stage": "En estudio",
+      "id": "trash",
+      "title": "Deleted",
+      "trashedAt": "2026-10-15T00:00:00Z",
+      "onStand": true
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}
