@@ -10,7 +10,7 @@ Starting a planned practice from Today opens this overview. Resuming an unfinish
 
 A saved routine can enter its first reading or technique exercise directly when the required input is available. Returning from an exercise pauses it and opens this overview.
 
-The on-screen piano retains ivory white keys and dark black keys in light and dark appearance. Press shading and red black-key guides remain visible. This correction is browser-verified and prepared for Android beta5/build58; native visual acceptance remains pending.
+The on-screen piano retains ivory white keys and dark black keys in light and dark appearance. Press shading and red black-key guides remain visible. This correction is included in published website Android beta 6.1.0-beta.5/build58 and verified in responsive browsers; native visual acceptance remains pending.
 
 Inside a generated reading or technique exercise, the compact controls stay at the top. The first row has back-to-session navigation, identifies the exercise, shows MIDI state and moves forward to the next block or Feedback. Wider layouts name the next block; narrow phones show directional arrows with the same accessible meaning. Tempo (or **No tempo**), play/pause and the settings gear occupy the second row. The gear opens Practice settings directly. Sound, guide/lights and fingering shortcuts sit at the top of Settings beside Done in every layout. Keyboard recenter is beside the detailed keyboard-position controls in the Practice tab. Elapsed practice time, correct answers, errors, streak and average response time appear in the compact status row; mobile answer feedback shares that row. The on-screen input stays at the bottom.
 
