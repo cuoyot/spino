@@ -8,7 +8,7 @@ test('website language variants use matching feature coverage and localized app 
   for (const [language, copy] of Object.entries(COPY)) {
     assert.deepEqual(Object.keys(copy).sort(), Object.keys(COPY.en).sort());
     assert.deepEqual(copy.features.map(f => f[0]), COPY.en.features.map(f => f[0]));
-    assert.equal(copy.shotAlt.length, 6);
+    assert.equal(copy.shotAlt.length, 9);
     const html = page(copy), folder = language === 'es' ? resolve('site') : resolve('site', language);
     assert.match(html, new RegExp(`<html lang="${language}">`));
     assert.match(html, new RegExp(`img/${language}/01-today.png`));

@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-15",
+  "version": "6.1.0-beta.1",
+  "build": 54,
+  "surface": "Responsive browser, not native-device acceptance",
+  "fixture": "Disposable synthetic notebook and generated audio tones; no personal data or microphone capture",
+  "sourceSha256": "0f3fc1b24ed5edd76bd9c7d37fcf20ce9738cd16e82b5c71c5e5b7ae558bd10b",
+  "frames": [
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/01-today.png",
+      "sha256": "45ea2aa249203bffe8628425a977ff038ad15568071e22ad6ee990d9ddb4930d"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/02-routine.png",
+      "sha256": "6920e395d46f8c25414c968d15484d448b63c980e97850e74fe2cfa8c817ac2e"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/03-repertoire.png",
+      "sha256": "5ca6240d7af1bcd5d1e1eb2a76997928538827ce785c4bbee4d64eb55a1a5f9e"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/04-quick-practice.png",
+      "sha256": "b535f72c3721120d33417f2b4106ffeb2bcef481bbba4640800136b06251f0c4"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/05-quick-result.png",
+      "sha256": "5b273493d31a665a069cba071b5c0448e3201c13d4edc4f31c9a20ad58154c96"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/06-progress.png",
+      "sha256": "1b89bcef2e464c7ae98ebb3b7b61f1787e7a1e7e6d38ec7f04c0e0a5f04f2d78"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/08-time-details.png",
+      "sha256": "31947d9ca8a7e6a55e9387fa59ce20a9b5899db08dd580bfc875635ade564e6a"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/07-multimedia.png",
+      "sha256": "7988347e00b5e101b3d04c4960dce99bece597d8d00271dd241fa58d64a6bb9f"
+    },
+    {
+      "language": "en",
+      "device": "phone",
+      "path": "en/phone/09-calendar.png",
+      "sha256": "2e340461fd09cbd4e0964cf33e85a8430efe2946471eb3bf5d6401753c6cdebe"
+    },
+    {
+      "language": "en",
+      "device": "tablet",
+      "path": "en/tablet/wide-reading.png",
+      "sha256": "86e3b1e1e2c78ad1ba95d5e9633757d9398f77af801591f096d99b30111550af"
+    },
+    {
+      "language": "en",
+      "device": "phone-landscape",
+      "path": "en/phone-landscape/landscape-reading.png",
+      "sha256": "7b200bb77904a6f725b047070b43cd6b84f8806b959f4761852d7ed25e2eecb1"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/01-today.png",
+      "sha256": "05260cbc7aaa13132d411a6bf696bba160c718fbcb67a73b9ee14ad22562d28a"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/02-routine.png",
+      "sha256": "f19ec0d4f5378b18f83556783d38b0c329506a9d1ba075e71eafde91cf265bf9"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/03-repertoire.png",
+      "sha256": "58a66ab11905bd1345438ef8aef28f821e9c85b358dfb811a25d588e6c5a1d44"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/04-quick-practice.png",
+      "sha256": "c34974df5fcaaffa2dd8317fb8739aebb1683959a9c4e3700b8750cffbc2ab64"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/05-quick-result.png",
+      "sha256": "47bd64e2ea863a3165ea009f0153be7e7104196c832d48243b28b35cb50e010b"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/06-progress.png",
+      "sha256": "16da80c29d545401c9bdd9244d266ef6720b8a9739319615ef0b0148ae9786b0"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/08-time-details.png",
+      "sha256": "6e9fa0bc31397a3c7da4805761010a6035079256aa44088ddccead004a7410f2"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/07-multimedia.png",
+      "sha256": "523cd51aaf54fd095442b0683bd88754275eb28c734aefc7494e29621cbf5b8e"
+    },
+    {
+      "language": "es",
+      "device": "phone",
+      "path": "es/phone/09-calendar.png",
+      "sha256": "35a8d1276bbc242b29cb92a05943224096f4277151a2cf648f681e9b9232802c"
+    },
+    {
+      "language": "es",
+      "device": "tablet",
+      "path": "es/tablet/wide-reading.png",
+      "sha256": "2f7e7c11812fa70b8dee6e5e027fe0788867c969ef45330a4b9e65dcf694b145"
+    },
+    {
+      "language": "es",
+      "device": "phone-landscape",
+      "path": "es/phone-landscape/landscape-reading.png",
+      "sha256": "c56969cc44432b48f3749e5a0027b78673887fe2f2f2a6ca40f8f22a25bb6c0a"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/01-today.png",
+      "sha256": "03cc9a499c7f5842d0c88d81ae2b9e65ebbc529c125b430802f4687d71ca9921"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/02-routine.png",
+      "sha256": "ca6c13bf42cca1e931b1018c099aa4dfb62b42375e02855133e5eed180fa58cd"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/03-repertoire.png",
+      "sha256": "ae64fc93cb0c38be75fb5867f1e7172ed7f09b02b99a2c87e8989b5886b893e2"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/04-quick-practice.png",
+      "sha256": "fda2697c16887b81593cca72e6436000d1db06b631c1dff9f338d0b3d2bbeeb4"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/05-quick-result.png",
+      "sha256": "8ab5b9a91168745d2e6e2e48fb3a83a9eac037c49facc4ea04a63bfbbb4aef58"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/06-progress.png",
+      "sha256": "29243fe146b295e725e87959c5ea725c2a13cd8e89d009341b29126791a604a7"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/08-time-details.png",
+      "sha256": "dc45d90d27c5a92f8c5659c807e9d8556326d1f41d580330b445d195d1a565b7"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/07-multimedia.png",
+      "sha256": "60719a39f3e17e9e13a7e34aff4a9aa4e81152624faa6a6b125382d824b6c4f6"
+    },
+    {
+      "language": "ca",
+      "device": "phone",
+      "path": "ca/phone/09-calendar.png",
+      "sha256": "4597b85ec5bc7a2d709c8f8a06b496005962c2858dd3b489e8a851a7f0502837"
+    },
+    {
+      "language": "ca",
+      "device": "tablet",
+      "path": "ca/tablet/wide-reading.png",
+      "sha256": "235ac5bf8703f26484e1628ea050baf805ee7574de994cd0d40d32e57ea97fc6"
+    },
+    {
+      "language": "ca",
+      "device": "phone-landscape",
+      "path": "ca/phone-landscape/landscape-reading.png",
+      "sha256": "96ff91a4c6f2f841d6538bdc4adc6024f04af1c47f337cb533db9f073ae050ff"
+    },
+    {
+      "language": "ca",
+      "device": "phone-landscape",
+      "path": "ca/phone-landscape/reading.png",
+      "sha256": "8efdbe4028622f96cd330a227afbe3d72df2c5b17bddf3408dfc0a8ef4cd37b4"
+    },
+    {
+      "language": "ca",
+      "device": "tablet-portrait",
+      "path": "ca/tablet-portrait/reading.png",
+      "sha256": "54c925da3b0efbf2b75fc45fb7e80858b5ed41899b0aec98e2ac49dc75e4e6c0"
+    }
+  ]
+}

@@ -5,9 +5,10 @@ import { join } from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {COPY} from './site-copy.mjs';
+import {releaseDialog} from './release-history.mjs';
 const OUT = 'site';
-const SHOT_SOURCE='docs/quality-review/captures/website/2026-10-07-current-app-07';
-const SHOTS = ['01-today','02-routine','03-repertoire','04-quick-practice','05-quick-result','06-progress'];
+const SHOT_SOURCE='docs/quality-review/captures/website/2026-10-15-beta61-02';
+const SHOTS = ['01-today','02-routine','03-repertoire','04-quick-practice','05-quick-result','06-progress','07-multimedia','08-time-details','09-calendar'];
 const icon = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const ICONS = {
   read: icon('<path d="M3 6h18M3 10h18M3 14h18M3 18h18"/><circle cx="9" cy="10" r="2" fill="currentColor"/><circle cx="15" cy="14" r="2" fill="currentColor"/>'),
@@ -15,6 +16,7 @@ const ICONS = {
   midi: icon('<rect x="2" y="6" width="20" height="13" rx="2"/><path d="M7 6v8M12 6v8M17 6v8"/>'),
   level: icon('<path d="M4 20V14M10 20V9M16 20V4M2 20h20"/>'),
   plan: icon('<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/>'),
+  media: icon('<rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 9 5-3v12l-5-3"/><circle cx="10" cy="12" r="3"/>'),
   score: icon('<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>'),
   game: icon('<path d="m12 3 3 6 6 1-4 5 1 6-6-3-6 3 1-6-4-5 6-1z"/>'),
   metronome: icon('<path d="m9 3-5 18h16L15 3zM12 17l5-9M8 14h8"/>'),
@@ -26,7 +28,7 @@ const TEST_DOWNLOAD_COPY=Object.fromEntries(Object.entries(COPY).map(([lang,copy
 function downloads(t){
  const c={en:['Stable · 6.0.0 (53)','Google Play · 5.2.3 (35)','Beta · 6.1.0-beta.1 (54)','Android beta APK','iOS Simulator for Mac · beta 9','Record audio or video linked to your repertoire, stored on this device. Stop from the floating score controls and review each take. Explore practice-time trends and filters.','The iOS download runs in Xcode Simulator on a Mac. An iPhone/iPad installation and TestFlight are not available yet: Apple Developer signing is required. I don’t own an iPhone, and the Apple Developer membership costs about $100 a year. I don’t currently have a reason to pay for it. If you’re interested in an iOS release, please let me know at <a href="mailto:support@spinoapp.com">support@spinoapp.com</a>.'],es:['Estable · 6.0.0 (53)','Google Play · 5.2.3 (35)','Beta · 6.1.0-beta.1 (54)','APK beta de Android','Simulador iOS para Mac · beta 9','Graba audio o vídeo vinculado a tu repertorio y guardado en este dispositivo. Detén la grabación desde la barra de la partitura y revisa cada toma. Consulta tendencias y filtros de tiempo de práctica.','La descarga de iOS funciona en el simulador de Xcode en Mac. Todavía no se puede instalar en iPhone/iPad ni en TestFlight: hace falta la firma de Apple Developer. No tengo un iPhone y la cuenta de Apple Developer cuesta unos 100 dólares al año. De momento no tengo un motivo para pagarla. Si te interesa una versión para iOS, escríbeme a <a href="mailto:support@spinoapp.com">support@spinoapp.com</a>.'],ca:['Estable · 6.0.0 (53)','Google Play · 5.2.3 (35)','Beta · 6.1.0-beta.1 (54)','APK beta d’Android','Simulador iOS per a Mac · beta 9','Grava àudio o vídeo vinculat al repertori i desat en aquest dispositiu. Atura la gravació des de la barra de la partitura i revisa cada presa. Consulta tendències i filtres del temps de pràctica.','La descàrrega d’iOS funciona al simulador de Xcode en Mac. Encara no es pot instal·lar en iPhone/iPad ni en TestFlight: cal la signatura d’Apple Developer. No tinc un iPhone i el compte d’Apple Developer costa uns 100 dòlars l’any. De moment no tinc cap motiu per pagar-lo. Si t’interessa una versió per a iOS, escriu-me a <a href="mailto:support@spinoapp.com">support@spinoapp.com</a>.']}[t.lang];
  const stable = {en:['Android stable APK','Local practice when sync is unavailable, connection recovery and consistent screen headers.'],es:['APK estable de Android','Práctica en local si falla la sincronización, recuperación de la conexión y cabeceras uniformes entre pantallas.'],ca:['APK estable d’Android','Pràctica en local si falla la sincronització, recuperació de la connexió i capçaleres uniformes entre pantalles.']}[t.lang];
- return `<div id="downloads"><article class="feature" data-channel="stable"><h3>${c[0]}</h3><p>${stable[1]}</p><p><a class="cta" href="${t.root}downloads/spino-6.0.0-53-android.apk" download>${stable[0]}</a></p><p><a href="${t.root}downloads/spino-6.0.0-checksums.json">SHA-256</a></p><a href="https://play.google.com/store/apps/details?id=com.miguecoll.spino">${c[1]}</a></article><article class="feature" data-channel="beta" style="margin-top:16px"><h3>${c[2]}</h3><p>${c[5]}</p><p><a class="cta" href="${t.root}downloads/spino-6.1.0-beta.1-54-android.apk" download>${c[3]}</a></p><a href="${t.root}downloads/spino-6.0.0-beta.9-48-ios-simulator.zip" download>${c[4]}</a><p class="cta-note">${c[6]}</p><a href="${t.root}downloads/spino-6.1.0-beta.1-checksums.json">SHA-256</a></article></div>`;
+ return `<div id="downloads"><article class="feature" data-channel="stable"><h3>${c[0]}</h3><p>${stable[1]}</p><p><a class="cta" href="${t.root}downloads/spino-6.0.0-53-android.apk" download>${stable[0]}</a></p><p><a href="${t.root}downloads/spino-6.0.0-checksums.json">SHA-256</a></p><a href="https://play.google.com/store/apps/details?id=com.miguecoll.spino">${c[1]}</a></article><article class="feature" data-channel="beta" style="margin-top:16px"><h3>${c[2]}</h3><p>${c[5]}</p><p><button type="button" class="release-open" data-release-open>${({en:'Release notes',es:'Notas de versión',ca:'Notes de versió'})[t.lang]}</button></p><p><a class="cta" href="${t.root}downloads/spino-6.1.0-beta.1-54-android.apk" download>${c[3]}</a></p><a href="${t.root}downloads/spino-6.0.0-beta.9-48-ios-simulator.zip" download>${c[4]}</a><p class="cta-note">${c[6]}</p><a href="${t.root}downloads/spino-6.1.0-beta.1-checksums.json">SHA-256</a></article></div>`;
 }
 
 function languagePicker(lang,root){const names={"es":"Español","en":"English","ca":"Català"};return `<details class="language-picker"><summary aria-label="${names[lang]} — ${lang==='ca'?'Canvia l’idioma':lang==='es'?'Cambiar idioma':'Change language'}" title="${names[lang]}"><span class="flag flag-${lang}" aria-hidden="true"></span></summary><div class="language-options">${['es','en','ca'].filter(l=>l!==lang).map(l=>`<a href="${root}${l==='es'?'':l+'/'}" lang="${l}" hreflang="${l}"><span class="flag flag-${l}" aria-hidden="true"></span>${names[l]}</a>`).join('')}</div></details>`; }
@@ -55,10 +57,11 @@ section{padding:48px 0}
 .privacy svg{width:40px;height:40px;color:var(--accent)}.privacy h2{margin:0 0 8px}.privacy p{margin:0 0 12px;color:var(--muted)}
 footer{border-top:1px solid var(--line);margin-top:24px;padding:28px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 footer a{color:var(--muted)}
+.release-open,.release-dialog button{font:inherit;min-height:44px;cursor:pointer;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);padding:8px 14px}.release-open{color:var(--accent)}.release-dialog{width:min(850px,calc(100% - 24px));max-height:85dvh;padding:0;border:1px solid var(--line);border-radius:20px;background:var(--panel);color:var(--text);overflow:hidden}.release-dialog[open]{display:flex;flex-direction:column}.release-dialog::backdrop{background:#000a}.release-dialog header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line);flex:none}.release-dialog h2{font-size:22px;margin:0}.release-dialog header button{min-width:44px;font-size:26px;padding:0;flex:none}.release-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding:0 20px 20px}.release-body>p{color:var(--muted)}.release-dialog details{border-bottom:1px solid var(--line);padding:12px 0}.release-dialog summary{cursor:pointer;min-height:44px;align-content:center;font-weight:650}.release-dialog p,.release-dialog li{overflow-wrap:anywhere}.release-dialog code{font-size:.9em}.release-open:focus-visible,.release-dialog :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:16px}.hero .phone{width:min(260px,72vw)}.privacy{grid-template-columns:1fr}}`;
 
 function page(t) {
-  const shot = (name, i) => `<img src="${t.root}img/${t.lang}/${name}.png?v=5.2.4" alt="${t.shotAlt[i]}" width="1080" height="1920" loading="lazy">`;
+  const shot = (name, i) => `<img src="${t.root}img/${t.lang}/${name}.png?v=6.1.0-beta.1" alt="${t.shotAlt[i]}" width="1080" height="1920" loading="lazy">`;
   return `<!doctype html>
 <html lang="${t.lang}">
 <head>
@@ -81,16 +84,17 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 <section class="hero">
 <div><h1>SPino<br><span>${t.tagline}</span></h1><p class="lead">${t.lead}</p>
 ${downloads(t)}</div>
-<img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=5.2.4" alt="${t.shotAlt[0]}" width="1080" height="1920">
+<img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=6.1.0-beta.1" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 <section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
-<img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=5.2.4" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
-<figure style="margin:24px 0 0"><img class="wide" src="${t.root}img/${t.lang}/landscape-keyboard-5.2.5.png" alt="${t.landscapeAlt}" width="844" height="390" loading="lazy"><figcaption>${t.landscapeAlt}</figcaption></figure></section>
+<img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=6.1.0-beta.1" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
+<figure style="margin:24px 0 0"><img class="wide" src="${t.root}img/${t.lang}/landscape-reading.png" alt="${t.landscapeAlt}" width="844" height="390" loading="lazy"><figcaption>${t.landscapeAlt}</figcaption></figure></section>
 <section><div class="privacy">${ICONS.lock}<div><h2>${t.privacyTitle}</h2><p>${t.privacy}</p><a href="${t.root}privacy/">${t.privacyLink}</a></div></div></section>
 <section id="arcade"><div class="feature"><h2>Spino Arcade · ${t.lang==='ca'?'Laboratori de joc':t.lang==='en'?'Play lab':'Laboratorio de juego'}</h2><p>${t.lang==='ca'?'Un joc musical nascut de Spino: Smart Piano Notebook. Llegeix notes en moviment, segueix el ritme i encadena ratxes, amb instruments amb mostres i progressió gradual.':t.lang==='en'?'A musical game born from Spino: Smart Piano Notebook. Read moving notes, keep the rhythm and build streaks, with sampled instruments and gentle progression.':'Un juego musical nacido de Spino: Smart Piano Notebook. Lee notas en movimiento, sigue el ritmo y encadena rachas, con instrumentos con muestras y progresión gradual.'}</p><p><a href="${t.root+'arcade/'+(t.lang==='es'?'':t.lang+'/')}">${t.lang==='ca'?'Descobreix Spino Arcade 1.0':t.lang==='en'?'Discover Spino Arcade 1.0':'Descubre Spino Arcade 1.0'} →</a></p></div></section></main>
 <footer><span>© ${new Date().getFullYear()} ${t.footer}</span><span><a href="${t.root}privacy/">${t.privacyLink}</a></span></footer>
 </div>
+${releaseDialog(t.lang)}
 </body>
 </html>
 `;
@@ -105,7 +109,7 @@ for (const t of Object.values(COPY)) {
   await writeFile(join(dir, 'index.html'), page(t));
   for (const name of SHOTS) await copyFile(`${SHOT_SOURCE}/${t.lang}/phone/${name}.png`, join(OUT, 'img', t.lang, `${name}.png`));
   await copyFile(`${SHOT_SOURCE}/${t.lang}/tablet/wide-reading.png`, join(OUT, 'img', t.lang, 'wide-reading.png'));
-  await copyFile(`docs/quality-review/captures/website/2026-10-07-landscape-5.2.5/${t.lang}/quick-phone-landscape.png`, join(OUT, 'img', t.lang, 'landscape-keyboard-5.2.5.png'));
+  await copyFile(`${SHOT_SOURCE}/${t.lang}/phone-landscape/landscape-reading.png`, join(OUT, 'img', t.lang, 'landscape-reading.png'));
 }
 await copyFile('assets/brand/spino-symbol-512.png', join(OUT, 'img', 'icon.png'));
 await copyFile('assets/brand/play-store-feature-1024x500.png', join(OUT, 'img', 'feature.png'));

@@ -1,0 +1,109 @@
+{
+  "verifiedAt": "2026-10-15T16:11:57.400566+00:00",
+  "version": "6.1.0-beta.1",
+  "build": 54,
+  "websiteCommit": "56483fd8f7a4af8a910ec798ecd510e33682279f",
+  "tag": "v6.1.0-beta.1",
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "publicBetaManifest": {
+    "version": "6.1.0-beta.1",
+    "build": 54,
+    "date": "2026-10-15",
+    "channel": "beta",
+    "stable": {
+      "version": "6.0.0",
+      "build": 53
+    },
+    "googlePlay": {
+      "version": "5.2.3",
+      "build": 35
+    },
+    "artifacts": [
+      {
+        "file": "spino-6.1.0-beta.1-54-android.apk",
+        "bytes": 22651646,
+        "sha256": "1a3edbd12359ba88a4d81f417fd5e71b9f9990125c9e359c6a8741c4d87a1e61",
+        "platform": "Android",
+        "applicationId": "com.miguecoll.spino.beta",
+        "version": "6.1.0-beta.1",
+        "build": 54
+      },
+      {
+        "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+        "bytes": 17949806,
+        "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+        "platform": "iOS Simulator for Mac/Xcode",
+        "version": "6.0.0-beta.9",
+        "build": 48,
+        "unchanged": true
+      }
+    ]
+  },
+  "downloadedArtifacts": [
+    {
+      "file": "spino-6.1.0-beta.1-54-android.apk",
+      "bytes": 22651646,
+      "sha256": "1a3edbd12359ba88a4d81f417fd5e71b9f9990125c9e359c6a8741c4d87a1e61",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino.beta",
+      "version": "6.1.0-beta.1",
+      "build": 54
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    },
+    {
+      "file": "spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino",
+      "version": "6.0.0",
+      "build": 53
+    },
+    {
+      "file": "spino-6.0.0-beta.13-52-android.apk",
+      "bytes": 22639750,
+      "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961",
+      "platform": "Android"
+    }
+  ],
+  "stableAndIosUnchanged": true,
+  "previousBetaDownloadRetained": true,
+  "nativeHandoff": {
+    "version": "6.1.0-beta.1",
+    "versionCode": 54,
+    "applicationId": "com.miguecoll.spino.beta",
+    "install": "adb install -r",
+    "applicationStorageCleared": false,
+    "existingIndexedDbFiles": 7,
+    "indexedDbHashesEqualBeforeLaunch": true,
+    "firstInstallTimeRetained": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}",
+      "ResumedActivity: ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}"
+    ],
+    "nativeCapture": "native-first-launch.png",
+    "emulatorRecovery": "Existing AVD cold-started headless after unresponsive Android and locked-desktop crash consent; original data image backed up and retained.",
+    "acceptance": "Replacement install, package identity and foreground verified. Physical microphone/camera and native populated layout acceptance remain separate.",
+    "nativeStartupLimitation": {
+      "error": "DataError: Failed to read large IndexedDB value",
+      "reproducedWithPriorBeta": "6.0.0-beta.13/build52, index-DtZA6W8f.js",
+      "newBeta": "6.1.0-beta.1/build54 restored after comparison",
+      "dataPolicy": "No storage cleared or repaired; existing notebook files preserved.",
+      "scope": "The existing emulator notebook cannot finish opening. This does not establish populated native UI or physical recording acceptance."
+    }
+  },
+  "validation": "6.1.0-beta.1-validation.json",
+  "scope": "Android beta APK and website. No Play Store, iOS rebuild or TestFlight publication."
+}
