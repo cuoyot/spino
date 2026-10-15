@@ -187,7 +187,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
         assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').hidden`),false);
         assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').disabled`),state==='editing');
         const currentPositions=await positions();assert.deepEqual(Object.keys(currentPositions).sort(),Object.keys(pausedPositions).sort());
-        for(const [action,box] of Object.entries(currentPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`${theme} ${width}x${height}: ${action} ${key} moved`);
+        for(const [action,box] of Object.entries(currentPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`${theme} ${width}x${height}: ${action} ${key} moved: ${JSON.stringify({paused:pausedPositions,current:currentPositions})}`);
         if(state==='editing'){
           await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
           assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'false','Disabled clock cannot resume editing.');

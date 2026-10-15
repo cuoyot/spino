@@ -1,0 +1,226 @@
+{
+  "capturedAt": "2026-10-15T17:27:05.563230+00:00",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "gitHead": "5a0e78bc8e4e982a25428499145343829658e977",
+  "sourceHashes": {
+    "src/companion/score-controls.js": "2f243565dc89b502a4d25b0c1a8cd0f5aff458a37bfd50ba3726655508f68774",
+    "src/companion/pdf-viewer.js": "5ba92982cfc3b1e655f0ce266c67ac591edfb044de5a547c039a25b6a0bae105",
+    "src/companion/pdf-viewer.css": "93375c69303911c26ebcd4fda1ae40c47a62e3392df9a68666f028eeaa625ddf",
+    "src/companion/musicxml-viewer.js": "3251be5c4784926bf3fa25550af7b208ea5007816d7e76245ce42eccdeb2997c",
+    "src/companion/locale-ca.js": "168398a4a6b042cc95abc05fb4fc20ea2a5b7228f4773a389083e2d29e7b356d",
+    "tests/score-timer.browser.test.js": "b016ff72e8dd53f1c57c94e9deb0633636a4514c4879e8b61a85e16464a539e9",
+    "tests/pdf-practice.browser.test.js": "ad61fd37b820bbac3feb63c6638dd2eec2609cba0d94f9fcbeecf0975935bbed"
+  },
+  "productionIndexSha256": "2206592bf7860f8d1fbdf91e3dd44ac57dc2d6e78db1ec634de60894acc9d38f",
+  "fixture": "fixture.json",
+  "frames": [
+    {
+      "file": "pdf-dark-phone-landscape-minimized.png",
+      "sha256": "5a895de8a770591418df72a6ea7af354225250df4435316b91ed1a147cbccb94"
+    },
+    {
+      "file": "pdf-dark-phone-landscape-paused.png",
+      "sha256": "c8e93f551ed1f00ee2e71131c1b3db51de7d4359da3e43ec7d94130cc94c5fd3"
+    },
+    {
+      "file": "pdf-dark-phone-landscape-running.png",
+      "sha256": "edaeec7567f836813ab21e050f5b258392f539a404ef117939af9a50c4566fc8"
+    },
+    {
+      "file": "pdf-dark-phone-portrait-minimized.png",
+      "sha256": "0eecabaf1b157aa67946ca4f000c16e35b5b6bdab61c6b9e1dbd9e9fec8039b5"
+    },
+    {
+      "file": "pdf-dark-phone-portrait-paused.png",
+      "sha256": "873d0c0115328e5b3e60c9d7a6929ce7b270f7dcfeb3427fc70e339757e6db86"
+    },
+    {
+      "file": "pdf-dark-phone-portrait-running.png",
+      "sha256": "03a7ee139ce57115259e6e01ac35ca9d9598744cde98ed3294e1019b02ff26f1"
+    },
+    {
+      "file": "pdf-dark-small-phone-minimized.png",
+      "sha256": "12cc3192a1a99b4a6107efda8932541ee2c89aed67b753970cbbd300f012df73"
+    },
+    {
+      "file": "pdf-dark-small-phone-paused.png",
+      "sha256": "5a1158a560587389d109dce3ed509358064ce097e147182f6cb8f99b10a6fdd7"
+    },
+    {
+      "file": "pdf-dark-small-phone-running.png",
+      "sha256": "250a2fb260c91d48879618aa89441c6d224dcf3c66270ce11c438594819b77dc"
+    },
+    {
+      "file": "pdf-dark-tablet-landscape-minimized.png",
+      "sha256": "f5d09376346dab34076671c70769f43dd477e931fbad25dbed5887b8a9258ae2"
+    },
+    {
+      "file": "pdf-dark-tablet-landscape-paused.png",
+      "sha256": "1a885eb5e8da43210fa2a33688df657039d66c10e206b6ed0ea6dc5b4d7fe492"
+    },
+    {
+      "file": "pdf-dark-tablet-landscape-running.png",
+      "sha256": "0d9bc2c6c2bb174c548843afd5389eea8676eab242b215f295cf08083edced67"
+    },
+    {
+      "file": "pdf-dark-tablet-portrait-minimized.png",
+      "sha256": "747cb433ef19abb50d2d64f5e16c78de1bb9379ba66b103d15f343aedc562e1a"
+    },
+    {
+      "file": "pdf-dark-tablet-portrait-paused.png",
+      "sha256": "bbe93d3ffc5889fbe3a7f6958568ddcddf8fb537ccca881bee4ff7f76fc9c057"
+    },
+    {
+      "file": "pdf-dark-tablet-portrait-running.png",
+      "sha256": "e8c27b565b3405d562677ef5497098dbf47144099b54e08f1e12588d0809b039"
+    },
+    {
+      "file": "pdf-light-phone-landscape-minimized.png",
+      "sha256": "b76895518a91ee2ae8a8fc97ffa216d4eb13742a8bf2ec8e0fdf80887e73a29e"
+    },
+    {
+      "file": "pdf-light-phone-landscape-paused.png",
+      "sha256": "a96d205e021312ae71dade42dd6d19bc589c3356d0526cb9bc3d344875da7bce"
+    },
+    {
+      "file": "pdf-light-phone-landscape-running.png",
+      "sha256": "a2719d6eca0a02fd94db6bee8e596570bad2279355023b839b9766ea7a2b7207"
+    },
+    {
+      "file": "pdf-light-phone-portrait-minimized.png",
+      "sha256": "e5c4c33d88d916f686fec0bfd2ac5ecc66c654e572d47a53bb6a4557cf27aebc"
+    },
+    {
+      "file": "pdf-light-phone-portrait-paused.png",
+      "sha256": "bb1b139419bc7080833ce77347630453223f7a6e9aae6ab94f2a8c062751298d"
+    },
+    {
+      "file": "pdf-light-phone-portrait-running.png",
+      "sha256": "7381d8b933855372d57012654aba8d72fea32d2df59fb9131b9e9b38cdcd5f08"
+    },
+    {
+      "file": "pdf-light-small-phone-minimized.png",
+      "sha256": "3a1c1f0e8e6e0fd0d51dad75352db4e7631405ec922717a664be3f0e10410139"
+    },
+    {
+      "file": "pdf-light-small-phone-paused.png",
+      "sha256": "509e2c580e5b8adcafe17bdff0d5a5444ce7339919abb09c4e6b4e9e5a633354"
+    },
+    {
+      "file": "pdf-light-small-phone-running.png",
+      "sha256": "cdd58cf998ef6420e1b6cc97efc4fc808a86bacdbb6a21d646caa55277151b69"
+    },
+    {
+      "file": "pdf-light-tablet-landscape-minimized.png",
+      "sha256": "7785f6145615afdab4c73438f838e0f5a1bebda2a4a9bbd310ddfc24cccbe0d6"
+    },
+    {
+      "file": "pdf-light-tablet-landscape-paused.png",
+      "sha256": "a2b166a6e3f2e415c87ca2d117068f211d896fdc7073998d4daf2e186bd1b4f5"
+    },
+    {
+      "file": "pdf-light-tablet-landscape-running.png",
+      "sha256": "1745ee96e6e9caba47ea9eda394a6f49c6c254e14a861abf719a4b21da0b67c1"
+    },
+    {
+      "file": "pdf-light-tablet-portrait-minimized.png",
+      "sha256": "0f6c8b798a81a484d2551b26a3e816b06ccae61cfa30ed93353c8e56f923c327"
+    },
+    {
+      "file": "pdf-light-tablet-portrait-paused.png",
+      "sha256": "71555530a2512846585ef4a38bea523850967a7e5fb175eb72bdb59eb5aef4ac"
+    },
+    {
+      "file": "pdf-light-tablet-portrait-running.png",
+      "sha256": "4e2d4f611e7645f0ab05d73d8eb217242df8973154ae76c670888e38a4918b5c"
+    },
+    {
+      "file": "xml-phone-landscape-editing.png",
+      "sha256": "afa19efacea96f677dfbad1ce079eb3a0f118127e5015d203f08380ffaf55f74"
+    },
+    {
+      "file": "xml-phone-landscape-minimized.png",
+      "sha256": "938c0d40517b7b14f0d7cf9935e842dfb31ecd7c53bf85b90e88a72f3845ae2a"
+    },
+    {
+      "file": "xml-phone-landscape-paused.png",
+      "sha256": "9dc14db8bbc47297ff4886ab7ce602730d321e6d5d14c1e41b9967557cd6a664"
+    },
+    {
+      "file": "xml-phone-landscape-running.png",
+      "sha256": "e4471182fc0784984a0cb6168aa8d8f379ed97e59b9a11003ac53a30a39df230"
+    },
+    {
+      "file": "xml-phone-portrait-editing.png",
+      "sha256": "a49af723f20a071e5bb1077cea3458f1e3c524ac2d4f90c07c77b21af20398ca"
+    },
+    {
+      "file": "xml-phone-portrait-minimized.png",
+      "sha256": "db643b681de9121b5b1dab6e039c472de17f5b96c0bb6786e4bc4315313f241f"
+    },
+    {
+      "file": "xml-phone-portrait-paused.png",
+      "sha256": "773ce9d92d0306c147167cb9aee08a12bc9e03597208836c639d513a5eae8bf1"
+    },
+    {
+      "file": "xml-phone-portrait-running.png",
+      "sha256": "a85ed4cfbea0d84c3a08febf8ec65d71c74516ecedb075ca09aaeb09631e147c"
+    },
+    {
+      "file": "xml-tablet-landscape-editing.png",
+      "sha256": "9127b5eb68ed94ff62fbb023ca503688bf9e66fb1ca5c0c7a1ed65be7a08e807"
+    },
+    {
+      "file": "xml-tablet-landscape-minimized.png",
+      "sha256": "925832d766441e8d7827a0243d1abc7558cb3a8a514174d6f15b8e4e92c78c0b"
+    },
+    {
+      "file": "xml-tablet-landscape-paused.png",
+      "sha256": "dbe1519e1fc6568416d052963da4f0f9d47a10e13758fe61d0ef29ac19015779"
+    },
+    {
+      "file": "xml-tablet-landscape-running.png",
+      "sha256": "30f1d26babfee497764fc9bf6e6819569e01ed526b332a113b84731c1270637d"
+    },
+    {
+      "file": "xml-tablet-portrait-editing.png",
+      "sha256": "bd0fb7ba5c342a83ff4f0173c49a347bb21a96f6dc573daeb90024e60b62944f"
+    },
+    {
+      "file": "xml-tablet-portrait-minimized.png",
+      "sha256": "832d137f1ddc080a44b2ed73269e8730920fea9a67aba9d31945e6591c2b9d50"
+    },
+    {
+      "file": "xml-tablet-portrait-paused.png",
+      "sha256": "6277f8b33805103f9f6f8eb8b28961c5d537e6ea20287be45edb64395ceddb9d"
+    },
+    {
+      "file": "xml-tablet-portrait-running.png",
+      "sha256": "105e77f9bc138e1fdc61582a19622d966b2e145f1554ee92c714746ec82f9c44"
+    }
+  ],
+  "checks": [
+    "Real touch single-tap/double-tap minimize and restore",
+    "Only grip and clock remain visible",
+    "Timer state and score width are preserved, including the synthesized post-touch click",
+    "Drag is excluded from the double-tap gesture; dragged bottom anchor retained",
+    "Clock remains usable when minimized; keyboard Enter restores controls",
+    "PDF light/dark phone/tablet portrait/landscape plus 320px layout",
+    "MusicXML four layouts, running/paused/editing clock and stable control positions",
+    "Existing PDF recording, annotation IDs, undo, framing, drag and finish regressions"
+  ],
+  "focusedTests": {
+    "passed": 16,
+    "failed": 0,
+    "logs": [
+      "tests.log",
+      "additional-regressions.log"
+    ],
+    "finalCaptureRerun": "capture-tests.log",
+    "scope": "10 score/PDF checks plus six editing/locale checks; timer/capture rerun counts as the same check."
+  },
+  "manualBrowserCheck": "In-app browser at http://127.0.0.1:5199/?review=pdf: mouse double-click minimizes/restores; paused clock remains paused after restore.",
+  "delivery": "Local source review after published beta3/build56; no new APK or publication.",
+  "captureNote": "Viewport resize settles before geometry checks and running screenshots. Earlier local attempts are preserved under artifacts/review/2026-10-15-minimized-toolbar-attempts."
+}

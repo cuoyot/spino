@@ -1,0 +1,8 @@
+{
+  "kind": "synthetic-only",
+  "pdfFixture": "tests/pdf-fixture.js:scorePDF()",
+  "musicXmlFixture": "tests/musicxml-fixture.js:musicXMLFixture()",
+  "previewNotebook": "../../multimedia/2026-10-15-local-01/notebook.fixture.json",
+  "entry": "Create a synthetic PDF repertoire work through the UI with warm-up disabled; MusicXML uses a disposable in-page session clock.",
+  "personalNotebookUsed": false
+}

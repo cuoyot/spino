@@ -1085,6 +1085,8 @@ The local score hash has changed. Revalidate it before viewing.|El hash de la pa
 MusicXML practice|Pràctica MusicXML
 MusicXML review preview|Previsualització de revisió MusicXML
 Move controls|Moure els controls
+Move controls. Double-tap to expand.|Moure els controls. Toca dos cops per desplegar.
+Move controls. Double-tap to minimize.|Moure els controls. Toca dos cops per minimitzar.
 Follow with MIDI|Seguir amb MIDI
 Hands to follow|Mans a seguir
 Right hand|Mà dreta

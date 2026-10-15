@@ -1,0 +1,16 @@
+{
+  "version": "6.1.0-beta.4",
+  "build": 57,
+  "files": {
+    "package.json": "519953507eaf22bd7ad75fb502582b2956b12a47e5c2ca6abde855224a34bdc5",
+    "package-lock.json": "2270fd05cb9393dc83540b46e5193aeed19564d6b08e50461858b291c5db5a64",
+    "android/app/build.gradle": "7fd3c6118fa831d4ecc5866af0450b7ff1e531ebc511d1ea2216d5b367e6378a",
+    "android/app/src/main/AndroidManifest.xml": "c1a196004fe2bc59760544ec1b7b360ac29fd642ec17e22126be76b88f98b458",
+    "src/companion/score-controls.js": "2f243565dc89b502a4d25b0c1a8cd0f5aff458a37bfd50ba3726655508f68774",
+    "src/companion/pdf-viewer.js": "5ba92982cfc3b1e655f0ce266c67ac591edfb044de5a547c039a25b6a0bae105",
+    "src/companion/pdf-viewer.css": "93375c69303911c26ebcd4fda1ae40c47a62e3392df9a68666f028eeaa625ddf",
+    "src/companion/musicxml-viewer.js": "3251be5c4784926bf3fa25550af7b208ea5007816d7e76245ce42eccdeb2997c",
+    "src/companion/locale-ca.js": "168398a4a6b042cc95abc05fb4fc20ea2a5b7228f4773a389083e2d29e7b356d"
+  },
+  "productionIndexSha256": "c9b88da77576608cdf1f99954df588b61ed254be790b6fe88260e8be1cf9d424"
+}

@@ -3,7 +3,7 @@ import { OpenSheetMusicDisplay } from 'opensheetmusicdisplay';
 import { readMusicXML, bytesFromBase64 } from './musicxml-document.js';
 import { excerptXML } from './musicxml-segments.js';
 import { scoreFullscreen } from './platform.js';
-import { scoreIcon, updateScoreTimer } from './score-controls.js';
+import { scoreIcon, updateScoreTimer, enableScoreWidgetMinimize } from './score-controls.js';
 import { digest } from './library.js';
 import { ui, localizeMessage } from './locale.js';
 import { marginTurn, turnEdge } from './pdf-annotations.js';
@@ -272,6 +272,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   handle.onpointerdown = e => { e.preventDefault(); handle.setPointerCapture(e.pointerId); const r = widget.getBoundingClientRect(); drag = { x: e.clientX - r.x, y: e.clientY - r.y }; };
   handle.onpointermove = e => { if (!drag) return; widget.style.right = 'auto'; widget.style.bottom = 'auto'; widget.style.left = `${Math.max(8, Math.min(modal.clientWidth - widget.offsetWidth - 8, e.clientX - drag.x))}px`; widget.style.top = `${Math.max(pauseButton.hidden ? 8 : 36, Math.min(modal.clientHeight - widget.offsetHeight - 8, e.clientY - drag.y))}px`; };
   handle.onpointerup = handle.onpointercancel = () => { drag = null; };
+  if (session) enableScoreWidgetMinimize(widget, handle);
   controls(); timer = setInterval(controls, 500);
   try {
     await display.load(xml.trimStart().startsWith('<?xml')?xml:'<?xml version="1.0"?>'+xml); if (closed) return { close };

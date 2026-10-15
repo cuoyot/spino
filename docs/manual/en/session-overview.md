@@ -100,11 +100,13 @@ Tap the MIDI icon when disconnected to refresh inputs and attempt the last remem
 
 PDF and MusicXML practice show elapsed time in a raised circular button on the floating score bar. Teal with the pause icon means timing is running; ochre with the play icon and **Paused** means timing is stopped. Tap the circle to pause or resume. Pausing keeps the score visible and does not open editing. Tap the pencil to open annotation and framing controls; the pencil is replaced in place by the Done editing checkmark. The paused clock stays visible but cannot be tapped while editing, and the floating controls keep their positions. This 2026-10-14 change is included in published beta 5/build44 and verified in responsive browsers. Native PDF acceptance remains limited by the emulator WebView.
 
+Double-tap the six-dot grip to minimize the floating practice bar to just the grip and clock. Double-tap it again to restore the other controls. The grip still moves the bar; Enter or Space on a focused grip also toggles the view. The clock keeps its pause/resume behavior, including remaining disabled during editing. The full bar uses less vertical space. This source follow-up is verified in responsive browsers after website beta3/build56; a new APK and native visual acceptance remain pending.
+
 ## Direct score practice and editing return (local source follow-up)
 
 Starting practice opens the score automatically when the current block is repertoire with an attached score. If you have a configured warm-up, it runs before that repertoire block. The overview offers one **Start practice / Continue practice** button to open the score and start or resume timing.
 
-**Edit score** and **Finish practice** stay visible in PDF and MusicXML floating controls. Edit pauses timing automatically and opens the annotation/framing tools. **Done editing** or Back returns to running score practice after pending changes are saved. Finish stops timing, saves pending annotations/views and opens feedback; it does not save the practice history automatically. A failed write leaves editing paused for retry. This 2026-10-14 behavior is included in published beta 5/build44 and browser-verified. Android replacement installation/version/foreground are confirmed; native PDF timing acceptance remains open.
+**Edit score** and **Finish practice** stay visible in the expanded PDF and MusicXML floating controls. Edit pauses timing automatically and opens the annotation/framing tools. **Done editing** or Back returns to running score practice after pending changes are saved. Finish stops timing, saves pending annotations/views and opens feedback; it does not save the practice history automatically. A failed write leaves editing paused for retry. This 2026-10-14 behavior is included in published beta 5/build44 and browser-verified. Android replacement installation/version/foreground are confirmed; native PDF timing acceptance remains open.
 
 ### Preparing repertoire
 

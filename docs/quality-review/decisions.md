@@ -2,6 +2,14 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-045 — Minimize the floating score bar
+
+- Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified; native/owner visual acceptance remains open.
+- PRACTICE-05 / SCORE-03 / C-SCORE: double-tap the six-dot grip to alternate between the full practice toolbar and only the grip plus clock. This refines D-038's always-visible actions: Edit, Record, pagination and Finish return when the owner expands the bar. Starting a new viewer uses the full bar. Timing, recording, editing, score framing and stored notebook data are independent of this view state.
+- Preserve drag movement, distinguish a drag/long press from a tap, and consume the click synthesized after a double-tap so resizing cannot accidentally activate the clock or another newly exposed action. Enter/Space or assistive activation also toggle the grip. Keep the dragged bottom anchor on restore.
+- Reduce expanded practice-bar height by 10 px through vertical padding/margin changes. At 320 px retain a 44 px grip, with 36 × 44 px secondary icon targets and a 68 px clock to preserve one row.
+- Verification: production build, 16 focused checks and [46 responsive frames](captures/session/2026-10-15-minimized-toolbar-07/verification.json) cover PDF light/dark phone/tablet orientations, narrow phones and MusicXML. An in-app browser mouse check also verifies minimize/restore while paused. Existing annotation IDs/undo, framing, recording, editing return and Finish behavior pass. Source only after website beta3/build56; no APK/publication in this follow-up.
+
 ## D-044 — Hours and minutes in Progress
 
 - Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified; owner/native visual acceptance remains open.

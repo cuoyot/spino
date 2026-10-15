@@ -1,0 +1,19 @@
+▶ immersive PDF practice, pause-only tools, fingering and saved framing
+  ✔ floating Record starts compact capture and stops into review over the running PDF (2590.724125ms)
+  ✔ running practice gives the sheet the whole viewport and rejects annotation/exit until paused (62.364084ms)
+  ✔ paused tools offer direct fingering stamps, a visual palette and undo/redo (340.284ms)
+  ✔ saved framing survives page turns, portrait/landscape and reopening the same work (838.6305ms)
+  ✔ one draggable widget stays inside phone/tablet screens and does not resize the score (1076.777042ms)
+  ✔ opening tools preserves the dragged bottom anchor when collapsed or resumed (1337.483958ms)
+  ✔ pause and explicit editing keep one row across phone and tablet layouts (3692.851666ms)
+  ✔ visible finish action opens feedback without automatically saving the session (119.200917ms)
+✔ immersive PDF practice, pause-only tools, fingering and saved framing (13126.443959ms)
+✔ raised score timer advances through checkpoints, pauses and resumes in four layouts (41016.699083ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46693.158542

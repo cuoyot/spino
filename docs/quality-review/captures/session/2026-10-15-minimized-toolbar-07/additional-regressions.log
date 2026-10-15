@@ -1,0 +1,14 @@
+✔ Android Back from the opened PDF editing panel returns to running practice (5637.287166ms)
+✔ PDF mark sizing, compact palette and editing preserve IDs and undo history (2703.673625ms)
+✔ score toolbars translate the finish action, annotations and accessible labels in both languages (0.9755ms)
+✔ score attachment forms and retained-attachment notices follow the current language (0.402542ms)
+✔ known PDF import failures are translated without changing the original file title (5.055958ms)
+✔ catalogue pending states and nested score diagnostics translate without rewriting identifiers (6.589542ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5735.227

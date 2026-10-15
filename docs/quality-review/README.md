@@ -14,6 +14,9 @@ Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4
 
 ## Resume work here
 
+2026-10-15 current floating-bar follow-up: D-045 adds double-tap minimize/restore on the six-dot grip for PDF and MusicXML practice and reduces the full bar height by 10 px. Only grip and clock remain in the minimized state, while timing and existing editing/recording state are preserved. [46 responsive frames and focused checks](captures/session/2026-10-15-minimized-toolbar-07/verification.json); [active review](session.md). Open synthetic browser review: http://127.0.0.1:5199/?review=pdf. Source only after published beta3/build56. Next: owner reviews the compact/expanded bar; native/physical visual acceptance remains open.
+
+
 2026-10-15 current Progress follow-up: D-044 shows durations of one hour or more as hours/minutes (139 min → 2 hr 19 min), including the weekly goal, chart labels/details, repertoire totals, scales and Progress history. Production build and focused checks pass; [55 dated responsive frames](captures/progress/2026-10-15-hours-minutes-01/metadata.json) use a disposable 139-minute week and 90-minute goal. Browser review: http://127.0.0.1:5198/. Published as website Android 6.1.0-beta.3/build56 on 2026-10-15. Final production package/signature, 16 focused regressions, replacement installation, 18 unchanged IndexedDB file hashes and foreground activity pass. Public verification confirms all three language pages, the checksum manifest and four download hashes. Native/owner visual acceptance remains open. [Publication record](../releases/6.1.0-beta.3-publication.json). Next: owner reviews the displayed formatting on the physical device.
 
 

@@ -47,6 +47,60 @@ export function updateScoreTimer(button, info) {
   button.title = label;
 }
 
+export function enableScoreWidgetMinimize(widget, handle, onResize = () => {}) {
+  let press = null, lastTap = null, suppressClick = false;
+  const modal = widget.parentElement;
+  // Resizing on pointerup can retarget the resulting click to a newly exposed control.
+  modal.addEventListener('pointerdown', () => { suppressClick = false; }, true);
+  modal.addEventListener('click', event => {
+    if (!suppressClick || event.detail === 0) return;
+    suppressClick = false; event.preventDefault(); event.stopImmediatePropagation();
+  }, true);
+  const label = () => {
+    const minimized = widget.classList.contains('score-widget-minimized');
+    handle.setAttribute('aria-expanded', String(!minimized));
+    handle.title = handle.ariaLabel = minimized
+      ? ui('Move controls. Double-tap to expand.', 'Mover controles. Toca dos veces para desplegar.')
+      : ui('Move controls. Double-tap to minimize.', 'Mover controles. Toca dos veces para minimizar.');
+  };
+  const toggle = () => {
+    const before = widget.getBoundingClientRect();
+    widget.classList.toggle('score-widget-minimized');
+    // A dragged widget keeps its bottom anchor as its width and height change.
+    if (widget.style.left) {
+      const parent = widget.parentElement;
+      widget.style.left = `${Math.max(8, Math.min(before.left, parent.clientWidth - widget.offsetWidth - 8))}px`;
+      widget.style.top = `${Math.max(36, Math.min(before.bottom, parent.clientHeight - 8) - widget.offsetHeight)}px`;
+    }
+    label(); onResize();
+  };
+  handle.addEventListener('pointerdown', event => {
+    if (event.button > 0 || !event.isPrimary) { press = lastTap = null; return; }
+    press = {id:event.pointerId, x:event.clientX, y:event.clientY, time:performance.now(), moved:false};
+  });
+  handle.addEventListener('pointermove', event => {
+    if (press?.id === event.pointerId && Math.hypot(event.clientX - press.x, event.clientY - press.y) > 7) press.moved = true;
+  });
+  handle.addEventListener('pointerup', event => {
+    if (press?.id !== event.pointerId) return;
+    const current = press, now = performance.now(); press = null;
+    if (current.moved || now - current.time > 500) { lastTap = null; return; }
+    if (lastTap && now - lastTap.time <= 350 && Math.hypot(event.clientX - lastTap.x, event.clientY - lastTap.y) <= 24) {
+      lastTap = null; suppressClick = true; toggle();
+    } else lastTap = {time:now, x:event.clientX, y:event.clientY};
+  });
+  handle.addEventListener('pointercancel', () => { press = lastTap = null; });
+  handle.addEventListener('lostpointercapture', () => { if (press) press = lastTap = null; });
+  // Keyboard and assistive activation provide the same action without a timed gesture.
+  handle.addEventListener('keydown', event => {
+    if (!['Enter', ' '].includes(event.key)) return;
+    event.preventDefault(); event.stopPropagation();
+    if (!event.repeat) { lastTap = null; toggle(); }
+  });
+  handle.addEventListener('click', event => { if (event.detail === 0) { lastTap = null; toggle(); } });
+  label();
+}
+
 export function scoreControlsMarkup(session) {
   const tools = [['read', ui('Pan', 'Mover')], ['select', ui('Select', 'Seleccionar')], ['pen', ui('Pen', 'Boli')], ['highlight', ui('Highlight', 'Resaltar')], ['underline', ui('Underline', 'Subrayar')], ['text', ui('Text', 'Texto')], ['erase', ui('Erase', 'Borrar')], ['line', ui('Line', 'Línea')], ['arrow', ui('Arrow', 'Flecha')], ['ellipse', ui('Circle', 'Círculo')], ['rectangle', ui('Frame', 'Marco')]];
   const colors = [ui('Red', 'Rojo'), ui('Blue', 'Azul'), ui('Ochre', 'Ocre'), ui('Green', 'Verde'), ui('Ink', 'Tinta')];

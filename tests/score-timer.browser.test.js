@@ -18,24 +18,59 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  await wait(`timerSeconds()>=timerStart+7`);
  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),'true');
  const folder=process.env.SPINO_SCORE_TIMER_EVIDENCE||'artifacts/score-timer';await mkdir(folder,{recursive:true});
+ const grip=async()=>evaluate(`(()=>{const r=document.querySelector('.pdf-widget-bar [data-pdf=drag],.pdf-widget-bar [data-xml=drag]').getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2,id:1}})()`);
+ const tap=async()=>{await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[await grip()]});await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});};
+ const minimized=()=>evaluate(`document.querySelector('.pdf-widget').classList.contains('score-widget-minimized')`);
+ const checkMinimize=async(name)=>{
+  const running=await evaluate(`document.querySelector('.score-timer').dataset.running`);
+  const score=await evaluate(`document.querySelector('.pdf-paper,.xml-score').getBoundingClientRect().width`);
+  await tap();assert.equal(await minimized(),false,'A single tap keeps the full bar');
+  await tap();assert.equal(await minimized(),true,'Two real touch taps minimize');
+  assert.deepEqual(await evaluate(`[...document.querySelector('.pdf-widget-bar').children].filter(e=>e.getClientRects().length).map(e=>e.dataset.pdf||e.dataset.xml)`),name.startsWith('pdf')?['drag','timer']:['drag','pause']);
+  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),running);
+  assert.equal(await evaluate(`document.querySelector('.pdf-paper,.xml-score').getBoundingClientRect().width`),score);
+  const r=await evaluate(`(()=>{const r=document.querySelector('.pdf-widget').getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom}})()`);
+  assert.ok(r.x>=0&&r.y>=0&&r.right<=await evaluate('innerWidth')&&r.bottom<=await evaluate('innerHeight'));
+  await writeFile(`${folder}/${name}-minimized.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await tap();await tap();assert.equal(await minimized(),false,'Double-tap restores the full bar');
+  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),running,'Restoring must not click the newly exposed clock');
+ };
  const geometry=async()=>{
   assert.equal(await evaluate(`getComputedStyle(document.querySelector('.score-timer')).color`),'rgb(245, 255, 255)');
   assert.equal(await evaluate(`document.querySelector('[data-pdf=tools],[data-xml=options]').hidden`),false);
   assert.equal(await evaluate(`document.querySelector('[data-pdf=finish],[data-xml=finish]').hidden`),false);
   const results=await evaluate(`Array.from(document.querySelectorAll('.pdf-widget-bar button:not([hidden]),.pdf-widget-bar .score-timer')).filter(e=>e.getClientRects().length).map(e=>{const r=e.getBoundingClientRect();return{action:e.dataset.pdf||e.dataset.xml,x:r.x,y:r.y,right:r.right,bottom:r.bottom,w:r.width,h:r.height}})`);
-  for(const r of results){assert.ok(r.x>=0&&r.y>=0&&r.right<=await evaluate('innerWidth')&&r.bottom<=await evaluate('innerHeight'),JSON.stringify(r));assert.ok(r.w>=44&&r.h>=44,JSON.stringify(r));}
+  for(const r of results){assert.ok(r.x>=0&&r.y>=0&&r.right<=await evaluate('innerWidth')&&r.bottom<=await evaluate('innerHeight'),JSON.stringify(r));assert.ok(r.w>=(await evaluate('innerWidth')<=350&&r.action!=='drag'?36:44)&&r.h>=44,JSON.stringify(r));}
  };
  for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768],['small-phone',320,568]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+  await evaluate(`new Promise(resolve=>setTimeout(resolve,550))`);
   for(const theme of ['light','dark']){
    await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);await geometry();
    await writeFile(`${folder}/pdf-${theme}-${layout}-running.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+   await checkMinimize(`pdf-${theme}-${layout}`);
    await evaluate(`document.querySelector('[data-pdf=timer]').click()`);await wait(`document.querySelector('.score-timer').dataset.running==='false'`);
    const paused=await evaluate('timerSeconds()');await evaluate(`new Promise(r=>setTimeout(r,1100))`);assert.equal(await evaluate('timerSeconds()'),paused);
    await geometry();await writeFile(`${folder}/pdf-${theme}-${layout}-paused.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
    await evaluate(`document.querySelector('[data-pdf=timer]').click()`);await wait(`document.querySelector('.score-timer').dataset.running==='true'`);
   }
  }
+ // A real drag between taps must never count as the second tap.
+ await send('Emulation.setDeviceMetricsOverride',{width:768,height:1024,deviceScaleFactor:1,mobile:true});
+ await tap();const point=await grip();
+ await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point]});
+ await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{...point,x:60,y:180}]});
+ await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ assert.equal(await minimized(),false);
+ await tap();await tap();assert.equal(await minimized(),true);
+ await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+ await wait(`document.querySelector('.score-timer').dataset.running==='false'`);
+ await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+ await wait(`document.querySelector('.score-timer').dataset.running==='true'`);
+ await evaluate(`document.querySelector('[data-pdf=drag]').focus()`);
+ await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+ await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+ assert.equal(await minimized(),false,'Keyboard activation restores the dragged bar');
  // MusicXML uses the same dial with its own viewer lifecycle and synthetic score.
  await evaluate(`document.querySelector('[data-pdf=timer]').click();document.querySelector('[data-pdf=close]').click()`);await wait(`!document.querySelector('.pdf-viewer')`);
  const assets=await readdir('dist/assets');let xmlChunk;
@@ -45,7 +80,9 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  await wait(`document.querySelector('.xml-score svg')`);await wait(`Number(document.querySelector('.score-timer .pdf-time').textContent.split(':')[1])>=7`);
  for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+  await evaluate(`new Promise(resolve=>setTimeout(resolve,550))`);
   await geometry();await writeFile(`${folder}/xml-${layout}-running.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await checkMinimize(`xml-${layout}`);
   await evaluate(`document.querySelector('[data-xml=pause]').click()`);await geometry();await writeFile(`${folder}/xml-${layout}-paused.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
   const positions=()=>evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-widget-bar button')].filter(b=>b.getBoundingClientRect().width).map(b=>{const r=b.getBoundingClientRect();return[['options','done'].includes(b.dataset.xml)?'edit':b.dataset.xml,{x:r.x,y:r.y,w:r.width,h:r.height}]}))`);
   const pausedPositions=await positions();

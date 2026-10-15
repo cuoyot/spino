@@ -140,3 +140,12 @@ New sessions autoplay the timer; saving allows duration adjustment while retaini
 ## Tablet warm-up toolbar review — 2026-10-12
 
 The owner's portrait-tablet capture shows Next: Free practice on an otherwise empty second row. The toolbar defines four columns but contains five visible items when the warm-up guide is available. Implemented a tablet-only five-column grid (minimum width/height 600 px), keeping Session, title, guide, MIDI and Next on one row. Tablet portrait/landscape geometry and minimum 44 px action height pass; phone layouts and landscape safe-area regression pass. Dated before/after captures use a disposable synthetic warm-up/free-practice session in captures/generated-practice/2026-10-12-tablet-toolbar-review. This is responsive browser review; the proposed visual arrangement awaits owner assessment and is not in the published beta 4 APK/archive. No further native package has been built for this layout change.
+
+
+## Floating-bar minimize follow-up — 2026-10-15
+
+The owner requests double-tap on the six-dot grip to minimize the score toolbar to just the grip and clock, plus less vertical padding by default. D-045 implements this for PDF and MusicXML practice. A second double-tap restores all controls; the grip still drags the widget. Enter/Space and assistive activation toggle it without a timed gesture. View state remains local to the open viewer and does not alter time, capture, annotation or frame state.
+
+The full bar is 10 px shorter. A 320 px viewport keeps the grip at 44 px and the remaining icon controls at 36 × 44 px, with a 68 px dial, so every control stays in one row. Double-tap consumes its synthesized click to prevent accidental Pause/Resume when the bar changes size under the pointer. Dragging is excluded from tap detection, and a dragged bottom anchor is retained on restore.
+
+[46 responsive-browser frames](captures/session/2026-10-15-minimized-toolbar-07/verification.json) reopen the shared D-037/D-038 PDF/MusicXML controls across phone/tablet orientations, both PDF themes and narrow screens. Sixteen focused checks cover touch minimize/restore, keyboard restore, retained timer state, compact bounds, drag, annotation IDs/undo, framing, recording, editing return and Finish. An in-app browser mouse check also confirms minimize/restore while paused. The opened preview uses disposable synthetic data at http://127.0.0.1:5199/?review=pdf. Source only after website beta3/build56; native/owner visual acceptance remains open.

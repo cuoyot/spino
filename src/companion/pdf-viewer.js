@@ -3,7 +3,7 @@ export { inspectPDF } from './pdf-document.js';
 import { validateAnnotations, MARK_COLORS, pagePoint, marginTurn, turnEdge, moveMark } from './pdf-annotations.js';
 import { onPedalTurn } from './pedals.js';
 import { validateScoreView, fittedFrame, sortSections, sectionLayout, snapSectionPoint } from './score-view.js';
-import { scoreControlsMarkup, scoreIcon, updateScoreTimer } from './score-controls.js';
+import { scoreControlsMarkup, scoreIcon, updateScoreTimer, enableScoreWidgetMinimize } from './score-controls.js';
 import { scoreFullscreen, native } from './platform.js';
 import { ui, localizeMessage } from './locale.js';
 import './pdf-viewer.css';
@@ -336,6 +336,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (event.key === 'ArrowLeft') dock.x -= 24; if (event.key === 'ArrowRight') dock.x += 24;
     clampWidget();
   });
+  if (session) enableScoreWidgetMinimize(widget, handle, clampWidget);
 
   function selectTool(next) {
     if (running()) return;

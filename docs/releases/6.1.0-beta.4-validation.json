@@ -1,0 +1,87 @@
+{
+  "version": "6.1.0-beta.4",
+  "build": 57,
+  "productionBuild": true,
+  "packagedWebFiles": 259,
+  "apkSignatureSha256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+  "tests": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "reviewedImplementation": {
+      "passed": 16,
+      "sourceAndTestHashesMatch": true,
+      "evidence": "../quality-review/captures/session/2026-10-15-minimized-toolbar-07/verification.json",
+      "scope": "Touch/keyboard minimize/restore, timer, PDF recording/annotation/undo/framing/drag/editing/Finish and locales. Passed before version bump; all seven reviewed source/test hashes match final source."
+    },
+    "finalWebsite": {
+      "passed": 4,
+      "logSha256": "8c7a92d551e5d605717b5ab1bbe5754954cac556e08b2462c336589430fccb18",
+      "scope": "Final version, artifact hashes and all three language pages, screenshots and release dialog in 15 responsive states."
+    }
+  },
+  "nativeHandoff": {
+    "date": "2026-10-15",
+    "version": "6.1.0-beta.4",
+    "build": 57,
+    "package": "com.miguecoll.spino.beta",
+    "install": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "indexedDbBefore": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "3ff9af431dcc0b3b4a1ec40fc30c6d2f6649111c8680c02d94bb59cc209fbe72",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "268931def6c4a0ecd5478fefe6ed049d2c1ee849bbb81e43b4c40f5a5d5ea949",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "96330e883d6c81b2c7fad449147514f0b7167042d40b14f8fa0a003678d60b1a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/11": "55406475949a08cac3f36dc668a4b246805929c1b444b62d0eeb3eee763b67b8"
+    },
+    "indexedDbAfter": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "3ff9af431dcc0b3b4a1ec40fc30c6d2f6649111c8680c02d94bb59cc209fbe72",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "268931def6c4a0ecd5478fefe6ed049d2c1ee849bbb81e43b4c40f5a5d5ea949",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "96330e883d6c81b2c7fad449147514f0b7167042d40b14f8fa0a003678d60b1a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/11": "55406475949a08cac3f36dc668a4b246805929c1b444b62d0eeb3eee763b67b8"
+    },
+    "indexedDbHashesEqualBeforeLaunch": true,
+    "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity\nTotalTime: 1804\nWaitTime: 1809\nComplete",
+    "foreground": [
+      "topResumedActivity=ActivityRecord{d0b1b5c u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t51}"
+    ],
+    "installedMetadata": [
+      "versionCode=57 minSdk=24 targetSdk=36",
+      "versionName=6.1.0-beta.4",
+      "android.permission.MODIFY_AUDIO_SETTINGS: granted=true"
+    ],
+    "packagedWebFiles": 259,
+    "scope": "Replacement installation, version, foreground and retained notebook files; responsive evidence is separate from native visual acceptance."
+  },
+  "responsiveEvidence": "../quality-review/captures/session/2026-10-15-minimized-toolbar-07/verification.json",
+  "nativeVisualAcceptance": false,
+  "delivery": "Ready for authorized website publication; public verification recorded separately."
+}
