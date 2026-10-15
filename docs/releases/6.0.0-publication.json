@@ -1,0 +1,115 @@
+{
+  "verifiedAt": "2026-10-15T14:14:23.707559+00:00",
+  "websiteCommit": "8e27f305d25268a72bd53748feebb87094ff6976",
+  "apkSourceCommit": "8d0435e",
+  "deployment": "Public Cloudflare-served language pages, stable/beta checksum manifests and all three downloadable artifacts verified.",
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "stable": {
+    "version": "6.0.0",
+    "build": 53,
+    "channel": "stable",
+    "date": "2026-10-15",
+    "artifacts": [
+      {
+        "file": "spino-6.0.0-53-android.apk",
+        "bytes": 19147537,
+        "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79",
+        "platform": "Android",
+        "applicationId": "com.miguecoll.spino",
+        "version": "6.0.0",
+        "build": 53
+      }
+    ],
+    "googlePlay": {
+      "version": "5.2.3",
+      "build": 35,
+      "url": "https://play.google.com/store/apps/details?id=com.miguecoll.spino"
+    },
+    "betaUnchanged": {
+      "version": "6.0.0-beta.13",
+      "build": 52
+    }
+  },
+  "downloadedArtifacts": [
+    {
+      "file": "spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino",
+      "version": "6.0.0",
+      "build": 53
+    },
+    {
+      "file": "spino-6.0.0-beta.13-52-android.apk",
+      "bytes": 22639750,
+      "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961",
+      "platform": "Android"
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    }
+  ],
+  "betaAndIosUnchanged": true,
+  "nativeHandoff": {
+    "version": "6.0.0",
+    "versionCode": 53,
+    "applicationId": "com.miguecoll.spino",
+    "installCommand": "adb install -r",
+    "productionAlreadyInstalled": false,
+    "applicationStorageCleared": false,
+    "existingBetaIndexedDbFilesRetained": 7,
+    "existingBetaIndexedDbHashesEqual": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{9c3facd u0 com.miguecoll.spino/.MainActivity t36}",
+      "ResumedActivity: ActivityRecord{9c3facd u0 com.miguecoll.spino/.MainActivity t36}"
+    ],
+    "nativeCapture": "native-loaded.png",
+    "nativeCaptureData": "Fresh separate production app; no personal notebook fixture.",
+    "acceptance": "Signed build installation/version/foreground verified. Populated layout evidence remains responsive browser; physical-device acceptance separate.",
+    "loadedUiVerified": "First-launch walkthrough over the empty production notebook; inspected after WebView load."
+  },
+  "signatures": {
+    "version": "6.0.0",
+    "build": 53,
+    "applicationId": "com.miguecoll.spino",
+    "apkSignatureVerified": true,
+    "aabSignatureVerified": true,
+    "signerCertificateSha256": "d27604f0725c3040b3a476617e1e7bc4c6d31d7aabc36a65e8a2d5cb65fc7de7",
+    "packagedWebFilesVerifiedPerArtifact": 259,
+    "artifacts": [
+      {
+        "file": "SPino-6.0.0-53.apk",
+        "bytes": 19147537,
+        "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+      },
+      {
+        "file": "SPino-6.0.0-53.aab",
+        "bytes": 18794609,
+        "sha256": "5a13edd60dbbd6315d3a53cd53991885543868375fd3942d62973b4f252932aa"
+      }
+    ]
+  },
+  "tests": {
+    "fullSuite": {
+      "total": 362,
+      "passed": 360,
+      "failed": 0,
+      "optionalSkipped": 2
+    },
+    "finalVersionBrowserRegressions": 5,
+    "localizedWebsiteChecks": 2
+  },
+  "googlePlay": "Unchanged at separately labeled 5.2.3 (35); no store submission.",
+  "nextDevelopment": "6.1 beta line; not started in this release."
+}
