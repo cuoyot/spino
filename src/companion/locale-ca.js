@@ -1712,6 +1712,13 @@ Waiting for a break in practice|Esperant una pausa en la pràctica
 Updating file…|Actualitzant el fitxer…
 Saved to your file provider|Desat al teu proveïdor de fitxers
 Connection needs attention|La connexió requereix atenció
+Resume synchronization to show this notebook’s QR.|Reprèn la sincronització per mostrar el QR d’aquest quadern.
+Show my notebook QR|Mostra el QR del meu quadern
+Scan it from the device you want to connect.|Escaneja’l des del dispositiu que vols connectar.
+Disconnect this notebook before connecting another one.|Desconnecta aquest quadern abans de connectar-ne un altre.
+Disconnect the current notebook before connecting another one.|Desconnecta el quadern actual abans de connectar-ne un altre.
+Scan a notebook QR or select its cloud file|Escaneja el QR d’un quadern o selecciona’n el fitxer del núvol
+Update failed|No s’ha pogut actualitzar
 Changes need review|Cal revisar els canvis
 Choose {provider} in the file picker.|Tria {provider} al selector de fitxers.
 Start on this device|Començar en aquest dispositiu
@@ -1722,6 +1729,7 @@ One-device backup|Còpia d’un sol dispositiu
 Automatic copies. Restore manually when needed.|Còpies automàtiques. Restaura-les manualment quan calgui.
 Automatic updates|Actualitzacions automàtiques
 While SPino is open and practice is idle.|Mentre SPino és obert i no estàs practicant.
+While SPino is open. Incoming changes wait until practice and editing finish.|Mentre SPino és obert. Els canvis rebuts esperen fins que acabis la pràctica i l’edició.
 Location and mode|Ubicació i mode
 Choose another file or change how it is used.|Tria un altre fitxer o canvia com s’utilitza.
 Disconnect this device|Desconnectar aquest dispositiu

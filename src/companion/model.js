@@ -3,6 +3,7 @@ import { ui, APP_LANGUAGES } from './locale.js';
 import { TARGETS } from './curriculum.js';
 import { KEYS } from '../music.js';
 import { importTemplate } from '../levels.js';
+import { LANGUAGES } from '../i18n.js';
 import { validateAnnotations } from './pdf-annotations.js';
 import { validateScoreView } from './score-view.js';
 import { validateLibraryState } from './library.js';
@@ -247,7 +248,7 @@ export function validateBackup(text) {
     let v;try{v=JSON.parse(value,(k,val)=>['__proto__','constructor','prototype'].includes(k)?undefined:val);}catch{fail();}if(!obj(v))fail();
     if(key==='sr.settings') {
       try{Object.assign(v,importTemplate(JSON.stringify({'sightreader-template':1,name:'Restaurado',settings:v}),()=> 'restored').settings);}catch{fail();}
-      const enums={input:['piano','names','none'],lang:['en','es','fr',"de",'it','pt','ru','ja'],naming:['english','solfege','french','german','russian','japanese'],guide:['off','keys','lights'],soundMode:['off','tone','voice']};
+      const enums={input:['piano','names','none'],lang:Object.keys(LANGUAGES),naming:['english','solfege','french','german','russian','japanese'],guide:['off','keys','lights'],soundMode:['off','tone','voice']};
       for(const [k,list] of Object.entries(enums))if(v[k]!=null&&!list.includes(v[k]))fail();
       if(v.zoom!=null&&(!number(v.zoom)||v.zoom<.5||v.zoom>2))fail();
       if(v.kbLo!=null&&(!Number.isInteger(v.kbLo)||v.kbLo<5||v.kbLo>56))fail();

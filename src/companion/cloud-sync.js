@@ -136,7 +136,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     })();
     return task;
   }
+  const requireDisconnected = () => {
+    if ((state.mode === 'sync' ? state : independent.state).name) throw new Error('Disconnect the current notebook before connecting another one.');
+  };
   async function connectShared(join, link = null) {
+    requireDisconnected();
     if (task || independent.busy) throw new Error('Wait for the current backup operation.');
     if (!eligible()) throw new Error('Finish practice and close editors and downloads before connecting a shared notebook.');
     clearTimeout(timer); timer = null; independent.stop();
@@ -163,14 +167,14 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         await adapter.acknowledgeSetup?.();
         await reconcileWithRetry();
       } catch (error) {
-        if (!linked) state = previous;
+        if (!linked) state = { ...previous, connectionError: error.message || String(error) };
         state.status = 'error'; state.error = error.message || String(error);
       } finally { task = null; if (!linked && previousBackupEnabled) await independent.setEnabled(true); publish(); schedule(); if (state.mode === 'backup') independent.markDirty(); }
     })();
     return task;
   }
   return {
-    get state() { return state.mode === 'sync' ? { ...state } : { ...independent.state, mode: 'backup' }; },
+    get state() { return state.mode === 'sync' ? { ...state } : { ...independent.state, ...(state.connectionError ? { status: 'error', error: state.connectionError } : {}), mode: 'backup' }; },
     get busy() { return !!task || independent.busy; },
     async init() {
       const destination = await adapter.status();
@@ -187,6 +191,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       publish(); schedule();
     },
     async connect() {
+      requireDisconnected();
       if (task) throw new Error('Wait for synchronization.');
       clearTimeout(timer); timer = null;
       const connected = await independent.connect();

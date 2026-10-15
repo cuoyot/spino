@@ -1,0 +1,17 @@
+✔ cloud errors remain visible and retry is reachable across phone and tablet layouts (2857.316708ms)
+✔ Catalan notebook sync accepts the reader locale and keeps invalid remote data untouched (3882.693792ms)
+✔ a provider error offers local practice, preserves scores, saves progress and stays paused after reload (1610.589333ms)
+✔ a stalled provider can be paused immediately and quick practice opens only once (1129.368792ms)
+✔ a successful preflight does not treat its progress dialog as an editor (1218.924ms)
+✔ provider repair and local controls stay reachable in overview and manage across four layouts (1128.64125ms)
+✔ Catalan file linking reaches the picker, preserves cancellation and separates joining from sharing (12428.665667ms)
+✔ closed retained forms no longer prevent applying cloud changes (2801.55275ms)
+✔ device linking code, real QR decoding and backup compatibility choices in four layouts (4493.975875ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21586.236167

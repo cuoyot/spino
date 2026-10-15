@@ -14,6 +14,9 @@ Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4
 
 ## Resume work here
 
+2026-10-15 current cloud follow-up: D-047 fixes valid Catalan reader settings rejected before sync/file selection. D-048 separates joining (Scan QR / Select file) from sharing in Backup & sync → Manage and requires disconnect before changing a connected or paused notebook. Setup errors remain visible. [Active review](cloud-connection.md): 90 focused checks, 20 synthetic responsive frames, actual Android picker launch/cancel, replacement installation with unchanged notebook-file hashes and foreground pass. Beta6/build59 publication verification follows. Real Drive/physical acceptance remains open.
+
+
 2026-10-15 current keyboard-theme correction: D-046 repairs black keys inheriting white control backgrounds in light mode. Idle/pressed/guide materials are now independent of chrome in both themes. [24 responsive material states](captures/generated-practice/2026-10-15-keyboard-light-01/verification.json), nine keyboard/practice checks and [35 refreshed website images](captures/website/2026-10-15-keyboard-light-01/capture.json) pass. Published as website Android 6.1.0-beta.5/build58 on 2026-10-15. Production package/signature, 13 focused checks, replacement installation, 18 unchanged IndexedDB hashes and foreground activity pass. Public verification confirms all three language pages, current checksum manifest, four download hashes and 34 website image hashes, including the corrected keyboards and cache revisions. Native/owner visual acceptance remains open. [Publication record](../releases/6.1.0-beta.5-publication.json).
 
 

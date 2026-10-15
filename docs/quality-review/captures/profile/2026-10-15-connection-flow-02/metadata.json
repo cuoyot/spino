@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-15",
+  "kind": "Responsive browser, synthetic provider; not native-device acceptance",
+  "version": "6.1.0-beta.6",
+  "build": 59,
+  "sourceHashes": "../../../../releases/6.1.0-beta.6-source-hashes.json",
+  "fixture": "scripts/review/cloud-recovery-fixture.mjs",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "captures": [
+    {
+      "file": "join-1024x768.png",
+      "sha256": "ceae2904eacc242dedd6bc630d04e4bfb1f1105c51921972fab515aa7dfa07f5"
+    },
+    {
+      "file": "join-390x844.png",
+      "sha256": "6f127a6a8e0b7118008c2c836a083e255261460f9f85bf64da6cea0e9be88198"
+    },
+    {
+      "file": "join-768x1024.png",
+      "sha256": "99eec4c5df5ce40577c2ebb8c7d6a7fa8a10081a4f049500824275b1cf0a493f"
+    },
+    {
+      "file": "join-844x390.png",
+      "sha256": "3f11c46261af3c40ddd31b1591594483dab022dc374a88566a306162cd78311e"
+    },
+    {
+      "file": "manage-1024x768.png",
+      "sha256": "fc2cc8af5f9b18ea9f3a035f8784c0e983a89ff74e06504cec61049757da12e3"
+    },
+    {
+      "file": "manage-390x844.png",
+      "sha256": "468bc9cf5eae53f634a5165af027cc27d10e900f9dae28cc3aec977a31a6eb94"
+    },
+    {
+      "file": "manage-768x1024.png",
+      "sha256": "649a6bead6cc6621ede671499a908527bfe38b601c7fe280be8842b194c747de"
+    },
+    {
+      "file": "manage-844x390.png",
+      "sha256": "bfff304c6c7ca91596950df1113b074d6ed12fa1b48d3f5f6e6939c6bec52bd4"
+    },
+    {
+      "file": "share-qr-1024x768.png",
+      "sha256": "d6e309783d674306274870e00d8c5cd1e0ea33fc296fbb18a8af53fcbf9d19a3"
+    },
+    {
+      "file": "share-qr-390x844.png",
+      "sha256": "816f7f2c0b00c55edaad18ebca5c3bf086ddc18f6112909e8c8c392b6abcb379"
+    },
+    {
+      "file": "share-qr-768x1024.png",
+      "sha256": "93098f161da6231abec6471ef7c3c5282f1f74af7f9f76e04782ab03befa8097"
+    },
+    {
+      "file": "share-qr-844x390.png",
+      "sha256": "1aa67e8325a9320684c7365f560004894eb9ee3985226f116a1b1a50261246a9"
+    }
+  ],
+  "checks": "Disconnected: QR scan / file only. Actual app button reaches provider; cancellation, visible setup failure, successful linking/conflict review, QR in Manage, paused connection block, disconnect retaining scores."
+}

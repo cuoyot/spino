@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mergeNotebooks } from '../src/companion/cloud-merge.js';
 import { createNotebookCloud } from '../src/companion/cloud-sync.js';
 import { backupHash } from '../src/companion/cloud-backup.js';
+import { emptyData, block, beginSession, saveSession, validateBackup } from '../src/companion/model.js';
 const book = (works = []) => ({ data: { works, sessions: [] }, assets: [] });
 const clone = structuredClone;
 test('three-way merge keeps additions, independent fields, deletions and annotation IDs', () => {
@@ -24,7 +25,7 @@ test('delete versus edit and same annotation edits require explicit choices',()=
  const x=clone(a),y=clone(a); x.assets[0].annotations.marks[0].text='2';y.assets[0].annotations.marks[0].color='blue';
  assert.equal(mergeNotebooks(a,x,y).conflicts.length,1);
 });
-function device(t, shared, initial, delay = 100000) {
+function device(t, shared, initial, delay = 100000, validate = JSON.parse) {
  let local=clone(initial),base=null,meta={},recovery=null,allowed=true,applyAllowed=true,gate=null;
  const adapter={status:async()=>({linked:!!shared.text,name:'shared.json'}),
  create:async({text})=>{shared.text=text;return {name:'shared.json'};},
@@ -33,10 +34,28 @@ function device(t, shared, initial, delay = 100000) {
  saveRecovery:async({text})=>{recovery=text;},disconnect:async()=>{}};
  const engine=createNotebookCloud({adapter,settings:{read:()=>meta,save:v=>{meta=clone(v);}},snapshot:async()=>JSON.stringify(local),
  eligible:()=>allowed,canApply:()=>applyAllowed,readBase:async()=>base,saveBase:async v=>{base=clone(v);},apply:async(text,b)=>{local=JSON.parse(text);base=clone(b);},
- validate:JSON.parse,delay,backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
+ validate,delay,backupFactory:()=>({state:{status:'disconnected',name:'',enabled:false},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
  t.after(()=>engine.stop());
  return {engine,adapter,base:()=>base,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},applyAllowed:v=>{applyAllowed=v;},gate:v=>{gate=v;}};
 }
+test('Catalan reader settings synchronize between same-version devices using the production validator',async t=>{
+ const initial={format:'cuaderno-piano',version:1,data:emptyData(),assets:[{id:'stable-score',name:'Synthetic score.pdf',type:'application/pdf',base64:'JVBERi0xLjQ=',annotations:{version:1,marks:[{id:'stable-mark',page:1,type:'text',color:'#d64545',width:.002,points:[{x:.3,y:.4}],text:'Keep original annotation'}]}}],legacy:{'sr.settings':JSON.stringify({clef:'treble',lang:'en'})}};
+ initial.data.works=[{id:'stable-work',title:'Original musical title',composer:'Original composer',stage:'En estudio',notes:'',passage:'1–8',bpm:80,target:null,assetId:'stable-score'}];
+ initial.data.preferences.language='en';
+ const shared={},a=device(t,shared,initial,100000,validateBackup),b=device(t,shared,initial,100000,validateBackup);
+ await a.engine.createShared();await b.engine.joinShared();assert.equal(b.engine.state.status,'saved');
+ b.edit(v=>{v.data.preferences.language='ca';v.legacy['sr.settings']=JSON.stringify({clef:'treble',lang:'ca'});});
+ a.edit(v=>{const active=beginSession({title:'Saved on the other device',context:'piano',blocks:[block('free')]});active.elapsedMs=active.blockElapsedMs=120000;saveSession(v.data,active);});
+ await a.engine.sync();await b.engine.sync();assert.equal(b.engine.state.status,'saved',b.engine.state.error);
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);
+ for(const d of [a,b]){
+  const actual=validateBackup(JSON.stringify(d.get()));assert.equal(actual.data.sessions.length,1);
+  assert.equal(actual.data.preferences.language,'ca');assert.equal(JSON.parse(actual.legacy['sr.settings']).lang,'ca');
+  assert.deepEqual(actual.data.works,initial.data.works);assert.deepEqual(actual.assets,initial.assets);
+ }
+ const before=clone(b.get()),base=clone(b.base());shared.text=JSON.stringify({...JSON.parse(shared.text),version:99});const invalid=shared.text;
+ await b.engine.sync();assert.equal(b.engine.state.status,'error');assert.deepEqual(b.get(),before);assert.deepEqual(b.base(),base);assert.equal(shared.text,invalid);
+});
 test('two devices combine offline additions, pull without local edits and preserve recovery',async t=>{
  const shared={};const a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));
  await a.engine.createShared();await b.engine.joinShared();await a.engine.sync();
@@ -123,7 +142,7 @@ test('automatic sync uploads local changes while editing and defers incoming ado
 test('QR join checks notebook identity and maintains it across two-device edits',async t=>{
  const shared={},a=device(t,shared,book([{id:'a'}])),b=device(t,shared,book([{id:'b'}]));await a.engine.createShared();const link=await a.engine.deviceLink();
  assert.equal(JSON.parse(shared.text).cloudBackup.sharedNotebookId,link.id);await b.engine.joinShared(link.code);await a.engine.sync();assert.equal(b.engine.state.notebookId,link.id);assert.equal(a.get().data.works.length,2);
- const wrong=link.code.replace(link.id,'6ce8d640-d2e3-4fcb-8fa3-885d36b2cc52');await b.engine.joinShared(wrong);assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.notebookId,link.id);assert.equal(b.get().data.works.length,2);
+ const c=device(t,shared,book());const wrong=link.code.replace(link.id,'6ce8d640-d2e3-4fcb-8fa3-885d36b2cc52');await c.engine.joinShared(wrong);assert.equal(c.engine.state.status,'error');assert.deepEqual(c.get(),book());assert.equal(b.engine.state.notebookId,link.id);assert.equal(b.get().data.works.length,2);
 });
 
 test('reviewed cloud choice waits safely then applies without reopening the same conflict',async t=>{
@@ -140,9 +159,9 @@ test('an older client can update a format 1 file without retaining additive QR m
  const shared={},a=device(t,shared,book([{id:'stable-work',title:'Original'}]));await a.engine.createShared();const id=a.engine.state.notebookId;const oldClient=JSON.parse(shared.text);delete oldClient.cloudBackup;oldClient.data.works[0].title='Stable app change';shared.text=JSON.stringify(oldClient);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].id,'stable-work');assert.equal(a.get().data.works[0].title,'Stable app change');assert.equal(JSON.parse(shared.text).cloudBackup.sharedNotebookId,id);
 });
 
-test('file selection is nested in linking and available from manage',async()=>{
+test('file selection is only offered while disconnected and sharing lives in manage',async()=>{
  const {deviceLinkMarkup}=await import('../src/companion/device-link.js');const {cloudSetupMarkup,cloudManageMarkup,cloudBackupMarkup}=await import('../src/companion/cloud-backup-view.js');
- for(const lang of ['en','es','ca']){const options={lang,available:true};assert.match(deviceLinkMarkup({},options),/data-action="cloud-join-shared"/);assert.doesNotMatch(cloudSetupMarkup(options),/data-action="cloud-join-shared"/);assert.match(cloudManageMarkup({mode:'sync',name:'shared.json'},options),/data-action="device-link"/);}
+ for(const lang of ['en','es','ca']){const options={lang,available:true};assert.match(deviceLinkMarkup({},options),/data-action="cloud-join-shared"/);assert.doesNotMatch(cloudSetupMarkup(options),/data-action="cloud-join-shared"/);const manage=cloudManageMarkup({mode:'sync',name:'shared.json'},options);assert.doesNotMatch(manage,/data-action="device-link"|data-action="cloud-setup"/);assert.match(manage,/data-action="device-link-show"/);}
  const html=cloudBackupMarkup({mode:'sync',name:'shared.json',status:'waiting',waitReason:'practice'},{available:true,lang:'es'});assert.match(html,/Termina y guarda/);assert.match(html,/resume-session/);
 });
 
@@ -230,4 +249,17 @@ test('reselecting the same notebook preserves deletions, baseline, cancellation 
  const remote=JSON.parse(shared.text);remote.data.sessions.push({id:'remote'});shared.text=JSON.stringify(remote);
  a.adapter.pickBackup=async options=>{assert.deepEqual(options,{link:true,expectedNotebookId:id,reconnect:true});return {text:shared.text,name:'reselected.json'};};
  await a.engine.relink();assert.equal(a.engine.state.status,'saved');assert.equal(a.engine.state.name,'reselected.json');assert.deepEqual(a.get().data.works,[{id:'a',title:'Original'}]);assert.equal(a.get().data.sessions.length,2);
+});
+
+test('a connected or paused notebook cannot be replaced through join, create or backup setup',async t=>{
+ const shared={},a=device(t,shared,book([{id:'kept'}]));await a.engine.createShared();
+ let picks=0,creates=0;a.adapter.pickBackup=async()=>{picks++;throw Error('Unexpected picker');};a.adapter.create=async()=>{creates++;throw Error('Unexpected create');};
+ for(const paused of [false,true]){
+  if(paused)a.engine.continueLocal();
+  const before=clone(a.engine.state),base=clone(a.base()),local=clone(a.get()),remote=shared.text;
+  for(const action of [()=>a.engine.joinShared(),()=>a.engine.createShared(),()=>a.engine.connect()])await assert.rejects(action,/Disconnect the current notebook/);
+  assert.deepEqual(a.engine.state,before);assert.deepEqual(a.base(),base);assert.deepEqual(a.get(),local);assert.equal(shared.text,remote);
+ }
+ assert.equal(picks,0);assert.equal(creates,0);
+ await a.engine.disconnect();a.adapter.pickBackup=async()=>{picks++;return {cancelled:true};};await a.engine.joinShared();assert.equal(picks,1);assert.equal(a.engine.state.name,'');assert.deepEqual(a.get().data.works,[{id:'kept'}]);
 });

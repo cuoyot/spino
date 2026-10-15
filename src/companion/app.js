@@ -1035,6 +1035,12 @@ export async function bootCompanion(reader) {
       if (!alreadyClosed) scoreViewer = controller;
     } finally { openingScore = false; }
   }
+  async function connectCloudNotebook(operation) {
+    dialog.close();
+    go('profile-backup');
+    await operation();
+    if (cloud?.state.status === 'error') showDialog(ui('Manage connection','Gestionar conexión'),cloudManageMarkup(cloud.state,cloudOptions()));
+  }
   const actions={
     ...libraryUI.actions,
     'library-downloadable':()=>{libraryFilters={state:'located'};libraryPage=0;render();},
@@ -1245,18 +1251,18 @@ export async function bootCompanion(reader) {
     'convert-backup':()=>backupExportOptions(true),
     'import-backup':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const text=await importFile();if(text)reviewBackupRestore(text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
     'device-link':()=>{pendingDeviceLink=null;showDialog(deviceLinkCopy().title,deviceLinkMarkup(cloud?.state||{}, {available:cloudAvailable()}));},
-    'device-link-show':async()=>{dialog.close();const link=await cloud.deviceLink();showDialog(deviceLinkCopy().title,await deviceLinkQRMarkup(link));},
+    'device-link-show':async()=>{dialog.close();const link=await cloud.deviceLink();showDialog(deviceLinkCopy().show,await deviceLinkQRMarkup(link));},
     'device-link-scan':()=>{pauseSession();const t=deviceLinkCopy();showDialog(t.title,`<div id="device-link-camera"></div><p role="status">${esc(t.scan)}</p><div class="cp-actions">${btn('device-link-manual',t.manual)}${btn('close-dialog',t.close)}</div>`);const controller=new AbortController();dialogCleanup=()=>controller.abort();const stopHidden=()=>{if(document.hidden){controller.abort();document.removeEventListener('visibilitychange',stopHidden);}};document.addEventListener('visibilitychange',stopHidden);controller.signal.addEventListener('abort',()=>document.removeEventListener('visibilitychange',stopHidden),{once:true});void startNotebookScanner(document.querySelector('#device-link-camera'),{signal:controller.signal,onScan:link=>{pendingDeviceLink=link;showDialog(t.title,deviceLinkConfirmMarkup(link));},onError:error=>{if(dialog.open)document.querySelector('#cp-form-error').textContent=localizeMessage(error.message);}});},
     'device-link-manual':()=>showDialog(deviceLinkCopy().title,deviceLinkManualMarkup(),f=>{pendingDeviceLink=parseDeviceLink(f.get('code'));showDialog(deviceLinkCopy().title,deviceLinkConfirmMarkup(pendingDeviceLink));}),
     'device-link-copy':async()=>{await navigator.clipboard.writeText(document.querySelector('#device-link-code').value);toast(ui('Connection code copied.','Código de conexión copiado.'));},
-    'device-link-connect':async()=>{if(!pendingDeviceLink)return;if(!cloudAvailable())throw new Error(ui('Open the installed app to select your cloud file.','Abre la app instalada para seleccionar el archivo de nube.'));const code=encodeDeviceLink(pendingDeviceLink);dialog.close();await cloud.joinShared(code);if(cloud.state.status==='error')throw new Error(cloud.state.error);if(cloud.state.name)pendingDeviceLink=null;},
-    'cloud-setup':()=>showDialog(ui("Connect backup", "Conectar copia"),cloudSetupMarkup(cloudOptions())),
+    'device-link-connect':async()=>{if(!pendingDeviceLink)return;if(!cloudAvailable())throw new Error(ui('Open the installed app to select your cloud file.','Abre la app instalada para seleccionar el archivo de nube.'));const code=encodeDeviceLink(pendingDeviceLink);await connectCloudNotebook(()=>cloud.joinShared(code));if(cloud.state.name)pendingDeviceLink=null;},
+    'cloud-setup':()=>cloud?.state.name?actions['cloud-manage']():showDialog(ui("Connect backup", "Conectar copia"),cloudSetupMarkup(cloudOptions())),
     'cloud-manage':()=>showDialog(ui("Manage connection", "Gestionar conexión"),cloudManageMarkup(cloud?.state||{},cloudOptions())),
     'cloud-conflicts':()=>{pauseSession();hideReader();go('profile-backup');showDialog(ui("Review changes", "Revisar cambios"),cloudConflictMarkup(cloud?.state||{},cloudOptions()));},
     'cloud-help':()=>showDialog(ui("Backup & sync", "Copia y sincronización"),cloudHelpMarkup(cloudOptions())),
-    'cloud-connect':async()=>{dialog.close();await cloud?.connect();},
-    'cloud-create-shared':()=>{dialog.close();return cloud?.createShared();},
-    'cloud-join-shared':()=>{dialog.close();return cloud?.joinShared();},
+    'cloud-connect':()=>connectCloudNotebook(()=>cloud?.connect()),
+    'cloud-create-shared':()=>connectCloudNotebook(()=>cloud?.createShared()),
+    'cloud-join-shared':()=>connectCloudNotebook(()=>cloud?.joinShared()),
     'cloud-resolve-local':()=>{dialog.close();return cloud?.resolve('local');},
     'cloud-resolve-remote':()=>{dialog.close();return cloud?.resolve('remote');},
     'cloud-toggle':value=>{dialog.close();return cloud?.setEnabled(value==='true');},

@@ -7,8 +7,9 @@ test('notebook QR round trips Unicode and rejects unrelated, malformed and overs
  for(const input of ['https://example.com','SPINO-NOTEBOOK:1:%bad','SPINO-NOTEBOOK:1:'+encodeURIComponent(JSON.stringify({id:'invalid',name:'book'})),'x'.repeat(4001)])assert.throws(()=>parseDeviceLink(input));
  assert.ok(!code.includes('password'));
 });
-test('linking UI escapes notebook names and always offers a code fallback',async()=>{
- const html=deviceLinkMarkup({mode:'sync',name:'book.json'},{lang:'en'});assert.match(html,/device-link-show/);assert.match(html,/device-link-manual/);
+test('linking separates joining from sharing and escapes notebook names',async()=>{
+ const html=deviceLinkMarkup({}, {lang:'en'});assert.match(html,/device-link-scan/);assert.match(html,/cloud-join-shared/);assert.doesNotMatch(html,/device-link-show|device-link-manual|cloud-setup/);
+ const connected=deviceLinkMarkup({mode:'sync',name:'book.json'},{lang:'en'});assert.doesNotMatch(connected,/device-link-show|cloud-join-shared|device-link-scan/);assert.match(connected,/Disconnect the current notebook/);
  assert.ok(!deviceLinkConfirmMarkup({...link,name:'<script>x</script>'},'en').includes('<script>'));
  const qr=await deviceLinkQRMarkup(link,'en');assert.match(qr,/data:image\/png;base64/);assert.match(qr,/SPINO-NOTEBOOK:1:/);assert.match(qr,/device-link-copy/);
 });

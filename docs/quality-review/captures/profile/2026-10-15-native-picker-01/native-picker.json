@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-15",
+  "kind": "Native Android emulator",
+  "pickerActivity": [
+    "    topResumedActivity=ActivityRecord{bb1e49d u0 com.google.android.documentsui/com.android.documentsui.picker.PickActivity t53}"
+  ],
+  "result": {
+    "result": {
+      "cancelled": true
+    }
+  },
+  "foreground": [
+    "    topResumedActivity=ActivityRecord{1bbde0c u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t53}"
+  ],
+  "cloudGrantHashBefore": null,
+  "cloudGrantHashAfter": null,
+  "scope": "Real plugin picker launch and cancellation only. No file selected, notebook edited or grant retained. Browser tests cover the actual app button and synthetic success/error paths; real Drive linking remains separate."
+}

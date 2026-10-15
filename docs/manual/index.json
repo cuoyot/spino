@@ -20,7 +20,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -117,8 +117,12 @@
         "CLOUD-02",
         "CLOUD-05"
       ],
-      "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending. Persistent local continuation, pending-provider escape, practice/save/restart and same-notebook repair verified with synthetic browser providers on 2026-10-15; Android replacement install retains all notebook file hashes. Real Drive/provider and physical-device acceptance remain open.",
-      "verifiedAgainst": "profile/2026-10-15-sync-local"
+      "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending. Persistent local continuation, pending-provider escape, practice/save/restart and same-notebook repair verified with synthetic browser providers on 2026-10-15; Android replacement install retains all notebook file hashes. Real Drive/provider and physical-device acceptance remain open. D-047/D-048 in beta6/build59 accept Catalan reader settings, keep setup errors visible, separate joining from QR sharing in Manage and require disconnect before replacing a connected/paused notebook. Ninety focused checks and 20 synthetic responsive frames pass; real Android picker launch/cancel is separately verified. Public delivery verification and physical Drive acceptance remain open.",
+      "verifiedAgainst": "profile/2026-10-15-connection-flow-02",
+      "decisions": [
+        "D-047",
+        "D-048"
+      ]
     },
     {
       "id": "calendar",

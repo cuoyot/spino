@@ -19,7 +19,9 @@ const messages = {
     join: 'Connect another device', joinDetail: 'Select the sync file you already use with SPino.',
     backupOnly: 'One-device backup', backupOnlyDetail: 'Automatic copies. Restore manually when needed.',
     automatic: 'Automatic updates', automaticDetail: 'While SPino is open. Incoming changes wait until practice and editing finish.',
-    location: 'Location and mode', locationDetail: 'Choose another file or change how it is used.',
+    qrPaused: 'Resume synchronization to show this notebook’s QR.',
+    showQR: 'Show my notebook QR', qrDetail: 'Scan it from the device you want to connect.',
+    disconnectFirst: 'Disconnect this notebook before connecting another one.',
     disconnect: 'Disconnect this device', disconnectDetail: 'Your local notebook and cloud file are kept.',
     recovery: 'Recovery options', recover: 'Restore local recovery copy',
     recoverDetail: 'Review the copy saved before the last incoming sync.',
@@ -51,7 +53,9 @@ const messages = {
     join: 'Conectar otro dispositivo', joinDetail: 'Selecciona el archivo que ya usas con SPino.',
     backupOnly: 'Copia para un solo dispositivo', backupOnlyDetail: 'Copias automáticas. Restauración manual.',
     automatic: 'Actualizaciones automáticas', automaticDetail: 'Con SPino abierto. Los cambios recibidos esperan a que terminen la práctica y la edición.',
-    location: 'Ubicación y modo', locationDetail: 'Elige otro archivo o cambia cómo se utiliza.',
+    qrPaused: 'Reanuda la sincronización para mostrar el QR de este cuaderno.',
+    showQR: 'Mostrar el QR de mi cuaderno', qrDetail: 'Escanéalo desde el dispositivo que quieres conectar.',
+    disconnectFirst: 'Desconecta este cuaderno antes de conectar otro.',
     disconnect: 'Desconectar este dispositivo', disconnectDetail: 'Conserva tu cuaderno y el archivo en la nube.',
     recovery: 'Opciones de recuperación', recover: 'Recuperar la copia local',
     recoverDetail: 'Revisa la copia anterior a la última sincronización recibida.',
@@ -126,13 +130,14 @@ export function cloudSetupMarkup(options = {}) {
 export function cloudManageMarkup(state, options = {}) {
   const t = copy(options), linked = Boolean(state.name), busy = disabled(state);
   return `<div class="cp-cloud-dialog" data-cloud-dialog="manage">
+    ${linked ? `<p class="cp-cloud-file"><strong>${esc(state.name)}</strong></p>` : ''}
     ${linked ? `<div class="cp-cloud-toggle-row"><div><strong>${esc(t.automatic)}</strong><small>${esc(t.automaticDetail)}</small></div><button class="cp-cloud-switch" type="button" role="switch" aria-label="${esc(t.automatic)}" aria-checked="${Boolean(state.enabled)}" data-action="cloud-toggle" data-id="${!state.enabled}" ${busy}><span></span></button></div>` : ''}
     ${state.status === 'error' || state.status === 'conflict' ? `<div class="cp-cloud-problem"><strong>${esc(t.status[state.status])}</strong>${state.status === 'conflict' && state.mode === 'sync' ? button('cloud-conflicts', t.review, 'primary', busy) : linked ? button('cloud-sync', t.retry, 'primary', `${busy} ${state.enabled ? '' : 'disabled'}`) : ''}${state.error ? `<details class="cp-cloud-details"><summary>${esc(t.errorDetail)}</summary><p class="cp-cloud-technical">${esc(localizeMessage(state.error, options.lang || getAppLanguage()))}</p></details>` : ''}</div>` : ''}
     ${['error','paused'].includes(state.status) ? relinkOption(state, t) : ''}
     ${localOption(state, t)}
-    <div class="cp-cloud-options">${options.available ? row('cloud-setup', t.location, t.locationDetail, 'cloud', '', busy) : ''}${options.available ? row('device-link', t.join, t.joinDetail, 'devices', '', busy) : ''}${row('cloud-help', t.help, '', 'help')}</div>
+    <div class="cp-cloud-options">${options.available && linked && state.mode === 'sync' ? row('device-link-show', t.showQR, state.enabled ? t.qrDetail : t.qrPaused, 'devices', '', `${busy} ${state.enabled ? '' : 'disabled'}`) : ''}${options.available && !linked ? row('device-link', t.join, t.joinDetail, 'devices', '', busy) : ''}${row('cloud-help', t.help, '', 'help')}</div>
     ${options.available && (state.mode === 'sync' || ['error', 'conflict'].includes(state.status)) ? `<details class="cp-cloud-details"><summary>${esc(t.recovery)}</summary>${row('cloud-recovery', t.recover, t.recoverDetail, 'restore', '', busy)}</details>` : ''}
-    ${linked ? `<div class="cp-cloud-disconnect">${row('cloud-disconnect', t.disconnect, t.disconnectDetail, 'off', 'cp-cloud-danger', busy)}</div>` : ''}${footer(t)}
+    ${linked ? `<div class="cp-cloud-disconnect"><p class="muted">${esc(t.disconnectFirst)}</p>${row('cloud-disconnect', t.disconnect, t.disconnectDetail, 'off', 'cp-cloud-danger', busy)}</div>` : ''}${footer(t)}
   </div>`;
 }
 

@@ -1,0 +1,104 @@
+{
+  "version": "6.1.0-beta.6",
+  "build": 59,
+  "productionBuild": true,
+  "tests": {
+    "total": 90,
+    "passed": 90,
+    "failed": 0,
+    "skipped": 0,
+    "unitAndModel": 77,
+    "appBrowser": 9,
+    "website": 4,
+    "logSha256": {
+      "website-tests.log": "59b05916e6b29276f3a81fb7bc6cbb59f659acaf9f587928ac2595b802a58f80",
+      "unit-tests.log": "474232e944842677b5ec582d991eedf49274e6f6782c32ada74827cfb61d91cd",
+      "browser-tests.log": "b44ba9d7d6c56f4ed5314a727d0f556b79a19854492331df432aaf488fa175c3"
+    }
+  },
+  "nativeHandoff": {
+    "date": "2026-10-15",
+    "version": "6.1.0-beta.6",
+    "build": 59,
+    "package": "com.miguecoll.spino.beta",
+    "install": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "indexedDbBefore": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "5c938eb1f31ebc4b678b4ec24687a57991f89a651fa347c0f1b2dee5e08f343c",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "f3e17fab31a78d8ecb817459711a49e1e20c99d3b863deadc8a6328162812fbb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "5c6ba8706b917c88f5282df85e9750ac023576608223c82f95a625170b5239cc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/15": "75ddb602e6998f8d5933db732f52ef5ea328a65c187d3b62a57c1f942405204f"
+    },
+    "indexedDbAfter": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "5c938eb1f31ebc4b678b4ec24687a57991f89a651fa347c0f1b2dee5e08f343c",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "f3e17fab31a78d8ecb817459711a49e1e20c99d3b863deadc8a6328162812fbb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "5c6ba8706b917c88f5282df85e9750ac023576608223c82f95a625170b5239cc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/15": "75ddb602e6998f8d5933db732f52ef5ea328a65c187d3b62a57c1f942405204f"
+    },
+    "indexedDbHashesEqualBeforeLaunch": true,
+    "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity\nTotalTime: 1623\nWaitTime: 1636\nComplete",
+    "foreground": [
+      "topResumedActivity=ActivityRecord{1bbde0c u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t53}"
+    ],
+    "installedMetadata": [
+      "versionCode=59 minSdk=24 targetSdk=36",
+      "versionName=6.1.0-beta.6"
+    ],
+    "packagedWebFiles": 259,
+    "signatureSha256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+    "scope": "Replacement installation, version, foreground and retained notebook files. Browser visual and real-provider acceptance are separate."
+  },
+  "nativePicker": {
+    "date": "2026-10-15",
+    "kind": "Native Android emulator",
+    "pickerActivity": [
+      "    topResumedActivity=ActivityRecord{bb1e49d u0 com.google.android.documentsui/com.android.documentsui.picker.PickActivity t53}"
+    ],
+    "result": {
+      "result": {
+        "cancelled": true
+      }
+    },
+    "foreground": [
+      "    topResumedActivity=ActivityRecord{1bbde0c u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t53}"
+    ],
+    "cloudGrantHashBefore": null,
+    "cloudGrantHashAfter": null,
+    "scope": "Real plugin picker launch and cancellation only. No file selected, notebook edited or grant retained. Browser tests cover the actual app button and synthetic success/error paths; real Drive linking remains separate."
+  },
+  "evidence": {
+    "catalan": "../quality-review/captures/profile/2026-10-15-catalan-sync-02/metadata.json",
+    "connection": "../quality-review/captures/profile/2026-10-15-connection-flow-02/metadata.json",
+    "responsiveFrames": 20,
+    "sourceHashes": "6.1.0-beta.6-source-hashes.json"
+  },
+  "limits": "Synthetic same-version devices and browser providers; native picker launch/cancel and package/install/foreground are verified separately. Real Drive account synchronization and owner physical-device acceptance remain open."
+}

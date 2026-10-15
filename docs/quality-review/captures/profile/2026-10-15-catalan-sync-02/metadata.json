@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-15",
+  "kind": "Responsive browser, synthetic provider; not native-device acceptance",
+  "version": "6.1.0-beta.6",
+  "build": 59,
+  "sourceHashes": "../../../../releases/6.1.0-beta.6-source-hashes.json",
+  "fixture": "scripts/review/cloud-recovery-fixture.mjs",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "captures": [
+    {
+      "file": "invalid-remote-1024x768.png",
+      "sha256": "89e72830d6699aa5392ee9a93d10f24754b73e4cd527d8b3f208e00c9bcc57f5"
+    },
+    {
+      "file": "invalid-remote-390x844.png",
+      "sha256": "aff1b6a3d8f3c3a4d36392bf435e34e45f0a7a7898d184509f54d80ad14cd70b"
+    },
+    {
+      "file": "invalid-remote-768x1024.png",
+      "sha256": "1b2c56e9db8acd9f8311642bbc57dc64332afc8f8b1952e4f6145fc5d53e12ba"
+    },
+    {
+      "file": "invalid-remote-844x390.png",
+      "sha256": "079dc1508f0a1b000d2facc0823fd5daf8ff39eecd159536e98e4a987a407f3d"
+    },
+    {
+      "file": "saved-1024x768.png",
+      "sha256": "fc2cc8af5f9b18ea9f3a035f8784c0e983a89ff74e06504cec61049757da12e3"
+    },
+    {
+      "file": "saved-390x844.png",
+      "sha256": "468bc9cf5eae53f634a5165af027cc27d10e900f9dae28cc3aec977a31a6eb94"
+    },
+    {
+      "file": "saved-768x1024.png",
+      "sha256": "649a6bead6cc6621ede671499a908527bfe38b601c7fe280be8842b194c747de"
+    },
+    {
+      "file": "saved-844x390.png",
+      "sha256": "bfff304c6c7ca91596950df1113b074d6ed12fa1b48d3f5f6e6939c6bec52bd4"
+    }
+  ],
+  "checks": "Catalan reader settings sync successfully; future version99 remains rejected without touching local history, PDFs, annotations or provider bytes."
+}

@@ -2,6 +2,17 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-048 — Separate joining a notebook from sharing its QR
+
+- Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified in beta6/build59; physical-provider acceptance remains open.
+- PROFILE-01 / CLOUD-01/02/05: an unconnected device offers Scan QR or Select an existing cloud file; code entry stays within the scanner fallback. Show my notebook QR belongs to Backup & sync → Manage. Remove connection-changing actions while a cloud file is linked, including paused connections, and guard the operations themselves. Explicit disconnect retains local/cloud data; same-notebook permission recovery remains available.
+- Connection setup errors must stay visible in the cloud overview/Manage dialog, including a failed shared join before a connection exists. [Review and 20 responsive frames](cloud-connection.md); native DocumentsUI launch/cancel, retained grant state and package/install/foreground are separately verified. Publication verification follows.
+
+## D-047 — Accept every supported reader language in notebook validation
+
+- Status: **owner-reported defect reproduced and fixed**, 2026-10-15. Catalan was supported by the reader but omitted from the backup validator's separate language list. A same-version device with Catalan reader settings could reject its own snapshot before cloud I/O or file selection.
+- CLOUD-01/02/05 / READER-05: validate against the reader's canonical language registry, preserving format/schema and strict rejection of unknown languages/future data. Translate the two missing Catalan cloud settings strings. [Review and validation](cloud-connection.md) cover both backup formats, two devices using the production validator, real browser export/sync, preserved history/PDF/annotation identities and protected invalid-remote rejection. The personal notebook/Drive file was not inspected; physical incident confirmation remains open.
+
 ## D-046 — Preserve piano key materials across themes
 
 - Status: **owner-reported defect fixed**, 2026-10-15. This repairs the accepted light/dark theme and keyboard material direction without changing the keyboard layout.

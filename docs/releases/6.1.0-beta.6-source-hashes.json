@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-15",
+  "version": "6.1.0-beta.6",
+  "build": 59,
+  "sourceParent": "95913a1cd39d7e1a18680f09186c8ba5310e8fa9",
+  "sha256": {
+    "package.json": "f0151c4d3f52e7758eaf244e6689725f4b44fcf6dfe6d982b052f279ecc452af",
+    "package-lock.json": "83c8a3708b244521086dda403e7dcedaafa33f03293bda63b60e70e895623aca",
+    "android/app/build.gradle": "d4bd4fca77195bd94b08bda92a2c5ae8af58a43743ea337b58d68ac58f7cb26a",
+    "src/companion/model.js": "f1636a27aeaddc555da73e30ac8331832e1184b4228798ebf4dc4a47096a9565",
+    "src/companion/locale-ca.js": "8c4cf1fcf298f54209721543714e5ccb0f4da6aaf40a987c3dfccbb57ad1c973",
+    "src/companion/app.js": "07814757f643f2a83093d5da1160bde04a8bb705d2cd9dfc0dd6f71aa7e7b8f2",
+    "src/companion/cloud-sync.js": "1896596579032ca575a350525b1a42e9204516aac0e250f43b91ebf9fb43dcfd",
+    "src/companion/cloud-backup-view.js": "b9c9a5d7327a8d86071647ed34a610d8018b5a9c520a62009a7b4d384835c467",
+    "src/companion/device-link.js": "59bb2a7f5fbd2734550389730bbe0745b23ea8a11385c745b36d52876cee978a",
+    "src/companion/profile-view.js": "43fadb5c929161f8c082cfb3343127c894e94aac402f77c7009fa16e6afd0366",
+    "tests/backup-format.test.js": "d1ccd0f844f47b970cb7109647dbc105e46fa59e904c3a4fdd3c7d9c0573dd1e",
+    "tests/cloud-sync.test.js": "ec13ed8468e68250ec3159d7154fd5ca89fa6dc27429a2d2c46c0d3ed9d5549d",
+    "tests/cloud-local.browser.test.js": "609763437d35dbd8541f12f73cec926cf56383c0218a4f787eba1d4d6fdc23b3",
+    "tests/cloud-policy.browser.test.js": "3422bdac450963a082c5a2a75ecd20c5b9db73aa277e037a742b42ed6a2fa234",
+    "tests/device-link.test.js": "7ccda9aeb674a9104605cb57f36d35bec9e58ad96e1b0c4482064e20d444be25",
+    "tests/device-link.browser.test.js": "f0db5a89246a0e8e60c9e5bdadb90567748bbfc5ffda8257b3e4d63bd02f5e42",
+    "scripts/review/cloud-recovery-fixture.mjs": "a3c99b1b8f5d979f995d1010d70ac7613135ac122002b60db8f8b9382013859d"
+  },
+  "productionIndexSha256": "de676e7a11afe0010b00ca6c055c285aa757df860b0dadb00c4b914f9d742c74",
+  "scope": "Final beta6 source, synthetic responsive browser evidence and production bundle. No personal notebook or cloud file inspected."
+}
