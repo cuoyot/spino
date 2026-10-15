@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: Navigation palette covers both themes while preserving practice screens
+ok 1 - Navigation palette covers both themes while preserving practice screens
+  ---
+  duration_ms: 5883.213333
+  type: 'test'
+  ...
+# Subtest: Progress separates activity, repertoire and technique
+ok 2 - Progress separates activity, repertoire and technique
+  ---
+  duration_ms: 4921.018042
+  type: 'test'
+  ...
+# Subtest: practice chart details filter actual blocks, navigate ranges/back and fit responsive themes/locales
+ok 3 - practice chart details filter actual blocks, navigate ranges/back and fit responsive themes/locales
+  ---
+  duration_ms: 9963.891459
+  type: 'test'
+  ...
+# Subtest: Today keeps the next practice action reachable and Practice owns activity shortcuts
+ok 4 - Today keeps the next practice action reachable and Practice owns activity shortcuts
+  ---
+  duration_ms: 8329.864541
+  type: 'test'
+  ...
+# Subtest: Home highlights saved weekly practice with and without a goal in both themes
+ok 5 - Home highlights saved weekly practice with and without a goal in both themes
+  ---
+  duration_ms: 6544.50325
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10377.51425

@@ -10,6 +10,8 @@ Backup is disabled until the user chooses a destination. Independent backup crea
 
 The snapshot includes notebook history, plans, repertoire, available score assets, annotations and saved framing. Device-specific destination credentials and automatic-backup preferences are not restored from the notebook. The current 60 MB JSON restore limit also applies to automatic copies.
 
+Beta 6.1 source preview: local audio/video recordings and their installation identity live in a separate local database. Notebook exports, automatic backups and shared synchronization do not include these media files. Restoring or merging a notebook does not clear that local database. Local recordings are shown only when their media Blob exists in this installation. Cloud folder/media transfer is not implemented; local takes are not protected by the notebook JSON backup.
+
 **Saved to file provider** confirms a verified file write, not successful upload to the remote cloud. Drive/iCloud controls eventual upload, offline queuing and cellular usage. SPino's score-download Wi-Fi setting cannot control that provider upload; configure the provider separately.
 
 Restoration is always manual and replaces the notebook after validation and confirmation. This manual restore action does not merge devices. Restoration disconnects automatic backup first so the selected external file cannot be immediately overwritten. Choose a new destination to re-enable automatic backup after restoring. Disconnecting leaves the external file intact.
@@ -22,11 +24,19 @@ Shared mode reads the linked file every 30 seconds while foreground eligibility 
 
 Incompatible values pause automatic synchronization. The conflict list identifies affected paths; the user chooses this device's or the cloud's conflicting values. Independent changes from both remain included. If either snapshot changes before resolution, the choice must be reviewed again. Existing annotation marks, active sessions, score framing and individual score execution records are merged atomically when both sides edit them. Unkeyed arrays and legacy JSON strings require a choice when both differ. The final merged backup is validated; broken references or incompatible library records stop synchronization without replacing local data.
 
-Before applying incoming data, the app saves a native local recovery copy. The notebook and its new merge baseline commit in one IndexedDB transaction. SPino then reloads to refresh practice settings and asset availability. An edit during provider I/O postpones local replacement until a new merge pass. Errors require an explicit retry. Switching to a shared destination pauses the old independent backup, including if the picker is cancelled.
+Before applying incoming data, the app saves a native local recovery copy. The notebook and its new merge baseline commit in one IndexedDB transaction. SPino then reloads to refresh practice settings and asset availability. An edit during provider I/O postpones local replacement until a new merge pass. Once a write succeeds, the captured local snapshot becomes the acknowledged baseline even if incoming data cannot yet be applied. This prevents later edits from conflicting with this device's own previous upload, without treating pending incoming records as local deletions.
+
+Provider revision collisions trigger up to three fresh read/merge attempts per synchronization pass. Persistent contention waits for the next scheduled pass. Actual incompatible edits still require a choice; invalid data, access failures and other provider errors require an explicit retry. Switching to a shared destination pauses the old independent backup; cancellation restores its previous enabled state.
 
 The shared file contains the full notebook, including PDFs and annotations, with the same 60 MB limit. This is foreground file-provider synchronization, not an always-running background service. The native providers do not expose a cross-device atomic lock; simultaneous offline updates can still be subject to provider conflict/version handling. Check the provider's version history if its own reconciliation replaces a version before SPino can read it.
 
+A separate expiring lock file would only be advisory through this transport: two clients can both read an unlocked cached version, and expiry does not prevent a delayed writer from completing. Per-section locks would also leave unrelated writers replacing the same whole notebook. No cross-device lease or section lock is implemented. Safe enforcement would require authoritative atomic acquisition and rejection of expired writers, plus section-level writes or an atomic whole-file revision check. Current document grants cover the selected file, not automatic access to a sibling lock file.
+
+Provider version integration is a possible follow-up, not implemented behavior. Apple exposes unresolved file versions through [NSFileVersion](https://developer.apple.com/documentation/foundation/nsfileversion/isconflict). Google Drive exposes revision listing and download through its [revisions API](https://developers.google.com/workspace/drive/api/guides/manage-revisions), which would require a dedicated authenticated integration instead of the current document stream. Versions can support recovery and reconciliation; history alone does not provide a write lock. Historical versions must not all be merged as additions, which could resurrect intentionally deleted records. Retain the common baseline and resolve divergent descendants before retiring any conflict version.
+
 ## Failure handling
+
+October 14, 2026 validation: the web build and 31 targeted backup, format, synchronization and browser policy tests pass. New regression cases cover continued edits after deferred adoption, edits during provider writes, fresh merges after revision collisions, genuine same-field conflicts and bounded contention retries. The broader suite encountered navigation/layout failures and a browser timeout and was stopped; it is not a passing full-suite result. These checks use synthetic data and do not establish actual iCloud/Drive multi-device acceptance.
 
 Before replacement, the native bridge compares the file's SHA-256 with the last successful version and keeps a private local recovery copy. External changes stop backup with a conflict instead of being overwritten. A failed provider write retains the previous success metadata and offers retry, another destination or manual recovery. Disconnecting removes the private recovery copy, not the external file.
 
@@ -66,6 +76,14 @@ The full JSON snapshot is staged in a private app file before launching `ACTION_
 Validation: all 153 regression tests passed with bounded browser concurrency. The installed Android emulator successfully created and read back a 3,000,029-byte synthetic backup using local Downloads, returned to MainActivity, retained the setup receipt and preserved notebook works/assets. This verifies a local provider, not Google Drive/iCloud transport. The iOS bridge includes the acknowledgement API but still requires compilation and device testing on a Mac.
 
 The complete Profile → Choose cloud destination flow was also tested with a new local file. SPino returned from the picker, saved the enabled configuration, and kept it after a WebView reload. The diagnostic then disconnected its own local destination and confirmed unchanged notebook works/assets. Actual provider-account uploads remain untested.
+
+## October 14 connection-error follow-up
+
+The reported Android screenshot shows only the former generic connection status, not the underlying exception. The cause on the user's device remains unconfirmed pending the message in Manage → Connection details. No personal notebook was read or modified.
+
+Shared synchronization now records the failing operation (local snapshot, provider read, validation, baseline, merge, provider write, recovery or incoming application). The overview displays the escaped error and a direct Retry action for enabled connections. Generic errors are described as update failures rather than automatically attributed to connectivity. Only provider read errors with code `PROVIDER_ERROR` receive three scheduled retries with increasing delay capped at 60 seconds; failed writes, malformed content and local storage failures do not receive this automatic recovery. Manual retry starts a new retry budget.
+
+Validation: web build and all 36 targeted cloud/backup tests pass, including actual scheduled retry recovery, exhaustion, invalid-file protection and four responsive browser layouts. Synthetic evidence is in `quality-review/captures/profile/2026-10-14-sync-error`. No new APK was built or installed; the screenshot's actual provider failure is not yet reproduced.
 
 ## October 15, 2026 — provider recovery and local continuation
 

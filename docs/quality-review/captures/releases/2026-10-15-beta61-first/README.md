@@ -1,0 +1,5 @@
+# First 6.1 beta native handoff
+
+Android 6.1.0-beta.1/build54 replaces the existing beta with `adb install -r`. The seven existing IndexedDB file hashes match immediately after installation and before launch, and first-install time is retained. Package identity and foreground activity are verified. The same debug certificate signs beta13 and this beta.
+
+The emulator needed a cold boot with its original, backed-up data image. The locked desktop prevented dismissing an emulator crash-report dialog, so it was restarted headless without changing its notebook. The existing notebook then reports `DataError: Failed to read large IndexedDB value`. This is reproduced by temporarily installing beta13/build52 with `-r -d`; beta6.1/build54 is restored and foreground afterward. No database is cleared or repaired. The loading-state screenshot does not establish successful notebook opening, populated native layout or physical recording acceptance. Feature behavior is covered separately by disposable responsive-browser notebooks and synthetic capture streams.

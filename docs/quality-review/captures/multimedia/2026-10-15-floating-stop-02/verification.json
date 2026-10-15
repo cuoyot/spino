@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-15",
+  "kind": "Responsive Chromium, synthetic microphone; not native acceptance",
+  "frames": [
+    {
+      "file": "light-recording-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "light-review-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "review"
+    }
+  ],
+  "sources": {
+    "app.js": "e1e474060e5edbfac90c964deef91d4b275ec17403db56a111378d625c2100e7",
+    "media-view.js": "e4cc374db419f7f51d0da400fb2533c74d6dd7fbb509c86c4bfaa58ac8f66ae2",
+    "media.css": "0c0515060d012459e96bacd25d05c9b4681b1261636eb7f925f20d58c110979d",
+    "score-controls.js": "88746cb769c341dce3719144f934d50189a85dd9351554a0e5914e18116ce94f",
+    "pdf-viewer.css": "7385bcc3151b32e5705cc9a5502650a1082b895392ecede525554fae4e33df2c"
+  },
+  "checks": [
+    "Recording panel hidden by default during PDF capture",
+    "Same red control becomes Stop recording and review",
+    "Page turning retains capture",
+    "Stop releases tracks and opens local draft review without stopping practice"
+  ]
+}

@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: Technique compares disjoint groups with matching conditions only
+ok 1 - Technique compares disjoint groups with matching conditions only
+  ---
+  duration_ms: 29.166917
+  type: 'test'
+  ...
+# Subtest: Manual and future entries cannot imply measured improvement
+ok 2 - Manual and future entries cannot imply measured improvement
+  ---
+  duration_ms: 3.451333
+  type: 'test'
+  ...
+# Subtest: weekly streaks tolerate unfinished current week, distinguish goals and exclude future sessions
+ok 3 - weekly streaks tolerate unfinished current week, distinguish goals and exclude future sessions
+  ---
+  duration_ms: 6.99075
+  type: 'test'
+  ...
+# Subtest: gaps, empty records, no goal and year boundaries
+ok 4 - gaps, empty records, no goal and year boundaries
+  ---
+  duration_ms: 0.328583
+  type: 'test'
+  ...
+# Subtest: time filters allocate only matching blocks, preserve notebook and exclude future/unsaved time
+ok 5 - time filters allocate only matching blocks, preserve notebook and exclude future/unsaved time
+  ---
+  duration_ms: 2.494584
+  type: 'test'
+  ...
+# Subtest: overview contains 12 Monday-based weeks including zero weeks and unfinished current week
+ok 6 - overview contains 12 Monday-based weeks including zero weeks and unfinished current week
+  ---
+  duration_ms: 0.251709
+  type: 'test'
+  ...
+# Subtest: previous comparison uses equal calendar-day duration and same filters
+ok 7 - previous comparison uses equal calendar-day duration and same filters
+  ---
+  duration_ms: 0.151
+  type: 'test'
+  ...
+# Subtest: month ends, leap year and year-to-date use calendar boundaries
+ok 8 - month ends, leap year and year-to-date use calendar boundaries
+  ---
+  duration_ms: 0.613041
+  type: 'test'
+  ...
+# Subtest: every range partitions its total without gaps or duplicates across DST/year changes
+ok 9 - every range partitions its total without gaps or duplicates across DST/year changes
+  ---
+  duration_ms: 4.819875
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 342.454583

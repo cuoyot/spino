@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "en",
+    "warmup": {
+      "enabled": false,
+      "minutes": 2,
+      "exercise": "hanon-1"
+    }
+  },
+  "works": [
+    {
+      "id": "media-work-a",
+      "title": "Synthetic étude",
+      "composer": "Test composer",
+      "stage": "En estudio",
+      "notes": "Disposable review fixture",
+      "passage": "Bars 1–8",
+      "bpm": 60,
+      "target": null,
+      "tags": [],
+      "favorite": false
+    },
+    {
+      "id": "media-work-b",
+      "title": "Synthetic second piece",
+      "composer": "Test composer",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "bpm": 60,
+      "target": null,
+      "tags": [],
+      "favorite": false
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": {
+    "id": "6b883472-74c2-43a3-90c6-8a4882d0c2af",
+    "title": "Synthetic repertoire practice",
+    "context": "piano",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "d0aeae8b-55a5-4352-a68c-a35c94a0538e",
+        "type": "repertoire",
+        "minutes": 5,
+        "bpm": 60,
+        "timing": "timed",
+        "target": null,
+        "hand": "right",
+        "input": "piano",
+        "figures": "1",
+        "passage": "",
+        "workId": "media-work-a"
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-10-15T14:31:11.782Z",
+    "date": "2026-10-15",
+    "elapsedMs": 0,
+    "blockElapsedMs": 0,
+    "runningSince": null,
+    "updatedAt": 1792074671782,
+    "notes": "",
+    "next": ""
+  },
+  "lastBackup": null
+}

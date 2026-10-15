@@ -14,6 +14,9 @@ test('Android Back from the opened PDF editing panel returns to running practice
  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
 
  await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+ await wait(`document.querySelector('.score-timer').dataset.running==='false'`);
+ assert.equal(await evaluate(`document.querySelector('.pdf-panel').hidden`),true);
+ await evaluate(`document.querySelector('[data-pdf=tools]').click()`);
  await wait(`!document.querySelector('.pdf-panel').hidden`);
  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),'false');
  // Match MainActivity's cancelable Back event rather than clicking Done editing.

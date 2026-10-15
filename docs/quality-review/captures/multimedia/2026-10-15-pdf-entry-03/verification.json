@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-15",
+  "kind": "In-app responsive browser, synthetic PDF notebook; not native acceptance",
+  "url": "http://127.0.0.1:5194/?review=pdf",
+  "verified": [
+    "PDF renders two pages; floating Record opens audio/video choices while practice continues.",
+    "Audio, video and Cancel share y=641 with no clipped text at the presented viewport.",
+    "PDF/MusicXML floating Record uses a red background (#b91c34) and a recording SVG icon."
+  ],
+  "sources": {
+    "media-view.js": "03c79a5aff0ad616d1c449feab30f88b0fb276b126ff4b7fa12a6fab09722d3f",
+    "media.css": "665816715e7bbad7ec7d4f3587320b9a06c51624f9079c6f833420b96e5b3cea",
+    "score-controls.js": "a6e52a0af5cf581fd1a29afe27a1ebb33269959bf3e7a9afbc64bc24d7942211",
+    "pdf-viewer.css": "88a42d8e8e715bac5403780b2ea343fb731c0bc65a526156fb69ea961b823a5c",
+    "musicxml-viewer.js": "d09f51f1db5193c559d13be9f3302fb9d4943f49cf0410d74442a7e43667fae0"
+  },
+  "screenshot": "pdf-record-choice.png",
+  "checks": "Production build and eight PDF practice browser checks pass; physical capture acceptance remains open."
+}

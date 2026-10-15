@@ -27,8 +27,9 @@
   max-width: calc(100% - 16px); width: max-content; border: 1px solid var(--theme-border, #4b515b); border-radius: 16px; padding: 5px;
   background: var(--theme-floating, #191d24f5); box-shadow: 0 4px 20px #0006; user-select: none; }
 .pdf-widget:has(.pdf-panel:not([hidden])) { width: min(420px, calc(100% - 16px)); }
-.pdf-widget-bar { display: flex; flex: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 3px; }
+.pdf-widget-bar { display: flex; flex: none; align-items: center; justify-content: center; flex-wrap: nowrap; gap: 3px; }
 .pdf-widget-bar button { background: transparent; border-color: transparent; }
+.pdf-viewer .pdf-widget-bar button:is([data-pdf=record],[data-xml=record]) { background:#b91c34; border-color:#b91c34; color:#fff; }
 .pdf-widget-bar [data-pdf=timer] { background: var(--theme-timer, #355c98); display: flex; align-items: center; gap: 5px; }
 .pdf-widget-bar [data-pdf=timer] svg { width: 20px; margin: 0; }
 .pdf-widget-bar [data-pdf=timer] .pdf-time { min-width: 32px; }
@@ -105,7 +106,7 @@
 .pdf-view-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .pdf-framing-extra { margin-top: 8px; }
 .pdf-framing-extra summary { min-height: 44px; display: list-item; padding: 12px 4px; cursor: pointer; }
-#app-shell ~ dialog .pdf-split-done, .pdf-split-done { background: var(--theme-accent, #4f8cff); border-color: var(--theme-accent, #4f8cff); color: #fff; padding: 0 14px; }
+#app-shell ~ dialog .pdf-split-done, .pdf-split-done { background: var(--theme-accent, #4f8cff); border-color: var(--theme-accent, #4f8cff); color: #fff; padding: 0; width: 44px; }
 .pdf-split { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .pdf-split [data-pdf=split][aria-pressed=true] { background: var(--theme-accent, #4f8cff); border-color: var(--theme-accent, #4f8cff); color: #fff; }
 .pdf-viewport.pdf-sectioned { overflow: hidden; background: #fff; }
@@ -139,6 +140,8 @@
 
 /* Raised practice dial shared by PDF and MusicXML score controls. */
 .pdf-widget:has(.score-timer:not([hidden])) {
+  width: min(448px, calc(100% - 16px));
+  max-height: calc(100dvh - 48px);
   border-radius: 26px;
   box-shadow: 0 8px 22px #0002, inset 0 1px 0 #ffffff25;
 }
@@ -160,9 +163,11 @@
 .pdf-widget-bar [data-pdf=tools], .pdf-widget-bar [data-xml=options] { order: 1; }
 .pdf-widget-bar .pdf-pagination, .pdf-widget-bar [data-xml=prev], .pdf-widget-bar .xml-page-count, .pdf-widget-bar [data-xml=next] { order: 2; }
 .pdf-widget-bar .pdf-finish { order: 5; }
-.pdf-widget-bar .pdf-split-done { order: 6; }
+.pdf-widget-bar .pdf-split-done { order: 1; }
 .pdf-widget-bar:has(.score-timer:not([hidden])) .pdf-finish { background: transparent; border: 0; border-left: 1px solid var(--theme-border); border-radius: 0 12px 12px 0; }
-.pdf-widget:has(.pdf-panel:not([hidden])) .score-timer { margin-top: 0; }
+.pdf-widget:has(.score-timer:not([hidden])) .pdf-panel:not([hidden]) { padding-bottom: 30px; }
+.pdf-viewer .pdf-widget-bar .score-timer:disabled { opacity: 1; cursor: default; }
+.xml-score-viewer .pdf-widget > [data-xml=close] { position: absolute; right: 0; bottom: calc(100% + 8px); }
 @media (max-width: 350px), (orientation: landscape) and (max-height: 440px) {
   .pdf-viewer .pdf-widget-bar .score-timer { width: 76px; height: 76px; min-width: 76px; margin-inline: 2px; margin-top: -18px; padding: 4px; }
   .pdf-viewer .pdf-widget-bar .score-timer .pdf-time { font-size: 21px; }
@@ -172,5 +177,9 @@
 @media (max-width: 350px) {
   .pdf-viewer .pdf-widget-bar .score-timer { width: 68px; height: 68px; min-width: 68px; margin-inline: 0; }
   .pdf-widget-bar:has(.score-timer:not([hidden])) { gap: 0; }
-  .pdf-widget-bar:not(:has(.score-timer:not([hidden]))) { flex-wrap: wrap; }
+  .pdf-widget-bar [data-pdf=drag], .pdf-widget-bar [data-xml=drag] { display: none; }
+}
+@media (max-width: 440px) {
+  .pdf-widget-bar:has(.score-timer:not([hidden])) { gap: 0; padding-inline: 0; }
+  .pdf-widget-bar:has(.score-timer:not([hidden])) .pdf-page-count { display: none; }
 }

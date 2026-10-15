@@ -37,11 +37,13 @@
       "reviewIds": [
         "PRACTICE-01",
         "PRACTICE-08",
-        "PRACTICE-09"
+        "PRACTICE-09",
+        "MEDIA-01",
+        "MEDIA-02"
       ],
       "baseline": "2026-10-01",
       "verifiedAgainst": "session/2026-10-01-block-controls-02",
-      "coverage": "Overview, live editing and confirmed feedback/lifecycle repairs; full exercise, score and feedback child reviews remain open. D-008 warm-up sets, repertoire piece choice, parts and MusicXML follow verified by tests on 2026-10-03. D-010 generated-practice toolbar and D-011 directional block navigation were verified in four responsive layouts on 2026-10-04. D-012's consolidated menu is superseded by the implemented D-013 flat shortcuts; the new responsive/browser verification and native/accessibility gates remain open. D-015 replaces the Hanon SVG/3D motion with four soft snapshots; build, focused unit checks and live responsive-browser review pass, while owner acceptance, dated four-layout evidence and native coverage remain open. Beta 2 timing, PDF edit/resume, practiced-duration editing and MIDI gestures verified in responsive browser checks on 2026-10-12; Android/iOS native screen-awake bridge activation/release checked separately.",
+      "coverage": "Overview, live editing and confirmed feedback/lifecycle repairs; full exercise, score and feedback child reviews remain open. D-008 warm-up sets, repertoire piece choice, parts and MusicXML follow verified by tests on 2026-10-03. D-010 generated-practice toolbar and D-011 directional block navigation were verified in four responsive layouts on 2026-10-04. D-012's consolidated menu is superseded by the implemented D-013 flat shortcuts; the new responsive/browser verification and native/accessibility gates remain open. D-015 replaces the Hanon SVG/3D motion with four soft snapshots; build, focused unit checks and live responsive-browser review pass, while owner acceptance, dated four-layout evidence and native coverage remain open. Beta 2 timing, PDF edit/resume, practiced-duration editing and MIDI gestures verified in responsive browser checks on 2026-10-12; Android/iOS native screen-awake bridge activation/release checked separately. D-037 raised PDF/MusicXML score timer verified in responsive browser timing and phone/tablet geometry on 2026-10-14; native/package acceptance and reported two-second freeze remain open. D-038 direct score entry, always-visible Edit/Finish and resume on editing Back verified in responsive browsers on 2026-10-14; original Android PDF freeze and native/package acceptance remain open. Published beta 5/build44 contains D-037/D-038; Android replacement installation/version/foreground and public artifact hashes verified on 2026-10-14. Native PDF timing acceptance remains separate. D-042 beta 6.1 Progress time chart, type/piece filters and six ranges verified in responsive browsers on 2026-10-15 (progress/2026-10-15-time-chart); source only, with owner/native visual acceptance open. Beta 6.1 local repertoire audio/video capture, Multimedia library, actual-file/installation filtering, playback, save retry and notebook-replacement retention are browser-verified with synthetic streams (multimedia/2026-10-15-local-03). Native camera/microphone and owner layout acceptance remain pending; binaries are excluded from notebook backup/sync. Floating Record/Stop, pause without editing and in-place pencil/check controls are covered by multimedia/2026-10-15-floating-stop-05 responsive evidence; native acceptance remains open.",
       "knownIssues": [
         "SESSION-F02",
         "SESSION-F08"
@@ -68,7 +70,9 @@
         "D-024",
         "D-025",
         "D-026",
-        "D-027"
+        "D-027",
+        "D-037",
+        "D-038"
       ],
       "visualAcceptance": {
         "date": "2026-10-01",
@@ -96,7 +100,7 @@
         "READER-05"
       ],
       "verifiedAgainst": "themes/2026-10-15-header-parity",
-      "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately. Current-source primary-header parity verified on 2026-10-15 across 384 responsive route/language/theme/size states, with sticky Library tabs below the 68 px bar and long-title containment; included in signed Android 6.0.0/build53; native installation and foreground verified, with populated native/physical visual acceptance separate."
+      "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately. Light-appearance source follow-up verified across 52 responsive states on 2026-10-14; D-039 layered navigation appearance verified in both themes/four responsive layouts on 2026-10-15; published in Android beta 10/build49 with replacement installation, data retention, foreground and public hashes verified. Physical/native visual acceptance remains separate; iOS remains beta 9/build48. Current-source primary-header parity verified on 2026-10-15 across 384 responsive route/language/theme/size states, with sticky Library tabs below the 68 px bar and long-title containment; included in signed Android 6.0.0/build53; native installation and foreground verified, with populated native/physical visual acceptance separate."
     },
     {
       "id": "backup",

@@ -1,0 +1,1517 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "system"
+  },
+  "works": [
+    {
+      "id": "a",
+      "title": "Prélude en do majeur",
+      "composer": "Synthetic",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": null,
+      "bpm": 60
+    },
+    {
+      "id": "b",
+      "title": "Study <B> & second piece",
+      "composer": "Synthetic",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": null,
+      "bpm": 60
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [
+    {
+      "id": "eb2a2e50-a0e0-481f-8821-ec1e70995c77",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "17a0dbb2-2bad-4504-a89c-72aa4e8dc1c8",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "c1cb5272-b694-4179-b934-af8bb4bf7cdb",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "b5acdf1c-d5ab-4a60-95a3-a05764b390f9",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "17a0dbb2-2bad-4504-a89c-72aa4e8dc1c8",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "c1cb5272-b694-4179-b934-af8bb4bf7cdb",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2520000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "b5acdf1c-d5ab-4a60-95a3-a05764b390f9",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-07-27T10:00:00.000Z",
+      "date": "2026-07-27",
+      "elapsedMs": 5220000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1785146400000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-07-27T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "508f378c-4fe4-4310-8750-9dc344cb0c83",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "400e4f1a-f71b-47f9-b452-4930d4a56d9c",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "3d03ec78-3e3a-4b5b-be07-dd816ec52802",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "54be699c-b6b6-4a77-aaae-17c8451c34b7",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "400e4f1a-f71b-47f9-b452-4930d4a56d9c",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "3d03ec78-3e3a-4b5b-be07-dd816ec52802",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "54be699c-b6b6-4a77-aaae-17c8451c34b7",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 1500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-03T10:00:00.000Z",
+      "date": "2026-08-03",
+      "elapsedMs": 4200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1785751200000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-08-03T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "6a43b121-f0a7-4187-991c-8e46b20ddd35",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "63ebea20-b1bf-4ae2-b251-dcd09df22b8d",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "52a3e2f9-9158-4fa8-98a7-b0acfbce81da",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "793e5310-55c4-4b4c-933f-3e881ea85bda",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "63ebea20-b1bf-4ae2-b251-dcd09df22b8d",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "52a3e2f9-9158-4fa8-98a7-b0acfbce81da",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2280000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "793e5310-55c4-4b4c-933f-3e881ea85bda",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 600000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-10T10:00:00.000Z",
+      "date": "2026-08-10",
+      "elapsedMs": 3180000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1786356000000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-08-10T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "260b001e-1963-457a-b868-d3e2de3ea3ff",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "dc1dcb24-cbd6-4aa9-90aa-37e4aa585091",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "7a3a10e1-399e-400f-bbba-17d3a9825c8b",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "d82ce8d0-314e-41d1-a7c6-dddf5e0230ca",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "dc1dcb24-cbd6-4aa9-90aa-37e4aa585091",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "7a3a10e1-399e-400f-bbba-17d3a9825c8b",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2160000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "d82ce8d0-314e-41d1-a7c6-dddf5e0230ca",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-17T10:00:00.000Z",
+      "date": "2026-08-17",
+      "elapsedMs": 4860000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1786960800000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-08-17T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "63f8e4b5-71be-4c78-8054-16d93f1a5bfd",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "32a95cfe-7e29-429b-811e-0be6431cc799",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "3bdd8b58-45ec-4406-9af2-d822af422a2a",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "7fd3ee24-8221-4e4d-9d03-efc100ae023a",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "32a95cfe-7e29-429b-811e-0be6431cc799",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "3bdd8b58-45ec-4406-9af2-d822af422a2a",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2040000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "7fd3ee24-8221-4e4d-9d03-efc100ae023a",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 1500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-24T10:00:00.000Z",
+      "date": "2026-08-24",
+      "elapsedMs": 3840000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1787565600000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-08-24T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "de2c93fe-24be-4a9b-ac31-3ce25ab7c8e7",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "9e62005c-09d5-4b7a-b486-0dfe98c9063c",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "c0803357-f31a-492c-8139-10b900f3547a",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "1662d8b1-9cc1-46d3-a71e-99a358202344",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "9e62005c-09d5-4b7a-b486-0dfe98c9063c",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "c0803357-f31a-492c-8139-10b900f3547a",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1920000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "1662d8b1-9cc1-46d3-a71e-99a358202344",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 600000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-31T10:00:00.000Z",
+      "date": "2026-08-31",
+      "elapsedMs": 2820000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1788170400000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-08-31T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "8b3bf61c-efc7-4384-9fb6-f5b64aca207d",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "9101b09c-8a57-4ae9-9e57-4e4816ccbff8",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "29ae85e2-4b88-4f83-bbcb-2e3af2df3485",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "8329ce3f-318f-4f34-9295-c156eb0dcb80",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "9101b09c-8a57-4ae9-9e57-4e4816ccbff8",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "29ae85e2-4b88-4f83-bbcb-2e3af2df3485",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1800000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "8329ce3f-318f-4f34-9295-c156eb0dcb80",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-07T10:00:00.000Z",
+      "date": "2026-09-07",
+      "elapsedMs": 4500000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1788775200000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-09-07T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "9dda9461-cb90-4167-9f41-a2e8b34f6a75",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "9a9d7fac-b791-4d84-90cf-3f23b64e7ee6",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "e9899830-d0dc-4701-a480-946a789b9120",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "8b3c1c01-a766-4a7a-8787-9084f0c1c3cf",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "9a9d7fac-b791-4d84-90cf-3f23b64e7ee6",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "e9899830-d0dc-4701-a480-946a789b9120",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1680000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "8b3c1c01-a766-4a7a-8787-9084f0c1c3cf",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 1500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-14T10:00:00.000Z",
+      "date": "2026-09-14",
+      "elapsedMs": 3480000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1789380000000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-09-14T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "6235f690-30e4-43bb-ad9b-43204c82c6f6",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "4d5951cc-b731-442f-a201-329f5f85ac07",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "00a35195-88a2-4e3f-9777-dfe06b0f3384",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "2fcbcc1f-903b-48ea-bf61-0914e7f32207",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "4d5951cc-b731-442f-a201-329f5f85ac07",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "00a35195-88a2-4e3f-9777-dfe06b0f3384",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1560000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "2fcbcc1f-903b-48ea-bf61-0914e7f32207",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 600000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-21T10:00:00.000Z",
+      "date": "2026-09-21",
+      "elapsedMs": 2460000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1789984800000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-09-21T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "041d4666-db91-4130-9ea4-1a6df4be066b",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "91fa40f2-70f9-4120-be18-80fef090ee58",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "bbca8234-4fcc-4c35-826b-0f9c974bd821",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "0b1e1703-de13-487c-bfa6-fdcd9f36af37",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "91fa40f2-70f9-4120-be18-80fef090ee58",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "bbca8234-4fcc-4c35-826b-0f9c974bd821",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1440000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "0b1e1703-de13-487c-bfa6-fdcd9f36af37",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-28T10:00:00.000Z",
+      "date": "2026-09-28",
+      "elapsedMs": 4140000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790589600000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-09-28T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "268f35f2-9476-491b-92ae-658f06115756",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "0c7a3c00-6c73-4e76-b41c-9573f2f7972e",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "5113860b-990e-4b30-b506-261c8b63107c",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "3e8897bc-400c-4748-aafe-e7b8cf4cc895",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "0c7a3c00-6c73-4e76-b41c-9573f2f7972e",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "5113860b-990e-4b30-b506-261c8b63107c",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1320000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "3e8897bc-400c-4748-aafe-e7b8cf4cc895",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 1500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-05T10:00:00.000Z",
+      "date": "2026-10-05",
+      "elapsedMs": 3120000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791194400000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-10-05T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "a7ed7cda-7ee7-40e0-b9a3-6675551896f2",
+      "title": "Synthetic mixed practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "981c184a-2634-4588-9e66-9c2180e394f5",
+          "type": "warmup",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "bdadf82e-f1da-4595-bf66-cd5a0ebef629",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        },
+        {
+          "id": "1f159325-2e83-4494-8168-167f62d53866",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "b"
+        }
+      ],
+      "blockIndex": 3,
+      "results": [
+        {
+          "block": {
+            "id": "981c184a-2634-4588-9e66-9c2180e394f5",
+            "type": "warmup",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 300000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "bdadf82e-f1da-4595-bf66-cd5a0ebef629",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 1200000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "1f159325-2e83-4494-8168-167f62d53866",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "b"
+          },
+          "context": "piano",
+          "elapsedMs": 600000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T10:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 2100000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791799200000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a",
+        "b"
+      ],
+      "endedAt": "2026-10-12T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-15",
+  "surface": "Responsive Chromium browser; synthetic streams, not native-device camera/microphone acceptance",
+  "sourceHashes": {
+    "media-store.js": "b4400aa38c7a61a9cba82d8e23c1bd9f6379b3e807f92e52da411679c331c8a3",
+    "media-view.js": "08664dbe6021884125a3dc5aef995b9d9ea9066bf1d07c6d8a9b26716b261ae8",
+    "media.css": "b4eee8f01e0613a718863d588277807e37a0edffc74a0a27fd476dca870a509d",
+    "app.js": "5e9eb2e4620a2bc24fea38401cc27056ecff2d7a2c2e521c482d3763c544ef72",
+    "score-controls.js": "ff2352381f5f27cd85a3bf423352410e2bcf918e96e255b2df67e28c0b3ef637",
+    "session-view.js": "94f0996a986021969ffe1e0403a07bfbb09a6bc59d88021214cb12edd0c095e1"
+  },
+  "frames": [
+    {
+      "file": "light-library-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "library"
+    },
+    {
+      "file": "light-preview-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "preview"
+    },
+    {
+      "file": "light-library-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "library"
+    },
+    {
+      "file": "light-preview-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "preview"
+    },
+    {
+      "file": "light-library-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "library"
+    },
+    {
+      "file": "light-preview-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "preview"
+    },
+    {
+      "file": "light-library-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "library"
+    },
+    {
+      "file": "light-preview-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "preview"
+    },
+    {
+      "file": "dark-library-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "library"
+    },
+    {
+      "file": "dark-preview-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "preview"
+    },
+    {
+      "file": "dark-library-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "library"
+    },
+    {
+      "file": "dark-preview-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "preview"
+    },
+    {
+      "file": "dark-library-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "library"
+    },
+    {
+      "file": "dark-preview-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "preview"
+    },
+    {
+      "file": "dark-library-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "library"
+    },
+    {
+      "file": "dark-preview-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "preview"
+    }
+  ],
+  "storage": {
+    "same": true,
+    "different": true,
+    "local": 2,
+    "other": 0,
+    "foreign": null,
+    "missing": null,
+    "bytes": [
+      36111,
+      30123
+    ],
+    "session": "7b735845-745f-4889-988f-b9e0c2e2f3dd"
+  },
+  "runtimeErrors": []
+}

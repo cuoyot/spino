@@ -5,15 +5,15 @@ import {openBrowser} from './browser.js';
 import {emptyData} from '../src/companion/model.js';
 test('Progress separates activity, repertoire and technique',async t=>{
  const {send,evaluate,url,errors}=await openBrowser(t,{companion:true,language:'es'});
- const wait=s=>evaluate(`new Promise(r=>{const i=setInterval(()=>{if(document.querySelector('${s}')){clearInterval(i);r()}},20)})`);
+ const wait=async selector=>{for(let n=0;n<300;n++){try{if(await evaluate(`!!document.querySelector('${selector}')`))return;}catch(error){if(!/navigated|closed|context/.test(error.message))throw error;}await new Promise(r=>setTimeout(r,30));}throw Error('Progress navigation timeout');};
  await send('Page.navigate',{url});await wait('.cp-today');
  const data=emptyData();data.works=[{id:'piece',title:'Synthetic piece',composer:'',stage:'En estudio',notes:'',passage:'Bars 1–8',target:null,bpm:60}];
  await evaluate(`new Promise(r=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const tx=q.result.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(data)},'current');tx.oncomplete=r}})`);
- await send('Page.reload');await wait('.cp-today');await evaluate(`document.querySelector('[data-action=progress]').click()`);
+ await send('Page.navigate',{url:'about:blank'});await send('Page.navigate',{url});await wait('.cp-today');await evaluate(`document.querySelector('[data-action=progress]').click()`);
  for(const section of ['activity','repertoire','technique']){
   await evaluate(`document.querySelector('[data-action=progress-section][data-id=${section}]').click()`);
   assert.equal(await evaluate(`document.querySelector('.cp-progress-sections [aria-current]').dataset.id`),section);
-  assert.equal(await evaluate(`!!document.querySelector('.cp-four-weeks')`),section==='activity');
+  assert.equal(await evaluate(`!!document.querySelector('.cp-time-overview')`),section==='activity');
   if(section==='repertoire')assert.match(await evaluate(`document.querySelector('.cp-progress-page').textContent`),/Bars 1–8/);
   for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});

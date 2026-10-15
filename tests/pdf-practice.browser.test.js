@@ -1,8 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { openBrowser, disableWarmup } from './browser.js';
 import { scorePDF } from './pdf-fixture.js';
+import {createHash} from 'node:crypto';
 
 test('immersive PDF practice, pause-only tools, fingering and saved framing', { timeout: 120000 }, async t => {
   const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
@@ -41,6 +42,34 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await evaluate(`__sr.midi.simulateDevices(['Test piano']);__sr.midi.simulateNote(60)`);
   assert.ok(await evaluate(`!!document.querySelector('.pdf-widget [data-midi-indicator][data-active=true][data-connected=true]')`));
 
+  await t.test('floating Record starts compact capture and stops into review over the running PDF', async () => {
+    await evaluate(`document.querySelector('[data-pdf=record]').click()`);
+    await wait(`document.querySelector('.pdf-viewer #cp-media-capture [data-media=audio]')`);
+    const choices = await evaluate(`(()=>{const audio=document.querySelector('#cp-media-capture [data-media=audio]'),video=document.querySelector('#cp-media-capture [data-media=video]'),style=getComputedStyle(audio);return{audio:audio.textContent,video:video.textContent,background:style.backgroundColor,color:style.color,running:document.querySelector('.pdf-viewer').dataset.running};})()`);
+    assert.equal(choices.audio,'Grabar audio');assert.equal(choices.video,'Grabar vídeo');assert.notEqual(choices.background,choices.color);assert.equal(choices.running,'true');
+    await evaluate(`window.pdfCaptureTracks=[];Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{const context=new AudioContext(),oscillator=context.createOscillator(),output=context.createMediaStreamDestination();oscillator.connect(output);oscillator.start();await context.resume();pdfCaptureTracks=output.stream.getTracks();return output.stream;}});`);
+    await send('Runtime.evaluate',{expression:`document.querySelector('[data-media=audio]').click()`,userGesture:true});
+    await wait(`document.querySelector('[data-pdf=record]').dataset.recording==='true'&&document.querySelector('#cp-media-capture').hidden`);
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').getAttribute('aria-label')`),'Detener grabación y revisar');
+    assert.equal(await evaluate(`!!document.querySelector('[data-pdf=record] rect')`),true);
+    await wait(`document.querySelector('[data-media-clock]')?.textContent==='0:02'`);
+    const evidence=process.env.SPINO_PDF_RECORD_EVIDENCE,frames=[];
+    const captureState=async state=>{if(!evidence)return;await mkdir(evidence,{recursive:true});for(const theme of ['light','dark'])for(const [name,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);const file=theme+'-'+state+'-'+name+'.png',image=await send('Page.captureScreenshot',{format:'png'});await writeFile(evidence+'/'+file,Buffer.from(image.data,'base64'));frames.push({file,width,height,theme,state});}};
+    await captureState('recording');
+    await control('next');await ready();assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').dataset.recording`),'true');
+    await control('record');
+    await wait(`!document.querySelector('#cp-media-capture').hidden&&document.querySelector('#media-title')&&!document.querySelector('[data-media=save]').disabled`);
+    assert.equal(await evaluate(`pdfCaptureTracks.every(track=>track.readyState==='ended')`),true);
+    assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'true');
+    await captureState('review');
+    if(evidence)await writeFile(evidence+'/verification.json',JSON.stringify({date:'2026-10-15',kind:'Responsive Chromium, synthetic microphone; not native acceptance',frames,sources:Object.fromEntries(await Promise.all(['app.js','media-view.js','media.css','score-controls.js','pdf-viewer.css'].map(async file=>[file,createHash('sha256').update(await readFile('src/companion/'+file)).digest('hex')]))),checks:['Recording panel hidden by default during PDF capture','Same red control becomes Stop recording and review','Page turning retains capture','Stop releases tracks and opens local draft review without stopping practice']},null,2));
+    await evaluate(`document.querySelector('[data-media=delete]').click()`);await wait(`document.querySelector('#cp-media-capture').hidden`);
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').getAttribute('aria-label')`),'Grabar práctica');
+    await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='light'`);
+    await new Promise(resolve=>setTimeout(resolve,220));await ready();await control('prev');await ready();
+    assert.equal(await evaluate(`document.querySelector('.pdf-page-count').textContent`),'1 / 2');
+
+  });
   await t.test('running practice gives the sheet the whole viewport and rejects annotation/exit until paused', async () => {
     const layout = await evaluate(`(()=>{const v=document.querySelector('.pdf-viewport').getBoundingClientRect();return {w:v.width,h:v.height,chrome:document.querySelectorAll('.pdf-header,.pdf-footer').length,widgets:document.querySelectorAll('.pdf-widget').length,toolsHidden:document.querySelector('.pdf-panel').hidden,backHidden:document.querySelector('[data-pdf=close]').hidden};})()`);
     assert.deepEqual(layout, { w: 390, h: 844, chrome: 0, widgets: 1, toolsHidden: true, backHidden: true });
@@ -52,8 +81,11 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     await wait(`document.querySelector('.pdf-viewer').dataset.running==='false'`);
     assert.ok(await evaluate(`!!document.querySelector('.pdf-viewer[open]')`));
     assert.equal((await read('state', 'current')).active.runningSince, null);
+    assert.equal(await evaluate(`document.querySelector('.pdf-panel').hidden`),true,'Pausing does not enter score editing.');
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=split-done]').hidden`),true);
   });
   await t.test('paused tools offer direct fingering stamps, a visual palette and undo/redo', async () => {
+    await control('tools');
     assert.equal(await evaluate(`document.querySelectorAll('.pdf-widget select').length`), 0);
     const r = await paper();
     for (let n = 1; n <= 5; n++) {
@@ -135,6 +167,34 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
       assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').hidden`), false);
       await control('timer');
     }
+  });
+  await t.test('pause and explicit editing keep one row across phone and tablet layouts', async () => {
+    const evidence=process.env.SPINO_PDF_RECORD_EVIDENCE;
+    for(const theme of ['light','dark'])for(const [name,width,height] of [['narrow-phone',320,568],['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
+      await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+      await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);await new Promise(resolve=>setTimeout(resolve,220));await ready();
+      const positions=()=>evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-widget-bar button')].filter(b=>b.getBoundingClientRect().width).map(b=>{const r=b.getBoundingClientRect();return[['tools','split-done'].includes(b.dataset.pdf)?'edit':b.dataset.pdf,{x:r.x,y:r.y,w:r.width,h:r.height}]}))`);
+      const pausedPositions=await positions();
+      for(const state of ['paused','editing']){
+        if(state==='editing')await control('tools');
+        assert.equal(await evaluate(`document.querySelector('.pdf-panel').hidden`),state==='paused');
+        assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),state==='editing');
+        assert.equal(await evaluate(`document.querySelector('[data-pdf=split-done]').hidden`),state==='paused');
+        assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').hidden`),false);
+        assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').disabled`),state==='editing');
+        const currentPositions=await positions();assert.deepEqual(Object.keys(currentPositions).sort(),Object.keys(pausedPositions).sort());
+        for(const [action,box] of Object.entries(currentPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`${theme} ${width}x${height}: ${action} ${key} moved`);
+        if(state==='editing'){
+          await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+          assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'false','Disabled clock cannot resume editing.');
+        }
+        const geometry=await evaluate(`(()=>{const bar=document.querySelector('.pdf-widget-bar').getBoundingClientRect(),buttons=[...document.querySelectorAll('.pdf-widget-bar button')].map(b=>({timer:b.matches('.score-timer'),r:b.getBoundingClientRect()})).filter(b=>b.r.width&&b.r.height);return{inside:buttons.every(({r})=>r.left>=bar.left-1&&r.right<=bar.right+1),rows:[...new Set(buttons.filter(b=>!b.timer).map(b=>Math.round(b.r.top)))].length};})()`);
+        assert.deepEqual(geometry,{inside:true,rows:1},`${theme} ${state} ${width}x${height}`);
+        if(evidence){const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${evidence}/${theme}-${state}-${name}.png`,Buffer.from(shot.data,'base64'));}
+      }
+      await control('split-done');await control('timer');
+    }
+    await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='light'`);await new Promise(resolve=>setTimeout(resolve,220));await ready();
   });
   await t.test('visible finish action opens feedback without automatically saving the session', async () => {
     if(await evaluate(`!document.querySelector('[data-pdf=split-done]').hidden`)){await control('split-done');await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);await control('timer');}

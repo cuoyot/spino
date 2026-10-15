@@ -17,7 +17,7 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  await evaluate(`window.timerSeconds=()=>{const [m,s]=document.querySelector('.score-timer .pdf-time').textContent.split(':').map(Number);return m*60+s};window.timerStart=timerSeconds()`);
  await wait(`timerSeconds()>=timerStart+7`);
  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),'true');
- const folder='docs/quality-review/captures/session/2026-10-14-score-actions/responsive-browser';await mkdir(folder,{recursive:true});
+ const folder=process.env.SPINO_SCORE_TIMER_EVIDENCE||'artifacts/score-timer';await mkdir(folder,{recursive:true});
  const geometry=async()=>{
   assert.equal(await evaluate(`getComputedStyle(document.querySelector('.score-timer')).color`),'rgb(245, 255, 255)');
   assert.equal(await evaluate(`document.querySelector('[data-pdf=tools],[data-xml=options]').hidden`),false);
@@ -46,7 +46,16 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
   await geometry();await writeFile(`${folder}/xml-${layout}-running.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
-  await evaluate(`document.querySelector('[data-xml=pause]').click()`);await geometry();await writeFile(`${folder}/xml-${layout}-paused.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));await evaluate(`document.querySelector('[data-xml=pause]').click()`);
+  await evaluate(`document.querySelector('[data-xml=pause]').click()`);await geometry();await writeFile(`${folder}/xml-${layout}-paused.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  const positions=()=>evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-widget-bar button')].filter(b=>b.getBoundingClientRect().width).map(b=>{const r=b.getBoundingClientRect();return[['options','done'].includes(b.dataset.xml)?'edit':b.dataset.xml,{x:r.x,y:r.y,w:r.width,h:r.height}]}))`);
+  const pausedPositions=await positions();
+  await evaluate(`document.querySelector('[data-xml=options]').click()`);
+  assert.equal(await evaluate(`document.querySelector('[data-xml=pause]').disabled&&!document.querySelector('[data-xml=pause]').hidden`),true);
+  const editingPositions=await positions();assert.deepEqual(Object.keys(editingPositions).sort(),Object.keys(pausedPositions).sort());
+  for(const [action,box] of Object.entries(editingPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`MusicXML ${layout}: ${action} ${key} moved`);
+  await evaluate(`document.querySelector('[data-xml=pause]').click()`);assert.equal(await evaluate(`xmlTiming.running`),false);
+  await writeFile(`${folder}/xml-${layout}-editing.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await evaluate(`document.querySelector('[data-xml=done]').click()`);
  }
  assert.deepEqual(errors,[]);
 });

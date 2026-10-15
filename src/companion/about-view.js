@@ -1,5 +1,6 @@
 import { APP_VERSION } from './app-version.js';
 import { localize } from './locale.js';
+import release610beta1 from '../../docs/releases/6.1.0-beta.1.md?raw';
 import release524 from '../../docs/play-store/release-5.2.4.md?raw';
 import release525 from '../../docs/play-store/release-5.2.5.md?raw';
 import release526 from '../../docs/play-store/release-5.2.6.md?raw';
@@ -18,6 +19,7 @@ const listingNotes = language => listing.split(`<!-- field:${language}:notes -->
 export function aboutMarkup(lang = 'en') {
   const es = lang === 'es', word = (en, spanish) => localize(en, spanish, lang);
   const history = [
+    ['6.1.0-beta.1', section(release610beta1, '## Release notes')],
     ['5.2.7', section(release527, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],
     ['5.2.6', section(release526, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],
     ['5.2.5', section(release525, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],

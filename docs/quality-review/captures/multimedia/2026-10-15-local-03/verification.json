@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-15",
+  "scope": "Beta 6.1 local multimedia source preview",
+  "build": "npm run build: passed",
+  "focusedChecks": {
+    "modelBackupSyncSession": 58,
+    "headerAndSessionBrowser": 8,
+    "pdfPracticeAndEditBack": 8,
+    "navigationAndRepertoireBrowser": 2,
+    "mediaEndToEndBrowser": 1,
+    "cloudApplyDeferralBrowser": 1
+  },
+  "evidence": {
+    "frames": 24,
+    "capture": "capture.json",
+    "fixture": "notebook.fixture.json",
+    "kind": "Responsive Chromium with synthetic media streams; not native acceptance"
+  },
+  "notes": [
+    "Browser navigation/reload harness now waits for the new document to avoid matching the prior page. Earlier failed diagnostic runs were corrected and rerun.",
+    "Source implementation only: no new APK, version bump or publication.",
+    "Native Android/iOS microphone/camera, long-duration capture and OS storage-pressure acceptance remain open.",
+    "Recordings and installation identity are excluded from notebook JSON backup/sync."
+  ]
+}

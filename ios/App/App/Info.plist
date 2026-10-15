@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Scan a SPino notebook QR to connect another device.</string>
+	<string>Record practice videos or scan a SPino notebook QR to connect another device.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Record audio with your repertoire practice recordings.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Connect Bluetooth MIDI instruments for piano practice and pedal controls.</string>
   <key>CAPACITOR_DEBUG</key>

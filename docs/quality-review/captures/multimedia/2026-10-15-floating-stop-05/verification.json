@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-15",
+  "kind": "Responsive Chromium, synthetic microphone; not native acceptance",
+  "frames": [
+    {
+      "file": "light-recording-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "light-recording-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "dark-recording-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "recording"
+    },
+    {
+      "file": "light-review-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "light-review-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-phone-portrait.png",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-phone-landscape.png",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-tablet-portrait.png",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "state": "review"
+    },
+    {
+      "file": "dark-review-tablet-landscape.png",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "state": "review"
+    }
+  ],
+  "sources": {
+    "app.js": "e1e474060e5edbfac90c964deef91d4b275ec17403db56a111378d625c2100e7",
+    "media-view.js": "e4cc374db419f7f51d0da400fb2533c74d6dd7fbb509c86c4bfaa58ac8f66ae2",
+    "media.css": "0c0515060d012459e96bacd25d05c9b4681b1261636eb7f925f20d58c110979d",
+    "score-controls.js": "88746cb769c341dce3719144f934d50189a85dd9351554a0e5914e18116ce94f",
+    "pdf-viewer.css": "f2d7cdb7becb2c495cacae1255dba10bbd834f9a0827bbf42a2008207c21c1d1",
+    "pdf-viewer.js": "9d8205acd4aaf86077099b6f919f19a578e02fe38f5aa9fcd7ceace88249c20f",
+    "musicxml-viewer.js": "b46acb640a116b56a01b41154f555501b47b1c8df8bab301929673f4bb5dbf43"
+  },
+  "checks": [
+    "Recording panel hidden by default during PDF capture",
+    "Same red control becomes Stop recording and review",
+    "Page turning retains capture",
+    "Stop releases tracks and opens local draft review without stopping practice",
+    "Pause leaves editing tools closed",
+    "Edit pencil and Done editing checkmark replace one another",
+    "Single-row toolbar bounds in both themes at 320x568, 390x844, 844x390, 768x1024 and 1024x768",
+    "PDF annotation persistence, framing, editing Back, anchored toolbar and finish regressions pass"
+  ],
+  "additionalEvidence": [
+    "dark-editing-narrow-phone.png",
+    "dark-editing-phone-landscape.png",
+    "dark-editing-phone-portrait.png",
+    "dark-editing-tablet-landscape.png",
+    "dark-editing-tablet-portrait.png",
+    "dark-paused-narrow-phone.png",
+    "dark-paused-phone-landscape.png",
+    "dark-paused-phone-portrait.png",
+    "dark-paused-tablet-landscape.png",
+    "dark-paused-tablet-portrait.png",
+    "light-editing-narrow-phone.png",
+    "light-editing-phone-landscape.png",
+    "light-editing-phone-portrait.png",
+    "light-editing-tablet-landscape.png",
+    "light-editing-tablet-portrait.png",
+    "light-paused-narrow-phone.png",
+    "light-paused-phone-landscape.png",
+    "light-paused-phone-portrait.png",
+    "light-paused-tablet-landscape.png",
+    "light-paused-tablet-portrait.png",
+    "presented-editing.png"
+  ],
+  "validation": "Production build; 10 PDF practice/edit-Back checks pass. Local media browser regression passes separately; responsive browser evidence only."
+}

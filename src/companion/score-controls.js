@@ -3,6 +3,7 @@ import { MARK_COLORS } from './pdf-annotations.js';
 import { ui } from './locale.js';
 
 const paths = {
+  done: '<path d="m5 12 4 4L19 6"/>',
   print: '<path d="M6 8V3h12v5M6 17H3V8h18v9h-3M6 14h12v7H6z"/><circle cx="17" cy="11" r=".7"/>',
   read: '<path d="M6 12V7a2 2 0 0 1 4 0v4-7a2 2 0 0 1 4 0v7-5a2 2 0 0 1 4 0v7-3a2 2 0 0 1 4 0v5c0 5-3 7-7 7h-1c-3 0-5-2-7-5l-4-5a2 2 0 0 1 3-2l3 3"/>',
   pen: '<path d="m4 20 1-6L16 3l5 5L10 19zM13 6l5 5M4 20l6-1"/>',
@@ -17,6 +18,7 @@ const paths = {
   select: '<path d="m5 3 14 11-7 1-3 7z"/>',
   pause: '<path d="M8 5v14M16 5v14" stroke-width="4"/>',
   finish: '<rect x="5" y="5" width="14" height="14" rx="1" fill="currentColor"/>',
+  record: '<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="currentColor"/>',
   play: '<path d="m8 4 12 8-12 8z" fill="currentColor"/>',
   close: '<path d="m14 5-7 7 7 7"/>',
   prev: '<path d="m15 5-7 7 7 7"/>',
@@ -64,7 +66,7 @@ export function scoreControlsMarkup(session) {
       ${scoreButton('print',ui('Print score','Imprimir partitura'),scoreIcon('print'),'class="score-print-icon"')}
       ${scoreButton('close',session ? ui('Return to session','Volver a la sesión') : ui('Close score','Cerrar partitura'),session ? ui('Return to session','Volver a la sesión') : ui('Close score','Cerrar partitura'))}
     </div>
-    <div class="pdf-widget-bar">${scoreButton('drag',ui('Move controls', 'Mover controles'))}${session ? scoreButton('timer',ui('Resume practice', 'Continuar práctica'),`${scoreIcon('play')}<span class="pdf-time">0:00</span>`) : '<span class="pdf-time"></span>'}${session?.finish ? scoreButton('finish',ui('Finish practice', 'Terminar práctica'),scoreIcon('finish'),'class="pdf-finish"') : ''}${scoreButton('tools',ui('Edit score', 'Editar partitura'),scoreIcon('tools'),'aria-controls="pdf-panel" aria-expanded="false"')}${scoreButton('split-done',ui('Done editing', 'Salir de edición'),ui('Done editing', 'Salir de edición'),'class="pdf-split-done" hidden')}<span class="pdf-pagination">${scoreButton('prev',ui('Previous page', 'Página anterior'))}<span class="pdf-page-count" aria-live="polite">— / —</span>${scoreButton('next',ui('Next page', 'Página siguiente'))}</span></div>
+    <div class="pdf-widget-bar">${scoreButton('drag',ui('Move controls', 'Mover controles'))}${session ? scoreButton('timer',ui('Resume practice', 'Continuar práctica'),`${scoreIcon('play')}<span class="pdf-time">0:00</span>`) : '<span class="pdf-time"></span>'}${session?.record ? scoreButton('record',ui('Record practice','Grabar práctica'),scoreIcon('record')) : ''}${session?.finish ? scoreButton('finish',ui('Finish practice', 'Terminar práctica'),scoreIcon('finish'),'class="pdf-finish"') : ''}${scoreButton('tools',ui('Edit score', 'Editar partitura'),scoreIcon('tools'),'aria-controls="pdf-panel" aria-expanded="false"')}${scoreButton('split-done',ui('Done editing', 'Salir de edición'),ui('Done editing', 'Salir de edición'),'class="pdf-split-done" hidden')}<span class="pdf-pagination">${scoreButton('prev',ui('Previous page', 'Página anterior'))}<span class="pdf-page-count" aria-live="polite">— / —</span>${scoreButton('next',ui('Next page', 'Página siguiente'))}</span></div>
     <button type="button" data-pdf="active-tool" class="pdf-active-tool" hidden></button>
   </aside>`;
 }

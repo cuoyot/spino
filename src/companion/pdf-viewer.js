@@ -85,21 +85,21 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     $('[data-pdf=in]').disabled = !ready || zoom >= 3 || !!section;
     $('[data-pdf=fit]').disabled = !ready || !!section;
     $('[data-pdf=retry]').hidden = !dirty;
-    $('[data-pdf=timer]')?.toggleAttribute('disabled', !ready && !running());
+    $('[data-pdf=timer]')?.toggleAttribute('disabled', editing() || (!ready && !running()));
     $('[data-pdf=save-view]').disabled = !ready || !!viewSaving || !!section;
     $('[data-pdf=split]').textContent = splitting ? ui('Done', 'Hecho') : ui('Split page', 'Dividir página');
     $('[data-pdf=split]').setAttribute('aria-pressed', String(splitting));
     $('[data-pdf=split]').disabled = !ready;
     $('[data-pdf=split-done]').hidden = !editing();
-    $('[data-pdf=split-done]').textContent = ui('Done editing', 'Salir de edición');
+    $('[data-pdf=split-done]').innerHTML = scoreIcon('done');
     $('[data-pdf=split-done]').setAttribute('aria-label', ui('Done editing', 'Salir de edición'));
-    $('[data-pdf=timer]')?.toggleAttribute('hidden', editing());
+    $('[data-pdf=timer]')?.toggleAttribute('hidden', !session);
     $('[data-pdf=split-clear]').hidden = !splitting; $('[data-pdf=split-clear]').disabled = !pageSections(page).length;
     $('.pdf-split-hint').textContent = splitting ? ui('Drag over the score to mark each part, such as one or two bars. Tap × to remove a part.', 'Arrastra sobre la partitura para marcar cada parte, por ejemplo uno o dos compases. Toca × para quitar una parte.') : ui('In landscape, split pages are shown part by part, filled with white to fit the screen.', 'En apaisado, las páginas divididas se muestran parte a parte, rellenando con blanco hasta ajustar la pantalla.');
     $('[data-pdf=reset-view]').disabled = !ready || !!viewSaving;
     $('[data-pdf=fullscreen]').hidden = native || !!document.fullscreenElement || !document.fullscreenEnabled;
     modal.dataset.running = String(running());
-    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = false;
+    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = editing();
     $('[data-pdf=finish]')?.toggleAttribute('hidden', false);
     $('.pdf-panel').hidden = running() || !expanded;
     $('[data-pdf=tools]').setAttribute('aria-expanded', String(expanded && !running()));
@@ -511,6 +511,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     const action = event.target.closest('[data-pdf]')?.dataset.pdf;
     try {
       if (editing() && ['timer', 'close'].includes(action)) return;
+      if (action === 'record') { session?.record?.(); return; }
       if (action === 'finish' && session?.finish) {
         if (running()) { await session.toggle(); updateTimer(); }
         if (await close()) await session.finish();
@@ -574,7 +575,6 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     }
     if (wasRunning !== !!info.running) {
       if (info.running) { editingRequested=false; tool = 'read'; draft = null; gesture = null; paint(); expanded = false; textDialog?.close(); if (splitting) void setSplitting(false); }
-      else if (wasRunning) expanded = true;
       wasRunning = !!info.running; controls();
     }
   }

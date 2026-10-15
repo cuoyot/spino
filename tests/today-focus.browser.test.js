@@ -16,7 +16,8 @@ test('Today keeps the next practice action reachable and Practice owns activity 
   await wait(`document.querySelector('.cp-today')`);
   for (const [state, data] of Object.entries(todayFixtures())) {
     await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(data)},'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};})`);
-    await send('Page.reload');
+    await send('Page.navigate',{url:'about:blank'});
+    await send('Page.navigate',{url});
     await wait(`document.querySelector('.cp-today')`);
     const expected = { typical: 'start-plan', empty: 'practice', pending: 'resume-session' }[state];
     for (const [width, height] of [[320, 568], [390, 844], [844, 390], [768, 1024], [1024, 768]]) {
@@ -56,7 +57,7 @@ test('Today keeps the next practice action reachable and Practice owns activity 
   assert.equal(await evaluate(`document.querySelector('[data-action=session-detail]')`), null, 'Library does not duplicate practice history');
   await action('settings');
   await action('progress');
-  assert.ok(await evaluate(`!!document.querySelector('.cp-dashboard-week')`), 'Weekly totals remain available through Profile');
+  assert.ok(await evaluate(`!!document.querySelector('.cp-time-overview')`), 'Weekly totals remain available through Progress');
   assert.ok(await evaluate(`!!document.querySelector('[data-action=session-detail]')`), 'Existing session history remains available');
   assert.deepEqual(errors, []);
 });

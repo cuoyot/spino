@@ -8,7 +8,7 @@ test('Home highlights saved weekly practice with and without a goal in both them
  const {send,evaluate,url,errors}=await openBrowser(t,{companion:true,language:'es'});
  const fixed=Date.parse('2026-10-14T12:00:00Z');
  await send('Page.addScriptToEvaluateOnNewDocument',{source:`{const OriginalDate=Date;window.Date=class extends OriginalDate {constructor(...args){super(...(args.length?args:[${fixed}]));}static now(){return ${fixed};}};}`});
- const wait=()=>evaluate(`new Promise((resolve,reject)=>{let n=0;const i=setInterval(()=>{if(document.querySelector('.cp-today-progress')){clearInterval(i);resolve();}else if(++n>300){clearInterval(i);reject(Error('Home timeout'));}},20);})`);
+ const wait=async()=>{for(let n=0;n<300;n++){try{if(await evaluate(`!!document.querySelector('.cp-today-progress')`))return;}catch(error){if(!/navigated|closed|context/.test(error.message))throw error;}await new Promise(r=>setTimeout(r,30));}throw Error('Home timeout');};
  await send('Page.navigate',{url});await wait();
  for(const theme of ['light','dark']) for(const state of ['goal','none','reached','empty']) {
   const data=emptyData();data.preferences.theme=theme;data.preferences.weeklyMinutes=state==='none'?0:state==='reached'?30:90;
@@ -29,6 +29,6 @@ test('Home highlights saved weekly practice with and without a goal in both them
   }
  }
  await evaluate(`document.querySelector('.cp-today-progress [data-action=progress]').click()`);
- assert.equal(await evaluate(`!!document.querySelector('.cp-four-weeks')`),true);
+ assert.equal(await evaluate(`!!document.querySelector('.cp-time-overview')`),true);
  assert.deepEqual(errors,[]);
 });

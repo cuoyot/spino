@@ -73,7 +73,7 @@ If MIDI disconnects during practice, evaluation pauses and the session overview 
 
 ## Move on, finish or return later
 
-**Next block** records the current block and opens the next one paused. **Finish session** opens feedback, including on the final block. For each repertoire piece practised, **Part of the piece you worked on** records the passage (for example "bars 1–16, section B"). It appears in the session details and in the work's session list, and can be changed later with **Edit feedback**. **Keep practising** closes feedback and leaves the current block available; saving records it once.
+**Next block** records the current block and opens the next one paused. **Finish session** opens feedback, including on the final block. For each repertoire piece practised, **Part of the piece you worked on** records the passage (for example "bars 1–16, section B"). It appears in the session details and in the work's session list, and can be changed later with **Edit feedback**. **Keep practising** closes feedback and leaves the current block available; saving records it once and returns to Today. Save and schedule opens the scheduling dialog over Today. Quick practice keeps its result dialog, with Today shown after closing it.
 
 In PDF practice, elapsed time appears inside the play/pause button. When paused, the stop-square opens finish feedback. Open tools and choose **Return to session** to leave the score without finishing. Previous/next arrows only turn score pages. On the narrowest phones the page counter is hidden to keep the control bar on one line; MIDI status is available in the tools panel.
 
@@ -95,3 +95,39 @@ If feedback cannot be saved, your paused session and form stay available for ret
 New practices start with the timer running. Pause stops timing and allows the device to sleep normally. Recovered practices remain paused. In PDF practice, Done editing saves pending changes before resuming timing; a save error leaves practice paused. When saving the activity, adjust Practice time (minutes) if necessary. SPino keeps the original measured duration and updates the activity breakdown consistently.
 
 Tap the MIDI icon when disconnected to refresh inputs and attempt the last remembered Android Bluetooth instrument. Hold it to open MIDI settings. On iOS, unavailable Bluetooth inputs use Apple's connection panel. Configured automatic cloud sync saves changes throughout the app; incoming changes wait until practice and editing finish. A sync problem at practice start offers a direct route to resolve it.
+
+## Circular score timer (local source follow-up)
+
+PDF and MusicXML practice show elapsed time in a raised circular button on the floating score bar. Teal with the pause icon means timing is running; ochre with the play icon and **Paused** means timing is stopped. Tap the circle to pause or resume. Pausing keeps the score visible and does not open editing. Tap the pencil to open annotation and framing controls; the pencil is replaced in place by the Done editing checkmark. The paused clock stays visible but cannot be tapped while editing, and the floating controls keep their positions. This 2026-10-14 change is included in published beta 5/build44 and verified in responsive browsers. Native PDF acceptance remains limited by the emulator WebView.
+
+## Direct score practice and editing return (local source follow-up)
+
+Starting practice opens the score automatically when the current block is repertoire with an attached score. If you have a configured warm-up, it runs before that repertoire block. The overview offers one **Start practice / Continue practice** button to open the score and start or resume timing.
+
+**Edit score** and **Finish practice** stay visible in PDF and MusicXML floating controls. Edit pauses timing automatically and opens the annotation/framing tools. **Done editing** or Back returns to running score practice after pending changes are saved. Finish stops timing, saves pending annotations/views and opens feedback; it does not save the practice history automatically. A failed write leaves editing paused for retry. This 2026-10-14 behavior is included in published beta 5/build44 and browser-verified. Android replacement installation/version/foreground are confirmed; native PDF timing acceptance remains open.
+
+### Preparing repertoire
+
+When preparing repertoire, tap a piece under **On your stand**, or search your library by title or composer. Search includes pieces outside the stand and excludes the bin. The piece selector also lists your library. **Search the full catalogue** opens the catalogue without the ready-to-practise filter; download and score checks still apply before selecting a catalogue score. Returning to preparation preserves your choices.
+
+**Include Hanon warm-up** controls the warm-up for this practice, starting from your saved preference. It does not change that preference. Scheduled practices retain the choice. Routines keep their own warm-up settings.
+
+The free-practice metronome opens in a fullscreen workspace. Tempo, volume, beat/subdivision settings and timing controls use a compact layout that adapts to portrait and landscape. Use **Session** to return to the session overview or **Finish session** (or **Next block**) to continue.
+
+### Correcting completed practice
+
+Open a saved practice and choose **Edit practice**. Adjust minutes and seconds for each block, change a repertoire block's worked score and passage, or add a repertoire, free-practice, reading or technique block. Save updates the total and practiced works; Cancel leaves the record unchanged. The original session date, identity, notes and feedback are preserved. Changing a block's score removes its old automatic measurement so it is not attributed to the replacement score. **Edit feedback** remains available separately.
+
+### Reviewing progress
+
+Progress has three sections. **Activity** shows a practice-time chart, weekly goal, consistency and saved history. The chart summarizes the last 12 weeks, with this week still in progress. **More details** opens practice-type and repertoire-piece filters, which can be combined. Choose 7 days, 1, 3 or 6 months, the current year or 1 year. Short ranges show daily time; longer ranges show weekly time. The total is compared with the preceding period of the same number of days. **View chart values** lists exact dates and minutes. Filters count only time explicitly recorded for the matching activity and piece; merely tagging a piece in session feedback does not assign all session time to it. This beta 6.1 source behavior is verified in the responsive browser; native packaging and visual acceptance remain pending. **Repertoire** shows each piece's current stage, recorded practice time, latest practice and next passage/goal; open a piece to review its history. Stages reflect your assessment, not an automatic proficiency score.
+
+**Technique** groups measured reading/technique blocks by their recorded settings. After six comparable blocks, it compares response accuracy for the preceding three and latest three. Smaller groups show that more data is needed. Manual time remains in Activity; response accuracy does not assess expression or overall musical mastery.
+
+### Recording repertoire practice (Beta 6.1 source preview)
+
+Choose **Record** from a piece or its repertoire practice block, then choose **Record audio** or **Record video**. PDF and MusicXML practice controls also include **Record practice**. Allow the microphone, and the camera for video, when prompted. In the score viewer, capture starts with its panel hidden. The same red Record button becomes Stop; tap it to stop capture and open the review. Outside the score viewer, the recording panel can be minimized. In the review, play the take, edit its title and **Save**, or **Discard** it. Each take is limited to 15 minutes or 250 MB; reaching a limit stops capture for review. Backgrounding the app, changing the repertoire piece/block or finishing the session stops capture.
+
+Open **Recordings** on the piece, or **Library → Multimedia**, to browse locally available takes. Filter by piece or audio/video type. **Play** opens the player, title editing and local deletion. A completed take is stored as a pending draft before final Save; if that write succeeded, an app restart exposes it through **Review and save**. A failed storage write keeps the preview open for retry while the app remains open. An abrupt app termination during active capture can lose that unfinished take.
+
+Recordings are stored only in this installation. Notebook JSON export, backup and synchronization do not include the media files or installation identity. Restoring or synchronizing the notebook leaves local recordings intact. Another device does not show these local-only takes. Clearing app/browser storage, uninstalling, or confirming **Erase notebook** can remove them. Cloud media copies and sharing are not available. This behavior is verified in responsive Chromium with synthetic audio/video; native camera/microphone and packaged release acceptance remain pending.

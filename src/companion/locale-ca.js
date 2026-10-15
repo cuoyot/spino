@@ -1,5 +1,34 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Recorded practice time|Temps de pràctica registrat
+Daily practice|Pràctica diària
+Weekly practice · current week in progress|Pràctica setmanal · setmana actual en curs
+No saved practice in this period.|No hi ha pràctica desada en aquest període.
+Past 12 weeks|Últimes 12 setmanes
+Weekly goal|Objectiu setmanal
+More details|Més detalls
+‹ Progress|‹ Progrés
+Unavailable piece|Obra no disponible
+Practice type|Tipus de pràctica
+All practice|Tota la pràctica
+Repertoire piece|Peça del repertori
+All pieces|Totes les peces
+Total practice time|Temps total de pràctica
+No practice in the previous period|Sense pràctica en el període anterior
+vs. previous period|respecte al període anterior
+Date range|Interval de dates
+7 days|7 dies
+1 month|1 mes
+3 months|3 mesos
+6 months|6 mesos
+Year to date|Any actual
+YTD|Any
+1 year|1 any
+1Y|1A
+Filters count only time recorded for matching blocks.|Els filtres compten només el temps registrat als blocs que coincideixen.
+View chart values|Veure els valors del gràfic
+Period|Període
+
 Continue locally|Continuar en local
 Changes stay on this device until you resume synchronization.|Els canvis es desen en aquest dispositiu fins que reprenguis la sincronització.
 Select the sync file again|Torna a seleccionar el fitxer de sincronització

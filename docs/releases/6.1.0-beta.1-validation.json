@@ -1,0 +1,39 @@
+{
+  "version": "6.1.0-beta.1",
+  "build": 54,
+  "packagedWebFiles": 259,
+  "apkSignature": "Android beta debug signer, SHA-256 cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+  "testSet": {
+    "total": 371,
+    "passed": 369,
+    "optionalSkipped": 2,
+    "failedAfterRerun": 0,
+    "note": "Isolated full set: 368 passed, 2 optional skips, one environment failure because the initial copy excluded scripts/site along with site output. Restored site builder and reran all three localized website checks: 3 passed."
+  },
+  "nativeHandoff": {
+    "version": "6.1.0-beta.1",
+    "versionCode": 54,
+    "applicationId": "com.miguecoll.spino.beta",
+    "install": "adb install -r",
+    "applicationStorageCleared": false,
+    "existingIndexedDbFiles": 7,
+    "indexedDbHashesEqualBeforeLaunch": true,
+    "firstInstallTimeRetained": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}",
+      "ResumedActivity: ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}"
+    ],
+    "nativeCapture": "native-first-launch.png",
+    "emulatorRecovery": "Existing AVD cold-started headless after unresponsive Android and locked-desktop crash consent; original data image backed up and retained.",
+    "acceptance": "Replacement install, package identity and foreground verified. Physical microphone/camera and native populated layout acceptance remain separate.",
+    "nativeStartupLimitation": {
+      "error": "DataError: Failed to read large IndexedDB value",
+      "reproducedWithPriorBeta": "6.0.0-beta.13/build52, index-DtZA6W8f.js",
+      "newBeta": "6.1.0-beta.1/build54 restored after comparison",
+      "dataPolicy": "No storage cleared or repaired; existing notebook files preserved.",
+      "scope": "The existing emulator notebook cannot finish opening. This does not establish populated native UI or physical recording acceptance."
+    }
+  },
+  "responsiveEvidence": "../quality-review/captures/multimedia/2026-10-15-fixed-edit-bar-03/verification.json",
+  "delivery": "Prepared and tested. Public verification is recorded separately after deployment."
+}

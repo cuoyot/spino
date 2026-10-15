@@ -69,20 +69,49 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
   let seq = 0;
   const pending = new Map();
   const errors = [];
+  const loadedDocuments = new Set(), navigationWaiters = new Map(), reloadWaiters = new Set();
   ws.addEventListener('message', ({ data }) => {
     const msg = JSON.parse(data);
     if (msg.method === 'Runtime.exceptionThrown') errors.push(msg.params.exceptionDetails);
+    if (msg.method === 'Page.lifecycleEvent' && msg.params.name === 'DOMContentLoaded') {
+      const id = msg.params.loaderId;
+      loadedDocuments.add(id);
+      navigationWaiters.get(id)?.();
+      for (const waiter of reloadWaiters) waiter(msg.params);
+    }
     if (!msg.id) return;
     const task = pending.get(msg.id);
     pending.delete(msg.id);
     if (msg.error) task.reject(new Error(JSON.stringify(msg.error)));
     else task.resolve(msg.result);
   });
-  const send = (method, params = {}) => new Promise((resolveCall, reject) => {
+  const rawSend = (method, params = {}) => new Promise((resolveCall, reject) => {
     const id = ++seq;
     pending.set(id, { resolve: resolveCall, reject });
     ws.send(JSON.stringify({ id, method, params }));
   });
+  const send = async (method, params = {}) => {
+    if (method === 'Page.reload') {
+      const { frameTree: { frame } } = await rawSend('Page.getFrameTree');
+      let timer, waiter;
+      const reloaded = new Promise((resolveReload, reject) => {
+        waiter = event => { if (event.frameId === frame.id && event.loaderId !== frame.loaderId) resolveReload(); };
+        reloadWaiters.add(waiter);
+        timer = setTimeout(() => reject(Error('Reload did not load its new document.')), 15000);
+      });
+      try { const response = await rawSend(method, params); await reloaded; return response; }
+      finally { clearTimeout(timer); reloadWaiters.delete(waiter); }
+    }
+    const response = await rawSend(method, params);
+    // Same-URL reloads can otherwise let a test match the old page before it unloads.
+    if (method === 'Page.navigate' && response.loaderId && !loadedDocuments.has(response.loaderId)) {
+      await new Promise((resolveNavigation, reject) => {
+        const timer = setTimeout(() => { navigationWaiters.delete(response.loaderId); reject(Error('Navigation did not load its new document.')); }, 15000);
+        navigationWaiters.set(response.loaderId, () => { clearTimeout(timer); navigationWaiters.delete(response.loaderId); resolveNavigation(); });
+      });
+    }
+    return response;
+  };
   const evaluate = async (expression) => {
     const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
     assert.equal(result.exceptionDetails, undefined, JSON.stringify(result.exceptionDetails));
@@ -90,6 +119,7 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
   };
   await send('Runtime.enable');
   await send('Page.enable');
+  await send('Page.setLifecycleEventsEnabled', { enabled: true });
   if(!onboarding) await send('Page.addScriptToEvaluateOnNewDocument',{source:'window.__SPINO_DISABLE_TOUR=true;'});
   if (companion) await send('Page.addScriptToEvaluateOnNewDocument', {source: `Object.defineProperty(navigator, 'language', { get: () => ${JSON.stringify(language)} });`});
   return { send, evaluate, errors, url: `http://127.0.0.1:${server.address().port}/${companion ? '' : '#reader'}` };

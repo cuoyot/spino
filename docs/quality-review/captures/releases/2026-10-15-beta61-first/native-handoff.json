@@ -1,0 +1,24 @@
+{
+  "version": "6.1.0-beta.1",
+  "versionCode": 54,
+  "applicationId": "com.miguecoll.spino.beta",
+  "install": "adb install -r",
+  "applicationStorageCleared": false,
+  "existingIndexedDbFiles": 7,
+  "indexedDbHashesEqualBeforeLaunch": true,
+  "firstInstallTimeRetained": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}",
+    "ResumedActivity: ActivityRecord{56f8129 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t38}"
+  ],
+  "nativeCapture": "native-first-launch.png",
+  "emulatorRecovery": "Existing AVD cold-started headless after unresponsive Android and locked-desktop crash consent; original data image backed up and retained.",
+  "acceptance": "Replacement install, package identity and foreground verified. Physical microphone/camera and native populated layout acceptance remain separate.",
+  "nativeStartupLimitation": {
+    "error": "DataError: Failed to read large IndexedDB value",
+    "reproducedWithPriorBeta": "6.0.0-beta.13/build52, index-DtZA6W8f.js",
+    "newBeta": "6.1.0-beta.1/build54 restored after comparison",
+    "dataPolicy": "No storage cleared or repaired; existing notebook files preserved.",
+    "scope": "The existing emulator notebook cannot finish opening. This does not establish populated native UI or physical recording acceptance."
+  }
+}
