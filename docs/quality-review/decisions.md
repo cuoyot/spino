@@ -2,6 +2,13 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-044 — Hours and minutes in Progress
+
+- Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified; owner/native visual acceptance remains open.
+- PIANO-02: preserve whole-minute rounding, display under an hour as minutes, and display longer saved totals as hours with any remaining minutes: 59 min, 1 hr, 1 hr 30 min, 2 hr 19 min. Apply to the weekly total/goal, detail totals, chart axes/point titles/value table, repertoire totals, scales and Progress history summaries.
+- Chart layout reserves room for the longer labels; weekly values retain two columns. The shared session-card helper opts into the format only for Progress. Other routes retain their current presentation. No stored time, notebook records, filtering or percentage calculation changes.
+- Verification: production build, 30 boundary/locale assertions, existing Progress arithmetic/navigation/retention checks and [55 responsive captures](captures/progress/2026-10-15-hours-minutes-01/metadata.json) across three languages, both themes and phone/tablet orientations. Today and Technique regressions pass. Source only; no new APK or publication.
+
 ## D-043 — One repertoire picker and resilient recording permissions
 
 - Status: **owner requested and authorized**, 2026-10-15. Objectives accepted; local implementation browser-verified. Owner acceptance of the implemented layout remains open.

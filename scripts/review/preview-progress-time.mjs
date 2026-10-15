@@ -2,7 +2,7 @@ import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 const root=resolve('dist');
-const fixturePath='docs/quality-review/captures/progress/2026-10-15-time-chart/fixture.json';
+const fixturePath=process.env.PROGRESS_TIME_FIXTURE||'docs/quality-review/captures/progress/2026-10-15-time-chart/fixture.json';
 const server=createServer(async(req,res)=>{
  try {
   const pathname=new URL(req.url,'http://localhost').pathname;
@@ -28,4 +28,5 @@ openProgress();
   res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png'})[extname(path)]||'application/octet-stream');res.end(body);
  }catch{res.writeHead(404).end();}
 });
-server.listen(5192,'127.0.0.1',()=>console.log('Synthetic Progress review: http://127.0.0.1:5192/'));
+const port=Number(process.env.PROGRESS_TIME_PORT||5192);
+server.listen(port,'127.0.0.1',()=>console.log(`Synthetic Progress review: http://127.0.0.1:${port}/`));

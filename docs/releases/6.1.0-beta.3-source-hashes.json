@@ -1,0 +1,16 @@
+{
+  "version": "6.1.0-beta.3",
+  "build": 56,
+  "files": {
+    "package.json": "d4b8c282f2d3a6c3d309fdce183537ad25497ac35056e1770fee525c28a1e14b",
+    "package-lock.json": "6a14a2e477df981211f4ece15fec3e7a91607ac248bb9b25491d17befd0b0aa8",
+    "android/app/build.gradle": "1fa9b20f94d0a6d9ddcaa6420006d40a80ee77566582d89417fd8d26bb605525",
+    "android/app/src/main/AndroidManifest.xml": "c1a196004fe2bc59760544ec1b7b360ac29fd642ec17e22126be76b88f98b458",
+    "src/companion/app.js": "2959d00aaa624e95da16b1898fde848f82d515918f646580e8cf07664c94b440",
+    "src/companion/progress-duration.js": "1b0242453ce0e296f6e54a85e1c32174f20531c02e5e362fd12ab57dcddd4302",
+    "src/companion/progress-time.js": "16f81792c841ca6c168701e5e43c7470673eb919cf93923c5ac1c07b4142c38b",
+    "src/companion/progress-time.css": "751ac57da871b6215745a6f98037e30281bc37896f65d7a25767585fd444d069",
+    "src/companion/progress-learning.js": "fce400618297264c53edd7138e06e80cf6f912934686e2797f5deecc3e98298d"
+  },
+  "productionIndexSha256": "3c4cdbec9f2164133f356dc80582e13a4b9fe9d671753516024c3482f3654bcc"
+}

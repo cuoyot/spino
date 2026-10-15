@@ -1,4 +1,5 @@
 import {ui} from './locale.js';
+import {formatProgressDuration} from './progress-duration.js';
 import {localDate,stageLabel,ACTIVITIES} from './model.js';
 import {targetById} from './curriculum.js';
 import {escapeHTML as esc} from './views.js';
@@ -23,7 +24,7 @@ export function repertoireProgressMarkup(data){
  return `<p class="muted">${ui('Your current stage and next step for each piece. Stages are your own assessment; practice time does not measure mastery.','Tu etapa actual y el próximo paso de cada obra. La etapa es tu valoración; el tiempo no mide el dominio musical.')}</p>${works.map(w=>{
  const sessions=data.sessions.filter(s=>s.date<=localDate()&&(s.workIds?.includes(w.id)||s.results.some(r=>r.block.workId===w.id))).sort((a,b)=>b.date.localeCompare(a.date));
  const ms=sessions.reduce((n,s)=>n+s.results.filter(r=>r.block.workId===w.id).reduce((n,r)=>n+r.elapsedMs,0),0);
- return `<article class="cp-card"><h2>${esc(w.title)}</h2><p><span class="cp-tag">${esc(stageLabel(w.stage))}</span></p><p>${sessions.length} ${ui('practices','prácticas')} · ${Math.round(ms/60000)} min ${ui('recorded for this piece','registrados para esta obra')}</p><p class="muted">${sessions.length?ui('Last practice: ','Última práctica: ')+esc(sessions[0].date):ui('No saved practice yet.','Todavía no hay prácticas guardadas.')}</p><h3>${ui('Next step','Próximo paso')}</h3><p>${esc(w.passage||ui('Choose a passage and a concrete goal.','Elige un pasaje y un objetivo concreto.'))}</p><button data-action="work-detail" data-id="${esc(w.id)}">${ui('Review piece and history','Revisar obra e historial')}</button></article>`;
+ return `<article class="cp-card"><h2>${esc(w.title)}</h2><p><span class="cp-tag">${esc(stageLabel(w.stage))}</span></p><p>${sessions.length} ${ui('practices','prácticas')} · ${formatProgressDuration(ms)} ${ui('recorded for this piece','registrados para esta obra')}</p><p class="muted">${sessions.length?ui('Last practice: ','Última práctica: ')+esc(sessions[0].date):ui('No saved practice yet.','Todavía no hay prácticas guardadas.')}</p><h3>${ui('Next step','Próximo paso')}</h3><p>${esc(w.passage||ui('Choose a passage and a concrete goal.','Elige un pasaje y un objetivo concreto.'))}</p><button data-action="work-detail" data-id="${esc(w.id)}">${ui('Review piece and history','Revisar obra e historial')}</button></article>`;
  }).join('')||`<p>${ui('Add a piece to start following its progress.','Añade una obra para empezar a seguir su evolución.')}</p>`}`;
 }
 export function techniqueProgressMarkup(data){
