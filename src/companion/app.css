@@ -609,22 +609,24 @@
 #app-shell > .cp-app-header {grid-column:1/-1;grid-row:1;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--cream);z-index:10;}
 #app-shell > .cp-page {grid-column:1;grid-row:2;}
 #app-shell > .cp-nav {grid-column:1;grid-row:3;grid-template-columns:repeat(5,minmax(0,1fr));}
-#app-shell .cp-app-header h1 {font-size:22px;line-height:1.2;letter-spacing:-.025em;margin:0;overflow-wrap:anywhere;}
+#app-shell .cp-app-header h1 {font-size:22px;line-height:1.2;letter-spacing:-.025em;margin:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
 .cp-header-middle {display:flex;align-items:center;gap:20px;min-width:0;}
 .cp-header-title {flex:1;min-width:0;}
 .cp-header-controls {display:flex;align-items:center;gap:8px;flex:none;}
 #app-shell .cp-app-header .cp-profile-nav {display:grid;place-items:center;background:transparent;border:0;padding:0;width:44px;height:44px;}
 .cp-app-header .cp-avatar {width:36px;height:36px;color:var(--ink);background:var(--theme-tint);border-color:var(--theme-border);}
 #app-shell .cp-app-header .cp-midi-status {background:var(--theme-panel);border:1px solid var(--line);}
-.cp-app-header .cp-library-navigation {position:static;padding:0;margin:0;gap:12px;border:0;background:transparent;}
-#app-shell .cp-app-header .cp-library-navigation button {font-size:13px;min-height:40px;}
 #app-shell .cp-app-header .cp-quick-practice {width:auto;margin:0;gap:6px;padding:8px 10px;min-height:40px;font-size:13px;white-space:nowrap;background:var(--theme-panel);}
 #app-shell .cp-app-header .cp-segment button {min-height:40px;padding:6px 10px;}
 #app-shell .cp-page-heading:empty {display:none;}
-@media(max-width:599px){.cp-header-middle {display:block;}#app-shell .cp-app-header h1 {font-size:20px;}.cp-header-controls:not([hidden]){margin-top:6px;flex-wrap:wrap;}#app-shell > .cp-app-header{gap:8px;padding:8px 12px;}}
+@media(max-width:599px){#app-shell .cp-app-header h1 {font-size:20px;}#app-shell > .cp-app-header{gap:8px;padding-inline:12px;}}
 @media(min-width:600px) and (min-height:600px){#app-shell {grid-template-columns:180px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);}#app-shell > .cp-page {grid-column:2;grid-row:2;}#app-shell > .cp-nav {grid-column:1;grid-row:2;}}
 @media(orientation:landscape) and (max-height:599px){#app-shell {grid-template-columns:90px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);}#app-shell > .cp-page {grid-column:2;grid-row:2;}#app-shell > .cp-nav {grid-column:1;grid-row:2;}}
-#app-shell > .cp-app-header {min-height:68px;box-sizing:border-box;padding-block:12px;}
+#app-shell > .cp-app-header {height:68px;min-height:68px;box-sizing:border-box;padding-block:6px;}
+/* Library tabs belong to the page; primary navigation chrome stays the same height. */
+#app-shell .cp-page > .cp-library-navigation {position:sticky;top:0;z-index:5;max-width:1080px;margin:0 auto 20px;padding-block:0;background:var(--cream);}
+@media(max-width:379px){#app-shell .cp-app-header h1{font-size:18px;}}
+@media(max-width:339px){#app-shell > .cp-app-header{gap:6px;padding-inline:8px;}#app-shell .cp-app-header h1{font-size:16px;}}
 
 #app-shell .cp-app-header .cp-page-heading {padding:0;}
 .cp-header-title {display:flex;align-items:center;gap:8px;}

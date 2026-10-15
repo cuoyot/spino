@@ -24,3 +24,7 @@ On the connected device, open Profile → Connect another device → Show my not
 Both formats contain repertoire, practice history, scores and annotations. The default compatible JSON copy retains format 1. An organized format 2 copy separates notebook state, repertoire, scores, annotations and score views into sections inside one file; beta 3 or later can restore it. Older apps cannot open format 2. The export dialog requires acknowledging this before writing a format 2 copy.
 
 Convert a backup creates a separate compatible or organized copy without restoring it or modifying its source. Restore previews the format conversion and annotation count before asking permission to replace the local notebook. Future unsupported formats require updating SPino; no data is changed. Cloud synchronization still uses format 1, so choosing an organized manual copy does not change the shared file format.
+
+## Current source: consistent primary headers
+
+The primary header uses the same 68 px height and title/Profile/MIDI alignment across the main destinations. Library's My repertoire and Catalogue tabs sit below the primary bar and stay available when its page scrolls. Calendar keeps Week/Month beside its title. This source correction is verified in responsive browsers in both themes and three languages; it is not yet included in a new APK. Public beta 13/build52 retains the preceding layout.

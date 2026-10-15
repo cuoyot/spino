@@ -1,0 +1,49 @@
+path,language,device,theme,alt,source,sha256
+upload/es/phone/01-today.png,es,phone,light,Tu práctica de hoy,es/light/phone/01-today.png,5c738a0e5468c70d4976fd277845ebd46e96edf7e3c433dfc1dd65a2408b1673
+upload/es/phone/02-practice.png,es,phone,light,Elige cómo practicar,es/light/phone/02-practice.png,d93e61a71a192dad058466ca496fd221c80c8801c5009ea9c23bf6d8e01850e6
+upload/es/phone/03-reading-keyboard.png,es,phone,dark,Lectura sin piano,es/dark/phone/07-reading-keyboard.png,82b58664a7a09c8dca73675b943336cc461f5fe135780405751c608e2f0243be
+upload/es/phone/04-warmup.png,es,phone,dark,Calentamiento Hanon,es/dark/phone/06-warmup.png,9062608cf23a01565a7395161d28867c172ac7e942020c6405f6edbf7f56ca73
+upload/es/phone/05-calendar.png,es,phone,light,Planifica tu semana,es/light/phone/03-calendar.png,85feb9605772dbbcf620a6ea8e8cdb4d3cb7f12d24de7a384da4394e24e5beba
+upload/es/phone/06-repertoire.png,es,phone,light,Tu repertorio,es/light/phone/05-repertoire.png,784909ae797024bfbe23de2eb6036b558874d29097e058aefcc28cc041da3551
+upload/es/phone/07-progress.png,es,phone,dark,Tu progreso,es/dark/phone/04-progress.png,0ce70775a2c6eded1c032a850afb2d5bb6e147ec500ca3eb1f6485519e1148f1
+upload/es/phone/08-metronome.png,es,phone,dark,Metrónomo y práctica libre,es/dark/phone/08-metronome.png,3a356b686849bf9a0f85c08ed9164a8c61a9f607ed01e5148524150cbec2e7c5
+upload/es/tablet-7/01-today.png,es,tablet-7,light,Tu práctica de hoy,es/light/tablet-7/01-today.png,1962c4dd517fb4e8410e0a3e53b812580bf6168fe3e9657b54eadf96dee2e5c9
+upload/es/tablet-7/02-practice.png,es,tablet-7,light,Elige cómo practicar,es/light/tablet-7/02-practice.png,2ff0fe1bfa3981ed18b244dd2bca2172ce231ab5a750ffedde98b036ec1419ec
+upload/es/tablet-7/03-reading-keyboard.png,es,tablet-7,dark,Lectura sin piano,es/dark/tablet-7/07-reading-keyboard.png,8988584ed3b841fd7bc33e2c1c8c601d62c5674ed225df62980c7ce53cb74197
+upload/es/tablet-7/04-warmup.png,es,tablet-7,dark,Calentamiento Hanon,es/dark/tablet-7/06-warmup.png,997cd20bd20b6e2127f5376ff36e30cb44b0c004158db7a5a5ca295b5c13eec9
+upload/es/tablet-7/05-calendar.png,es,tablet-7,light,Planifica tu semana,es/light/tablet-7/03-calendar.png,d15a07ff3ad3deaad83d04ff17b059f34be70e1cf136095378a4154917029613
+upload/es/tablet-7/06-repertoire.png,es,tablet-7,light,Tu repertorio,es/light/tablet-7/05-repertoire.png,1e459bc19dcd9a0701ad310fb624faa8fb48a7647abc23cb093a6d56bf3d61f0
+upload/es/tablet-7/07-progress.png,es,tablet-7,dark,Tu progreso,es/dark/tablet-7/04-progress.png,c9f5be3815895e057fd4f1ea0552c1381b5b3e260c5852a9ebdac7be3d444f33
+upload/es/tablet-7/08-metronome.png,es,tablet-7,dark,Metrónomo y práctica libre,es/dark/tablet-7/08-metronome.png,00ea6d1cd78f9be9e6adfc669d52e2c123db77d840e0aca1f89b5d8662c4de64
+upload/es/tablet-10/01-today.png,es,tablet-10,light,Tu práctica de hoy,es/light/tablet-10/01-today.png,8a15187ad77ec5f359e4b9c88e5c935388c00ea0e0821077e08447e8904a9b17
+upload/es/tablet-10/02-practice.png,es,tablet-10,light,Elige cómo practicar,es/light/tablet-10/02-practice.png,f05d610ccd59dea53e11b412956865045958569242f4758a76122092da5ef82d
+upload/es/tablet-10/03-reading-keyboard.png,es,tablet-10,dark,Lectura sin piano,es/dark/tablet-10/07-reading-keyboard.png,761610c9720096c43492df933879a704aaa5fd5a3062d9cfda5a0db1c94013c2
+upload/es/tablet-10/04-warmup.png,es,tablet-10,dark,Calentamiento Hanon,es/dark/tablet-10/06-warmup.png,4bbb7df9a26aed284bff2e5e821aa21c16fe0b63ec20bfa56be2959cdec02d9a
+upload/es/tablet-10/05-calendar.png,es,tablet-10,light,Planifica tu semana,es/light/tablet-10/03-calendar.png,a7617d516557569708ee1380fc6239a8fcb39df011c4f1a35250484e9344b643
+upload/es/tablet-10/06-repertoire.png,es,tablet-10,light,Tu repertorio,es/light/tablet-10/05-repertoire.png,96f1c6072da6b3c100cbad489dfed753ef1f21d6ac323ead328675eb04d3c580
+upload/es/tablet-10/07-progress.png,es,tablet-10,dark,Tu progreso,es/dark/tablet-10/04-progress.png,4c6e0018257b07fdcb1e190cf768865de6391c393c0d21f89e7068647e9297c7
+upload/es/tablet-10/08-metronome.png,es,tablet-10,dark,Metrónomo y práctica libre,es/dark/tablet-10/08-metronome.png,10014c530e5f5d0b028341880685f032fcbce3153b81f302b8196e371fa11700
+upload/en/phone/01-today.png,en,phone,light,Your practice today,en/light/phone/01-today.png,a6a1323b7b0d09094c3904529f5a8b2d955d419da36aa4c06695841651c3e87a
+upload/en/phone/02-practice.png,en,phone,light,Choose your practice,en/light/phone/02-practice.png,8040947a22cdf99e5ff163f5cb187651534723ac3fdf3d58b4ee26b23c93fbee
+upload/en/phone/03-reading-keyboard.png,en,phone,dark,Reading without a piano,en/dark/phone/07-reading-keyboard.png,79dcb35a6f6efaf56d0ac7722a635d3d9057d531ed61392982d26502a5b6e2cc
+upload/en/phone/04-warmup.png,en,phone,dark,Hanon warm-up,en/dark/phone/06-warmup.png,481fdc58dfa57476cf5f33aafbdadc05af63781e8ba0fcc3142a78048d77d812
+upload/en/phone/05-calendar.png,en,phone,light,Plan your week,en/light/phone/03-calendar.png,2dae6b0d3fc8e0205787c64d7b75f7a71ecc80d53da3637e0b562fac67ef20a4
+upload/en/phone/06-repertoire.png,en,phone,light,Your repertoire,en/light/phone/05-repertoire.png,f895098fb161eb02f586766bbc11137f988b3c0a736160ccc6342ff16beb34c9
+upload/en/phone/07-progress.png,en,phone,dark,Your progress,en/dark/phone/04-progress.png,1cda91e0d6dcae57a83c8a5ac35f121f2c4d131e00080fe65daf841c24a6dfec
+upload/en/phone/08-metronome.png,en,phone,dark,Metronome and free practice,en/dark/phone/08-metronome.png,69f4e44994fbe88c33018de1d1813570fbc160d6aa9ea15f3749568cb6912338
+upload/en/tablet-7/01-today.png,en,tablet-7,light,Your practice today,en/light/tablet-7/01-today.png,18b09c74981343dd34b43a6090e6a09b1597cb44329d62362e5a725415ad1aa5
+upload/en/tablet-7/02-practice.png,en,tablet-7,light,Choose your practice,en/light/tablet-7/02-practice.png,0924246c6abc81bd7399de66a1dfd4fa0eedec3c2944bd2f7aff8a58caf24468
+upload/en/tablet-7/03-reading-keyboard.png,en,tablet-7,dark,Reading without a piano,en/dark/tablet-7/07-reading-keyboard.png,8ea84b5a128906407fc238b369081a21e7089cc8cfc144fee3e628e65f43fb83
+upload/en/tablet-7/04-warmup.png,en,tablet-7,dark,Hanon warm-up,en/dark/tablet-7/06-warmup.png,5c0ff25ed11e9d1e99e906e08a14da74d7ee8953a2b7764e7ed3486da44aae97
+upload/en/tablet-7/05-calendar.png,en,tablet-7,light,Plan your week,en/light/tablet-7/03-calendar.png,3b07b5c849e8860dfe0f9079b549e26b132286f60bd0fd68774e643aa11f9855
+upload/en/tablet-7/06-repertoire.png,en,tablet-7,light,Your repertoire,en/light/tablet-7/05-repertoire.png,53d18e815fd043418f3a2af79edcfd1106ed8cdaddd3980a7e00f51afb6f3634
+upload/en/tablet-7/07-progress.png,en,tablet-7,dark,Your progress,en/dark/tablet-7/04-progress.png,ff333027511e5f383e2035a95b1ae456b0a5c2eafef5f08589d0f8d39290eb9a
+upload/en/tablet-7/08-metronome.png,en,tablet-7,dark,Metronome and free practice,en/dark/tablet-7/08-metronome.png,84ebd6e24616fa416430e6c0fc864b8d112ac34eda8520256845ba2906f7c9cb
+upload/en/tablet-10/01-today.png,en,tablet-10,light,Your practice today,en/light/tablet-10/01-today.png,8edad920b5179287cdda8cc3a63a13c79b28fc51dc478a8aa0672e10401ad222
+upload/en/tablet-10/02-practice.png,en,tablet-10,light,Choose your practice,en/light/tablet-10/02-practice.png,6b86c845d1365927a3b9f4d84364497c7ce0497ed7e41e55966861ce801401b8
+upload/en/tablet-10/03-reading-keyboard.png,en,tablet-10,dark,Reading without a piano,en/dark/tablet-10/07-reading-keyboard.png,3b7fdf54fbec30f4c409525c9bb6382149d7ec20978a4266c1a912ee75fc9761
+upload/en/tablet-10/04-warmup.png,en,tablet-10,dark,Hanon warm-up,en/dark/tablet-10/06-warmup.png,3fe267a44ad5bea7d975fd6e0ae53f62caa99e1752cc9ead0c844e0458cf222f
+upload/en/tablet-10/05-calendar.png,en,tablet-10,light,Plan your week,en/light/tablet-10/03-calendar.png,ba218930f9a95d858dfaf5c8da547725894215397f4ee52d79aafbf446dc3836
+upload/en/tablet-10/06-repertoire.png,en,tablet-10,light,Your repertoire,en/light/tablet-10/05-repertoire.png,73986e2ff7643a22e43568ec43f3b80d370f4f869be78326030ab5369552216c
+upload/en/tablet-10/07-progress.png,en,tablet-10,dark,Your progress,en/dark/tablet-10/04-progress.png,ee9866cd27bfe45f9a5a5e62bb84ffc05bfde4c65488951c0be6bf7886d2c0cf
+upload/en/tablet-10/08-metronome.png,en,tablet-10,dark,Metronome and free practice,en/dark/tablet-10/08-metronome.png,0f3df2c4f92561f5e1ac77ebc4a6e75739780eceb96ed391b6f8b23292ef157c

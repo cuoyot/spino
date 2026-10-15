@@ -19,5 +19,6 @@
       "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961",
       "platform": "Android"
     }
-  ]
+  ],
+  "state": "Historical provisional promotion, withdrawn after owner requested a new signed 6.0.0 APK with the final header correction."
 }

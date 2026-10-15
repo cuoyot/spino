@@ -95,8 +95,8 @@
         "PROFILE-01",
         "READER-05"
       ],
-      "verifiedAgainst": "beta/2026-10-12",
-      "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately."
+      "verifiedAgainst": "themes/2026-10-15-header-parity",
+      "coverage": "Themes and walkthrough verified in responsive browser; warm-up initial focus and scroll verified on iPhone simulator. Physical MIDI and notification delivery acceptance are tracked separately. Current-source primary-header parity verified on 2026-10-15 across 384 responsive route/language/theme/size states, with sticky Library tabs below the 68 px bar and long-title containment; not yet included in an installable released APK."
     },
     {
       "id": "backup",

@@ -771,10 +771,10 @@ export async function bootCompanion(reader) {
       root.querySelector('.cp-nav [data-action=practice]')?.setAttribute('aria-current','page');
     }
     const heading = root.querySelector('.cp-content h1');
-    if(libraryRoute(view)) root.querySelector('.cp-header-controls').innerHTML=libraryNavigation();
+    if(libraryRoute(view)) root.querySelector('.cp-page').insertAdjacentHTML('afterbegin',libraryNavigation());
     const profile=root.querySelector('.cp-nav .cp-profile-nav');
     if(profile)root.querySelector('.cp-header-profile').append(profile);
-    if(heading)root.querySelector('.cp-header-title').append(heading);
+    if(heading){heading.title=heading.textContent;root.querySelector('.cp-header-title').append(heading);}
     const controls=view==='calendar'?root.querySelector('.cp-content .cp-segment'):view==='practice'?root.querySelector('.cp-content .cp-quick-practice'):null;
     if(controls){
       if(view==='practice'){controls.setAttribute('title',controls.querySelector('small')?.textContent||'');controls.innerHTML=`<span aria-hidden="true">▶</span><span>${ui('Quick practice','Práctica rápida')}</span>`;}

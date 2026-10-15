@@ -1,0 +1,35 @@
+{
+  "version": "6.0.0",
+  "versionCode": 53,
+  "state": "Prepared without signing; not installable or published as stable. Existing signing key/configuration required.",
+  "packagedWebFilesVerified": 259,
+  "headerParityStates": 384,
+  "longTitleStates": 48,
+  "workingSourceTests": {
+    "total": 362,
+    "passed": 360,
+    "failed": 0,
+    "optionalSkipped": 2
+  },
+  "artifacts": [
+    {
+      "file": "android/app/build/outputs/apk/release/app-release-unsigned.apk",
+      "bytes": 19139345,
+      "sha256": "3a85346b1eac465664c52335d26cfe778dda2703afec476859516f86b7f2f5e3",
+      "signed": false,
+      "public": false
+    },
+    {
+      "file": "android/app/build/outputs/bundle/release/app-release.aab",
+      "bytes": 18750950,
+      "sha256": "9890aec361facaaf8c98b04114803cb4780350fc95c3bd1a3e79024db4a0600f",
+      "signed": false,
+      "public": false
+    }
+  ],
+  "existingBetaUnchanged": {
+    "version": "6.0.0-beta.13",
+    "versionCode": 52,
+    "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961"
+  }
+}

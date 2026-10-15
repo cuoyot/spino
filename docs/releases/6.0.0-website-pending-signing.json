@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-15T13:59:41.751346+00:00",
+  "websiteCommit": "22f1621",
+  "state": "Provisional promotion withdrawn; original stable and beta remain public. New signed 6.0.0 waits for original signing configuration.",
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "stableGooglePlay": "5.2.3 (35)",
+  "beta": "6.0.0-beta.13 (52)"
+}

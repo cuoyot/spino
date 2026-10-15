@@ -1,0 +1,1519 @@
+{
+  "version": "6.0.0",
+  "date": "2026-10-15",
+  "surface": "Production responsive browser UI; native-device visual acceptance remains separate.",
+  "personalData": false,
+  "devices": [
+    {
+      "id": "phone",
+      "width": 432,
+      "height": 768,
+      "scale": 2.5
+    },
+    {
+      "id": "tablet-7",
+      "width": 720,
+      "height": 1280,
+      "scale": 1.5
+    },
+    {
+      "id": "tablet-10",
+      "width": 1280,
+      "height": 720,
+      "scale": 1.5
+    }
+  ],
+  "frames": [
+    {
+      "path": "es/light/phone/01-today.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 150846,
+      "sha256": "5c738a0e5468c70d4976fd277845ebd46e96edf7e3c433dfc1dd65a2408b1673",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/light/phone/02-practice.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 211053,
+      "sha256": "d93e61a71a192dad058466ca496fd221c80c8801c5009ea9c23bf6d8e01850e6",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/light/phone/03-calendar.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 161562,
+      "sha256": "85feb9605772dbbcf620a6ea8e8cdb4d3cb7f12d24de7a384da4394e24e5beba",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/light/phone/04-progress.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 131663,
+      "sha256": "c95bd6f14689c052def982768f1e7afdc5bc70dcfb204c3ecaf1e18e15044b35",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/light/phone/05-repertoire.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 133167,
+      "sha256": "784909ae797024bfbe23de2eb6036b558874d29097e058aefcc28cc041da3551",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/light/phone/06-warmup.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 451326,
+      "sha256": "5fdd3cbcdeb8951101532a58b5688d337c2af246fdc0f14eaef93fd6ba7dc749",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/light/phone/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 243410,
+      "sha256": "8d56eafb9d158feb0a848ae4fdf0006151eb1e434a5d46ede1776d3cecb33b10",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/light/phone/08-metronome.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 139641,
+      "sha256": "ebe12c29bdb474d050e11b129b0da6edd7fb04775158d80c01200e9d9171b500",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "es/light/tablet-7/01-today.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 137733,
+      "sha256": "1962c4dd517fb4e8410e0a3e53b812580bf6168fe3e9657b54eadf96dee2e5c9",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/light/tablet-7/02-practice.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 144927,
+      "sha256": "2ff0fe1bfa3981ed18b244dd2bca2172ce231ab5a750ffedde98b036ec1419ec",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/light/tablet-7/03-calendar.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 167195,
+      "sha256": "d15a07ff3ad3deaad83d04ff17b059f34be70e1cf136095378a4154917029613",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/light/tablet-7/04-progress.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 160809,
+      "sha256": "f63e77b2aeac879116d0ea44adec2edbad66cfb9238ee8c2467fb03fe64a6f46",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/light/tablet-7/05-repertoire.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 131616,
+      "sha256": "1e459bc19dcd9a0701ad310fb624faa8fb48a7647abc23cb093a6d56bf3d61f0",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/light/tablet-7/06-warmup.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 373996,
+      "sha256": "3d223873f5f1e7182ecac8d52f0b10dbce37bfcdb554d5e8ded1476f9a615179",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/light/tablet-7/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 198662,
+      "sha256": "a80399e59b521af7bcc9d194eeeded8447defafdfd25acd76293426707d14aae",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/light/tablet-7/08-metronome.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 93189,
+      "sha256": "65ec4a7a73136b2b4b5d9dcbf6252c56673e012c503241a4d57cd3d594550c12",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "es/light/tablet-10/01-today.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 112382,
+      "sha256": "8a15187ad77ec5f359e4b9c88e5c935388c00ea0e0821077e08447e8904a9b17",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/light/tablet-10/02-practice.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 145517,
+      "sha256": "f05d610ccd59dea53e11b412956865045958569242f4758a76122092da5ef82d",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/light/tablet-10/03-calendar.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 123409,
+      "sha256": "a7617d516557569708ee1380fc6239a8fcb39df011c4f1a35250484e9344b643",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/light/tablet-10/04-progress.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 112079,
+      "sha256": "0487fd06cf85e527836b28213cfefe94d102c8fe0f042f0aef368f4eacb5e544",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/light/tablet-10/05-repertoire.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 99513,
+      "sha256": "96f1c6072da6b3c100cbad489dfed753ef1f21d6ac323ead328675eb04d3c580",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/light/tablet-10/06-warmup.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 404568,
+      "sha256": "df115f315dc085959dbbc6093c425eb56b33bfdf396fd45bf7c63952cff53cd9",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/light/tablet-10/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 190848,
+      "sha256": "764b007c4f42605214ea61a615623b9b348776890e87f675ddf91edadc861dbe",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/light/tablet-10/08-metronome.png",
+      "lang": "es",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 88572,
+      "sha256": "30d7359c24fe759f4f672bb4babb812c272367b7f4c16c85332ad880548168d2",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "es/dark/phone/01-today.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 153089,
+      "sha256": "bde721c5ea9664ca0654a2cff43fc6aad2b1cbe807bba8c0acd478fc03dabb72",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/dark/phone/02-practice.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 236105,
+      "sha256": "4ab6510a67eb8c22621b74c932f51d36e4bb533f4b211ddf873b960955a2a945",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/dark/phone/03-calendar.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 167492,
+      "sha256": "fb1b2eefec7fc236cd557989b31cd98031bfd56a16257c4160ad8bc3722c4b3e",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/dark/phone/04-progress.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 136200,
+      "sha256": "0ce70775a2c6eded1c032a850afb2d5bb6e147ec500ca3eb1f6485519e1148f1",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/dark/phone/05-repertoire.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 135731,
+      "sha256": "f2757fc61b867eb0b1e2d02bd7530200a20a1001f6dedd0e59afab631cbcc4af",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/dark/phone/06-warmup.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 452057,
+      "sha256": "9062608cf23a01565a7395161d28867c172ac7e942020c6405f6edbf7f56ca73",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/dark/phone/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 288715,
+      "sha256": "82b58664a7a09c8dca73675b943336cc461f5fe135780405751c608e2f0243be",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/dark/phone/08-metronome.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 138644,
+      "sha256": "3a356b686849bf9a0f85c08ed9164a8c61a9f607ed01e5148524150cbec2e7c5",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "es/dark/tablet-7/01-today.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 138891,
+      "sha256": "e1892ffba4e2f7e80a209449de1d93ae6fa3b6ef5288ffb56041ce269c427620",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/dark/tablet-7/02-practice.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157221,
+      "sha256": "5afb737b7a2b6be05205073d21e79a499fb5ad643e39720c6346f12b78e60fce",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/dark/tablet-7/03-calendar.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 171807,
+      "sha256": "eecfec49fb1271e958247bc44a1d897bc29f1d1f56cf5dd24d88d396e99037bb",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/dark/tablet-7/04-progress.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 164431,
+      "sha256": "c9f5be3815895e057fd4f1ea0552c1381b5b3e260c5852a9ebdac7be3d444f33",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/dark/tablet-7/05-repertoire.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 133615,
+      "sha256": "e7fe96855da7860161a1dc9a68170b89a9b2aa1b5844d8a0744791b380880534",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/dark/tablet-7/06-warmup.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 376030,
+      "sha256": "997cd20bd20b6e2127f5376ff36e30cb44b0c004158db7a5a5ca295b5c13eec9",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/dark/tablet-7/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 215005,
+      "sha256": "8988584ed3b841fd7bc33e2c1c8c601d62c5674ed225df62980c7ce53cb74197",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/dark/tablet-7/08-metronome.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 91433,
+      "sha256": "00ea6d1cd78f9be9e6adfc669d52e2c123db77d840e0aca1f89b5d8662c4de64",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "es/dark/tablet-10/01-today.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 113337,
+      "sha256": "5f04a7b9615fb1945f6fc79a5bb827760c11db4677f29689be993d2dd2a673a4",
+      "alt": "Tu práctica de hoy"
+    },
+    {
+      "path": "es/dark/tablet-10/02-practice.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 184902,
+      "sha256": "2c496394a2bdaa9acc2c2e1b50669075c044c4ff8e756e25233d31aabcd4534d",
+      "alt": "Elige cómo practicar"
+    },
+    {
+      "path": "es/dark/tablet-10/03-calendar.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 127066,
+      "sha256": "fbb054c8989bce13e8de02217e25f5d10d98e6ccdb3943bc619e9762cb43a788",
+      "alt": "Planifica tu semana"
+    },
+    {
+      "path": "es/dark/tablet-10/04-progress.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 113845,
+      "sha256": "4c6e0018257b07fdcb1e190cf768865de6391c393c0d21f89e7068647e9297c7",
+      "alt": "Tu progreso"
+    },
+    {
+      "path": "es/dark/tablet-10/05-repertoire.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 100508,
+      "sha256": "d0fc78c72ab418db137079c078c1cb4df5c4f43e51e4036f671304bfa4cf30f8",
+      "alt": "Tu repertorio"
+    },
+    {
+      "path": "es/dark/tablet-10/06-warmup.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 405973,
+      "sha256": "4bbb7df9a26aed284bff2e5e821aa21c16fe0b63ec20bfa56be2959cdec02d9a",
+      "alt": "Calentamiento Hanon"
+    },
+    {
+      "path": "es/dark/tablet-10/07-reading-keyboard.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 213384,
+      "sha256": "761610c9720096c43492df933879a704aaa5fd5a3062d9cfda5a0db1c94013c2",
+      "alt": "Lectura sin piano"
+    },
+    {
+      "path": "es/dark/tablet-10/08-metronome.png",
+      "lang": "es",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 86303,
+      "sha256": "10014c530e5f5d0b028341880685f032fcbce3153b81f302b8196e371fa11700",
+      "alt": "Metrónomo y práctica libre"
+    },
+    {
+      "path": "en/light/phone/01-today.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 154982,
+      "sha256": "a6a1323b7b0d09094c3904529f5a8b2d955d419da36aa4c06695841651c3e87a",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/light/phone/02-practice.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 206433,
+      "sha256": "8040947a22cdf99e5ff163f5cb187651534723ac3fdf3d58b4ee26b23c93fbee",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/light/phone/03-calendar.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 153014,
+      "sha256": "2dae6b0d3fc8e0205787c64d7b75f7a71ecc80d53da3637e0b562fac67ef20a4",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/light/phone/04-progress.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 128672,
+      "sha256": "742e477070544d0e830b5554514ac6c8f3f1f81fe06ae63317f26b6ad3727a78",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/light/phone/05-repertoire.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 140215,
+      "sha256": "f895098fb161eb02f586766bbc11137f988b3c0a736160ccc6342ff16beb34c9",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/light/phone/06-warmup.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 452583,
+      "sha256": "57fbd4b31e1353d1056f9416b6f0b2093cc2c0da5ccdebcba67ad9d8483713b7",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/light/phone/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 233808,
+      "sha256": "c52d9627b69f896e0a2816be0446849a9d7b993961bc7653c4be80a1c0b8b145",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/light/phone/08-metronome.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 136796,
+      "sha256": "7f1843f3e47c02d985bd23fa41f87e804e5dce68bf01af59bf442f4c1ec13209",
+      "alt": "Metronome and free practice"
+    },
+    {
+      "path": "en/light/tablet-7/01-today.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 137672,
+      "sha256": "18b09c74981343dd34b43a6090e6a09b1597cb44329d62362e5a725415ad1aa5",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/light/tablet-7/02-practice.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 146703,
+      "sha256": "0924246c6abc81bd7399de66a1dfd4fa0eedec3c2944bd2f7aff8a58caf24468",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/light/tablet-7/03-calendar.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 158014,
+      "sha256": "3b07b5c849e8860dfe0f9079b549e26b132286f60bd0fd68774e643aa11f9855",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/light/tablet-7/04-progress.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 154314,
+      "sha256": "2e65cb066378780a32e6ab99ed50061375a153d80cfb7cbf77dead0a44c68790",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/light/tablet-7/05-repertoire.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 133972,
+      "sha256": "53d18e815fd043418f3a2af79edcfd1106ed8cdaddd3980a7e00f51afb6f3634",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/light/tablet-7/06-warmup.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 371633,
+      "sha256": "1653400d7b0e51a3ec7fbb690cd847eec4786732631f81d0b8c73fca322f197c",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/light/tablet-7/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 192097,
+      "sha256": "cdc8648b2fb745a7a76b89b6bd25473a8187b744303b0ef065acbc0303760344",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/light/tablet-7/08-metronome.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 92471,
+      "sha256": "82b0ee3e49f6f38d87cd066e709ef011e7291ee0e346bb7abd66656cd2fa84d7",
+      "alt": "Metronome and free practice"
+    },
+    {
+      "path": "en/light/tablet-10/01-today.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 115765,
+      "sha256": "8edad920b5179287cdda8cc3a63a13c79b28fc51dc478a8aa0672e10401ad222",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/light/tablet-10/02-practice.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 147969,
+      "sha256": "6b86c845d1365927a3b9f4d84364497c7ce0497ed7e41e55966861ce801401b8",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/light/tablet-10/03-calendar.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 118653,
+      "sha256": "ba218930f9a95d858dfaf5c8da547725894215397f4ee52d79aafbf446dc3836",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/light/tablet-10/04-progress.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 107459,
+      "sha256": "dbf2d0d0c02fe0c491a857a892d9aa9c5210d9e38fabe98f9a5abe53951691b5",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/light/tablet-10/05-repertoire.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 104660,
+      "sha256": "73986e2ff7643a22e43568ec43f3b80d370f4f869be78326030ab5369552216c",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/light/tablet-10/06-warmup.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 400749,
+      "sha256": "7872e7bd1b92bf4b95af38b47c218cfd84b76ad7625d7fa3c4e65899d1c8e98f",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/light/tablet-10/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 189592,
+      "sha256": "75221900962a6050ecd28dda64ca85760b0cefbb56faee17b8a3c8e1015d7d9c",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/light/tablet-10/08-metronome.png",
+      "lang": "en",
+      "theme": "light",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 86635,
+      "sha256": "0ab2875f6eec4d86437226b9c52d04e8560c45d906d325bf1cb49a6e74c86ce2",
+      "alt": "Metronome and free practice"
+    },
+    {
+      "path": "en/dark/phone/01-today.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157103,
+      "sha256": "abd9f0ecf098b1c5632fe9426042281fbcabdefd1434ea04fca79c98db0f0fc3",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/dark/phone/02-practice.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 232380,
+      "sha256": "211cf8faa9d14e9575b0f319f1610f116fe130416d12a8c174786dc2fe046b6c",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/dark/phone/03-calendar.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 158448,
+      "sha256": "9524c31b670587d97d1deeddfc9b09cef09c19ae35a28b3a91f2746294400cd4",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/dark/phone/04-progress.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 133160,
+      "sha256": "1cda91e0d6dcae57a83c8a5ac35f121f2c4d131e00080fe65daf841c24a6dfec",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/dark/phone/05-repertoire.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 142561,
+      "sha256": "e73b380fde315230ea34030d40ff876963838cbd587ab7f47402130bdc53e044",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/dark/phone/06-warmup.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 453692,
+      "sha256": "481fdc58dfa57476cf5f33aafbdadc05af63781e8ba0fcc3142a78048d77d812",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/dark/phone/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 290673,
+      "sha256": "79dcb35a6f6efaf56d0ac7722a635d3d9057d531ed61392982d26502a5b6e2cc",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/dark/phone/08-metronome.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "phone",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 135571,
+      "sha256": "69f4e44994fbe88c33018de1d1813570fbc160d6aa9ea15f3749568cb6912338",
+      "alt": "Metronome and free practice"
+    },
+    {
+      "path": "en/dark/tablet-7/01-today.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 138670,
+      "sha256": "f882ec5901acd01bee6c99d572c1eb56242bc9d2660e4f869793abffcb3d6102",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/dark/tablet-7/02-practice.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 158564,
+      "sha256": "a551f0c248e9c5f588e6e2d439b74e2a17bd209f0a4ab6be64404dc5e8499440",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/dark/tablet-7/03-calendar.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 163135,
+      "sha256": "d24d0c9faceb114ae8611b17ad251fc45a4e327330647608bb9112554bc7ee5a",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/dark/tablet-7/04-progress.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157600,
+      "sha256": "ff333027511e5f383e2035a95b1ae456b0a5c2eafef5f08589d0f8d39290eb9a",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/dark/tablet-7/05-repertoire.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 135568,
+      "sha256": "4016e63c55d62e089db5034b96fd4f7659f8929d8f7c964107147065067e29c4",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/dark/tablet-7/06-warmup.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 373347,
+      "sha256": "5c0ff25ed11e9d1e99e906e08a14da74d7ee8953a2b7764e7ed3486da44aae97",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/dark/tablet-7/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 228062,
+      "sha256": "8ea84b5a128906407fc238b369081a21e7089cc8cfc144fee3e628e65f43fb83",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/dark/tablet-7/08-metronome.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-7",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 90862,
+      "sha256": "84ebd6e24616fa416430e6c0fc864b8d112ac34eda8520256845ba2906f7c9cb",
+      "alt": "Metronome and free practice"
+    },
+    {
+      "path": "en/dark/tablet-10/01-today.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 116719,
+      "sha256": "9e209aa6527eeabfc2d54407d4c7aad0f8e5dee4f866eb70d286d3e38d2a84fa",
+      "alt": "Your practice today"
+    },
+    {
+      "path": "en/dark/tablet-10/02-practice.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 186102,
+      "sha256": "d68d0b2fde370462554c4f18104138f0a47f5feb69dcb757d8dec176ffa26e13",
+      "alt": "Choose your practice"
+    },
+    {
+      "path": "en/dark/tablet-10/03-calendar.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 122086,
+      "sha256": "c5d7d90c04f2c999883bb3ecf3b7f8056648b9d9342fed78b66e6b023145dd6f",
+      "alt": "Plan your week"
+    },
+    {
+      "path": "en/dark/tablet-10/04-progress.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 109272,
+      "sha256": "ee9866cd27bfe45f9a5a5e62bb84ffc05bfde4c65488951c0be6bf7886d2c0cf",
+      "alt": "Your progress"
+    },
+    {
+      "path": "en/dark/tablet-10/05-repertoire.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 105708,
+      "sha256": "0fe49492cda70551afb79b52cb87738b9a04358bc371b2c5e972553cfab2260f",
+      "alt": "Your repertoire"
+    },
+    {
+      "path": "en/dark/tablet-10/06-warmup.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 402176,
+      "sha256": "3fe267a44ad5bea7d975fd6e0ae53f62caa99e1752cc9ead0c844e0458cf222f",
+      "alt": "Hanon warm-up"
+    },
+    {
+      "path": "en/dark/tablet-10/07-reading-keyboard.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 213320,
+      "sha256": "3b7fdf54fbec30f4c409525c9bb6382149d7ec20978a4266c1a912ee75fc9761",
+      "alt": "Reading without a piano"
+    },
+    {
+      "path": "en/dark/tablet-10/08-metronome.png",
+      "lang": "en",
+      "theme": "dark",
+      "device": "tablet-10",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 84626,
+      "sha256": "0f3df2c4f92561f5e1ac77ebc4a6e75739780eceb96ed391b6f8b23292ef157c",
+      "alt": "Metronome and free practice"
+    }
+  ],
+  "selected": [
+    {
+      "path": "upload/es/phone/01-today.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Tu práctica de hoy",
+      "source": "es/light/phone/01-today.png",
+      "sha256": "5c738a0e5468c70d4976fd277845ebd46e96edf7e3c433dfc1dd65a2408b1673"
+    },
+    {
+      "path": "upload/es/phone/02-practice.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Elige cómo practicar",
+      "source": "es/light/phone/02-practice.png",
+      "sha256": "d93e61a71a192dad058466ca496fd221c80c8801c5009ea9c23bf6d8e01850e6"
+    },
+    {
+      "path": "upload/es/phone/03-reading-keyboard.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Lectura sin piano",
+      "source": "es/dark/phone/07-reading-keyboard.png",
+      "sha256": "82b58664a7a09c8dca73675b943336cc461f5fe135780405751c608e2f0243be"
+    },
+    {
+      "path": "upload/es/phone/04-warmup.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Calentamiento Hanon",
+      "source": "es/dark/phone/06-warmup.png",
+      "sha256": "9062608cf23a01565a7395161d28867c172ac7e942020c6405f6edbf7f56ca73"
+    },
+    {
+      "path": "upload/es/phone/05-calendar.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Planifica tu semana",
+      "source": "es/light/phone/03-calendar.png",
+      "sha256": "85feb9605772dbbcf620a6ea8e8cdb4d3cb7f12d24de7a384da4394e24e5beba"
+    },
+    {
+      "path": "upload/es/phone/06-repertoire.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Tu repertorio",
+      "source": "es/light/phone/05-repertoire.png",
+      "sha256": "784909ae797024bfbe23de2eb6036b558874d29097e058aefcc28cc041da3551"
+    },
+    {
+      "path": "upload/es/phone/07-progress.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Tu progreso",
+      "source": "es/dark/phone/04-progress.png",
+      "sha256": "0ce70775a2c6eded1c032a850afb2d5bb6e147ec500ca3eb1f6485519e1148f1"
+    },
+    {
+      "path": "upload/es/phone/08-metronome.png",
+      "language": "es",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Metrónomo y práctica libre",
+      "source": "es/dark/phone/08-metronome.png",
+      "sha256": "3a356b686849bf9a0f85c08ed9164a8c61a9f607ed01e5148524150cbec2e7c5"
+    },
+    {
+      "path": "upload/es/tablet-7/01-today.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Tu práctica de hoy",
+      "source": "es/light/tablet-7/01-today.png",
+      "sha256": "1962c4dd517fb4e8410e0a3e53b812580bf6168fe3e9657b54eadf96dee2e5c9"
+    },
+    {
+      "path": "upload/es/tablet-7/02-practice.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Elige cómo practicar",
+      "source": "es/light/tablet-7/02-practice.png",
+      "sha256": "2ff0fe1bfa3981ed18b244dd2bca2172ce231ab5a750ffedde98b036ec1419ec"
+    },
+    {
+      "path": "upload/es/tablet-7/03-reading-keyboard.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Lectura sin piano",
+      "source": "es/dark/tablet-7/07-reading-keyboard.png",
+      "sha256": "8988584ed3b841fd7bc33e2c1c8c601d62c5674ed225df62980c7ce53cb74197"
+    },
+    {
+      "path": "upload/es/tablet-7/04-warmup.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Calentamiento Hanon",
+      "source": "es/dark/tablet-7/06-warmup.png",
+      "sha256": "997cd20bd20b6e2127f5376ff36e30cb44b0c004158db7a5a5ca295b5c13eec9"
+    },
+    {
+      "path": "upload/es/tablet-7/05-calendar.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Planifica tu semana",
+      "source": "es/light/tablet-7/03-calendar.png",
+      "sha256": "d15a07ff3ad3deaad83d04ff17b059f34be70e1cf136095378a4154917029613"
+    },
+    {
+      "path": "upload/es/tablet-7/06-repertoire.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Tu repertorio",
+      "source": "es/light/tablet-7/05-repertoire.png",
+      "sha256": "1e459bc19dcd9a0701ad310fb624faa8fb48a7647abc23cb093a6d56bf3d61f0"
+    },
+    {
+      "path": "upload/es/tablet-7/07-progress.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Tu progreso",
+      "source": "es/dark/tablet-7/04-progress.png",
+      "sha256": "c9f5be3815895e057fd4f1ea0552c1381b5b3e260c5852a9ebdac7be3d444f33"
+    },
+    {
+      "path": "upload/es/tablet-7/08-metronome.png",
+      "language": "es",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Metrónomo y práctica libre",
+      "source": "es/dark/tablet-7/08-metronome.png",
+      "sha256": "00ea6d1cd78f9be9e6adfc669d52e2c123db77d840e0aca1f89b5d8662c4de64"
+    },
+    {
+      "path": "upload/es/tablet-10/01-today.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Tu práctica de hoy",
+      "source": "es/light/tablet-10/01-today.png",
+      "sha256": "8a15187ad77ec5f359e4b9c88e5c935388c00ea0e0821077e08447e8904a9b17"
+    },
+    {
+      "path": "upload/es/tablet-10/02-practice.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Elige cómo practicar",
+      "source": "es/light/tablet-10/02-practice.png",
+      "sha256": "f05d610ccd59dea53e11b412956865045958569242f4758a76122092da5ef82d"
+    },
+    {
+      "path": "upload/es/tablet-10/03-reading-keyboard.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Lectura sin piano",
+      "source": "es/dark/tablet-10/07-reading-keyboard.png",
+      "sha256": "761610c9720096c43492df933879a704aaa5fd5a3062d9cfda5a0db1c94013c2"
+    },
+    {
+      "path": "upload/es/tablet-10/04-warmup.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Calentamiento Hanon",
+      "source": "es/dark/tablet-10/06-warmup.png",
+      "sha256": "4bbb7df9a26aed284bff2e5e821aa21c16fe0b63ec20bfa56be2959cdec02d9a"
+    },
+    {
+      "path": "upload/es/tablet-10/05-calendar.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Planifica tu semana",
+      "source": "es/light/tablet-10/03-calendar.png",
+      "sha256": "a7617d516557569708ee1380fc6239a8fcb39df011c4f1a35250484e9344b643"
+    },
+    {
+      "path": "upload/es/tablet-10/06-repertoire.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Tu repertorio",
+      "source": "es/light/tablet-10/05-repertoire.png",
+      "sha256": "96f1c6072da6b3c100cbad489dfed753ef1f21d6ac323ead328675eb04d3c580"
+    },
+    {
+      "path": "upload/es/tablet-10/07-progress.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Tu progreso",
+      "source": "es/dark/tablet-10/04-progress.png",
+      "sha256": "4c6e0018257b07fdcb1e190cf768865de6391c393c0d21f89e7068647e9297c7"
+    },
+    {
+      "path": "upload/es/tablet-10/08-metronome.png",
+      "language": "es",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Metrónomo y práctica libre",
+      "source": "es/dark/tablet-10/08-metronome.png",
+      "sha256": "10014c530e5f5d0b028341880685f032fcbce3153b81f302b8196e371fa11700"
+    },
+    {
+      "path": "upload/en/phone/01-today.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Your practice today",
+      "source": "en/light/phone/01-today.png",
+      "sha256": "a6a1323b7b0d09094c3904529f5a8b2d955d419da36aa4c06695841651c3e87a"
+    },
+    {
+      "path": "upload/en/phone/02-practice.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Choose your practice",
+      "source": "en/light/phone/02-practice.png",
+      "sha256": "8040947a22cdf99e5ff163f5cb187651534723ac3fdf3d58b4ee26b23c93fbee"
+    },
+    {
+      "path": "upload/en/phone/03-reading-keyboard.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Reading without a piano",
+      "source": "en/dark/phone/07-reading-keyboard.png",
+      "sha256": "79dcb35a6f6efaf56d0ac7722a635d3d9057d531ed61392982d26502a5b6e2cc"
+    },
+    {
+      "path": "upload/en/phone/04-warmup.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Hanon warm-up",
+      "source": "en/dark/phone/06-warmup.png",
+      "sha256": "481fdc58dfa57476cf5f33aafbdadc05af63781e8ba0fcc3142a78048d77d812"
+    },
+    {
+      "path": "upload/en/phone/05-calendar.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Plan your week",
+      "source": "en/light/phone/03-calendar.png",
+      "sha256": "2dae6b0d3fc8e0205787c64d7b75f7a71ecc80d53da3637e0b562fac67ef20a4"
+    },
+    {
+      "path": "upload/en/phone/06-repertoire.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "light",
+      "alt": "Your repertoire",
+      "source": "en/light/phone/05-repertoire.png",
+      "sha256": "f895098fb161eb02f586766bbc11137f988b3c0a736160ccc6342ff16beb34c9"
+    },
+    {
+      "path": "upload/en/phone/07-progress.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Your progress",
+      "source": "en/dark/phone/04-progress.png",
+      "sha256": "1cda91e0d6dcae57a83c8a5ac35f121f2c4d131e00080fe65daf841c24a6dfec"
+    },
+    {
+      "path": "upload/en/phone/08-metronome.png",
+      "language": "en",
+      "device": "phone",
+      "theme": "dark",
+      "alt": "Metronome and free practice",
+      "source": "en/dark/phone/08-metronome.png",
+      "sha256": "69f4e44994fbe88c33018de1d1813570fbc160d6aa9ea15f3749568cb6912338"
+    },
+    {
+      "path": "upload/en/tablet-7/01-today.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Your practice today",
+      "source": "en/light/tablet-7/01-today.png",
+      "sha256": "18b09c74981343dd34b43a6090e6a09b1597cb44329d62362e5a725415ad1aa5"
+    },
+    {
+      "path": "upload/en/tablet-7/02-practice.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Choose your practice",
+      "source": "en/light/tablet-7/02-practice.png",
+      "sha256": "0924246c6abc81bd7399de66a1dfd4fa0eedec3c2944bd2f7aff8a58caf24468"
+    },
+    {
+      "path": "upload/en/tablet-7/03-reading-keyboard.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Reading without a piano",
+      "source": "en/dark/tablet-7/07-reading-keyboard.png",
+      "sha256": "8ea84b5a128906407fc238b369081a21e7089cc8cfc144fee3e628e65f43fb83"
+    },
+    {
+      "path": "upload/en/tablet-7/04-warmup.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Hanon warm-up",
+      "source": "en/dark/tablet-7/06-warmup.png",
+      "sha256": "5c0ff25ed11e9d1e99e906e08a14da74d7ee8953a2b7764e7ed3486da44aae97"
+    },
+    {
+      "path": "upload/en/tablet-7/05-calendar.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Plan your week",
+      "source": "en/light/tablet-7/03-calendar.png",
+      "sha256": "3b07b5c849e8860dfe0f9079b549e26b132286f60bd0fd68774e643aa11f9855"
+    },
+    {
+      "path": "upload/en/tablet-7/06-repertoire.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "light",
+      "alt": "Your repertoire",
+      "source": "en/light/tablet-7/05-repertoire.png",
+      "sha256": "53d18e815fd043418f3a2af79edcfd1106ed8cdaddd3980a7e00f51afb6f3634"
+    },
+    {
+      "path": "upload/en/tablet-7/07-progress.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Your progress",
+      "source": "en/dark/tablet-7/04-progress.png",
+      "sha256": "ff333027511e5f383e2035a95b1ae456b0a5c2eafef5f08589d0f8d39290eb9a"
+    },
+    {
+      "path": "upload/en/tablet-7/08-metronome.png",
+      "language": "en",
+      "device": "tablet-7",
+      "theme": "dark",
+      "alt": "Metronome and free practice",
+      "source": "en/dark/tablet-7/08-metronome.png",
+      "sha256": "84ebd6e24616fa416430e6c0fc864b8d112ac34eda8520256845ba2906f7c9cb"
+    },
+    {
+      "path": "upload/en/tablet-10/01-today.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Your practice today",
+      "source": "en/light/tablet-10/01-today.png",
+      "sha256": "8edad920b5179287cdda8cc3a63a13c79b28fc51dc478a8aa0672e10401ad222"
+    },
+    {
+      "path": "upload/en/tablet-10/02-practice.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Choose your practice",
+      "source": "en/light/tablet-10/02-practice.png",
+      "sha256": "6b86c845d1365927a3b9f4d84364497c7ce0497ed7e41e55966861ce801401b8"
+    },
+    {
+      "path": "upload/en/tablet-10/03-reading-keyboard.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Reading without a piano",
+      "source": "en/dark/tablet-10/07-reading-keyboard.png",
+      "sha256": "3b7fdf54fbec30f4c409525c9bb6382149d7ec20978a4266c1a912ee75fc9761"
+    },
+    {
+      "path": "upload/en/tablet-10/04-warmup.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Hanon warm-up",
+      "source": "en/dark/tablet-10/06-warmup.png",
+      "sha256": "3fe267a44ad5bea7d975fd6e0ae53f62caa99e1752cc9ead0c844e0458cf222f"
+    },
+    {
+      "path": "upload/en/tablet-10/05-calendar.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Plan your week",
+      "source": "en/light/tablet-10/03-calendar.png",
+      "sha256": "ba218930f9a95d858dfaf5c8da547725894215397f4ee52d79aafbf446dc3836"
+    },
+    {
+      "path": "upload/en/tablet-10/06-repertoire.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "light",
+      "alt": "Your repertoire",
+      "source": "en/light/tablet-10/05-repertoire.png",
+      "sha256": "73986e2ff7643a22e43568ec43f3b80d370f4f869be78326030ab5369552216c"
+    },
+    {
+      "path": "upload/en/tablet-10/07-progress.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Your progress",
+      "source": "en/dark/tablet-10/04-progress.png",
+      "sha256": "ee9866cd27bfe45f9a5a5e62bb84ffc05bfde4c65488951c0be6bf7886d2c0cf"
+    },
+    {
+      "path": "upload/en/tablet-10/08-metronome.png",
+      "language": "en",
+      "device": "tablet-10",
+      "theme": "dark",
+      "alt": "Metronome and free practice",
+      "source": "en/dark/tablet-10/08-metronome.png",
+      "sha256": "0f3df2c4f92561f5e1ac77ebc4a6e75739780eceb96ed391b6f8b23292ef157c"
+    }
+  ],
+  "signingState": "6.0.0/build53 source; unsigned production build prepared. Native signed-package acceptance pending original key."
+}

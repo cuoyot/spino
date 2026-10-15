@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "Alex",
+    "context": "piano",
+    "weeklyMinutes": 200,
+    "wifiOnly": true,
+    "theme": "dark",
+    "language": "en",
+    "level": 2
+  },
+  "works": [
+    {
+      "id": "store-work",
+      "title": "A deliberately long musical title that still retains its complete original wording in the notebook",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": true
+    },
+    {
+      "id": "header-work-1",
+      "title": "Minuet in G · BWV Anh. 114 · 2",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": true
+    },
+    {
+      "id": "header-work-2",
+      "title": "Minuet in G · BWV Anh. 114 · 3",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": true
+    },
+    {
+      "id": "header-work-3",
+      "title": "Minuet in G · BWV Anh. 114 · 4",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": true
+    },
+    {
+      "id": "header-work-4",
+      "title": "Minuet in G · BWV Anh. 114 · 5",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-5",
+      "title": "Minuet in G · BWV Anh. 114 · 6",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-6",
+      "title": "Minuet in G · BWV Anh. 114 · 7",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-7",
+      "title": "Minuet in G · BWV Anh. 114 · 8",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-8",
+      "title": "Minuet in G · BWV Anh. 114 · 9",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-9",
+      "title": "Minuet in G · BWV Anh. 114 · 10",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-10",
+      "title": "Minuet in G · BWV Anh. 114 · 11",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-11",
+      "title": "Minuet in G · BWV Anh. 114 · 12",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-12",
+      "title": "Minuet in G · BWV Anh. 114 · 13",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-13",
+      "title": "Minuet in G · BWV Anh. 114 · 14",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-14",
+      "title": "Minuet in G · BWV Anh. 114 · 15",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-15",
+      "title": "Minuet in G · BWV Anh. 114 · 16",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-16",
+      "title": "Minuet in G · BWV Anh. 114 · 17",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-17",
+      "title": "Minuet in G · BWV Anh. 114 · 18",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-18",
+      "title": "Minuet in G · BWV Anh. 114 · 19",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-19",
+      "title": "Minuet in G · BWV Anh. 114 · 20",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-20",
+      "title": "Minuet in G · BWV Anh. 114 · 21",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-21",
+      "title": "Minuet in G · BWV Anh. 114 · 22",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-22",
+      "title": "Minuet in G · BWV Anh. 114 · 23",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    },
+    {
+      "id": "header-work-23",
+      "title": "Minuet in G · BWV Anh. 114 · 24",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Bars 1–8",
+      "target": "G-major",
+      "bpm": 60,
+      "onStand": false
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [
+    {
+      "id": "store-routine",
+      "title": "My 40-minute routine",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "store-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1
+        },
+        {
+          "id": "store-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1,
+          "presentation": "page"
+        },
+        {
+          "id": "store-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Bars 1–8",
+          "workId": "store-work"
+        }
+      ]
+    },
+    {
+      "id": "store-routine-mobile",
+      "title": "Reading without a piano",
+      "context": "mobile",
+      "blocks": [
+        {
+          "id": "store-mobile",
+          "type": "reading",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "id": "store-next",
+      "title": "Reading and repertoire",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "store-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1
+        },
+        {
+          "id": "store-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1,
+          "presentation": "page"
+        },
+        {
+          "id": "store-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Bars 1–8",
+          "workId": "store-work"
+        }
+      ],
+      "date": "2026-10-15",
+      "time": "18:00",
+      "status": "planned",
+      "reminder": false
+    },
+    {
+      "id": "store-tomorrow",
+      "title": "Reading and repertoire",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "store-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1
+        },
+        {
+          "id": "store-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "level": 1,
+          "presentation": "page"
+        },
+        {
+          "id": "store-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Bars 1–8",
+          "workId": "store-work"
+        }
+      ],
+      "date": "2026-10-16",
+      "time": "18:00",
+      "status": "planned",
+      "reminder": false
+    }
+  ],
+  "events": [
+    {
+      "id": "store-lesson",
+      "title": "Lesson with my teacher",
+      "type": "Clase",
+      "date": "2026-10-15",
+      "time": "19:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "store-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "store-audition",
+      "title": "Autumn recital",
+      "type": "Audición",
+      "date": "2026-10-24",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "store-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "store-lesson-next",
+      "title": "Piano lesson",
+      "type": "Clase",
+      "date": "2026-10-20",
+      "time": "19:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "store-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    }
+  ],
+  "sessions": [
+    {
+      "id": "store-wed",
+      "title": "Technique in G major",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "store-wed-technique",
+          "type": "technique",
+          "minutes": 35,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "store-wed-technique",
+            "type": "technique",
+            "minutes": 35,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 2100000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 2100000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "Steadier pulse. Review the position change.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "store-tue",
+      "title": "Piano practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "store-tue-technique",
+          "type": "technique",
+          "minutes": 25,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "store-tue-technique",
+            "type": "technique",
+            "minutes": 25,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 1500000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "Steadier pulse. Review the position change.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "store-mon",
+      "title": "Piano practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "store-mon-technique",
+          "type": "technique",
+          "minutes": 40,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "store-mon-technique",
+            "type": "technique",
+            "minutes": 40,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "Steadier pulse. Review the position change.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

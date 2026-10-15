@@ -43,3 +43,7 @@ Owner requests that Week/Month not introduce a new header line. Calendar now kee
 ## 2026-10-15 — Beta 12 release
 
 Owner authorizes website and Git publication. Android beta 12/build51 packages the accepted circles/horizontal row, separators, compact month/year wording and inline header. Build, signature/packaging hashes, 208 unit/static checks (one skipped), five browser regressions and emulator replacement-install/data-retention/foreground checks pass. The source and corresponding tests are recorded in Git alongside the release. [Release record](../releases/6.0.0-beta.12.md); website commit b5417da and public pages/download hashes are verified in the publication report. Physical/native visual acceptance remains separate; iOS stays beta 9/build48.
+
+## 2026-10-15 — Shared primary-header height
+
+Owner reports that Calendar is taller than Progress. The shared primary bar is now 68 px high and keeps Profile, title and MIDI aligned across main routes; Week/Month remains inline and retains its labels and targets. Library tabs use a separate sticky page row. Three-language/two-theme responsive measurements and representative phone/tablet captures are in [header parity](captures/themes/2026-10-15-header-parity/README.md). Source-only correction after beta 13; native and owner acceptance remain open.

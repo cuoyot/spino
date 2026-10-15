@@ -18,7 +18,7 @@ test('fixed header, profile placement, controls and light MIDI across six screen
     if(theme==='light')assert.equal(before.midiBg,'rgb(255, 255, 255)');
     if(view==='calendar')assert.ok(await evaluate(`document.querySelector('.cp-app-header [data-action=calendar-mode]')`));
     if(view==='practice')assert.ok(await evaluate(`document.querySelector('.cp-app-header [data-action=quick-practice]')`));
-    if(view==='piano')assert.ok(await evaluate(`document.querySelector('.cp-app-header .cp-library-navigation')`));
+    if(view==='piano')assert.ok(await evaluate(`document.querySelector('.cp-page > .cp-library-navigation')`));
     await evaluate(`document.querySelector('.cp-page').scrollTop=0`);const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${folder}/${view}-${theme}-${layout}.png`,Buffer.from(shot.data,'base64'));
    }
   }

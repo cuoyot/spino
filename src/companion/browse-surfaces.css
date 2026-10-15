@@ -37,8 +37,8 @@
 #app-shell .cp-browse-surface :is(.cp-dashboard-minutes strong,.cp-streaks strong,.cp-learning-comparison strong,.cp-number) { color: var(--browse-teal); font-variant-numeric: tabular-nums; }
 #app-shell .cp-browse-surface :is(.cp-dashboard-meter,.cp-progress) > span,
 #app-shell .cp-browse-surface .cp-dashboard-bar-track i { background: linear-gradient(90deg,#4f8cff,#32c6ac); }
-#app-shell .cp-browse-surface :is(.cp-library-navigation,.cp-progress-sections) { padding: 4px; border-radius: 14px; background: var(--theme-control); }
-#app-shell .cp-browse-surface :is(.cp-library-navigation,.cp-progress-sections) [aria-current=page] { border-radius: 10px; background: var(--theme-accent); color: white; }
+#app-shell .cp-browse-surface .cp-progress-sections { padding: 4px; border-radius: 14px; background: var(--theme-control); }
+#app-shell .cp-browse-surface .cp-progress-sections [aria-current=page] { border-radius: 10px; background: var(--theme-accent); color: white; }
 #app-shell .cp-browse-surface .cp-setting-icon { background: var(--browse-panel); color: var(--browse-blue); }
 #app-shell .cp-browse-surface .cp-setting-row:nth-child(even) .cp-setting-icon { background: var(--browse-tint); color: var(--browse-teal); }
 #app-shell .cp-browse-surface .cp-setting-row { border-bottom-color: var(--theme-line); }
@@ -161,13 +161,10 @@
 #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-controls { margin: 0; flex-wrap: nowrap; }
 #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { min-width: 44px; }
 @media (max-width: 379px) {
-  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-app-header h1 { font-size: 18px; }
   #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { padding-inline: 6px; font-size: 12px; }
 }
 @media (max-width: 339px) {
-  #app-shell:has(.cp-browse-surface[data-view=calendar]) > .cp-app-header { gap: 6px; padding-inline: 8px; }
   #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-middle { gap: 6px; }
-  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-app-header h1 { font-size: 16px; }
   #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { padding-inline: 4px; font-size: 11px; }
 }
 
