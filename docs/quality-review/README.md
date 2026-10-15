@@ -14,6 +14,9 @@ Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4
 
 ## Resume work here
 
+2026-10-15 current keyboard-theme correction: D-046 repairs black keys inheriting white control backgrounds in light mode. Idle/pressed/guide materials are now independent of chrome in both themes. [24 responsive material states](captures/generated-practice/2026-10-15-keyboard-light-01/verification.json), nine keyboard/practice checks and [35 refreshed website images](captures/website/2026-10-15-keyboard-light-01/capture.json) pass. Prepared Android beta5/build58 retains notebook files in replacement installation. Website/public delivery verification follows; native visual acceptance remains open.
+
+
 2026-10-15 current floating-bar follow-up: D-045 adds double-tap minimize/restore on the six-dot grip for PDF and MusicXML practice and reduces the full bar height by 10 px. Only grip and clock remain in the minimized state, while timing and existing editing/recording state are preserved. [46 responsive frames and focused checks](captures/session/2026-10-15-minimized-toolbar-07/verification.json); [active review](session.md). Open synthetic browser review: http://127.0.0.1:5199/?review=pdf. Published as website Android 6.1.0-beta.4/build57 on 2026-10-15. Final production package/signature, 20 focused checks, replacement installation, 18 unchanged IndexedDB file hashes and foreground activity pass. Public verification confirms all three language pages, the checksum manifest and four download hashes. Native/owner visual acceptance remains open. [Publication record](../releases/6.1.0-beta.4-publication.json). Next: owner reviews the compact/expanded bar on the physical device.
 
 

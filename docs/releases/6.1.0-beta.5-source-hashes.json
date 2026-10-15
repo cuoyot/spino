@@ -1,0 +1,14 @@
+{
+  "version": "6.1.0-beta.5",
+  "build": 58,
+  "files": {
+    "package.json": "0ca674a069dea3a346df35c7c2fa23a4ac7043ecaee98c2002487a8d7343b662",
+    "package-lock.json": "198cda0e1f38dbc7034326beaf51277fc4f8d18784f5dd874d15bd5d6323128d",
+    "android/app/build.gradle": "d38d959405b9d1dd6e73bed71c5ba2a10fa9d4ee3d62dfc86a4440abd0bdfa10",
+    "src/keyboard-material.css": "df0b51068f39449429cecca5238e6b60dcec8fbc8acc1c0bceb959cefd4df384",
+    "src/style.css": "34b86003612947b5b12e1afb8bc7ae4f9dfd6b1694cf48b475ae2ee31d4fb01b",
+    "scripts/site/capture-app.mjs": "fe7c267bc5d5dc5b0a8039044d89250f138bba7473c55db2491072433527ad0f",
+    "scripts/site/build-site.mjs": "31ac0f53bd8f6ad1603818bc4843861d2f9d1ff080c08bc27112f8fe31d513fa"
+  },
+  "productionIndexSha256": "e7e92669c13e3016fd9be68f61ac79e8561304613283708f9b5fcff33283d35b"
+}

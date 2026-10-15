@@ -209,3 +209,10 @@ The [Android/iOS audit](platform-comparison.md) adds native evidence for PRACTIC
 PLATFORM-15 also reopens the current warm-up guide's native entry position: iPad portrait initially scrolls to the focused closing button (332px / 332px), skipping the illustrated introduction. A top-of-content screenshot is retained separately. This does not approve the replacement Hanon animation or alter existing hand illustrations.
 
 2026-10-11 follow-up: the owner approved PLATFORM-13 safe-area compensation. Both sidebars and the central score/keyboard now respect native insets; targeted iPhone evidence and regression results are recorded in the [iOS follow-up](platform-ios-followup.md). PLATFORM-15 warm-up focus/scroll remains open.
+
+
+## Black-key light-theme correction — 2026-10-15
+
+The owner reports white-looking black keys in the English website Quick practice screenshot. Both the base keyboard and material overlay inherited the application control background, which is white in light mode. D-046 gives idle/pressed/guided black keys their intended dark materials; decorative edges and the miniature scale keyboard also retain a dark base. This repairs the earlier light-theme review without changing layout, range, hit areas, MIDI IDs or practice data.
+
+[24 new responsive material captures](captures/generated-practice/2026-10-15-keyboard-light-01/verification.json) verify idle/pressed/guided black keys in light/dark and all four phone/tablet orientations. Nine keyboard/practice checks pass. The website uses [35 fresh synthetic screenshots](captures/website/2026-10-15-keyboard-light-01/capture.json) in English, Spanish and Catalan, with a new image cache revision. Previous screenshot baselines remain intact. Prepared beta5/build58 includes this CSS; public delivery verification follows. Native visual acceptance is separate from browser evidence.

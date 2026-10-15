@@ -2,6 +2,12 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-046 — Preserve piano key materials across themes
+
+- Status: **owner-reported defect fixed**, 2026-10-15. This repairs the accepted light/dark theme and keyboard material direction without changing the keyboard layout.
+- PRACTICE-02 / READER-05 / C-PRACTICE: black keys, decorative partial keys and black-key press/guide materials used `--theme-control`, which is white in light mode. Restore the intended ebony, pressed-charcoal and dark-red guide palettes independently of application chrome. Unhighlighted black keys on the miniature scale keyboard use the same dark base.
+- Verification: nine focused keyboard/practice checks and [24 responsive material states](captures/generated-practice/2026-10-15-keyboard-light-01/verification.json) cover both themes and four orientations, dark/white distinction, identical materials between themes, retained MIDI IDs/geometry, physical edges, touch zoom/range and Quick practice. [35 fresh website captures](captures/website/2026-10-15-keyboard-light-01/capture.json) use synthetic notebooks across English/Spanish/Catalan. Prior screenshot baselines are retained. Native visual acceptance remains open; beta5/build58 publication verification follows.
+
 ## D-045 — Minimize the floating score bar
 
 - Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified; native/owner visual acceptance remains open.

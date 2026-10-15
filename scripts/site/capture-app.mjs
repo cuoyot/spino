@@ -97,7 +97,7 @@ try {
     }
   }
   assert.deepEqual(errors, []);
-  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: '2026-10-15', version:'6.1.0-beta.1', build:54, surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceSha256: createHash('sha256').update(await readFile('src/companion/locale-ca.js')).digest('hex'), frames }, null, 2));
+  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: '2026-10-15', version:JSON.parse(await readFile('package.json','utf8')).version, sourceStage:'Current working tree; source hashes identify changes after the published package', surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes:Object.fromEntries(await Promise.all(['src/keyboard-material.css','src/style.css','src/companion/locale-ca.js'].map(async path=>[path,createHash('sha256').update(await readFile(path)).digest('hex')]))), frames }, null, 2));
 } catch (error) {
   console.error(error);
   throw error;

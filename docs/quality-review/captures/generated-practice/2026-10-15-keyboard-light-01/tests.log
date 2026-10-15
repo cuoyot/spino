@@ -1,0 +1,18 @@
+✔ case cheeks appear only at physical A0 and C8, not cropped viewport edges (5122.322542ms)
+✔ warm-ups remain playable on a narrow, enlarged keyboard (8.979ms)
+▶ keyboard touch zoom preserves practice
+  ✔ pinching enlarges keys without moving or restarting the score (369.520584ms)
+  ✔ parallel two-finger movement pans without changing zoom (262.695125ms)
+  ✔ pinching inward cannot make keys smaller than the minimum (270.403625ms)
+  ✔ zoom persists after reload and has a settings control (400.942166ms)
+  ✔ pinching from the expected key while stopped does not start the piece (294.873459ms)
+✔ keyboard touch zoom preserves practice (4602.954917ms)
+✔ quick practice opens an untimed single-hand reader directly and retains pending session (3519.548ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6760.724209

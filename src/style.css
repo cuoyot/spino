@@ -54,7 +54,7 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-co
 .keys { position: relative; height: 100%; display: flex; margin: 0 auto; }
 .key { border-radius: 0 0 6px 6px; padding: 0; touch-action: manipulation; }
 .key.white { width: var(--wk); height: 100%; background: #f4f4f2; border: 1px solid #999; color: #777; font-size: 11px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; flex: none; }
-.key.black { position: absolute; top: 0; width: var(--bk); height: 60%; background: var(--theme-control, #1b1b1b); border: 1px solid #000; z-index: 1; }
+.key.black { position: absolute; top: 0; width: var(--bk); height: 60%; background: #1b1b1b; border: 1px solid #000; z-index: 1; }
 .key.down, .key:active { background: var(--accent) !important; }
 
 #names { display: flex; gap: 6px; padding: 8px 12px 14px; }
@@ -190,7 +190,7 @@ label.check.big small { display: block; font-size: 12px; line-height: 1.3; }
 /* keyboard guide: a light falls onto the next key; blue on white keys, red on black keys */
 .key.guide { position: relative; overflow: hidden; }
 .key.white.guide { background: #dbe8ff; box-shadow: inset 0 -8px 0 var(--theme-accent, #4f8cff); }
-.key.black.guide { background: var(--theme-control, #5a1f1f); box-shadow: inset 0 -8px 0 #ff5252; }
+.key.black.guide { background: #5a1f1f; box-shadow: inset 0 -8px 0 #ff5252; }
 .key.guide::after { content: ''; position: absolute; left: 18%; width: 64%; height: 38%; top: -40%; border-radius: 8px; pointer-events: none;
   animation: guide-drop 0.9s ease-in infinite; }
 .key.white.guide::after { background: linear-gradient(to bottom, rgba(79, 140, 255, 0), rgba(79, 140, 255, 0.75)); }
@@ -226,7 +226,7 @@ label.check.big small { display: block; font-size: 12px; line-height: 1.3; }
 
 /* decorative half black keys at the keyboard edges */
 .keys { overflow: hidden; }
-.key-edge { position: absolute; top: 0; width: var(--bk); height: 60%; background: var(--theme-control, #1b1b1b); border: 1px solid #000; border-radius: 0 0 6px 6px; z-index: 1; pointer-events: none; opacity: 0.85; }
+.key-edge { position: absolute; top: 0; width: var(--bk); height: 60%; background: #1b1b1b; border: 1px solid #000; border-radius: 0 0 6px 6px; z-index: 1; pointer-events: none; opacity: 0.85; }
 
 
 #finger-btn { font-size: 13px; white-space: nowrap; margin-left: 6px; color: var(--muted); }

@@ -1,0 +1,125 @@
+{
+  "capturedAt": "2026-10-15T17:49:32.805576+00:00",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "baseCommit": "a7e0c88927bc44a0d6188543e395e8f60993c5b3",
+  "build": "Production Vite build before beta5 version bump",
+  "sourceHashes": {
+    "src/keyboard-material.css": "df0b51068f39449429cecca5238e6b60dcec8fbc8acc1c0bceb959cefd4df384",
+    "src/style.css": "34b86003612947b5b12e1afb8bc7ae4f9dfd6b1694cf48b475ae2ee31d4fb01b",
+    "tests/keyboard-material.browser.test.js": "cc45cf2c13b6e65e9702e25a5826471a85ed424c6418b6d4b6eff5e207fc624e"
+  },
+  "fixtures": "Disposable standalone keyboard; physical window positions A0, C8 and middle; computed idle/pressed/guide material states. No personal notebook.",
+  "frames": [
+    {
+      "file": "dark-guide-phone-landscape.png",
+      "sha256": "1b4db2bb2b474b4c8586d0a845469d47e8cf4f07c05faa3699614395c904c131"
+    },
+    {
+      "file": "dark-guide-phone-portrait.png",
+      "sha256": "2614e6320fb732231a8cc4c7a5dd6ddf3460041a74e5dffb6ee470bc4030b104"
+    },
+    {
+      "file": "dark-guide-tablet-landscape.png",
+      "sha256": "790fad3299a0cb2a40f9d4b7bc85bc3473580538876f73a79c7c492df6b99a56"
+    },
+    {
+      "file": "dark-guide-tablet-portrait.png",
+      "sha256": "a7ef7d26052a7cb85509d530e4d924a58074c15d417e59092c561ea18a4baf08"
+    },
+    {
+      "file": "dark-idle-phone-landscape.png",
+      "sha256": "ede0866e8b892a17c2cfde2e8b99434cfa60f4bfa029e602765ab8cf4b687ad4"
+    },
+    {
+      "file": "dark-idle-phone-portrait.png",
+      "sha256": "930ea6dc1dcaa42c8f91edeb1ad4698bb3c6388e4f31a2262b38e47c66f73cef"
+    },
+    {
+      "file": "dark-idle-tablet-landscape.png",
+      "sha256": "44b99023b85d20826d313e0150bdc164ecfcce1f8ef1b1b813dd6f912184a966"
+    },
+    {
+      "file": "dark-idle-tablet-portrait.png",
+      "sha256": "711697cefe70f90c23c65f29e11d8dad835761715d38a7f4fcbfa27d44a8e2b9"
+    },
+    {
+      "file": "dark-pressed-phone-landscape.png",
+      "sha256": "11ed0a25fa5782c535a33b443e49d6a399a2621ec2b6838f7aa0fc7bbfdf98d5"
+    },
+    {
+      "file": "dark-pressed-phone-portrait.png",
+      "sha256": "644655c643f5b1ffd810e575982dd6f5212f5c80db59a054916bdcd9eb1105e9"
+    },
+    {
+      "file": "dark-pressed-tablet-landscape.png",
+      "sha256": "1e6380eeb38110e384ec773ff658f5de40bedeff24b4a248c737563215e090e2"
+    },
+    {
+      "file": "dark-pressed-tablet-portrait.png",
+      "sha256": "512d423669c3f535f23b879be2443e520d9ff155add7612076a017aa74574d59"
+    },
+    {
+      "file": "light-guide-phone-landscape.png",
+      "sha256": "b4f9d84f4afad70bb0d90991bdfba84d1898daf9e3cc5378f7859f19c8d6b377"
+    },
+    {
+      "file": "light-guide-phone-portrait.png",
+      "sha256": "2ed4fa5fa50a98188522de948b0cd2b71d66a36b9f4aa79ebd1d871a8e19a093"
+    },
+    {
+      "file": "light-guide-tablet-landscape.png",
+      "sha256": "a6436e1bf7f2465d43ca1c215912baf5145cbfec494c0b064ac681c3699e1769"
+    },
+    {
+      "file": "light-guide-tablet-portrait.png",
+      "sha256": "04d065dba3a1d73fee7e8e708fb7bbcf00022161ea711db1142bedbd5c7b5827"
+    },
+    {
+      "file": "light-idle-phone-landscape.png",
+      "sha256": "aa76d03926fd9b6dc90c0ffee675b705fb9ec5b1ad3e9991bab024721f9ca40c"
+    },
+    {
+      "file": "light-idle-phone-portrait.png",
+      "sha256": "5693d123c342e91ba19a059d94299657dced3a886cbffa3e2aa3c506fecf3774"
+    },
+    {
+      "file": "light-idle-tablet-landscape.png",
+      "sha256": "a4735b0d781bd99a82788f689728d13c05de6a62f46a4529f66d26190841c79f"
+    },
+    {
+      "file": "light-idle-tablet-portrait.png",
+      "sha256": "f45cbbdc850da8936d090dc1a9359094ee8e024d987966a5ad296ddbddf4cffc"
+    },
+    {
+      "file": "light-pressed-phone-landscape.png",
+      "sha256": "ad308cbddd95d0d566a9423e381e566ccadb8bba6b25e9d95fa2d8933d6210f4"
+    },
+    {
+      "file": "light-pressed-phone-portrait.png",
+      "sha256": "d22c10a4057d6d8fd0879b871e67ed8fdbdb87c21a7deff967a7a81dde695f4d"
+    },
+    {
+      "file": "light-pressed-tablet-landscape.png",
+      "sha256": "d2779a62d9714f0d7effa149785b530caeb50d0a00791cb823e47eab5274a733"
+    },
+    {
+      "file": "light-pressed-tablet-portrait.png",
+      "sha256": "382afa4c28926027507536dc89eff9955b958a51230f7f6ea5b2a5813af0c91e"
+    }
+  ],
+  "tests": {
+    "passed": 9,
+    "failed": 0,
+    "log": "tests.log"
+  },
+  "checks": [
+    "Opaque black material colours stay dark in both themes",
+    "Idle/pressed/guided material gradients match across themes",
+    "Black and white materials remain distinct",
+    "MIDI IDs, key/edge positions and dimensions preserved",
+    "Physical case edges only at A0/C8",
+    "Existing touch zoom, range and Quick practice regressions pass"
+  ],
+  "websiteEvidence": "../../website/2026-10-15-keyboard-light-01/capture.json"
+}

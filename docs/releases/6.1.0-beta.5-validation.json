@@ -1,0 +1,87 @@
+{
+  "version": "6.1.0-beta.5",
+  "build": 58,
+  "productionBuild": true,
+  "packagedWebFiles": 259,
+  "apkSignatureSha256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+  "tests": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "skipped": 0,
+    "keyboardAndPractice": {
+      "passed": 9,
+      "evidence": "../quality-review/captures/generated-practice/2026-10-15-keyboard-light-01/verification.json",
+      "reviewedSourceAndTestHashesMatch": true,
+      "scope": "Material idle/pressed/guide in both themes, four orientations, physical edges, geometry/MIDI IDs, touch zoom/range and Quick practice. Before version bump; reviewed source/test hashes match."
+    },
+    "finalWebsite": {
+      "passed": 4,
+      "logSha256": "d86825a39d0402d676ba4252766b55869208b36b52c3eba41fe5e018939c448b",
+      "scope": "Three languages, current beta/download hashes, screenshot loading/layout and release dialog."
+    }
+  },
+  "nativeHandoff": {
+    "date": "2026-10-15",
+    "version": "6.1.0-beta.5",
+    "build": 58,
+    "package": "com.miguecoll.spino.beta",
+    "install": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "indexedDbBefore": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "5c6ba8706b917c88f5282df85e9750ac023576608223c82f95a625170b5239cc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "99b6fe90c08de5156f9ea7eac22f458598406504c2c2b85877918adb6ab499bf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "3ff9af431dcc0b3b4a1ec40fc30c6d2f6649111c8680c02d94bb59cc209fbe72",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "dfc13608a8a1aa7c265c93329235ca9d48a0130f1bc03a8548ae83edf12da029"
+    },
+    "indexedDbAfter": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "5c6ba8706b917c88f5282df85e9750ac023576608223c82f95a625170b5239cc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "99b6fe90c08de5156f9ea7eac22f458598406504c2c2b85877918adb6ab499bf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "3ff9af431dcc0b3b4a1ec40fc30c6d2f6649111c8680c02d94bb59cc209fbe72",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "dfc13608a8a1aa7c265c93329235ca9d48a0130f1bc03a8548ae83edf12da029"
+    },
+    "indexedDbHashesEqualBeforeLaunch": true,
+    "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity\nTotalTime: 1566\nWaitTime: 1586\nComplete",
+    "foreground": [
+      "topResumedActivity=ActivityRecord{8800a85 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t52}"
+    ],
+    "installedMetadata": [
+      "versionCode=58 minSdk=24 targetSdk=36",
+      "versionName=6.1.0-beta.5"
+    ],
+    "packagedWebFiles": 259,
+    "scope": "Replacement installation, version, foreground and retained notebook files; responsive evidence is separate from native visual acceptance."
+  },
+  "responsiveEvidence": "../quality-review/captures/generated-practice/2026-10-15-keyboard-light-01/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-15-keyboard-light-01/capture.json",
+  "nativeVisualAcceptance": false,
+  "delivery": "Ready for website publication; public verification recorded separately."
+}
