@@ -1,0 +1,92 @@
+{
+  "verifiedAt": "2026-10-15T17:45:06.986698+00:00",
+  "version": "6.1.0-beta.4",
+  "build": 57,
+  "websiteCommit": "def822cb79604934bfe584ade437df31dc046fe1",
+  "tag": "v6.1.0-beta.4",
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "sha256": "b214df12b7e1c79770e23bd0c4ac1c623a0f74e379eb6ff593e11703c2e47b67",
+      "betaVersion": "6.1.0-beta.4 (57)"
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "sha256": "9fb89347682b94f2abe23e56d92e6a3a958728c538252c64f977a020b4857b6e",
+      "betaVersion": "6.1.0-beta.4 (57)"
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "sha256": "f378729c789b0ce6807c49e490e005df283c8b3ee1a9a7dad3726c496b0f9b9f",
+      "betaVersion": "6.1.0-beta.4 (57)"
+    }
+  ],
+  "publicBetaManifest": {
+    "version": "6.1.0-beta.4",
+    "build": 57,
+    "date": "2026-10-15",
+    "channel": "beta",
+    "stable": {
+      "version": "6.0.0",
+      "build": 53
+    },
+    "googlePlay": {
+      "version": "5.2.3",
+      "build": 35
+    },
+    "artifacts": [
+      {
+        "file": "spino-6.1.0-beta.4-57-android.apk",
+        "bytes": 22653850,
+        "sha256": "35f3abd0448245185ad165e0b6a7e752908adfe1c16e3b9433d2d2ca2df16243",
+        "platform": "Android",
+        "applicationId": "com.miguecoll.spino.beta",
+        "version": "6.1.0-beta.4",
+        "build": 57
+      },
+      {
+        "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+        "bytes": 17949806,
+        "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+        "platform": "iOS Simulator for Mac/Xcode",
+        "version": "6.0.0-beta.9",
+        "build": 48,
+        "unchanged": true
+      }
+    ]
+  },
+  "downloadedArtifacts": [
+    {
+      "file": "spino-6.1.0-beta.4-57-android.apk",
+      "bytes": 22653850,
+      "sha256": "35f3abd0448245185ad165e0b6a7e752908adfe1c16e3b9433d2d2ca2df16243"
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab"
+    },
+    {
+      "file": "spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+    },
+    {
+      "file": "spino-6.1.0-beta.3-56-android.apk",
+      "bytes": 22652962,
+      "sha256": "86b31052f703c1962fb810bf54b193bfa3c87b5431d00738e0b814de33ecc2e3"
+    }
+  ],
+  "stableAndIosUnchanged": true,
+  "previousBetaDownloadRetained": true,
+  "cloudflareBuild": {
+    "name": "Workers Builds: spino",
+    "id": 116576798279,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "validation": "6.1.0-beta.4-validation.json"
+}
