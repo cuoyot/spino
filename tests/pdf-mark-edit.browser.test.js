@@ -49,7 +49,7 @@ test('PDF mark sizing, compact palette and editing preserve IDs and undo history
   assert.equal(await evaluate(`document.querySelector('.pdf-quick-palette').hidden`),false);
   assert.equal(await evaluate(`document.querySelector('.pdf-mark-settings').hidden`),false);
   assert.equal(await evaluate(`document.querySelector('[data-mark-setting=fontSize]').closest('label').hidden`),false);
-  assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),true);
+  assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),false);
   await evaluate(`document.querySelector('[data-color="#2878c8"]').click();document.querySelector('[data-finger="4"]').click();document.querySelector('[data-finger="3"]').click()`);
   assert.equal(await evaluate(`document.querySelector('.pdf-quick-palette').hidden`),false);
   const point=await evaluate(`(()=>{const r=document.querySelector('.pdf-paper').getBoundingClientRect();return{x:r.left+r.width*.65,y:r.top+r.height*.3};})()`);
@@ -62,11 +62,11 @@ test('PDF mark sizing, compact palette and editing preserve IDs and undo history
   await evaluate(`{const field=document.querySelector('[data-mark-setting=fontSize]');field.value=5;field.dispatchEvent(new Event('change',{bubbles:true}));}`);
   assert.equal(await evaluate(`edited.marks[5].fontSize`),.05);
   await evaluate(`document.querySelector('[data-pdf=active-tool]').click()`);
-  assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),true);
+  assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),false);
   assert.equal(await evaluate(`document.querySelector('.pdf-hint')===null`),true);
   for (const type of ['pen','highlight','underline','line','arrow','ellipse','rectangle']) {
     await choose(type);
-    assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),true);
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),false);
     assert.equal(await evaluate(`document.querySelector('[data-pdf=split-done]').hidden`),false);
     assert.equal(await evaluate(`document.querySelector('.pdf-quick-palette').hidden`),false);
     assert.equal(await evaluate(`document.querySelector('.pdf-palette').closest('[hidden]')===null`),true);

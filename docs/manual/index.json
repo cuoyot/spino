@@ -20,7 +20,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -110,6 +110,23 @@
         "CLOUD-05"
       ],
       "coverage": "QR/manual linking and compatible/organized backup behavior verified in responsive browser/synthetic tests. Native camera and cloud-provider acceptance pending."
+    },
+    {
+      "id": "calendar",
+      "title": "Plan your practice",
+      "order": 50,
+      "source": "en/calendar.md",
+      "status": "draft",
+      "reviewIds": [
+        "CAL-01",
+        "CAL-02"
+      ],
+      "verifiedAgainst": "2026-10-15-day-separators",
+      "decisions": [
+        "D-040",
+        "D-041"
+      ],
+      "coverage": "Android beta 12/build51 contains D-040/D-041 circular session rows, hidden horizontal scrolling, fixed Week Add, subtle day dividers, compact month/year wording and a one-line Calendar selector. Responsive checks cover both themes, four orientations, 320px, three languages and durations through 720 min. Emulator replacement installation/data retention/foreground and package hashes pass; physical/native visual acceptance remains separate. iOS remains beta 9/build48."
     }
   ],
   "plannedChapters": [
@@ -127,11 +144,6 @@
       "id": "scores",
       "title": "Read and annotate scores",
       "order": 40
-    },
-    {
-      "id": "calendar",
-      "title": "Plan your practice",
-      "order": 50
     },
     {
       "id": "my-piano",

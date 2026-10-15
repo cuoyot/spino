@@ -1,5 +1,26 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Saved practices · scroll horizontally|Pràctiques desades · llisca horitzontalment
+Practised this week|Practicat aquesta setmana
+View progress|Veure el progrés
+weekly goal|d’objectiu setmanal
+Weekly goal reached|Objectiu setmanal assolit
+min to reach your goal|min per assolir el teu objectiu
+
+Does not repeat|No es repeteix
+Every day|Cada dia
+Every week|Cada setmana
+Every two weeks|Cada dues setmanes
+Every month|Cada mes
+Every year|Cada any
+End date (optional)|Data de finalització (opcional)
+Leave empty to repeat without an end date.|Deixa-la buida per repetir sense data de finalització.
+No end date|Sense data de finalització
+If the day does not exist in a month, the event falls on its last day.|Si el dia no existeix en un mes, l’esdeveniment té lloc l’últim dia d’aquell mes.
+Changes apply to this appointment only.|Els canvis només s’apliquen a aquesta cita.
+Choose an end date on or after the first event.|Tria una data de finalització igual o posterior al primer esdeveniment.
+
+Edit score|Editar partitura
 Practice time (minutes)|Temps practicat (minuts)
 Synchronization needs attention|La sincronització necessita atenció
 Resolve sync problem|Resol la sincronització

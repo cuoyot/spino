@@ -1,0 +1,798 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [
+    {
+      "id": "review-linked",
+      "title": "Lectura y repertorio",
+      "date": "2026-10-12",
+      "time": "09:00",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "8ceb0b98-0c36-4c35-b2dc-7e79a42b69f8",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-1",
+            "hanon-2"
+          ],
+          "level": 0,
+          "presentation": "auto"
+        },
+        {
+          "id": "a3bc27bd-053c-4698-9089-96ed3c742efe",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "status": "completed",
+      "sessionId": "review-session-0-0"
+    },
+    {
+      "id": "review-next",
+      "title": "Preparar la próxima clase",
+      "date": "2026-10-15",
+      "time": "18:00",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "0f347a0c-972b-40cb-ab49-ac6430a8012e",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "status": "planned",
+      "reminder": false
+    }
+  ],
+  "events": [
+    {
+      "id": "review-lesson",
+      "title": "Clase con Carles",
+      "date": "2026-10-13",
+      "time": "08:00",
+      "type": "Clase",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "milestones": []
+    }
+  ],
+  "sessions": [
+    {
+      "id": "review-session-2-5",
+      "title": "Lectura",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "aa2a1fef-fdc6-4090-9a62-de3609290101",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "aa2a1fef-fdc6-4090-9a62-de3609290101",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 43200000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T12:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 43200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792022400000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-15T00:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-2-4",
+      "title": "Arpegios",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "6313ce56-f379-44ea-a9ae-3ef7109063b8",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "6313ce56-f379-44ea-a9ae-3ef7109063b8",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 10800000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T11:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 10800000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791986400000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-14T14:00:00.000Z",
+      "status": "partial",
+      "manual": false
+    },
+    {
+      "id": "review-session-2-3",
+      "title": "Práctica libre",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "279ffa79-1822-49c8-bc51-394c15a26c37",
+          "type": "free",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "279ffa79-1822-49c8-bc51-394c15a26c37",
+            "type": "free",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 7200000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T10:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 7200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791979200000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-14T12:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-2-2",
+      "title": "Repertorio",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "2f754b5e-f4ca-4d6e-9f6c-953d8043d602",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "2f754b5e-f4ca-4d6e-9f6c-953d8043d602",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 4500000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T09:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 4500000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791972900000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-14T10:15:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-2-1",
+      "title": "Escalas",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "ec3a3e81-d30a-4f45-8d42-1e634324e22a",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "ec3a3e81-d30a-4f45-8d42-1e634324e22a",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 3600000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T08:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 3600000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791968400000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-14T09:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-2-0",
+      "title": "Lectura con un título muy largo que debe conservarse completo en el detalle",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "f2da5c47-8ffe-40e8-9534-434d29570a40",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "f2da5c47-8ffe-40e8-9534-434d29570a40",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 3540000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T07:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 3540000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791964740000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-14T07:59:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-1-2",
+      "title": "Repertorio",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "7c603be1-86f6-4717-b45d-aed35289e86d",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "7c603be1-86f6-4717-b45d-aed35289e86d",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 5700000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-13T09:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 5700000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791887700000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-13T10:35:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-1-1",
+      "title": "Práctica de piano",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "10de6c21-f930-40e4-9b75-05c1b4a1c1ea",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "10de6c21-f930-40e4-9b75-05c1b4a1c1ea",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1020000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-13T08:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 1020000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791879420000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-13T08:17:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-1-0",
+      "title": "Repertorio",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "95574714-da2b-4eec-8f55-5802917b342b",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "95574714-da2b-4eec-8f55-5802917b342b",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 540000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-13T07:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 540000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791875340000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-13T07:09:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-0-2",
+      "title": "Repertorio",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "a19e5381-040a-4578-a803-133d69ce0adf",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "a19e5381-040a-4578-a803-133d69ce0adf",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 5700000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T09:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 5700000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791801300000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-12T10:35:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-0-1",
+      "title": "Repertorio",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "a83a704b-b00d-4497-b916-ff0d19709f54",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "a83a704b-b00d-4497-b916-ff0d19709f54",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1020000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T08:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 1020000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791793020000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-12T08:17:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-session-0-0",
+      "title": "Lectura y repertorio",
+      "context": "piano",
+      "planId": "review-linked",
+      "blocks": [
+        {
+          "id": "8ceb0b98-0c36-4c35-b2dc-7e79a42b69f8",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-1",
+            "hanon-2"
+          ],
+          "level": 0,
+          "presentation": "auto"
+        },
+        {
+          "id": "a3bc27bd-053c-4698-9089-96ed3c742efe",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "8ceb0b98-0c36-4c35-b2dc-7e79a42b69f8",
+            "type": "warmup",
+            "minutes": 3,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "",
+            "exercises": [
+              "hanon-1",
+              "hanon-2"
+            ],
+            "level": 0,
+            "presentation": "auto"
+          },
+          "context": "piano",
+          "elapsedMs": 540000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T07:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 540000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791788940000,
+      "notes": "Synthetic note: preserve the phrase and the steady pulse.",
+      "next": "Return to bars 2–4.",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-12T07:09:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

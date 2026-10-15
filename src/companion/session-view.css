@@ -32,9 +32,9 @@
 .cp-volume-fader input[type=range] { accent-color: #e8b66c; }
 .cp-tempo-favorites { grid-row: 4; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; margin: 8px 0; padding: 3px; min-width: 0; }
 .cp-tempo-favorites > span { display: flex; align-items: center; justify-content: center; min-width: 0; }
-#app-shell .cp-tempo-favorites button { background: transparent; border: 0; border-radius: 0; color: #f5eee2; font-family: cursive; font-size: 18px; }
+#app-shell .cp-tempo-favorites button { background: transparent; border: 0; border-radius: 0; color: var(--theme-text, #f5eee2); font-family: cursive; font-size: 18px; }
 .cp-tempo-favorites button:first-child { border-bottom: 3px solid #eee7da !important; transform: rotate(-3deg); }
-.cp-tempo-favorites button[aria-pressed=true] { color: #e8b66c !important; border-color: #e8b66c !important; }
+.cp-tempo-favorites button[aria-pressed=true] { color: var(--theme-warning, #e8b66c) !important; border-color: #e8b66c !important; }
 @media (orientation: landscape) and (min-width: 600px) {
   .cp-free-practice { max-width: 1100px; }
   .cp-free-practice > p.muted { display: none; }
@@ -72,29 +72,29 @@
 #app-shell .cp-session-card { margin: 0; padding: 15px; text-align: left; border-radius: 12px; border-color: #465b79; background: var(--theme-control, #202938); }
 .cp-session-current-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 12px; justify-content: space-between; margin-bottom: 8px; }
 #app-shell .cp-session-current-heading .eyebrow { margin: 0; font-size: 10px; letter-spacing: .08em; }
-.cp-session-state { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #c2cddb; white-space: nowrap; }
+.cp-session-state { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--theme-muted, #c2cddb); white-space: nowrap; }
 .cp-session-state i { width: 6px; height: 6px; border-radius: 50%; background: #acbdd6; }
-.cp-session-state[data-session-state=running] { color: #98d9ad; }
+.cp-session-state[data-session-state=running] { color: var(--theme-success, #98d9ad); }
 .cp-session-state[data-session-state=running] i { background: #89d6a1; }
-.cp-session-state[data-session-state=midi-needed] { color: #edc887; }
+.cp-session-state[data-session-state=midi-needed] { color: var(--theme-warning, #edc887); }
 .cp-session-state[data-session-state=midi-needed] i { background: #edc887; }
 #app-shell .cp-session-card h2 { font-size: 21px; margin: 0 0 12px; line-height: 1.2; overflow-wrap: anywhere; }
-#app-shell .cp-session-passage { font-size: 13px; color: #bfc9d9; margin: -3px 0 10px; overflow-wrap: anywhere; }
+#app-shell .cp-session-passage { font-size: 13px; color: var(--theme-muted, #bfc9d9); margin: -3px 0 10px; overflow-wrap: anywhere; }
 .cp-session-timing { display: flex; align-items: center; gap: 18px; margin: 0 0 10px; }
 .cp-session-timing > div { display: flex; flex-direction: column; }
-.cp-session-timing span { font-size: 11px; color: #b1bdce; }
+.cp-session-timing span { font-size: 11px; color: var(--theme-muted, #b1bdce); }
 .cp-session-timing [data-block-clock] { font-size: 32px; line-height: 1.2; letter-spacing: -.025em; font-weight: 600; font-variant-numeric: tabular-nums; }
 .cp-session-duration { border-left: 1px solid #445168; padding-left: 18px; }
 .cp-session-duration b { font-size: 15px; font-weight: 600; }
-.cp-session-timing .cp-session-tempo { margin-left: auto; color: #c0cbdb; font-size: 13px; display: block; white-space: nowrap; }
+.cp-session-timing .cp-session-tempo { margin-left: auto; color: var(--theme-muted, #c0cbdb); font-size: 13px; display: block; white-space: nowrap; }
 .cp-session-primary-actions { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
 #app-shell .cp-session-primary-actions .primary { padding-inline: 14px; }
-#app-shell .cp-session-primary-actions .quiet { color: #cfdbef; }
-.cp-session-midi-note { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; margin-top: 8px; border-top: 1px solid #415067; padding-top: 4px; color: #c5cbd5; font-size: 12px; }
-#app-shell .cp-session-midi-note button { padding-inline: 0; color: #c0d6ff; font-size: 12px; }
+#app-shell .cp-session-primary-actions .quiet { color: var(--theme-muted, #cfdbef); }
+.cp-session-midi-note { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; margin-top: 8px; border-top: 1px solid #415067; padding-top: 4px; color: var(--theme-muted, #c5cbd5); font-size: 12px; }
+#app-shell .cp-session-midi-note button { padding-inline: 0; color: var(--theme-link, #c0d6ff); font-size: 12px; }
 .cp-session-manual-tools { display: flex; flex-wrap: wrap; align-items: start; gap: 0 8px; margin-top: 7px; border-top: 1px solid #415067; }
-#app-shell .cp-session-manual-tools > button { padding-inline: 0; font-size: 12px; color: #c1cddb; }
-.cp-session-timer-options { flex: 1; font-size: 12px; color: #c1cddb; min-width: 130px !important; }
+#app-shell .cp-session-manual-tools > button { padding-inline: 0; font-size: 12px; color: var(--theme-muted, #c1cddb); }
+.cp-session-timer-options { flex: 1; font-size: 12px; color: var(--theme-muted, #c1cddb); min-width: 130px !important; }
 .cp-session-timer-options summary { min-height: 44px; cursor: pointer; padding: 13px 0 10px; }
 #app-shell .cp-session-timer-options label { font-size: 12px; min-height: 44px; margin: 3px 0 10px; cursor: pointer; }
 #app-shell .cp-session-timer-options p { font-size: 11px; margin: 0 0 8px; color: var(--subtle); }
@@ -108,41 +108,41 @@
 .cp-session-blocks { list-style: none; margin: 0; padding: 0; }
 .cp-session-block { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 4px 8px; align-items: center; padding: 10px 12px 6px; border-top: 1px solid #343943; }
 .cp-session-block.is-current { background: var(--theme-control, #232d3d); box-shadow: inset 3px 0 var(--theme-link, #8ab4ff); }
-.cp-session-block-number { display: grid; place-items: center; width: 25px; height: 25px; background: var(--theme-control, #2b3039); color: #b8c1d0; border-radius: 50%; font-size: 11px; }
-.is-current .cp-session-block-number { background: #40587d; color: #e4eeff; }
+.cp-session-block-number { display: grid; place-items: center; width: 25px; height: 25px; background: var(--theme-control, #2b3039); color: var(--theme-muted, #b8c1d0); border-radius: 50%; font-size: 11px; }
+.is-current .cp-session-block-number { background: #40587d; color: var(--theme-muted, #e4eeff); }
 .cp-session-block-number svg { width: 15px; height: 15px; }
 .cp-session-block-copy { grid-column: 2; overflow-wrap: anywhere; }
 .cp-session-row-actions { grid-column: 3; display: flex; gap: 0; }
 #app-shell .cp-session-row-actions button { width: 44px; min-width: 44px; padding: 10px; }
 .cp-session-block-copy strong { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; font-size: 13px; font-weight: 600; }
-.cp-session-current-label { color: #b2ceff; font-size: 10px; font-weight: 500; }
+.cp-session-current-label { color: var(--theme-link, #b2ceff); font-size: 10px; font-weight: 500; }
 .cp-session-block-copy > span { display: block; margin-top: 2px; font-size: 11px; color: var(--subtle); }
-.cp-session-retained-time { display: inline-block; margin-left: 7px; color: #b4cbea; font-variant-numeric: tabular-nums; }
+.cp-session-retained-time { display: inline-block; margin-left: 7px; color: var(--theme-link, #b4cbea); font-variant-numeric: tabular-nums; }
 .cp-session-block-edit { grid-column: 2 / -1; display: grid; grid-template-columns: minmax(80px, 1fr) 80px; align-items: center; gap: 12px; width: 100%; }
 .cp-session-block { position: relative; }
 .cp-session-block-copy, .cp-session-block-number { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
-#app-shell .cp-session-grip { width: 44px; height: 44px; padding: 10px; cursor: grab; touch-action: none; color: #adbdd4; }
+#app-shell .cp-session-grip { width: 44px; height: 44px; padding: 10px; cursor: grab; touch-action: none; color: var(--theme-muted, #adbdd4); }
 .cp-session-block-menu { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border: 1px solid #56657a; border-radius: 10px; background: var(--theme-control, #202630); }
 #app-shell .cp-session-block-menu button { justify-content: flex-start; border: 0; background: transparent; }
 .cp-session-block.is-lifted { opacity: .35; }
 .cp-session-block.is-drop-before::before, .cp-session-block.is-drop-after::after { content: ''; position: absolute; left: 3px; right: 3px; height: 3px; background: var(--theme-link, #8ab4ff); border-radius: 2px; z-index: 2; }
 .cp-session-block.is-drop-before::before { top: -2px; }
 .cp-session-block.is-drop-after::after { bottom: -2px; }
-.cp-session-drag-ghost { position: fixed; z-index: 1100; pointer-events: none; width: min(280px, calc(100vw - 32px)); border: 1px solid var(--theme-link, #8ab4ff); border-radius: 12px; padding: 14px; background: var(--theme-control, #293952); color: #ecf3ff; box-shadow: 0 12px 32px #0009; font: 600 14px/1.4 system-ui; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#app-shell .cp-session .cp-session-bin { position: fixed; z-index: 1090; left: 50%; transform: translateX(-50%); bottom: calc(86px + env(safe-area-inset-bottom)); min-height: 56px; min-width: 190px; padding: 12px 20px; border: 2px dashed #b07777; color: #ffc1ba; background: var(--theme-control, #34262b); box-shadow: 0 8px 24px #0008; }
+.cp-session-drag-ghost { position: fixed; z-index: 1100; pointer-events: none; width: min(280px, calc(100vw - 32px)); border: 1px solid var(--theme-link, #8ab4ff); border-radius: 12px; padding: 14px; background: var(--theme-control, #293952); color: var(--theme-muted, #ecf3ff); box-shadow: 0 12px 32px #0009; font: 600 14px/1.4 system-ui; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#app-shell .cp-session .cp-session-bin { position: fixed; z-index: 1090; left: 50%; transform: translateX(-50%); bottom: calc(86px + env(safe-area-inset-bottom)); min-height: 56px; min-width: 190px; padding: 12px 20px; border: 2px dashed #b07777; color: var(--theme-danger, #ffc1ba); background: var(--theme-control, #34262b); box-shadow: 0 8px 24px #0008; }
 #app-shell .cp-session-bin.is-over { background: #8a343c; color: white; border-style: solid; border-color: #ffb8b8; transform: translateX(-50%) scale(1.05); }
 @media (orientation: landscape), (min-width: 700px) { #app-shell .cp-session .cp-session-bin { bottom: calc(16px + env(safe-area-inset-bottom)); } }
 #app-shell .cp-session-minutes { display: flex; flex-direction: row; align-items: center; gap: 5px; margin: 0; font-size: 11px; color: var(--subtle); }
 #app-shell .cp-session-minutes input { width: 58px; min-height: 44px; height: 44px; padding: 7px 4px 7px 8px; text-align: center; font-size: 16px; border-color: #4b5769; border-radius: 8px; background: var(--theme-control, #1a202b); font-variant-numeric: tabular-nums; }
 #app-shell .cp-session-duration-slider { width: 100%; height: 44px; min-height: 44px; margin: 0; padding: 0; border: 0; background: transparent; accent-color: var(--theme-link, #8ab4ff); cursor: pointer; touch-action: pan-y; }
 .cp-session-block-tools { display: flex; gap: 0; }
-#app-shell .cp-session-block-tools button { min-width: 44px; width: 44px; min-height: 44px; padding: 10px; background: transparent; border-color: transparent; color: #bac7dc; }
+#app-shell .cp-session-block-tools button { min-width: 44px; width: 44px; min-height: 44px; padding: 10px; background: transparent; border-color: transparent; color: var(--theme-muted, #bac7dc); }
 #app-shell .cp-session-block-tools button:hover { background: var(--theme-control, #343c49); }
 #app-shell .cp-session-block-tools button:disabled { opacity: .25; cursor: default; }
 .cp-session-block.is-completed { padding-block: 10px; }
 .is-completed .cp-session-block-copy { grid-column: 2; }
-.is-completed .cp-session-block-number { background: var(--theme-control, #293b32); color: #9ccbb0; }
-.is-completed .cp-session-block-copy strong { color: #b6bdc7; }
+.is-completed .cp-session-block-number { background: var(--theme-control, #293b32); color: var(--theme-success, #9ccbb0); }
+.is-completed .cp-session-block-copy strong { color: var(--theme-muted, #b6bdc7); }
 .cp-session-block-saved-time { font-size: 11px; color: var(--subtle); }
 .cp-session-leave { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px; padding: 5px 10px; border-top: 1px solid #343943; }
 #app-shell .cp-session-leave button { font-size: 12px; padding-inline: 4px; }
@@ -154,7 +154,7 @@
 .cp-block-editor-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 12px; }
 #cp-dialog .cp-block-editor label { margin-bottom: 10px; }
 #cp-dialog .cp-block-editor-more summary { min-height: 44px; padding-block: 11px; cursor: pointer; }
-#cp-dialog .cp-block-editor-note { margin: 8px 0 12px; font-size: 12px; color: #aeb9c9; }
+#cp-dialog .cp-block-editor-note { margin: 8px 0 12px; font-size: 12px; color: var(--theme-muted, #aeb9c9); }
 #cp-dialog .cp-block-editor [hidden] { display: none !important; }
 @media (min-width: 950px), (orientation: landscape) and (min-width: 700px) {
   .cp-session-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .95fr); gap: 14px; }
@@ -207,3 +207,55 @@
 .cp-work-parts { display: grid; gap: 8px; border: 1px solid var(--line, #393939); border-radius: 10px; padding: 8px 12px 12px; margin: 0; }
 .cp-work-parts legend { padding: 0 4px; font-size: 14px; }
 .cp-work-part { margin: 4px 0 0; font-size: 13px; }
+
+/* The dedicated metronome uses the available viewport, including safe areas. */
+#app-shell:has(.cp-free-practice) > .cp-app-header,
+#app-shell:has(.cp-free-practice) > .cp-nav { display: none; }
+#app-shell .cp-page[data-view="free-practice"] {
+  position: fixed; inset: 0;
+  padding: max(8px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  background: var(--theme-bg); z-index: 10;
+}
+.cp-page[data-view="free-practice"] .cp-content { height: 100%; max-width: 1100px; }
+#app-shell .cp-free-practice { height: 100%; display: flex; flex-direction: column; gap: 6px; }
+#app-shell .cp-free-practice header { flex-wrap: nowrap; gap: 6px; flex: none; }
+#app-shell .cp-free-practice header h1 { order: 0; flex: 1; font-size: 16px; margin: 0; }
+#app-shell .cp-free-practice button { padding: 7px 10px; font-size: 13px; }
+#app-shell .cp-free-practice > p { margin: 0; font-size: 12px; }
+#app-shell .cp-free-practice .cp-metronome { flex: 1; margin: 0; padding: 8px; display: flex; flex-direction: column; justify-content: space-evenly; gap: 6px; }
+#app-shell .cp-metronome > h2, #app-shell .cp-metronome > .muted { display: none; }
+#app-shell .cp-metro-console { gap: 6px; }
+#app-shell .cp-metro-controls .cp-free-timer { margin: 0; padding: 6px; font-size: 24px; }
+#app-shell .cp-free-practice .cp-tempo-dial { width: min(180px, 100%, max(100px, calc(100dvh - 480px))); margin: 0 auto; border-width: 8px; }
+#app-shell .cp-tempo-dial strong { font-size: 36px; }
+#app-shell .cp-free-practice .cp-fader { gap: 3px; }
+#app-shell .cp-free-practice .cp-fader-track, #app-shell .cp-free-practice .cp-fader input[type=range] { height: clamp(60px, calc(100dvh - 540px), 150px); }
+#app-shell .cp-free-practice .cp-tempo-favorites { margin: 0; gap: 2px; grid-template-columns: repeat(4,minmax(0,1fr)); }
+#app-shell .cp-free-practice .cp-tempo-favorites:empty { display: none; }
+#app-shell .cp-free-practice .cp-tempo-favorites button { padding: 4px; font-size: 14px; }
+#app-shell .cp-metro-status { margin: 0; font-size: 12px; }
+#app-shell .cp-metro-settings { margin: 0; gap: 4px 8px; }
+#app-shell .cp-metro-settings label { margin: 0; font-size: 12px; }
+#app-shell .cp-metro-settings input, #app-shell .cp-metro-settings select { margin: 2px 0 0; padding: 6px; }
+#app-shell .cp-free-practice > details { font-size: 12px; }
+@media (orientation: landscape) and (min-width: 600px) {
+  #app-shell .cp-free-practice > p { display: none; }
+  #app-shell .cp-metro-console { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
+  #app-shell .cp-metro-display { display: grid; grid-template-columns: 1fr; align-content: center; gap: 4px; }
+  #app-shell .cp-metro-display .cp-beats { grid-area: auto; margin: 0; }
+  #app-shell .cp-free-practice .cp-tempo-dial { grid-area: auto; width: clamp(80px,calc(100dvh - 250px),180px); }
+  #app-shell .cp-free-practice .cp-tempo-favorites { grid-area: auto; }
+  #app-shell .cp-metro-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; align-items: center; }
+  #app-shell .cp-metro-controls > :not(.cp-mixer) { grid-column: auto; grid-row: auto; }
+  #app-shell .cp-metro-controls .cp-mixer { grid-column: 2; grid-row: 1 / 5; gap: 12px; }
+  #app-shell .cp-free-practice .cp-fader-track, #app-shell .cp-free-practice .cp-fader input[type=range] { height: clamp(44px,calc(100dvh - 340px),140px); }
+  #app-shell .cp-metro-settings { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+@media (orientation: portrait) and (max-height: 740px) {
+  #app-shell .cp-free-practice > p { display: none; }
+  #app-shell .cp-free-practice .cp-fader-track, #app-shell .cp-free-practice .cp-fader input[type=range] { height: 60px; }
+  #app-shell .cp-metro-controls > [data-action="tap-tempo"] { grid-column: 1 / 3; grid-row: 5; }
+  #app-shell .cp-metro-controls > [data-action="toggle-metronome"] { grid-column: 3; grid-row: 5; }
+  #app-shell .cp-metro-console { grid-template-columns: 52px minmax(0,1fr) 110px; }
+  #app-shell .cp-metro-controls > .cp-metro-status { grid-row: 6; }
+}

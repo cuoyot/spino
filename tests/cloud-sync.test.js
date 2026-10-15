@@ -24,16 +24,16 @@ test('delete versus edit and same annotation edits require explicit choices',()=
  const x=clone(a),y=clone(a); x.assets[0].annotations.marks[0].text='2';y.assets[0].annotations.marks[0].color='blue';
  assert.equal(mergeNotebooks(a,x,y).conflicts.length,1);
 });
-function device(t, shared, initial) {
+function device(t, shared, initial, delay = 100000) {
  let local=clone(initial),base=null,meta={},recovery=null,allowed=true,applyAllowed=true,gate=null;
  const adapter={status:async()=>({linked:!!shared.text,name:'shared.json'}),
  create:async({text})=>{shared.text=text;return {name:'shared.json'};},
- pickBackup:async()=>({text:shared.text,name:'shared.json'}),readLinked:async()=>{if(gate)await gate;return {text:shared.text};},
- write:async({text,expectedHash})=>{assert.equal(await backupHash(shared.text),expectedHash);shared.text=text;},
+ pickBackup:async()=>({text:shared.text,name:'shared.json'}),readLinked:async()=>{await shared.beforeRead?.();if(gate)await gate;return {text:shared.text};},
+ write:async({text,expectedHash})=>{await shared.beforeWrite?.();if(await backupHash(shared.text)!==expectedHash)throw Object.assign(new Error('Provider revision changed'),{code:'CONFLICT'});shared.text=text;await shared.afterWrite?.();},
  saveRecovery:async({text})=>{recovery=text;},disconnect:async()=>{}};
  const engine=createNotebookCloud({adapter,settings:{read:()=>meta,save:v=>{meta=clone(v);}},snapshot:async()=>JSON.stringify(local),
  eligible:()=>allowed,canApply:()=>applyAllowed,readBase:async()=>base,saveBase:async v=>{base=clone(v);},apply:async(text,b)=>{local=JSON.parse(text);base=clone(b);},
- validate:JSON.parse,delay:100000,backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
+ validate:JSON.parse,delay,backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){},disconnect:async()=>{}})});
  t.after(()=>engine.stop());
  return {engine,get:()=>local,edit:fn=>{fn(local);engine.markDirty();},recovery:()=>recovery,allowed:v=>{allowed=v;},applyAllowed:v=>{applyAllowed=v;},gate:v=>{gate=v;}};
 }
@@ -46,6 +46,44 @@ test('two devices combine offline additions, pull without local edits and preser
  assert.equal(a.get().data.sessions.length,2);assert.equal(b.get().data.sessions.length,2);assert.ok(a.recovery());
  a.edit(v=>v.data.works=v.data.works.filter(w=>w.id!=='a'));await a.engine.sync();await b.engine.sync();
  assert.deepEqual(b.get().data.works,[{id:'b'}]);
+});
+
+test('continued edits after a deferred upload do not conflict with this device itself',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}])),b=device(t,shared,book());
+ await a.engine.createShared();await b.engine.joinShared();
+ a.applyAllowed(false);b.edit(v=>v.data.works.push({id:'remote'}));await b.engine.sync();
+ a.edit(v=>v.data.works[0].title='First');await a.engine.sync();assert.equal(a.engine.state.status,'waiting');
+ a.edit(v=>v.data.works[0].title='Second');await a.engine.sync();assert.equal(a.engine.state.status,'waiting');
+ assert.deepEqual(JSON.parse(shared.text).data.works,[{id:'a',title:'Second'},{id:'remote'}]);
+ a.applyAllowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');
+ assert.deepEqual(a.get().data.works,[{id:'a',title:'Second'},{id:'remote'}]);
+});
+
+test('edits during a successful provider write retain the acknowledged baseline',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();
+ a.edit(v=>v.data.works[0].title='First');shared.afterWrite=()=>{delete shared.afterWrite;a.edit(v=>v.data.works[0].title='Second');};
+ await a.engine.sync();assert.equal(a.engine.state.status,'waiting');
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(JSON.parse(shared.text).data.works[0].title,'Second');
+});
+
+test('provider contention re-reads and merges independent changes automatically',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();
+ a.edit(v=>v.data.works[0].title='Local');shared.beforeWrite=()=>{delete shared.beforeWrite;const remote=JSON.parse(shared.text);remote.data.sessions.push({id:'remote'});shared.text=JSON.stringify(remote);};
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved');
+ assert.equal(a.get().data.works[0].title,'Local');assert.equal(a.get().data.sessions[0].id,'remote');
+});
+
+test('contention on the same field still requires a user choice',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();
+ a.edit(v=>v.data.works[0].title='Local');shared.beforeWrite=()=>{delete shared.beforeWrite;const remote=JSON.parse(shared.text);remote.data.works[0].title='Remote';shared.text=JSON.stringify(remote);};
+ await a.engine.sync();assert.equal(a.engine.state.status,'conflict');assert.equal(a.get().data.works[0].title,'Local');assert.equal(JSON.parse(shared.text).data.works[0].title,'Remote');
+});
+
+test('persistent contention is bounded and remains retryable without losing local edits',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}]));await a.engine.createShared();a.edit(v=>v.data.works[0].title='Local');
+ let attempts=0;shared.beforeWrite=()=>{attempts++;throw Object.assign(new Error('Busy'),{code:'LOCKED'});};
+ await a.engine.sync();assert.equal(attempts,3);assert.equal(a.engine.state.status,'waiting');assert.equal(a.get().data.works[0].title,'Local');
+ delete shared.beforeWrite;await a.engine.sync();assert.equal(a.engine.state.status,'saved');
 });
 test('conflicts retain independent records and require fresh review when remote changes again',async t=>{
  const shared={};const a=device(t,shared,book([{id:'a',title:'A'}])),b=device(t,shared,book());
@@ -110,4 +148,35 @@ test('file selection is nested in linking and available from manage',async()=>{
 
 test('a reviewed choice survives outbound transfer deferral',async t=>{
  const shared={},a=device(t,shared,book([{id:'a',title:'Original'}])),b=device(t,shared,book());await a.engine.createShared();await b.engine.joinShared();a.edit(v=>v.data.works[0].title='Local');b.edit(v=>v.data.works[0].title='Cloud');await b.engine.sync();await a.engine.sync();a.allowed(false);await a.engine.resolve('remote');assert.equal(a.engine.state.status,'waiting');a.allowed(true);await a.engine.sync();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].title,'Cloud');
+});
+
+const waitUntil = async predicate => {
+ const deadline=Date.now()+3000;
+ while(!predicate() && Date.now()<deadline) await new Promise(resolve=>setTimeout(resolve,5));
+ assert.ok(predicate(),'Expected synchronization state before timeout');
+};
+test('transient provider reads retry automatically and preserve pending edits',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}]),10);await a.engine.createShared();
+ a.edit(v=>v.data.works[0].title='Pending');let reads=0;
+ shared.beforeRead=()=>{if(++reads===1)throw Object.assign(Error('Provider unavailable'),{code:'PROVIDER_ERROR'});};
+ await a.engine.sync();assert.equal(a.engine.state.operation,'read');assert.equal(a.engine.state.retryable,true);
+ await waitUntil(()=>a.engine.state.status==='saved');
+ assert.equal(JSON.parse(shared.text).data.works[0].title,'Pending');assert.equal(a.engine.state.retryCount,0);
+});
+test('persistent provider failures stop after three scheduled retries and manual retry recovers',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}]),10);await a.engine.createShared();let reads=0;
+ shared.beforeRead=()=>{reads++;throw Object.assign(Error('Provider unavailable'),{code:'PROVIDER_ERROR'});};
+ await a.engine.sync();await waitUntil(()=>a.engine.state.retryCount===4);
+ assert.equal(a.engine.state.retryable,false);await new Promise(resolve=>setTimeout(resolve,60));assert.equal(reads,4);
+ delete shared.beforeRead;await a.engine.retry();assert.equal(a.engine.state.status,'saved');
+});
+test('invalid cloud content is identified as validation failure and is not automatically retried',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a'}]),10);await a.engine.createShared();shared.text='broken';
+ await a.engine.sync();assert.equal(a.engine.state.operation,'validate');assert.equal(a.engine.state.retryable,false);
+ await new Promise(resolve=>setTimeout(resolve,40));assert.equal(a.engine.state.status,'error');assert.equal(a.get().data.works[0].id,'a');
+});
+test('overview exposes escaped error details and retry without implying every failure is connectivity',async()=>{
+ const {cloudBackupMarkup}=await import('../src/companion/cloud-backup-view.js');
+ const html=cloudBackupMarkup({mode:'sync',enabled:true,status:'error',name:'shared.json',operation:'snapshot',error:'IndexedDB <unavailable>'},{available:true,lang:'es'});
+ assert.match(html,/Lectura del cuaderno local/);assert.match(html,/IndexedDB &lt;unavailable&gt;/);assert.match(html,/data-action="cloud-sync"/);assert.doesNotMatch(html,/Revisa la conexión/);
 });

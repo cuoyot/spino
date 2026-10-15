@@ -15,9 +15,9 @@ test('autoplay, saved annotation resume, editable time and MIDI hold across four
  const workId=(await read()).works[0].id;
  for(const [name,width,height] of [['phone-portrait',402,874],['phone-landscape',874,402],['tablet-portrait',820,1180],['tablet-landscape',1180,820]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
-  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('[data-action=toggle-session]')`);
+  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')`);
   const active=(await read()).active;assert.notEqual(active.runningSince,null);
-  await action('open-pdf');await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'true');
+  await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'true');
   await evaluate(`document.querySelector('[data-pdf=timer]').click();document.querySelector('[data-pdf=annotations]').click();document.querySelector('[data-finger="3"]').click()`);
   await wait(`document.querySelector('.pdf-paper').dataset.tool==='fingering' && document.querySelector('.pdf-viewer').dataset.running==='false'`);
   const point=await evaluate(`(()=>{const r=document.querySelector('.pdf-paper').getBoundingClientRect();return{x:r.x+r.width*.4,y:Math.max(90,Math.min(innerHeight*.4,r.y+r.height*.15))}})()`);
@@ -28,7 +28,7 @@ test('autoplay, saved annotation resume, editable time and MIDI hold across four
   await evaluate(`document.querySelector('[data-pdf=finish]').click()`);await wait(`document.querySelector('[name=practicedMinutes]')`);
   await evaluate(`document.querySelector('[name=practicedMinutes]').value='12.5'`);
   await mkdir('artifacts/beta/2026-10-12/beta2-header/practice-adjustments',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/beta/2026-10-12/beta2-header/practice-adjustments/save-${name}.png`,Buffer.from(shot.data,'base64'));
-  await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('button[value=save]'))`);await wait(`document.querySelector('[data-action=edit-session-notes]')`);
+  await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('button[value=save]'))`);await wait(`document.querySelector('.cp-today') && !document.querySelector('#cp-dialog').open`);
   const saved=(await read()).sessions[0];assert.equal(saved.id,active.id);assert.equal(saved.elapsedMs,750000);assert.equal(saved.results.reduce((n,r)=>n+r.elapsedMs,0),750000);assert.ok(saved.recordedElapsedMs>=0);
   await action('piano');await action('work-detail');
  }

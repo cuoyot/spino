@@ -37,7 +37,7 @@ test('calendar, agenda and recurring planner switch their dates and actions at r
   const render = () => [calendarMarkup(data, '2026-10-01', 'month'), weekAgendaMarkup(data, '2026-10-01'), todayMarkup(data, () => '', '2026-10-01'), plannerMarkup(data, '2026-10-01')].join('');
   setAppLanguage('es');
   const spanish = render();
-  assert.match(spanish, /octubre de 2026/);
+  assert.match(spanish, /octubre 2026/);
   for (const label of ['Editar práctica', 'Arrastrar a otro día', 'Solo esta semana', 'Cada semana durante 4 semanas', 'Guardar semana', 'Próximos compromisos']) assert.ok(spanish.includes(label), label);
   assert.doesNotMatch(text(spanish), /Edit practice|Repeat|This week only|Every week|Save week|Thursday|October/);
   setAppLanguage('en');

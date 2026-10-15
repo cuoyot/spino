@@ -3,7 +3,7 @@ export { inspectPDF } from './pdf-document.js';
 import { validateAnnotations, MARK_COLORS, pagePoint, marginTurn, turnEdge, moveMark } from './pdf-annotations.js';
 import { onPedalTurn } from './pedals.js';
 import { validateScoreView, fittedFrame, sortSections, sectionLayout, snapSectionPoint } from './score-view.js';
-import { scoreControlsMarkup, scoreIcon } from './score-controls.js';
+import { scoreControlsMarkup, scoreIcon, updateScoreTimer } from './score-controls.js';
 import { scoreFullscreen, native } from './platform.js';
 import { ui, localizeMessage } from './locale.js';
 import './pdf-viewer.css';
@@ -99,8 +99,8 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     $('[data-pdf=reset-view]').disabled = !ready || !!viewSaving;
     $('[data-pdf=fullscreen]').hidden = native || !!document.fullscreenElement || !document.fullscreenEnabled;
     modal.dataset.running = String(running());
-    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = running() || editing();
-    $('[data-pdf=finish]')?.toggleAttribute('hidden', running() || editing());
+    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = false;
+    $('[data-pdf=finish]')?.toggleAttribute('hidden', false);
     $('.pdf-panel').hidden = running() || !expanded;
     $('[data-pdf=tools]').setAttribute('aria-expanded', String(expanded && !running()));
     $('.pdf-annotation-panel').hidden = panel !== 'annotations'; $('.pdf-view-panel').hidden = panel !== 'view';
@@ -312,7 +312,9 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (!dock) return;
     // Keep the preferred bottom anchor when the tools temporarily change the widget size.
     const x = Math.max(8, Math.min(dock.x, modal.clientWidth - widget.offsetWidth - 8));
-    const y = Math.max(8, Math.min(dock.y, modal.clientHeight - 8) - widget.offsetHeight);
+    const raised = widget.querySelector('.score-timer:not([hidden])');
+    const topInset = raised ? Math.max(8, 8 - parseFloat(getComputedStyle(raised).marginTop)) : 8;
+    const y = Math.max(topInset, Math.min(dock.y, modal.clientHeight - 8) - widget.offsetHeight);
     widget.style.left = `${x}px`; widget.style.top = `${y}px`; widget.style.right = 'auto'; widget.style.bottom = 'auto';
   }
   const handle = $('[data-pdf=drag]');
@@ -500,7 +502,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     modal.close(); modal.remove(); previousFocus?.focus(); onClose();
     return true;
   }
-  modal.addEventListener('cancel', event => { event.preventDefault(); if (editing()) void leaveEditing(); else void close(); });
+  modal.addEventListener('cancel', event => { event.preventDefault(); if (!running() && (expanded || editing())) void leaveEditing(); else void close(); });
   modal.addEventListener('click', async event => {
     const toolButton = event.target.closest('[data-tool]'), digitButton = event.target.closest('[data-finger]'), colorButton = event.target.closest('[data-color]');
     if (toolButton && !running()) selectTool(toolButton.dataset.tool);
@@ -508,8 +510,9 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (colorButton && !running()) { color = colorButton.dataset.color;const selected=annotations.marks.find(m=>m.id===selectedId);if(selected)changed(annotations.marks.map(m=>m.id===selectedId?{...m,color}:m));expanded=false;controls(); }
     const action = event.target.closest('[data-pdf]')?.dataset.pdf;
     try {
-      if (editing() && ['timer', 'finish', 'close'].includes(action)) return;
-      if (action === 'finish' && !running() && session?.finish) {
+      if (editing() && ['timer', 'close'].includes(action)) return;
+      if (action === 'finish' && session?.finish) {
+        if (running()) { await session.toggle(); updateTimer(); }
         if (await close()) await session.finish();
         return;
       }
@@ -519,6 +522,11 @@ export async function openScore({ asset, title, save, saveView = async () => {},
         if (!running() && dirty && !await persistMarks()) return;
         await session.toggle(); updateTimer(); return;
       }
+      if (action === 'tools') {
+        if (!session && expanded) { expanded=false; editingRequested=false; controls(); return; }
+        if (running()) { await session.toggle(); updateTimer(); }
+        expanded = true; editingRequested = true; controls(); return;
+      }
       if (running()) return;
       if (action === 'print' && ready) {
         const button=$('[data-pdf=print]');button.disabled=true;button.textContent='…';button.setAttribute('aria-busy','true');
@@ -526,7 +534,6 @@ export async function openScore({ asset, title, save, saveView = async () => {},
           await printScore(await pdfPrintPages({...asset,annotations:structuredClone(annotations)}),title);
         } finally { button.disabled=false;button.innerHTML=scoreIcon('print');button.removeAttribute('aria-busy'); }
       }
-      if (action === 'tools') { expanded = !expanded; editingRequested=expanded; controls(); }
       if (action === 'active-tool') {panel='annotations';expanded=true;editingRequested=true;controls();}
       if (action === 'annotations' || action === 'view') { panel = action; editingRequested=true; if(action==='view')selectTool('read'); expanded=true;if (action === 'annotations') await setSplitting(false); controls(); }
       if (action === 'split') await setSplitting(!splitting);
@@ -563,11 +570,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (closed) return;
     const info = session?.read() || { running: false, time: '' };
     if (session) {
-      $('[data-pdf=timer]').innerHTML = `${scoreIcon(info.running ? 'pause' : 'play')}<span class="pdf-time"></span>`;
-      $('.pdf-time').textContent = info.time;
-      const label = info.running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
-      $('[data-pdf=timer]').setAttribute('aria-label', label);
-      $('[data-pdf=timer]').title = label;
+      updateScoreTimer($('[data-pdf=timer]'), info);
     }
     if (wasRunning !== !!info.running) {
       if (info.running) { editingRequested=false; tool = 'read'; draft = null; gesture = null; paint(); expanded = false; textDialog?.close(); if (splitting) void setSplitting(false); }

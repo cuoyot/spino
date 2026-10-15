@@ -2,6 +2,25 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+## D-041 — Circular saved sessions in one horizontal row
+
+- Calendar header follow-up, 2026-10-15: owner requests keeping Week/Month beside the title on one row. Implemented Calendar-scoped responsive spacing; [96-state language/theme/mode/size evidence](captures/calendar/2026-10-15-inline-header/README.md) and existing shared-header/navigation regressions pass. Full labels and 44px targets retained; native acceptance remains separate.
+
+- Owner follow-up, 2026-10-15: add a light separator between weekly days. Implemented 1px adjacent-day dividers with the existing theme line color; [30-frame responsive follow-up](captures/calendar/2026-10-15-day-separators/README.md) and production build pass. No new package/publication.
+
+- Status: owner **accepted the circular mockup and authorized implementation**, 2026-10-15, with sessions over one hour; follow-up explicitly requests one horizontal line and no visible scrollbar. Implemented and responsive-browser verified. Native/owner interaction acceptance remains separate.
+- Scope: CAL-01 saved sessions and CAL-02 selected-day results. 64px circles contain shared activity icon/color and actual minutes; optional mood and partial badge remain clear. Title/full data opens through the existing session detail. First non-warm-up saved block represents the activity; accessible text lists all block activities. No IDs or data change. This supersedes D-040's visible title-bearing pills; Today retains detailed cards.
+- Overflow: touch/keyboard horizontal scrolling with no visible bar; focus reveals offscreen sessions. Week Add remains fixed outside the strip. Existing planned-practice/event actions remain.
+- Verification: 30 responsive frames, both themes, four main layouts and 320px. 59/60/75/95/120/180/720 minute fixtures; no time/icon/mood overlap, one row, touch/arrow scroll, fixed Add, month focus and exact detail routing pass. Production build, nine unit checks and two existing browser regressions pass. [Evidence](captures/calendar/2026-10-15-session-circles/README.md). No new APK/publication; beta 11 still contains pills.
+
+## D-040 — Compact saved practice in Calendar
+
+- Publication follow-up, 2026-10-15: included in Android beta 11/build50; emulator replacement installation/data retention/foreground and public website hashes verified under commit aa3038f. Native visual acceptance remains open; iOS remains beta 9/build48.
+
+- Status: owner requested and authorized compactness on 2026-10-15. Wrapping session pills are implemented and responsive-browser verified; owner/native visual acceptance remains open.
+- Scope: CAL-01 saved sessions and CAL-02 selected-day results. Show completion/partial status, title, actual minutes and optional mood face; open existing full details on tap. Keep planned practice/event actions and stable IDs. Today retains its detailed cards.
+- Verification: production build, nine agenda/planner unit checks, two existing navigation/planner browser regressions, 20 responsive frames in both themes across four standard orientations plus 320px. Linked/ad-hoc/partial/long-title details and Add remain reachable; 44px targets, no overflow and smaller multi-session days. [Evidence](captures/calendar/2026-10-15-compact-sessions/README.md). No new APK/publication.
+
 ## D-036 — Complete annotated score printing
 
 - 2026-10-07 owner refinement supersedes the app-owned preview: open system printing immediately. Compact printer icons in paused PDF/XML tools and downloaded-score Repertoire rows/details and Catalogue cards/details. Shared asset rendering avoids opening the viewer or modifying current view state. Browser calls intercepted in synthetic tests confirm direct print invocation and no custom preview/viewer. Published 5.2.6 retains the previous preview until another package is requested.

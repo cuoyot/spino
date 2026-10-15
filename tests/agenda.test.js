@@ -3,9 +3,17 @@ import assert from 'node:assert/strict';
 import { test, beforeEach } from 'node:test';
 beforeEach(() => setAppLanguage('es'));
 import { emptyData, block, beginSession, saveSession } from '../src/companion/model.js';
-import { agendaEntries, todayPractice, todayMarkup, weekAgendaMarkup } from '../src/companion/agenda.js';
+import { agendaEntries, todayPractice, todayMarkup, weekAgendaMarkup, todayWeeklyProgress } from '../src/companion/agenda.js';
 
 const today = '2026-09-30';
+test('Home weekly progress counts saved time through today and compares an optional goal',()=>{
+ const data=emptyData();data.preferences.weeklyMinutes=90;
+ data.sessions=[{date:'2026-09-28',elapsedMs:30*60000},{date:today,elapsedMs:15*60000,status:'partial',manual:true},{date:'2026-09-27',elapsedMs:100*60000},{date:'2026-10-01',elapsedMs:100*60000}].map(s=>({...s,id:s.date,blocks:[block('free')],results:[]}));
+ data.active={date:today,elapsedMs:60*60000};
+ const html=todayWeeklyProgress(data,today);assert.match(html,/>45<small>/);assert.match(html,/aria-valuenow="50"/);assert.match(html,/45 min para tu objetivo/);
+ data.preferences.weeklyMinutes=0;const noGoal=todayWeeklyProgress(data,today);assert.match(noGoal,/>45<small>/);assert.doesNotMatch(noGoal,/progressbar|objetivo/);
+ data.preferences.weeklyMinutes=30;const reached=todayWeeklyProgress(data,today);assert.match(reached,/>45<small>/);assert.match(reached,/aria-valuenow="100"/);assert.match(reached,/Objetivo cumplido/);
+});
 function fixture() {
   const data = emptyData();
   const plan = { id: 'reading', title: 'Reading', context: 'mobile', date: today, time: '10:00', status: 'planned', blocks: [block()] };

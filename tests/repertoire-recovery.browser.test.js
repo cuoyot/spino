@@ -16,8 +16,8 @@ test('missing local repertoire score preserves the pending session and permits r
   await evaluate(`document.querySelector('[data-action=resume-session]').click()`);
   const before = await evaluate(`document.querySelector('[data-block-clock]').textContent`);
   for (let attempt = 0; attempt < 2; attempt++) {
-    await evaluate(`document.querySelector('[data-action=open-pdf]').click()`);
-    await wait(`!document.querySelector('[data-action=open-pdf]').disabled && document.body.textContent.includes('Vuelve a añadir o descargar la partitura.')`);
+    await evaluate(`document.querySelector('[data-action=open-score-practice]').click()`);
+    await wait(`!document.querySelector('[data-action=open-score-practice]').disabled && document.body.textContent.includes('Vuelve a añadir o descargar la partitura.')`);
     assert.equal(await evaluate(`document.querySelector('[data-block-clock]').textContent`), before);
     assert.equal(await evaluate(`!!document.querySelector('.pdf-paper')`), false);
     assert.equal(await evaluate(`!!document.querySelector('[data-action=session-change-work]')`), true);

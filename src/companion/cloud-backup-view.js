@@ -12,7 +12,7 @@ const messages = {
     unavailable: 'Cloud connection is available in the installed app.',
     status: { disconnected: 'Not connected', paused: 'Automatic updates paused', pending: 'Changes pending',
       waiting: 'Waiting to receive changes', writing: 'Updating file…', saved: 'Saved to your file provider',
-      error: 'Connection needs attention', conflict: 'Changes need review' },
+      error: 'Update failed', conflict: 'Changes need review' },
     setupNote: 'Choose {provider} in the file picker.',
     start: 'Start on this device', startDetail: 'Create a file to keep your devices in sync.',
     join: 'Connect another device', joinDetail: 'Select the sync file you already use with SPino.',
@@ -41,7 +41,7 @@ const messages = {
     unavailable: 'Conecta la nube desde la app instalada.',
     status: { disconnected: 'Sin conectar', paused: 'Actualizaciones automáticas en pausa', pending: 'Cambios pendientes',
       waiting: 'Esperando recibir los cambios', writing: 'Actualizando archivo…', saved: 'Guardado en tu proveedor de archivos',
-      error: 'Revisa la conexión', conflict: 'Hay cambios que revisar' },
+      error: 'No se ha podido actualizar', conflict: 'Hay cambios que revisar' },
     setupNote: 'Elige {provider} en el selector de archivos.',
     start: 'Empezar en este dispositivo', startDetail: 'Crea un archivo para sincronizar tus dispositivos.',
     join: 'Conectar otro dispositivo', joinDetail: 'Selecciona el archivo que ya usas con SPino.',
@@ -80,17 +80,27 @@ const providers = options => options.platform === 'ios' ? ((options.lang || getA
 const footer = t => `<div class="cp-cloud-footer">${button('close-dialog', t.done, 'quiet')}</div>`;
 const disabled = state => state.status === 'writing' ? 'disabled' : '';
 
+const errorMarkup = (state, options) => {
+  if (state.status !== 'error' || !state.error) return '';
+  const lang = options.lang || getAppLanguage();
+  const labels = lang === 'es'
+    ? { snapshot: 'Lectura del cuaderno local', read: 'Lectura del archivo en la nube', validate: 'Validación del archivo', baseline: 'Guardado o lectura de la base local', merge: 'Combinación de cambios', write: 'Escritura del archivo en la nube', recovery: 'Guardado de la copia de recuperación', apply: 'Aplicación de cambios recibidos' }
+    : { snapshot: 'Reading the local notebook', read: 'Reading the cloud file', validate: 'Validating the file', baseline: 'Saving or reading the local baseline', merge: 'Combining changes', write: 'Writing the cloud file', recovery: 'Saving the recovery copy', apply: 'Applying incoming changes' };
+  return `<div class="cp-cloud-problem" role="alert">${labels[state.operation] ? `<strong>${esc(labels[state.operation])}</strong>` : ''}<p class="cp-cloud-technical">${esc(localizeMessage(state.error, lang))}</p>${state.retryable ? `<p>${esc(lang === 'es' ? 'Se reintentará automáticamente con SPino abierto.' : 'Will retry automatically while SPino is open.')}</p>` : ''}</div>`;
+};
+
 export function cloudBackupMarkup(state, options = {}) {
   const t = copy(options), linked = Boolean(state.name), waiting = {en:{practice:'Finish and save your pending practice to receive changes.',editor:'Finish editing to receive changes.',dialog:'Close the open dialog to receive changes.',score:'Close the score to receive changes.'},es:{practice:'Termina y guarda la práctica pendiente para recibir los cambios.',editor:'Termina de editar para recibir los cambios.',dialog:'Cierra el diálogo abierto para recibir los cambios.',score:'Cierra la partitura para recibir los cambios.'}}, status = state.status === 'waiting' && state.waitReason ? (waiting[options.lang||getAppLanguage()]||waiting.en)[state.waitReason] || t.status.waiting : t.status[state.status] || t.status.disconnected;
   if (!options.available) return `<section class="cp-card cp-cloud-card" id="cloud-backup"><span class="cp-cloud-emblem">${icon()}</span><h2>${esc(t.connectTitle)}</h2><p class="muted">${esc(t.includes)}</p><p class="cp-cloud-browser">${esc(t.unavailable)}</p></section>`;
   const conflict = state.status === 'conflict' && state.mode === 'sync';
-  const primaryAction = !linked ? 'cloud-setup' : conflict ? 'cloud-conflicts' : state.status === 'error' || state.status === 'conflict' ? 'cloud-manage' : !state.enabled ? 'cloud-toggle' : 'cloud-sync';
-  const primaryLabel = !linked ? t.connect : conflict ? t.review : state.status === 'error' || state.status === 'conflict' ? t.manage : !state.enabled ? t.resume : state.mode === 'sync' ? t.sync : t.backup;
+  const primaryAction = !linked ? 'cloud-setup' : conflict ? 'cloud-conflicts' : state.status === 'error' && state.enabled ? 'cloud-sync' : state.status === 'error' || state.status === 'conflict' ? 'cloud-manage' : !state.enabled ? 'cloud-toggle' : 'cloud-sync';
+  const primaryLabel = !linked ? t.connect : conflict ? t.review : state.status === 'error' && state.enabled ? t.retry : state.status === 'error' || state.status === 'conflict' ? t.manage : !state.enabled ? t.resume : state.mode === 'sync' ? t.sync : t.backup;
   const timestamp = state.lastWrittenAt && !Number.isNaN(Date.parse(state.lastWrittenAt))
     ? new Intl.DateTimeFormat(options.lang || getAppLanguage(), { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.lastWrittenAt)) : null;
   return `<section class="cp-card cp-cloud-card" id="cloud-backup" data-cloud-status="${esc(state.status || 'disconnected')}">
     <div class="cp-cloud-heading"><span class="cp-cloud-emblem">${icon()}</span><div><h2>${esc(linked ? t.title : t.connectTitle)}</h2><p class="muted">${esc(linked ? state.mode === 'sync' ? t.syncing : t.independent : t.includes)}</p></div></div>
     <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(status)}</p>
+    ${errorMarkup(state, options)}
     ${state.status==='waiting' && state.waitReason==='practice' ? button('resume-session', (options.lang||getAppLanguage())==='es'?'Abrir práctica pendiente':'Open pending practice', 'quiet') : ''}
     ${linked ? `<div class="cp-cloud-file">${icon('file')}<div><strong title="${esc(state.name)}">${esc(state.name)}</strong><small>${esc(timestamp ? `${t.savedAt}: ${timestamp}` : t.noWrite)}</small></div></div>` : ''}
     <div class="cp-cloud-actions">${button(primaryAction, primaryLabel, 'primary', `${disabled(state)} ${primaryAction === 'cloud-toggle' ? 'data-id="true"' : ''}`)}${button(primaryAction === 'cloud-manage' ? 'cloud-help' : linked ? 'cloud-manage' : 'cloud-help', primaryAction === 'cloud-manage' ? t.help : linked ? t.manage : t.help, 'quiet', disabled(state))}</div>

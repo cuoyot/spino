@@ -40,14 +40,14 @@
 .cp-section { margin-top: 28px; }
 .cp-card { border: 1px solid var(--line); background: var(--theme-panel, #1e2127); border-radius: 20px; padding: 22px; margin-bottom: 12px; overflow-wrap: anywhere; }
 .cp-hero { background: var(--theme-accent, #4f8cff); color: var(--theme-text, #e8eaed); padding: 26px; border-radius: 24px; position: relative; }
-#app-shell .cp-hero .eyebrow, #app-shell .cp-hero .muted { color: #c2cbd9; }
+#app-shell .cp-hero .eyebrow, #app-shell .cp-hero .muted { color: var(--theme-muted, #c2cbd9); }
 #app-shell .cp-hero h2 { font-size: 27px; max-width: 460px; }
 #app-shell .cp-hero .primary { background: var(--theme-text, #e8eaed); border-color: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); margin-top: 12px; min-width: 180px; }
 .cp-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 .cp-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .cp-shortcuts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
 #app-shell .cp-shortcuts button { display: flex; flex-direction: column; align-items: start; gap: 18px; padding: 18px; text-align: left; min-height: 110px; border-radius: 18px; }
-.cp-shortcuts .cp-icon { color: #b9c8df; }
+.cp-shortcuts .cp-icon { color: var(--theme-muted, #b9c8df); }
 .cp-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 
 #app-shell .cp-quick-practice { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left; padding: 16px 18px; margin: 16px 0; background: var(--theme-control, #253552); border-color: #4c79b3; }
@@ -66,8 +66,8 @@
 .cp-week-result > div:first-child { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .cp-week-result .cp-progress { margin: 8px 0 0; }
 .cp-number { font-size: 30px; line-height: 1.2; display: block; font-variant-numeric: tabular-nums; font-weight: 650; letter-spacing: -.035em; }
-.cp-tag { display: inline-block; border-radius: 8px; padding: 4px 9px; background: var(--theme-tint, #293344); font-size: 12px; color: #c5d5ed; }
-.cp-tag.warm { background: var(--theme-control, #383123); color: #dfc593; }
+.cp-tag { display: inline-block; border-radius: 8px; padding: 4px 9px; background: var(--theme-tint, #293344); font-size: 12px; color: var(--theme-muted, #c5d5ed); }
+.cp-tag.warm { background: var(--theme-control, #383123); color: var(--theme-warning, #dfc593); }
 .cp-empty { padding: 20px 0; color: var(--subtle); }
 .cp-week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; margin: 18px 0; }
 #app-shell .cp-week button { padding: 10px 2px; min-height: 68px; display: grid; place-content: center; gap: 3px; }
@@ -81,7 +81,7 @@
 .cp-progress { width: 100%; height: 7px; border-radius: 8px; background: var(--theme-line, #353941); margin: 12px 0; overflow: hidden; }
 .cp-progress > span { display: block; height: 100%; background: #85a6d9; border-radius: inherit; }
 #app-shell form { margin: 0; }
-#app-shell label, #cp-dialog label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #b6bcc6; margin-bottom: 14px; }
+#app-shell label, #cp-dialog label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--theme-muted, #b6bcc6); margin-bottom: 14px; }
 #app-shell input, #app-shell select, #app-shell textarea, #cp-dialog input, #cp-dialog select, #cp-dialog textarea { width: 100%; min-height: 46px; font: inherit; font-size: 16px; color: var(--theme-text, #e8eaed); background: var(--theme-panel, #1e2127); border: 1px solid var(--theme-border, #424854); border-radius: 10px; padding: 10px 12px; }
 #app-shell textarea, #cp-dialog textarea { min-height: 90px; resize: vertical; }
 #app-shell .check, #cp-dialog .check { flex-direction: row; align-items: center; gap: 10px; }
@@ -102,7 +102,7 @@
 .cp-session-card { text-align: center; padding: 32px 20px; }
 .cp-session-card .cp-actions { justify-content: center; }
 .cp-feedback { min-height: 32px; color: var(--theme-accent, #4f8cff); margin-top: 12px; }
-.cp-notice { border: 1px solid #dfc593; background: var(--theme-control, #302b22); color: #e6c488; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+.cp-notice { border: 1px solid #dfc593; background: var(--theme-control, #302b22); color: var(--theme-warning, #e6c488); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
 #cp-toast { position: fixed; z-index: 1000; bottom: calc(92px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 12px; background: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); box-shadow: 0 6px 25px #0003; }
 #cp-dialog { color-scheme: dark; color: var(--theme-text, #e8eaed); background: var(--theme-bg, #14161a); width: min(560px, calc(100vw - 24px)); border-color: var(--theme-line, #353941); }
 #cp-dialog .cp-dialog-body { padding: 22px; overflow-y: auto; max-height: calc(90dvh - 8px); }
@@ -193,7 +193,7 @@
 #app-shell .cp-day { padding: 5px 1px; border: 1px solid transparent; border-radius: 8px; min-height: 44px; background: transparent; position: relative; }
 #app-shell .cp-day[aria-current=date] { border-color: #90a1bc; }
 #app-shell .cp-day[aria-pressed=true] { background: var(--theme-selected, #354c70); color: white; }
-#app-shell .cp-day.outside { color: #89909b; }
+#app-shell .cp-day.outside { color: var(--theme-muted, #89909b); }
 .cp-day-marks { display: flex; gap: 3px; height: 5px; justify-content: center; margin-top: 3px; }
 .cp-day-marks i, .cp-legend i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; }
 .planned { background: var(--theme-link, #9cbfff); }
@@ -230,7 +230,7 @@
 .cp-rating legend { margin-bottom: 8px; font-size: 14px; }
 .cp-rating legend small { color: var(--subtle); }
 .cp-rating > div { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 5px; }
-#cp-dialog .cp-rating label { position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid var(--theme-border, #424854); border-radius: 10px; margin: 0; min-height: 66px; cursor: pointer; padding: 5px 0; color: #c1c8d3; }
+#cp-dialog .cp-rating label { position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid var(--theme-border, #424854); border-radius: 10px; margin: 0; min-height: 66px; cursor: pointer; padding: 5px 0; color: var(--theme-muted, #c1c8d3); }
 .cp-rating label:has(:checked) { background: var(--theme-selected, #354c70); outline: 2px solid var(--theme-link, #9cbfff); }
 .cp-rating label:has(:focus-visible) { outline: 3px solid var(--theme-link, #9cbfff); }
 #cp-dialog .cp-rating input { position: absolute; opacity: 0; width: 1px; min-height: 1px; }
@@ -299,15 +299,28 @@
 .cp-agenda-day time > b { font-size: 22px; font-weight: 650; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
 .cp-agenda-day time[aria-current=date] > b { background: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); }
 .cp-day-content { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.cp-day-sessions { display: flex; flex: 1 1 100%; flex-wrap: nowrap; align-items: center; gap: 8px; min-width: 0; }
+.cp-session-strip { display: flex; flex: 1 1 auto; gap: 8px; width: 0; min-width: 0; padding: 4px 4px 14px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.cp-session-strip::-webkit-scrollbar { display: none; }
+.cp-agenda > .cp-session-strip { width: auto; }
+.cp-day-content > .cp-unplanned + .cp-day-sessions { flex: 0 1 auto; }
+#app-shell .cp-session-chip { position: relative; display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; flex: 0 0 64px; width: 64px; height: 64px; min-width: 64px; min-height: 64px; padding: 6px 3px; border: 0; border-radius: 50%; background: var(--theme-panel); color: var(--theme-text); font-weight: 400; text-align: center; overflow: visible; }
+.cp-session-chip-icon { display: flex; color: var(--activity-color); }
+.cp-session-chip-icon svg { width: 20px; height: 20px; }
+.cp-session-chip-duration { display: flex; align-items: baseline; gap: 2px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cp-session-chip-duration b { font-size: 19px; line-height: 1.1; font-weight: 700; letter-spacing: -.03em; }
+.cp-session-chip-duration small { font-size: 11px; line-height: 1.1; font-weight: 400; }
+.cp-session-chip-mood { position: absolute; right: -3px; bottom: -12px; display: grid; place-items: center; width: 22px; height: 22px; border: 2px solid var(--theme-bg); border-radius: 50%; background: var(--theme-panel); font-size: 16px; line-height: 1; }
+.cp-session-chip-status { position: absolute; right: -2px; top: -2px; display: grid; place-items: center; width: 18px; height: 18px; border: 2px solid var(--theme-bg); border-radius: 50%; background: var(--theme-panel); color: var(--activity-color); font-size: 11px; line-height: 1; }
 .cp-unplanned { color: var(--subtle); font-size: 12px; flex: 1 1 130px; }
-#app-shell .cp-add-day { padding: 8px; font-size: 13px; color: #b9c8df; flex: 0 0 auto; }
+#app-shell .cp-add-day { padding: 8px; font-size: 13px; color: var(--theme-muted, #b9c8df); flex: 0 0 auto; }
 .cp-agenda-card { flex: 1 1 280px; display: flex; align-items: center; border: 1px solid var(--line); border-left: 5px solid var(--activity-color); border-radius: 10px; background: var(--theme-panel, #1e2127); overflow-wrap: anywhere; }
 #app-shell .cp-entry-open { display: flex; flex: 1; flex-direction: column; gap: 4px; align-self: stretch; min-width: 0; border: 0; border-radius: 0 8px 8px 0; padding: 12px; text-align: left; background: transparent; font-size: 13px; font-weight: 400; }
 #app-shell .cp-entry-open:hover { background: #ffffff06; }
 #app-shell .cp-entry-open:focus-visible { outline-offset: -3px; }
 .cp-entry-open strong { font-size: 15px; }
-.cp-entry-state { width: 100%; font-size: 11px; color: #c1ccdc; }
-.cp-entry-mood { color: #d3dacb; }
+.cp-entry-state { width: 100%; font-size: 11px; color: var(--theme-muted, #c1ccdc); }
+.cp-entry-mood { color: var(--theme-muted, #d3dacb); }
 .cp-entry-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; }
 #app-shell .cp-entry-actions button { font-size: 13px; padding: 8px 10px; }
 #app-shell .cp-week-agenda .cp-entry-open > .muted { display: none; }
@@ -344,7 +357,7 @@
 #app-shell .cp-upcoming-event { display: flex; width: 100%; gap: 10px; align-items: center; text-align: left; padding: 8px 0; border: 0; background: transparent; }
 .cp-upcoming-event small { display: block; font-weight: 400; color: var(--subtle); margin-top: 4px; }
 .cp-countdown { flex: 0 0 40px; padding: 4px; background: var(--theme-control, #383123); border-radius: 8px; text-align: center; }
-.cp-countdown b { font-size: 18px; color: #dfc593; }
+.cp-countdown b { font-size: 18px; color: var(--theme-warning, #dfc593); }
 .cp-countdown small { margin: 0; }
 /* Shared chrome leaves the first row to the screen title and a compact MIDI status. */
 .cp-content { position: relative; }
@@ -354,13 +367,25 @@
 /* Compact visual density keeps full-size touch targets and natural text wrapping. */
 .cp-today-focus { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding: 16px; margin: 12px 0; border: 1px solid #465d7f; border-radius: 14px; background: var(--theme-control, #202a3a); }
 .cp-focus-copy { flex: 1 1 230px; overflow-wrap: anywhere; }
-#app-shell .cp-focus-copy .eyebrow { display: block; margin: 0 0 6px; color: #b5c9e9; font-size: 10px; letter-spacing: .09em; }
+#app-shell .cp-focus-copy .eyebrow { display: block; margin: 0 0 6px; color: var(--theme-link, #b5c9e9); font-size: 10px; letter-spacing: .09em; }
 #app-shell .cp-today-focus h2 { font-size: clamp(20px,2.3vw,24px); line-height: 1.2; margin: 0 0 6px; }
 #app-shell .cp-today-focus p { margin: 0; }
-#app-shell .cp-today-focus .cp-focus-blocks { margin-top: 6px; font-size: 12px; color: #bdc6d5; }
+#app-shell .cp-today-focus .cp-focus-blocks { margin-top: 6px; font-size: 12px; color: var(--theme-muted, #bdc6d5); }
 .cp-focus-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: 0 1 auto; }
 .cp-focus-actions .primary { min-width: 140px; }
 .cp-today-week { background: transparent; padding: 0; border: 0; }
+.cp-today-progress { padding: 14px 16px; margin: 12px 0; border: 1px solid var(--line); border-radius: 14px; background: var(--theme-tint); }
+.cp-today-progress-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+#app-shell .cp-today-progress-heading h2 { margin: 0; font-size: 14px; font-weight: 600; }
+#app-shell .cp-today-progress-heading button { padding: 6px 0 6px 12px; min-height: 44px; font-size: 12px; color: var(--theme-link); flex-shrink: 0; }
+.cp-today-progress-total { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+.cp-today-progress-total > strong { font-size: clamp(32px,5vw,40px); line-height: 1.15; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.cp-today-progress-total small { font-size: 17px; letter-spacing: normal; font-weight: 500; }
+.cp-today-progress-total > span { color: var(--subtle); font-size: 13px; }
+.cp-today-progress-total b { color: var(--ink); }
+.cp-today-progress-track { height: 8px; overflow: hidden; border-radius: 8px; background: var(--theme-panel); margin-top: 12px; }
+.cp-today-progress-track > span { display: block; height: 100%; background: var(--theme-accent); border-radius: inherit; }
+#app-shell .cp-today-progress-caption { margin: 6px 0 0; color: var(--subtle); font-size: 12px; }
 .cp-today-week > .cp-row { margin-bottom: 4px; }
 .cp-practice-hub { max-width: 900px; margin: 0 auto; }
 .cp-practice-hub .cp-shortcuts { gap: 8px; margin-top: 12px; }
@@ -412,7 +437,7 @@
 #app-shell .cp-planner h1 { font-size: 26px; margin-bottom: 8px; }
 #app-shell .cp-planner label { margin-bottom: 10px; }
 .cp-planner-days { border: 0; padding: 0; margin: 0 0 12px; }
-.cp-planner-days legend { color: #b6bcc6; font-size: 13px; margin-bottom: 6px; }
+.cp-planner-days legend { color: var(--theme-muted, #b6bcc6); font-size: 13px; margin-bottom: 6px; }
 .cp-planner-days > div { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; }
 #app-shell .cp-planner-days label { position: relative; margin: 0; }
 #app-shell .cp-planner-days input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; }
@@ -446,7 +471,7 @@
 .cp-library-maintenance .cp-stats b { display: block; font-size: 24px; }
 .cp-score-card { display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
 #app-shell .cp-score-card h2 { font-size: 18px; overflow-wrap: anywhere; }
-#app-shell .cp-score-card .cp-score-state { font-size: 13px; color: #bac8ba; margin: auto 0 12px; padding-top: 10px; }
+#app-shell .cp-score-card .cp-score-state { font-size: 13px; color: var(--theme-muted, #bac8ba); margin: auto 0 12px; padding-top: 10px; }
 .cp-score-card > details { margin-top: 12px; color: var(--subtle); font-size: 13px; }
 .cp-library-pages { margin-top: 16px; justify-content: center; }
 .cp-library-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; margin: 12px 0; }
@@ -538,7 +563,7 @@
 #app-shell .cp-repertoire-open b { font-weight:550; }
 #app-shell .cp-repertoire-table .cp-stand-icon, #app-shell .cp-repertoire-table .cp-favorite-toggle { width:44px; height:44px; min-width:44px; padding:0; display:inline-flex; align-items:center; justify-content:center; }
 #app-shell .cp-repertoire-table .cp-stand-icon[aria-pressed=true] { color:var(--theme-link, #9cbfff); }
-#app-shell .cp-repertoire-table .cp-stand-icon[aria-pressed=false], #app-shell .cp-repertoire-table .cp-favorite-toggle[aria-pressed=false] { color:#707987; }
+#app-shell .cp-repertoire-table .cp-stand-icon[aria-pressed=false], #app-shell .cp-repertoire-table .cp-favorite-toggle[aria-pressed=false] { color: var(--theme-muted, #707987); }
 #app-shell .cp-repertoire-table button:hover { background:var(--theme-control, #20252e); }
 .cp-mobile-sort, .cp-mobile-composer, .cp-mobile-stage { display:none; }
 .cp-repertoire-searchbar { display:flex; align-items:start; gap:12px; margin-bottom:12px; position:relative; }
@@ -560,7 +585,7 @@
   .cp-mobile-sort { display:inline-flex; gap:12px; margin-left:12px; }
   #app-shell .cp-repertoire-table td, #app-shell .cp-repertoire-table th { padding-left:0; padding-right:0; }
   #app-shell .cp-repertoire-open .cp-mobile-composer { display:block; font-size:13px; color:var(--subtle); margin-top:3px; font-weight:400; }
-  .cp-mobile-stage { display:block; font-size:11px; color:#798391; margin-top:-2px; padding-bottom:4px; }
+  .cp-mobile-stage { display:block; font-size:11px; color: var(--theme-muted, #798391); margin-top:-2px; padding-bottom:4px; }
   .cp-repertoire-stand { margin-bottom:28px; }
 }
 #app-shell button.cp-loading, #cp-dialog button.cp-loading { cursor: progress; opacity: 1; }
@@ -603,3 +628,29 @@
 
 #app-shell .cp-app-header .cp-page-heading {padding:0;}
 .cp-header-title {display:flex;align-items:center;gap:8px;}
+
+.cp-practice-pieces { min-width: 0; }
+.cp-practice-pieces > p { margin: 0 0 .5rem; font-weight: 650; }
+.cp-practice-shortcuts { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.cp-practice-shortcuts button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-align: left; }
+.cp-practice-shortcuts button[aria-pressed="true"] { border-color: var(--theme-accent); background: var(--theme-accent); color: white; }
+.cp-practice-warmup { margin: 1rem 0; }
+
+.cp-progress-sections { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin: 0 0 18px; }
+#app-shell .cp-progress-sections button { padding: 10px 5px; overflow-wrap: anywhere; }
+#app-shell .cp-progress-sections [aria-current="page"] { background: var(--theme-accent); color: white; }
+.cp-learning-comparison { font-size: 24px; font-variant-numeric: tabular-nums; }
+
+/* A single weekly summary leads Today: saved practice and calendar together. */
+.cp-today > .cp-today-progress { margin: 0 0 14px; padding: 12px 16px; background: linear-gradient(135deg,var(--theme-tint),var(--theme-panel)); border-color: var(--theme-accent); }
+#app-shell .cp-today-progress-heading h2 { font-size: 18px; font-weight: 750; }
+.cp-today-progress .cp-today-week { margin-top: 10px; padding: 8px 0 0; border-top: 1px solid var(--theme-line); }
+.cp-today-progress-track > span { background: linear-gradient(90deg,#4f8cff,#32c6ac); }
+#app-shell .cp-today-progress-caption { color: var(--theme-link); }
+#app-shell .cp-today-progress .cp-today-days button { flex-direction: column; flex-wrap: nowrap; gap: 3px; padding: 4px 0; }
+.cp-today-progress .cp-today-days { gap: 5px; }
+.cp-today-progress .cp-day-practice { display: flex; align-items: flex-end; width: min(28px,100%); height: 32px; border-radius: 5px; background: var(--theme-control); overflow: hidden; }
+.cp-day-practice i { display: block; width: 100%; border-radius: 5px; background: linear-gradient(0deg,#368ce8,#38c8ac); }
+.cp-today-progress .cp-day-minutes { font-size: 10px; font-variant-numeric: tabular-nums; color: var(--theme-link); }
+.cp-today-progress .cp-today-days [aria-current=date] b { background: var(--theme-accent); color: white; }
+.cp-today-progress .cp-today-marks { flex-basis: auto; }

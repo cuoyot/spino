@@ -3,7 +3,7 @@ import { OpenSheetMusicDisplay } from 'opensheetmusicdisplay';
 import { readMusicXML, bytesFromBase64 } from './musicxml-document.js';
 import { excerptXML } from './musicxml-segments.js';
 import { scoreFullscreen } from './platform.js';
-import { scoreIcon } from './score-controls.js';
+import { scoreIcon, updateScoreTimer } from './score-controls.js';
 import { digest } from './library.js';
 import { ui, localizeMessage } from './locale.js';
 import { marginTurn, turnEdge } from './pdf-annotations.js';
@@ -28,11 +28,11 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   const bar = widget.querySelector('.pdf-widget-bar');
   const options = document.createElement('div'); options.className = 'pdf-panel'; options.hidden = true;
   const optionToggle = document.createElement('button'); optionToggle.dataset.xml = 'options';
-  optionToggle.setAttribute('aria-label', ui('Score options', 'Opciones de partitura')); optionToggle.innerHTML = scoreIcon('tools');
+  optionToggle.setAttribute('aria-label', ui('Edit score', 'Editar partitura')); optionToggle.innerHTML = scoreIcon('tools');
   const done = document.createElement('button'); done.dataset.xml = 'done'; done.textContent = ui('Done', 'Hecho'); done.hidden = true;
   const zoomLabel = document.createElement('label'); zoomLabel.textContent = ui('Zoom (%)', 'Zoom (%)');
   const zoomField = document.createElement('input'); zoomField.type = 'number'; zoomField.min = '60'; zoomField.max = '200'; zoomField.step = '10'; zoomField.value = '100'; zoomField.dataset.xmlZoom = ''; zoomField.setAttribute('aria-label',ui('Zoom percentage','Porcentaje de zoom')); zoomLabel.append(zoomField);
-  for (const node of [widget.querySelector('.midi-indicator'), modal.querySelector('[data-xml=follow]'), modal.querySelector('[data-xml-hands]'), modal.querySelector('[data-xml=out]'), zoomLabel, modal.querySelector('[data-xml=in]'), modal.querySelector('[data-xml=close]'), modal.querySelector('.xml-status')]) if (node) options.append(node);
+  for (const node of [widget.querySelector('[data-action=midi-settings]'), modal.querySelector('[data-xml=follow]'), modal.querySelector('[data-xml-hands]'), modal.querySelector('[data-xml=out]'), zoomLabel, modal.querySelector('[data-xml=in]'), modal.querySelector('[data-xml=close]'), modal.querySelector('.xml-status')]) if (node) options.append(node);
   const closeButton=options.querySelector('[data-xml=close]');closeButton.textContent=session?ui('Return to session','Volver a la sesión'):ui('Close score','Cerrar partitura');closeButton.setAttribute('aria-label',closeButton.textContent);
   modal.querySelector('.xml-time').remove();
   const finish=modal.querySelector('[data-xml=finish]');if(finish){finish.innerHTML=scoreIcon('finish');finish.setAttribute('aria-label',ui('Finish practice','Terminar práctica'));}
@@ -44,7 +44,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   const midiGroup=document.createElement('section');midiGroup.className='xml-options-section';
   const midiHeading=document.createElement('h3');midiHeading.textContent=ui('MIDI follow','Seguimiento MIDI');midiGroup.append(midiHeading);
   const midiRow=document.createElement('div');midiRow.className='xml-option-row';
-  for(const selector of ['[data-midi-indicator]','[data-xml=follow]','[data-xml-hands]']){const node=modal.querySelector(selector);if(node)midiRow.append(node);}
+  for(const selector of ['[data-action=midi-settings]','[data-xml=follow]','[data-xml-hands]']){const node=modal.querySelector(selector);if(node)midiRow.append(node);}
   midiGroup.append(midiRow,modal.querySelector('.xml-follow'));
   const zoomGroup=document.createElement('section');zoomGroup.className='xml-options-section';
   const zoomHeading=document.createElement('h3');zoomHeading.textContent='Zoom';zoomGroup.append(zoomHeading);
@@ -113,13 +113,14 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   const controls = () => {
     const editing=expanded||annotationTool!=='read';
     const info = session?.read(); modal.dataset.running = String(running());
-    const pause = modal.querySelector('[data-xml=pause]'); pause.hidden = !session || expanded; pause.innerHTML = `${scoreIcon(running() ? 'pause' : 'play')}<span class="pdf-time">${info?.time || ''}</span>`; pause.setAttribute('aria-label', running() ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica'));
+    const pause = modal.querySelector('[data-xml=pause]');
+    if (session) updateScoreTimer(pause, info);
     for (const action of ['out', 'in']) modal.querySelector(`[data-xml=${action}]`).hidden = running();
     closeButton.hidden=running()||editing;
     modal.querySelector('[data-xml=drag]').hidden=expanded;
-    modal.querySelector('[data-xml=finish]')?.toggleAttribute('hidden', running() || editing);
+    modal.querySelector('[data-xml=finish]')?.toggleAttribute('hidden', false);
     modal.querySelector('[data-xml=pause]').hidden=!session||editing;
-    options.hidden = !expanded || running();optionToggle.hidden=running()||editing;done.hidden=!editing||running();
+    options.hidden = !expanded || running();optionToggle.hidden=false;done.hidden=!editing||running();
     const quick=!expanded&&!running()&&annotationTool!=='read';compact.hidden=!quick;activeTool.hidden=!quick;
     const destination=quick?compact:options;if(marksGroup.parentElement!==destination)destination.append(marksGroup);
     marksGroup.querySelector('h3').hidden=quick;
@@ -238,18 +239,28 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     try{await markSaving;}catch{return false;}
     closed = true; stopFollow(); clearInterval(timer); clearTimeout(zoneTimer); clearTimeout(resizeTimer); resized.disconnect(); stopPedals(); display.AutoResizeEnabled = false; display.clear(); await fullscreen.exit(); modal.close(); modal.remove(); onClose(); return true;
   }
-  modal.addEventListener('cancel', event => { event.preventDefault(); void close(); });
+  async function leaveEditing() {
+    try { await markSaving; } catch { return; }
+    expanded=false; annotationTool='read'; updateDigitControls();
+    if(session && !running()) await session.toggle();
+    controls();
+  }
+  modal.addEventListener('cancel', event => { event.preventDefault(); if(!running() && (expanded || annotationTool!=='read')) void leaveEditing(); else void close(); });
   modal.addEventListener('click', async event => {
     const action = event.target.closest('[data-xml]')?.dataset.xml;
-    if(action==='options'&&!running()){expanded=true;controls();}
-    if(action==='done'){expanded=false;annotationTool='read';updateDigitControls();controls();}
+    if(action==='options'){
+      if(!session && expanded) { expanded=false; controls(); return; }
+      if(running()) await session.toggle();
+      expanded=true;controls();return;
+    }
+    if(action==='done'){await leaveEditing();return;}
     if(action==='print'&&!running()){
       printButton.disabled=true;printButton.textContent='…';printButton.setAttribute('aria-busy','true');
       try { await printScore(await musicXMLPrintPages(validated.xml,structuredClone(noteMarks)),validated.title || 'Score'); }
       catch (error) { status.dataset.error='true';status.textContent=ui('Could not print. Try again.','No se ha podido imprimir. Inténtalo de nuevo.')+': '+localizeMessage(error.message);controls(); }
       finally { printButton.disabled=false;printButton.innerHTML=scoreIcon('print');printButton.removeAttribute('aria-busy'); }
     }
-    if (action === 'finish' && !running() && session?.finish) { if (await close()) await session.finish(); return; }
+    if (action === 'finish' && session?.finish) { if(running()) { await session.toggle(); controls(); } if (await close()) await session.finish(); return; }
     if (action === 'close') await close();
     if (action === 'pause') { await session.toggle(); controls(); }
     if (action === 'next' || action === 'prev') turn(action === 'next' ? 1 : -1);
@@ -258,7 +269,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   });
   const handle = modal.querySelector('[data-xml=drag]'); handle.style.touchAction = 'none';
   handle.onpointerdown = e => { e.preventDefault(); handle.setPointerCapture(e.pointerId); const r = widget.getBoundingClientRect(); drag = { x: e.clientX - r.x, y: e.clientY - r.y }; };
-  handle.onpointermove = e => { if (!drag) return; widget.style.right = 'auto'; widget.style.bottom = 'auto'; widget.style.left = `${Math.max(8, Math.min(modal.clientWidth - widget.offsetWidth - 8, e.clientX - drag.x))}px`; widget.style.top = `${Math.max(8, Math.min(modal.clientHeight - widget.offsetHeight - 8, e.clientY - drag.y))}px`; };
+  handle.onpointermove = e => { if (!drag) return; widget.style.right = 'auto'; widget.style.bottom = 'auto'; widget.style.left = `${Math.max(8, Math.min(modal.clientWidth - widget.offsetWidth - 8, e.clientX - drag.x))}px`; widget.style.top = `${Math.max(pauseButton.hidden ? 8 : 36, Math.min(modal.clientHeight - widget.offsetHeight - 8, e.clientY - drag.y))}px`; };
   handle.onpointerup = handle.onpointercancel = () => { drag = null; };
   controls(); timer = setInterval(controls, 500);
   try {

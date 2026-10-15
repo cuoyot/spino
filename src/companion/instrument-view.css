@@ -1,7 +1,7 @@
 #app-shell .cp-instrument-panel{display:grid;gap:16px;max-width:760px;margin-inline:auto}
 #app-shell .cp-instrument-hero{padding:24px}
 #app-shell .cp-instrument-hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-#app-shell .cp-instrument-keyboard{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;color:#99b9ff;background:var(--theme-control, #28364c)}
+#app-shell .cp-instrument-keyboard{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;color: var(--theme-link, #99b9ff);background:var(--theme-control, #28364c)}
 #app-shell .cp-instrument-keyboard svg{width:38px;height:38px;stroke:currentColor;stroke-width:1.6}
 #app-shell .cp-instrument-signal{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--theme-control, #171b21)}
 #app-shell .cp-instrument-hero h2{font-size:clamp(20px,4vw,26px);margin:0 0 8px;letter-spacing:-.035em}
@@ -10,7 +10,7 @@
 #app-shell .cp-instrument-connected li{display:flex;align-items:center;gap:10px;font-size:15px;overflow-wrap:anywhere}
 #app-shell .cp-instrument-status-dot{width:8px;height:8px;display:inline-block;border-radius:50%;background:#63d6a4;box-shadow:0 0 10px #63d6a426;flex-shrink:0}
 #app-shell .cp-instrument-connect{width:100%;margin-top:20px;min-height:48px}
-#app-shell .cp-instrument-hero .cp-instrument-error{margin-top:14px;color:#f3b0a5;font-size:13px}
+#app-shell .cp-instrument-hero .cp-instrument-error{margin-top:14px;color: var(--theme-danger, #f3b0a5);font-size:13px}
 #app-shell .cp-instrument-usb{display:flex;align-items:center;gap:14px;padding:2px 8px;color:var(--subtle)}
 #app-shell .cp-instrument-usb>span{display:grid;place-items:center;flex-shrink:0;width:36px}
 #app-shell .cp-instrument-usb svg{width:28px;height:28px;stroke:currentColor;stroke-width:1.5}

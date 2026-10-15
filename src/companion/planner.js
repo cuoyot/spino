@@ -1,3 +1,4 @@
+import { eventsBetween, cancelEventSeries } from './event-recurrence.js';
 import { ui, getAppLanguage } from './locale.js';
 import { DEFAULT_PRACTICE_MINUTES } from './practice-duration.js';
 import { CONTEXTS, ACTIVITIES, uid, copy, block, localDate, addDays, weekOf } from './model.js';
@@ -30,7 +31,7 @@ export function proposeWeek(data, settings, today = localDate()) {
     if (!Number.isInteger(tutorDay) || tutorDay < 0 || tutorDay > 6 || !/^([01]\d|2[0-3]):[0-5]\d$/.test(tutorTime)) throw Error(ui("Choose the lesson day and time.", "Indica el día y la hora de la clase."));
     const date = addDays(start, tutorDay);
     if (date < today) skipped.push({ date, reason: ui("Lesson on a past date", "Clase en un día pasado") });
-    else if (data.events.some(e => e.date === date && e.type === 'Clase')) skipped.push({ date, reason: ui("Lesson already planned", "Ya tienes una clase") });
+    else if (eventsBetween(data.events,date,date).some(e => e.type === 'Clase')) skipped.push({ date, reason: ui("Lesson already planned", "Ya tienes una clase") });
     else events.push({ id: uid(), title: ui("Lesson with a tutor", "Clase con tutor"), type: 'Clase', date, time: tutorTime, place: '', notes: '', workIds: [], milestones: [], reminder: false });
   }
   return { start, plans, events, skipped, minutes: plans.reduce((sum,p) => sum+p.blocks.reduce((n,b) => n+b.minutes,0),0) };
@@ -60,7 +61,7 @@ export function cancelSeries(data, recurrenceId, from, today = localDate()) {
   const next = copy(data), cutoff = from > today ? from : today;
   const recorded = new Set(data.sessions.map(s => s.planId));
   next.plans = next.plans.filter(p => p.recurrence?.id !== recurrenceId || p.date < cutoff || p.status !== 'planned' || p.sessionId || recorded.has(p.id) || data.active?.planId === p.id);
-  next.events = next.events.filter(e => e.recurrence?.id !== recurrenceId || e.date < cutoff);
+  next.events = cancelEventSeries(next.events, recurrenceId, cutoff);
   return next;
 }
 

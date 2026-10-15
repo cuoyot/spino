@@ -1,10 +1,11 @@
+import { reminderEvents } from './event-recurrence.js';
 const MAX_PENDING = 64;
 const owned = notification => notification.extra?.spinoReminder === true;
 
 export function reminderNotifications(data, language, now = Date.now()) {
   const records = [
     ...data.plans.filter(plan => plan.status === 'planned').map(record => ({ record, type: 'plan' })),
-    ...data.events.map(record => ({ record, type: 'event' })),
+    ...reminderEvents(data.events, now).map(record => ({ record, type: 'event' })),
   ].filter(({ record }) => record.reminder && record.time)
     .sort((a, b) => `${a.type}:${a.record.id}`.localeCompare(`${b.type}:${b.record.id}`));
   const used = new Set();

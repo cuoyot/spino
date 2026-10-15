@@ -36,7 +36,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`); await wait(`document.querySelector('[data-action=practice-work]')`);
   const state = await read('state', 'current'), assetId = state.works[0].assetId;
   await action('practice-work'); await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);
-  await wait(`document.querySelector('[data-action=toggle-session]')`); assert.notEqual((await read('state','current')).active.runningSince,null); await action('open-pdf'); await ready();
+  await wait(`document.querySelector('.pdf-paper')`); assert.notEqual((await read('state','current')).active.runningSince,null); await ready();
 
   await evaluate(`__sr.midi.simulateDevices(['Test piano']);__sr.midi.simulateNote(60)`);
   assert.ok(await evaluate(`!!document.querySelector('.pdf-widget [data-midi-indicator][data-active=true][data-connected=true]')`));
@@ -85,7 +85,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
     await wait(`document.querySelector('.pdf-zoom-value').textContent==='200 %'`); await ready();
     assert.ok(Math.abs((await frame()).y - expected.y) < .01);
-    await control('close'); await wait(`!document.querySelector('.pdf-viewer')`); await action('open-pdf'); await ready();
+    await control('close'); await wait(`!document.querySelector('.pdf-viewer')`); await action('open-score-practice'); await ready(); await control('timer');
     assert.equal((await frame()).zoom, 200); assert.ok(Math.abs((await frame()).y - expected.y) < .01);
     assert.equal(await evaluate(`document.querySelectorAll('.pdf-marks [data-mark-id]').length`), 5);
     await control('tools'); await control('view');
@@ -101,7 +101,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
       await new Promise(r => setTimeout(r, 220)); await ready();
       const box = await evaluate(`(()=>{const r=document.querySelector('.pdf-widget').getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom};})()`);
       assert.ok(box.x >= 0 && box.y >= 0 && box.right <= width + 1 && box.bottom <= height + 1, `${width}x${height} ${JSON.stringify(box)}`);
-      assert.equal(await evaluate(`(()=>{const bar=document.querySelector('.pdf-widget-bar').getBoundingClientRect(),buttons=Array.from(document.querySelectorAll('.pdf-widget-bar button')).filter(b=>!b.hidden && b.getBoundingClientRect().width);return buttons.every(b=>{const r=b.getBoundingClientRect();return Math.abs(r.top-buttons[0].getBoundingClientRect().top)<2 && r.left>=bar.left-1 && r.right<=bar.right+1;});})()`),true,'PDF controls remain on one line without clipping.');
+      assert.equal(await evaluate(`(()=>{const bar=document.querySelector('.pdf-widget-bar').getBoundingClientRect(),buttons=Array.from(document.querySelectorAll('.pdf-widget-bar button')).filter(b=>!b.hidden && b.getBoundingClientRect().width);return buttons.every(b=>{const r=b.getBoundingClientRect();return r.top>=bar.top-30 && r.bottom<=bar.bottom+4 && r.left>=bar.left-1 && r.right<=bar.right+1;});})()`),true,'PDF controls and the raised dial remain inside the bar bounds without clipping.');
       assert.equal(await evaluate(`!!document.querySelector('[data-pdf=timer] .pdf-time')`),true);
       const before = await paper();
       await control('tools'); const after = await paper(); assert.equal(after.width, before.width); assert.equal(after.height, before.height);
@@ -132,7 +132,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
       }
       await control('tools'); await control('timer');
       assert.ok(Math.abs(await bottom() - anchored) < 2, 'Resuming moved the bottom anchor');
-      assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').hidden`), true);
+      assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').hidden`), false);
       await control('timer');
     }
   });

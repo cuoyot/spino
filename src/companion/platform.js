@@ -1,3 +1,4 @@
+import { reminderEvents } from './event-recurrence.js';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { createReminderScheduler } from './reminders.js';
 import { effectiveWifiOnly } from './network-policy.js';
@@ -99,6 +100,6 @@ export async function fileBase64(file) {
 export async function syncReminders(data, requestPermission = false) {
   if (Capacitor.getPlatform() === 'ios' && remindersAvailable) return syncIOSReminders(data, requestPermission, getAppLanguage());
   if (!native) return { enabled: false, browser: true };
-  const items = [...data.plans.filter(p => p.status === 'planned'), ...data.events].filter(x => x.reminder && x.time).map(x => ({ id: x.id, title: x.title, language: getAppLanguage(), at: new Date(`${x.date}T${x.time}:00`).getTime() - 15 * 60000 })).filter(x => x.at > Date.now());
+  const items = [...data.plans.filter(p => p.status === 'planned'), ...reminderEvents(data.events)].filter(x => x.reminder && x.time).map(x => ({ id: x.id, title: x.title, language: getAppLanguage(), at: new Date(`${x.date}T${x.time}:00`).getTime() - 15 * 60000 })).filter(x => x.at > Date.now());
   return Native.reminders({ items, requestPermission });
 }

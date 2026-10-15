@@ -1,0 +1,221 @@
+/* Navigation surfaces, including the practice hub. Preparation, active practice and score viewers retain their styles. */
+#app-shell .cp-browse-surface {
+  --browse-blue: #9cbfff;
+  --browse-teal: #6bdcc4;
+  --browse-tint: #213a3d;
+  --browse-panel: #222c3a;
+  --browse-card: #282e38;
+  --browse-edge: #ffffff1c;
+  --browse-shadow: inset 0 1px 0 #ffffff08, 0 3px 6px #00000055, 0 10px 20px #00000033;
+}
+:root:not([data-theme=light]) #app-shell .cp-browse-surface { background: #101318; }
+:root[data-theme=light] #app-shell .cp-browse-surface {
+  --browse-blue: #174da6;
+  --browse-teal: #146b60;
+  --browse-tint: #e5f4f0;
+  --browse-panel: #edf3ff;
+  --browse-card: var(--theme-panel);
+  --browse-edge: #233d6010;
+  --browse-shadow: 0 2px 3px #233d6008, 0 7px 16px #233d6010;
+}
+#app-shell .cp-browse-surface :is(.cp-card,.cp-dashboard-collection,.cp-calendar,.cp-setting-group) {
+  border-radius: 16px;
+  border-color: var(--browse-edge);
+  background: var(--browse-card);
+  box-shadow: var(--browse-shadow);
+}
+#app-shell .cp-browse-surface .cp-card > h2,
+#app-shell .cp-browse-surface .cp-card > .cp-row > h2 { font-size: 18px; font-weight: 750; }
+#app-shell .cp-browse-surface :is(.cp-dashboard-week,.cp-consistency,.cp-profile-identity) {
+  background: var(--browse-card);
+  border: 1px solid var(--browse-edge);
+  border-radius: 16px;
+  padding: 18px;
+}
+#app-shell .cp-browse-surface .cp-dashboard-week { box-shadow: var(--browse-shadow); }
+#app-shell .cp-browse-surface .cp-profile-identity { margin-bottom: 18px; }
+#app-shell .cp-browse-surface :is(.cp-dashboard-minutes strong,.cp-streaks strong,.cp-learning-comparison strong,.cp-number) { color: var(--browse-teal); font-variant-numeric: tabular-nums; }
+#app-shell .cp-browse-surface :is(.cp-dashboard-meter,.cp-progress) > span,
+#app-shell .cp-browse-surface .cp-dashboard-bar-track i { background: linear-gradient(90deg,#4f8cff,#32c6ac); }
+#app-shell .cp-browse-surface :is(.cp-library-navigation,.cp-progress-sections) { padding: 4px; border-radius: 14px; background: var(--theme-control); }
+#app-shell .cp-browse-surface :is(.cp-library-navigation,.cp-progress-sections) [aria-current=page] { border-radius: 10px; background: var(--theme-accent); color: white; }
+#app-shell .cp-browse-surface .cp-setting-icon { background: var(--browse-panel); color: var(--browse-blue); }
+#app-shell .cp-browse-surface .cp-setting-row:nth-child(even) .cp-setting-icon { background: var(--browse-tint); color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-setting-row { border-bottom-color: var(--theme-line); }
+#app-shell .cp-browse-surface .cp-day[aria-current=date] { border-color: var(--theme-accent); color: var(--browse-blue); font-weight: 800; }
+#app-shell .cp-browse-surface .cp-upcoming-event { border-inline-start: 3px solid var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-countdown { color: var(--browse-teal); background: var(--browse-tint); border-radius: 12px; }
+#app-shell .cp-browse-surface .cp-stand-icon[aria-pressed=true] { color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-empty { border: 1px dashed var(--theme-border); border-radius: 14px; padding: 16px; background: var(--theme-panel); }
+@media (hover:hover) {
+  #app-shell .cp-browse-surface .cp-setting-row:hover { background: var(--theme-control); }
+}
+
+/* The same four accents identify navigation choices and their calendar entries. */
+#app-shell .cp-browse-surface {
+  --browse-blue-tint: #223751;
+  --browse-teal-tint: #203c37;
+  --browse-gold: #edc67d;
+  --browse-gold-tint: #3b3223;
+  --browse-purple: #c9b1f2;
+  --browse-purple-tint: #332c45;
+}
+:root[data-theme=light] #app-shell .cp-browse-surface {
+  --browse-blue-tint: #e7efff;
+  --browse-teal-tint: #e3f4ed;
+  --browse-gold: #79571b;
+  --browse-gold-tint: #fff1d5;
+  --browse-purple: #674697;
+  --browse-purple-tint: #f1eaff;
+}
+#app-shell .cp-browse-surface :is([data-activity=reading],.cp-shortcuts [data-id=reading]) { --surface-accent: var(--browse-blue); --surface-tint: var(--browse-blue-tint); }
+#app-shell .cp-browse-surface :is([data-activity=technique],.cp-shortcuts [data-id=technique]) { --surface-accent: var(--browse-purple); --surface-tint: var(--browse-purple-tint); }
+#app-shell .cp-browse-surface :is([data-activity=repertoire],.cp-shortcuts [data-id=repertoire]) { --surface-accent: var(--browse-gold); --surface-tint: var(--browse-gold-tint); }
+#app-shell .cp-browse-surface :is([data-activity=free],.cp-shortcuts [data-id=free]) { --surface-accent: var(--browse-teal); --surface-tint: var(--browse-teal-tint); }
+#app-shell .cp-browse-surface :is([data-activity=warmup],[data-activity=event]) { --surface-accent: var(--browse-gold); --surface-tint: var(--browse-gold-tint); }
+#app-shell .cp-browse-surface :is([data-activity=reading],[data-activity=technique],[data-activity=repertoire],[data-activity=free],[data-activity=warmup],[data-activity=event]) { --activity-color: var(--surface-accent); }
+#app-shell .cp-browse-surface[data-view=practice] .cp-quick-practice {
+  background: linear-gradient(115deg,var(--browse-blue-tint),var(--browse-teal-tint));
+  border-color: var(--browse-blue);
+}
+#app-shell .cp-browse-surface .cp-shortcuts button {
+  border-color: var(--browse-edge);
+  background: linear-gradient(135deg,var(--surface-tint),var(--browse-card));
+  box-shadow: var(--browse-shadow);
+}
+#app-shell .cp-browse-surface .cp-shortcuts .cp-icon {
+  color: var(--surface-accent); background: var(--surface-tint); border-radius: 10px; padding: 6px; display: inline-flex;
+}
+#app-shell .cp-browse-surface .cp-practice-routines button { border-inline-start: 3px solid var(--browse-teal); background: linear-gradient(115deg,var(--browse-teal-tint),var(--theme-panel)); }
+#app-shell .cp-browse-surface .cp-practice-routines button > span:last-child { color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-agenda-week-title { background: linear-gradient(110deg,var(--browse-blue-tint),var(--browse-teal-tint)); }
+#app-shell .cp-browse-surface .cp-agenda-week-title p b { color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-agenda-week-title .cp-tag { background: var(--browse-teal-tint); color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-agenda-week.current-week { border-color: var(--browse-blue); }
+#app-shell .cp-browse-surface .cp-agenda-day.selected-day { background: var(--browse-blue-tint); }
+#app-shell .cp-browse-surface .cp-agenda-day time[aria-current=date] > b { background: var(--theme-accent); color: white; }
+#app-shell .cp-browse-surface .cp-agenda-card { border-color: var(--browse-edge); border-left-color: var(--surface-accent,var(--activity-color)); background: var(--browse-card); box-shadow: var(--browse-shadow); }
+#app-shell .cp-browse-surface .cp-session-chip { background: var(--surface-tint,var(--theme-panel)); border-color: var(--browse-edge); }
+#app-shell .cp-browse-surface .cp-session-chip:hover { box-shadow: inset 0 0 0 1px var(--surface-accent,var(--theme-link)); }
+#app-shell .cp-browse-surface :is(.cp-session-chip-mood,.cp-session-chip-status) { border-color: var(--theme-bg); }
+#app-shell .cp-browse-surface .cp-add-day { color: var(--browse-blue); }
+#app-shell:has(.cp-browse-surface) .cp-segment [aria-pressed=true] { background: var(--theme-accent); color: white; }
+#app-shell .cp-browse-surface .cp-day[aria-pressed=true] { background: var(--browse-blue-tint); color: var(--browse-blue); }
+/* Repertoire keeps its flat, compact table. Color lives in headings, counts and stand controls. */
+#app-shell .cp-browse-surface .cp-repertoire-section h2 { display: flex; align-items: center; gap: 8px; border-bottom: 2px solid var(--browse-blue); padding-bottom: 10px; }
+#app-shell .cp-browse-surface .cp-repertoire-stand h2 { border-color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-repertoire-section .cp-dashboard-count { background: var(--browse-blue-tint); color: var(--browse-blue); border-radius: 8px; padding: 3px 8px; font-weight: 700; }
+#app-shell .cp-browse-surface .cp-repertoire-stand .cp-dashboard-count { background: var(--browse-teal-tint); color: var(--browse-teal); }
+#app-shell .cp-browse-surface .cp-repertoire-table { border-radius: 0; overflow: visible; }
+#app-shell .cp-browse-surface .cp-repertoire-table thead { background: transparent; }
+#app-shell .cp-browse-surface .cp-repertoire-table td { border-color: var(--theme-line); }
+#app-shell .cp-browse-surface .cp-repertoire-table .cp-stand-icon[aria-pressed=true] { background: var(--browse-teal-tint); color: var(--browse-teal); border-radius: 10px; }
+#app-shell .cp-browse-surface .cp-repertoire-table .cp-repertoire-open b { color: var(--browse-blue); }
+#app-shell:has(.cp-browse-surface:is([data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=work],[data-view=library-detail])) .cp-library-navigation [aria-current=page] { color: #9cbfff; border-color: #38c8ac; }
+#app-shell .cp-browse-surface .cp-score-card { border-inline-start: 3px solid var(--browse-blue); }
+#app-shell .cp-browse-surface .cp-score-card .cp-tag { background: var(--browse-blue-tint); color: var(--browse-blue); }
+#app-shell .cp-browse-surface .cp-library-search { background: var(--browse-blue-tint); border: 1px solid var(--theme-line); border-radius: 14px; padding: 12px; }
+#app-shell .cp-browse-surface :is(.cp-library-maintenance,.cp-practice-hub .cp-section) > h2 { color: var(--browse-teal); }
+:root[data-theme=light] #app-shell:has(.cp-browse-surface:is([data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=work],[data-view=library-detail])) .cp-library-navigation [aria-current=page] { color: #174da6; }
+#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-app-header .cp-quick-practice { background: linear-gradient(110deg,var(--theme-tint),var(--theme-panel)); border-color: var(--theme-link); }
+#app-shell .cp-browse-surface .cp-library-tabs [aria-pressed=true] { background: var(--browse-blue-tint); color: var(--browse-blue); border-color: var(--browse-blue); }
+:root[data-theme=light] #app-shell .cp-browse-surface .cp-library-tabs [aria-pressed=true] { color: var(--browse-blue); }
+
+/* Calendar and Progress share one segmented navigation treatment. */
+#app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group {
+  --choice-background: #252f40;
+  --choice-selected: #315f9d;
+  display: flex; gap: 4px; padding: 4px;
+  border: 1px solid var(--theme-line); border-radius: 14px;
+  background: var(--choice-background);
+}
+:root[data-theme=light] #app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group {
+  --choice-background: #e4ebf7;
+  --choice-selected: #2563eb;
+}
+#app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group button {
+  flex: 1; min-height: 44px; margin: 0; padding: 8px 12px;
+  border: 1px solid transparent; border-radius: 10px;
+  background: transparent; color: var(--theme-muted);
+  font-size: 13px; font-weight: 650; line-height: 1.2;
+}
+#app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group button:is([aria-pressed=true],[aria-current=page]) {
+  background: var(--choice-selected); color: white;
+}
+@media (hover:hover) {
+  #app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group button:hover:not([aria-pressed=true],[aria-current=page]) { background: var(--theme-selected); color: var(--theme-text); }
+}
+/* Keep the quick action beside the Practice title on phones too. */
+#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-middle { display: flex; gap: 8px; }
+#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-title { flex: 0 1 auto; }
+#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-title h1 { white-space: nowrap; }
+#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-controls { flex: 1; margin: 0; flex-wrap: nowrap; justify-content: flex-end; }
+@media (max-width: 599px) {
+  #app-shell:has(.cp-browse-surface[data-view=practice]) .cp-app-header .cp-quick-practice { font-size: 12px; padding: 7px 8px; white-space: normal; line-height: 1.2; }
+}
+#app-shell .cp-app-header .cp-choice-group button { flex: 1 0 auto; white-space: nowrap; }
+
+/* Keep the Calendar title and view switch in the same header row. */
+#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-middle { display: flex; flex-wrap: nowrap; gap: 8px; }
+#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-title h1 { white-space: nowrap; }
+#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-controls { margin: 0; flex-wrap: nowrap; }
+#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { min-width: 44px; }
+@media (max-width: 379px) {
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-app-header h1 { font-size: 18px; }
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { padding-inline: 6px; font-size: 12px; }
+}
+@media (max-width: 339px) {
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) > .cp-app-header { gap: 6px; padding-inline: 8px; }
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-middle { gap: 6px; }
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-app-header h1 { font-size: 16px; }
+  #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { padding-inline: 4px; font-size: 11px; }
+}
+
+/* Keep context on the page plane; reserve a short shadow for distinct content cards. */
+#app-shell .cp-browse-surface .cp-today-progress {
+  background: var(--browse-card);
+  border-color: var(--browse-edge);
+  border-radius: 16px;
+  box-shadow: var(--browse-shadow);
+}
+#app-shell .cp-browse-surface :is(.cp-today-focus,.cp-consistency,.cp-profile-identity) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+#app-shell .cp-browse-surface .cp-today-progress-track { background: var(--browse-blue-tint); }
+#app-shell .cp-browse-surface .cp-day-practice { background: var(--browse-panel); }
+#app-shell .cp-browse-surface .cp-today-progress .cp-today-week { border-radius: 0; }
+#app-shell .cp-browse-surface :is(.cp-agenda-week,.cp-agenda-week.current-week) {
+  border-color: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+#app-shell .cp-browse-surface .cp-agenda-week-title {
+  background: transparent;
+  border-bottom: 1px solid var(--theme-line);
+}
+#app-shell .cp-browse-surface .cp-agenda-day { border-top: 0; }
+#app-shell .cp-browse-surface .cp-agenda-day + .cp-agenda-day { border-top: 1px solid var(--theme-line); }
+#app-shell .cp-browse-surface .cp-agenda-day.selected-day { border-radius: 12px; }
+#app-shell .cp-browse-surface .cp-calendar-heading:not(section) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+#app-shell .cp-browse-surface .cp-practice-routines button {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--theme-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+#app-shell .cp-browse-surface .cp-library-search {
+  background: transparent;
+  border-color: transparent;
+}
+#app-shell:has(.cp-browse-surface) > .cp-app-header {
+  background: var(--theme-panel);
+  border-bottom-color: transparent;
+  box-shadow: 0 2px 8px #0000000a;
+}

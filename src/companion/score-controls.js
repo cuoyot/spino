@@ -32,6 +32,19 @@ export const printActionButton = (action,id,escape) => `<button type="button" cl
 export const scoreButton = (action, label, content = scoreIcon(action), extra = '') => `<button type="button" data-pdf="${action}" aria-label="${label}" title="${label}" ${extra}>${content}</button>`;
 const toolButton = (id, label) => `<button type="button" data-tool="${id}" aria-label="${label}" title="${label}" aria-pressed="false">${scoreIcon(id)}<span>${label}</span></button>`;
 
+export function updateScoreTimer(button, info) {
+  const running = !!info.running;
+  if (!button.querySelector('.pdf-time') || button.dataset.running !== String(running)) {
+    button.innerHTML = `<span class="score-timer-state">${running ? ui('Practice', 'Práctica') : ui('Paused', 'En pausa')}</span><span class="pdf-time"></span>${scoreIcon(running ? 'pause' : 'play')}`;
+  }
+  button.classList.add('score-timer');
+  button.dataset.running = String(running);
+  button.querySelector('.pdf-time').textContent = info.time;
+  const label = running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
+  button.setAttribute('aria-label', label);
+  button.title = label;
+}
+
 export function scoreControlsMarkup(session) {
   const tools = [['read', ui('Pan', 'Mover')], ['select', ui('Select', 'Seleccionar')], ['pen', ui('Pen', 'Boli')], ['highlight', ui('Highlight', 'Resaltar')], ['underline', ui('Underline', 'Subrayar')], ['text', ui('Text', 'Texto')], ['erase', ui('Erase', 'Borrar')], ['line', ui('Line', 'Línea')], ['arrow', ui('Arrow', 'Flecha')], ['ellipse', ui('Circle', 'Círculo')], ['rectangle', ui('Frame', 'Marco')]];
   const colors = [ui('Red', 'Rojo'), ui('Blue', 'Azul'), ui('Ochre', 'Ocre'), ui('Green', 'Verde'), ui('Ink', 'Tinta')];
@@ -51,7 +64,7 @@ export function scoreControlsMarkup(session) {
       ${scoreButton('print',ui('Print score','Imprimir partitura'),scoreIcon('print'),'class="score-print-icon"')}
       ${scoreButton('close',session ? ui('Return to session','Volver a la sesión') : ui('Close score','Cerrar partitura'),session ? ui('Return to session','Volver a la sesión') : ui('Close score','Cerrar partitura'))}
     </div>
-    <div class="pdf-widget-bar">${scoreButton('drag',ui('Move controls', 'Mover controles'))}${session ? scoreButton('timer',ui('Resume practice', 'Continuar práctica'),`${scoreIcon('play')}<span class="pdf-time">0:00</span>`) : '<span class="pdf-time"></span>'}${session?.finish ? scoreButton('finish',ui('Finish practice', 'Terminar práctica'),scoreIcon('finish'),'class="pdf-finish"') : ''}${scoreButton('tools',ui('Show tools', 'Mostrar herramientas'),scoreIcon('tools'),'aria-controls="pdf-panel" aria-expanded="false"')}${scoreButton('split-done',ui('Done editing', 'Salir de edición'),ui('Done editing', 'Salir de edición'),'class="pdf-split-done" hidden')}<span class="pdf-pagination">${scoreButton('prev',ui('Previous page', 'Página anterior'))}<span class="pdf-page-count" aria-live="polite">— / —</span>${scoreButton('next',ui('Next page', 'Página siguiente'))}</span></div>
+    <div class="pdf-widget-bar">${scoreButton('drag',ui('Move controls', 'Mover controles'))}${session ? scoreButton('timer',ui('Resume practice', 'Continuar práctica'),`${scoreIcon('play')}<span class="pdf-time">0:00</span>`) : '<span class="pdf-time"></span>'}${session?.finish ? scoreButton('finish',ui('Finish practice', 'Terminar práctica'),scoreIcon('finish'),'class="pdf-finish"') : ''}${scoreButton('tools',ui('Edit score', 'Editar partitura'),scoreIcon('tools'),'aria-controls="pdf-panel" aria-expanded="false"')}${scoreButton('split-done',ui('Done editing', 'Salir de edición'),ui('Done editing', 'Salir de edición'),'class="pdf-split-done" hidden')}<span class="pdf-pagination">${scoreButton('prev',ui('Previous page', 'Página anterior'))}<span class="pdf-page-count" aria-live="polite">— / —</span>${scoreButton('next',ui('Next page', 'Página siguiente'))}</span></div>
     <button type="button" data-pdf="active-tool" class="pdf-active-tool" hidden></button>
   </aside>`;
 }

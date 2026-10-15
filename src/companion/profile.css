@@ -9,7 +9,7 @@
 .cp-about li { margin: 8px 0; }
 #app-shell .cp-nav button { padding: 7px 2px; gap: 4px; flex-direction: column; font-size: 11px; min-height: 60px; flex-shrink: 0; }
 .cp-practice-nav svg { fill: currentColor; stroke-width: 1; }
-.cp-avatar { width: 30px; height: 30px; display: inline-flex; flex: none; align-items: center; justify-content: center; border: 1px solid #69778a; border-radius: 50%; background: var(--theme-control, #2b3443); color: #dfebfa; font-size: 12px; font-weight: 650; }
+.cp-avatar { width: 30px; height: 30px; display: inline-flex; flex: none; align-items: center; justify-content: center; border: 1px solid #69778a; border-radius: 50%; background: var(--theme-control, #2b3443); color: var(--theme-muted, #dfebfa); font-size: 12px; font-weight: 650; }
 .cp-avatar svg { width: 19px; height: 19px; }
 .cp-nav .cp-avatar { width: 42px; height: 42px; font-size: 15px; background: linear-gradient(145deg,var(--theme-control, #3c4b61),var(--theme-control, #293444)); border-color: #788ba7; }
 .cp-nav .cp-avatar svg { width: 23px; height: 23px; }
@@ -41,15 +41,15 @@
 .cp-photo-crop .cp-actions { width: 100%; }
 #app-shell .cp-profile-identity h2 { font-size: 24px; margin: 0 0 5px; overflow-wrap: anywhere; }
 #app-shell .cp-profile-identity p { color: var(--subtle); font-size: 13px; margin: 0; }
-#app-shell .cp-edit-profile { color: #a7c7ff; padding: 6px 0; min-height: 38px; font-size: 13px; }
+#app-shell .cp-edit-profile { color: var(--theme-link, #a7c7ff); padding: 6px 0; min-height: 38px; font-size: 13px; }
 .cp-setting-group { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--theme-panel, #1b1e24); }
 #app-shell .cp-setting-row { display: flex; width: 100%; align-items: center; text-align: left; gap: 14px; padding: 19px 18px; border: 0; border-bottom: 1px solid #31353e; border-radius: 0; background: transparent; }
 #app-shell .cp-setting-row:last-child { border-bottom: 0; }
-.cp-setting-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 42px; height: 42px; border-radius: 12px; background: var(--theme-control, #29313e); color: #b7cceb; }
+.cp-setting-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 42px; height: 42px; border-radius: 12px; background: var(--theme-control, #29313e); color: var(--theme-link, #b7cceb); }
 .cp-setting-copy { flex: 1; min-width: 0; }
 .cp-setting-copy strong { display: block; font-size: 15px; font-weight: 600; }
 .cp-setting-copy small { display: block; margin-top: 4px; font-weight: 400; color: var(--subtle); font-size: 12px; }
-.cp-setting-chevron { color: #7d899a; flex: none; }
+.cp-setting-chevron { color: var(--theme-muted, #7d899a); flex: none; }
 .cp-setting-chevron svg { width: 16px; height: 16px; }
 .cp-profile-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-top: 28px; color: var(--subtle); font-size: 13px; }
 .cp-profile-footer small { display: block; font-size: 10px; margin-top: 2px; }
@@ -76,7 +76,7 @@
 .cp-storage-summary span { color: var(--subtle); font-size: 13px; }
 .cp-file-list { border-top: 1px solid var(--line); }
 #app-shell .cp-file-row { display: flex; align-items: center; width: 100%; text-align: left; gap: 14px; padding: 16px 2px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
-.cp-file-symbol { display: flex; flex: none; flex-direction: column; align-items: center; width: 46px; padding: 8px 3px; border-radius: 8px; background: var(--theme-control, #242d3b); color: #b4c6e1; }
+.cp-file-symbol { display: flex; flex: none; flex-direction: column; align-items: center; width: 46px; padding: 8px 3px; border-radius: 8px; background: var(--theme-control, #242d3b); color: var(--theme-muted, #b4c6e1); }
 .cp-file-symbol small { font-size: 8px; margin-top: 4px; }
 .cp-file-copy { flex: 1; }
 .cp-file-copy strong { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; font-size: 14px; font-weight: 550; }

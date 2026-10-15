@@ -18,7 +18,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   const publish = () => { settings.save(state); changed(); };
   const schedule = () => {
     if (timer) return;
-    if (state.mode === 'sync' && state.enabled && !['error', 'conflict'].includes(state.status)) timer = setTimeout(() => { timer = null; void sync(); }, delay);
+    if (state.mode === 'sync' && state.enabled && state.status !== 'conflict' && (state.status !== 'error' || state.retryable)) timer = setTimeout(() => { timer = null; void sync(null, true); }, state.status === 'error' ? Math.min(60000, delay * 2 ** (state.retryCount || 0)) : delay);
   };
   const content = text => notebookContent(validate(text));
   const encode = backup => {
@@ -29,15 +29,20 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   };
   async function reconcile(preference) {
     const captured = revision;
+    state.operation = 'snapshot';
     const original = await snapshot();
     const local = content(original);
+    state.operation = 'read';
     const remoteFile = await adapter.readLinked();
+    state.operation = 'validate';
     const remoteId = JSON.parse(remoteFile.text).cloudBackup?.sharedNotebookId;
     if (remoteId && !validNotebookId(remoteId)) throw new Error('The shared notebook identity is invalid.');
     if (state.notebookId && remoteId && state.notebookId !== remoteId) throw new Error('The linked file belongs to another notebook. Select the original sync file.');
     state.notebookId ||= remoteId || crypto.randomUUID();
     const remote = content(remoteFile.text);
+    state.operation = 'baseline';
     const base = await readBase();
+    state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
     const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote })) : null;
     const selected = preference || state.resolution?.preference;
@@ -59,29 +64,62 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (!remoteId || stableJSON(remote) !== stableJSON(merged)) {
+      state.operation = 'write';
       await adapter.write({ text: encode(merged), expectedHash: await backupHash(remoteFile.text) });
     }
+    // The provider has accepted this local snapshot, even if incoming changes
+    // cannot yet be adopted. Advancing to `merged` here would turn those pending
+    // incoming additions into deletions on the next pass. Keeping the old base
+    // instead would conflict with our own already-published edits.
+    state.operation = 'baseline';
+    await saveBase(local);
     // An edit during provider I/O must be merged on the next pass, never replaced.
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (localChanged) {
+      state.operation = 'recovery';
       await adapter.saveRecovery({ text: original });
       if (!eligible() || !canApply() || captured !== revision) { state.status = 'waiting'; return; }
+      state.operation = 'apply';
       applying = true;
       try { await apply(encode(merged), merged); } finally { applying = false; }
-    } else await saveBase(merged);
+    }
+    state.operation = null; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
     state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastWrittenAt = new Date().toISOString();
     publish();
     if (localChanged) adopted();
   }
-  async function sync(preference = null) {
+  async function reconcileWithRetry(preference) {
+    // A changed provider revision is contention, not a user data conflict.
+    // Re-read and merge afresh; never retry the stale serialized write.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try { await reconcile(preference); return; }
+      catch (error) {
+        if (!['CONFLICT', 'LOCKED', 'BUSY'].includes(error.code)) throw error;
+        state.status = 'waiting';
+        if (!eligible() || attempt === 2) return;
+      }
+    }
+  }
+  async function sync(preference = null, automatic = false) {
     if (state.mode !== 'sync') return independent.retry();
     if (task || !state.enabled) return task;
     clearTimeout(timer); timer = null;
+    if (!automatic) state.retryCount = 0;
     if (!eligible()) { state.status = 'waiting'; publish(); schedule(); return; }
     task = (async () => {
-      try { state.status = 'writing'; state.waitReason = null; state.error = ''; publish(); await reconcile(preference); }
-      catch (error) { state.status = 'error'; state.error = error.message || String(error); }
+      try {
+        state.status = 'writing'; state.waitReason = null; state.error = ''; publish();
+        await reconcileWithRetry(preference);
+      }
+      catch (error) {
+        state.status = 'error'; state.error = error.message || String(error);
+        state.errorCode = error.code || '';
+        // Retry only failed provider reads. A failed write may already have
+        // committed; malformed data and local storage failures need attention.
+        state.retryCount = (state.retryCount || 0) + 1;
+        state.retryable = state.operation === 'read' && error.code === 'PROVIDER_ERROR' && state.retryCount <= 3;
+      }
       finally { task = null; publish(); schedule(); }
     })();
     return task;
@@ -111,7 +149,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         state.enabled = true;
         state.status = 'writing'; publish();
         await adapter.acknowledgeSetup?.();
-        await reconcile();
+        await reconcileWithRetry();
       } catch (error) {
         if (!linked) state = previous;
         state.status = 'error'; state.error = error.message || String(error);

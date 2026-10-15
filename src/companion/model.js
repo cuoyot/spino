@@ -1,3 +1,4 @@
+import { EVENT_FREQUENCIES, validEventDate } from './event-recurrence.js';
 import { ui, APP_LANGUAGES } from './locale.js';
 import { TARGETS } from './curriculum.js';
 import { KEYS } from '../music.js';
@@ -163,7 +164,14 @@ export function validateData(input) {
   for (const p of input.plans) if (!date(p.date) || !str(p.time, 5) || !['planned', 'completed', 'partial'].includes(p.status)) fail();
   for (const item of [...input.plans, ...input.events]) if (item.recurrence != null) {
     const r = item.recurrence;
-    if (!obj(r) || !str(r.id, 100) || !r.id || r.frequency !== 'weekly' || !date(r.until)) fail();
+    if (!obj(r) || !str(r.id, 100) || !r.id) fail();
+    if (input.plans.includes(item)) { if (r.frequency !== 'weekly' || !date(r.until)) fail(); }
+    else {
+      if (!EVENT_FREQUENCIES.includes(r.frequency) || (r.until != null && !validEventDate(r.until))) fail();
+      if (r.rule !== undefined && r.rule !== true) fail();
+      if (r.rule && (r.id !== item.id || item.id.length > 80 || !validEventDate(item.date) || (r.until && r.until < item.date))) fail();
+      if (r.excluded !== undefined && (!r.rule || !Array.isArray(r.excluded) || r.excluded.length > 20000 || !r.excluded.every(validEventDate) || new Set(r.excluded).size !== r.excluded.length)) fail();
+    }
   }
   for (const e of input.events) if (!date(e.date) || !str(e.title, 200) || !str(e.time, 5) || !str(e.notes) || !str(e.place, 200) || !Array.isArray(e.workIds) || !e.workIds.every(v => str(v, 100)) || (e.milestones != null && (!Array.isArray(e.milestones)||e.milestones.length>100||!e.milestones.every(m=>obj(m)&&str(m.title,200)&&typeof m.done==='boolean')))) fail();
   const checkSession = s => {
