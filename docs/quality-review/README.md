@@ -14,6 +14,9 @@ Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4
 
 ## Resume work here
 
+2026-10-15 beta2 published: owner authorizes website publication of D-043 as Android 6.1.0-beta.2/build55. [Public verification](../releases/6.1.0-beta.2-publication.json) confirms the successful Cloudflare build, all three language pages, current checksum manifest and four downloaded artifact hashes/sizes. Beta2 includes the horizontal selected stand row, Other pieces repertoire/catalogue entry and Android recording permission/lifecycle repair. Stable 6.0.0, beta1 and iOS beta9 artifacts are retained. Final-version build/package/signature, 370 checks (two optional skips), replacement install, all 17 existing IndexedDB file hashes and foreground activity pass. Physical-device PDF/capture and owner visual acceptance remain open. Earlier source-only/no-publication statements below describe the preceding review stage.
+
+
 2026-10-15 current follow-up: D-043 simplifies repertoire preparation into a selected horizontal stand row and **Other pieces** search/catalogue dialog. Recording repairs add the Android WebView audio-settings permission and preserve pending capture/timing across permission prompts, with errors inside the panel. [Active review](preparation.md); [20 responsive preparation frames](captures/preparation/2026-10-15-stand-other-pieces-04/verification.json). Review uses synthetic notebooks; owner/physical acceptance remains open. A local same-version review APK is replacement-installed with exact retention of the seven original IndexedDB files; [native repertoire-session audio/video capture and Save pass](captures/multimedia/2026-10-15-native-permissions-07/README.md); native PDF rendering remains limited by emulator WebView 113. No public publication. Next: review the opened browser preparation and verify on the reported physical device.
 
 
