@@ -1,0 +1,44 @@
+{
+  "verifiedAt": "2026-10-15T13:13:39.910027+00:00",
+  "sourceCommit": "3db0e35056ccd73c766daf07be6d5cb24ee8ce0c",
+  "deployment": "Public Cloudflare-served pages and artifacts verified; backend build status not queried.",
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "artifacts": [
+    {
+      "file": "spino-6.0.0-beta.13-52-android.apk",
+      "bytes": 22639750,
+      "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961",
+      "platform": "Android"
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    }
+  ],
+  "androidHandoff": {
+    "replacementInstall": true,
+    "storageCleared": false,
+    "indexedDbFilesBeforeLaunchUnchanged": 7,
+    "scoreBlobUnchanged": true,
+    "versionCode": 52,
+    "versionName": "6.0.0-beta.13",
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+    "firstInstallTime": "2026-10-12 17:23:12",
+    "tests": {
+      "total": 361,
+      "passed": 359,
+      "failed": 0,
+      "optionalSkipped": 2
+    }
+  },
+  "stablePromotion": "Pending owner OK; stable stays 5.2.3 (35). Keep beta available after promotion; future work targets beta 6.1."
+}
