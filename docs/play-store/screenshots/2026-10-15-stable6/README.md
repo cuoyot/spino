@@ -1,6 +1,6 @@
 # SPino 6.0.0 Google Play screenshot pack
 
-Prepared October 15, 2026 from the production 6.0.0/build53 web UI, including the final shared-header correction. Disposable synthetic notebooks only. These are responsive browser captures, not native-device acceptance. The Android production APK and AAB are prepared without signing; installation, native handoff and publication await the original Android signing configuration.
+Prepared October 15, 2026 from the production 6.0.0/build53 web UI, including the final shared-header correction. Disposable synthetic notebooks only. These are responsive browser captures, not native-device acceptance. The Android production APK and AAB are now signed with the original key; all 259 web files match the captured production build. Native installation, loaded first-launch UI and foreground handoff pass. Populated native/physical visual acceptance remains separate.
 
 Start with `upload/<language>/<device>/`: eight selected images per device, four light and four dark. Spanish (`es`) and English (`en`); phone, 7-inch tablet portrait and 10-inch tablet landscape. The language/theme folders preserve all 96 alternatives, and `index.html` previews them. `preview-es.jpg` and `preview-en.jpg` show the selected phone images. `alt-text.csv` lists source files, localized descriptions and hashes.
 

@@ -1,0 +1,44 @@
+{
+  "surface": "Native Android emulator; first separate stable installation, empty production notebook.",
+  "appSourceCommit": "8d0435e",
+  "signedBuild": {
+    "version": "6.0.0",
+    "build": 53,
+    "applicationId": "com.miguecoll.spino",
+    "apkSignatureVerified": true,
+    "aabSignatureVerified": true,
+    "signerCertificateSha256": "d27604f0725c3040b3a476617e1e7bc4c6d31d7aabc36a65e8a2d5cb65fc7de7",
+    "packagedWebFilesVerifiedPerArtifact": 259,
+    "artifacts": [
+      {
+        "file": "SPino-6.0.0-53.apk",
+        "bytes": 19147537,
+        "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+      },
+      {
+        "file": "SPino-6.0.0-53.aab",
+        "bytes": 18794609,
+        "sha256": "5a13edd60dbbd6315d3a53cd53991885543868375fd3942d62973b4f252932aa"
+      }
+    ]
+  },
+  "handoff": {
+    "version": "6.0.0",
+    "versionCode": 53,
+    "applicationId": "com.miguecoll.spino",
+    "installCommand": "adb install -r",
+    "productionAlreadyInstalled": false,
+    "applicationStorageCleared": false,
+    "existingBetaIndexedDbFilesRetained": 7,
+    "existingBetaIndexedDbHashesEqual": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{9c3facd u0 com.miguecoll.spino/.MainActivity t36}",
+      "ResumedActivity: ActivityRecord{9c3facd u0 com.miguecoll.spino/.MainActivity t36}"
+    ],
+    "nativeCapture": "native-loaded.png",
+    "nativeCaptureData": "Fresh separate production app; no personal notebook fixture.",
+    "acceptance": "Signed build installation/version/foreground verified. Populated layout evidence remains responsive browser; physical-device acceptance separate.",
+    "loadedUiVerified": "First-launch walkthrough over the empty production notebook; inspected after WebView load."
+  },
+  "captureSha256": "e2c34ce3252f8801483962360579aa3de80e5fc62abe6723ae00dafb6c488bac"
+}

@@ -1,7 +1,7 @@
 {
   "version": "6.0.0",
   "versionCode": 53,
-  "state": "Prepared without signing; not installable or published as stable. Existing signing key/configuration required.",
+  "state": "Historical unsigned preparation. Signed APK/AAB and native handoff are now verified in 6.0.0-artifacts.json.",
   "packagedWebFilesVerified": 259,
   "headerParityStates": 384,
   "longTitleStates": 48,
@@ -31,5 +31,14 @@
     "version": "6.0.0-beta.13",
     "versionCode": 52,
     "sha256": "57ffc0dbd6ae1e4f73ab39d1abe7ec010fc63ed6e23ce3d1572cdfda77e80961"
+  },
+  "signingRecovery": {
+    "keyPresent": true,
+    "gitIgnored": true,
+    "gitTracked": false,
+    "ownerOnlyPermissions": true,
+    "configurationPresent": true,
+    "keyAndPasswordsVerifiedLocally": true,
+    "outcome": "Signed build and native handoff recorded in 6.0.0-artifacts.json; unsigned preparation hashes above remain historical."
   }
 }

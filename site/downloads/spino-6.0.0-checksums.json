@@ -1,0 +1,26 @@
+{
+  "version": "6.0.0",
+  "build": 53,
+  "channel": "stable",
+  "date": "2026-10-15",
+  "artifacts": [
+    {
+      "file": "spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino",
+      "version": "6.0.0",
+      "build": 53
+    }
+  ],
+  "googlePlay": {
+    "version": "5.2.3",
+    "build": 35,
+    "url": "https://play.google.com/store/apps/details?id=com.miguecoll.spino"
+  },
+  "betaUnchanged": {
+    "version": "6.0.0-beta.13",
+    "build": 52
+  }
+}

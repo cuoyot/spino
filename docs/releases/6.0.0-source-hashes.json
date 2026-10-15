@@ -5,6 +5,7 @@
   "index.html": "83753ef248ec8e427b58e6f1a0ee5b081462f46f5bcd062837433901f9405c2b",
   "package-lock.json": "1df3b2c93730be1026a4c6edeea3726dc98bee463cfc7c2828b9ab286825fedb",
   "package.json": "1e12da1b56445c82bac8578acd78d5da37530280123a0d73a95e8f8728c6ac19",
+  "scripts/site/build-site.mjs": "7bf800cc7e23aaa93fc876f5dc017689743210ad9e0062ce3d2173c628183aec",
   "src/audio.js": "26d398504aa36e0cc083fb3a1572937433ca51615cd90e9f7ba0d3bbfc479674",
   "src/companion/about-view.js": "dae1b445cf939133712aaf4227f4e253564974550b40cd0e0d7c99cdd0d0a7fd",
   "src/companion/agenda.js": "af2a8d92ff7a4dccbb87ea226245ecc98433f071cfde9bf5d6f10f76936b37dd",
@@ -119,6 +120,7 @@
   "src/render.js": "0a1e79e78ed94ab794460908dd5d9e7fffee059cf1b1385705d9d6ca3ff0861a",
   "src/style.css": "b6f16dff4f7588b86a608c766e03d078e8fa6ccd216006030d4ab28c7ffbc8e0",
   "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097",
+  "tests/beta-site.browser.test.js": "f9f67466c5be156d05cd5282f0b9185a993018625774148b98077adece32a9f0",
   "tests/header-parity.browser.test.js": "38153885973be41edd43b2e1e14bf1a149153c428def4ad62efc9dc733aa5128",
   "vite.config.js": "227408712800242214949f01e8e664c5b116582e5c7cda046a4322decc180d5d"
 }

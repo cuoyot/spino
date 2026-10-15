@@ -1515,5 +1515,5 @@
       "sha256": "0f3df2c4f92561f5e1ac77ebc4a6e75739780eceb96ed391b6f8b23292ef157c"
     }
   ],
-  "signingState": "6.0.0/build53 source; unsigned production build prepared. Native signed-package acceptance pending original key."
+  "signingState": "Signed Android 6.0.0/build53 APK/AAB verified; every packaged production web file matches the captured UI build. Native first-launch/foreground handoff verified; populated native/physical visual acceptance remains separate."
 }

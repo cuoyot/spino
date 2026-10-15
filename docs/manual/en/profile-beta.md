@@ -27,4 +27,4 @@ Convert a backup creates a separate compatible or organized copy without restori
 
 ## Current source: consistent primary headers
 
-The primary header uses the same 68 px height and title/Profile/MIDI alignment across the main destinations. Library's My repertoire and Catalogue tabs sit below the primary bar and stay available when its page scrolls. Calendar keeps Week/Month beside its title. This source correction is verified in responsive browsers in both themes and three languages; it is not yet included in a new APK. Public beta 13/build52 retains the preceding layout.
+The primary header uses the same 68 px height and title/Profile/MIDI alignment across the main destinations. Library's My repertoire and Catalogue tabs sit below the primary bar and stay available when its page scrolls. Calendar keeps Week/Month beside its title. This correction is included in the signed Android 6.0.0/build53 package and verified in responsive browsers in both themes and three languages. Native installation and first-launch foreground are checked separately; populated native/physical visual acceptance remains open. Public beta 13/build52 retains the preceding layout.
