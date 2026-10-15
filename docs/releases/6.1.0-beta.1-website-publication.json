@@ -1,0 +1,218 @@
+{
+  "verifiedAt": "2026-10-15T16:33:33.305398+00:00",
+  "websiteCommit": "4122fa99df68834184152dad2a994a80bf597340",
+  "apkSourceCommit": "56483fd8f7a4af8a910ec798ecd510e33682279f",
+  "version": "6.1.0-beta.1",
+  "build": 54,
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "releaseHistoryVersions": 27,
+  "localizedImageChecks": [
+    {
+      "language": "es",
+      "path": "img/es/01-today.png?v=6.1.0-beta.1",
+      "sha256": "05260cbc7aaa13132d411a6bf696bba160c718fbcb67a73b9ee14ad22562d28a"
+    },
+    {
+      "language": "es",
+      "path": "img/es/02-routine.png?v=6.1.0-beta.1",
+      "sha256": "102934e816380c65e40c3da7c8744774ccf1b0c558423556f46f1b7105547605"
+    },
+    {
+      "language": "es",
+      "path": "img/es/03-repertoire.png?v=6.1.0-beta.1",
+      "sha256": "58a66ab11905bd1345438ef8aef28f821e9c85b358dfb811a25d588e6c5a1d44"
+    },
+    {
+      "language": "es",
+      "path": "img/es/04-quick-practice.png?v=6.1.0-beta.1",
+      "sha256": "6605ce58bc9d30a6dd94cb1f30bb4cd6f8b120281728e3880d5ec36760e6f419"
+    },
+    {
+      "language": "es",
+      "path": "img/es/05-quick-result.png?v=6.1.0-beta.1",
+      "sha256": "47bd64e2ea863a3165ea009f0153be7e7104196c832d48243b28b35cb50e010b"
+    },
+    {
+      "language": "es",
+      "path": "img/es/06-progress.png?v=6.1.0-beta.1",
+      "sha256": "16da80c29d545401c9bdd9244d266ef6720b8a9739319615ef0b0148ae9786b0"
+    },
+    {
+      "language": "es",
+      "path": "img/es/07-multimedia.png?v=6.1.0-beta.1",
+      "sha256": "523cd51aaf54fd095442b0683bd88754275eb28c734aefc7494e29621cbf5b8e"
+    },
+    {
+      "language": "es",
+      "path": "img/es/08-time-details.png?v=6.1.0-beta.1",
+      "sha256": "3b8105ee8cba772482f99ef4ef7097a7b6a5b7d14a0032336eff8b70706f029d"
+    },
+    {
+      "language": "es",
+      "path": "img/es/09-calendar.png?v=6.1.0-beta.1",
+      "sha256": "35a8d1276bbc242b29cb92a05943224096f4277151a2cf648f681e9b9232802c"
+    },
+    {
+      "language": "es",
+      "path": "img/es/landscape-reading.png",
+      "sha256": "4edc99c0bcfe79f8575a2407ac44099b8807a700c7ea63a8a87fa4fc54ffb455"
+    },
+    {
+      "language": "es",
+      "path": "img/es/wide-reading.png?v=6.1.0-beta.1",
+      "sha256": "e1407d4d0e9a3e2538d5e76d529eaa3cfeb67914a013fccf1f6a690f45f629bb"
+    },
+    {
+      "language": "es",
+      "path": "img/icon.png",
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    },
+    {
+      "language": "en",
+      "path": "img/en/01-today.png?v=6.1.0-beta.1",
+      "sha256": "45ea2aa249203bffe8628425a977ff038ad15568071e22ad6ee990d9ddb4930d"
+    },
+    {
+      "language": "en",
+      "path": "img/en/02-routine.png?v=6.1.0-beta.1",
+      "sha256": "77d17ad9f16c95f3340f52401355d6bcbfc6406dd5f987a035722358409b80d4"
+    },
+    {
+      "language": "en",
+      "path": "img/en/03-repertoire.png?v=6.1.0-beta.1",
+      "sha256": "5ca6240d7af1bcd5d1e1eb2a76997928538827ce785c4bbee4d64eb55a1a5f9e"
+    },
+    {
+      "language": "en",
+      "path": "img/en/04-quick-practice.png?v=6.1.0-beta.1",
+      "sha256": "10c5616ceadc3b0ad3a9c0a312e94cbf9024a691952728d11198f8187740e1a4"
+    },
+    {
+      "language": "en",
+      "path": "img/en/05-quick-result.png?v=6.1.0-beta.1",
+      "sha256": "bada214a2930c7664ecf01b719ad81a15bc0892a104e0f41de6e79e53694ba93"
+    },
+    {
+      "language": "en",
+      "path": "img/en/06-progress.png?v=6.1.0-beta.1",
+      "sha256": "7e4f4ac7461fcc0eed3ed9f25c7da1b8d1b26802f93cbf447637d648a20cbba9"
+    },
+    {
+      "language": "en",
+      "path": "img/en/07-multimedia.png?v=6.1.0-beta.1",
+      "sha256": "7988347e00b5e101b3d04c4960dce99bece597d8d00271dd241fa58d64a6bb9f"
+    },
+    {
+      "language": "en",
+      "path": "img/en/08-time-details.png?v=6.1.0-beta.1",
+      "sha256": "2e186e2f531bba4929f6906f1156f031195dffe35ef5ed3cd647f17edb7cdcf7"
+    },
+    {
+      "language": "en",
+      "path": "img/en/09-calendar.png?v=6.1.0-beta.1",
+      "sha256": "2e340461fd09cbd4e0964cf33e85a8430efe2946471eb3bf5d6401753c6cdebe"
+    },
+    {
+      "language": "en",
+      "path": "img/en/landscape-reading.png",
+      "sha256": "cdb060fb919cd22038aa5569b35bd1403735334fc75a9bc8130db1cecaa42754"
+    },
+    {
+      "language": "en",
+      "path": "img/en/wide-reading.png?v=6.1.0-beta.1",
+      "sha256": "1767c9579bc1afc3256a212e7858dc08d793d5e4cd5b1f8e017983e50bc59103"
+    },
+    {
+      "language": "en",
+      "path": "img/icon.png",
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/01-today.png?v=6.1.0-beta.1",
+      "sha256": "03cc9a499c7f5842d0c88d81ae2b9e65ebbc529c125b430802f4687d71ca9921"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/02-routine.png?v=6.1.0-beta.1",
+      "sha256": "08566c929a5218ba8999779d58beeb3e361faae49a2ce29923c314af968ad73d"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/03-repertoire.png?v=6.1.0-beta.1",
+      "sha256": "ae64fc93cb0c38be75fb5867f1e7172ed7f09b02b99a2c87e8989b5886b893e2"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/04-quick-practice.png?v=6.1.0-beta.1",
+      "sha256": "bd91ccae276da8b3830a3df3396d0be4f6bfafa5083c1ae7135348d6b3302e4d"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/05-quick-result.png?v=6.1.0-beta.1",
+      "sha256": "8abd0ffd1d519bbdfe74b76fbe3c46aac4367a9f8a4610966998ec787fc2c5b4"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/06-progress.png?v=6.1.0-beta.1",
+      "sha256": "29243fe146b295e725e87959c5ea725c2a13cd8e89d009341b29126791a604a7"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/07-multimedia.png?v=6.1.0-beta.1",
+      "sha256": "60719a39f3e17e9e13a7e34aff4a9aa4e81152624faa6a6b125382d824b6c4f6"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/08-time-details.png?v=6.1.0-beta.1",
+      "sha256": "30ee820f10109fe43f9fb4b464203c4adebba2e6ce64886500a4cca71902c21b"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/09-calendar.png?v=6.1.0-beta.1",
+      "sha256": "4597b85ec5bc7a2d709c8f8a06b496005962c2858dd3b489e8a851a7f0502837"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/landscape-reading.png",
+      "sha256": "7dedd39c7f4c28c76ef26ed170f7f83b143673941ce5a90a24c7cc3961d21052"
+    },
+    {
+      "language": "ca",
+      "path": "img/ca/wide-reading.png?v=6.1.0-beta.1",
+      "sha256": "0104ac68780e27ec5c42852d6ac9a5634b16767b66ff6c347beb39ad350c4cdc"
+    },
+    {
+      "language": "ca",
+      "path": "img/icon.png",
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    }
+  ],
+  "privacyPageVerified": true,
+  "apk": {
+    "file": "spino-6.1.0-beta.1-54-android.apk",
+    "bytes": 22651646,
+    "sha256": "1a3edbd12359ba88a4d81f417fd5e71b9f9990125c9e359c6a8741c4d87a1e61",
+    "platform": "Android",
+    "applicationId": "com.miguecoll.spino.beta",
+    "version": "6.1.0-beta.1",
+    "build": 54
+  },
+  "apkUnchanged": true,
+  "tests": {
+    "websiteChecks": 4,
+    "releaseDialogLanguageLayoutStates": 15
+  },
+  "review": "6.1.0-beta.1-website.md",
+  "cloudflareBuild": {
+    "name": "Workers Builds: spino",
+    "status": "completed",
+    "conclusion": "success",
+    "id": "91a2137a-df57-4c01-83e2-bdb99c549a85"
+  },
+  "screenshot": "../quality-review/captures/website/2026-10-15-beta61-release-notes-03/published-desktop.png"
+}
