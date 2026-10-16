@@ -1,5 +1,19 @@
 # Cloud validation and device connection
 
+## Beta12: one Google Drive connection and recording copies
+
+2026-10-16 — owner requests clear Google account/notebook status, removal of provider-file connection options and the isolated test, explicit connection confirmation, media copies, and stable geometry during periodic synchronization. The owner confirms the same Google account on both devices. This supersedes the earlier optional provider UI and synthetic-test entry, while retaining local JSON/offline/recovery and all existing notebook/file identities.
+
+Implemented: old provider connections pause at startup; they cannot resume automatic writes. Google selection is a radio form with one Connect selected notebook submit and Cancel. An existing notebook is selected on the second device, including same-identity legacy migration; no old Drive file is deleted. The overview always names Google Drive, account and notebook. A Google grant without a selected notebook is still Not connected. Manage controls pause/reconnect/disconnect and recovery.
+
+Notebook edits debounce for 1.5 seconds; unchanged incoming checks run every 30 seconds and keep the card mounted. Genuine updates/errors remain visible. Media copies have independent status/progress and use the notebook’s native pinned Google account without a second consent flow or tokens in WebView. The Drive resumable protocol follows [Google’s upload guidance](https://developers.google.com/workspace/drive/api/guides/manage-uploads). Saved audio/video copies carry IDs, title at upload, date, duration and SHA256; downloaded files enter local storage only after verification. Copies are additive, respect network preference, resume interruption and exclude drafts/foreign notebooks. Local deletion keeps existing Drive copies and a private exclusion avoids re-download; local title edits remain local.
+
+[Connection evidence](captures/profile/2026-10-16-drive-unified-03/verification.json) covers four layouts and a full 30-second unchanged poll. [Recording evidence](captures/multimedia/2026-10-16-drive-copies-03/verification.json) separately checks actual browser local storage and two-minute offline playback with a simulated native/Drive bridge. Earlier runs are retained. The quota-failure regression also now rejects an aborted local transaction without an uncaught asynchronous exception, preserving the draft/retry path and immutable stored bytes during renaming.
+
+[Native evidence](captures/profile/2026-10-16-drive-unified-native-03/native.json) verifies replacement installation, actual plugin/account guards, cache readback, original logical databases, immutable media blobs and foreground activity. The first native attempt encountered an emulator timeout. A later assertion read the disposable namespace instead of original databases; the verifier now retains the original IndexedDB open function. The successful run verifies actual original data. No Google account was authorized during emulator review.
+
+[Final validation](../releases/6.1.0-beta.12-validation.json) records 89 focused app checks (86 initial passes plus three corrected checks reverified), three website checks, six Android unit checks, 260 byte-matching web files in the APK and the retained signing certificate. The removed test page is absent from the APK. Next: public delivery verification, owner layout review and physical same-account notebook/media copies in both directions. This remains distinct from the owner’s earlier isolated beta9 acceptance.
+
 ## Beta11: second-device revision compatibility
 
 2026-10-16 — the owner reports beta10 working on the first physical device and showing “Drive did not provide a safe file revision. No changes were uploaded.” on the second. This is partial owner acceptance, not a successful two-device notebook check. The screenshot still displays the retained provider file after the failed move. No personal notebook or Google account was inspected during diagnosis.

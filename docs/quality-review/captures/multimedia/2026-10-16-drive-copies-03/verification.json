@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-16T14:35:40.398Z",
+  "kind": "responsive-browser-simulated-native-and-Drive",
+  "realGoogleTransferTested": false,
+  "checks": [
+    "Same notebook Google account",
+    "SHA256 verified copy stored in local IndexedDB",
+    "120-second offline playback and seeking",
+    "Local deletion keeps Drive copy and avoids redownload"
+  ],
+  "frames": [
+    {
+      "file": "offline-playback-phone-portrait.png",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "offline-playback-phone-landscape.png",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "offline-playback-tablet-portrait.png",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "offline-playback-tablet-landscape.png",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768
+    }
+  ]
+}

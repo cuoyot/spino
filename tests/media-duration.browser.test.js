@@ -29,7 +29,7 @@ test('two-minute legacy WebM has a full timeline before playback and keeps its o
   assert.equal(original.rawDurationFinite,false,'The legacy fixture must reproduce missing duration metadata');
   await send('Page.reload');await evaluate(until("document.querySelector('.cp-today')"));
   const click=selector=>send('Runtime.evaluate',{expression:`document.querySelector(${JSON.stringify(selector)}).click()`,userGesture:true,awaitPromise:true});
-  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await click('[data-action=media-play]');
+  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelector('[data-action=media-play]')"));await click('[data-action=media-play]');
   await evaluate(until("document.querySelector('#cp-media-capture audio')?.readyState>=1"));
   assert.equal(await evaluate(`document.querySelector('#cp-media-capture audio').duration`),120);
   await send('Runtime.evaluate',{expression:`document.querySelector('#cp-media-capture audio').play()`,userGesture:true,awaitPromise:true});

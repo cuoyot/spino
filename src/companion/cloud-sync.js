@@ -12,15 +12,15 @@ const defaultSettings = {
 };
 
 export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible, canApply = eligible, applyBlocker = () => 'editor',
-  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000,
+  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000, dirtyDelay = delay, retireProvider = false,
   validate = validateBackup, backupFactory = createCloudBackup }) {
   let state = { mode: 'backup', enabled: false, status: 'disconnected', name: '', ...settings.read() };
   let task = null, timer = null, revision = 0, applying = false;
   const independent = backupFactory({ adapter, snapshot, eligible, changed, delay });
   const publish = () => { settings.save(state); changed(); };
-  const schedule = () => {
+  const schedule = (wait=delay) => {
     if (timer) return;
-    if (state.mode === 'sync' && state.enabled && state.status !== 'conflict' && (state.status !== 'error' || state.retryable)) timer = setTimeout(() => { timer = null; void sync(null, true); }, state.status === 'error' ? Math.min(60000, delay * 2 ** (state.retryCount || 0)) : delay);
+    if (state.mode === 'sync' && state.enabled && state.status !== 'conflict' && (state.status !== 'error' || state.retryable)) timer = setTimeout(() => { timer = null; void sync(null, true); }, state.status === 'error' ? Math.min(60000, delay * 2 ** (state.retryCount || 0)) : wait);
   };
   const shared = value => adapter.transport === 'drive' ? driveNotebookContent(value) : value;
   const content = text => shared(notebookContent(validate(text)));
@@ -31,7 +31,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     return text;
   };
   async function reconcile(preference) {
-    const captured = revision;
+    const captured = revision; let uploaded=false;
     state.operation = 'snapshot';
     const original = await snapshot();
     if (!state.enabled) return;
@@ -71,7 +71,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
     if (!remoteId || stableJSON(remote) !== stableJSON(merged)) {
-      state.operation = 'write';
+      uploaded=true; state.operation = 'write'; state.status = 'writing'; publish();
       const expectedHash = await backupHash(remoteFile.text);
       if (!state.enabled) return;
       await adapter.write({ text: encode(merged), expectedHash });
@@ -97,7 +97,8 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if (!state.enabled) return;
     }
     state.operation = null; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
-    state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastWrittenAt = new Date().toISOString();
+    const updated=localChanged||uploaded;
+    state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastCheckedAt = new Date().toISOString(); if(updated)state.lastWrittenAt=state.lastCheckedAt;
     publish();
     if (localChanged) adopted();
   }
@@ -122,7 +123,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!eligible()) { state.status = 'waiting'; publish(); schedule(); return; }
     task = (async () => {
       try {
-        state.status = 'writing'; state.waitReason = null; state.error = ''; publish();
+        if(!automatic||state.status!=='saved'){state.status = 'writing'; state.waitReason = null; state.error = ''; publish();}
         await reconcileWithRetry(preference);
       }
       catch (error) {
@@ -160,7 +161,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         const notebookId = join ? JSON.parse(result.text).cloudBackup?.sharedNotebookId : state.notebookId;
         if (notebookId && !validNotebookId(notebookId)) throw new Error('The shared notebook identity is invalid.');
         linked = true;
-        state = { notebookId, mode: 'sync', name: result.name, enabled: false, status: 'paused', error: '', conflicts: [] };
+        state = { notebookId, mode: 'sync', name: result.name, enabled: false, status: 'paused', error: '', conflicts: [],lastWrittenAt:new Date().toISOString() };
         publish();
         await saveBase(null);
         if (join) content(result.text);
@@ -181,6 +182,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     get busy() { return !!task || independent.busy; },
     async init() {
       const destination = await adapter.status();
+      // The old provider is retained only for migration/recovery, never for automatic writes.
+      if((adapter.drive||retireProvider)&&adapter.transport!=='drive'){
+        if(state.mode==='sync'){state.enabled=false;state.status='paused';state.name=destination.linked?destination.name:'';publish();}
+        else{await independent.init();independent.continueLocal();}return;
+      }
       if (destination.linked && destination.setupPending) {
         if (destination.mode === 'sync') {
           if (!destination.preserveSyncBase) await saveBase(null);
@@ -203,7 +209,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         state = { mode: 'backup', enabled: false }; publish();
       } else schedule();
     },
-    async migrateToDrive() {
+    async migrateToDrive({fileId=null}={}) {
       if (!adapter.drive) throw new Error('Google Drive is unavailable.');
       if (task || independent.busy) throw new Error('Wait for synchronization.');
       if (!eligible() || !canApply()) throw new Error('Finish practice and close editors before moving your notebook to Google Drive.');
@@ -216,13 +222,14 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         try {
           const original = await snapshot(), local = driveNotebookContent(notebookContent(validate(original)));
           await adapter.saveRecovery({text: original});
-          const files = (await adapter.drive.list()).filter(f => f.appProperties.notebookId === notebookId);
+          const files = (await adapter.drive.list()).filter(f => f.appProperties.notebookId === notebookId&&(!fileId||f.id===fileId));
+          if(fileId&&!files.length)throw new Error('The selected notebook is no longer available in this account.');
           if (files.length > 1) throw new Error('More than one Drive file uses this notebook identity. Select the intended notebook before connecting.');
           let result;
           if (files.length) { adapter.drive.choose(files[0].id); result = await adapter.drive.pickBackup({expectedNotebookId:notebookId}); }
           else result = await adapter.drive.create({text:JSON.stringify({...local,cloudBackup:{sharedNotebookId:notebookId},exportedAt:new Date().toISOString()}),name:previous.name || 'SPino notebook.json'});
           adapter.useDrive(); switched = true;
-          state = {notebookId,mode:'sync',enabled:false,status:'paused',name:result.name,error:'',conflicts:[]}; publish();
+          state = {notebookId,mode:'sync',enabled:false,status:'paused',name:result.name,error:'',conflicts:[],lastWrittenAt:new Date().toISOString()}; publish();
           if (!files.length && !result.joined) await saveBase(local);
           else if (previous.mode !== 'sync' || previous.notebookId !== notebookId) await saveBase(null);
           await adapter.acknowledgeSetup?.();
@@ -278,8 +285,9 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       state.resolution = { preference, hash: state.conflictHash };
       return sync(preference);
     },
-    markDirty() { if (applying) return; revision++; if (state.mode === 'sync') schedule(); else independent.markDirty(); },
+    markDirty() { if (applying) return; revision++; if (state.mode === 'sync'){clearTimeout(timer);timer=null;schedule(dirtyDelay);} else if(!adapter.drive&&!retireProvider)independent.markDirty(); },
     async setEnabled(enabled) {
+      if((adapter.drive||retireProvider)&&adapter.transport!=='drive')throw new Error('Connect Google Drive to resume synchronization.');
       if (state.mode !== 'sync') return independent.setEnabled(enabled);
       if (!enabled) return this.continueLocal();
       if (task) throw new Error('Wait for synchronization.');

@@ -1,35 +1,37 @@
-# Notebook synchronization with Google Drive (Android beta)
+# Google Drive notebook and recording copies (Android beta)
 
-Android 6.1.0-beta.10/build63 adds direct Google Drive API synchronization for the notebook. Install beta11 or later on both devices. Use your own Google account; while OAuth remains in testing, the account must be listed as a Google test user. The beta9 synthetic recording test has owner-reported two-device acceptance. The owner reports beta10 working on the first device and a revision error on the second. Beta11 corrects revision handling; complete two-device acceptance remains open.
+Android beta12 uses one Google Drive connection for the notebook, scores and saved audio/video copies. Profile → Backup & sync shows the Google account and notebook explicitly. Use the same Google account on both devices. Google OAuth test users may still be required while the Google project is in testing.
 
 ## Connect the first device
 
-Finish practice, close editors and let the previous connection synchronize on both devices before moving it. Export a JSON copy from Profile → Backup & sync if you want an additional portable copy.
+Finish practice and close editors. Open Profile → Backup & sync → Connect Google Drive. Sign in, select this device’s notebook, and press **Connect selected notebook**. The selected radio choice shows what will be connected; Cancel closes the selection without creating or moving a notebook.
 
-For an existing file-provider connection, open Manage → Move this connection to Google Drive. Connect Google, select Move this connection to Google Drive in the account screen, and confirm Connect notebook. SPino creates a Drive copy or reconnects an existing API notebook with the same notebook identity. It keeps the previous provider file, local notebook, scores, annotations and a local recovery copy. After a successful move, the previous provider connection is released on this device.
+An old provider-file connection is paused. Its automatic synchronization and connection menus are retired in this beta. Connect Google Drive to move it. SPino keeps the previous file, local data, stable notebook/record IDs, PDFs, annotations and local recovery copy. If that notebook already exists in the selected Google account, choose it to retain its identity and merge history. Independent edits combine; overlapping edits require review. No old file is deleted.
 
-For a local notebook with no existing connection, open Connect → Connect with Google → Use this notebook in Google Drive → Connect notebook. Only this explicit action uploads the notebook. It does not upload personal audio/video recordings.
+## Connect the second device
 
-## Connect the other device
+Open Backup & sync, connect the **same Google account**, select the existing notebook and confirm. Do not create a second notebook when the first device has already connected it. An optional notebook QR narrows the list; it does not grant Google access. A connected notebook must be disconnected before selecting another identity. Reconnect in Manage renews access for the same account.
 
-For a device with the same previous provider connection, follow the same Move flow using the same Google account. SPino finds the already moved notebook by its identity, combines independent changes and asks you to review overlapping edits.
+The overview says Connected to Google Drive when the notebook is connected, and shows its account and notebook name separately. Paused or error states remain visible. An account may be authorized while no notebook is selected; that is still shown as Not connected.
 
-For an unconnected device, open Profile → Connect another device, or Backup & sync → Connect → Connect with Google. Choose the notebook shown in your Google account. A notebook QR can narrow the selection; it does not authorize an account. Disconnect the current notebook before choosing a different one. The earlier provider connection remains available under Other connection options.
+## When synchronization runs
 
-## Work offline and keep local copies
+Saved notebook edits upload shortly afterwards (about 1.5 seconds when eligible). SPino checks for changes from the other device every 30 seconds while open. An unchanged check keeps the existing card and controls mounted. Incoming notebook changes wait for practice, editing and dialogs to finish.
 
-The notebook always remains saved locally. If Drive is unavailable, choose Continue locally and keep practicing. This pause survives restarting the app. Export file, Restore file and Convert a backup remain available in Backup & sync. On Android, Restore file opens the native document picker, where you can select a local JSON copy without a cloud connection. Exporting includes the complete local preferences; importing a copy remains an explicit replacement operation and disconnects automatic synchronization.
+Manage can pause automatic synchronization or disconnect this device. Local saves continue. Errors keep local data and show connection details; reconnect the same Google account when permission expires.
 
-To resume, open Backup & sync and press Resume or enable Automatic updates in Manage, then use Sync now. If Google access expired or was revoked, use Reconnect Google Drive for the same account. A missing/deleted remote file is not silently replaced. Disconnecting keeps the local notebook, recovery copy and Drive file. Erase the notebook remains a separate destructive action and also removes the Android recovery copy.
+## Audio and video copies
 
-## Shared and device settings
+Saved takes linked to works in the connected notebook are copied through that same account. The copies preserve recording and work IDs, title at upload, creation date, duration, kind and verified file bytes. Drafts and recordings bound to another account/notebook are excluded. Media copies wait for practice, recording, editors and other transfers to finish. They respect the device’s network preference and pause when SPino goes into the background. Interrupted uploads/downloads retain progress for retry.
 
-Direct Drive sync includes repertoire, practice history, planning, routines, scores, annotations and shared practice preferences. Theme and Wi-Fi download preferences remain on each device. MIDI configuration, notification permissions, Google connection metadata and personal recordings are also local.
+Audio and video copies shows progress and any transfer error independently of notebook status. Copy recordings now checks the notebook and runs the copies when eligible. After a verified download is saved in local media storage, play it from Library → Multimedia without an internet connection.
 
-Automatic updates run while SPino is open. Incoming changes wait until practice and editing finish. The existing conflict review is retained. A file revision is required before writing; contention triggers a fresh read and merge, and uncertain writes are never retried as blind overwrites. JSON copies and the local recovery path remain independent of successful cloud access.
+Copies are additive. Deleting a local take keeps any existing Drive copy and prevents automatic redownload on that device. Other devices keep their copies. Title edits after copying remain local to each copy. Use Google Drive itself to manage remote files. Local notebook restore/merge does not delete recordings.
 
-## Retrying the beta10 revision error
+## Local copies and offline use
 
-If a second device reports “Drive did not provide a safe file revision”, update both devices to beta11 or later. On the affected device, open Profile → Backup & sync → Manage and retry Move this connection to Google Drive with the same account. Choose the existing notebook when offered. Keep the current notebook and cloud file; deleting or recreating them is unnecessary. Local practice and JSON copies remain available while the connection is paused.
+Export file, Restore file and Convert a copy remain in Backup & sync. JSON copies include repertoire, history, plans, scores, annotations and notebook preferences; audio/video binaries remain separate. Practice and play downloaded/local recordings offline. Manage → Restore local recovery copy reviews the snapshot before incoming synchronization. Disconnect keeps local notebook data, recordings, recovery and Drive files. Explicit Erase notebook removes local notebook data and recordings.
 
-The owner reports beta10 working on the first device and this error on the second. Beta11 has synthetic regression coverage; successful physical synchronization in both directions still needs owner confirmation.
+## Verification status
+
+Synthetic protocol/browser checks cover first/second-device connection, migration/cancel/reconnect, concurrent edits, no-change polling, recording-copy integrity/resumption, network policy and offline playback. Native checks verify actual menus, account guards, transfer-cache readback and original notebook/media retention. Real Google authorization and copying on the owner’s physical devices remain separate acceptance checks. The earlier isolated transfer test has been removed from beta12.

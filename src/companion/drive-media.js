@@ -1,4 +1,4 @@
-// Drive transport for the isolated media feasibility check. No notebook store is opened.
+// Immutable recording copies, scoped to the connected account and notebook.
 export const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
 export const DRIVE_CHUNK = 256 * 1024;
 export const MEDIA_LIMIT = 250 * 1024 * 1024;
@@ -17,18 +17,18 @@ export function driveURL(value) {
 }
 export function validateRemote(file, notebookId) {
   const p=file?.appProperties;
-  if(!id(file?.id)||file.trashed||p?.spinoMedia!=='poc1'||p.notebookId!==notebookId||!id(p.takeId)||!id(p.workId)||!checksum(p.sha256)||!mime(file.mimeType)||!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT||file.sha256Checksum!==p.sha256) throw fail('Invalid recording metadata or notebook identity.', 'INVALID_MEDIA');
+  if(!id(file?.id)||file.trashed||p?.spinoMedia!=='spino-media-v1'||p.notebookId!==notebookId||!id(p.takeId)||!id(p.workId)||!checksum(p.sha256)||!mime(file.mimeType)||!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT||file.sha256Checksum!==p.sha256) throw fail('Invalid recording metadata or notebook identity.', 'INVALID_MEDIA');
   return file;
 }
 export function createDriveMedia({request, state, accountId, notebookId, downloadFile,hashBlob=mediaHash,readChunk=(blob,start,end)=>blob.slice(start,end)}) {
   if(!id(accountId)||!id(notebookId))throw fail('Connect a Drive account and notebook first.','NOT_CONNECTED');
   // The account and notebook are immutable for this client. Reconnection creates a new client.
   const scoped = (url, options={}) => request({...options,url:driveURL(url),accountId});
-  const key = takeId => `poc1.${accountId}.${notebookId}.${takeId}`;
+  const key = takeId => `media1.${accountId}.${notebookId}.${takeId}`;
   const expect = (r, codes=[200]) => { if(!codes.includes(r.status))throw fail(r.status===401?'Reconnect Google Drive.':r.status===403?'Drive permission or storage quota prevents this operation.':`Drive transfer failed (${r.status}).`,String(r.status));return r; };
   const metadata = async fileId => {const r=expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`));return validateRemote(r.json,notebookId);};
-  async function upload({takeId,workId,title,blob,onProgress=()=>{},signal}) {
-    if(!id(takeId)||!id(workId)||!(blob instanceof Blob)||!blob.size||blob.size>MEDIA_LIMIT||!mime(blob.type)||typeof title!=='string'||title.length>200)throw fail('Invalid local recording.','INVALID_MEDIA');
+  async function upload({takeId,workId,title,blob,onProgress=()=>{},signal,createdAt=new Date().toISOString(),durationMs=0}) {
+    if(!id(takeId)||!id(workId)||!(blob instanceof Blob)||!blob.size||blob.size>MEDIA_LIMIT||!mime(blob.type)||typeof title!=='string'||title.length>200||!Number.isFinite(durationMs)||durationMs<0||!Number.isFinite(Date.parse(createdAt)))throw fail('Invalid local recording.','INVALID_MEDIA');
     const aborted=()=>{if(signal?.aborted)throw fail('Transfer paused. Its progress is retained.','ABORTED');};
     aborted();const hash=await hashBlob(blob);aborted();if(!checksum(hash))throw fail('Invalid local recording checksum.','INTEGRITY');
     let saved=await state.get(key(takeId));
@@ -43,7 +43,7 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     if(existing.status===200){const found=validateRemote(existing.json,notebookId);if(found.appProperties.takeId!==takeId||found.sha256Checksum!==hash)throw fail('Recording identity conflict.','IDENTITY_CONFLICT');return found;}
     expect(existing,[404]);aborted();
     const start=async()=>{
-      const properties={spinoMedia:'poc1',notebookId,takeId,workId,sha256:hash};
+      const properties={spinoMedia:'spino-media-v1',notebookId,takeId,workId,sha256:hash,createdAt,durationMs:String(Math.max(0,Math.round(durationMs)))};
       const r=expect(await scoped(`${UPLOAD}?uploadType=resumable&fields=${encodeURIComponent(fields)}`,{method:'POST',headers:{'X-Upload-Content-Type':blob.type,'X-Upload-Content-Length':String(blob.size)},json:{id:saved.fileId,name:title,mimeType:blob.type,appProperties:properties}}),[200,201]);
       saved.session=driveURL(r.headers?.location);await state.set(key(takeId),saved);
     };
@@ -65,11 +65,11 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
   async function list(){
     let page='',files=[];
     do {
-      const q=`trashed = false and appProperties has { key='spinoMedia' and value='poc1' } and appProperties has { key='notebookId' and value='${notebookId}' }`;
+      const q=`trashed = false and appProperties has { key='spinoMedia' and value='spino-media-v1' } and appProperties has { key='notebookId' and value='${notebookId}' }`;
       const r=expect(await scoped(`${API}/files?q=${encodeURIComponent(q)}&pageSize=100&fields=${encodeURIComponent(`nextPageToken,files(${fields})`)}${page?'&pageToken='+encodeURIComponent(page):''}`));
       if(!Array.isArray(r.json?.files))throw fail('Invalid Drive recording list.','INVALID_RESPONSE');
       files.push(...r.json.files.map(f=>validateRemote(f,notebookId)));page=r.json.nextPageToken||'';
-      if(files.length>10000)throw fail('Recording list exceeds the review limit.','LIMIT');
+      if(files.length>10000)throw fail('Recording list exceeds the supported limit.','LIMIT');
     }while(page);
     return files;
   }

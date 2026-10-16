@@ -1,5 +1,7 @@
 # Google Drive media feasibility check
 
+Historical feasibility record: Android beta12 removes the isolated test UI and packages recording copies through the notebook Google account. Current behavior and verification are documented in the beta12 cloud connection review and manual. Earlier test/migration-disabled statements below describe their original stages.
+
 October 16, 2026. The owner selected each user's own Drive with no additional SPino subscription, authorized implementation of the feasibility check, and requested website beta delivery for two-device testing.
 
 October 16 permission defect follow-up: the published beta8 rejects successful grants because its native check compares the strings returned by `AuthorizationResult.getGrantedScopes()` with a `Scope` object. The local correction compares the URI string and rejects absent/empty tokens. Three actual SDK-result tests, ten protocol tests and [native emulator retention/navigation checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-01/native.json) pass. The same-version local review APK is not published; real Google consent and physical two-device transfer remain pending. Google's [AuthorizationResult contract](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult) documents the string result type.

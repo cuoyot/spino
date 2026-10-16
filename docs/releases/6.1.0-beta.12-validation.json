@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-16T14:44:37.806708+00:00",
+  "version": "6.1.0-beta.12",
+  "build": 65,
+  "webBuild": "passed",
+  "androidBuild": "Java 21 / testDebugUnitTest / assembleDebug passed",
+  "androidUnitTests": 6,
+  "focusedAppChecks": 89,
+  "checkRuns": {
+    "initial": "86 passed; three follow-up failures corrected",
+    "followUp": "Three corrected checks pass: async Multimedia navigation, QR flow updated to Drive selection, quota abort handler no longer throws an uncaught exception."
+  },
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 260,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/profile/2026-10-16-drive-unified-03/verification.json",
+  "mediaEvidence": "../quality-review/captures/multimedia/2026-10-16-drive-copies-03/verification.json",
+  "nativeEvidence": "../quality-review/captures/profile/2026-10-16-drive-unified-native-03/native.json",
+  "foregroundAfterRelaunch": "    topResumedActivity=ActivityRecord{c3fa141 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t81}",
+  "originalLogicalStoresUnchanged": true,
+  "retainedBlobFiles": 20,
+  "googleAuthorizationTested": false,
+  "physicalCrossDeviceNotebookSyncTested": false,
+  "physicalCrossDeviceRecordingCopyTested": false,
+  "personalMediaCopiesEnabled": true,
+  "sameGoogleAccountConfirmedByOwner": true,
+  "hashes": {
+    "package-lock.json": "1798ab4aa9820ae3dd26eab2d1fc21f651f0fbaaaad4fbf93a7b06ef48c30c59",
+    "src/companion/app.js": "98a1afdfac9192d27636139c3e6a58d2f44dd06312e6cc12e23e8b1d684bef1f",
+    "src/companion/cloud-sync.js": "2f541a4f7ea2a4c0439b52e168750239f198866f3e64b800383694d41e11979e",
+    "src/companion/drive-sync-view.js": "0a941a089369bb2480d797b79d6d9f89c7256aef4cfc543ea8c8ee737a6ed482",
+    "src/companion/drive-notebook-view.js": "40b884ea5016778ff84981e60a002120091c584be25b741aef215286263449b0",
+    "src/companion/media-sync.js": "c693a355861f2a4999b69c9e4b11a030d174eaeefe7c80e3337185f5d90169ac",
+    "src/companion/media-store.js": "4d811c7be3436f4f5543da9869caa05dba1582f3d8d5486c5186f145dad3dd05",
+    "src/companion/drive-media.js": "46e450f0f3b3f5f8b1f912a71b94c01b94b34c8531a9665a0e78690dcfbd1360",
+    "src/companion/drive-media-native.js": "ef52a56079cf31206086ee087b1fe4a1785e98cb712e174714a60ae65f410068",
+    "android/app/src/main/java/com/miguecoll/spino/DriveMediaPlugin.java": "f5e23ed9af028878098509c205c7334123463fb7d64cfaa63e1644eace4cd8de",
+    "dist/index.html": "d172cd610db9c15a48c0b5237fc0c94837c9aa16365b487a44c244f1d1a410c9"
+  },
+  "websiteEvidence": "../quality-review/captures/website/2026-10-16-beta12-release/verification.json"
+}

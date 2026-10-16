@@ -11,7 +11,7 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createDriveNot
   return {
     drive,
     get transport(){return current()===drive?'drive':'provider';},
-    get info(){return current()===drive?drive.info:{transport:'provider'};},
+    get info(){return current()===drive?drive.info:{transport:'provider',account:drive.info?.account||null,needsMigration:true};},
     useDrive(){storage.setItem(selectionKey,'drive');},
     useProvider(){storage.setItem(selectionKey,'provider');},
     clearLegacyLink:()=>legacy.disconnect(),

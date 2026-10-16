@@ -51,7 +51,7 @@ function localOCRFiles() {
 export default defineConfig({
   base: './',
   plugins: [{ name: 'local-pdf-resources', buildStart: localPDFFiles }, { name: 'local-ocr-resources', buildStart: localOCRFiles }, { name: 'local-repertoire', buildStart: localRepertoireFiles }],
-  build: { outDir: 'dist', chunkSizeWarningLimit: 4000, rollupOptions: { input: { app:'index.html',driveReview:'drive-media-review.html' } } },
+  build: { outDir: 'dist', chunkSizeWarningLimit: 4000, rollupOptions: { input: { app:'index.html' } } },
   // the Android project churns on every APK build; watching it reloads the page and can crash the watcher
   server: { watch: { ignored: ['**/android/**', '**/dist/**', '**/*.apk'] } },
 });

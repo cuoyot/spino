@@ -1,4 +1,4 @@
-// Kept outside the synchronized notebook so restore/merge cannot remove local takes.
+// Binary copies stay independent of notebook restore/merge; remote copies never delete local takes.
 const result = request => new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
 const done = transaction => new Promise((resolve, reject) => { transaction.oncomplete = resolve; transaction.onabort = transaction.onerror = () => reject(transaction.error || Error('Could not save the recording.')); });
 export async function openMediaStore(name = 'spino-local-media') {
@@ -11,12 +11,13 @@ export async function openMediaStore(name = 'spino-local-media') {
   let installation;
   identity.onsuccess = () => { installation = identity.result || crypto.randomUUID(); if (!identity.result) meta.put(installation, 'installation'); };
   await committed;
+  let onChange=()=>{};
   return {
-    installation,
+    installation,onChange:callback=>{onChange=callback;},
     async put(record) {
       if (!record.id || !record.workId || !(record.blob instanceof Blob) || !record.blob.size || !/^(audio|video)\//.test(record.blob.type)) throw Error('The recording is empty or invalid.');
       const tx = db.transaction('recordings', 'readwrite'), committed = done(tx);
-      tx.objectStore('recordings').put({...record, installation}); await committed;
+      const records=tx.objectStore('recordings'),existing=records.get(record.id);existing.onsuccess=()=>{try{records.put({...record,...(existing.result?{blob:existing.result.blob,cloud:existing.result.cloud||record.cloud}:{}),installation});}catch{tx.abort();}};await committed;onChange();
     },
     async get(id) {
       const record = await result(db.transaction('recordings').objectStore('recordings').get(id));
@@ -36,8 +37,20 @@ export async function openMediaStore(name = 'spino-local-media') {
       });
       return rows.sort((a,b) => b.createdAt.localeCompare(a.createdAt));
     },
-    async remove(id) { const tx = db.transaction('recordings','readwrite'), committed = done(tx); tx.objectStore('recordings').delete(id); await committed; },
-    async clear() { const tx = db.transaction('recordings','readwrite'), committed = done(tx); tx.objectStore('recordings').clear(); await committed; },
+    async attachCloud(id, cloud) {
+      const tx=db.transaction('recordings','readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
+      q.onsuccess=()=>{try{if(q.result)records.put({...q.result,cloud});}catch{tx.abort();}};await committed;
+    },
+    async ignored(scope, id) {return !!await result(db.transaction('meta').objectStore('meta').get('removed.'+scope+'.'+id));},
+    async importRemote(record, scope) {
+      const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),meta=tx.objectStore('meta');let inserted=false;
+      const ignored=meta.get('removed.'+scope+'.'+record.id);ignored.onsuccess=()=>{if(ignored.result)return;const exists=records.get(record.id);exists.onsuccess=()=>{if(!exists.result){try{records.put({...record,installation});inserted=true;}catch{tx.abort();}}};};await committed;return inserted;
+    },
+    async remove(id) {
+      const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
+      q.onsuccess=()=>{try{const cloud=q.result?.cloud;if(cloud)tx.objectStore('meta').put(true,'removed.'+cloud.accountId+'.'+cloud.notebookId+'.'+id);records.delete(id);}catch{tx.abort();}};await committed;onChange();
+    },
+    async clear() { const tx = db.transaction(['recordings','meta'],'readwrite'), committed = done(tx); tx.objectStore('recordings').clear();tx.objectStore('meta').clear();tx.objectStore('meta').put(installation,'installation'); await committed; },
     close: () => db.close(),
   };
 }

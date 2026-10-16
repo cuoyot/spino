@@ -32,10 +32,10 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(CloudBackupPlugin.class);
         registerPlugin(DriveMediaPlugin.class);
         registerPlugin(DriveNotebookPlugin.class);
-        // Start the isolated review without initializing or opening the user's notebook.
+        // Internal storage checks start on a static asset before opening any notebook.
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
-                && "drive-media".equals(getIntent().getStringExtra("spinoReview"))) {
-            config = new com.getcapacitor.CapConfig.Builder(this).setStartPath("/drive-media-review.html").create();
+                && "storage-check".equals(getIntent().getStringExtra("spinoReview"))) {
+            config = new com.getcapacitor.CapConfig.Builder(this).setStartPath("/licenses/webm-duration-mit.txt").create();
         }
         super.onCreate(savedInstanceState);
         // Let the app close overlays and traverse its screen history before exiting at the root.

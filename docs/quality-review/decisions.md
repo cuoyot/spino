@@ -8,6 +8,14 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 2026-10-16 owner acceptance: the owner reports that the beta9 Google Drive test worked on both devices. This is owner-reported acceptance of the isolated test, not instrumented evidence of automatic notebook/media synchronization. Interruption recovery, expired/revoked consent, concurrent notebook edits and legacy-data migration remain separate checks. **Proposed next direction:** one Google account connection for notebook and media transport, retaining the existing merge/conflict engine and offline operation. Distinguish shared notebook preferences from device-specific settings. Existing files require explicit adoption/migration; no migration implementation is accepted by this discussion alone.
 
+## D-051 — One explicit Google connection, recording copies and quiet polling
+
+- Status: **owner requested and authorized**, 2026-10-16; the owner confirms the same Google account on both devices. Implemented for Android beta12, with synthetic browser/protocol and separate native checks; physical/owner acceptance remains open.
+- Retire old provider-file automatic connections and their setup options; keep the local notebook, legacy file, identity and merge baseline for explicit movement to Drive. Remove the isolated test entry and packaged page. Keep JSON export/restore/conversion, recovery and offline practice.
+- Show Google Drive, account and notebook separately. The picker uses a selected radio option plus Connect selected notebook; Cancel closes without migration. Existing matching notebooks are reused on the second device. No Done button stands in for connecting.
+- Copy saved audio/video through the notebook account, using immutable recording IDs, checksums, resumable transfer and existing network preferences. Exclude drafts and foreign notebooks, preserve local copies, and do not propagate local deletion to Drive/other devices. Exclude local-deleted takes from redownload; title edits remain local to each copy.
+- Debounce edits for 1.5 seconds; check incoming changes every 30 seconds while open. Keep unchanged cards mounted and stable. Media status/progress is separate. [Active review](cloud-connection.md#beta12-one-google-drive-connection-and-recording-copies) distinguishes simulated Google/browser checks, actual native cache/menu/retention evidence and pending physical acceptance.
+
 ## D-050 — Preserve revision protection when joining Drive on a second device
 
 - Status: **owner-reported beta10 defect corrected**, 2026-10-16. The first physical device worked according to the owner; the second reports a missing safe file revision. Published as beta11/build64 with [public verification](../releases/6.1.0-beta.11-publication.json). Corrected physical two-device acceptance remains open.

@@ -53,7 +53,7 @@ export const COPY = {
       [
         "media",
         "Record your progress · beta 6.1",
-        "Record audio or video linked to a repertoire piece. Start and stop from the floating score bar, review each take and browse Library → Multimedia. Files stay on this installation; media cloud copies and sharing are not available yet."
+        "Record audio or video linked to a repertoire piece. Start and stop from the floating score bar, review each take and browse Library → Multimedia. Local files play offline. Android beta12 copies saved recordings through your own Google Drive account; JSON notebook backups exclude the audio/video files."
       ],
       [
         "plan",
@@ -63,7 +63,7 @@ export const COPY = {
       [
         "lock",
         "Back up and connect your notebook",
-        "Export portable JSON backups with scores and annotations. Optional synchronization uses a notebook file you choose through your device’s provider. A QR or connection code helps connect another device; each device grants its own file access. Recordings remain local and are excluded from these backups and sync. Continue locally when a provider is unavailable."
+        "Export portable JSON copies with scores and annotations. Android beta12 connects directly to your Google Drive account for notebook synchronization and verified audio/video copies. Use the same account and select the existing notebook on the other device. Local saving, offline playback and JSON recovery remain available."
       ],
       [
         "level",
@@ -87,7 +87,7 @@ export const COPY = {
     "wideAlt": "Two-hand sight-reading on a tablet",
     "shotsNote": "Responsive-browser previews of beta 6.1.0-beta.1 (54), using synthetic notebooks and demo audio. The stable and Google Play downloads are labeled separately above; these are not native-device acceptance captures.",
     "privacyTitle": "Your notebook, your choice",
-    "privacy": "No app account, ads or SPino-operated backend. The notebook and recordings stay on your device. Optional notebook backup and sync use a file chosen through your device’s provider, which may require its own account. Media recordings are not included in JSON backups or synchronization.",
+    "privacy": "No app account, ads or SPino-operated backend. Data stays local unless you connect Google Drive. Android beta12 can synchronize your notebook and copy saved audio/video recordings to your own Google account. Tokens stay native; the developer receives no notebook, recordings or Google credentials. JSON copies exclude audio/video files.",
     "privacyLink": "Privacy policy",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contact",
@@ -151,7 +151,7 @@ export const COPY = {
       [
         "media",
         "Graba tus progresos · beta 6.1",
-        "Graba audio o vídeo vinculado a una obra. Inicia y detén desde la barra flotante de la partitura, revisa cada toma y consulta Biblioteca → Multimedia. Los archivos permanecen en esta instalación; las copias multimedia en nube y compartir todavía no están disponibles."
+        "Graba audio o vídeo vinculado a una obra. Inicia y detén desde la barra flotante de la partitura, revisa cada toma y consulta Biblioteca → Multimedia. Los archivos locales se reproducen sin conexión. La beta12 de Android copia las grabaciones guardadas mediante tu cuenta de Google Drive; los JSON del cuaderno no incluyen los archivos de audio o vídeo."
       ],
       [
         "plan",
@@ -161,7 +161,7 @@ export const COPY = {
       [
         "lock",
         "Haz copias y conecta tu cuaderno",
-        "Exporta copias JSON portátiles con partituras y anotaciones. La sincronización opcional utiliza un archivo elegido mediante el proveedor del dispositivo. Un QR o código ayuda a conectar otro dispositivo, que debe dar su propio acceso al archivo. Las grabaciones son locales y quedan fuera de estas copias y de la sincronización. Continúa en local cuando el proveedor no esté disponible."
+        "Exporta copias JSON portátiles con partituras y anotaciones. La beta12 de Android conecta directamente con tu cuenta de Google Drive para sincronizar el cuaderno y copiar audio y vídeo verificados. Usa la misma cuenta y elige el cuaderno existente en el otro dispositivo. Se mantienen el guardado local, la reproducción sin conexión y la recuperación JSON."
       ],
       [
         "level",
@@ -185,7 +185,7 @@ export const COPY = {
     "wideAlt": "Lectura a dos manos en una tablet",
     "shotsNote": "Vistas adaptables de la beta 6.1.0-beta.1 (54) en navegador, con cuadernos de ejemplo y audio de demostración. Las descargas estable y de Google Play se identifican por separado arriba; estas capturas no son validación en dispositivos nativos.",
     "privacyTitle": "Tu cuaderno, tú decides",
-    "privacy": "Sin cuenta de la app, anuncios ni servidor propio de SPino. El cuaderno y las grabaciones permanecen en tu dispositivo. La copia y sincronización opcionales usan un archivo elegido mediante el proveedor del dispositivo, que puede necesitar su propia cuenta. Las grabaciones multimedia no se incluyen en las copias JSON ni en la sincronización.",
+    "privacy": "Sin cuenta de la app, anuncios ni servidor propio de SPino. Los datos se guardan localmente salvo que conectes Google Drive. La beta12 de Android puede sincronizar el cuaderno y copiar grabaciones guardadas a tu cuenta de Google. Los tokens son nativos; el desarrollador no recibe cuadernos, grabaciones ni credenciales. Los JSON no incluyen archivos de audio o vídeo.",
     "privacyLink": "Política de privacidad",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contacto",
@@ -249,7 +249,7 @@ export const COPY = {
       [
         "media",
         "Grava els teus progressos · beta 6.1",
-        "Grava àudio o vídeo vinculat a una obra. Inicia i atura des de la barra flotant de la partitura, revisa cada presa i consulta Biblioteca → Multimèdia. Els fitxers romanen en aquesta instal·lació; les còpies multimèdia al núvol i compartir encara no estan disponibles."
+        "Grava àudio o vídeo vinculat a una obra. Inicia i atura des de la barra flotant de la partitura, revisa cada presa i consulta Biblioteca → Multimèdia. Els fitxers locals es reprodueixen sense connexió. La beta12 d’Android copia les gravacions desades mitjançant el teu compte de Google Drive; els JSON del quadern no inclouen els fitxers d’àudio o vídeo."
       ],
       [
         "plan",
@@ -259,7 +259,7 @@ export const COPY = {
       [
         "lock",
         "Fes còpies i connecta el quadern",
-        "Exporta còpies JSON portàtils amb partitures i anotacions. La sincronització opcional fa servir un fitxer triat amb el proveïdor del dispositiu. Un QR o codi ajuda a connectar un altre dispositiu, que ha de donar el seu propi accés al fitxer. Les gravacions són locals i queden fora d’aquestes còpies i de la sincronització. Continua en local quan el proveïdor no estigui disponible."
+        "Exporta còpies JSON portàtils amb partitures i anotacions. La beta12 d’Android connecta directament amb el teu compte de Google Drive per sincronitzar el quadern i copiar àudio i vídeo verificats. Fes servir el mateix compte i tria el quadern existent a l’altre dispositiu. Es mantenen el desament local, la reproducció sense connexió i la recuperació JSON."
       ],
       [
         "level",
@@ -283,7 +283,7 @@ export const COPY = {
     "wideAlt": "Lectura amb dues mans en una tauleta",
     "shotsNote": "Vistes adaptables de la beta 6.1.0-beta.1 (54) en navegador, amb quaderns d’exemple i àudio de demostració. Les descàrregues estable i de Google Play s’identifiquen per separat més amunt; aquestes captures no són validació en dispositius natius.",
     "privacyTitle": "El teu quadern, tu decideixes",
-    "privacy": "Sense compte de l’app, anuncis ni servidor propi de SPino. El quadern i les gravacions romanen al dispositiu. La còpia i sincronització opcionals fan servir un fitxer triat amb el proveïdor del dispositiu, que pot requerir un compte propi. Les gravacions multimèdia no s’inclouen en les còpies JSON ni en la sincronització.",
+    "privacy": "Sense compte de l’app, anuncis ni servidor propi de SPino. Les dades es desen localment llevat que connectis Google Drive. La beta12 d’Android pot sincronitzar el quadern i copiar gravacions desades al teu compte de Google. Els tokens són natius; el desenvolupador no rep quaderns, gravacions ni credencials. Els JSON no inclouen fitxers d’àudio o vídeo.",
     "privacyLink": "Política de privacitat (castellà i anglès)",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contacte",
