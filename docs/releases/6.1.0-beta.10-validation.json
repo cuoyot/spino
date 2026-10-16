@@ -31,5 +31,6 @@
     "android/app/src/main/java/com/miguecoll/spino/CloudBackupPlugin.java": "e180a1e4a159ad6c93c796b4364a016aba69f35dd06c92f9e1e020b0a99433ed",
     "dist/index.html": "d4d05882b2b48419af10f76f4f1ac10264063a010e8dcfee395e5c97421b2823",
     "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883"
-  }
+  },
+  "publicVerification": "6.1.0-beta.10-publication.json"
 }

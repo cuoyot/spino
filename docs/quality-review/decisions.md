@@ -10,7 +10,7 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 ## D-049 — Direct Google Drive notebook connection, retaining local operation
 
-- Status: **owner requested and authorized**, 2026-10-16, targeting Android beta10/build63. The owner explicitly requires local copies and offline practice.
+- Status: **owner requested and authorized**, 2026-10-16, implemented and published as Android beta10/build63. The owner explicitly requires local copies and offline practice. [Public verification](../releases/6.1.0-beta.10-publication.json) confirms the website/download/privacy update; physical notebook migration acceptance remains open.
 - Use one account connection and Drive API notebook discovery/selection in Backup & sync. Existing provider connections remain until an explicit move; retain notebook/record/PDF/annotation IDs and the old cloud file. The second moved device reconnects the same notebook identity and keeps its merge baseline. Reuse existing three-way merge and conflict review. Do not enable personal recording uploads in this step.
 - Keep local notebook saves, manual JSON export/import/conversion, Continue locally, restart-safe pauses and recovery independent of cloud access. Disconnect retains the local recovery file; explicit Erase the notebook still clears it on Android. Theme and network settings stay on each device; shared practice preferences travel with the notebook.
 - [Active review](cloud-connection.md#beta10-direct-google-drive-notebook-connection) separates simulated API/browser coverage and native menu/retention checks from still-pending physical notebook migration acceptance. The owner’s beta9 isolated transfer acceptance does not certify this new integration.
