@@ -6,7 +6,7 @@ October 16 permission defect follow-up: the published beta8 rejects successful g
 
 Website beta7/build60 is published. [Public download verification](releases/6.1.0-beta.7-publication.json) and [native retention/foreground evidence](quality-review/captures/multimedia/2026-10-16-drive-poc-03/native.json) are separate from the still-pending real Google consent and physical two-device transfer test.
 
-Beta9/build62 now packages the permission correction for the owner-requested website release. [Final-version native checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-02/native.json) preserve notebook data and media. Update both physical devices and retry consent; real Google authorization and transfer/playback remain unverified. Earlier local-only statements above describe the preceding review stage.
+Beta9/build62 is published with the permission correction for the owner-requested website test. [Public verification](releases/6.1.0-beta.9-publication.json) confirms all three language pages, the manifest and download hashes. [Final-version native checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-02/native.json) preserve notebook data and media. Update both physical devices and retry consent; real Google authorization and transfer/playback remain unverified. Earlier local-only statements above describe the preceding review stage.
 
 ## OAuth registration
 

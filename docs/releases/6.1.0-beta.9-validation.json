@@ -22,5 +22,6 @@
     "package-lock.json": "0958ce17edde6fb8d0ea61f07a4f578d9b78c8be340a1348b328337101fd38f5",
     "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883",
     "src/companion/about-view.js": "fcbb0d738a0e21ffcf874a3f753c872b8f1f32b34bcbfaece646a9651ffad8ad"
-  }
+  },
+  "publicVerification": "6.1.0-beta.9-publication.json"
 }

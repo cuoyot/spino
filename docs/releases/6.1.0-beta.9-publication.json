@@ -1,0 +1,224 @@
+{
+  "verifiedAt": "2026-10-16T12:50:37.487Z",
+  "version": "6.1.0-beta.9",
+  "build": 62,
+  "websiteCommit": "b952f52989bb8d496f158b6d98ffa0a1a87c6d63",
+  "tag": "v6.1.0-beta.9",
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "bytes": 55283,
+      "sha256": "8a22033d015abd7a7bd2a32dcabbd4fc9f08add5e1023764a3ccb9743aa12c2f"
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "bytes": 55418,
+      "sha256": "287013baa850527ff518d870d08c89eaf304caf2f31fc5b46ec4e27e4b95aa6c"
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "bytes": 55273,
+      "sha256": "088b69a7aef8bd443f5d1afbd7074b1f80d22f2ed424d233131078ce71137986"
+    }
+  ],
+  "manifestSHA256": "1e19c29f150ec167dd6052651459d73a07f4eb3100e47a238614d0420a173994",
+  "downloads": [
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.0-beta.9-62-android.apk",
+      "bytes": 23427984,
+      "sha256": "aa1f44b9bdd61afbfc0e416dd92b14bd76104903dfd1b48b59a1afdfad59e831"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.0-beta.8-61-android.apk",
+      "bytes": 23427588,
+      "sha256": "5de7971adea06de8471e70bfbd00baa52175175ce607263560e2e07637c4aabf"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+    }
+  ],
+  "retainedWebsiteImages": [
+    {
+      "url": "https://spinoapp.com/img/ca/01-today.png?v=2026-10-15-keyboard-light",
+      "bytes": 153213,
+      "sha256": "03cc9a499c7f5842d0c88d81ae2b9e65ebbc529c125b430802f4687d71ca9921"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/02-routine.png?v=2026-10-15-keyboard-light",
+      "bytes": 135490,
+      "sha256": "08566c929a5218ba8999779d58beeb3e361faae49a2ce29923c314af968ad73d"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/03-repertoire.png?v=2026-10-15-keyboard-light",
+      "bytes": 139151,
+      "sha256": "ae64fc93cb0c38be75fb5867f1e7172ed7f09b02b99a2c87e8989b5886b893e2"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/04-quick-practice.png?v=2026-10-15-keyboard-light",
+      "bytes": 301799,
+      "sha256": "5cfd2b3ea3275d4d41cf58998d24fd7638a94e4a6c511bde9dd092e4f30faa49"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/05-quick-result.png?v=2026-10-15-keyboard-light",
+      "bytes": 120173,
+      "sha256": "8abd0ffd1d519bbdfe74b76fbe3c46aac4367a9f8a4610966998ec787fc2c5b4"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/06-progress.png?v=2026-10-15-keyboard-light",
+      "bytes": 141264,
+      "sha256": "19436f4a40fb31bf607f82db9a8f4f93fad427a9a27d432ecf9163236c28d159"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/07-multimedia.png?v=2026-10-15-keyboard-light",
+      "bytes": 158396,
+      "sha256": "60719a39f3e17e9e13a7e34aff4a9aa4e81152624faa6a6b125382d824b6c4f6"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/08-time-details.png?v=2026-10-15-keyboard-light",
+      "bytes": 159191,
+      "sha256": "d744db1c74e7afe8bddd96b7be60de61126aecb6416d3fae7f7db2b32683ff15"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/09-calendar.png?v=2026-10-15-keyboard-light",
+      "bytes": 148121,
+      "sha256": "4597b85ec5bc7a2d709c8f8a06b496005962c2858dd3b489e8a851a7f0502837"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/landscape-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 74490,
+      "sha256": "fdb3269c363f1f55305d911a2f5b942d300f45f10f9348e3a8cf084002be0fe8"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/wide-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 380503,
+      "sha256": "9ead12d991f07076ce18764f633ca24e154b931e2f6fb37b828a5df305ba3307"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/01-today.png?v=2026-10-15-keyboard-light",
+      "bytes": 155259,
+      "sha256": "45ea2aa249203bffe8628425a977ff038ad15568071e22ad6ee990d9ddb4930d"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/02-routine.png?v=2026-10-15-keyboard-light",
+      "bytes": 128957,
+      "sha256": "77d17ad9f16c95f3340f52401355d6bcbfc6406dd5f987a035722358409b80d4"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/03-repertoire.png?v=2026-10-15-keyboard-light",
+      "bytes": 135850,
+      "sha256": "5ca6240d7af1bcd5d1e1eb2a76997928538827ce785c4bbee4d64eb55a1a5f9e"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/04-quick-practice.png?v=2026-10-15-keyboard-light",
+      "bytes": 292410,
+      "sha256": "de8cb096a3c0084cbcf1b16318ea56b7611c0c8004bd25b905bfc4ab650f408e"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/05-quick-result.png?v=2026-10-15-keyboard-light",
+      "bytes": 117712,
+      "sha256": "fe92c1dd7626c87491ebc724a34163e760c04ea55fd19e5e93cf04433bccb12b"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/06-progress.png?v=2026-10-15-keyboard-light",
+      "bytes": 133756,
+      "sha256": "93dcbff5931231833a4784e21d6c6370f9c5ecc718d6135932945b331d113e2d"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/07-multimedia.png?v=2026-10-15-keyboard-light",
+      "bytes": 157171,
+      "sha256": "7988347e00b5e101b3d04c4960dce99bece597d8d00271dd241fa58d64a6bb9f"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/08-time-details.png?v=2026-10-15-keyboard-light",
+      "bytes": 146544,
+      "sha256": "47402bfc2463908de4eca01e1100bc71662ef5651d7aa243533ec5520163e5ce"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/09-calendar.png?v=2026-10-15-keyboard-light",
+      "bytes": 140746,
+      "sha256": "2e340461fd09cbd4e0964cf33e85a8430efe2946471eb3bf5d6401753c6cdebe"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/landscape-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 74443,
+      "sha256": "2052ed113c99c2299b7cfb87ecf19ef99f890e2d0515fe2bb881579bc62f0ea9"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/wide-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 380276,
+      "sha256": "ddc0398a3e3a2d6b7086de1414919488163477402c708cfb9bbd5266f994189f"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/01-today.png?v=2026-10-15-keyboard-light",
+      "bytes": 149898,
+      "sha256": "05260cbc7aaa13132d411a6bf696bba160c718fbcb67a73b9ee14ad22562d28a"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/02-routine.png?v=2026-10-15-keyboard-light",
+      "bytes": 132245,
+      "sha256": "102934e816380c65e40c3da7c8744774ccf1b0c558423556f46f1b7105547605"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/03-repertoire.png?v=2026-10-15-keyboard-light",
+      "bytes": 132048,
+      "sha256": "58a66ab11905bd1345438ef8aef28f821e9c85b358dfb811a25d588e6c5a1d44"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/04-quick-practice.png?v=2026-10-15-keyboard-light",
+      "bytes": 325219,
+      "sha256": "91ccdc90fbf2035e83c4a6717114c1f9d87fdc64a57431851ea8aed7ce543f67"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/05-quick-result.png?v=2026-10-15-keyboard-light",
+      "bytes": 125383,
+      "sha256": "47bd64e2ea863a3165ea009f0153be7e7104196c832d48243b28b35cb50e010b"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/06-progress.png?v=2026-10-15-keyboard-light",
+      "bytes": 137950,
+      "sha256": "7a6fc2427b0afef21ccd6a070d1ea7e72988688a3b4c93d7643f2c4e5c3d766f"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/07-multimedia.png?v=2026-10-15-keyboard-light",
+      "bytes": 164920,
+      "sha256": "523cd51aaf54fd095442b0683bd88754275eb28c734aefc7494e29621cbf5b8e"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/08-time-details.png?v=2026-10-15-keyboard-light",
+      "bytes": 154598,
+      "sha256": "d7f1c3b49f6c0ff2fe7f0a8f0b487f65c0429921b420a87914caca3f3cbfae43"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/09-calendar.png?v=2026-10-15-keyboard-light",
+      "bytes": 149292,
+      "sha256": "35a8d1276bbc242b29cb92a05943224096f4277151a2cf648f681e9b9232802c"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/landscape-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 73231,
+      "sha256": "2a802c46abdf42d62d4a46a242e846bc1317ebb4f98093067b76d78ef06af12c"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/wide-reading.png?v=2026-10-15-keyboard-light",
+      "bytes": 382355,
+      "sha256": "6d5dbce151d8573ded20d01cbfdc4f79980690b31d6ce790669e5a326216f32a"
+    },
+    {
+      "url": "https://spinoapp.com/img/icon.png",
+      "bytes": 156405,
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    }
+  ],
+  "googleConsentTested": false,
+  "physicalCrossDeviceTransferTested": false
+}
