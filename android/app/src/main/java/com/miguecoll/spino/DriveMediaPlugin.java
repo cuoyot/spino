@@ -78,8 +78,12 @@ public class DriveMediaPlugin extends Plugin {
                 else{finishConnect(call,result);}
             }).addOnFailureListener(error->{pending=null;call.reject("Google authorization failed. Check Drive API, test users, package name and signing certificate.","AUTHORIZATION");}));
     }
+    static boolean hasDrivePermission(AuthorizationResult result){
+        // AuthorizationResult returns scope URI strings, unlike AuthorizationRequest's Scope objects.
+        return result.getAccessToken()!=null&&!result.getAccessToken().isEmpty()&&result.getGrantedScopes().contains(SCOPE);
+    }
     private void finishConnect(PluginCall call,AuthorizationResult result){
-        if(result.getAccessToken()==null||!result.getGrantedScopes().contains(new Scope(SCOPE))){pending=null;call.reject("Google Drive permission was not granted.","PERMISSION");return;}
+        if(!hasDrivePermission(result)){pending=null;call.reject("Google Drive permission was not granted.","PERMISSION");return;}
         // No token enters the WebView, preferences, notebook or diagnostic output.
         final String granted=result.getAccessToken();
         worker.execute(()->{HttpURLConnection c=null;try{

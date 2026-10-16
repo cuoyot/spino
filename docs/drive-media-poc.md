@@ -2,7 +2,11 @@
 
 October 16, 2026. The owner selected each user's own Drive with no additional SPino subscription, authorized implementation of the feasibility check, and requested website beta delivery for two-device testing.
 
+October 16 permission defect follow-up: the published beta8 rejects successful grants because its native check compares the strings returned by `AuthorizationResult.getGrantedScopes()` with a `Scope` object. The local correction compares the URI string and rejects absent/empty tokens. Three actual SDK-result tests, ten protocol tests and [native emulator retention/navigation checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-01/native.json) pass. The same-version local review APK is not published; real Google consent and physical two-device transfer remain pending. Google's [AuthorizationResult contract](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult) documents the string result type.
+
 Website beta7/build60 is published. [Public download verification](releases/6.1.0-beta.7-publication.json) and [native retention/foreground evidence](quality-review/captures/multimedia/2026-10-16-drive-poc-03/native.json) are separate from the still-pending real Google consent and physical two-device transfer test.
+
+Beta9/build62 now packages the permission correction for the owner-requested website release. [Final-version native checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-02/native.json) preserve notebook data and media. Update both physical devices and retry consent; real Google authorization and transfer/playback remain unverified. Earlier local-only statements above describe the preceding review stage.
 
 ## OAuth registration
 

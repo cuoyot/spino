@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.miguecoll.spino.DriveMediaAuthorizationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-16T12:42:19.027Z" hostname="MacBook-Pro-de-Miguel.local" time="0.014">
+  <properties/>
+  <testcase name="rejectsMissingAccessTokenEvenWithGrantedPermission" classname="com.miguecoll.spino.DriveMediaAuthorizationTest" time="0.013"/>
+  <testcase name="rejectsMissingOrDifferentDrivePermission" classname="com.miguecoll.spino.DriveMediaAuthorizationTest" time="0.0"/>
+  <testcase name="acceptsGrantedDriveFileScopeFromGoogleResult" classname="com.miguecoll.spino.DriveMediaAuthorizationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

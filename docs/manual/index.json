@@ -9,7 +9,7 @@
       "source": "en/drive-transfer-beta.md",
       "status": "draft",
       "reviewIds": ["PROFILE-01", "MEDIA-03"],
-      "coverage": "Beta8 repairs Profile visibility; browser platform simulation and installed Android navigation are verified separately. Actual Google consent and physical two-device transfer remain open. Personal media synchronization is disabled."
+      "coverage": "Beta9/build62 packages the granted-scope comparison fix, with actual SDK-result tests and final-version installed-emulator navigation/retention checks. Actual Google consent and physical two-device transfer remain open. Personal media synchronization is disabled."
     },
     {
       "id": "today",

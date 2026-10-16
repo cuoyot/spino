@@ -2,6 +2,10 @@
 
 Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, **superseded** or **deferred**. Retain old IDs and link replacement decisions. An accepted direction is not a claim that every affected screen has been implemented or verified.
 
+2026-10-16 PROFILE-01 / MEDIA-03 defect follow-up — **implemented, locally verified**: correct the native granted-scope comparison from a `Scope` object to the URI string returned by Google's SDK. A valid token and exact `drive.file` grant remain required. Three tests use actual SDK result objects; ten transfer tests and [native retention/navigation checks](captures/multimedia/2026-10-16-drive-authorization-01/native.json) pass. Same-version beta8 review APK only; no public publication or real Google consent/physical transfer acceptance is claimed.
+
+2026-10-16 beta9/build62 — **owner authorized website publication** of the Drive permission correction. The final-version APK passes SDK-result, transfer, Profile navigation and data-retention checks; [native evidence](captures/multimedia/2026-10-16-drive-authorization-02/native.json). Google consent and physical two-device playback remain pending owner testing. Earlier local-only statements record the preceding review stage.
+
 ## D-048 — Separate joining a notebook from sharing its QR
 
 - Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified in beta6/build59; physical-provider acceptance remains open.

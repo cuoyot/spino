@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-16T12:44:43.099167+00:00",
+  "kind": "local-native-android-review",
+  "version": "6.1.0-beta.8",
+  "build": 61,
+  "published": false,
+  "apk": "output/drive-authorization-review-2026-10-16/spino-6.1.0-beta.8-61-drive-permission-fix.apk",
+  "sourceCommit": "a575620cb3668b1122492139f41a1e324c40cb7b",
+  "sourceHasLocalChanges": true,
+  "androidUnitTests": {
+    "passed": 3,
+    "realSDKResultObjects": true
+  },
+  "transferProtocolTests": {
+    "passed": 10
+  },
+  "packagedWebFilesMatch": 264,
+  "foregroundAfterRelaunch": "    topResumedActivity=ActivityRecord{40e819 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t67}",
+  "retainedBlobFiles": 13,
+  "realGoogleConsentTested": false,
+  "physicalCrossDeviceTransferTested": false,
+  "sha256": {
+    "android/app/src/main/java/com/miguecoll/spino/DriveMediaPlugin.java": "fc11d98b1b225f1f52031e0ab011add8450bc0447b3c4e5d593b835f396372cd",
+    "android/app/src/test/java/com/miguecoll/spino/DriveMediaAuthorizationTest.java": "7c4d2c7777198e11c9c60ec03976b1da899359e01fee810267eda321fba21363",
+    "android/app/build/test-results/testDebugUnitTest/TEST-com.miguecoll.spino.DriveMediaAuthorizationTest.xml": "5d5698046c236b6e657020e9299fd186bc4ca85882c635d3dc208d11c08c2da0",
+    "android/app/build/outputs/apk/debug/app-debug.apk": "c631d7cbe617572dbb55c45ccce87e9ec93f1ff1f4682789330edfc67fd40e32",
+    "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883"
+  }
+}

@@ -320,3 +320,7 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 
 
 2026-10-16 PROFILE-01 / MEDIA-03 reopened: beta8/build61 fixes the hidden Drive transfer entry. Beta7 direct-route evidence did not test discovery from Profile. Browser regression navigates the actual app with an Android platform stub; installed-emulator coverage separately checks the native predicate, visible entry and transition with synthetic namespaced storage. Google consent and physical transfer remain open.
+
+2026-10-16 PROFILE-01 / MEDIA-03 permission follow-up: published beta8 compares granted scope strings with a Scope object and rejects valid consent. The local native correction passes three SDK-result tests, ten protocol tests and emulator Profile navigation/notebook retention checks. [Evidence](captures/multimedia/2026-10-16-drive-authorization-01/native.json). This same-version review APK is not published; real Google consent and physical transfer acceptance remain open.
+
+2026-10-16 PROFILE-01 / MEDIA-03 beta9/build62 delivery: owner authorizes website publication of the granted-scope correction. Final-version SDK tests, protocol checks, native Profile navigation, original logical stores and immutable blobs pass. [Native evidence](captures/multimedia/2026-10-16-drive-authorization-02/native.json); real Google consent and physical transfer remain open.

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-16T12:48:17.617819+00:00",
+  "version": "6.1.0-beta.9",
+  "build": 62,
+  "androidUnitTests": 3,
+  "focusedAppChecks": 11,
+  "websiteChecks": 3,
+  "webBuild": "passed",
+  "androidBuild": "Java 21 / testDebugUnitTest / assembleDebug passed",
+  "packagedWebFilesMatch": 264,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-16-drive-authorization-02/native.json",
+  "foregroundAfterRelaunch": "    topResumedActivity=ActivityRecord{1d31bc6 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t69}",
+  "installedPackage": "versionCode=62 minSdk=24 targetSdk=36\nversionName=6.1.0-beta.9",
+  "originalLogicalStoresUnchanged": true,
+  "retainedBlobFiles": 14,
+  "googleAuthorizationTested": false,
+  "physicalCrossDeviceTransferTested": false,
+  "hashes": {
+    "android/app/src/main/java/com/miguecoll/spino/DriveMediaPlugin.java": "fc11d98b1b225f1f52031e0ab011add8450bc0447b3c4e5d593b835f396372cd",
+    "android/app/src/test/java/com/miguecoll/spino/DriveMediaAuthorizationTest.java": "7c4d2c7777198e11c9c60ec03976b1da899359e01fee810267eda321fba21363",
+    "package-lock.json": "0958ce17edde6fb8d0ea61f07a4f578d9b78c8be340a1348b328337101fd38f5",
+    "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883",
+    "src/companion/about-view.js": "fcbb0d738a0e21ffcf874a3f753c872b8f1f32b34bcbfaece646a9651ffad8ad"
+  }
+}
