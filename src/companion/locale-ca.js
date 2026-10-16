@@ -1464,6 +1464,8 @@ Add a block|Afegir un bloc
 Remove block|Eliminar el bloc
 Remove|Eliminar
 Delete|Eliminar
+Edit title|Editar el títol
+Save title|Desar el títol
 Move up|Pujar
 Move down|Baixar
 Always first · exercises chosen when practising|Sempre al principi · els exercicis es trien en practicar

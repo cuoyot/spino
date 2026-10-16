@@ -30,6 +30,12 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(NotebookPlugin.class);
         registerPlugin(ScorePrinterPlugin.class);
         registerPlugin(CloudBackupPlugin.class);
+        registerPlugin(DriveMediaPlugin.class);
+        // Start the isolated review without initializing or opening the user's notebook.
+        if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+                && "drive-media".equals(getIntent().getStringExtra("spinoReview"))) {
+            config = new com.getcapacitor.CapConfig.Builder(this).setStartPath("/drive-media-review.html").create();
+        }
         super.onCreate(savedInstanceState);
         // Let the app close overlays and traverse its screen history before exiting at the root.
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {

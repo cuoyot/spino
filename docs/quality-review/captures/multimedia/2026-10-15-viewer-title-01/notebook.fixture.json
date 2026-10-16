@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "system",
+    "language": "en"
+  },
+  "works": [
+    {
+      "id": "duration-work",
+      "title": "Synthetic duration test",
+      "composer": "",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "bpm": 60,
+      "target": null,
+      "tags": [],
+      "favorite": false
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}

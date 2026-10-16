@@ -140,6 +140,12 @@ Deferred D-028: when reviewing REP-03/REP-04, include local MusicXML/MXL alongsi
 
 ## Local multimedia (Beta 6.1 source preview)
 
+2026-10-16 MEDIA-03 added: isolated Google Drive feasibility check from Profile in Android beta7/build60. [Browser simulation](captures/multimedia/2026-10-16-drive-poc-02/browser.json) covers upload/find/download/integrity and two-minute decoding in four layouts; [native evidence](captures/multimedia/2026-10-16-drive-poc-03/native.json) covers bounded staging, no-authorization rejection, private state, replacement installation and unchanged notebook files. Actual Google authorization and remote two-device playback remain open. MEDIA-01/02 personal media storage is unchanged; automatic media sync/migration are not enabled.
+
+2026-10-15 saved viewer follow-up: MEDIA-01/02 now show red-link Delete and Close with pencil/check title editing. New drafts retain Save/Discard. [16 responsive frames](captures/multimedia/2026-10-15-viewer-title-01/verification.json) cover saved viewer/editing in both themes and four layouts; rename/retry/cancel/reopen retain the same player and recording ID. Existing capture and shared PDF recording checks pass. Browser evidence only; native acceptance remains open.
+
+2026-10-15 playback duration follow-up: MEDIA-01/02 reopened for the reported early progress jump. New and legacy WebM previews now receive missing duration metadata. [Two-minute playback evidence](captures/multimedia/2026-10-15-playback-duration-02/verification.json) verifies the 120-second timeline, five-second position, seek/resume/reopen and original stored-take retention across four responsive layouts. New audio/video capture and shared PDF recording checks pass. Browser evidence only; packaging and physical-device acceptance remain open.
+
 | ID | Surface | States and coverage | Shared components | Status | Phone portrait | Phone landscape | Tablet portrait | Tablet landscape |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | MEDIA-01 | Local multimedia library | Actual local files only; per-piece/type filters; pending drafts; playback; rename/delete; restart retention; foreign installation/missing Blob filtering | C-NAV, C-EMPTY | V | [Browser](captures/multimedia/2026-10-15-local-03/light-library-phone-portrait.png) | [Browser](captures/multimedia/2026-10-15-local-03/light-library-phone-landscape.png) | [Browser](captures/multimedia/2026-10-15-local-03/light-library-tablet-portrait.png) | [Browser](captures/multimedia/2026-10-15-local-03/light-library-tablet-landscape.png) |

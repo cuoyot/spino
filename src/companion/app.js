@@ -351,7 +351,7 @@ export async function bootCompanion(reader) {
     }).join('') || ui("<p>No PDFs for this goal.</p>", "<p>No hay PDF para este objetivo.</p>")}</div></section>`;
   }
   function settingsPage() {
-    return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,lang:getAppLanguage()});
+    return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,driveReview:cloudPlatform==='android',lang:getAppLanguage()});
   }
   async function refreshProfileFiles() {
     const index = await store.assetIndex();
@@ -1218,6 +1218,10 @@ export async function bootCompanion(reader) {
     'profile-back':()=>navigateBack(),
     'profile-practice':()=>go('profile-practice'),
     'profile-backup':()=>go('profile-backup'),
+    'drive-media-review':()=>{
+      if(mediaCapture?.busy||data.active){toast(ui('Finish the current practice and recording before opening the Drive check.','Finaliza la práctica y la grabación actuales antes de abrir la prueba de Drive.'));return;}
+      location.assign(new URL('drive-media-review.html',location.href).href);
+    },
     'profile-reminders':()=>go('profile-reminders'),
     'profile-files':async()=>{fileSearch='';fileLimit=24;go('profile-files');await refreshProfileFiles();},
     'profile-files-more':()=>{const scroll=root.querySelector('.cp-page').scrollTop;fileLimit+=24;render();root.querySelector('.cp-page').scrollTop=scroll;},

@@ -8,6 +8,7 @@ fixture.preferences.language='es';
 fixture.works[0].assetId='synthetic-media-pdf';
 const pdfAsset={id:'synthetic-media-pdf',name:'Synthetic practice score.pdf',type:'application/pdf',base64:scorePDF(),annotations:{version:1,marks:[]}};
 const storeSource=await readFile('src/companion/media-store.js','utf8');
+const durationFixture=(await readFile('tests/fixtures/media/two-minute-stream.webm')).toString('base64');
 const server=createServer(async(req,res)=>{
  try {
   const pathname=new URL(req.url,'http://localhost').pathname;
@@ -21,6 +22,9 @@ await new Promise((resolve,reject)=>{const q=indexedDB.open('cuaderno-piano',1);
 const sourceURL=URL.createObjectURL(new Blob([${JSON.stringify(storeSource).replaceAll('<','\\u003c')}],{type:'text/javascript'}));
 const {openMediaStore}=await import(sourceURL);URL.revokeObjectURL(sourceURL);
 const media=await openMediaStore();
+if(new URL(location.href).searchParams.get('review')==='duration' && !(await media.get('synthetic-duration-preview'))){
+ await media.put({id:'synthetic-duration-preview',workId:'media-work-a',workTitle:'Synthetic étude',title:'Two-minute playback test',kind:'audio',createdAt:new Date().toISOString(),durationMs:120000,draft:false,blob:new Blob([Uint8Array.from(atob(${JSON.stringify(durationFixture)}),c=>c.charCodeAt(0))],{type:'audio/webm'})});
+}
 if(!(await media.index()).length){
  const count=44100*2,buffer=new ArrayBuffer(44+count*2),v=new DataView(buffer),text=(offset,value)=>[...value].forEach((c,i)=>v.setUint8(offset+i,c.charCodeAt(0)));
  text(0,'RIFF');v.setUint32(4,36+count*2,true);text(8,'WAVE');text(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,44100,true);v.setUint32(28,88200,true);v.setUint16(32,2,true);v.setUint16(34,16,true);text(36,'data');v.setUint32(40,count*2,true);
@@ -29,7 +33,7 @@ if(!(await media.index()).length){
 }
 media.close();
 const observer=new MutationObserver(openMedia);
-function openMedia(){const library=document.querySelector('.cp-nav [data-action=piano]');if(library){observer.disconnect();if(new URL(location.href).searchParams.get('review')==='pdf'){const resume=document.querySelector('[data-action=resume-session]');if(resume){resume.click();document.querySelector('[data-action=open-score-practice]')?.click();}}else{library.click();document.querySelector('[data-action=multimedia]').click();}document.title='SPino — synthetic multimedia review'}}
+function openMedia(){const library=document.querySelector('.cp-nav [data-action=piano]');if(library){observer.disconnect();if(new URL(location.href).searchParams.get('review')==='pdf'){const resume=document.querySelector('[data-action=resume-session]');if(resume){resume.click();document.querySelector('[data-action=open-score-practice]')?.click();}}else{library.click();document.querySelector('[data-action=multimedia]').click();if(new URL(location.href).searchParams.get('review')==='duration')document.querySelector('[data-action=media-play][data-id=synthetic-duration-preview]')?.click();}document.title='SPino — synthetic multimedia review'}}
 observer.observe(document.body,{childList:true,subtree:true});
 await import(${JSON.stringify(src)});openMedia();
 </script>`);

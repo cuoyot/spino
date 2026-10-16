@@ -49,7 +49,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelectorAll('.cp-media-list article').length===1"));
  assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),1);
  await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture audio')?.readyState>=1"));
- assert.ok(await evaluate(`document.querySelector('#cp-media-capture audio').duration>0`));await click('[data-media=close]');
+ assert.ok(await evaluate(`Number.isFinite(document.querySelector('#cp-media-capture audio').duration)&&Math.abs(document.querySelector('#cp-media-capture audio').duration-2)<1`));await click('[data-media=close]');
  // Video entry from Repertoire, using the same piece and the active session link.
  await click('[data-action=work-detail][data-id=media-work-a]');await click('[data-action=record-work]');await click('[data-media=video]');await evaluate(until("document.querySelector('[data-media-clock]')?.textContent==='0:02'"));
  for(const [name,width,height] of layouts)await capture('recording','light',name,width,height);
@@ -61,7 +61,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await evaluate(`syntheticScore.close();syntheticScore.remove();`);await evaluate(until("document.body===document.querySelector('#cp-media-capture').parentElement"));
  await evaluate(`document.querySelector('#media-title').value='Video progress take'`);await click('[data-media=save]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
  await click('[data-action=work-media]');await evaluate(until("document.querySelectorAll('.cp-media-list article').length===2"));assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),2);
- await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture video')?.readyState>=1"));assert.ok(await evaluate(`document.querySelector('#cp-media-capture video').videoWidth>0`));await click('[data-media=close]');
+ await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture video')?.readyState>=1"));assert.ok(await evaluate(`document.querySelector('#cp-media-capture video').videoWidth>0&&Number.isFinite(document.querySelector('#cp-media-capture video').duration)`));await click('[data-media=close]');
  // Separate installations, missing blobs and metadata from other devices never appear.
  const source=await readFile('src/companion/media-store.js','utf8');
  const storage=await evaluate(`(async()=>{const {openMediaStore}=await import(URL.createObjectURL(new Blob([${JSON.stringify(source)}],{type:'text/javascript'})));const a=await openMediaStore(),before=await a.index(),a2=await openMediaStore(),b=await openMediaStore('synthetic-other-device');const first=await a.get(before[0].id);await new Promise((resolve,reject)=>{const r=indexedDB.open('spino-local-media');r.onsuccess=()=>{const tx=r.result.transaction('recordings','readwrite'),s=tx.objectStore('recordings');s.put({...first,id:'foreign-take',installation:b.installation});s.put({...first,id:'missing-file',blob:null});tx.oncomplete=()=>{r.result.close();resolve();};tx.onerror=()=>reject(tx.error);};});const result={same:a.installation===a2.installation,different:a.installation!==b.installation,local:(await a.index()).length,other:(await b.index()).length,foreign:await a.get('foreign-take'),missing:await a.get('missing-file'),bytes:before.map(r=>r.bytes),session:first.sessionId};a.close();a2.close();b.close();return result;})()`);
@@ -77,7 +77,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  for(const theme of ['light','dark'])for(const [name,width,height] of layouts){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);
   for(const state of ['library','preview']){
-   if(state==='preview'){await click('[data-action=media-play]');await evaluate(until("document.querySelector('#media-title')"));}
+   if(state==='preview'){await click('[data-action=media-play]');await evaluate(until("document.querySelector('.cp-media-title')"));}
    assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth+1`),false);
    if(state==='preview')assert.ok(await evaluate(`(()=>{const r=document.querySelector('#cp-media-capture').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&r.top>=0&&r.bottom<=innerHeight+1;})()`));
    const file=`${theme}-${state}-${name}.png`,shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(folder+'/'+file,Buffer.from(shot.data,'base64'));frames.push({file,width,height,theme,state});if(state==='preview')await click('[data-media=close]');

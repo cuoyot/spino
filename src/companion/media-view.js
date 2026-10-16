@@ -1,5 +1,6 @@
 import {ui, getAppLanguage} from './locale.js';
 import {scoreIcon} from './score-controls.js';
+import {finalizeMediaDuration} from './media-duration.js';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const time = ms => `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 export function mediaMarkup(records, works, {workId = '', type = ''} = {}) {
@@ -8,7 +9,7 @@ export function mediaMarkup(records, works, {workId = '', type = ''} = {}) {
 }
 export function createMediaCapture({store, changed, report, getWork}) {
   const panel = document.createElement('aside'); panel.id = 'cp-media-capture'; panel.hidden = true; panel.setAttribute('aria-label', ui('Recording','Grabación')); document.body.append(panel);
-  let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0, captureError = '', resumeRequest = null;
+  let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0, captureError = '', resumeRequest = null, editingTitle = false;
   const scoreButtons = () => [...document.querySelectorAll('.pdf-viewer [data-pdf=record],.pdf-viewer [data-xml=record]')];
   function syncScoreControls() {
     const state = stage==='recording'?'recording':stage==='stopping'?'stopping':stage==='closed'?'idle':'pending';
@@ -35,11 +36,29 @@ export function createMediaCapture({store, changed, report, getWork}) {
   new MutationObserver(placePanel).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['open']});
   const releaseURL = () => { if (url) URL.revokeObjectURL(url); url = ''; };
   const releaseTracks = () => { stream?.getTracks().forEach(t=>t.stop()); stream = null; };
-  function close() { if (busy || ['requesting','recording','stopping'].includes(stage)) return; releaseURL(); panel.hidden = true; panel.replaceChildren(); stage = 'closed'; record = null; syncScoreControls(); returnFocus?.isConnected && returnFocus.focus(); }
+  function titleMarkup() {
+    const label=editingTitle?ui('Save title','Guardar título'):ui('Edit title','Editar título');
+    return `${editingTitle?`<input id="media-title" aria-label="${ui('Title','Título')}" maxlength="200" value="${esc(record.title)}" />`:`<span>${esc(record.title)}</span>`}<button type="button" class="quiet cp-media-title-action" data-media="${editingTitle?'save-title':'edit-title'}" aria-label="${label}" title="${label}">${scoreIcon(editingTitle?'done':'pen')}</button>`;
+  }
+  function updateTitle() {
+    // Keep the player mounted so editing a title never restarts playback.
+    panel.querySelector('.cp-media-title').innerHTML=titleMarkup();
+    panel.querySelector(editingTitle?'#media-title':'[data-media=edit-title]')?.focus();
+  }
+  async function saveTitle() {
+    if(busy||!editingTitle)return;
+    const title=panel.querySelector('#media-title').value.trim().slice(0,200)||record.workTitle;
+    busy=true;panel.querySelectorAll('button,input').forEach(el=>el.disabled=true);
+    panel.querySelector('[data-media-error]').textContent='';
+    try { await store.put({...record,title});record.title=title;await changed();editingTitle=false; }
+    catch { panel.querySelector('[data-media-error]').textContent=ui('Could not save. Free up storage and try again. Your take is still available here.','No se ha podido guardar. Libera espacio y vuelve a intentarlo. La toma sigue disponible aquí.'); }
+    finally { busy=false;panel.querySelectorAll('button,input').forEach(el=>el.disabled=false);if(!editingTitle)updateTitle();else panel.querySelector('#media-title').focus(); }
+  }
+  function close() { if (busy || ['requesting','recording','stopping'].includes(stage)) return; releaseURL(); panel.hidden = true; panel.replaceChildren(); stage = 'closed'; record = null; editingTitle = false; syncScoreControls(); returnFocus?.isConnected && returnFocus.focus(); }
   function draw() {
     panel.hidden = false; panel.classList.toggle('is-recording', stage==='recording'); panel.classList.toggle('is-minimized', minimized && stage==='recording');
     const button = (id,label,css='') => `<button type="button" data-media="${id}" class="${css}" ${busy?'disabled':''}>${label}</button>`;
-    panel.innerHTML = `<header><b>${esc(record?.workTitle)}</b>${stage==='recording'?button('minimize',minimized?ui('Expand','Ampliar'):ui('Minimize','Minimizar'),'quiet'):''}</header>${stage==='choose'?`<p>${ui('Record your progress','Graba tus progresos')}</p><p class="muted">${ui('Local only · up to 15 minutes or 250 MB per take.','Solo en este dispositivo · hasta 15 minutos o 250 MB por toma.')}</p><div class="cp-actions cp-media-choose-actions">${button('audio',ui('Record audio','Grabar audio'),'primary')}${button('video',ui('Record video','Grabar vídeo'))}${button('close',ui('Cancel','Cancelar'),'quiet')}</div>`:stage==='requesting'?`<p role="status">${ui('Waiting for microphone/camera permission…','Esperando permiso de micrófono/cámara…')}</p>${button('cancel-request',ui('Cancel','Cancelar'))}`:stage==='recording'?`<p class="cp-recording-status" role="status">● ${ui('Recording','Grabando')} <span data-media-clock>0:00</span></p>${record.kind==='video'?'<video class="cp-media-live" muted autoplay playsinline></video>':''}<div class="cp-actions">${button('stop',minimized?ui('Stop','Detener'):ui('Stop and review','Detener y revisar'),'primary')}</div>`:stage==='stopping'?`<p role="status">${ui('Preparing recording…','Preparando grabación…')}</p>`:`${stopReason?`<p role="status">${esc(stopReason)}</p>`:''}<${record.kind==='video'?'video':'audio'} controls playsinline src="${url}"></${record.kind==='video'?'video':'audio'}><label>${ui('Title','Título')}<input id="media-title" maxlength="200" ${busy?'disabled':''} value="${esc(record.title)}" /></label><p class="muted">${ui('Saved only on this device. Not included in notebook backups.','Se guarda solo en este dispositivo. No se incluye en las copias del cuaderno.')}</p><p data-media-error role="alert"></p><div class="cp-actions">${button('save',ui('Save','Guardar'),'primary')}${button('delete',record.draft?ui('Discard','Descartar'):ui('Delete recording','Eliminar grabación'),'danger quiet')}${record.draft?'':button('close',ui('Close','Cerrar'),'quiet')}</div>`}`;
+    panel.innerHTML = `<header><b>${esc(record?.workTitle)}</b>${stage==='recording'?button('minimize',minimized?ui('Expand','Ampliar'):ui('Minimize','Minimizar'),'quiet'):''}</header>${stage==='choose'?`<p>${ui('Record your progress','Graba tus progresos')}</p><p class="muted">${ui('Local only · up to 15 minutes or 250 MB per take.','Solo en este dispositivo · hasta 15 minutos o 250 MB por toma.')}</p><div class="cp-actions cp-media-choose-actions">${button('audio',ui('Record audio','Grabar audio'),'primary')}${button('video',ui('Record video','Grabar vídeo'))}${button('close',ui('Cancel','Cancelar'),'quiet')}</div>`:stage==='requesting'?`<p role="status">${ui('Waiting for microphone/camera permission…','Esperando permiso de micrófono/cámara…')}</p>${button('cancel-request',ui('Cancel','Cancelar'))}`:stage==='recording'?`<p class="cp-recording-status" role="status">● ${ui('Recording','Grabando')} <span data-media-clock>0:00</span></p>${record.kind==='video'?'<video class="cp-media-live" muted autoplay playsinline></video>':''}<div class="cp-actions">${button('stop',minimized?ui('Stop','Detener'):ui('Stop and review','Detener y revisar'),'primary')}</div>`:stage==='stopping'?`<p role="status">${ui('Preparing recording…','Preparando grabación…')}</p>`:`${stopReason?`<p role="status">${esc(stopReason)}</p>`:''}<${record.kind==='video'?'video':'audio'} controls playsinline src="${url}"></${record.kind==='video'?'video':'audio'}>${record.draft?`<label>${ui('Title','Título')}<input id="media-title" maxlength="200" ${busy?'disabled':''} value="${esc(record.title)}" /></label>`:`<div class="cp-media-title">${titleMarkup()}</div>`}<p class="muted">${ui('Saved only on this device. Not included in notebook backups.','Se guarda solo en este dispositivo. No se incluye en las copias del cuaderno.')}</p><p data-media-error role="alert"></p><div class="cp-actions ${record.draft?'':'cp-media-viewer-actions'}">${record.draft?button('save',ui('Save','Guardar'),'primary'):''}${button('delete',record.draft?ui('Discard','Descartar'):ui('Delete','Eliminar'),record.draft?'danger quiet':'cp-media-delete')}${record.draft?'':button('close',ui('Close','Cerrar'),'quiet')}</div>`}`;
     if (captureError) { const error=document.createElement('p');error.setAttribute('role','alert');error.textContent=captureError;panel.append(error); }
     if (stage==='recording' && stream && record.kind==='video') panel.querySelector('video').srcObject = stream;
     placePanel();
@@ -50,6 +69,7 @@ export function createMediaCapture({store, changed, report, getWork}) {
     record.durationMs = Math.max(0,Date.now()-startingAt);
     record.blob = new Blob(chunks,{type:recorder.mimeType || chunks.find(c=>c.type)?.type || (record.kind==='video'?'video/webm':'audio/webm')}); chunks = []; recorder = null;
     if (!record.blob.size) { stage='choose'; draw(); report(ui('No media was captured. Try again.','No se ha capturado contenido. Vuelve a intentarlo.')); return; }
+    record.blob = await finalizeMediaDuration(record.blob, record.durationMs);
     releaseURL(); url = URL.createObjectURL(record.blob); stage='review'; busy=true; draw();
     try { await store.put(record); await changed(); }
     catch { stopReason=ui('Could not store this take. Free space and try Save again before closing.','No se ha podido almacenar esta toma. Libera espacio y pulsa Guardar antes de cerrar.'); }
@@ -91,6 +111,8 @@ export function createMediaCapture({store, changed, report, getWork}) {
   }
   panel.addEventListener('keydown',event=>{
     event.stopPropagation();
+    if(event.key==='Enter'&&editingTitle&&event.target.id==='media-title'){event.preventDefault();void saveTitle();return;}
+    if(event.key==='Escape'&&editingTitle){event.preventDefault();if(!busy){editingTitle=false;updateTitle();}return;}
     if(event.key==='Escape'){event.preventDefault();if(stage==='choose'||(stage==='review'&&!record.draft))close();}
   });
   panel.addEventListener('click',async event=>{
@@ -100,6 +122,8 @@ export function createMediaCapture({store, changed, report, getWork}) {
     if(action==='stop')return stop();
     if(action==='minimize'){minimized=!minimized;draw();return;}
     if(action==='close')return close();
+    if(action==='edit-title'){editingTitle=true;updateTitle();return;}
+    if(action==='save-title')return saveTitle();
     if(action==='save') {
       record.title=panel.querySelector('#media-title').value.trim().slice(0,200)||record.workTitle;busy=true;
       panel.querySelectorAll('button').forEach(b=>b.disabled=true);
@@ -121,6 +145,6 @@ export function createMediaCapture({store, changed, report, getWork}) {
     get requesting(){return stage==='requesting';},
     stop,
     open(workId,sessionId=null){if(stage!=='closed'){panel.hidden=false;report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}const work=getWork(workId);if(!work)return;returnFocus=document.activeElement;record={id:crypto.randomUUID(),workId,workTitle:work.title,title:work.title,sessionId,createdAt:new Date().toISOString(),draft:true};stage='choose';stopReason='';captureError='';draw();panel.querySelector('button')?.focus();},
-    async play(id){if(stage!=='closed'){report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}returnFocus=document.activeElement;stage='loading';busy=true;try{const found=await store.get(id);if(!found){await changed();report(ui('This recording is not available on this device.','Esta grabación no está disponible en este dispositivo.'));stage='closed';return;}record=found;releaseURL();url=URL.createObjectURL(record.blob);stage='review';stopReason='';busy=false;draw();panel.querySelector('input')?.focus();}catch(error){stage='closed';report(ui('Could not open the recording.','No se ha podido abrir la grabación.'));}finally{busy=false;}},
+    async play(id){if(stage!=='closed'){report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}returnFocus=document.activeElement;stage='loading';busy=true;try{const found=await store.get(id);if(!found){await changed();report(ui('This recording is not available on this device.','Esta grabación no está disponible en este dispositivo.'));stage='closed';return;}record=found;editingTitle=false;record.blob=await finalizeMediaDuration(record.blob,record.durationMs);releaseURL();url=URL.createObjectURL(record.blob);stage='review';stopReason='';busy=false;draw();panel.querySelector('[data-media=edit-title],input')?.focus();}catch(error){stage='closed';report(ui('Could not open the recording.','No se ha podido abrir la grabación.'));}finally{busy=false;}},
   };
 }

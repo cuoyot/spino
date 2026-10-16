@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-16T11:47:13.088Z",
+  "kind": "responsive-browser-synthetic",
+  "realGoogleAcceptance": false,
+  "checks": [
+    "Synthetic access explicitly labeled",
+    "Upload/discovery/download/checksum and 120-second playback pass",
+    "No notebook or media IndexedDB opened",
+    "Browser does not claim native Google authorization"
+  ],
+  "frames": [
+    {
+      "file": "phone-portrait.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "phone-landscape.png",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "tablet-portrait.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "tablet-landscape.png",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "hashes": {
+    "src/companion/drive-media.js": "eff54420fa9eec392142fe975d67c82e17408e4584da670bb80833df8b2e0418",
+    "src/companion/drive-media-native.js": "e4fba1a0a3b7e49aa1a3a9febdd388be9ab9a4b2bfa09e07133f61390a0f1ee1",
+    "src/companion/drive-media-review.js": "53759e98ef0db1b4b25971e01a6ba5e2105b7e1b231865fe3bc1de84c35db038",
+    "src/companion/drive-media-fixture.js": "009820d13e309419c7b38b6c7efe8b1bbd811604d5c3123318ae36c701985aab",
+    "dist/drive-media-review.html": "89d9e8b172cb68ccad3d13cb1b1232ba7769189c62a869df6a6aebfdcb072d5a"
+  },
+  "errors": []
+}

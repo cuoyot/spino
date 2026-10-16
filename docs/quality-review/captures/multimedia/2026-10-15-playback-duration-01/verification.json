@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-15T20:14:48.677Z",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "original": {
+    "rawDurationFinite": false,
+    "bytes": 113161
+  },
+  "atFive": {
+    "elapsed": 5.003971,
+    "duration": 120,
+    "fraction": 0.04169975833333333
+  },
+  "retained": [
+    {
+      "id": "legacy-two-minute",
+      "bytes": 113161,
+      "durationMs": 120000,
+      "title": "Two-minute legacy take"
+    }
+  ],
+  "frames": [
+    {
+      "file": "phone-portrait.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "phone-landscape.png",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "tablet-portrait.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "tablet-landscape.png",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "sourceHashes": {
+    "src/companion/media-duration.js": "78d1c3c23d448ba396cd0a5ee93817542124b5898d537625759f3f71f0ab8b02",
+    "src/companion/media-view.js": "8789710a8484ede31ca535c4d2d406e7de91b94f779d98f28f8f38c50f499609",
+    "tests/media-duration.browser.test.js": "24ff9f48bfc6d656c70e5dfdf980b18722b184b6ea2453d0f4c72b00a43f1822",
+    "tests/fixtures/media/two-minute-stream.webm": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "package-lock.json": "a3ad26c2c8ed37fa45c9f5bae47e008bacade565f9fc62a51a0775a27344f6ca",
+    "dist/index.html": "823372768f4e26f3f60e85fac6bde3ff10fc09e4163270ad01a7c02cebb0ffd9"
+  },
+  "runtimeErrors": []
+}

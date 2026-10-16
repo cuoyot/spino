@@ -1,0 +1,29 @@
+{
+  "version": "6.1.0-beta.7",
+  "build": 60,
+  "date": "2026-10-16",
+  "appChecks": 48,
+  "websiteChecks": 4,
+  "webBuild": "passed",
+  "androidBuild": "passed Java 21 / assembleDebug",
+  "packagedWebFilesMatch": 264,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/multimedia/2026-10-16-drive-poc-02/browser.json",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-16-drive-poc-03/native.json",
+  "retainedOriginalIndexedDBFiles": 18,
+  "googleAuthorizationTested": false,
+  "realDriveCrossDeviceTested": false,
+  "personalMediaSyncEnabled": false,
+  "hashes": {
+    "src/companion/drive-media.js": "eff54420fa9eec392142fe975d67c82e17408e4584da670bb80833df8b2e0418",
+    "src/companion/drive-media-native.js": "e4fba1a0a3b7e49aa1a3a9febdd388be9ab9a4b2bfa09e07133f61390a0f1ee1",
+    "src/companion/drive-media-review.js": "bf06ab3ebd04c0531cfa8e08a68e5ab6fa365e676c08762de4fd2e24f264101f",
+    "android/app/src/main/java/com/miguecoll/spino/DriveMediaPlugin.java": "cd64c9c85ede759e756951cb8fa5706285e98db0071b1add692de0b85ea38ec6",
+    "android/app/src/main/java/com/miguecoll/spino/MainActivity.java": "211f98ecd096bb4c7858d0d94eaa991928f35c66ef0ebc2f6521c179f2236493",
+    "src/companion/media-view.js": "64c448f64ad3f5c057d79ad7b4c5977c4e029aa0c54ea24fd3e3c85b3bb63d7a",
+    "src/companion/media-duration.js": "78d1c3c23d448ba396cd0a5ee93817542124b5898d537625759f3f71f0ab8b02",
+    "package-lock.json": "9df3f6380c60b7f2506e312b9a601152b6765c9e537bbd6eb4f7895b7c9571b9",
+    "dist/index.html": "b9b675cbe1a700613c9fce2db027cbaee8bb8f3b163d76a10b103b05f1edfe7a",
+    "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883"
+  }
+}
