@@ -57,3 +57,35 @@ test('a second device finds and joins the Drive notebook from Profile',{timeout:
  const saved=await evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('state').objectStore('state').get('current');r.onsuccess=()=>{db.close();resolve(r.result)};};})`);
  assert.ok(saved.works.some(w=>w.id==='second-work'));assert.equal(saved.preferences.theme,'light');assert.deepEqual(errors,[]);
 });
+
+test('authorized account can disconnect after failed legacy migration and configure again without losing local data',{timeout:60000},async t=>{
+ const {send,evaluate,wait,click,errors}=await setup(t,{legacy:true});
+ const capture=async state=>{const folder=process.env.SPINO_DRIVE_NOTEBOOK_EVIDENCE;if(!folder)return;await mkdir(folder,{recursive:true});for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth+1`),false);if(height<500&&state==='failed-migration-manage')await evaluate(`document.querySelector('[data-action=drive-disconnect]').scrollIntoView({block:'center'})`);const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(folder+'/'+state+'-'+layout+'.png',Buffer.from(shot.data,'base64'));}};
+ const snapshot=()=>evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('state').objectStore('state').get('current');r.onsuccess=()=>{db.close();resolve(JSON.stringify(r.result));};};})`);
+ const before=await snapshot();
+ await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);
+ await evaluate(`__driveFixture.beforePatch=file=>{file.revision++;};document.querySelector('[data-drive-picker]').requestSubmit()`);
+ await wait(`document.querySelector('[data-cloud-dialog=manage] [data-action=drive-disconnect]')`);
+ assert.equal(await evaluate(`!!document.querySelector('[data-cloud-dialog=manage] [role=alert]')`),true);await capture('failed-migration-manage');
+ const baseline=await evaluate(`localStorage.getItem('spino.cloud-sync.device.v1')`);
+ assert.equal(JSON.parse(baseline).enabled,false);assert.equal(await evaluate(`__cloudReview.linked`),true);
+ await click('close-dialog');await click('cloud-manage');await click('drive-disconnect');
+ await wait(`!document.querySelector('#cp-dialog[open]')&&!document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`);
+ assert.equal(await snapshot(),before);assert.equal(await evaluate(`__cloudReview.linked`),true);await capture('account-disconnected');
+ assert.equal(await evaluate(`__driveFixture.files.size`),1,'Incomplete remote file is kept');
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('spino.drive-notebook.device.v1')).account||null`),null);
+ await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);await click('close-dialog');
+ assert.equal(await evaluate(`!!document.querySelector('#cloud-backup [data-action=cloud-manage]')`),true);
+ await click('cloud-manage');await click('drive-disconnect');assert.equal(await snapshot(),before);
+ assert.deepEqual(errors,[]);
+});
+
+test('canceling notebook selection still offers account disconnect with no prior notebook',{timeout:60000},async t=>{
+ const {evaluate,wait,click,errors}=await setup(t);
+ await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);await click('close-dialog');
+ await click('cloud-manage');assert.equal(await evaluate(`!!document.querySelector('[data-action=drive-disconnect]')`),true);
+ assert.equal(await evaluate(`document.querySelector('[data-cloud-dialog=manage]').textContent.includes('conexión anterior')`),false);
+ await click('drive-disconnect');
+ assert.equal(await evaluate(`document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`),false);
+ assert.equal(await evaluate(`__driveFixture.files.size`),0);assert.deepEqual(errors,[]);
+});

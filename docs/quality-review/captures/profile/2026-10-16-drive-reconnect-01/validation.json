@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-16T15:06:54.239047+00:00",
+  "kind": "local-review-beta12-build65",
+  "published": false,
+  "apk": "output/drive-reconnect-review-2026-10-16/spino-6.1.0-beta.12-65-drive-reconnect-review.apk",
+  "apkSha256": "7b621592198ea3ab3ddacd4896c4a9390ffab9293c067caeaf25f69fafb38459",
+  "packagedWebFilesMatch": 260,
+  "focusedChecks": {
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "command": "node --experimental-websocket --test tests/drive-notebook.test.js tests/drive-notebook.browser.test.js tests/cloud-sync.test.js tests/locale.test.js"
+  },
+  "finalAccountChecks": {
+    "passed": 2,
+    "skippedUnrelated": 2
+  },
+  "androidAppSuites": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-16T14:35:22.424Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.009"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-16T14:35:22.444Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.125"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "2",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-16T14:35:22.570Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.006"
+    }
+  ],
+  "responsiveFrames": [
+    {
+      "file": "account-disconnected-phone-landscape.png",
+      "sha256": "6930714bc3da4727d5dcc748fcfdbd7839babb5a7a8d853b52d377e6b58e08db"
+    },
+    {
+      "file": "account-disconnected-phone-portrait.png",
+      "sha256": "5402a849ec8ed135e846cc15dd50738869ffc22fe3150690a63518687e9ea144"
+    },
+    {
+      "file": "account-disconnected-tablet-landscape.png",
+      "sha256": "66cfa15e3ec1dccf1e45e1fc39c6c26b8395b33c7af3c7251f48338205beda5b"
+    },
+    {
+      "file": "account-disconnected-tablet-portrait.png",
+      "sha256": "ee9c82d1c56f8814c3f4e2704598fa2c855b0f4a8b7f267f4d466d37d226a162"
+    },
+    {
+      "file": "connected-phone-landscape.png",
+      "sha256": "e74db176e9bf521ad27a21846a39817d05ec99b89eb67c915b173de9757389ad"
+    },
+    {
+      "file": "connected-phone-portrait.png",
+      "sha256": "77b859b3ce84ef063aa563176ddcc3e17fa23859caa48d7ef83d20511ac855cc"
+    },
+    {
+      "file": "connected-tablet-landscape.png",
+      "sha256": "96924edcbf180f9e02038bff8d70b1e55e0f532c8cd1c83810050840f17abbe7"
+    },
+    {
+      "file": "connected-tablet-portrait.png",
+      "sha256": "ed1180d18b9d12035c2839bf080c30238206b60fcb301f686420f28b7c1c2b0a"
+    },
+    {
+      "file": "drive-picker-phone-landscape.png",
+      "sha256": "b79d904f0a6e105f9b49adaf80f05ac5df8137324c474b32fa6554ffb79cbe0f"
+    },
+    {
+      "file": "drive-picker-phone-portrait.png",
+      "sha256": "d76691f59bd384046aa34cae9c74d030305fcd8062b63225d8cce0d147325d03"
+    },
+    {
+      "file": "drive-picker-tablet-landscape.png",
+      "sha256": "b2f24b9aeb829dd30cae60789d469c03bbdbc41e16bc94f5f652ec3d241b3292"
+    },
+    {
+      "file": "drive-picker-tablet-portrait.png",
+      "sha256": "b9a5d14290f9854c462124fbb3765c3c5295746a3dc87000b953b01127e3a857"
+    },
+    {
+      "file": "failed-migration-manage-phone-landscape.png",
+      "sha256": "b1b4212df01a46ec0f2c85a78e8c2e57cd26c3451da519ae2fb9776393789c8e"
+    },
+    {
+      "file": "failed-migration-manage-phone-portrait.png",
+      "sha256": "696e72876f09305e4d1ddbcf0eed0cfe6b105b16c7c1c87c402c8f8f9a756ad0"
+    },
+    {
+      "file": "failed-migration-manage-tablet-landscape.png",
+      "sha256": "8127ed97c1588927f9094e725734021a73eb8d8b8092f1534f5b5a7288cac61a"
+    },
+    {
+      "file": "failed-migration-manage-tablet-portrait.png",
+      "sha256": "1497abe407d30dbb29b5ab1be609ddb9d4a9426c5dbf27f510e886c2b96360fc"
+    },
+    {
+      "file": "legacy-paused-phone-landscape.png",
+      "sha256": "6930714bc3da4727d5dcc748fcfdbd7839babb5a7a8d853b52d377e6b58e08db"
+    },
+    {
+      "file": "legacy-paused-phone-portrait.png",
+      "sha256": "5402a849ec8ed135e846cc15dd50738869ffc22fe3150690a63518687e9ea144"
+    },
+    {
+      "file": "legacy-paused-tablet-landscape.png",
+      "sha256": "66cfa15e3ec1dccf1e45e1fc39c6c26b8395b33c7af3c7251f48338205beda5b"
+    },
+    {
+      "file": "legacy-paused-tablet-portrait.png",
+      "sha256": "ee9c82d1c56f8814c3f4e2704598fa2c855b0f4a8b7f267f4d466d37d226a162"
+    },
+    {
+      "file": "local-copy-phone-landscape.png",
+      "sha256": "b1569539b1794cd317fd85f8dd29c5b9ce49117627b176c84b7f08e3baee4a4e"
+    },
+    {
+      "file": "local-copy-phone-portrait.png",
+      "sha256": "0c29a149096620206a460100563b0b3b8bff082378c2417f88c4fa7a7939a2e4"
+    },
+    {
+      "file": "local-copy-tablet-landscape.png",
+      "sha256": "17324f01d645fc8df5a164181f9773d02ea9a8797c395030cb73ca3ebc8a5299"
+    },
+    {
+      "file": "local-copy-tablet-portrait.png",
+      "sha256": "35ad95beb7116a6fa7257481f8b6382263741cdd85ca45d72037f0ed320f217c"
+    },
+    {
+      "file": "offline-phone-landscape.png",
+      "sha256": "b31cdcd7dda3a2fb1bc431eada4b3d2b54abe146fa6c6fe763cfc9b43034107d"
+    },
+    {
+      "file": "offline-phone-portrait.png",
+      "sha256": "e3a55fe105bcaa9dd786cd6fb68fc7c98b0399d3a0e292830ff32ebceebd8b5d"
+    },
+    {
+      "file": "offline-tablet-landscape.png",
+      "sha256": "9cf96a94b226a2da856d85fb3a0ca027a068d214cf9fe0f5937947e166bee0e9"
+    },
+    {
+      "file": "offline-tablet-portrait.png",
+      "sha256": "6a5fb7c23794884ab9eba632c780848c44cfba59a547d0ec092775529281dba1"
+    }
+  ],
+  "sources": {
+    "src/companion/drive-notebook.js": "f24d738bbefd111e96411cec843ff8aa75bbf85f73e79da86f100b16acc186e9",
+    "src/companion/drive-sync-view.js": "44bbffd9726d7a373a46f4233cc1ccdb9a3e28a6c7b119080f1cd87e9d661d3d",
+    "src/companion/cloud-sync.js": "3e335e6b76e730c2f3a1c91e5d117f84792a6ccf90874188115f15da928fb339",
+    "src/companion/app.js": "77de96b6acd0fff728ee74adda503ef3e7db786710a2f4eca7ebeb3f5d99e5c3",
+    "tests/fixtures/drive/notebook-server.js": "de98cdd93324f0d265850020f660f7f65277a734049886e646013652a052c314",
+    "tests/drive-notebook.browser.test.js": "6fc785ef57c494d37cd5ec1c20921846a141c92df795bfb450bfcaf32eb6bebd"
+  },
+  "physicalDriveFailureCauseConfirmed": false,
+  "realGoogleAuthorizationTested": false,
+  "nativeEvidence": "../2026-10-16-drive-reconnect-native-04/native.json",
+  "nativeResult": {
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "foreground": "    topResumedActivity=ActivityRecord{29b45fa u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t85}",
+    "retainedFiles": 29,
+    "retainedBlobFiles": 23,
+    "previousBeta12ImmutableBlobsMatch": 21,
+    "originalLogicalStoresUnchanged": true
+  }
+}

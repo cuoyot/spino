@@ -1,5 +1,11 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ["The Drive notebook changed. Reading the latest changes before retrying.", "El cuaderno de Drive ha cambiado. Se leerán los últimos cambios antes de reintentar."],
+  ["The Drive notebook changed during download. Retry connecting. Your local notebook is kept.", "El cuaderno de Drive ha cambiado durante la descarga. Reintenta la conexión. Se conserva tu cuaderno local."],
+  ["The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.", "El cuaderno de Drive ha seguido cambiando durante la descarga. Reintenta la conexión. Se conserva tu cuaderno local."],
+  ["Drive rejected the notebook upload because its revision changed. Retry connecting. Your local notebook is kept.", "Drive ha rechazado la subida del cuaderno porque su revisión ha cambiado. Reintenta la conexión. Se conserva tu cuaderno local."],
+  ["Drive could not finalize the notebook connection because its revision changed. Retry connecting. Your local notebook is kept.", "Drive no ha podido finalizar la conexión del cuaderno porque su revisión ha cambiado. Reintenta la conexión. Se conserva tu cuaderno local."],
+
   ['Score located; download and validation are pending.', 'Partitura localizada; pendiente de descarga y validación.'],
   ['No score edition has been located.', 'No se ha localizado una edición descargable.'],
   ['Analysis or piano-part selection is pending.', 'Pendiente de análisis o selección de las partes de piano.'],

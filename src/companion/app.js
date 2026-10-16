@@ -1058,7 +1058,9 @@ export async function bootCompanion(reader) {
     const t=driveCopy();driveConnecting=true;
     showDialog('Google Drive',`<p role="status">${esc(t.connecting)}</p>`);
     try {
-      const account=await cloudTransport.drive.connect(),files=await cloudTransport.drive.list();
+      const account=await cloudTransport.drive.connect();
+      render();
+      const files=await cloudTransport.drive.list();
       showDialog('Google Drive',driveNotebookPickerMarkup(account,files,{linked:!!cloud?.state.name,notebookId:cloud?.state.notebookId,expectedId}),async form=>{
         const selected=String(form.get('notebook'));
         if(selected==='local')await connectCloudNotebook(()=>cloud.migrateToDrive());
@@ -1291,6 +1293,7 @@ export async function bootCompanion(reader) {
     'device-link-copy':async()=>{await navigator.clipboard.writeText(document.querySelector('#device-link-code').value);toast(ui('Connection code copied.','Código de conexión copiado.'));},
     'device-link-connect':async()=>{if(!pendingDeviceLink)return;if(!cloudAvailable())throw new Error(ui('Open the installed app to select your cloud file.','Abre la app instalada para seleccionar el archivo de nube.'));if(driveNotebookAvailable())return openDriveNotebooks(pendingDeviceLink.id);throw new Error('Connect Google Drive in the Android app.');},
     'drive-connect':()=>openDriveNotebooks(pendingDeviceLink?.id||null),
+    'drive-disconnect':async()=>{mediaSync?.pause();await pauseDriveMedia();await cloud.disconnectDriveAccount();pendingDeviceLink=null;dialog.close();render();},
     'drive-reconnect':async()=>{dialog.close();await cloudTransport.drive.connect();if(cloud?.state.enabled)await cloud.retry();mediaSync?.markDirty();render();},
     'cloud-setup':()=>cloud?.state.name?actions['cloud-manage']():showDialog(ui("Connect backup", "Conectar copia"),cloudSetupMarkup(cloudOptions())),
     'cloud-manage':()=>showDialog(ui("Manage connection", "Gestionar conexión"),cloudManageMarkup(cloud?.state||{},cloudOptions())),

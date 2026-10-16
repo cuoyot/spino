@@ -90,11 +90,10 @@ test('failed migration keeps the legacy connection paused and leaves its baselin
  server.offline=true;await e.migrateToDrive();assert.equal(e.state.status,'error');assert.equal(e.state.enabled,false);assert.equal(e.state.transport,'provider');assert.equal(disconnected,false);assert.deepEqual(local,original);assert.deepEqual(base,original);assert.equal(server.files.size,0);
 });
 
-test('second device rejects a revision changed between metadata and download, then joins without losing remote edits',async()=>{
+test('second device retries a revision changed during download, then joins without losing remote edits',async()=>{
  const server=syntheticNotebookDrive(),a=device(server),b=device(server);await a.adapter.create({text:JSON.stringify(initial())});
  const id=[...server.files.keys()][0];b.adapter.choose(id);
  server.beforeRead=file=>{const remote=JSON.parse(file.text);remote.data.works[0].notes='Saved while second device joined';file.text=JSON.stringify(remote);file.revision++;};
- await assert.rejects(b.adapter.pickBackup(),{code:'CONFLICT'});assert.equal((await b.adapter.status()).linked,false);
  const joined=await b.adapter.pickBackup();assert.equal(JSON.parse(joined.text).data.works[0].notes,'Saved while second device joined');assert.equal(server.files.size,1);
 });
 
@@ -104,4 +103,27 @@ test('beta10 incomplete file resumes on the same ID using v2 revisions without H
  const a=device(server,{initialState:{pending:{id,notebookId,accountId:'synthetic-owner'}}});
  await a.adapter.create({text:JSON.stringify(fixture)});assert.equal(server.files.size,1);assert.equal(a.state().link.id,id);assert.equal(a.state().pending,null);
  const b=device(server);b.adapter.choose(id);assert.deepEqual(JSON.parse((await b.adapter.pickBackup()).text),fixture);
+});
+
+
+test('metadata and media revisions may differ without blocking creation, joining or conditional updates',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server),b=device(server);
+ await a.adapter.create({text:JSON.stringify(initial())});b.adapter.choose([...server.files.keys()][0]);
+ const joined=await b.adapter.pickBackup();assert.deepEqual(JSON.parse(joined.text),initial());
+ const before=await b.adapter.readLinked(),next=JSON.parse(before.text);next.data.works[0].notes='Updated after joining';
+ await b.adapter.write({text:JSON.stringify(next),expectedHash:before.hash});
+ assert.equal(JSON.parse((await a.adapter.readLinked()).text).data.works[0].notes,next.data.works[0].notes);
+ const downloads=server.requests.filter(r=>r.path.includes('alt=media'));
+ assert.ok(downloads.length);assert.ok(downloads.every(r=>!r.etag));
+ assert.ok(server.requests.filter(r=>r.method==='PUT').every(r=>r.etag));
+});
+
+test('continuous changes during download are bounded and never link or cache an unverified notebook',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server),b=device(server);await a.adapter.create({text:JSON.stringify(initial())});
+ b.adapter.choose([...server.files.keys()][0]);
+ const change=file=>{const next=JSON.parse(file.text);next.data.works[0].notes='Concurrent revision '+file.revision;file.text=JSON.stringify(next);file.revision++;server.beforeRead=change;};
+ server.beforeRead=change;const start=server.requests.length;
+ await assert.rejects(b.adapter.pickBackup(),{code:'CONFLICT'});assert.equal((await b.adapter.status()).linked,false);
+ assert.equal(server.requests.slice(start).filter(r=>r.path.includes('alt=media')).length,3);
+ server.beforeRead=null;const joined=await b.adapter.pickBackup();assert.match(JSON.parse(joined.text).data.works[0].notes,/Concurrent revision/);
 });

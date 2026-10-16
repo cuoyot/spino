@@ -1,5 +1,10 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+The Drive notebook changed. Reading the latest changes before retrying.|El quadern de Drive ha canviat. Es llegiran els darrers canvis abans de tornar-ho a provar.
+The Drive notebook changed during download. Retry connecting. Your local notebook is kept.|El quadern de Drive ha canviat durant la baixada. Torna a provar la connexió. Es conserva el quadern local.
+The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.|El quadern de Drive ha continuat canviant durant la baixada. Torna a provar la connexió. Es conserva el quadern local.
+Drive rejected the notebook upload because its revision changed. Retry connecting. Your local notebook is kept.|Drive ha rebutjat la pujada del quadern perquè la revisió ha canviat. Torna a provar la connexió. Es conserva el quadern local.
+Drive could not finalize the notebook connection because its revision changed. Retry connecting. Your local notebook is kept.|Drive no ha pogut completar la connexió del quadern perquè la revisió ha canviat. Torna a provar la connexió. Es conserva el quadern local.
 Recorded practice time|Temps de pràctica registrat
 Daily practice|Pràctica diària
 Weekly practice · current week in progress|Pràctica setmanal · setmana actual en curs

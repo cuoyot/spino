@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-16T15:20:30.043561+00:00",
+  "version": "6.1.0-beta.13",
+  "build": 66,
+  "webBuild": "passed",
+  "androidBuild": "Java 21 / app:assembleDebug / app:testDebugUnitTest passed",
+  "androidUnitTests": 6,
+  "focusedAppChecks": 48,
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 260,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "apkSha256": "317866be5720690d4d5127c6e5f87adfc2c49a59a28fe5086779aad1f46837a1",
+  "browserEvidence": "../quality-review/captures/profile/2026-10-16-beta13-drive/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-16-beta13-release/verification.json",
+  "nativeEvidence": "../quality-review/captures/profile/2026-10-16-beta13-native-02/native.json",
+  "foreground": "    topResumedActivity=ActivityRecord{30fd560 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t87}",
+  "originalRetentionAcrossPriorReviewVerified": false,
+  "emulatorIncident": "WebView log at 17:17:38 reports LevelDB corruption (missing start of fragmented record) and automatic database deletion/recovery after the earlier emulator restarts. The first beta13 run passed its same-run logical-store comparison but failed physical blob retention. The second run has an empty original baseline, so it verifies installation/menu/cache/plugin checks, not preservation of the earlier notebook. No app-storage clear or uninstall was issued. Prior beta12 review evidence remains retained. Physical devices were not accessed.",
+  "physicalGoogleAuthorizationTested": false,
+  "physicalTwoDeviceSyncTested": false
+}

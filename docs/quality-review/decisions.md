@@ -8,6 +8,13 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 2026-10-16 owner acceptance: the owner reports that the beta9 Google Drive test worked on both devices. This is owner-reported acceptance of the isolated test, not instrumented evidence of automatic notebook/media synchronization. Interruption recovery, expired/revoked consent, concurrent notebook edits and legacy-data migration remain separate checks. **Proposed next direction:** one Google account connection for notebook and media transport, retaining the existing merge/conflict engine and offline operation. Distinguish shared notebook preferences from device-specific settings. Existing files require explicit adoption/migration; no migration implementation is accepted by this discussion alone.
 
+## 2026-10-16 — Failed Drive setup and account reconfiguration
+
+- Owner reports beta12 setup failure on both devices and requests a way to disconnect the Google account for reconfiguration. Scope: CLOUD-01/02/05 and PROFILE-01.
+- Manage must remain available for an authorized account without a linked notebook. Disconnect clears account/setup metadata while preserving local data, the paused legacy link/baseline and remote files. Connected notebook disconnect keeps the existing confirmation.
+- Stable metadata checks bracket media downloads; writes retain resource ETag conditions. Separate media/metadata ETags reproduce a suspected failure in synthetic tests; the exact physical-device HTTP failure remains unverified. Error messages distinguish upload/finalization/download and are translated into Spanish/Catalan.
+- Source/local review only; see [active evidence and pending physical acceptance](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect).
+
 ## D-051 — One explicit Google connection, recording copies and quiet polling
 
 - Status: **owner requested and authorized**, 2026-10-16; the owner confirms the same Google account on both devices. Implemented and published as Android beta12/build65, with synthetic browser/protocol and separate native checks. [Public delivery verification](../releases/6.1.0-beta.12-publication.json) passes; physical/owner acceptance remains open.

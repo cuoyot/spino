@@ -293,6 +293,16 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if (task) throw new Error('Wait for synchronization.');
       state.enabled = enabled; state.status = enabled ? 'pending' : 'paused'; publish(); schedule();
     },
+    async disconnectDriveAccount() {
+      if (!adapter.drive) throw new Error('Google Drive is unavailable.');
+      if (task || independent.busy) throw new Error('Wait for synchronization.');
+      if (adapter.transport === 'drive') return this.disconnect();
+      // A failed migration retains its provider link and merge baseline.
+      clearTimeout(timer); timer = null; independent.continueLocal();
+      await adapter.drive.disconnect();
+      state = {...state,enabled:false,status:state.name?'paused':'disconnected',error:'',connectionError:'',errorCode:'',retryable:false};
+      publish();
+    },
     async disconnect() {
       clearTimeout(timer); timer = null; if (task) await task; clearTimeout(timer); timer = null;
       await independent.disconnect(); await saveBase(null);

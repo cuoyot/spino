@@ -17,7 +17,7 @@
         "MEDIA-02",
         "MEDIA-03"
       ],
-      "coverage": "Beta12 replaces provider-file connection options and the isolated test with explicit Google account/notebook selection and confirmation. Existing provider connections pause for migration; local JSON/recovery and offline use remain. Synthetic checks cover merging, unchanged-polling geometry, audio/video copies, integrity, resumable upload, Wi-Fi policy, local deletion and offline playback. Native cache/account/menu and original-data retention checks are separate from pending physical two-device acceptance."
+      "coverage": "Beta13 adds Google account disconnect after failed/cancelled selection, localized operation errors and stable download revision checks; physical confirmation remains pending. Beta12 replaces provider-file connection options and the isolated test with explicit Google account/notebook selection and confirmation. Existing provider connections pause for migration; local JSON/recovery and offline use remain. Synthetic checks cover merging, unchanged-polling geometry, audio/video copies, integrity, resumable upload, Wi-Fi policy, local deletion and offline playback. Native cache/account/menu and original-data retention checks are separate from pending physical two-device acceptance."
     },
     {
       "id": "today",

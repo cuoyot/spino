@@ -34,3 +34,14 @@ test('profile language persists without changing historical identifiers or requi
   assert.equal(localizeMessage('El archivo no es un PDF válido.'), 'This file is not a valid PDF.');
   assert.equal(localizeMessage('My original title'), 'My original title');
 });
+
+test('Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors',()=>{
+ const messages=[
+  'The Drive notebook changed. Reading the latest changes before retrying.',
+  'The Drive notebook changed during download. Retry connecting. Your local notebook is kept.',
+  'The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.',
+  'Drive rejected the notebook upload because its revision changed. Retry connecting. Your local notebook is kept.',
+  'Drive could not finalize the notebook connection because its revision changed. Retry connecting. Your local notebook is kept.'
+ ];
+ for(const message of messages)for(const locale of ['es','ca'])assert.notEqual(localizeMessage(message,locale),message);
+});

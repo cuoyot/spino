@@ -1,6 +1,6 @@
 // In-memory Drive REST fixture. Never connects to Google or reads a personal notebook.
 export function syntheticNotebookDrive(){
- const state={files:new Map(),requests:[],nextID:1,offline:false,revoked:false,dropMediaResponse:false,beforePatch:null,beforeRead:null,omitEtag:false};
+ const state={files:new Map(),requests:[],nextID:1,offline:false,revoked:false,dropMediaResponse:false,beforePatch:null,beforeRead:null,omitEtag:false,separateMediaEtag:true};
  const response=(status,text='',etag=null)=>({status,text:typeof text==='string'?text:JSON.stringify(text),etag});
  const metadata=f=>({id:f.id,name:f.name,mimeType:f.mimeType,appProperties:{...f.appProperties},size:String(new TextEncoder().encode(f.text||'').length),trashed:false});
  const etag=f=>'"drive-revision-'+f.revision+'"';
@@ -23,7 +23,8 @@ export function syntheticNotebookDrive(){
      if(!file||file.owner!==id)return response(404);
      if(method==='GET'){
        if(u.searchParams.get('alt')==='media'&&state.beforeRead){const hook=state.beforeRead;state.beforeRead=null;hook(file);}
-       if(options.etag&&options.etag!==etag(file))return response(412);
+       const expected=u.searchParams.get('alt')==='media'&&state.separateMediaEtag?'"media-'+file.revision+'"':etag(file);
+       if(options.etag&&options.etag!==expected)return response(412);
        // v3 has no ETag header; v2 exposes the file ETag in the JSON resource.
        const data=u.pathname.startsWith('/drive/v2/')?{id:file.id,title:file.name,mimeType:file.mimeType,properties:Object.entries(file.appProperties).map(([key,value])=>({key,value,visibility:'PRIVATE'})),fileSize:metadata(file).size,labels:{trashed:false},...(state.omitEtag?{}:{etag:etag(file)})}:metadata(file);
        return response(200,u.searchParams.get('alt')==='media'?file.text:data);

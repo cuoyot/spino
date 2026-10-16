@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash,randomUUID} from 'node:crypto';
+const releaseVersion=JSON.parse(await readFile('package.json','utf8')).version;
+const releaseBuild=Number((await readFile('android/app/build.gradle','utf8')).match(/versionCode\s+(\d+)/)[1]);
 const notebookReview=process.argv.includes('--notebook');
 const folder=process.argv[2];assert.ok(folder,'Pass a fresh evidence directory');await mkdir(folder,{recursive:true});
 const adb='/Users/migue/Library/Android/sdk/platform-tools/adb',pkg='com.miguecoll.spino.beta',apk='android/app/build/outputs/apk/debug/app-debug.apk';
@@ -82,6 +84,6 @@ try{
   await writeFile(folder+'/native-review.png',execFileSync(adb,['exec-out','screencap','-p'],{maxBuffer:20e6}));
   const originalStoresAfter=await notebookSnapshot();assert.deepEqual(originalStoresAfter,originalStoresBefore);
   const after=fileHashes();const blobFiles=Object.keys(before).filter(path=>path.includes('.indexeddb.blob/'));for(const path of blobFiles)assert.equal(after[path],before[path]);
-  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',googleAuthorizationTested:false,realDriveTransferTested:false,version:'6.1.0-beta.12',build:65,apkSha256:hash(await readFile(apk)),replacementInstall:install,location,foreground,indexedDBBefore:before,indexedDBAfter:after,retainedFiles:Object.keys(before).length,originalStoresBefore,originalStoresAfter,retainedBlobFiles:blobFiles.length,checks:{notebookChecks,originalStoresUnchanged:true,profileEntry,profileNavigation:true,disposableProfileStorage:true,boundedStagingSHA256:staged.sha256,invalidOffsetRejected:invalid,unauthorizedRequestRejected:protectedRequest,nativeStateRoundTrip:true,mediaAccountBound:true,nativeCacheReadback:true,oldTestEntryRemoved:true,oldProviderActionsRemoved:true},errors},null,2));
+  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',googleAuthorizationTested:false,realDriveTransferTested:false,version:releaseVersion,build:releaseBuild,apkSha256:hash(await readFile(apk)),replacementInstall:install,location,foreground,indexedDBBefore:before,indexedDBAfter:after,retainedFiles:Object.keys(before).length,originalStoresBefore,originalStoresAfter,retainedBlobFiles:blobFiles.length,checks:{notebookChecks,originalStoresUnchanged:true,profileEntry,profileNavigation:true,disposableProfileStorage:true,boundedStagingSHA256:staged.sha256,invalidOffsetRejected:invalid,unauthorizedRequestRejected:protectedRequest,nativeStateRoundTrip:true,mediaAccountBound:true,nativeCacheReadback:true,oldTestEntryRemoved:true,oldProviderActionsRemoved:true},errors},null,2));
   console.log('Native review passes; '+Object.keys(before).length+' IndexedDB files checked; original logical stores and blobs retained. Google consent/remote transfer remain untested.');
 }finally{ws.close();if(port)run(['forward','--remove','tcp:'+port]);}

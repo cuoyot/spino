@@ -14,6 +14,12 @@ Open Backup & sync, connect the **same Google account**, select the existing not
 
 The overview says Connected to Google Drive when the notebook is connected, and shows its account and notebook name separately. Paused or error states remain visible. An account may be authorized while no notebook is selected; that is still shown as Not connected.
 
+## Reconfigure the Google account
+
+Android beta13 adds Manage whenever an account is authorized, including after cancelled or failed notebook selection. Choose **Disconnect Google account**, then **Connect Google Drive** to start account selection again. This disconnects SPino on this device and keeps the local notebook, recordings, recovery and Drive files. A paused previous file connection and its merge baseline are preserved after failed migration. It does not revoke Google's existing permission grant. Disconnecting an already connected notebook uses the existing confirmation.
+
+Setup errors remain visible in Manage. A revision conflict can distinguish downloading, uploading and finalizing the connection. Retry after another device finishes its update; local notebook data is kept. These changes are verified with simulated Drive/browser checks; real account selection and two-device copying need physical verification. This follow-up is included in beta13/build66.
+
 ## When synchronization runs
 
 Saved notebook edits upload shortly afterwards (about 1.5 seconds when eligible). SPino checks for changes from the other device every 30 seconds while open. An unchanged check keeps the existing card and controls mounted. Incoming notebook changes wait for practice, editing and dialogs to finish.

@@ -21,7 +21,7 @@ export function createDriveNotebookAdapter({native,recovery,settings,validate=va
     if(state.link&&state.link.accountId!==connected.id)throw failure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');
     const response=await native.request({path,method,text,etag,accountId:connected.id});
     if(missing&&response.status===404)return null;
-    if(response.status===412||response.status===409)throw failure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');
+    if(response.status===412||response.status===409)throw failure(method==='GET'?'The Drive notebook changed during download. Retry connecting. Your local notebook is kept.':path.startsWith('/upload/')?'Drive rejected the notebook upload because its revision changed. Retry connecting. Your local notebook is kept.':'Drive could not finalize the notebook connection because its revision changed. Retry connecting. Your local notebook is kept.','CONFLICT');
     if(response.status===401||response.status===403)throw failure('Reconnect Google Drive or check your storage and file access. Your notebook is saved locally.','PERMISSION_REQUIRED');
     if(response.status===404)throw failure('The Drive notebook is unavailable. Reconnect or choose your notebook again.','FILE_UNAVAILABLE');
     if(response.status<200||response.status>=300)throw failure('Google Drive could not complete the update. Your notebook is saved locally.');
@@ -35,14 +35,21 @@ export function createDriveNotebookAdapter({native,recovery,settings,validate=va
     return {...file,etag:revision(raw.etag)};
   }
   async function readRemote(id,{unfinished=false}={}){
-    const file=await metadata(id);
-    if(!unfinished&&file.appProperties.ready!=='1')throw failure('This notebook upload is incomplete. Retry on the original device.','INCOMPLETE');
-    if(cache?.id===file.id&&cache.etag===file.etag)return {...file,text:cache.text,hash:cache.hash};
-    const result=await api(`/drive/v2/files/${fileID(id)}?alt=media`,{etag:file.etag});
-    if(new TextEncoder().encode(result.text).length>limit)throw failure('The notebook exceeds 60 MB.','INVALID_NOTEBOOK');
-    const parsed=parse(result.text);if(parsed.id!==file.appProperties.notebookId)throw failure('The Drive file belongs to another notebook.','INVALID_NOTEBOOK');
-    cache={id:file.id,etag:file.etag,text:result.text,hash:await backupHash(result.text)};
-    return {...file,text:cache.text,hash:cache.hash};
+    for(let attempt=0;attempt<3;attempt++){
+      const file=await metadata(id);
+      if(!unfinished&&file.appProperties.ready!=='1')throw failure('This notebook upload is incomplete. Retry on the original device.','INCOMPLETE');
+      if(cache?.id===file.id&&cache.etag===file.etag)return {...file,text:cache.text,hash:cache.hash};
+      // The file resource ETag protects metadata/writes, not the media representation.
+      // Bracket the download with metadata reads; never cache/link bytes from a changed revision.
+      const result=await api(`/drive/v2/files/${fileID(id)}?alt=media`);
+      if(new TextEncoder().encode(result.text).length>limit)throw failure('The notebook exceeds 60 MB.','INVALID_NOTEBOOK');
+      const after=await metadata(id);
+      if(after.etag!==file.etag)continue;
+      const parsed=parse(result.text);if(parsed.id!==file.appProperties.notebookId)throw failure('The Drive file belongs to another notebook.','INVALID_NOTEBOOK');
+      cache={id:file.id,etag:file.etag,text:result.text,hash:await backupHash(result.text)};
+      return {...file,text:cache.text,hash:cache.hash};
+    }
+    throw failure('The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.','CONFLICT');
   }
   async function link(file){const connected=await account();save({...state,link:{id:file.id,name:file.name,notebookId:file.appProperties.notebookId,accountId:connected.id,hash:file.hash},setupPending:true,pending:null});}
   return {

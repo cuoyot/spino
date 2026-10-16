@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-16T15:18:26.606Z",
+  "kind": "native-android-emulator",
+  "googleAuthorizationTested": false,
+  "realDriveTransferTested": false,
+  "version": "6.1.0-beta.13",
+  "build": 66,
+  "apkSha256": "317866be5720690d4d5127c6e5f87adfc2c49a59a28fe5086779aad1f46837a1",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "location": "/licenses/webm-duration-mit.txt",
+  "foreground": "    topResumedActivity=ActivityRecord{30fd560 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t87}",
+  "indexedDBBefore": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/f": "fccce17c29b52d039b1b5facb07a877c3088590f626f52ce79c8a58b340f8da9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "59070a640197801f93269a89cdfe3c68427a37918b462f6370d1fd6068a68db7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "9a19cd45dcf821b57b66ea1cd6aca9959726dd796693ea02a02f6e72409f4f38",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "indexedDBAfter": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/f": "fccce17c29b52d039b1b5facb07a877c3088590f626f52ce79c8a58b340f8da9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "5396799a5ef85ee3e6202ec91d52419303fcd3db141ba36bee8d1ffe4fa4bb5c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "cc1bedf5e66404e23299297832a7bf0eba8a732410b65827960270c9cb9914a3",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "f3ddd00116f79e6a6a956b881d82983ca39304f19c394a902cd7147d0ea48cf0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "9a19cd45dcf821b57b66ea1cd6aca9959726dd796693ea02a02f6e72409f4f38",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "retainedFiles": 7,
+  "originalStoresBefore": {},
+  "originalStoresAfter": {},
+  "retainedBlobFiles": 1,
+  "checks": {
+    "notebookChecks": {
+      "profileBackupNavigation": true,
+      "googleConnectMenu": true,
+      "localJSONExportImport": true,
+      "googleAuthorizationTested": false,
+      "nativePluginStatus": true,
+      "invalidEndpointRejected": "INVALID_REQUEST",
+      "unauthorizedRequestRejected": "PERMISSION_REQUIRED"
+    },
+    "originalStoresUnchanged": true,
+    "profileEntry": "Backup & syncNot connected",
+    "profileNavigation": true,
+    "disposableProfileStorage": true,
+    "boundedStagingSHA256": "aab6bd24addc5a1847e706ab7a1c75805b7a1ef07a7e900ded52448c78d1c8b9",
+    "invalidOffsetRejected": "STAGING",
+    "unauthorizedRequestRejected": "TRANSFER",
+    "nativeStateRoundTrip": true,
+    "mediaAccountBound": true,
+    "nativeCacheReadback": true,
+    "oldTestEntryRemoved": true,
+    "oldProviderActionsRemoved": true
+  },
+  "errors": []
+}
