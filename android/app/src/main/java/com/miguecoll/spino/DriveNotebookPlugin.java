@@ -67,7 +67,7 @@ public class DriveNotebookPlugin extends Plugin {
     static boolean validPath(String path){
         if(path==null||path.contains("\r")||path.contains("\n"))return false;
         try{URI uri=new URI(path);return !uri.isAbsolute()&&uri.getRawAuthority()==null&&uri.getFragment()==null&&
-            uri.getPath().matches("/(upload/)?drive/v3/(files(/[a-zA-Z0-9_-]{1,180})?|about)")&&!uri.getPath().contains("..");}
+            (uri.getPath().matches("/(upload/)?drive/v3/(files(/[a-zA-Z0-9_-]{1,180})?|about)")||uri.getPath().matches("/(upload/)?drive/v2/files/[a-zA-Z0-9_-]{1,180}"))&&!uri.getPath().contains("..");}
         catch(Exception error){return false;}
     }
     private byte[] read(InputStream input)throws IOException{
@@ -88,7 +88,7 @@ public class DriveNotebookPlugin extends Plugin {
     }
     @PluginMethod public void request(PluginCall call){
         String path=call.getString("path"),method=call.getString("method","GET");
-        if(!validPath(path)||!method.matches("GET|POST|PATCH")){call.reject("Invalid Google Drive request.","INVALID_REQUEST");return;}
+        if(!validPath(path)||!method.matches("GET|POST|PATCH|PUT")){call.reject("Invalid Google Drive request.","INVALID_REQUEST");return;}
         String accountId=preferences().getString("id","");
         if(accountId.isEmpty()||!accountId.equals(call.getString("accountId"))){call.reject("Reconnect the same Google Drive account.","PERMISSION_REQUIRED");return;}
         // Silent renewal never launches consent from an automatic sync timer.

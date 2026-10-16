@@ -1,0 +1,371 @@
+{
+  "date": "2026-10-16T13:59:37.450Z",
+  "kind": "native-android-emulator",
+  "googleAuthorizationTested": false,
+  "realDriveTransferTested": false,
+  "version": "6.1.0-beta.11",
+  "build": 64,
+  "apkSha256": "bd563dc2c52b6c627b302e87b2ccb0c549346a78492922f56a7de6c865188518",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "location": "/drive-media-review.html",
+  "foreground": "    topResumedActivity=ActivityRecord{ffb5961 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t77}",
+  "indexedDBBefore": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/1d": "94c82950c24ba74aa06d9aa2377264d350d8858741984fec39c9ef05f738c11a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/11/00/f": "fa45b0464bd312a9537a9cb679e52a6b488ddc27f5abbcefabccb3edbf1ef7bb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/13/00/f": "92c1f53277c3ca354fa4e97d3d2f653fad8679cc292ea916d03625077c92e000",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/15/00/f": "2582db5d2b4ff2a76d9dd9912438789847949bfef4d0a68f5edea5d5fb6d6f8f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/17/00/f": "e49f18c2ff268da8fa100a18b73dbeba278325f0c9144da80e28ce048c1552d0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/19/00/f": "b37afd77e21001e7330ab0d4730149e6c77eed58691ed6aee1462451b9902d94",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/f/00/f": "373130c080c7aba793d0233d866abe514c37196adb7a65d0b41f40957ee4a186",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "aef1157e132b30af6b88fe29641a111095023879943f8ee003f9a718681ee230",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "93c6c294dc1da48535345b16e80711bcff2f33fbab89a96a093450df8177cf95",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "912e8ec6a70029c194c128c9240798eb0599a0c39bd109f1b86b8646227395ff",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "indexedDBAfter": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/1d": "94c82950c24ba74aa06d9aa2377264d350d8858741984fec39c9ef05f738c11a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/11/00/f": "fa45b0464bd312a9537a9cb679e52a6b488ddc27f5abbcefabccb3edbf1ef7bb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/13/00/f": "92c1f53277c3ca354fa4e97d3d2f653fad8679cc292ea916d03625077c92e000",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/15/00/f": "2582db5d2b4ff2a76d9dd9912438789847949bfef4d0a68f5edea5d5fb6d6f8f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/17/00/f": "e49f18c2ff268da8fa100a18b73dbeba278325f0c9144da80e28ce048c1552d0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/19/00/f": "b37afd77e21001e7330ab0d4730149e6c77eed58691ed6aee1462451b9902d94",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/f": "81d0699b5d10b196a3c286217fae23d5b59b028a158d3a31d1c0d8e9c9af7be6",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2/00/f": "ffca2e8e7055c0340622b16ad9a18d9d607e639df0b53ccf10862a987c64d61e",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "393d30aa5b30e69919312023ee2461e9b13db412d3cde1b9b83e9fc3b6a67fb3",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "e3dd25be565266a88e9ce61eca1520f1dc1b6ea64ca762552f4507e690f8b679",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/f": "c468cea90c6f43606b372ff33f84988e81d46897594baea04cb30d68cf4b4cbf",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "c8a4cb740ee34fbb0c1e23cf240aca59ce3e3edacc0125ceac23d23379297bcb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "222a242efda3db8ff6b7a239354056334a2291b0b7588d2fab2b68e8a1d4008a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "73167bb0fc5ee8b45c227e4a467799ba64a7198b13a2f6c39d876df36e26f5dd",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "ce5c5b0ea4df76a4fb14071d91429b21e56b4d4c6f6995c1ed9cf910cabfd3b7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "87a7425e4717a5329144310091d813a7c8544380b8dabf06629d21eaebb2e9de",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "024cfa6e81a80ccb380837d76e79ecfbdced13e7d4ff94ab97cc0ba217321fe0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "2fc877a6090828ec1e2d8076439db19ddeb6a2f71c6a363ae21854d639034d10",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/f/00/f": "373130c080c7aba793d0233d866abe514c37196adb7a65d0b41f40957ee4a186",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "e9e90afdd50687d34d30d2caa319e2a7fe075207cc11f3955cbd02acd0c40d8b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "28b93ce075eee280d6d9f8cab7212cd66b9dfa0f85b833faa6069100821f0831",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "93c6c294dc1da48535345b16e80711bcff2f33fbab89a96a093450df8177cf95",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "retainedFiles": 24,
+  "originalStoresBefore": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "04c106c68d660a0ec5aae349156af2ec2f7988611487deddfcb12166c75c855a"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "3826a38f9df7a67b48a22a25c52e23e1a6fd01f1d1e5af3558dc34e4c0913144"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-02-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "4063d2bd0859f9b3785251a0772018a33413442e507785c29f277e9a11faf35d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-02-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "75ece0ac27314f544f4d0324ff25dfa85478145afc6c1ba1b7cfc2b7d7fb18b3"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-03-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "260bb5c219f1e7f7d7ab43680e591bf4525d22fa226f852590fdd8276ffea6e5"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-03-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "cf7c7c1ef4dbb4f7cefa80bdc43e371af99cc61872f8f2b2f13cd80b19908227"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-04-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "b6fe486ab2cc440fd786d68596dcdd37ae643dfba7204f622ae7324c6da75f6b"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-04-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25fded6822ac3da830f17a4dd336c0c0e68bf10135f5c999d687d040f6e66844"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-05-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "1b5bc96e8558482736290bc9adb07937f3a4ec44b2293c5535c39c485873d17d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-05-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "ff64c5b40b00bfa334af0b3583d7b199857215cd8d738f3a817589831c03f006"
+      },
+      "recordings": {
+        "count": 1,
+        "sha256": "34eafeb62e6c6d6ee21ee3f0c433e702dca77730516918d727e0dee1eb56671d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-06-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "0028f7deddb6bc80380639c5d7ca24073442c70238253f7b676962f2a583d265"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-06-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "2536eaafc4004b02c2a588c2596b209d406320c1bb9a9a43bb343ce795ba3317"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "d28b608106cd92dcc54135247714bcf0ec8eac2b5057d84791dc6559312fde5e"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-07-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "f4aaa06db014c007937c787d9faa5b0e3664e80151af2db9ed3504ff35d2a4f1"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-07-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "982426ec921a1de0342d6e72cff753f7e1dbd8a13f6d37ee9d862b61b55ff8b3"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "52fbe76814441a1776f34fe8bec321447416471ac3a70cac66afa5f5b0a59a8d"
+      }
+    }
+  },
+  "originalStoresAfter": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "04c106c68d660a0ec5aae349156af2ec2f7988611487deddfcb12166c75c855a"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "3826a38f9df7a67b48a22a25c52e23e1a6fd01f1d1e5af3558dc34e4c0913144"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-02-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "4063d2bd0859f9b3785251a0772018a33413442e507785c29f277e9a11faf35d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-02-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "75ece0ac27314f544f4d0324ff25dfa85478145afc6c1ba1b7cfc2b7d7fb18b3"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-03-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "260bb5c219f1e7f7d7ab43680e591bf4525d22fa226f852590fdd8276ffea6e5"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-03-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "cf7c7c1ef4dbb4f7cefa80bdc43e371af99cc61872f8f2b2f13cd80b19908227"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-04-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "b6fe486ab2cc440fd786d68596dcdd37ae643dfba7204f622ae7324c6da75f6b"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-04-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25fded6822ac3da830f17a4dd336c0c0e68bf10135f5c999d687d040f6e66844"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-05-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "1b5bc96e8558482736290bc9adb07937f3a4ec44b2293c5535c39c485873d17d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-05-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "ff64c5b40b00bfa334af0b3583d7b199857215cd8d738f3a817589831c03f006"
+      },
+      "recordings": {
+        "count": 1,
+        "sha256": "34eafeb62e6c6d6ee21ee3f0c433e702dca77730516918d727e0dee1eb56671d"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-06-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "0028f7deddb6bc80380639c5d7ca24073442c70238253f7b676962f2a583d265"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-06-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "2536eaafc4004b02c2a588c2596b209d406320c1bb9a9a43bb343ce795ba3317"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "d28b608106cd92dcc54135247714bcf0ec8eac2b5057d84791dc6559312fde5e"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-07-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "b58d7dc29081f17c6f03d2c9408a93344512f0cb66b381e155e512f0159da2fe"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "f4aaa06db014c007937c787d9faa5b0e3664e80151af2db9ed3504ff35d2a4f1"
+      }
+    },
+    "spino-review-recording-2026-10-15-native-permissions-07-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "982426ec921a1de0342d6e72cff753f7e1dbd8a13f6d37ee9d862b61b55ff8b3"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "52fbe76814441a1776f34fe8bec321447416471ac3a70cac66afa5f5b0a59a8d"
+      }
+    }
+  },
+  "retainedBlobFiles": 18,
+  "checks": {
+    "notebookChecks": {
+      "profileBackupNavigation": true,
+      "googleConnectMenu": true,
+      "localJSONExportImport": true,
+      "googleAuthorizationTested": false,
+      "nativePluginStatus": true,
+      "invalidEndpointRejected": "INVALID_REQUEST",
+      "unauthorizedRequestRejected": "PERMISSION_REQUIRED"
+    },
+    "originalStoresUnchanged": true,
+    "profileEntry": "Google Drive transfer checkSynthetic recording · beta test",
+    "profileNavigation": true,
+    "disposableProfileStorage": true,
+    "boundedStagingSHA256": "aab6bd24addc5a1847e706ab7a1c75805b7a1ef07a7e900ded52448c78d1c8b9",
+    "invalidOffsetRejected": "STAGING",
+    "unauthorizedRequestRejected": "TRANSFER",
+    "nativeStateRoundTrip": true
+  },
+  "errors": []
+}

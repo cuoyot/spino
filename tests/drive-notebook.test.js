@@ -20,7 +20,8 @@ test('Drive notebooks create, discover and join with exact notebook, score and a
  const joined=await b.adapter.pickBackup({expectedNotebookId:fixture.cloudBackup.sharedNotebookId});
  assert.deepEqual(JSON.parse(joined.text),fixture);assert.equal((await b.adapter.status()).setupPending,true);
  assert.deepEqual(await device(server,{id:'another-owner'}).adapter.list(),[]);
- assert.ok(server.requests.filter(r=>r.method==='PATCH').every(r=>r.etag));
+ const writes=server.requests.filter(r=>r.method==='PUT');assert.ok(writes.length>=2);assert.ok(writes.every(r=>r.etag&&r.path.includes('/drive/v2/files/')));
+ assert.ok(server.requests.some(r=>r.path.startsWith('/drive/v2/files/')));
 });
 test('a lost creation response resumes the preallocated Drive file after restart without duplication',async()=>{
  const server=syntheticNotebookDrive(),a=device(server);server.dropMediaResponse=true;
@@ -45,8 +46,8 @@ test('offline/revoked access preserves notebook linkage and recovery, disconnect
 });
 test('missing strong revisions and mismatched notebook identities fail before upload/link',async()=>{
  const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(initial())});
- const before=server.requests.filter(r=>r.method==='PATCH').length;server.omitEtag=true;
- await assert.rejects(a.adapter.readLinked(),{code:'REVISION_REQUIRED'});assert.equal(server.requests.filter(r=>r.method==='PATCH').length,before);
+ const before=server.requests.filter(r=>r.method==='PUT').length;server.omitEtag=true;
+ await assert.rejects(a.adapter.readLinked(),{code:'REVISION_REQUIRED'});assert.equal(server.requests.filter(r=>r.method==='PUT').length,before);
  server.omitEtag=false;const b=device(server);b.adapter.choose([...server.files.keys()][0]);
  await assert.rejects(b.adapter.pickBackup({expectedNotebookId:'b524329c-a21f-4908-bf87-83a8719db75e'}),{code:'INVALID_NOTEBOOK'});assert.equal((await b.adapter.status()).linked,false);
 });
@@ -87,4 +88,20 @@ test('failed migration keeps the legacy connection paused and leaves its baselin
  const storage=new Map(),router=createNotebookTransport({legacy,drive:d.adapter,storage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)}});
  const e=createNotebookCloud({adapter:router,delay:100000,settings:{read:()=>meta,save:v=>{meta=structuredClone(v);}},snapshot:async()=>JSON.stringify(local),eligible:()=>true,canApply:()=>true,readBase:async()=>base,saveBase:async v=>{base=structuredClone(v);},apply:async()=>{throw Error('Must not apply a failed migration');},backupFactory:options=>createCloudBackup({...options,settings:{read:()=>null,save:()=>{}}})});t.after(()=>e.stop());
  server.offline=true;await e.migrateToDrive();assert.equal(e.state.status,'error');assert.equal(e.state.enabled,false);assert.equal(e.state.transport,'provider');assert.equal(disconnected,false);assert.deepEqual(local,original);assert.deepEqual(base,original);assert.equal(server.files.size,0);
+});
+
+test('second device rejects a revision changed between metadata and download, then joins without losing remote edits',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server),b=device(server);await a.adapter.create({text:JSON.stringify(initial())});
+ const id=[...server.files.keys()][0];b.adapter.choose(id);
+ server.beforeRead=file=>{const remote=JSON.parse(file.text);remote.data.works[0].notes='Saved while second device joined';file.text=JSON.stringify(remote);file.revision++;};
+ await assert.rejects(b.adapter.pickBackup(),{code:'CONFLICT'});assert.equal((await b.adapter.status()).linked,false);
+ const joined=await b.adapter.pickBackup();assert.equal(JSON.parse(joined.text).data.works[0].notes,'Saved while second device joined');assert.equal(server.files.size,1);
+});
+
+test('beta10 incomplete file resumes on the same ID using v2 revisions without HTTP ETag headers',async()=>{
+ const server=syntheticNotebookDrive(),fixture=initial(),notebookId=fixture.cloudBackup.sharedNotebookId,id='beta10-pending-file';
+ server.files.set(id,{id,name:'Existing musical title.json',owner:'synthetic-owner',mimeType:'application/json',appProperties:{spinoType:'spino-notebook-v1',notebookId,ready:'0'},text:'',revision:1});
+ const a=device(server,{initialState:{pending:{id,notebookId,accountId:'synthetic-owner'}}});
+ await a.adapter.create({text:JSON.stringify(fixture)});assert.equal(server.files.size,1);assert.equal(a.state().link.id,id);assert.equal(a.state().pending,null);
+ const b=device(server);b.adapter.choose(id);assert.deepEqual(JSON.parse((await b.adapter.pickBackup()).text),fixture);
 });

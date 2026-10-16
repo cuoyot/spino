@@ -6,6 +6,8 @@ const marker='spino-notebook-v1',limit=60000000;
 const failure=(message,code='PROVIDER_ERROR')=>Object.assign(new Error(message),{code});
 const fileID=id=>{if(typeof id!=='string'||! /^[\w-]{1,180}$/.test(id))throw failure('Invalid Drive notebook file.','INVALID_REQUEST');return id;};
 const fields='id,name,mimeType,appProperties,size,trashed';
+// Drive v3 omits the file revision. Use v2's resource ETag for conditional reads/writes.
+const revisionFields='id,title,mimeType,properties,fileSize,labels(trashed),etag';
 const revision=etag=>{if(typeof etag!=='string'||!/^"[^"\r\n]+"$/.test(etag))throw failure('Drive did not provide a safe file revision. No changes were uploaded.','REVISION_REQUIRED');return etag;};
 
 // Account and link metadata are local. Tokens are owned exclusively by the native adapter.
@@ -27,16 +29,16 @@ export function createDriveNotebookAdapter({native,recovery,settings,validate=va
   }
   const json=response=>JSON.parse(response.text);
   async function metadata(id,{missing=false}={}){
-    const r=await api(`/drive/v3/files/${fileID(id)}?fields=${fields}`,{missing});if(!r)return null;
-    const file=json(r);if(file.trashed||file.mimeType!=='application/json'||file.appProperties?.spinoType!==marker)throw failure('This is not an available SPino Drive notebook.','INVALID_NOTEBOOK');
+    const r=await api(`/drive/v2/files/${fileID(id)}?fields=${revisionFields}`,{missing});if(!r)return null;
+    const raw=json(r),file={id:raw.id,name:raw.title,mimeType:raw.mimeType,size:raw.fileSize,trashed:raw.labels?.trashed,appProperties:Object.fromEntries((raw.properties||[]).filter(p=>p.visibility==='PRIVATE').map(p=>[p.key,p.value]))};if(file.trashed||file.mimeType!=='application/json'||file.appProperties?.spinoType!==marker)throw failure('This is not an available SPino Drive notebook.','INVALID_NOTEBOOK');
     if(!validNotebookId(file.appProperties.notebookId)||Number(file.size||0)>limit)throw failure('The Drive notebook identity or size is invalid.','INVALID_NOTEBOOK');
-    return {...file,etag:revision(r.etag)};
+    return {...file,etag:revision(raw.etag)};
   }
   async function readRemote(id,{unfinished=false}={}){
     const file=await metadata(id);
     if(!unfinished&&file.appProperties.ready!=='1')throw failure('This notebook upload is incomplete. Retry on the original device.','INCOMPLETE');
     if(cache?.id===file.id&&cache.etag===file.etag)return {...file,text:cache.text,hash:cache.hash};
-    const result=await api(`/drive/v3/files/${fileID(id)}?alt=media`,{etag:file.etag});
+    const result=await api(`/drive/v2/files/${fileID(id)}?alt=media`,{etag:file.etag});
     if(new TextEncoder().encode(result.text).length>limit)throw failure('The notebook exceeds 60 MB.','INVALID_NOTEBOOK');
     const parsed=parse(result.text);if(parsed.id!==file.appProperties.notebookId)throw failure('The Drive file belongs to another notebook.','INVALID_NOTEBOOK');
     cache={id:file.id,etag:file.etag,text:result.text,hash:await backupHash(result.text)};
@@ -84,10 +86,10 @@ export function createDriveNotebookAdapter({native,recovery,settings,validate=va
       if(file.appProperties.ready==='1'){
         const remote=await readRemote(file.id);await link(remote);return {name:remote.name,text:remote.text,joined:true};
       }
-      await api(`/upload/drive/v3/files/${file.id}?uploadType=media&fields=id`,{method:'PATCH',text,etag:file.etag});
+      await api(`/upload/drive/v2/files/${file.id}?uploadType=media&fields=id`,{method:'PUT',text,etag:file.etag});
       let verified=await readRemote(file.id,{unfinished:true});
       if(verified.hash!==await backupHash(text))throw failure('Drive did not return the complete notebook. Your local copy is kept.');
-      await api(`/drive/v3/files/${file.id}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{ready:'1'}}),etag:verified.etag});
+      await api(`/drive/v2/files/${file.id}?fields=id`,{method:'PUT',text:JSON.stringify({properties:Object.entries({...verified.appProperties,ready:'1'}).map(([key,value])=>({key,value,visibility:'PRIVATE'}))}),etag:verified.etag});
       verified=await readRemote(file.id);await link(verified);return {name:verified.name};
     },
     async readLinked(){
@@ -101,7 +103,7 @@ export function createDriveNotebookAdapter({native,recovery,settings,validate=va
       const parsed=parse(text);if(parsed.id!==state.link.notebookId)throw failure('Notebook identity cannot change during synchronization.','INVALID_NOTEBOOK');
       const before=await readRemote(state.link.id);if(before.hash!==expectedHash)throw failure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');
       await recovery.saveRecovery({text:before.text});
-      await api(`/upload/drive/v3/files/${before.id}?uploadType=media&fields=id`,{method:'PATCH',text,etag:before.etag});
+      await api(`/upload/drive/v2/files/${before.id}?uploadType=media&fields=id`,{method:'PUT',text,etag:before.etag});
       const after=await readRemote(before.id);
       // A later writer may have committed after us: re-read/merge, never overwrite it blindly.
       if(after.hash!==await backupHash(text))throw failure('The Drive notebook changed during verification.','CONFLICT');

@@ -1,6 +1,6 @@
 # Notebook synchronization with Google Drive (Android beta)
 
-Android 6.1.0-beta.10/build63 adds direct Google Drive API synchronization for the notebook. Install beta10 on both devices. Use your own Google account; while OAuth remains in testing, the account must be listed as a Google test user. The beta9 synthetic recording test has owner-reported two-device acceptance. The new notebook migration and synchronization still require owner testing on the physical devices.
+Android 6.1.0-beta.10/build63 adds direct Google Drive API synchronization for the notebook. Install beta11 or later on both devices. Use your own Google account; while OAuth remains in testing, the account must be listed as a Google test user. The beta9 synthetic recording test has owner-reported two-device acceptance. The owner reports beta10 working on the first device and a revision error on the second. Beta11 corrects revision handling; complete two-device acceptance remains open.
 
 ## Connect the first device
 
@@ -27,3 +27,9 @@ To resume, open Backup & sync and press Resume or enable Automatic updates in Ma
 Direct Drive sync includes repertoire, practice history, planning, routines, scores, annotations and shared practice preferences. Theme and Wi-Fi download preferences remain on each device. MIDI configuration, notification permissions, Google connection metadata and personal recordings are also local.
 
 Automatic updates run while SPino is open. Incoming changes wait until practice and editing finish. The existing conflict review is retained. A file revision is required before writing; contention triggers a fresh read and merge, and uncertain writes are never retried as blind overwrites. JSON copies and the local recovery path remain independent of successful cloud access.
+
+## Retrying the beta10 revision error
+
+If a second device reports “Drive did not provide a safe file revision”, update both devices to beta11 or later. On the affected device, open Profile → Backup & sync → Manage and retry Move this connection to Google Drive with the same account. Choose the existing notebook when offered. Keep the current notebook and cloud file; deleting or recreating them is unnecessary. Local practice and JSON copies remain available while the connection is paused.
+
+The owner reports beta10 working on the first device and this error on the second. Beta11 has synthetic regression coverage; successful physical synchronization in both directions still needs owner confirmation.

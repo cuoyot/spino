@@ -14,7 +14,7 @@
         "CLOUD-02",
         "CLOUD-05"
       ],
-      "coverage": "Beta10 implements opt-in direct Drive notebook synchronization, account/notebook selection and legacy migration. Synthetic protocol/browser coverage includes offline/local JSON preservation, IDs/assets, conflict handling and account renewal. Native menu/plugin/retention checks are separate. Real notebook migration and synchronization require owner acceptance on physical devices; personal recordings are not synchronized."
+      "coverage": "Beta10 implements opt-in direct Drive notebook synchronization, account/notebook selection and legacy migration. Synthetic protocol/browser coverage includes offline/local JSON preservation, IDs/assets, conflict handling and account renewal. Native menu/plugin/retention checks are separate. The owner reports beta10 working on the first physical device but a revision error on the second. Beta11 corrects resource revision handling with synthetic second-device/concurrency checks; physical two-device acceptance remains open. Personal recordings are not synchronized."
     },
     {
       "id": "drive-transfer-beta",

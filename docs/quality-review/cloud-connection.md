@@ -1,5 +1,15 @@
 # Cloud validation and device connection
 
+## Beta11: second-device revision compatibility
+
+2026-10-16 — the owner reports beta10 working on the first physical device and showing “Drive did not provide a safe file revision. No changes were uploaded.” on the second. This is partial owner acceptance, not a successful two-device notebook check. The screenshot still displays the retained provider file after the failed move. No personal notebook or Google account was inspected during diagnosis.
+
+Beta10 incorrectly requires a file ETag HTTP header from Drive v3. Its synthetic server always supplied that header. The [v2-to-v3 reference](https://developers.google.com/workspace/drive/api/guides/v2-to-v3-reference) maps `Files.etag` to no v3 equivalent; the [v2 File resource](https://developers.google.com/workspace/drive/api/reference/rest/v2/files) explicitly exposes `etag`. Beta11 reads the v2 resource revision, maps private properties, and uses conditional v2 downloads and PUT updates. Discovery and initial file creation retain v3 and the same `drive.file` scope. No unconditional-write fallback or timestamp substitute is introduced. Existing completed and pending beta10 files keep their IDs.
+
+The synthetic server now omits HTTP ETag headers, models v2 resource metadata, and checks conditional updates. Regression checks cover second-device adoption, a change between metadata and download, contention before upload, resuming an incomplete beta10 file, legacy baseline merging, offline/revoked access and retained JSON/recovery paths. [Beta11 validation](../releases/6.1.0-beta.11-validation.json) records 79 focused app checks, three website checks, six Android unit checks, the signed package and 264 matching web files. [Responsive synthetic evidence](captures/profile/2026-10-16-drive-revision-01/verification.json) covers the unchanged connection/local-copy menus; [native replacement installation](captures/profile/2026-10-16-drive-revision-native-01/native.json) preserves original logical stores and 18 immutable media blobs and confirms the foreground activity. [Website release dialog evidence](captures/website/2026-10-16-beta11-release-02/verification.json) covers 15 language/layout states. Public verification and owner retesting remain separate.
+
+Next physical check: update both devices, then retry the move from Manage on the affected device with the same Google account and select the existing notebook. Do not delete the existing notebook or cloud file. Confirm independent edits arrive in both directions after reconnecting, and retain local export/offline use.
+
 ## Beta10: direct Google Drive notebook connection
 
 2026-10-16 — owner requests beta10 settings and menus using the Google Drive API, explicitly retaining local copies and offline practice. The earlier isolated beta9 transfer worked on both devices according to the owner. This authorizes the notebook integration; it does not establish acceptance of the new notebook migration.

@@ -1,6 +1,6 @@
 // In-memory Drive REST fixture. Never connects to Google or reads a personal notebook.
 export function syntheticNotebookDrive(){
- const state={files:new Map(),requests:[],nextID:1,offline:false,revoked:false,dropMediaResponse:false,beforePatch:null,omitEtag:false};
+ const state={files:new Map(),requests:[],nextID:1,offline:false,revoked:false,dropMediaResponse:false,beforePatch:null,beforeRead:null,omitEtag:false};
  const response=(status,text='',etag=null)=>({status,text:typeof text==='string'?text:JSON.stringify(text),etag});
  const metadata=f=>({id:f.id,name:f.name,mimeType:f.mimeType,appProperties:{...f.appProperties},size:String(new TextEncoder().encode(f.text||'').length),trashed:false});
  const etag=f=>'"drive-revision-'+f.revision+'"';
@@ -22,14 +22,17 @@ export function syntheticNotebookDrive(){
      const file=state.files.get(u.pathname.split('/').pop());
      if(!file||file.owner!==id)return response(404);
      if(method==='GET'){
+       if(u.searchParams.get('alt')==='media'&&state.beforeRead){const hook=state.beforeRead;state.beforeRead=null;hook(file);}
        if(options.etag&&options.etag!==etag(file))return response(412);
-       return response(200,u.searchParams.get('alt')==='media'?file.text:metadata(file),state.omitEtag?null:etag(file));
+       // v3 has no ETag header; v2 exposes the file ETag in the JSON resource.
+       const data=u.pathname.startsWith('/drive/v2/')?{id:file.id,title:file.name,mimeType:file.mimeType,properties:Object.entries(file.appProperties).map(([key,value])=>({key,value,visibility:'PRIVATE'})),fileSize:metadata(file).size,labels:{trashed:false},...(state.omitEtag?{}:{etag:etag(file)})}:metadata(file);
+       return response(200,u.searchParams.get('alt')==='media'?file.text:data);
      }
-     if(method==='PATCH'){
+     if(method==='PUT'&&u.pathname.includes('/drive/v2/files/')){
        if(state.beforePatch){const hook=state.beforePatch;state.beforePatch=null;hook(file);}
        if(!options.etag||options.etag!==etag(file))return response(412);
        if(u.pathname.startsWith('/upload/'))file.text=options.text;
-       else {const changes=JSON.parse(options.text);if(changes.appProperties)file.appProperties={...file.appProperties,...changes.appProperties};}
+       else {const changes=JSON.parse(options.text);if(changes.properties)for(const p of changes.properties)if(p.visibility==='PRIVATE')file.appProperties[p.key]=p.value;}
        file.revision++;
        if(state.dropMediaResponse&&u.pathname.startsWith('/upload/')){state.dropMediaResponse=false;throw Object.assign(Error('Synthetic lost upload response'),{code:'PROVIDER_ERROR'});}
        return response(200,{id:file.id},etag(file));

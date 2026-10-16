@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-16T14:00:02.209725+00:00",
+  "version": "6.1.0-beta.11",
+  "build": 64,
+  "webBuild": "passed",
+  "androidBuild": "Java 21 / testDebugUnitTest / assembleDebug passed",
+  "androidUnitTests": 6,
+  "focusedAppChecks": 79,
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 264,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/profile/2026-10-16-drive-revision-01/verification.json",
+  "nativeEvidence": "../quality-review/captures/profile/2026-10-16-drive-revision-native-01/native.json",
+  "foregroundAfterRelaunch": "    topResumedActivity=ActivityRecord{ffb5961 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t77}",
+  "originalLogicalStoresUnchanged": true,
+  "retainedBlobFiles": 18,
+  "googleAuthorizationTested": false,
+  "realNotebookMigrationTested": false,
+  "physicalCrossDeviceNotebookSyncTested": false,
+  "personalMediaSyncEnabled": false,
+  "ownerBeta10Report": "First physical device worked; second device reported a missing safe revision. Beta11 physical retest remains open.",
+  "hashes": {
+    "package-lock.json": "ec74ca9bf9443d2f11a0192854493460a370cb6fd57a30208f991bfe06f8bf32",
+    "src/companion/drive-notebook.js": "4f3328cb075a45f3bbd72ac02caf88c8eb2bb2806aad66142eb99fa1f36a29c8",
+    "android/app/src/main/java/com/miguecoll/spino/DriveNotebookPlugin.java": "ccfcd10a070b90883fd14b02bd1afd21c44130200613ccb2d37882d05f711bd2",
+    "dist/index.html": "1e613b083abfd009b76e0f53a32a0ffa43dcf6e8a3bf3ae08bd589c33c0fece9",
+    "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883"
+  }
+}
