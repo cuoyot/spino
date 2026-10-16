@@ -2,7 +2,7 @@
 
 ## Beta14 incremental synchronization
 
-2026-10-16 — owner accepts replacing whole-file synchronization with smaller units, keeping full JSON for export/backup, and explicitly requires migration, idempotence and minimal idle traffic (D-052). Implemented as beta14/build67. The screenshot's exact physical failure cause remains unconfirmed.
+2026-10-16 — owner accepts replacing whole-file synchronization with smaller units, keeping full JSON for export/backup, and explicitly requires migration, idempotence and minimal idle traffic (D-052). Implemented and [published](../releases/6.1.0-beta.14-publication.json) as beta14/build67. The screenshot's exact physical failure cause remains unconfirmed.
 
 The Drive adapter now transports immutable SHA256-addressed record changes, causal commit references and separate score pieces, with all object requests below 1 MiB. A dedicated folder holds each notebook's descriptor and objects. Writes publish the commit only after its referenced objects verify. Allocated Drive IDs and pending payloads are retained in a separate IndexedDB journal before upload; a lost response/restart verifies and reuses that ID. Cached content and cursors survive disconnect. Repeated identical writes create no commit. Incoming discovery is checkpointed separately from local adoption: incomplete/invalid graphs block adoption and the existing full-notebook local transaction remains authoritative.
 
