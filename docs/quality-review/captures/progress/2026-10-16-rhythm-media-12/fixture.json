@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [
+    {
+      "id": "a",
+      "title": "Prélude en do majeur",
+      "composer": "Review fixture",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60
+    },
+    {
+      "id": "b",
+      "title": "Synthetic étude",
+      "composer": "Review fixture",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [
+    {
+      "id": "8b5c503e-f830-4c00-9253-00b8566eff07",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "28b1062a-921b-422d-b530-263392cfb684",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "28b1062a-921b-422d-b530-263392cfb684",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-08-31T10:00:00.000Z",
+      "date": "2026-08-31",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1788170400000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-08-31T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "46b8f4a3-4dc3-489a-b003-c095eaaaedbc",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "89981150-dcc4-4298-bebd-6cd9b4244580",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "89981150-dcc4-4298-bebd-6cd9b4244580",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-07T10:00:00.000Z",
+      "date": "2026-09-07",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1788775200000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-09-07T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "d0620bb9-a054-46fd-b082-2630895ac668",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "bfb9932c-cbd4-4b8a-8908-8718e3010128",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "bfb9932c-cbd4-4b8a-8908-8718e3010128",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-14T10:00:00.000Z",
+      "date": "2026-09-14",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1789380000000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-09-14T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "6bbdb125-0887-47a8-944e-3478739aae03",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "c3682809-fe80-43ab-be5b-b0e7893f91cd",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "c3682809-fe80-43ab-be5b-b0e7893f91cd",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-21T10:00:00.000Z",
+      "date": "2026-09-21",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1789984800000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-09-21T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "29f844de-e83e-4ae5-8c8c-5af3ec508b5b",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "d968c63f-eecf-4dac-90a8-b4a53a5ac26a",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "d968c63f-eecf-4dac-90a8-b4a53a5ac26a",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-09-28T10:00:00.000Z",
+      "date": "2026-09-28",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790589600000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-09-28T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "83f69b9c-7017-4fb1-88a4-d483545a6981",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "73683f44-5b0c-413a-abd3-52f94309d842",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "73683f44-5b0c-413a-abd3-52f94309d842",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-05T10:00:00.000Z",
+      "date": "2026-10-05",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791194400000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-10-05T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "ab7a22bb-2971-4702-abab-7960881d33c3",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "33db2f6c-dc80-42e7-9442-e52c9c576c19",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "a"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "33db2f6c-dc80-42e7-9442-e52c9c576c19",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "a"
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T10:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791799200000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "a"
+      ],
+      "endedAt": "2026-10-12T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

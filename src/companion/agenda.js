@@ -1,5 +1,6 @@
 import { icon } from './icons.js';
 import { progressMetrics } from './progress-metrics.js';
+import { formatProgressDuration } from './progress-duration.js';
 import { eventsBetween, upcomingEvents } from './event-recurrence.js';
 import { ui, getAppLanguage } from './locale.js';
 import { quickRecordsMarkup } from './quick-score.js';
@@ -101,14 +102,15 @@ function practiceFocus(session, state) {
 export function todayWeeklyProgress(data, today = localDate()) {
   const metrics = progressMetrics(data,today), minutes = metrics.weeks.at(-1).minutes;
   const goal = metrics.goal > 0 ? metrics.goal : null;
+  const duration = formatProgressDuration(minutes*60000), goalDuration = goal ? formatProgressDuration(goal*60000) : '';
   const start=weekOf(today),dates=Array.from({length:7},(_,i)=>addDays(start,i));
   const daily=dates.map(date=>date>today?0:data.sessions.filter(s=>s.date===date).reduce((n,s)=>n+s.elapsedMs/60000,0));
   const peak=Math.max(1,...daily);
   const percent = goal ? Math.min(100,Math.round(minutes/goal*100)) : 0;
   return `<section class="cp-today-progress" aria-label="${ui('Practised this week','Practicado esta semana')}">
     <div class="cp-today-progress-heading"><h2>${ui('Your week','Tu semana')}</h2>${button('progress',ui('View progress','Ver progreso'),'','quiet')}</div>
-    <div class="cp-today-progress-total"><strong>${minutes}<small> min</small></strong>${goal ? `<span>/ <b>${goal} min</b> ${ui('goal','objetivo')}</span>` : ''}</div>
-    ${goal ? `<div class="cp-today-progress-track" role="progressbar" aria-label="${ui('Weekly goal','Objetivo semanal')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${minutes} / ${goal} min"><span style="width:${percent}%"></span></div><p class="cp-today-progress-caption">${minutes>=goal ? ui('✓ Goal reached','✓ Objetivo cumplido') : `${goal-minutes} ${ui('min to go','min para tu objetivo')}`}</p>` : ''}
+    <div class="cp-today-progress-total"><strong>${duration.replace(/ (hr|min)/g,'<small> $1</small>')}</strong>${goal ? `<span>/ <b>${goalDuration}</b> ${ui('goal','objetivo')}</span>` : ''}</div>
+    ${goal ? `<div class="cp-today-progress-track" role="progressbar" aria-label="${ui('Weekly goal','Objetivo semanal')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${duration} / ${goalDuration}"><span style="width:${percent}%"></span></div><p class="cp-today-progress-caption">${minutes>=goal ? ui('✓ Goal reached','✓ Objetivo cumplido') : `${goal-minutes} ${ui('min to go','min para tu objetivo')}`}</p>` : ''}
     <div class="cp-today-week" aria-label="${ui("Your week", "Tu semana")}"><div class="cp-row"><span>${weekLabel(start)}</span>${button('today-calendar',ui('View calendar', 'Ver calendario'),'','quiet')}</div>
       <div class="cp-today-days">${dates.map((date,i)=>{const day=agendaEntries(data,date);const types=[...new Set(day.map(e=>e.event?'event':(e.plan||e.session).blocks[0]?.type||'free'))];return `<button type="button" data-action="calendar-day" data-id="${date}" ${date===today?'aria-current="date"':''} aria-label="${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}, ${Math.round(daily[i])} min, ${day.length} ${ui('activities', 'actividades')}"><small>${ui(['M','T','W','T','F','S','S'], ['L','M','X','J','V','S','D'])[i]}</small><b>${+date.slice(8)}</b><span class="cp-day-practice" aria-hidden="true"><i style="height:${daily[i]>0?Math.max(10,daily[i]/peak*100):0}%"></i></span><span class="cp-day-minutes" aria-hidden="true">${daily[i]>0?Math.round(daily[i])+'′':'·'}</span><span class="cp-today-marks">${types.map(type=>`<i data-activity="${type}"></i>`).join('')}</span></button>`;}).join('')}</div>
     </div>

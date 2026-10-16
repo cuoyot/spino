@@ -37,7 +37,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -157,6 +157,23 @@
         "D-041"
       ],
       "coverage": "Android beta 12/build51 contains D-040/D-041 circular session rows, hidden horizontal scrolling, fixed Week Add, subtle day dividers, compact month/year wording and a one-line Calendar selector. Responsive checks cover both themes, four orientations, 320px, three languages and durations through 720 min. Emulator replacement installation/data retention/foreground and package hashes pass; physical/native visual acceptance remains separate. iOS remains beta 9/build48."
+    },
+    {
+      "id": "progress-recordings",
+      "title": "Practice rhythm and recordings",
+      "order": 95,
+      "source": "en/progress-recordings.md",
+      "status": "draft",
+      "reviewIds": [
+        "PIANO-02",
+        "MEDIA-01"
+      ],
+      "verifiedAgainst": "progress/2026-10-16-rhythm-media-14",
+      "decisions": [
+        "D-053",
+        "D-054"
+      ],
+      "coverage": "Musical weekly streak card/detail, recording counts and weekly shortcut, default weekly calendar expanded/collapsed through its month heading, previous/next period navigation and automatic period-specific recording lists without filter controls. Responsive browser evidence uses disposable notebooks; native and owner visual acceptance remain open. Packaged as Android beta15/build68; final source/browser and separate native-emulator installation/navigation checks pass. Physical-device acceptance remains separate. Visual History adds local PDF/MXL thumbnails, colored practice badges, prominent labeled feedback and whole-card session opening. Verified in progress/2026-10-16-visual-history-05, including keyboard activation and unchanged notebook/score assets; native/owner acceptance remains open."
     }
   ],
   "plannedChapters": [

@@ -1,0 +1,81 @@
+{
+  "capturedAt": "2026-10-16T21:46:45.659Z",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "gitHead": "590132fa47243c702aed48e830937eb1bad98683",
+  "build": "Vite production build",
+  "buildIndexSha256": "98a0d85f9bdfcda5e436b6c169c453ddda8e978535365f29585152df54d42285",
+  "sourceHashes": {
+    "src/companion/app.js": "22e725326e50472d2f926fb469a5a1bbfc2b757fa81df4378fabad6368db8fc8",
+    "src/companion/progress-history.js": "f256abbafccd63291dc912b3e998694c3abb521f28caf10c1553c93ea41a2a57",
+    "src/companion/progress-history.css": "2b320d78b71fbb921574b81ec25f25e74b3ca2ce988299f5dd2e3859ad1d4d4d",
+    "src/companion/score-thumbnail.js": "a4c6bb1e6ed11566194b0d630ff301fe232d31572da1b2b0007799c292516bff",
+    "tests/progress-history.browser.test.js": "06b17899a840482224549f24721e065524bedcac318d5a118c21f470044fec75",
+    "tests/progress-history-fixture.js": "edab6dd41e71be61bd363c29e37baae9c368533e98d84bd8f17fb9f4198732cf"
+  },
+  "frames": [
+    {
+      "file": "light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    }
+  ],
+  "runtimeErrors": [],
+  "notebookUnchanged": true,
+  "assetsUnchanged": true
+}

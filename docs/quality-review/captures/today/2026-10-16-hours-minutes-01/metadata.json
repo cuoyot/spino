@@ -1,0 +1,105 @@
+{
+  "capturedAt": "2026-10-16T21:28:31.708Z",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "gitHead": "590132fa47243c702aed48e830937eb1bad98683",
+  "build": "Vite production build",
+  "buildIndexSha256": "1066d84b4c08d3c3843922ef097022f21c283ff24c86d760f553e6bfde13626c",
+  "sourceHashes": {
+    "src/companion/agenda.js": "28939fe22b00c73d6fbdaef3bc2f8d8030c3c042f1d41b581bbbbdb4250d49c4",
+    "src/companion/progress-duration.js": "1b0242453ce0e296f6e54a85e1c32174f20531c02e5e362fd12ab57dcddd4302",
+    "tests/today-weekly-progress.browser.test.js": "4e57bfc26664c76e34151017f626a7ef28b265e2473653d161af9b01dfc3daf0"
+  },
+  "frames": [
+    {
+      "path": "dark-empty-390x844.png",
+      "sha256": "15a39d2fa7f7e658a53119f42dddf5453b6cc99708bdc1d9d4e80ec8a80f86b0"
+    },
+    {
+      "path": "dark-goal-1024x768.png",
+      "sha256": "087c29b25866e55103f88a1e1de6d1ae38d6001af9130276e11970d7eb313d4c"
+    },
+    {
+      "path": "dark-goal-390x844.png",
+      "sha256": "9f77c3b69cc652f0bcf2e558a634a5cfbc52ac28d45ea33102b3358015ee1750"
+    },
+    {
+      "path": "dark-goal-768x1024.png",
+      "sha256": "1295ca0cb77c5c3fca00cef860c6a5888cf6e93c00502669ed361173213a522e"
+    },
+    {
+      "path": "dark-goal-844x390.png",
+      "sha256": "ec8e8510fecb5176bc219f6aaed6e709b72010417622de3a3d0c04021da9dca3"
+    },
+    {
+      "path": "dark-hours-1024x768.png",
+      "sha256": "9a648ff76d66f60519c991a52f263d0726ff8e01acd2277ea8983876c946f9be"
+    },
+    {
+      "path": "dark-hours-390x844.png",
+      "sha256": "abe011e405dced4824b54326e4003e891695dcdad43280bbeeb3597af679bbad"
+    },
+    {
+      "path": "dark-hours-768x1024.png",
+      "sha256": "69dc8fc41c4fe4229e3ca2695895ab5d34fd79f321d9b34ff826f2e49cb55dbf"
+    },
+    {
+      "path": "dark-hours-844x390.png",
+      "sha256": "a4fd52705e630de2e962785946a1985ed02f8326d8896826da7ecc3dd3cb07c0"
+    },
+    {
+      "path": "dark-none-390x844.png",
+      "sha256": "9de3d0833f611cd40b06e66d26db813eea1f14756d02d42929f68618e40589a0"
+    },
+    {
+      "path": "dark-reached-390x844.png",
+      "sha256": "8fae76c1bae13bf3dad17976b3049370aa388c1eb61f490c23ff5d153ce4e29f"
+    },
+    {
+      "path": "light-empty-390x844.png",
+      "sha256": "82363404b0c5dd2cfbaf2f5b5c20bb038a2d3ec2396c04a572bd014c543cf468"
+    },
+    {
+      "path": "light-goal-1024x768.png",
+      "sha256": "d1f4937e9618734b9a0eea85a06be450cdeefdd7ce874c74eb0486706d8a5dec"
+    },
+    {
+      "path": "light-goal-390x844.png",
+      "sha256": "288f3f9015da45f853a8a1e868b557a8bbb643fe85e324fe2834d95ccb89ae3e"
+    },
+    {
+      "path": "light-goal-768x1024.png",
+      "sha256": "6a3e4a531cb99fb132d0f83249068501e88f17e8bb08bab655a3544e7d92f11e"
+    },
+    {
+      "path": "light-goal-844x390.png",
+      "sha256": "ad62f10aa74564a03847ca1c531efb428c717f6878715af3ec80aefc78751f0f"
+    },
+    {
+      "path": "light-hours-1024x768.png",
+      "sha256": "ed6033d73014e0091167e2eda26815c995654fbd95d84966c85fe5fed680341b"
+    },
+    {
+      "path": "light-hours-390x844.png",
+      "sha256": "54b15b3cce71db4b8f50b9388f1020876656f1bebf84687de28f5a89f68c12f9"
+    },
+    {
+      "path": "light-hours-768x1024.png",
+      "sha256": "8f154b120655c6e0b74a7b3c4c1ff9e2edd5c9ce9e1e3b6324c470406c2442a0"
+    },
+    {
+      "path": "light-hours-844x390.png",
+      "sha256": "f3a91a7d4aea03a4ea29cf9e620457d5f591173944304e2e6669c3c88681f881"
+    },
+    {
+      "path": "light-none-390x844.png",
+      "sha256": "a41b2647058955f1128eb5bd2141d659cc127f87dd229090f39633a1c85909b5"
+    },
+    {
+      "path": "light-reached-390x844.png",
+      "sha256": "c87ed26eeeb9490d23a8c940a0bea429bbb7d90bd4760299a26555fd2793068e"
+    }
+  ],
+  "fixture": "fixture.json reproduces the supplied 199-minute week for the open browser preview; automated captures use disposable 45/199-minute single-session weeks fixed to 2026-10-14.",
+  "checks": "Production build; 9 focused agenda/progress unit checks; weekly-card browser check covering both themes, minutes/hours, optional/reached/empty goals and four phone/tablet orientations. No horizontal overflow or runtime exceptions."
+}

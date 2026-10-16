@@ -1,0 +1,41 @@
+.cp-progress-highlights { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+#app-shell .cp-progress-highlights > button { display:flex; flex-direction:column; align-items:center; padding:18px 12px; margin:0; color:var(--theme-text); white-space:normal; }
+.cp-highlight-heading { display:flex; justify-content:space-between; align-items:center; gap:6px; width:100%; font-size:16px; text-align:left; }
+.cp-highlight-heading > span { font-size:24px; font-weight:400; color:var(--theme-muted); }
+.cp-rhythm-emblem { position:relative; display:grid; place-items:center; width:100px; height:100px; margin:14px 0 6px; border-radius:50%; color:var(--theme-link); background:color-mix(in srgb,var(--theme-link) 13%,transparent); }
+.cp-rhythm-emblem svg { position:absolute; width:64px; height:64px; opacity:.17; transform:rotate(-12deg); }
+.cp-rhythm-emblem strong { z-index:1; font-size:42px; font-variant-numeric:tabular-nums; }
+.cp-highlight-unit { font-size:14px; }
+.cp-highlight-foot { margin-top:auto; padding-top:14px; font-size:12px; font-weight:400; color:var(--theme-muted); }
+.cp-rhythm-days { display:flex; justify-content:center; gap:6px; margin-top:12px; }
+.cp-rhythm-days i { width:8px; height:8px; border-radius:50%; background:var(--theme-line); }
+.cp-rhythm-days .is-active { background:var(--theme-link); }
+.cp-recordings-symbol { display:flex; gap:10px; margin:24px 0 6px; color:var(--browse-teal,var(--theme-link)); }
+.cp-recordings-symbol svg { width:30px; height:30px; }
+.cp-recordings-total { font-size:42px; line-height:1.3; font-variant-numeric:tabular-nums; }
+.cp-recordings-kinds { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+.cp-recordings-kinds > span { display:flex; align-items:center; gap:3px; }
+.cp-recordings-kinds svg { width:16px; height:16px; }
+.cp-activity-calendar { --calendar-active:var(--theme-link,#9cbfff); padding:14px; border:1px solid var(--theme-line); border-radius:16px; background:var(--theme-panel); }
+.cp-activity-calendar header { display:flex; align-items:center; justify-content:space-between; gap:6px; margin-bottom:12px; }
+.cp-activity-calendar header h3 { margin:0; font-size:17px; text-align:center; text-transform:capitalize; }
+#app-shell .cp-activity-calendar header button, #cp-dialog .cp-activity-calendar header button { flex:0 0 44px; padding:4px; font-size:26px; }
+.cp-activity-weekdays,.cp-activity-week { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:3px; text-align:center; }
+.has-weeks .cp-activity-weekdays,.has-weeks .cp-activity-week { grid-template-columns:repeat(7,minmax(0,1fr)) .85fr; }
+.cp-activity-weekdays { color:var(--theme-muted); font-size:11px; margin-bottom:6px; }
+.cp-activity-week { margin-bottom:4px; }
+.cp-activity-day { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:48px; gap:2px; border-radius:12px; font-size:12px; font-variant-numeric:tabular-nums; }
+.cp-activity-day.is-outside { opacity:.35; }
+.cp-activity-day.is-today { box-shadow:inset 0 0 0 1px var(--calendar-active); }
+.cp-activity-day.is-practiced { background:var(--calendar-active); color:var(--theme-bg); font-weight:700; }
+.cp-activity-day svg { width:17px; height:17px; }
+.cp-streak-week { display:flex; flex-direction:column; justify-content:center; align-items:center; font-size:12px; color:var(--theme-muted); border-radius:16px; }
+.cp-streak-week.is-active { background:color-mix(in srgb,var(--calendar-active) 15%,transparent); color:var(--calendar-active); }
+.cp-streak-summary { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+.cp-streak-summary span { display:block; color:var(--theme-muted); font-size:13px; }
+.cp-streak-summary strong { display:block; font-size:28px; }
+.cp-streak-summary small { font-size:16px; }
+.cp-streak-detail > p { margin-top:16px; }
+#cp-dialog:has(.cp-streak-detail) { padding:0; border-radius:24px; }
+@media(max-width:600px) { #cp-dialog:has(.cp-streak-detail) { position:fixed; inset:auto 0 0; margin:0 auto; width:100%; max-width:100%; border-radius:24px 24px 0 0; border-bottom:0; } #cp-dialog:has(.cp-streak-detail) .cp-dialog-body { padding:20px 16px max(20px,env(safe-area-inset-bottom)); max-height:88dvh; } }
+@media(max-width:360px) { .cp-highlight-heading { font-size:14px; } .cp-highlight-foot { font-size:11px; } .cp-activity-calendar { padding:8px; } }

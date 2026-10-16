@@ -73,7 +73,7 @@ try {
     await evaluate(`document.querySelector('[data-action=quick-finish]').click()`); await wait(`document.querySelector('.cp-quick-result')`);
     await evaluate(`new Promise(resolve=>setTimeout(resolve,700))`); await capture('05-quick-result');
     await evaluate(`document.querySelector('[data-action=close-dialog]').click();document.querySelector('.cp-nav [data-action=progress]').click()`);
-    await wait(`document.querySelector('.cp-progress-page')`); await capture('06-progress');
+    await wait(`document.querySelector('.cp-progress-page')`);await evaluate(`document.querySelector('.cp-progress-highlights').scrollIntoView({block:'center'})`); await capture('06-progress');
     await evaluate(`document.querySelector('[data-action=progress-time]').click()`);await wait(`document.querySelector('.cp-time-filters')`);await capture('08-time-details');
     await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click();document.querySelector('[data-action=multimedia]').click()`);await wait(`document.querySelectorAll('.cp-media-list article').length===2`);await capture('07-multimedia');
     await evaluate(`document.querySelector('.cp-nav [data-action=calendar]').click()`);await wait(`document.querySelector('[data-view=calendar]')`);await capture('09-calendar');
@@ -97,7 +97,7 @@ try {
     }
   }
   assert.deepEqual(errors, []);
-  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: '2026-10-15', version:JSON.parse(await readFile('package.json','utf8')).version, sourceStage:'Current working tree; source hashes identify changes after the published package', surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes:Object.fromEntries(await Promise.all(['src/keyboard-material.css','src/style.css','src/companion/locale-ca.js'].map(async path=>[path,createHash('sha256').update(await readFile(path)).digest('hex')]))), frames }, null, 2));
+  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: new Date().toISOString(), version:JSON.parse(await readFile('package.json','utf8')).version, sourceStage:'Current working tree; source hashes identify changes after the published package', surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes:Object.fromEntries(await Promise.all(['src/keyboard-material.css','src/style.css','src/companion/locale-ca.js'].map(async path=>[path,createHash('sha256').update(await readFile(path)).digest('hex')]))), frames }, null, 2));
 } catch (error) {
   console.error(error);
   throw error;

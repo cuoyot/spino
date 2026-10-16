@@ -174,3 +174,20 @@ Visual observations are based on the linked baseline captures. Functional probes
 ## Continuation
 
 Continue with **PRACTICE-01**, the session overview reached from Today's Start/Resume action. Proposed objective: understand the current block and begin or resume playing with minimal friction, keeping time, pause and finish unambiguous. Establish its four-layout baseline before proposing changes; this new objective and layout are not yet approved. Then continue the remaining Today branches: week, plan/result cards and events, plus the Practice hub under HUB-01. Keep the accepted compact Today as the shared visual reference without treating an opened child as a completed review.
+
+## October 14, 2026 — Weekly practice summary
+
+Owner explicitly requests restoring a prominent weekly summary to Home, with a comparison when a goal exists. Current source places it below the start/resume card and above the week strip. It uses the same Monday-based saved-time metrics as Progress, excludes future records and unfinished practice, retains actual minutes above the goal, and omits target/bar when the goal is zero. Four-layout, both-theme synthetic evidence is in [weekly progress](captures/today/2026-10-14-weekly-progress/README.md). The prior accepted screenshots remain historical; the new layout is implemented and browser-verified, not visually accepted by the owner or native-device verified.
+
+### 2026-10-14 — Merged weekly summary
+
+Owner requested weekly progress/calendar as the first block, overriding prior practice-first ordering. One colored card now contains the total/optional goal and seven-day calendar with per-day saved-minute bars. Compact copy, day navigation and Progress/Calendar links retained. Evidence: `captures/today/2026-10-14-merged-week/`; unit and browser checks pass. No APK or web release for this change yet.
+
+### 2026-10-15 — Two visual planes
+
+D-039 refines the merged-week appearance using the owner's Runna references. The week remains first, now a neutral raised card with a short shadow; the next-practice context and headings sit directly on the page background. Saved/appointment cards float independently. Activity markers, daily bars, goal and navigation behavior are retained. [Final responsive evidence](captures/themes/2026-10-15-surface-depth-02/README.md) reopens the shared navigation surfaces in both themes/four orientations. Implemented and browser-verified, awaiting owner/native visual acceptance; no new package/publication.
+
+
+## Weekly duration follow-up — 2026-10-16
+
+Owner requested the weekly widget use hours/minutes like Progress. The total and optional goal now reuse the existing formatter, including the progress bar’s accessible value; numeric calculations and whole-minute rounding stay unchanged. Production build and ten focused unit/browser checks pass. [Dated responsive evidence](captures/today/2026-10-16-hours-minutes-01/README.md) covers both themes and four phone/tablet orientations using disposable notebooks, including 199 min → 3 hr 19 min and a 90-minute goal → 1 hr 30 min. Source/build hashes and fixtures are retained. Local browser review is open at http://127.0.0.1:5216/. No APK or publication; native and owner visual acceptance remain open.

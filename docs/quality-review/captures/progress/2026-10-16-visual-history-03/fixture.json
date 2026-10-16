@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [
+    {
+      "composer": "Review fixture",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "id": "history-prelude",
+      "title": "Prélude en do majeur",
+      "assetId": "history-pdf"
+    },
+    {
+      "composer": "Review fixture",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "id": "history-etude",
+      "title": "Étude mélodique",
+      "assetId": "history-mxl"
+    },
+    {
+      "composer": "",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "id": "history-missing",
+      "title": "A long synthetic title with <tags> & several movements",
+      "assetId": "missing-score",
+      "trashedAt": "2026-10-15T12:00:00Z"
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [
+    {
+      "id": "history-session-0",
+      "title": "Práctica de piano",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "history-block-0-0",
+          "type": "free",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "history-block-0-0",
+            "type": "free",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1200000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-16T10:00:00.000Z",
+      "date": "2026-10-16",
+      "elapsedMs": 1200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792146000000,
+      "notes": "",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-16T10:20:00.000Z",
+      "status": "completed",
+      "manual": true
+    },
+    {
+      "id": "history-session-1",
+      "title": "Repertorio",
+      "context": "midi",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "history-block-1-0",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "history-prelude"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "history-block-1-0",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-prelude"
+          },
+          "context": "midi",
+          "elapsedMs": 2640000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-15T10:00:00.000Z",
+      "date": "2026-10-15",
+      "elapsedMs": 2640000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792061040000,
+      "notes": "",
+      "next": "",
+      "mood": 5,
+      "workIds": [
+        "history-prelude"
+      ],
+      "endedAt": "2026-10-15T10:44:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "history-session-2",
+      "title": "Lectura y repertorio",
+      "context": "midi",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "history-block-2-0",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "history-block-2-1",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "history-etude"
+        }
+      ],
+      "blockIndex": 2,
+      "results": [
+        {
+          "block": {
+            "id": "history-block-2-0",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "midi",
+          "elapsedMs": 270000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "history-block-2-1",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-etude"
+          },
+          "context": "midi",
+          "elapsedMs": 270000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-14T10:00:00.000Z",
+      "date": "2026-10-14",
+      "elapsedMs": 540000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791972540000,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "history-etude"
+      ],
+      "endedAt": "2026-10-14T10:09:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "history-session-3",
+      "title": "Técnica y lectura",
+      "context": "midi",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "history-block-3-0",
+          "type": "technique",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "history-block-3-1",
+          "type": "reading",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 2,
+      "results": [
+        {
+          "block": {
+            "id": "history-block-3-0",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "midi",
+          "elapsedMs": 2700000,
+          "measurement": null,
+          "material": null
+        },
+        {
+          "block": {
+            "id": "history-block-3-1",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "midi",
+          "elapsedMs": 2700000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-13T10:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 5400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791891000000,
+      "notes": "",
+      "next": "",
+      "mood": 2,
+      "workIds": [],
+      "endedAt": "2026-10-13T11:30:00.000Z",
+      "status": "partial",
+      "manual": false
+    },
+    {
+      "id": "history-session-4",
+      "title": "Repaso de una obra archivada",
+      "context": "midi",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "history-block-4-0",
+          "type": "repertoire",
+          "minutes": 5,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "history-missing"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "history-block-4-0",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-missing"
+          },
+          "context": "midi",
+          "elapsedMs": 720000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T10:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 720000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1791799920000,
+      "notes": "",
+      "next": "",
+      "mood": 1,
+      "workIds": [
+        "history-missing"
+      ],
+      "endedAt": "2026-10-12T10:12:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

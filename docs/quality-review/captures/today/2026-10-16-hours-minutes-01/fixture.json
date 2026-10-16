@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [
+    {
+      "id": "458bbde5-7fda-4243-9a9d-d9c7244cf386",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "cce727e3-e8c2-48ed-920d-3d5a981285e1",
+          "type": "free",
+          "minutes": 30,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "cce727e3-e8c2-48ed-920d-3d5a981285e1",
+            "type": "free",
+            "minutes": 30,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1800000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-16T12:00:00.000Z",
+      "date": "2026-10-16",
+      "elapsedMs": 1800000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792186082790,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-16T21:28:02.790Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "dd657e9a-0047-4022-b2a8-28e6b0855f66",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "049195f9-db7e-45b1-863a-a2fe72394702",
+          "type": "free",
+          "minutes": 31,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "049195f9-db7e-45b1-863a-a2fe72394702",
+            "type": "free",
+            "minutes": 31,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1860000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-15T12:00:00.000Z",
+      "date": "2026-10-15",
+      "elapsedMs": 1860000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792186082790,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-16T21:28:02.790Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "8d8533db-6758-44ab-8d48-51dbd6af994c",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "99ff58bc-2110-42b0-87d1-e5a243b0bd0c",
+          "type": "free",
+          "minutes": 68,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "99ff58bc-2110-42b0-87d1-e5a243b0bd0c",
+            "type": "free",
+            "minutes": 68,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 4080000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-13T12:00:00.000Z",
+      "date": "2026-10-13",
+      "elapsedMs": 4080000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792186082790,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-16T21:28:02.790Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "60b376fa-1622-4e1c-b9ff-eaa370b8d281",
+      "title": "Synthetic practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "36e58e26-cd2a-40e2-9661-ce43f7f0aa9b",
+          "type": "free",
+          "minutes": 70,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "36e58e26-cd2a-40e2-9661-ce43f7f0aa9b",
+            "type": "free",
+            "minutes": 70,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 4200000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-12T12:00:00.000Z",
+      "date": "2026-10-12",
+      "elapsedMs": 4200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792186082790,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [],
+      "endedAt": "2026-10-16T21:28:02.790Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}

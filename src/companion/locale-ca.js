@@ -1818,6 +1818,28 @@ Press the pedal now…|Prem el pedal ara…
 Use default pedals|Utilitzar els pedals predeterminats
 Last pedal signal|Últim senyal de pedal
 No pedal signal received yet. Press a pedal to check that your piano sends it.|Encara no s’ha rebut cap senyal de pedal. Prem-ne un per comprovar que el piano l’envia.
+Show month|Mostrar mes
+Show week|Mostrar setmana
+No recordings this week|Cap gravació aquesta setmana
+No recordings this month|Cap gravació aquest mes
+Recording calendar|Calendari de gravacions
+Offline playback and sync|Reproducció sense connexió i sincronització
+From|Des de
+To|Fins a
+min/week|min/setmana
+Weekly streak|Ratxa setmanal
+Recordings|Gravacions
+recordings|gravacions
+Streak sessions|Sessions de la ratxa
+weeks|setmanes
+sessions|sessions
+One saved practice keeps a week in your rhythm. This week stays open until Sunday.|Una pràctica desada manté el teu ritme setmanal. Aquesta setmana continua oberta fins diumenge.
+Date filter active|Filtre de data actiu
+All dates|Totes les dates
+Clear dates|Esborrar dates
+No recordings match these filters|Cap gravació coincideix amb aquests filtres
+Choose another date, piece or recording type.|Tria una altra data, peça o tipus de gravació.
+
 `;
 export const CATALAN = Object.fromEntries(entries.trim().split('\n').map(line => {
   const split = line.indexOf('|'); return [line.slice(0, split), line.slice(split + 1)];

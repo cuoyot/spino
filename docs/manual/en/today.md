@@ -26,6 +26,8 @@ Your saved routines appear below the activities. Tapping a routine starts it wit
 
 ## Your week and the rest of today
 
+**Practised this week** highlights your saved practice time from Monday through today. The weekly total and goal show hours and minutes from one hour upward (for example, 199 minutes becomes 3 hr 19 min); shorter durations remain in minutes. If a weekly goal is set in Profile, the card compares those minutes with the goal, shows a progress bar and the minutes remaining, and marks a reached goal. Without a goal, it shows the practised total without a target or progress bar. Saved partial and manually entered practices count; unfinished practice and future-dated records do not. **View progress** opens the detailed Progress page.
+
 The week strip runs from Monday to Sunday. A circle marks today, and colored markers indicate practice activity types and events. Tap a day to open it in the weekly calendar. **View calendar** opens the weekly calendar with today selected.
 
 **Also today** shows the remaining planned practices, events and saved sessions. The practice featured in the first card is not repeated here. A plan and its saved result share one card when they have the same date.
@@ -40,10 +42,16 @@ Events scheduled for today appear among today's cards. **Coming up** shows the n
 
 Tap **+ Event** on Today to add a lesson, audition, concert or other commitment. Its date starts at today and can be changed before saving. Use Calendar to see additional future events or add an event to a specific day.
 
+In the current browser build, **Repeat** offers every day, every week, every two weeks, every month or every year. **End date (optional)** includes that date; leave it empty for an ongoing series. Monthly and yearly events use the month's last day when the original day does not exist, then return to the original day in later months or years.
+
+Open an occurrence to edit its date, details or preparation steps independently. **Delete event** removes only that occurrence; **Cancel this and future appointments** stops the series from the selected future date (or today for past events). Earlier dates remain. Existing individual events and weekly planner appointments are preserved. Recurring reminders are prepared for the next year when reminders synchronize, subject to the platform's notification capacity; reopening SPino refreshes that window. Native delivery and a package containing this feature remain pending. New recurrence rules require a version that supports them on all synchronized devices.
+
 ## Find your music, progress and instrument
 
-**Library** contains repertoire, scores, the catalogue and routines. Tap your avatar to open **Profile**; choose **Your progress** for weekly practice totals, the last 30 days' summary and saved session history. Set your optional weekly goal in **Profile → Edit profile**. Saved partial and manually logged sessions count toward practice time; unfinished sessions do not.
+**Library** contains repertoire, scores, the catalogue and routines. Tap your avatar to open **Profile**. The **Progress** navigation tab shows the practice-time chart and saved session history; **More details** opens activity/piece filters and date ranges. Set your optional weekly goal in **Profile → Edit profile**. Saved partial and manually logged sessions count toward practice time; unfinished sessions do not.
 
 The small MIDI indicator shows connection state and flashes when input arrives. Tap it to open instrument settings. Connection and input activity are separate from whether the current exercise evaluates MIDI.
 
 The main destinations use a bottom bar on phones and a side rail on larger or short landscape layouts. Rotating the device rearranges the controls while retaining the same notebook.
+
+The first card, **Your week**, combines saved practice time, your optional weekly goal and the seven-day calendar. Colored daily bars show recorded minutes relative to the busiest day that week; select a day to open its calendar. Choose or resume practice immediately below the card.

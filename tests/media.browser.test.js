@@ -70,8 +70,10 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const tx=r.result.transaction(['state','assets'],'readwrite');tx.objectStore('state').put(${JSON.stringify({...fixture,active:null})},'current');tx.objectStore('assets').clear();tx.oncomplete=()=>{r.result.close();resolve();};};})`);
  await send('Page.navigate',{url});await evaluate(until("document.querySelector('.cp-today')"));await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelectorAll('.cp-media-list article').length===2"));
  assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),2);
- await evaluate(`document.querySelector('#media-type').value='audio';document.querySelector('#media-type').dispatchEvent(new Event('change',{bubbles:true}));`);assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),1);
- await evaluate(`document.querySelector('#media-type').value='';document.querySelector('#media-type').dispatchEvent(new Event('change',{bubbles:true}));`);
+ assert.equal(await evaluate(`document.querySelectorAll('.cp-media select,.cp-media input').length`),0);
+ await click('[data-action=media-month][data-id="-1"]');assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),0);
+ await click('[data-action=media-month][data-id="1"]');assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),2);
+
  // Dated responsive evidence from synthetic data only.
  await writeFile(folder+'/notebook.fixture.json',JSON.stringify(fixture,null,2));
  for(const theme of ['light','dark'])for(const [name,width,height] of layouts){
