@@ -26,5 +26,7 @@
   "retentionScope": "Original raw IndexedDB files match immediately after replacement installation; existing immutable blobs are unchanged after review. The original logical baseline remains empty following the earlier beta13 incident. Synthetic review uses namespaced databases and does not establish recovery of the earlier notebook.",
   "physicalCaptureTested": false,
   "physicalDeviceAcceptance": false,
-  "publicVerification": "6.1.0-beta.15-publication.json"
+  "publicVerification": "6.1.0-beta.15-publication.json",
+  "publicVerifiedAt": "2026-10-16T21:59:51.642627+00:00",
+  "publicDelivery": "Cloudflare deployment success; three exact language pages, checksum manifest, four downloaded artifact hashes and 34 current image hashes match."
 }

@@ -17,6 +17,9 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 ## D-053 — Musical practice rhythm and recording calendar
 
+- Beta15/build68 is published on the website. [Public verification](../releases/6.1.0-beta.15-publication.json) confirms successful deployment, three language pages, the manifest, four downloads and 34 images. Browser/source owner acceptance and native-emulator verification remain distinct from physical-device acceptance.
+
+
 - 2026-10-16 owner acceptance and delivery authorization: the owner accepts the final presented calendar and asks to build the APK and publish the website. Beta15/build68 includes this scope, the separately accepted D-054 History and Today hours/minutes. Native installation/foreground and unchanged existing files are verified separately from browser layout and physical-device acceptance. See [release validation](../releases/6.1.0-beta.15-validation.json).
 
 - Status: **owner requested and authorized**, 2026-10-16. Scope: PIANO-02 and MEDIA-01. The owner provides Strava reference images and requests a more visual, clickable musical streak, an adjacent weekly recording widget linking to Multimedia and a recording calendar/filter with distinct audio/video icons. The objective is accepted; implementation layout awaits owner acceptance.

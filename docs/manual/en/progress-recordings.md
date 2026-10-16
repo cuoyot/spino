@@ -20,3 +20,5 @@ History verified in `docs/quality-review/captures/progress/2026-10-16-visual-his
 
 
 Packaged in Android 6.1.0-beta.15/build68 on 2026-10-16. Final-version browser checks and separate native-emulator installation/navigation checks pass. Native review uses synthetic namespaced storage, retains existing immutable blobs and has an empty original logical baseline after the earlier documented emulator incident. Owner acceptance covers the presented source layout; physical-device acceptance remains separate. See `docs/releases/6.1.0-beta.15-validation.json` for exact scope.
+
+Website publication of Android beta15/build68 is verified: three language pages, the exact manifest and download hashes match. See `docs/releases/6.1.0-beta.15-publication.json`.
