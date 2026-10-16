@@ -31,6 +31,7 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(ScorePrinterPlugin.class);
         registerPlugin(CloudBackupPlugin.class);
         registerPlugin(DriveMediaPlugin.class);
+        registerPlugin(DriveNotebookPlugin.class);
         // Start the isolated review without initializing or opening the user's notebook.
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
                 && "drive-media".equals(getIntent().getStringExtra("spinoReview"))) {

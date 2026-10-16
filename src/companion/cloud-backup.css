@@ -66,3 +66,5 @@
 .cp-device-qr{display:block;width:min(100%,300px);height:auto;margin:16px auto;background:#fff;border-radius:12px;}
 .cp-device-link .cp-cloud-options{display:grid;gap:12px;}
 .cp-device-link textarea{width:100%;box-sizing:border-box;overflow-wrap:anywhere;font:13px/1.5 monospace;}
+
+.cp-drive-account{overflow-wrap:anywhere;color:var(--theme-muted,#adb9cb);font-size:14px}.cp-drive-picker .cp-cloud-option{width:100%;text-align:left}.cp-drive-picker .cp-cloud-option strong,.cp-drive-picker .cp-cloud-option small{overflow-wrap:anywhere}.cp-drive-picker h3{font-size:16px;margin-top:24px}

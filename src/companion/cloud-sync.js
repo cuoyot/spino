@@ -3,6 +3,7 @@ import { CloudBackup, backupHash, createCloudBackup } from './cloud-backup.js';
 import { validateBackup } from './model.js';
 import { mergeNotebooks, notebookContent, stableJSON } from './cloud-merge.js';
 import { cloudErrorCode } from './cloud-errors.js';
+import {driveNotebookContent} from './notebook-transport.js';
 
 const KEY = 'spino.cloud-sync.device.v1';
 const defaultSettings = {
@@ -21,7 +22,8 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (timer) return;
     if (state.mode === 'sync' && state.enabled && state.status !== 'conflict' && (state.status !== 'error' || state.retryable)) timer = setTimeout(() => { timer = null; void sync(null, true); }, state.status === 'error' ? Math.min(60000, delay * 2 ** (state.retryCount || 0)) : delay);
   };
-  const content = text => notebookContent(validate(text));
+  const shared = value => adapter.transport === 'drive' ? driveNotebookContent(value) : value;
+  const content = text => shared(notebookContent(validate(text)));
   const encode = backup => {
     const text = JSON.stringify({ ...backup, ...(state.notebookId ? { cloudBackup: { sharedNotebookId: state.notebookId } } : {}), exportedAt: new Date().toISOString() });
     if (new TextEncoder().encode(text).length > 60000000) throw new Error('The shared notebook exceeds the 60 MB backup limit.');
@@ -44,7 +46,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     state.notebookId ||= remoteId || crypto.randomUUID();
     const remote = content(remoteFile.text);
     state.operation = 'baseline';
-    const base = await readBase();
+    const base = shared(await readBase());
     if (!state.enabled) return;
     state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
@@ -150,8 +152,9 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     task = (async () => {
       try {
         const local = content(await snapshot());
-        if (!join) state = { ...state, notebookId: crypto.randomUUID() };
+        if (!join) state = { ...state, notebookId: adapter.transport === 'drive' ? (state.notebookId || adapter.pendingNotebookId?.() || crypto.randomUUID()) : crypto.randomUUID() };
         const result = join ? await adapter.pickBackup({ link: true, ...(link ? { expectedNotebookId: link.id } : {}) }) : await adapter.create({ text: encode(local), name: 'SPino-shared.json', mode: 'sync' });
+        if (result.joined) join = true;
         if (result.cancelled || (join && !result.text)) { state = previous; return; }
         if (join && link && JSON.parse(result.text).cloudBackup?.sharedNotebookId !== link.id) throw new Error('The selected file does not match the notebook QR. Your current connection was kept.');
         const notebookId = join ? JSON.parse(result.text).cloudBackup?.sharedNotebookId : state.notebookId;
@@ -174,7 +177,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     return task;
   }
   return {
-    get state() { return state.mode === 'sync' ? { ...state } : { ...independent.state, ...(state.connectionError ? { status: 'error', error: state.connectionError } : {}), mode: 'backup' }; },
+    get state() { return state.mode === 'sync' ? { ...state, ...adapter.info } : { ...independent.state, ...adapter.info, ...(state.connectionError ? { status: 'error', error: state.connectionError } : {}), mode: 'backup' }; },
     get busy() { return !!task || independent.busy; },
     async init() {
       const destination = await adapter.status();
@@ -199,6 +202,38 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if (connected) {
         state = { mode: 'backup', enabled: false }; publish();
       } else schedule();
+    },
+    async migrateToDrive() {
+      if (!adapter.drive) throw new Error('Google Drive is unavailable.');
+      if (task || independent.busy) throw new Error('Wait for synchronization.');
+      if (!eligible() || !canApply()) throw new Error('Finish practice and close editors before moving your notebook to Google Drive.');
+      clearTimeout(timer); timer = null; independent.stop();
+      const previous = { ...state }, notebookId = state.notebookId || adapter.drive.pendingNotebookId?.() || crypto.randomUUID();
+      if (state.mode === 'sync') { state.enabled = false; publish(); }
+      else independent.continueLocal();
+      let switched = false;
+      task = (async () => {
+        try {
+          const original = await snapshot(), local = driveNotebookContent(notebookContent(validate(original)));
+          await adapter.saveRecovery({text: original});
+          const files = (await adapter.drive.list()).filter(f => f.appProperties.notebookId === notebookId);
+          if (files.length > 1) throw new Error('More than one Drive file uses this notebook identity. Select the intended notebook before connecting.');
+          let result;
+          if (files.length) { adapter.drive.choose(files[0].id); result = await adapter.drive.pickBackup({expectedNotebookId:notebookId}); }
+          else result = await adapter.drive.create({text:JSON.stringify({...local,cloudBackup:{sharedNotebookId:notebookId},exportedAt:new Date().toISOString()}),name:previous.name || 'SPino notebook.json'});
+          adapter.useDrive(); switched = true;
+          state = {notebookId,mode:'sync',enabled:false,status:'paused',name:result.name,error:'',conflicts:[]}; publish();
+          if (!files.length && !result.joined) await saveBase(local);
+          else if (previous.mode !== 'sync' || previous.notebookId !== notebookId) await saveBase(null);
+          await adapter.acknowledgeSetup?.();
+          await adapter.clearLegacyLink?.();
+          state.enabled = true; state.status = 'writing'; publish();
+          await reconcileWithRetry();
+        } catch (error) {
+          state = {...(switched ? state : previous),enabled:false,status:'error',error:error.message,connectionError:error.message,errorCode:cloudErrorCode(error)};
+        } finally { task = null; publish(); schedule(); }
+      })();
+      return task;
     },
     createShared: () => connectShared(false),
     joinShared: code => connectShared(true, code ? parseDeviceLink(code) : null),

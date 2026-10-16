@@ -187,12 +187,15 @@ public class CloudBackupPlugin extends Plugin {
             catch (Exception error) { call.reject("No readable local recovery copy is available."); }
         }).start();
     }
+    @PluginMethod public void clearRecovery(PluginCall call) {
+        new Thread(() -> { synchronized (writeLock) { new android.util.AtomicFile(recoveryFile()).delete(); call.resolve(); } }).start();
+    }
     private void release(Uri uri) { try { getContext().getContentResolver().releasePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); } catch (Exception ignored) {} }
     @PluginMethod public void disconnect(PluginCall call) {
         new Thread(() -> { synchronized (writeLock) {
             String old = preferences().getString("uri", null);
             preferences().edit().clear().commit(); if (old != null) release(Uri.parse(old));
-            new android.util.AtomicFile(recoveryFile()).delete();
+            // Keep the local recovery copy available after disconnecting.
             call.resolve();
         } }).start();
     }

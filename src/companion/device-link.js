@@ -20,13 +20,13 @@ export function deviceLinkMarkup(state,{lang=getAppLanguage(),available=true}={}
   if(state.name)return `<div class="cp-device-link"><p>${esc(t.blocked)}</p>${button('profile-data-backup',t.manage)}${button('close-dialog',t.close)}</div>`;
   return `<div class="cp-device-link"><p>${esc(t.hint)}</p><div class="cp-cloud-options">${button('device-link-scan',t.scan)}${available?button('cloud-join-shared',t.select):`<p class="muted">${esc(t.setup)}</p>`}</div>${button('close-dialog',t.close)}</div>`;
 }
-export async function deviceLinkQRMarkup(link,lang=getAppLanguage()) {
+export async function deviceLinkQRMarkup(link,lang=getAppLanguage(),drive=false) {
   const t=deviceLinkCopy(lang),code=encodeDeviceLink(link),{default:QR}=await import('qrcode');
   const image=await QR.toDataURL(code,{width:360,margin:4,errorCorrectionLevel:'M',color:{dark:'#000000',light:'#ffffff'}});
-  return `<div class="cp-device-link"><p>${esc(t.shareHint)}</p><img class="cp-device-qr" src="${image}" alt="${esc(t.title)}"/><p><strong>${esc(t.file)}:</strong> ${esc(link.name)}</p><label>${esc(t.code)}<textarea readonly rows="3" id="device-link-code">${esc(code)}</textarea></label><div class="cp-actions">${button('device-link-copy',t.copy)}${button('close-dialog',t.close)}</div></div>`;
+  return `<div class="cp-device-link"><p>${esc(drive?driveLinkHint(lang):t.shareHint)}</p><img class="cp-device-qr" src="${image}" alt="${esc(t.title)}"/><p><strong>${esc(t.file)}:</strong> ${esc(link.name)}</p><label>${esc(t.code)}<textarea readonly rows="3" id="device-link-code">${esc(code)}</textarea></label><div class="cp-actions">${button('device-link-copy',t.copy)}${button('close-dialog',t.close)}</div></div>`;
 }
-export function deviceLinkConfirmMarkup(link,lang=getAppLanguage()) {
-  const t=deviceLinkCopy(lang);return `<div class="cp-device-link"><p>${esc(t.ready)}</p><p class="cp-cloud-file"><strong>${esc(link.name)}</strong></p><p>${esc(t.grant)}</p><div class="cp-actions">${button('device-link-connect',t.choose)}${button('close-dialog',t.close)}</div></div>`;
+export function deviceLinkConfirmMarkup(link,lang=getAppLanguage(),drive=false) {
+  const t=deviceLinkCopy(lang);return `<div class="cp-device-link"><p>${esc(t.ready)}</p><p class="cp-cloud-file"><strong>${esc(link.name)}</strong></p><p>${esc(drive?driveLinkHint(lang):t.grant)}</p><div class="cp-actions">${button('device-link-connect',t.choose)}${button('close-dialog',t.close)}</div></div>`;
 }
 export function deviceLinkManualMarkup(lang=getAppLanguage()) {const t=deviceLinkCopy(lang);return `<form class="cp-device-link"><label>${esc(t.code)}<textarea name="code" rows="4" maxlength="4000" required autocomplete="off" spellcheck="false"></textarea></label><div class="cp-actions"><button type="submit" class="primary">${esc(t.continue)}</button>${button('close-dialog',t.close)}</div></form>`;}
 export async function startNotebookScanner(container, {signal,onScan,onError}) {
@@ -44,3 +44,5 @@ export async function startNotebookScanner(container, {signal,onScan,onError}) {
     if(stopped||signal.aborted)stop();
   }catch(error){if(!signal.aborted)onError(new Error('Camera unavailable. Allow camera access or enter the connection code.'));}
 }
+
+function driveLinkHint(lang){return ({en:"On the other device, connect the same Google account and choose this notebook in Google Drive. The QR identifies your notebook and grants no account access.",es:"En el otro dispositivo, conecta la misma cuenta de Google y elige este cuaderno en Google Drive. El QR identifica el cuaderno y no concede acceso a tu cuenta.",ca:"A l’altre dispositiu, connecta el mateix compte de Google i tria aquest quadern a Google Drive. El QR identifica el quadern i no dona accés al compte."})[lang]||driveLinkHint("en");}

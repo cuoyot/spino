@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-16T13:32:26.776Z",
+  "kind": "responsive-browser-synthetic-drive-api",
+  "googleAuthorizationTested": false,
+  "realDriveTransferTested": false,
+  "frames": [
+    {
+      "state": "legacy-manage",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "legacy-manage-phone-portrait.png"
+    },
+    {
+      "state": "legacy-manage",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "legacy-manage-phone-landscape.png"
+    },
+    {
+      "state": "legacy-manage",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "legacy-manage-tablet-portrait.png"
+    },
+    {
+      "state": "legacy-manage",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "legacy-manage-tablet-landscape.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "drive-picker-phone-portrait.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "drive-picker-phone-landscape.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "drive-picker-tablet-portrait.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "drive-picker-tablet-landscape.png"
+    },
+    {
+      "state": "connected",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "connected-phone-portrait.png"
+    },
+    {
+      "state": "connected",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "connected-phone-landscape.png"
+    },
+    {
+      "state": "connected",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "connected-tablet-portrait.png"
+    },
+    {
+      "state": "connected",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "connected-tablet-landscape.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "local-copy-phone-portrait.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "local-copy-phone-landscape.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "local-copy-tablet-portrait.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "local-copy-tablet-landscape.png"
+    },
+    {
+      "state": "offline",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "offline-phone-portrait.png"
+    },
+    {
+      "state": "offline",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "offline-phone-landscape.png"
+    },
+    {
+      "state": "offline",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "offline-tablet-portrait.png"
+    },
+    {
+      "state": "offline",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "offline-tablet-landscape.png"
+    }
+  ],
+  "checks": [
+    "Legacy notebook identity retained",
+    "PDF/annotation IDs retained",
+    "Account and direct Drive status visible",
+    "Export/import JSON remain available",
+    "Revoked permission reconnect",
+    "Offline pause and restart retain local notebook",
+    "Disconnect retains remote notebook"
+  ],
+  "sources": {
+    "src/companion/drive-notebook.js": "c0f80cffd502aa1f6fdea5acd3d520e66cc3db57c4121642a15ab09748b84b7d",
+    "src/companion/notebook-transport.js": "726163a816e6a9db95cfd5e1e788057e8528cb3f4ea3581e95d52b9a1b76a160",
+    "src/companion/cloud-sync.js": "abcf4e1e5be30ce422ed87510a97b0717aca95ca7e9f893fd2880dbcc269a36b",
+    "src/companion/cloud-backup-view.js": "3b01d2680a7ff856df59412ed38d9f8871e8418b9feba674dbadb63ec6675e86",
+    "src/companion/app.js": "b28267ab4c5c247c626d1e6d6134976361d5a400281305f9f81fab048f79ddce"
+  }
+}

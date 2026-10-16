@@ -6,6 +6,15 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 2026-10-16 beta9/build62 — **owner authorized website publication** of the Drive permission correction. The final-version APK passes SDK-result, transfer, Profile navigation and data-retention checks; [native evidence](captures/multimedia/2026-10-16-drive-authorization-02/native.json). Google consent and physical two-device playback remain pending owner testing. [Public verification](../releases/6.1.0-beta.9-publication.json) confirms the published beta9 pages, manifest and downloads. Earlier local-only statements record the preceding review stage.
 
+2026-10-16 owner acceptance: the owner reports that the beta9 Google Drive test worked on both devices. This is owner-reported acceptance of the isolated test, not instrumented evidence of automatic notebook/media synchronization. Interruption recovery, expired/revoked consent, concurrent notebook edits and legacy-data migration remain separate checks. **Proposed next direction:** one Google account connection for notebook and media transport, retaining the existing merge/conflict engine and offline operation. Distinguish shared notebook preferences from device-specific settings. Existing files require explicit adoption/migration; no migration implementation is accepted by this discussion alone.
+
+## D-049 — Direct Google Drive notebook connection, retaining local operation
+
+- Status: **owner requested and authorized**, 2026-10-16, targeting Android beta10/build63. The owner explicitly requires local copies and offline practice.
+- Use one account connection and Drive API notebook discovery/selection in Backup & sync. Existing provider connections remain until an explicit move; retain notebook/record/PDF/annotation IDs and the old cloud file. The second moved device reconnects the same notebook identity and keeps its merge baseline. Reuse existing three-way merge and conflict review. Do not enable personal recording uploads in this step.
+- Keep local notebook saves, manual JSON export/import/conversion, Continue locally, restart-safe pauses and recovery independent of cloud access. Disconnect retains the local recovery file; explicit Erase the notebook still clears it on Android. Theme and network settings stay on each device; shared practice preferences travel with the notebook.
+- [Active review](cloud-connection.md#beta10-direct-google-drive-notebook-connection) separates simulated API/browser coverage and native menu/retention checks from still-pending physical notebook migration acceptance. The owner’s beta9 isolated transfer acceptance does not certify this new integration.
+
 ## D-048 — Separate joining a notebook from sharing its QR
 
 - Status: **owner requested and authorized**, 2026-10-15. Implemented and responsive-browser verified in beta6/build59; physical-provider acceptance remains open.

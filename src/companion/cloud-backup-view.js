@@ -2,6 +2,7 @@ import { getAppLanguage, localizeMessage } from './locale.js';
 import { catalanCopy } from './locale-ca.js';
 import { escapeHTML as esc } from './views.js';
 import { needsCloudRelink } from './cloud-errors.js';
+import {driveCopy} from './drive-notebook-view.js';
 
 const messages = {
   en: {
@@ -91,7 +92,7 @@ const providers = options => options.platform === 'ios' ? ((options.lang || getA
 const footer = t => `<div class="cp-cloud-footer">${button('close-dialog', t.done, 'quiet')}</div>`;
 const disabled = state => state.status === 'writing' ? 'disabled' : '';
 const localOption = (state, t) => state.enabled ? `<div class="cp-cloud-local">${button('cloud-continue-local', t.continueLocal)}<p class="muted">${esc(t.localDetail)}</p></div>` : '';
-const relinkOption = (state, t) => state.mode === 'sync' && state.notebookId && needsCloudRelink(state) ? `<p>${esc(t.providerUnavailable)}</p>${button('cloud-relink', t.relink, 'primary', disabled(state))}` : '';
+const relinkOption = (state, t) => state.mode === 'sync' && state.notebookId && needsCloudRelink(state) ? state.transport === 'drive' ? `<p>${esc(t.localDetail)}</p>${button('drive-reconnect', driveCopy().reconnect, 'primary', disabled(state))}` : `<p>${esc(t.providerUnavailable)}</p>${button('cloud-relink', t.relink, 'primary', disabled(state))}` : '';
 
 const errorMarkup = (state, options) => {
   if (state.status !== 'error' || !state.error) return '';
@@ -103,7 +104,7 @@ const errorMarkup = (state, options) => {
 };
 
 export function cloudBackupMarkup(state, options = {}) {
-  const t = copy(options), linked = Boolean(state.name), waiting = {en:{practice:'Finish and save your pending practice to receive changes.',editor:'Finish editing to receive changes.',dialog:'Close the open dialog to receive changes.',score:'Close the score to receive changes.'},es:{practice:'Termina y guarda la práctica pendiente para recibir los cambios.',editor:'Termina de editar para recibir los cambios.',dialog:'Cierra el diálogo abierto para recibir los cambios.',score:'Cierra la partitura para recibir los cambios.'}}, status = state.status === 'waiting' && state.waitReason ? (waiting[options.lang||getAppLanguage()]||waiting.en)[state.waitReason] || t.status.waiting : t.status[state.status] || t.status.disconnected;
+  const t = copy(options), direct = state.transport === 'drive', d = driveCopy(options.lang), linked = Boolean(state.name), waiting = {en:{practice:'Finish and save your pending practice to receive changes.',editor:'Finish editing to receive changes.',dialog:'Close the open dialog to receive changes.',score:'Close the score to receive changes.'},es:{practice:'Termina y guarda la práctica pendiente para recibir los cambios.',editor:'Termina de editar para recibir los cambios.',dialog:'Cierra el diálogo abierto para recibir los cambios.',score:'Cierra la partitura para recibir los cambios.'}}, status = state.status === 'waiting' && state.waitReason ? (waiting[options.lang||getAppLanguage()]||waiting.en)[state.waitReason] || t.status.waiting : t.status[state.status] || t.status.disconnected;
   if (!options.available) return `<section class="cp-card cp-cloud-card" id="cloud-backup"><span class="cp-cloud-emblem">${icon()}</span><h2>${esc(t.connectTitle)}</h2><p class="muted">${esc(t.includes)}</p><p class="cp-cloud-browser">${esc(t.unavailable)}</p></section>`;
   const conflict = state.status === 'conflict' && state.mode === 'sync';
   const primaryAction = !linked ? 'cloud-setup' : conflict ? 'cloud-conflicts' : state.status === 'error' && state.enabled ? 'cloud-sync' : state.status === 'error' || state.status === 'conflict' ? 'cloud-manage' : !state.enabled ? 'cloud-toggle' : 'cloud-sync';
@@ -112,10 +113,11 @@ export function cloudBackupMarkup(state, options = {}) {
     ? new Intl.DateTimeFormat(options.lang || getAppLanguage(), { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.lastWrittenAt)) : null;
   return `<section class="cp-card cp-cloud-card" id="cloud-backup" data-cloud-status="${esc(state.status || 'disconnected')}">
     <div class="cp-cloud-heading"><span class="cp-cloud-emblem">${icon()}</span><div><h2>${esc(linked ? t.title : t.connectTitle)}</h2><p class="muted">${esc(linked ? state.mode === 'sync' ? t.syncing : t.independent : t.includes)}</p></div></div>
-    <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(status)}</p>
+    <p class="cp-cloud-status" role="status" id="cloud-backup-status"><span aria-hidden="true"></span>${esc(direct&&state.status==='saved'?d.saved:status)}</p>
     ${state.status === 'error' ? relinkOption(state, t) : ''}${errorMarkup(state, options)}
     ${state.status === 'paused' ? `<p class="cp-cloud-local muted">${esc(t.localDetail)}</p>${relinkOption(state, t)}` : ''}
     ${state.status==='waiting' && state.waitReason==='practice' ? button('resume-session', (options.lang||getAppLanguage())==='es'?'Abrir práctica pendiente':'Open pending practice', 'quiet') : ''}
+    ${direct&&state.account?`<p class="cp-drive-account">${esc(state.account.email||state.account.name)}</p>`:''}
     ${linked ? `<div class="cp-cloud-file">${icon('file')}<div><strong title="${esc(state.name)}">${esc(state.name)}</strong><small>${esc(timestamp ? `${t.savedAt}: ${timestamp}` : t.noWrite)}</small></div></div>` : ''}
     <div class="cp-cloud-actions">${button(primaryAction, primaryLabel, 'primary', `${disabled(state)} ${primaryAction === 'cloud-toggle' ? 'data-id="true"' : ''}`)}${button(primaryAction === 'cloud-manage' ? 'cloud-help' : linked ? 'cloud-manage' : 'cloud-help', primaryAction === 'cloud-manage' ? t.help : linked ? t.manage : t.help, 'quiet', disabled(state))}</div>
     ${['error','conflict','waiting','writing'].includes(state.status) ? localOption(state, t) : ''}
@@ -123,13 +125,16 @@ export function cloudBackupMarkup(state, options = {}) {
 }
 
 export function cloudSetupMarkup(options = {}) {
-  const t = copy(options);
+  const t = copy(options), d = driveCopy(options.lang);
+  if(options.driveAvailable)return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p>${esc(d.detail)}</p><div class="cp-cloud-options">${row('drive-connect',d.connect,d.find,'cloud')}</div><p class="muted">${esc(d.offline)}</p><details class="cp-cloud-details"><summary>${esc(d.other)}</summary>${row('cloud-create-shared',t.start,t.setupNote.replace('{provider}',providers(options)),'file')}${row('cloud-join-shared',d.legacy,t.joinDetail,'file')}${row('cloud-connect',t.backupOnly,t.backupOnlyDetail,'file')}</details>${footer(t)}</div>`;
   return `<div class="cp-cloud-dialog" data-cloud-dialog="setup"><p class="muted">${esc(t.setupNote.replace('{provider}', providers(options)))}</p><div class="cp-cloud-options">${row('cloud-create-shared', t.start, t.startDetail, 'devices')}${row('device-link', t.join, t.joinDetail, 'link')}</div><details class="cp-cloud-details"><summary>${esc(t.backupOnly)}</summary>${row('cloud-connect', t.backupOnly, t.backupOnlyDetail, 'file')}</details>${footer(t)}</div>`;
 }
 
 export function cloudManageMarkup(state, options = {}) {
-  const t = copy(options), linked = Boolean(state.name), busy = disabled(state);
+  const t = copy(options), d = driveCopy(options.lang), linked = Boolean(state.name), busy = disabled(state);
   return `<div class="cp-cloud-dialog" data-cloud-dialog="manage">
+    ${state.transport==='drive'&&state.account?`<p class="cp-drive-account">${esc(state.account.email||state.account.name)}</p>`:''}
+    ${options.driveAvailable&&state.transport!=='drive'?row('drive-connect',linked?d.move:d.connect,d.offline,'cloud','',busy):''}
     ${linked ? `<p class="cp-cloud-file"><strong>${esc(state.name)}</strong></p>` : ''}
     ${linked ? `<div class="cp-cloud-toggle-row"><div><strong>${esc(t.automatic)}</strong><small>${esc(t.automaticDetail)}</small></div><button class="cp-cloud-switch" type="button" role="switch" aria-label="${esc(t.automatic)}" aria-checked="${Boolean(state.enabled)}" data-action="cloud-toggle" data-id="${!state.enabled}" ${busy}><span></span></button></div>` : ''}
     ${state.status === 'error' || state.status === 'conflict' ? `<div class="cp-cloud-problem"><strong>${esc(t.status[state.status])}</strong>${state.status === 'conflict' && state.mode === 'sync' ? button('cloud-conflicts', t.review, 'primary', busy) : linked ? button('cloud-sync', t.retry, 'primary', `${busy} ${state.enabled ? '' : 'disabled'}`) : ''}${state.error ? `<details class="cp-cloud-details"><summary>${esc(t.errorDetail)}</summary><p class="cp-cloud-technical">${esc(localizeMessage(state.error, options.lang || getAppLanguage()))}</p></details>` : ''}</div>` : ''}
@@ -151,6 +156,7 @@ export function cloudConflictMarkup(state, options = {}) {
 }
 
 export function cloudHelpMarkup(options = {}) {
-  const t = copy(options);
+  const t = copy(options), d=driveCopy(options.lang);
+  if(options.driveAvailable&&(options.transport==='drive'||!options.linked))return `<div class="cp-cloud-dialog" data-cloud-dialog="help"><div class="cp-cloud-help"><section><h3>Google Drive</h3><p>${esc(d.help)}</p></section><section><h3>${esc(t.recovery)}</h3><p>${esc(d.offline)}</p></section></div>${footer(t)}</div>`;
   return `<div class="cp-cloud-dialog" data-cloud-dialog="help"><div class="cp-cloud-help">${['sync', 'backup', 'provider', 'foreground'].map(key => `<section><h3>${esc(t[`${key}HelpTitle`])}</h3><p>${esc(t[`${key}Help`])}</p></section>`).join('')}</div>${footer(t)}</div>`;
 }

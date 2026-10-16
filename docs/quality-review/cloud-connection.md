@@ -1,5 +1,15 @@
 # Cloud validation and device connection
 
+## Beta10: direct Google Drive notebook connection
+
+2026-10-16 — owner requests beta10 settings and menus using the Google Drive API, explicitly retaining local copies and offline practice. The earlier isolated beta9 transfer worked on both devices according to the owner. This authorizes the notebook integration; it does not establish acceptance of the new notebook migration.
+
+Implemented: an opt-in Android beta account connection, discovery/selection of app-created notebooks, same-identity migration from the existing provider, preserved three-way merge/conflict review, account-pinned silent token renewal, conditional writes with fresh-read retries, private native OAuth tokens, and retained local JSON/recovery paths. Legacy connections keep using their provider until explicitly moved. The previous file is kept. Two independently moved devices find the same API notebook identity and merge against their existing baseline. Theme and network preferences remain device-local; complete manual JSON copies remain unchanged. Personal recordings are not uploaded.
+
+[Manual](../manual/en/drive-notebook-beta.md), [20 responsive synthetic frames](captures/profile/2026-10-16-drive-api-02/verification.json) and [native menu/plugin/retention evidence](captures/profile/2026-10-16-drive-api-native-03/native.json). The native evidence checks the actual plugin, endpoint/account rejection and menus with namespaced synthetic storage; it does not authorize Google or migrate the installed notebook. [Final beta10 package verification](../releases/6.1.0-beta.10-validation.json) confirms 77 focused checks, three website checks, Android unit checks, package/signature and 264 matching packaged web files. Publication verification follows deployment. Real notebook migration and concurrent changes on physical devices remain the next owner test.
+
+## Earlier provider connection review
+
 Owner-reported follow-up, 2026-10-15. D-047/D-048 reopen PROFILE-01, CLOUD-01/02/05 and the shared connection dialogs. The owner reports one same-version device failing validation and Select an existing file failing to open, then requests separate joining/sharing and an explicit disconnect before switching notebooks.
 
 The reader supports Catalan, but the backup validator's separate language list omitted it. A local Catalan snapshot therefore failed before a provider picker/read could run. This exact error was reproduced before the fix; validation now uses the reader's language registry. The personal notebook and actual Drive file were not accessed, so the reported physical incident remains subject to owner confirmation. Unknown languages, future versions and malformed data remain rejected.

@@ -3,13 +3,27 @@
   "language": "en",
   "chapters": [
     {
+      "id": "drive-notebook-beta",
+      "title": "Notebook synchronization with Google Drive (Android beta)",
+      "order": 94,
+      "source": "en/drive-notebook-beta.md",
+      "status": "draft",
+      "reviewIds": [
+        "PROFILE-01",
+        "CLOUD-01",
+        "CLOUD-02",
+        "CLOUD-05"
+      ],
+      "coverage": "Beta10 implements opt-in direct Drive notebook synchronization, account/notebook selection and legacy migration. Synthetic protocol/browser coverage includes offline/local JSON preservation, IDs/assets, conflict handling and account renewal. Native menu/plugin/retention checks are separate. Real notebook migration and synchronization require owner acceptance on physical devices; personal recordings are not synchronized."
+    },
+    {
       "id": "drive-transfer-beta",
       "title": "Google Drive transfer check (Android beta)",
       "order": 95,
       "source": "en/drive-transfer-beta.md",
       "status": "draft",
       "reviewIds": ["PROFILE-01", "MEDIA-03"],
-      "coverage": "Published beta9/build62 packages the granted-scope comparison fix, with actual SDK-result tests and final-version installed-emulator navigation/retention checks. Actual Google consent and physical two-device transfer remain open. Personal media synchronization is disabled."
+      "coverage": "Published beta9/build62 packages the granted-scope comparison fix, with actual SDK-result tests and final-version installed-emulator navigation/retention checks. The owner reports that the beta9 isolated test worked on both devices (2026-10-16). Interruption/revocation recovery and automatic synchronization remain separate work. Personal media synchronization is disabled."
     },
     {
       "id": "today",

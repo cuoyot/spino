@@ -8,6 +8,16 @@ Website beta7/build60 is published. [Public download verification](releases/6.1.
 
 Beta9/build62 is published with the permission correction for the owner-requested website test. [Public verification](releases/6.1.0-beta.9-publication.json) confirms all three language pages, the manifest and download hashes. [Final-version native checks](quality-review/captures/multimedia/2026-10-16-drive-authorization-02/native.json) preserve notebook data and media. Update both physical devices and retry consent; real Google authorization and transfer/playback remain unverified. Earlier local-only statements above describe the preceding review stage.
 
+## Beta10 notebook integration
+
+The owner authorizes using the Drive API model for notebook synchronization/settings in beta10 and explicitly retains offline/local copies. [Connection review](quality-review/cloud-connection.md#beta10-direct-google-drive-notebook-connection) and [manual](manual/en/drive-notebook-beta.md) describe the opt-in connection and migration. This reuses the same limited scope and native token ownership, but has a distinct notebook transport, identity marker and conditional-write protocol. The isolated recording test does not automatically upload personal media. Beta9 acceptance remains separate from the physical notebook migration checks required for beta10.
+
+## Owner-reported acceptance
+
+2026-10-16 owner acceptance: the owner reports that the beta9 Google Drive test worked on both devices. This is owner-reported acceptance of the isolated test, not instrumented evidence of automatic notebook/media synchronization. Interruption recovery, expired/revoked consent, concurrent notebook edits and legacy-data migration remain separate checks.
+
+The proposed next step is to reuse account authorization and Drive transport for the notebook while preserving existing merge/recovery logic. This recommendation does not enable automatic media synchronization or migrate existing notebook files.
+
 ## OAuth registration
 
 The owner supplied Android client ID `198855026005-vml3cg5tkolqib1lmaft4f5iscvvmel7.apps.googleusercontent.com`. It is a public application identifier, not an access token. The observed Console project was `wired-name-183215`; project ownership/configuration has not been independently verified. Android AuthorizationClient identifies the application from its installed package and signing certificate; this Android ID must not be passed as a web/server client ID or embedded with a client secret.
