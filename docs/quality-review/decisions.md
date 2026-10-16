@@ -10,7 +10,7 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 ## D-051 — One explicit Google connection, recording copies and quiet polling
 
-- Status: **owner requested and authorized**, 2026-10-16; the owner confirms the same Google account on both devices. Implemented for Android beta12, with synthetic browser/protocol and separate native checks; physical/owner acceptance remains open.
+- Status: **owner requested and authorized**, 2026-10-16; the owner confirms the same Google account on both devices. Implemented and published as Android beta12/build65, with synthetic browser/protocol and separate native checks. [Public delivery verification](../releases/6.1.0-beta.12-publication.json) passes; physical/owner acceptance remains open.
 - Retire old provider-file automatic connections and their setup options; keep the local notebook, legacy file, identity and merge baseline for explicit movement to Drive. Remove the isolated test entry and packaged page. Keep JSON export/restore/conversion, recovery and offline practice.
 - Show Google Drive, account and notebook separately. The picker uses a selected radio option plus Connect selected notebook; Cancel closes without migration. Existing matching notebooks are reused on the second device. No Done button stands in for connecting.
 - Copy saved audio/video through the notebook account, using immutable recording IDs, checksums, resumable transfer and existing network preferences. Exclude drafts and foreign notebooks, preserve local copies, and do not propagate local deletion to Drive/other devices. Exclude local-deleted takes from redownload; title edits remain local to each copy.

@@ -37,5 +37,6 @@
     "android/app/src/main/java/com/miguecoll/spino/DriveMediaPlugin.java": "f5e23ed9af028878098509c205c7334123463fb7d64cfaa63e1644eace4cd8de",
     "dist/index.html": "d172cd610db9c15a48c0b5237fc0c94837c9aa16365b487a44c244f1d1a410c9"
   },
-  "websiteEvidence": "../quality-review/captures/website/2026-10-16-beta12-release/verification.json"
+  "websiteEvidence": "../quality-review/captures/website/2026-10-16-beta12-release/verification.json",
+  "publicVerification": "6.1.0-beta.12-publication.json"
 }
