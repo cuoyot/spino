@@ -3,6 +3,15 @@
   "language": "en",
   "chapters": [
     {
+      "id": "drive-transfer-beta",
+      "title": "Google Drive transfer check (Android beta)",
+      "order": 95,
+      "source": "en/drive-transfer-beta.md",
+      "status": "draft",
+      "reviewIds": ["PROFILE-01", "MEDIA-03"],
+      "coverage": "Beta8 repairs Profile visibility; browser platform simulation and installed Android navigation are verified separately. Actual Google consent and physical two-device transfer remain open. Personal media synchronization is disabled."
+    },
+    {
       "id": "today",
       "title": "Today",
       "order": 10,

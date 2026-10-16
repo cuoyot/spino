@@ -1,0 +1,23 @@
+{
+  "version": "6.1.0-beta.8",
+  "build": 61,
+  "date": "2026-10-16",
+  "appChecks": 17,
+  "websiteChecks": 4,
+  "webBuild": "passed",
+  "androidBuild": "passed Java 21 / assembleDebug",
+  "packagedWebFilesMatch": 264,
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-16-drive-profile-05/native.json",
+  "nativeProfileNavigation": true,
+  "originalLogicalStoresUnchanged": true,
+  "retainedBlobFiles": 12,
+  "googleAuthorizationTested": false,
+  "realDriveCrossDeviceTested": false,
+  "personalMediaSyncEnabled": false,
+  "hashes": {
+    "src/companion/app.js": "dda72b4bed6e9cd77ca2b684b2bdac860f03095edeccc33bf125bd6b3178c4af",
+    "package-lock.json": "f3e871c79023aa4d0a616bc42c560a098a27caa771bf9f4e9bb36815e7557d6c",
+    "dist/index.html": "93134deea817ca38fc7e9a4a24ce9e2ecaf8e26bb34b20ba4725188cffa634bb"
+  }
+}
