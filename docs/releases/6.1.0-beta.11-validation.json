@@ -25,5 +25,6 @@
     "android/app/src/main/java/com/miguecoll/spino/DriveNotebookPlugin.java": "ccfcd10a070b90883fd14b02bd1afd21c44130200613ccb2d37882d05f711bd2",
     "dist/index.html": "1e613b083abfd009b76e0f53a32a0ffa43dcf6e8a3bf3ae08bd589c33c0fece9",
     "dist/drive-media-review.html": "01c0ed6f52063697f99764c43d1cb374a50ff4371433ae3ee2bb4c00bad5d883"
-  }
+  },
+  "publicVerification": "6.1.0-beta.11-publication.json"
 }

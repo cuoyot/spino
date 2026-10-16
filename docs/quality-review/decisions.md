@@ -10,7 +10,7 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 ## D-050 — Preserve revision protection when joining Drive on a second device
 
-- Status: **owner-reported beta10 defect corrected**, 2026-10-16. The first physical device worked according to the owner; the second reports a missing safe file revision. Corrected physical two-device acceptance remains open.
+- Status: **owner-reported beta10 defect corrected**, 2026-10-16. The first physical device worked according to the owner; the second reports a missing safe file revision. Published as beta11/build64 with [public verification](../releases/6.1.0-beta.11-publication.json). Corrected physical two-device acceptance remains open.
 - CLOUD-01/02/05: use the supported v2 file ETag resource for conditional reads and updates, retaining v3 discovery, the same native OAuth account/scope, notebook identities, pending uploads and three-way merging. Do not substitute blind writes when a revision is absent. Restrict native v2 access to file resources.
 - Correct the synthetic API model that masked missing v3 ETag headers. Retain offline saving, JSON export/restore/conversion, recovery and old provider files. [Active review](cloud-connection.md#beta11-second-device-revision-compatibility) separates synthetic coverage, native packaging and real owner acceptance.
 
