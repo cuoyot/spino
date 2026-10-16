@@ -7,9 +7,9 @@ export function driveNotebookBootstrap({legacy=false,remote=null,localMedia=null
  return (legacy?seed:seed.replace('linked:true','linked:false'))+`\n{
   const server=(${syntheticNotebookDrive.toString()})();
   const saved=sessionStorage.getItem('synthetic-drive-files');
-  if(saved)server.files=new Map(JSON.parse(saved));
+  if(saved){server.files=new Map(JSON.parse(saved));const progress=JSON.parse(sessionStorage.getItem('synthetic-drive-progress')||'null');if(progress){server.changes=progress.changes;server.nextID=progress.nextID;}else server.nextID=1+server.files.size;}
   else if(${JSON.stringify(remote)}){const remote=${JSON.stringify(remote)};server.files.set('synthetic-existing-drive',{id:'synthetic-existing-drive',owner:'synthetic-owner',name:'Synthetic Drive notebook.json',mimeType:'application/json',appProperties:{spinoType:'spino-notebook-v1',notebookId:remote.cloudBackup.sharedNotebookId,ready:'1'},text:JSON.stringify(remote),revision:1});}
-  const persist=()=>sessionStorage.setItem('synthetic-drive-files',JSON.stringify([...server.files]));persist();
+  const persist=()=>{sessionStorage.setItem('synthetic-drive-files',JSON.stringify([...server.files]));sessionStorage.setItem('synthetic-drive-progress',JSON.stringify({changes:server.changes,nextID:server.nextID}));};persist();
   window.__driveFixture=server;
   Object.defineProperty(navigator,'connection',{configurable:true,value:{type:'wifi',saveData:false}});
   const DRIVE_CHUNK=262144,mediaHash=(${mediaHash.toString()});

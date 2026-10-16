@@ -8,6 +8,14 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 
 2026-10-16 owner acceptance: the owner reports that the beta9 Google Drive test worked on both devices. This is owner-reported acceptance of the isolated test, not instrumented evidence of automatic notebook/media synchronization. Interruption recovery, expired/revoked consent, concurrent notebook edits and legacy-data migration remain separate checks. **Proposed next direction:** one Google account connection for notebook and media transport, retaining the existing merge/conflict engine and offline operation. Distinguish shared notebook preferences from device-specific settings. Existing files require explicit adoption/migration; no migration implementation is accepted by this discussion alone.
 
+## D-052 — Incremental notebook synchronization and compatible migration
+
+- Status: **owner accepted and authorized**, 2026-10-16. The owner approves smaller synchronization units, retaining full JSON as export/backup, requires migration from the previous format, and explicitly requires idempotence and low no-change traffic. Scope: CLOUD-01/02/05, PROFILE-01 and shared synchronization/storage.
+- Implemented immutable content-addressed records, bounded score pieces and commits, causal predecessors, deletion markers, durable retry IDs and verified caches. No shared mutable manifest is rewritten for each change. Keep existing conflict review, IDs, PDFs, annotations, local-first/offline use and separate recording copies.
+- Existing Drive JSON files migrate only after a stable snapshot, recovery copy and verified new objects. Archive the old connection with a conditional revision check and retain its content/name. Pending activation resumes after interruption; old clients must stop writing. Update both devices before testing.
+- Quiet notebook polling fetches only changes metadata; unchanged cached restarts and repeated writes transfer no notebook objects. [Synthetic traffic measurement](captures/profile/2026-10-16-atomic-drive-03/traffic.json) distinguishes payload bytes from HTTP/TLS/auth overhead. No automatic history compaction is included.
+- Synthetic protocol/browser verification and native installation/account/cache checks are separate from physical Google migration and two-device acceptance. [Active evidence](cloud-connection.md#beta14-incremental-synchronization) records remaining limits. This supersedes the beta13 incremental proposal, not earlier accepted local-copy or conflict-review behavior.
+
 ## 2026-10-16 — Failed Drive setup and account reconfiguration
 
 - Owner reports beta12 setup failure on both devices and requests a way to disconnect the Google account for reconfiguration. Scope: CLOUD-01/02/05 and PROFILE-01.

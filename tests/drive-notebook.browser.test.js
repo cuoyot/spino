@@ -25,13 +25,15 @@ test('Drive setup, legacy migration, reconnect, offline continuation and local J
  await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('spino.cloud-sync.device.v1')).notebookId`),cloudRecoveryFixture().cloudBackup.sharedNotebookId);
  assert.equal(await evaluate(`__cloudReview.linked`),false,'Legacy link is released without deleting its file');
- assert.equal(await evaluate(`__driveFixture.files.size`),1);
- assert.equal(await evaluate(`JSON.parse([...__driveFixture.files.values()][0].text).assets[0].annotations.marks[0].id`),'synthetic-mark');
+ assert.equal(await evaluate(`[...__driveFixture.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2').length`),1);
+ assert.equal(await evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('assets').objectStore('assets').get('synthetic-pdf');r.onsuccess=()=>{db.close();resolve(r.result.annotations.marks[0].id);};};})`),'synthetic-mark');
  assert.equal(await evaluate(`document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`),true);
- await capture('connected');
+ await capture('connected');await click('cloud-manage');assert.equal(await evaluate(`document.querySelector('[data-cloud-dialog=manage]').textContent.includes('Sincronización incremental')`),true);await capture('incremental-manage');await click('close-dialog');
  assert.equal(await evaluate(`!!document.querySelector('[data-action=cloud-create-shared],[data-action=cloud-join-shared],[data-action=cloud-connect],[data-action=cloud-relink]')`),false);
+ const pollingStart=await evaluate(`__driveFixture.requests.length`);
  const stable=await evaluate(`(()=>{const p=document.querySelector('#cloud-backup');window.__stableCloud=p;return {height:p.getBoundingClientRect().height,buttons:[...p.querySelectorAll('button')].map(b=>b.dataset.action)};})()`);
  await evaluate(`new Promise(resolve=>setTimeout(resolve,31000))`);
+ assert.equal(await evaluate(`__driveFixture.requests.slice(${pollingStart}).every(r=>r.method==='GET'&&r.path.startsWith('/drive/v3/changes?'))`),true,'An unchanged timer poll only requests the changes cursor');
  assert.equal(await evaluate(`document.querySelector('#cloud-backup')===__stableCloud`),true,'An unchanged background check keeps the existing card mounted');
  assert.deepEqual(await evaluate(`({height:__stableCloud.getBoundingClientRect().height,buttons:[...__stableCloud.querySelectorAll('button')].map(b=>b.dataset.action)})`),stable);
  assert.equal(await evaluate(`!!document.querySelector('[data-action=export-backup]')&&!!document.querySelector('[data-action=import-backup]')`),true);
@@ -42,10 +44,10 @@ test('Drive setup, legacy migration, reconnect, offline continuation and local J
  await click('cloud-manage');await evaluate(`document.querySelector('[data-action=cloud-toggle][data-id=false]').click()`);await wait(`document.querySelector('#cloud-backup[data-cloud-status=paused]')`);
  await send('Page.reload');await wait(`document.querySelector('.cp-profile-nav')`);await click('settings');await click('profile-backup');
  await wait(`document.querySelector('#cloud-backup[data-cloud-status=paused]')`);assert.equal(await evaluate(`!!document.querySelector('[data-action=export-backup]')&&!!document.querySelector('[data-action=import-backup]')`),true);
- assert.equal(await evaluate(`__driveFixture.files.size`),1);
- await click('cloud-manage');await click('cloud-disconnect');await evaluate(`document.querySelector('#cp-confirm').click()`);await wait(`document.querySelector('#cloud-backup[data-cloud-status=disconnected]')`);assert.equal(await evaluate(`__driveFixture.files.size`),1);
+ assert.equal(await evaluate(`[...__driveFixture.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2').length`),1);
+ await click('cloud-manage');await click('cloud-disconnect');await evaluate(`document.querySelector('#cp-confirm').click()`);await wait(`document.querySelector('#cloud-backup[data-cloud-status=disconnected]')`);assert.equal(await evaluate(`[...__driveFixture.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2').length`),1);
  assert.deepEqual(errors,[]);
- if(folder)await writeFile(folder+'/verification.json',JSON.stringify({date:new Date().toISOString(),kind:'responsive-browser-synthetic-drive-api',googleAuthorizationTested:false,realDriveTransferTested:false,frames,checks:['Legacy notebook identity retained','PDF/annotation IDs retained','Account and direct Drive status visible','Export/import JSON remain available','Revoked permission reconnect','Offline pause and restart retain local notebook','Disconnect retains remote notebook'],sources:Object.fromEntries(await Promise.all(['src/companion/drive-notebook.js','src/companion/notebook-transport.js','src/companion/cloud-sync.js','src/companion/cloud-backup-view.js','src/companion/app.js'].map(async f=>[f,createHash('sha256').update(await readFile(f)).digest('hex')])))},null,2));
+ if(folder)await writeFile(folder+'/verification.json',JSON.stringify({date:new Date().toISOString(),kind:'responsive-browser-synthetic-drive-api',googleAuthorizationTested:false,realDriveTransferTested:false,frames,checks:['Legacy notebook identity retained','PDF/annotation IDs retained','Account and direct Drive status visible','Export/import JSON remain available','Revoked permission reconnect','Offline pause and restart retain local notebook','Disconnect retains remote notebook'],sources:Object.fromEntries(await Promise.all(['src/companion/drive-incremental.js','src/companion/drive-objects.js','src/companion/atomic-notebook.js','src/companion/drive-journal.js','src/companion/notebook-transport.js','src/companion/cloud-sync.js','src/companion/cloud-backup-view.js','src/companion/app.js'].map(async f=>[f,createHash('sha256').update(await readFile(f)).digest('hex')])))},null,2));
 });
 test('a second device finds and joins the Drive notebook from Profile',{timeout:60000},async t=>{
  const remote=cloudRecoveryFixture();remote.data.works.push({...remote.data.works[0],id:'second-work',title:'Remote addition',assetId:null});
@@ -64,7 +66,7 @@ test('authorized account can disconnect after failed legacy migration and config
  const snapshot=()=>evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('state').objectStore('state').get('current');r.onsuccess=()=>{db.close();resolve(JSON.stringify(r.result));};};})`);
  const before=await snapshot();
  await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);
- await evaluate(`__driveFixture.beforePatch=file=>{file.revision++;};document.querySelector('[data-drive-picker]').requestSubmit()`);
+ await evaluate(`__driveFixture.beforeCommit=()=>{__driveFixture.beforeCommit=null;throw Object.assign(Error('Synthetic interrupted commit upload'),{code:'PROVIDER_ERROR'});};document.querySelector('[data-drive-picker]').requestSubmit()`);
  await wait(`document.querySelector('[data-cloud-dialog=manage] [data-action=drive-disconnect]')`);
  assert.equal(await evaluate(`!!document.querySelector('[data-cloud-dialog=manage] [role=alert]')`),true);await capture('failed-migration-manage');
  const baseline=await evaluate(`localStorage.getItem('spino.cloud-sync.device.v1')`);
@@ -72,7 +74,7 @@ test('authorized account can disconnect after failed legacy migration and config
  await click('close-dialog');await click('cloud-manage');await click('drive-disconnect');
  await wait(`!document.querySelector('#cp-dialog[open]')&&!document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`);
  assert.equal(await snapshot(),before);assert.equal(await evaluate(`__cloudReview.linked`),true);await capture('account-disconnected');
- assert.equal(await evaluate(`__driveFixture.files.size`),1,'Incomplete remote file is kept');
+ assert.ok(await evaluate(`__driveFixture.files.size>0`),'Verified remote objects are kept for retry');
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('spino.drive-notebook.device.v1')).account||null`),null);
  await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);await click('close-dialog');
  assert.equal(await evaluate(`!!document.querySelector('#cloud-backup [data-action=cloud-manage]')`),true);

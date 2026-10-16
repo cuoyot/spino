@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-16T16:45:34.467Z",
+  "kind": "synthetic-drive-protocol-body-bytes",
+  "excludes": [
+    "HTTP headers",
+    "TLS",
+    "Google authentication",
+    "independent recording-copy protocol"
+  ],
+  "runs": [
+    {
+      "serverSHA256": true,
+      "portableJSONBytes": 2804752,
+      "scoreBytes": 2102871,
+      "initial": {
+        "requests": 38,
+        "uploads": 9,
+        "uploadBodyBytes": 2811560,
+        "responseBodyBytes": 8795,
+        "mediaDownloads": 1
+      },
+      "quietTenPolls": {
+        "requests": 10,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 390,
+        "mediaDownloads": 0
+      },
+      "restartWithCache": {
+        "requests": 1,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 39,
+        "mediaDownloads": 0
+      },
+      "smallNote": {
+        "requests": 8,
+        "uploads": 2,
+        "uploadBodyBytes": 1728,
+        "responseBodyBytes": 1885,
+        "mediaDownloads": 0
+      },
+      "unchangedWriteRetry": {
+        "requests": 1,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 39,
+        "mediaDownloads": 0
+      }
+    },
+    {
+      "serverSHA256": false,
+      "portableJSONBytes": 2804752,
+      "scoreBytes": 2102871,
+      "initial": {
+        "requests": 46,
+        "uploads": 9,
+        "uploadBodyBytes": 2811560,
+        "responseBodyBytes": 2813467,
+        "mediaDownloads": 9
+      },
+      "quietTenPolls": {
+        "requests": 10,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 390,
+        "mediaDownloads": 0
+      },
+      "restartWithCache": {
+        "requests": 1,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 39,
+        "mediaDownloads": 0
+      },
+      "smallNote": {
+        "requests": 10,
+        "uploads": 2,
+        "uploadBodyBytes": 1728,
+        "responseBodyBytes": 2173,
+        "mediaDownloads": 2
+      },
+      "unchangedWriteRetry": {
+        "requests": 1,
+        "uploads": 0,
+        "uploadBodyBytes": 0,
+        "responseBodyBytes": 39,
+        "mediaDownloads": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-16T16:46:16.092Z",
+  "kind": "responsive-browser-synthetic-drive-api",
+  "googleAuthorizationTested": false,
+  "realDriveTransferTested": false,
+  "frames": [
+    {
+      "state": "legacy-paused",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "legacy-paused-phone-portrait.png"
+    },
+    {
+      "state": "legacy-paused",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "legacy-paused-phone-landscape.png"
+    },
+    {
+      "state": "legacy-paused",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "legacy-paused-tablet-portrait.png"
+    },
+    {
+      "state": "legacy-paused",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "legacy-paused-tablet-landscape.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "drive-picker-phone-portrait.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "drive-picker-phone-landscape.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "drive-picker-tablet-portrait.png"
+    },
+    {
+      "state": "drive-picker",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "drive-picker-tablet-landscape.png"
+    },
+    {
+      "state": "connected",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "connected-phone-portrait.png"
+    },
+    {
+      "state": "connected",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "connected-phone-landscape.png"
+    },
+    {
+      "state": "connected",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "connected-tablet-portrait.png"
+    },
+    {
+      "state": "connected",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "connected-tablet-landscape.png"
+    },
+    {
+      "state": "incremental-manage",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "incremental-manage-phone-portrait.png"
+    },
+    {
+      "state": "incremental-manage",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "incremental-manage-phone-landscape.png"
+    },
+    {
+      "state": "incremental-manage",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "incremental-manage-tablet-portrait.png"
+    },
+    {
+      "state": "incremental-manage",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "incremental-manage-tablet-landscape.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "local-copy-phone-portrait.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "local-copy-phone-landscape.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "local-copy-tablet-portrait.png"
+    },
+    {
+      "state": "local-copy",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "local-copy-tablet-landscape.png"
+    },
+    {
+      "state": "offline",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "file": "offline-phone-portrait.png"
+    },
+    {
+      "state": "offline",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "file": "offline-phone-landscape.png"
+    },
+    {
+      "state": "offline",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "file": "offline-tablet-portrait.png"
+    },
+    {
+      "state": "offline",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "file": "offline-tablet-landscape.png"
+    }
+  ],
+  "checks": [
+    "Legacy notebook identity retained",
+    "PDF/annotation IDs retained",
+    "Account and direct Drive status visible",
+    "Export/import JSON remain available",
+    "Revoked permission reconnect",
+    "Offline pause and restart retain local notebook",
+    "Disconnect retains remote notebook"
+  ],
+  "sources": {
+    "src/companion/drive-incremental.js": "8cded92a3b117e5ada43c132d91aff91493dcd47781baeef301513b0cc33dee2",
+    "src/companion/drive-objects.js": "e19226925df94a2c1208dfa6b1b3a2c44dcd502f631db8a102f7d14ec9e021ee",
+    "src/companion/atomic-notebook.js": "1e1ce1c7cd8d81d426601358ad31dde97348dcd3fe24c7fc224733a572408864",
+    "src/companion/drive-journal.js": "b6188c0792dd17c99510c064197de75e9b7d59645a9176726c68106e114433fc",
+    "src/companion/notebook-transport.js": "f3dcb07d5e8f2ac31b207a78d5bcf714249804bd98c590c9cc5cf7c9a1385056",
+    "src/companion/cloud-sync.js": "258d15fccdaaf2b004dc31f37377a12aa6362d3ea6d87b7bdf76f36781f17b2f",
+    "src/companion/cloud-backup-view.js": "2229043dfcc9cb1007e7b41b5a2dfa009a7663edae1ba14694ebac0d1e2e415a",
+    "src/companion/app.js": "f66b4c16ea04d4dc3d6d5391b56c0447bdc4ff91a6582e7e14f2b4c32b8497de"
+  }
+}

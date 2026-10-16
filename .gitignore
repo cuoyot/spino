@@ -20,3 +20,6 @@ android/keystore.properties
 
 # Xcode per-user workspace state
 **/xcuserdata/
+
+# Private native review recovery archives may contain local notebook data.
+/output/native-review-backups/

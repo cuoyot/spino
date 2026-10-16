@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 const releaseVersion=JSON.parse(await readFile('package.json','utf8')).version;
 const releaseBuild=Number((await readFile('android/app/build.gradle','utf8')).match(/versionCode\s+(\d+)/)[1]);
@@ -10,9 +11,15 @@ const folder=process.argv[2];assert.ok(folder,'Pass a fresh evidence directory')
 const adb='/Users/migue/Library/Android/sdk/platform-tools/adb',pkg='com.miguecoll.spino.beta',apk='android/app/build/outputs/apk/debug/app-debug.apk';
 const run=args=>execFileSync(adb,args,{encoding:'utf8',maxBuffer:20e6,timeout:30000}).trim();
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
-const fileHashes=()=>{let names;try{names=run(['shell','run-as',pkg,'find','app_webview/Default/IndexedDB','-type','f']);}catch{return {};}
+const fileHashes=()=>{let names;try{names=run(['shell','run-as',pkg,'find','app_webview/Default/IndexedDB','-type','f']);}catch(error){if(String(error.stderr||'').includes('No such file or directory'))return {};throw error;}
   return Object.fromEntries(names.split('\n').filter(Boolean).sort().map(path=>[path,run(['shell','run-as',pkg,'sha256sum',path]).split(/\s/)[0]]));};
-run(['shell','am','force-stop',pkg]);const before=fileHashes();
+run(['shell','am','force-stop',pkg]);
+// Preserve a private raw recovery archive before installation or opening WebView.
+const backupDirectory=resolve('output/native-review-backups');await mkdir(backupDirectory,{recursive:true,mode:0o700});
+const privateBackup=backupDirectory+'/'+pkg+'-'+randomUUID()+'.tar';
+const backupBytes=execFileSync(adb,['exec-out','run-as',pkg,'tar','-cf','-','app_webview','files','shared_prefs'],{maxBuffer:512e6,timeout:30000});
+await writeFile(privateBackup,backupBytes,{mode:0o600});
+const before=fileHashes();
 const install=run(['install','-r',apk]);assert.match(install,/Success/);const installed=fileHashes();assert.deepEqual(installed,before);
 run(['shell','input','keyevent','KEYCODE_WAKEUP']);run(['shell','wm','dismiss-keyguard']);
 run(['shell','am','start','-n',pkg+'/com.miguecoll.spino.MainActivity','--es','spinoReview','storage-check']);
@@ -66,7 +73,9 @@ try{
     const status=await evaluate(`Capacitor.nativePromise('DriveNotebook','status',{})`);
     const invalid=await evaluate(`Capacitor.nativePromise('DriveNotebook','request',{path:'https://evil.example/drive/v3/files'}).then(()=>false,e=>e.code)`);assert.equal(invalid,'INVALID_REQUEST');
     const unauthorized=await evaluate(`Capacitor.nativePromise('DriveNotebook','request',{path:'/drive/v3/files',accountId:'synthetic-invalid-account'}).then(()=>false,e=>e.code)`);assert.equal(unauthorized,'PERMISSION_REQUIRED');
-    notebookChecks={...notebookChecks,nativePluginStatus:true,invalidEndpointRejected:invalid,unauthorizedRequestRejected:unauthorized};
+    const incrementalGuards=await evaluate(`(async()=>{const request=args=>Capacitor.nativePromise('DriveNotebook','request',{accountId:'synthetic-invalid-account',...args}).then(()=>false,e=>e.code);return {cursor:await request({path:'/drive/v3/changes/startPageToken'}),changes:await request({path:'/drive/v3/changes?pageToken=synthetic'}),multipart:await request({path:'/upload/drive/v3/files?uploadType=multipart',method:'POST',contentType:'multipart/related; boundary=spino_0123456789abcdef0123456789abcdef',text:'synthetic'}),invalidContentType:await request({path:'/drive/v3/files',contentType:'text/html'})};})()`);
+    for(const key of ['cursor','changes','multipart'])assert.equal(incrementalGuards[key],'PERMISSION_REQUIRED');assert.equal(incrementalGuards.invalidContentType,'INVALID_REQUEST');
+    notebookChecks={...notebookChecks,nativePluginStatus:true,invalidEndpointRejected:invalid,unauthorizedRequestRejected:unauthorized,incrementalGuards};
   }
   const source=Buffer.from('SPino native synthetic stage check\n'),expected=hash(source),key=randomUUID();
   const staged=await evaluate(`Capacitor.nativePromise('DriveMedia','stageChunk',{key:${JSON.stringify(key)},offset:0,total:${source.length},base64:${JSON.stringify(source.toString('base64'))}})`);assert.equal(staged.sha256,expected);
@@ -83,7 +92,7 @@ try{
   await new Promise(r=>setTimeout(r,500));
   await writeFile(folder+'/native-review.png',execFileSync(adb,['exec-out','screencap','-p'],{maxBuffer:20e6}));
   const originalStoresAfter=await notebookSnapshot();assert.deepEqual(originalStoresAfter,originalStoresBefore);
-  const after=fileHashes();const blobFiles=Object.keys(before).filter(path=>path.includes('.indexeddb.blob/'));for(const path of blobFiles)assert.equal(after[path],before[path]);
-  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',googleAuthorizationTested:false,realDriveTransferTested:false,version:releaseVersion,build:releaseBuild,apkSha256:hash(await readFile(apk)),replacementInstall:install,location,foreground,indexedDBBefore:before,indexedDBAfter:after,retainedFiles:Object.keys(before).length,originalStoresBefore,originalStoresAfter,retainedBlobFiles:blobFiles.length,checks:{notebookChecks,originalStoresUnchanged:true,profileEntry,profileNavigation:true,disposableProfileStorage:true,boundedStagingSHA256:staged.sha256,invalidOffsetRejected:invalid,unauthorizedRequestRejected:protectedRequest,nativeStateRoundTrip:true,mediaAccountBound:true,nativeCacheReadback:true,oldTestEntryRemoved:true,oldProviderActionsRemoved:true},errors},null,2));
-  console.log('Native review passes; '+Object.keys(before).length+' IndexedDB files checked; original logical stores and blobs retained. Google consent/remote transfer remain untested.');
+  const after=fileHashes();const blobFiles=Object.keys(before).filter(path=>path.includes('.indexeddb.blob/')),retainedBlobs=blobFiles.filter(path=>after[path]===before[path]),physicalBlobChanges=blobFiles.filter(path=>after[path]!==before[path]);
+  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',googleAuthorizationTested:false,realDriveTransferTested:false,version:releaseVersion,build:releaseBuild,apkSha256:hash(await readFile(apk)),replacementInstall:install,location,foreground,indexedDBBefore:before,indexedDBAfter:after,retainedFiles:Object.keys(before).length,originalStoresBefore,originalStoresAfter,retainedBlobFiles:retainedBlobs.length,physicalBlobChanges,privateBackup,privateBackupSHA256:hash(backupBytes),originalLogicalStoreCount:Object.keys(originalStoresBefore).length,originalRetentionVerified:Object.keys(originalStoresBefore).length>0,checks:{notebookChecks,originalStoresUnchanged:true,profileEntry,profileNavigation:true,disposableProfileStorage:true,boundedStagingSHA256:staged.sha256,invalidOffsetRejected:invalid,unauthorizedRequestRejected:protectedRequest,nativeStateRoundTrip:true,mediaAccountBound:true,nativeCacheReadback:true,oldTestEntryRemoved:true,oldProviderActionsRemoved:true},errors},null,2));
+  console.log('Native review passes; '+Object.keys(before).length+' IndexedDB files checked; '+(Object.keys(originalStoresBefore).length?'original logical stores compared.':'empty original logical baseline; prior notebook retention is not established.')+' Google consent/remote transfer remain untested.');
 }finally{ws.close();if(port)run(['forward','--remove','tcp:'+port]);}

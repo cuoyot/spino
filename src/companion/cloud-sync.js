@@ -15,7 +15,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000, dirtyDelay = delay, retireProvider = false,
   validate = validateBackup, backupFactory = createCloudBackup }) {
   let state = { mode: 'backup', enabled: false, status: 'disconnected', name: '', ...settings.read() };
-  let task = null, timer = null, revision = 0, applying = false;
+  let task = null, timer = null, revision = 0, applying = false, lastSyncedRevision=null, lastRemoteHash=null;
   const independent = backupFactory({ adapter, snapshot, eligible, changed, delay });
   const publish = () => { settings.save(state); changed(); };
   const schedule = (wait=delay) => {
@@ -26,18 +26,23 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   const content = text => shared(notebookContent(validate(text)));
   const encode = backup => {
     const text = JSON.stringify({ ...backup, ...(state.notebookId ? { cloudBackup: { sharedNotebookId: state.notebookId } } : {}), exportedAt: new Date().toISOString() });
-    if (new TextEncoder().encode(text).length > 60000000) throw new Error('The shared notebook exceeds the 60 MB backup limit.');
+    if (!adapter.info?.incremental && new TextEncoder().encode(text).length > 60000000) throw new Error('The shared notebook exceeds the 60 MB backup limit.');
     validate(text);
     return text;
   };
-  async function reconcile(preference) {
-    const captured = revision; let uploaded=false;
+  async function reconcile(preference,automatic=false) {
+    const captured = revision; let uploaded=false,remoteFile;
+    if(automatic&&adapter.info?.incremental&&state.status==='saved'&&lastSyncedRevision===captured){
+      state.operation='read';remoteFile=await adapter.readLinked();
+      if(!state.enabled)return;
+      if(captured===revision&&remoteFile.hash===lastRemoteHash&&!remoteFile.conflicts?.length){state.operation=null;state.lastCheckedAt=new Date().toISOString();return;}
+    }
     state.operation = 'snapshot';
     const original = await snapshot();
     if (!state.enabled) return;
     const local = content(original);
     state.operation = 'read';
-    const remoteFile = await adapter.readLinked();
+    remoteFile ??= await adapter.readLinked();
     if (!state.enabled) return;
     state.operation = 'validate';
     const remoteId = JSON.parse(remoteFile.text).cloudBackup?.sharedNotebookId;
@@ -50,7 +55,9 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!state.enabled) return;
     state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
-    const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote })) : null;
+    const remoteConflicts=remoteFile.conflicts||[];
+    result.conflicts=[...new Set([...result.conflicts,...remoteConflicts])];
+    const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote, ...(remoteConflicts.length?{remoteRevision:remoteFile.hash}: {}) })) : null;
     if (!state.enabled) return;
     const selected = preference || state.resolution?.preference;
     const reviewedHash = preference ? state.conflictHash : state.resolution?.hash;
@@ -65,12 +72,13 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       result = mergeNotebooks(base, local, remote, selected);
       state.resolution = { preference: selected, hash: conflictHash };
     } else state.resolution = null;
+    if(remoteConflicts.length&&selected){const resolved=await adapter.resolveRemote?.({local:encode(local),merged:encode(result.backup),preference:selected,expectedHash:remoteFile.hash});if(!resolved)throw new Error('The synchronized conflicts could not be resolved.');result.backup=JSON.parse(resolved);}
     const merged = content(encode(result.backup));
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     const localChanged = stableJSON(local) !== stableJSON(merged);
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
-    if (!remoteId || stableJSON(remote) !== stableJSON(merged)) {
+    if (remoteConflicts.length || !remoteId || stableJSON(remote) !== stableJSON(merged)) {
       uploaded=true; state.operation = 'write'; state.status = 'writing'; publish();
       const expectedHash = await backupHash(remoteFile.text);
       if (!state.enabled) return;
@@ -96,17 +104,18 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       try { await apply(encode(merged), merged); } finally { applying = false; }
       if (!state.enabled) return;
     }
+    lastSyncedRevision=captured;lastRemoteHash=remoteFile.hash||await backupHash(remoteFile.text);
     state.operation = null; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
     const updated=localChanged||uploaded;
     state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastCheckedAt = new Date().toISOString(); if(updated)state.lastWrittenAt=state.lastCheckedAt;
     publish();
     if (localChanged) adopted();
   }
-  async function reconcileWithRetry(preference) {
+  async function reconcileWithRetry(preference,automatic=false) {
     // A changed provider revision is contention, not a user data conflict.
     // Re-read and merge afresh; never retry the stale serialized write.
     for (let attempt = 0; attempt < 3; attempt++) {
-      try { await reconcile(preference); return; }
+      try { await reconcile(preference,automatic); return; }
       catch (error) {
         if (!['CONFLICT', 'LOCKED', 'BUSY'].includes(error.code)) throw error;
         if (!state.enabled) return;
@@ -124,7 +133,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     task = (async () => {
       try {
         if(!automatic||state.status!=='saved'){state.status = 'writing'; state.waitReason = null; state.error = ''; publish();}
-        await reconcileWithRetry(preference);
+        await reconcileWithRetry(preference,automatic);
       }
       catch (error) {
         if (!state.enabled) return;

@@ -1,0 +1,34 @@
+{
+  "version": "6.1.0-beta.14",
+  "build": 67,
+  "date": "2026-10-16",
+  "channel": "beta",
+  "stable": {
+    "version": "6.0.0",
+    "build": 53
+  },
+  "googlePlay": {
+    "version": "5.2.3",
+    "build": 35
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.0-beta.14-67-android.apk",
+      "bytes": 23537113,
+      "sha256": "fd10bbdd35686498b334799836f2a84ddc4f34652e38e805800865c16b0deb8a",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino.beta",
+      "version": "6.1.0-beta.14",
+      "build": 67
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    }
+  ]
+}

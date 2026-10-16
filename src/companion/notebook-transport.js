@@ -1,12 +1,12 @@
 import {Capacitor,registerPlugin} from '@capacitor/core';
 import {CloudBackup} from './cloud-backup.js';
 import {APP_VERSION} from './app-version.js';
-import {createDriveNotebookAdapter} from './drive-notebook.js';
+import {createIncrementalNotebookAdapter} from './drive-incremental.js';
 
 export const driveNotebookAvailable=()=>Capacitor.getPlatform()==='android'&&APP_VERSION.includes('-beta.')&&Capacitor.isPluginAvailable('DriveNotebook');
 const key='spino.drive-notebook.device.v1',selectionKey='spino.notebook-transport.device.v1';
 const settings={read:()=>{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}},save:value=>localStorage.setItem(key,JSON.stringify(value))};
-export function createNotebookTransport({legacy=CloudBackup,drive=createDriveNotebookAdapter({native:registerPlugin('DriveNotebook'),recovery:legacy,settings}),storage=localStorage}={}){
+export function createNotebookTransport({legacy=CloudBackup,drive=createIncrementalNotebookAdapter({native:registerPlugin('DriveNotebook'),recovery:legacy,settings}),storage=localStorage}={}){
   const current=()=>storage.getItem(selectionKey)==='drive'?drive:legacy;
   return {
     drive,
@@ -18,6 +18,7 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createDriveNot
     pendingNotebookId:()=>current().pendingNotebookId?.(),
     status:()=>current().status(),create:options=>current().create(options),pickBackup:options=>current().pickBackup(options),
     readLinked:()=>current().readLinked(),write:options=>current().write(options),
+    resolveRemote:options=>current().resolveRemote?.(options),
     saveRecovery:options=>legacy.saveRecovery(options),readRecovery:()=>legacy.readRecovery(),
     acknowledgeSetup:()=>current().acknowledgeSetup?.(),disconnect:()=>current().disconnect(),
   };

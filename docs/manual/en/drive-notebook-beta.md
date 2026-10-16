@@ -1,6 +1,6 @@
 # Google Drive notebook and recording copies (Android beta)
 
-Android beta12 uses one Google Drive connection for the notebook, scores and saved audio/video copies. Profile → Backup & sync shows the Google account and notebook explicitly. Use the same Google account on both devices. Google OAuth test users may still be required while the Google project is in testing.
+Android beta14 uses one Google Drive connection for the notebook, scores and saved audio/video copies. Profile → Backup & sync shows the Google account and notebook explicitly. Use the same Google account on both devices. Google OAuth test users may still be required while the Google project is in testing.
 
 ## Connect the first device
 
@@ -26,6 +26,16 @@ Saved notebook edits upload shortly afterwards (about 1.5 seconds when eligible)
 
 Manage can pause automatic synchronization or disconnect this device. Local saves continue. Errors keep local data and show connection details; reconnect the same Google account when permission expires.
 
+## Incremental notebook format (beta14)
+
+Update both Android devices to beta14/build67 before syncing again. A previously connected Drive JSON notebook migrates automatically on synchronization. SPino first saves a local recovery copy, transfers and verifies separate records and score pieces, and only then activates the new notebook. The previous JSON file's content and name are retained; its connection marker becomes an archive pointing to the new notebook. Older app versions stop syncing that file. Interrupted migration resumes verified transfers; a concurrent old-format edit blocks activation until it has been reread.
+
+New synchronization stores immutable, checksummed objects inside a dedicated SPino notebook folder in Drive. Keep that folder intact. Works, sessions, plans, preferences and annotations travel as changed records; score bytes travel separately in bounded pieces. A note edit does not resend the PDF. Saved audio/video still uses the separate resumable recording-copy system below. JSON export/restore/conversion remains a complete portable copy.
+
+Retries retain allocated file IDs and verify accepted content before creating another operation. Concurrent independent edits merge; overlapping edits and delete-versus-edit require review. Without changes, each 30-second notebook check reads only the small Drive changes response, with no upload or notebook/score download. The verified cache survives app restart and ordinary account disconnect. Initial connection/migration and joining on a new device still transfer the necessary notebook content once. HTTP/authentication overhead and separate media-copy checks still consume some network data.
+
+Immutable history is retained in this beta; automatic history compaction is not implemented. Never delete change/object files to save space. Protocol/browser checks are synthetic and do not establish real Google or physical two-device acceptance.
+
 ## Audio and video copies
 
 Saved takes linked to works in the connected notebook are copied through that same account. The copies preserve recording and work IDs, title at upload, creation date, duration, kind and verified file bytes. Drafts and recordings bound to another account/notebook are excluded. Media copies wait for practice, recording, editors and other transfers to finish. They respect the device’s network preference and pause when SPino goes into the background. Interrupted uploads/downloads retain progress for retry.
@@ -40,4 +50,4 @@ Export file, Restore file and Convert a copy remain in Backup & sync. JSON copie
 
 ## Verification status
 
-Synthetic protocol/browser checks cover first/second-device connection, migration/cancel/reconnect, concurrent edits, no-change polling, recording-copy integrity/resumption, network policy and offline playback. Native checks verify actual menus, account guards, transfer-cache readback and original notebook/media retention. Real Google authorization and copying on the owner’s physical devices remain separate acceptance checks. The earlier isolated transfer test has been removed from beta12.
+Synthetic protocol/browser checks cover first/second-device connection, migration/cancel/reconnect, concurrent edits, no-change polling, recording-copy integrity/resumption, network policy and offline playback. Native checks verify actual menus, account guards and transfer-cache readback. The beta14 emulator has an empty original logical baseline following the previously recorded beta13 WebView corruption, so this run does not establish preservation of that earlier notebook. Real Google authorization and copying on the owner’s physical devices remain separate acceptance checks. The earlier isolated transfer test has been removed from beta12.

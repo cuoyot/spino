@@ -55,7 +55,7 @@ public class DriveNotebookPlugin extends Plugin {
         if(!DriveMediaPlugin.hasDrivePermission(result)){pending=null;call.reject("Google Drive permission was not granted.","PERMISSION_REQUIRED");return;}
         final String token=result.getAccessToken();
         worker.execute(()->{try{
-            JSObject response=fetch("/drive/v3/about?fields=user(permissionId,displayName,emailAddress)","GET",token,null,null);
+            JSObject response=fetch("/drive/v3/about?fields=user(permissionId,displayName,emailAddress)","GET",token,null,null,null);
             if(response.getInteger("status",0)!=200)throw new IOException();
             JSONObject user=new JSONObject(response.getString("text")).getJSONObject("user");
             String id=user.getString("permissionId"),previous=preferences().getString("id","");
@@ -67,19 +67,20 @@ public class DriveNotebookPlugin extends Plugin {
     static boolean validPath(String path){
         if(path==null||path.contains("\r")||path.contains("\n"))return false;
         try{URI uri=new URI(path);return !uri.isAbsolute()&&uri.getRawAuthority()==null&&uri.getFragment()==null&&
-            (uri.getPath().matches("/(upload/)?drive/v3/(files(/[a-zA-Z0-9_-]{1,180})?|about)")||uri.getPath().matches("/(upload/)?drive/v2/files/[a-zA-Z0-9_-]{1,180}"))&&!uri.getPath().contains("..");}
+            (uri.getPath().matches("/(upload/)?drive/v3/(files(/[a-zA-Z0-9_-]{1,180})?|about)")||uri.getPath().matches("/(upload/)?drive/v2/files/[a-zA-Z0-9_-]{1,180}")||uri.getPath().matches("/drive/v3/changes(/startPageToken)?"))&&!uri.getPath().contains("..");}
         catch(Exception error){return false;}
     }
+    static boolean validContentType(String value){return value==null||value.matches("multipart/related; boundary=spino_[a-f0-9]{32}");}
     private byte[] read(InputStream input)throws IOException{
         if(input==null)return new byte[0];try(InputStream in=input;ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] buffer=new byte[65536];int n;while((n=in.read(buffer))!=-1){if(out.size()+n>LIMIT)throw new IOException("The notebook exceeds 60 MB.");out.write(buffer,0,n);}return out.toByteArray();}
     }
-    private JSObject fetch(String path,String method,String token,String text,String etag)throws Exception{
+    private JSObject fetch(String path,String method,String token,String text,String etag,String contentType)throws Exception{
         HttpURLConnection c=(HttpURLConnection)new URL("https://www.googleapis.com"+path).openConnection();
         try{
-            c.setConnectTimeout(20000);c.setReadTimeout(120000);c.setInstanceFollowRedirects(false);c.setRequestMethod(method);
+            c.setConnectTimeout(20000);c.setReadTimeout(120000);c.setInstanceFollowRedirects(false);c.setUseCaches(false);c.setRequestMethod(method);
             c.setRequestProperty("Authorization","Bearer "+token);c.setRequestProperty("Accept","application/json");
             if(etag!=null){if(!etag.matches("\"[^\"\\r\\n]+\""))throw new IOException("Invalid Drive revision.");c.setRequestProperty("If-Match",etag);}
-            if(text!=null){byte[] body=text.getBytes(StandardCharsets.UTF_8);if(body.length>LIMIT)throw new IOException("The notebook exceeds 60 MB.");c.setRequestProperty("Content-Type","application/json; charset=UTF-8");c.setDoOutput(true);c.setFixedLengthStreamingMode(body.length);try(OutputStream out=c.getOutputStream()){out.write(body);}}
+            if(text!=null){byte[] body=text.getBytes(StandardCharsets.UTF_8);if(body.length>LIMIT)throw new IOException("The notebook exceeds 60 MB.");c.setRequestProperty("Content-Type",contentType==null?"application/json; charset=UTF-8":contentType);c.setDoOutput(true);c.setFixedLengthStreamingMode(body.length);try(OutputStream out=c.getOutputStream()){out.write(body);}}
             int status=c.getResponseCode();
             if(status==401)Identity.getAuthorizationClient(getActivity()).clearToken(ClearTokenRequest.builder().setToken(token).build());
             String body=new String(read(status>=400?c.getErrorStream():c.getInputStream()),StandardCharsets.UTF_8);
@@ -87,7 +88,8 @@ public class DriveNotebookPlugin extends Plugin {
         }finally{c.disconnect();}
     }
     @PluginMethod public void request(PluginCall call){
-        String path=call.getString("path"),method=call.getString("method","GET");
+        String path=call.getString("path"),method=call.getString("method","GET"),contentType=call.getString("contentType");
+        if(!validContentType(contentType)){call.reject("Invalid notebook request content type.","INVALID_REQUEST");return;}
         if(!validPath(path)||!method.matches("GET|POST|PATCH|PUT")){call.reject("Invalid Google Drive request.","INVALID_REQUEST");return;}
         String accountId=preferences().getString("id","");
         if(accountId.isEmpty()||!accountId.equals(call.getString("accountId"))){call.reject("Reconnect the same Google Drive account.","PERMISSION_REQUIRED");return;}
@@ -98,8 +100,10 @@ public class DriveNotebookPlugin extends Plugin {
                 final String token=result.getAccessToken();
                 worker.execute(()->{try{
                     if(!accountId.equals(preferences().getString("id","")))throw new IOException();
-                    call.resolve(fetch(path,method,token,call.getString("text"),call.getString("etag")));
-                }catch(Exception error){call.reject("Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.","PROVIDER_ERROR");}});
+                    call.resolve(fetch(path,method,token,call.getString("text"),call.getString("etag"),contentType));
+                }catch(java.net.SocketTimeoutException error){call.reject("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR");}
+                catch(java.net.UnknownHostException error){call.reject("The Drive server could not be reached. Check the connection and retry.","PROVIDER_ERROR");}
+                catch(Exception error){call.reject("The Drive notebook request failed ("+error.getClass().getSimpleName()+"). Your local notebook is kept.","PROVIDER_ERROR");}});
             }).addOnFailureListener(error->call.reject("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED")));
     }
     @PluginMethod public void disconnect(PluginCall call){

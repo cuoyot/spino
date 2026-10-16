@@ -1,5 +1,25 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ['Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.', 'Google Drive no está disponible. Tu cuaderno se guarda en este dispositivo; reconecta o reintenta más tarde.'],
+  ["The Drive notebook transfer timed out. Pending changes are kept for retry.", "La transferencia del cuaderno a Drive ha agotado el tiempo de espera. Los cambios pendientes se conservan para reintentarlo."],
+  ["The Drive server could not be reached. Check the connection and retry.", "No se ha podido conectar con el servidor de Drive. Comprueba la conexión y reintenta."],
+  ["Some notebook changes have not arrived yet. Retry synchronization.", "Todavía no han llegado todos los cambios del cuaderno. Reintenta la sincronización."],
+  ["Some notebook objects have not arrived yet. Retry synchronization.", "Todavía no han llegado todos los archivos del cuaderno. Reintenta la sincronización."],
+  ["The incremental notebook is incomplete. Retry synchronization.", "El cuaderno incremental está incompleto. Reintenta la sincronización."],
+  ["An incremental notebook object failed its integrity check.", "Un archivo del cuaderno incremental no ha superado la comprobación de integridad."],
+  ["The previous notebook cannot be migrated safely. Your local copy is kept.", "No se ha podido migrar el cuaderno anterior con seguridad. Se conserva tu copia local."],
+  ["The previous notebook identity does not match.", "La identidad del cuaderno anterior no coincide."],
+  ["The previous notebook is changing. Finish synchronization on the other device and retry.", "El cuaderno anterior está cambiando. Termina la sincronización en el otro dispositivo y reintenta."],
+  ["The previous connection must finish migration first.", "Primero debe terminar la migración de la conexión anterior."],
+  ["The incremental notebook did not verify. Your local copy is kept.", "No se ha podido verificar el cuaderno incremental. Se conserva tu copia local."],
+  ["A synchronized notebook object was removed from Drive. Your local notebook is kept.", "Se ha eliminado de Drive un archivo del cuaderno sincronizado. Se conserva tu cuaderno local."],
+  ["An immutable notebook object was replaced. Your local notebook is kept.", "Se ha sustituido un archivo del cuaderno que debía conservarse. Se conserva tu cuaderno local."],
+  ["A notebook object is unavailable. Your local notebook is kept.", "Un archivo del cuaderno no está disponible. Se conserva tu cuaderno local."],
+  ["The synchronized conflict changed. Review the latest changes.", "El conflicto sincronizado ha cambiado. Revisa los últimos cambios."],
+  ["Could not save pending Drive changes.", "No se han podido guardar los cambios pendientes de Drive."],
+  ["Could not retain a pending Drive identity.", "No se ha podido conservar la identidad de un cambio pendiente de Drive."],
+  ["Connect Google Drive. Your notebook is saved locally.", "Conecta Google Drive. Tu cuaderno se guarda en este dispositivo."],
+
   ["The Drive notebook changed. Reading the latest changes before retrying.", "El cuaderno de Drive ha cambiado. Se leerán los últimos cambios antes de reintentar."],
   ["The Drive notebook changed during download. Retry connecting. Your local notebook is kept.", "El cuaderno de Drive ha cambiado durante la descarga. Reintenta la conexión. Se conserva tu cuaderno local."],
   ["The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.", "El cuaderno de Drive ha seguido cambiando durante la descarga. Reintenta la conexión. Se conserva tu cuaderno local."],
@@ -158,6 +178,8 @@ const prefix = (english, spanish) => ({
   translate: (match, language, translateNested = value => value) => `${language === 'es' ? spanish : english}: ${translateNested(match[1])}`,
 });
 export const MESSAGE_PATTERNS = [
+  { pattern: /^The Drive notebook request failed \(([A-Za-z0-9$]+)\)\. Your local notebook is kept\.$/, translate: (m,lang)=>lang==='es'?'La petición del cuaderno a Drive ha fallado. Se conserva tu cuaderno local. ('+m[1]+')':m[0] },
+  { pattern: /^Drive could not complete a notebook request \((\d{3})\)\. Your local notebook is kept\.$/, translate: (m,lang)=>lang==='es'?'Drive no ha podido completar una petición del cuaderno. Se conserva tu cuaderno local. ('+m[1]+')':m[0] },
   prefix('Analysis failed', 'Error de análisis'),
   prefix('Invalid XML', 'XML no válido'),
   prefix('Could not prepare backup', 'No se ha podido preparar la copia'),

@@ -1,5 +1,28 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+The Drive notebook request failed ({cause}). Your local notebook is kept.|La petició del quadern a Drive ha fallat ({cause}). Es conserva el quadern local.
+Drive could not complete a notebook request ({code}). Your local notebook is kept.|Drive no ha pogut completar una petició del quadern ({code}). Es conserva el quadern local.
+Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.|Google Drive no està disponible. El quadern es desa en aquest dispositiu; torna a connectar o prova-ho més tard.
+The Drive notebook transfer timed out. Pending changes are kept for retry.|La transferència del quadern a Drive ha esgotat el temps d’espera. Els canvis pendents es conserven per tornar-ho a provar.
+The Drive server could not be reached. Check the connection and retry.|No s’ha pogut connectar amb el servidor de Drive. Comprova la connexió i torna-ho a provar.
+Some notebook changes have not arrived yet. Retry synchronization.|Encara no han arribat tots els canvis del quadern. Torna a provar la sincronització.
+Some notebook objects have not arrived yet. Retry synchronization.|Encara no han arribat tots els fitxers del quadern. Torna a provar la sincronització.
+The incremental notebook is incomplete. Retry synchronization.|El quadern incremental és incomplet. Torna a provar la sincronització.
+An incremental notebook object failed its integrity check.|Un fitxer del quadern incremental no ha superat la comprovació d’integritat.
+The previous notebook cannot be migrated safely. Your local copy is kept.|No s’ha pogut migrar el quadern anterior amb seguretat. Es conserva la còpia local.
+The previous notebook identity does not match.|La identitat del quadern anterior no coincideix.
+The previous notebook is changing. Finish synchronization on the other device and retry.|El quadern anterior està canviant. Acaba la sincronització a l’altre dispositiu i torna-ho a provar.
+The previous connection must finish migration first.|Primer ha d’acabar la migració de la connexió anterior.
+The incremental notebook did not verify. Your local copy is kept.|No s’ha pogut verificar el quadern incremental. Es conserva la còpia local.
+A synchronized notebook object was removed from Drive. Your local notebook is kept.|S’ha eliminat de Drive un fitxer del quadern sincronitzat. Es conserva el quadern local.
+An immutable notebook object was replaced. Your local notebook is kept.|S’ha substituït un fitxer del quadern que s’havia de conservar. Es conserva el quadern local.
+A notebook object is unavailable. Your local notebook is kept.|Un fitxer del quadern no està disponible. Es conserva el quadern local.
+The synchronized conflict changed. Review the latest changes.|El conflicte sincronitzat ha canviat. Revisa els darrers canvis.
+Could not save pending Drive changes.|No s’han pogut desar els canvis pendents de Drive.
+Could not retain a pending Drive identity.|No s’ha pogut conservar la identitat d’un canvi pendent de Drive.
+Connect Google Drive. Your notebook is saved locally.|Connecta Google Drive. El quadern es desa en aquest dispositiu.
+The Drive notebook request failed. Your local notebook is kept.|La petició del quadern a Drive ha fallat. Es conserva el quadern local.
+Drive could not complete a notebook request. Your local notebook is kept.|Drive no ha pogut completar una petició del quadern. Es conserva el quadern local.
 The Drive notebook changed. Reading the latest changes before retrying.|El quadern de Drive ha canviat. Es llegiran els darrers canvis abans de tornar-ho a provar.
 The Drive notebook changed during download. Retry connecting. Your local notebook is kept.|El quadern de Drive ha canviat durant la baixada. Torna a provar la connexió. Es conserva el quadern local.
 The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.|El quadern de Drive ha continuat canviant durant la baixada. Torna a provar la connexió. Es conserva el quadern local.

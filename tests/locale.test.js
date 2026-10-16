@@ -45,3 +45,9 @@ test('Drive revision diagnostics are localized in Spanish and Catalan, including
  ];
  for(const message of messages)for(const locale of ['es','ca'])assert.notEqual(localizeMessage(message,locale),message);
 });
+
+test('Drive incremental transfer failures and persisted old diagnostics use the selected language',()=>{
+ for(const message of ['The Drive notebook transfer timed out. Pending changes are kept for retry.','The Drive server could not be reached. Check the connection and retry.','The previous notebook cannot be migrated safely. Your local copy is kept.','The Drive notebook request failed (IOException). Your local notebook is kept.','Drive could not complete a notebook request (503). Your local notebook is kept.','Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.']){
+  assert.equal(localizeMessage(message,'en'),message);assert.notEqual(localizeMessage(message,'es'),message);assert.notEqual(localizeMessage(message,'ca'),message);
+ }
+});
