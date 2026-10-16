@@ -1,0 +1,11 @@
+{
+  "source": "Android emulator logcat",
+  "physicalDevicesAccessed": false,
+  "storageClearOrUninstallIssued": false,
+  "originalDataRestored": false,
+  "events": [
+    "10-16 17:17:38.142  5074  5114 E chromium: [ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from /data/user/0/com.miguecoll.spino.beta/app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb,Corruption: missing start of fragmented record(2)",
+    "10-16 17:17:38.142  5074  5114 E chromium: [ERROR:indexed_db_factory.cc(704)] Got corruption for { origin: https://localhost, top-level site: https://localhost, nonce: <null>, ancestor chain bit: Same-Site }, missing start of fragmented record",
+    "10-16 17:17:38.162  5074  5114 E chromium: [ERROR:indexed_db_factory.cc(842)] IndexedDB recovering from a corrupted (and deleted) database."
+  ]
+}

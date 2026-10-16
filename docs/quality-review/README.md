@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.0.0 (53), the Android beta is 6.1.0-beta.12 (65), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.0.0 (53), the Android beta is 6.1.0-beta.13 (66), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
 
 Previous beta 2 focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
 
@@ -14,7 +14,7 @@ Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4
 
 ## Resume work here
 
-2026-10-16 beta13/build66 — owner authorizes website publication of the account-disconnect/revision follow-up. Final package, 48 focused app checks, six Android unit checks and three website checks pass. [Final validation](../releases/6.1.0-beta.13-validation.json) records installation/foreground and the emulator LevelDB corruption incident separately; final-version preservation of the earlier emulator notebook is not established. Physical account choice and two-device copying remain open.
+2026-10-16 beta13/build66 — owner authorizes website publication of the account-disconnect/revision follow-up. Final package, 48 focused app checks, six Android unit checks and three website checks pass. [Final validation](../releases/6.1.0-beta.13-validation.json) records installation/foreground and the emulator LevelDB corruption incident separately; final-version preservation of the earlier emulator notebook is not established. [Public verification](../releases/6.1.0-beta.13-publication.json) confirms successful Cloudflare deployment, all three language pages, the manifest and four downloads. Beta13/build66 is published. Physical account choice and two-device copying remain open.
 
 2026-10-16 beta12 connection failure follow-up — the owner confirms setup fails on both physical devices and cannot find account disconnect. [Active review](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect) records a suspected metadata/media revision mismatch, stable download verification, localized operation diagnostics and account disconnect after failed/cancelled setup. Local review only; beta12/build65 remains the published website version. Next: physical retest of account selection, setup and bidirectional copying with the corrected review APK; do not delete existing notebook files.
 

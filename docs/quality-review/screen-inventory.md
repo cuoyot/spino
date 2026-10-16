@@ -1,6 +1,6 @@
 # Screen review inventory
 
-2026-10-16: CLOUD-01/02/05 and PROFILE-01 evidence reopened after owner-reported beta12 setup failure on both devices and missing account disconnect. [Follow-up](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect) keeps accepted connection objectives, adds failed/cancelled-setup account management and separates synthetic revision checks from pending physical acceptance. Existing baselines and stable IDs are preserved.
+2026-10-16: CLOUD-01/02/05 and PROFILE-01 evidence reopened after owner-reported beta12 setup failure on both devices and missing account disconnect. [Follow-up](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect) keeps accepted connection objectives, adds failed/cancelled-setup account management and separates synthetic revision checks from pending physical acceptance. Beta13/build66 is published with public page/download verification; final native retention has a separately documented emulator corruption limitation. Existing review baselines and stable IDs are preserved.
 
 2026-10-15 Beta 6.1 multimedia: MEDIA-01/02 are new source surfaces. Reopen REP-02, PRACTICE-01, C-NAV and C-SCORE for piece recordings, the third Library tab and PDF/MusicXML recording entry points. The accepted local repertoire-recording objective is separate from layout acceptance. [Responsive evidence](captures/multimedia/2026-10-15-local-03/capture.json) uses disposable notebooks and synthetic streams; native camera/microphone acceptance remains open.
 

@@ -13,7 +13,7 @@ Status is explicit: **proposed**, **accepted**, **implemented**, **verified**, *
 - Owner reports beta12 setup failure on both devices and requests a way to disconnect the Google account for reconfiguration. Scope: CLOUD-01/02/05 and PROFILE-01.
 - Manage must remain available for an authorized account without a linked notebook. Disconnect clears account/setup metadata while preserving local data, the paused legacy link/baseline and remote files. Connected notebook disconnect keeps the existing confirmation.
 - Stable metadata checks bracket media downloads; writes retain resource ETag conditions. Separate media/metadata ETags reproduce a suspected failure in synthetic tests; the exact physical-device HTTP failure remains unverified. Error messages distinguish upload/finalization/download and are translated into Spanish/Catalan.
-- Source/local review only; see [active evidence and pending physical acceptance](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect).
+- The owner subsequently authorizes website delivery as beta13/build66. [Public verification](../releases/6.1.0-beta.13-publication.json) passes; final native retention is limited by the separately recorded emulator corruption. See [active evidence and pending physical acceptance](cloud-connection.md#beta12-follow-up-failed-setup-and-google-account-disconnect).
 
 ## D-051 — One explicit Google connection, recording copies and quiet polling
 

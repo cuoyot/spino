@@ -17,5 +17,6 @@
   "originalRetentionAcrossPriorReviewVerified": false,
   "emulatorIncident": "WebView log at 17:17:38 reports LevelDB corruption (missing start of fragmented record) and automatic database deletion/recovery after the earlier emulator restarts. The first beta13 run passed its same-run logical-store comparison but failed physical blob retention. The second run has an empty original baseline, so it verifies installation/menu/cache/plugin checks, not preservation of the earlier notebook. No app-storage clear or uninstall was issued. Prior beta12 review evidence remains retained. Physical devices were not accessed.",
   "physicalGoogleAuthorizationTested": false,
-  "physicalTwoDeviceSyncTested": false
+  "physicalTwoDeviceSyncTested": false,
+  "publicVerification": "6.1.0-beta.13-publication.json"
 }
