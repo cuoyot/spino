@@ -2,6 +2,8 @@
 
 October 16, 2026. The owner selected each user's own Drive with no additional SPino subscription, authorized implementation of the feasibility check, and requested website beta delivery for two-device testing.
 
+Website beta7/build60 is published. [Public download verification](releases/6.1.0-beta.7-publication.json) and [native retention/foreground evidence](quality-review/captures/multimedia/2026-10-16-drive-poc-03/native.json) are separate from the still-pending real Google consent and physical two-device transfer test.
+
 ## OAuth registration
 
 The owner supplied Android client ID `198855026005-vml3cg5tkolqib1lmaft4f5iscvvmel7.apps.googleusercontent.com`. It is a public application identifier, not an access token. The observed Console project was `wired-name-183215`; project ownership/configuration has not been independently verified. Android AuthorizationClient identifies the application from its installed package and signing certificate; this Android ID must not be passed as a web/server client ID or embedded with a client secret.
@@ -39,3 +41,13 @@ After the native test succeeds, keep the Google Auth audience External and chang
 Register the stable Android package `com.miguecoll.spino` with the actual distribution certificate. Google Play's app-signing certificate may differ from a sideloaded release or the upload key; create the appropriate OAuth registrations in the same project for each distributed package/certificate. Beta debug registration alone does not authorize a Play production build. Additional users sign in to their own accounts and consume their own Drive storage. Monitor project API quotas; do not enable billing or paid resources implicitly.
 
 Official references: [Android authorization](https://developer.android.com/identity/authorization), [OAuth consent](https://developers.google.com/workspace/guides/configure-oauth-consent), [Drive scopes](https://developers.google.com/workspace/drive/api/guides/api-specific-auth), [resumable uploads](https://developers.google.com/workspace/drive/api/guides/manage-uploads).
+
+## Proposed follow-up: tablet score with phone camera
+
+The owner wants to read a score on a tablet while recording video with SPino on a nearby phone. This objective is requested; the following UX and transport remain proposals, not implemented beta7 features.
+
+Use the tablet as session controller and the phone as an explicitly armed camera. Pair locally using a QR/session identifier plus authenticated connection confirmation. The phone selects its camera and framing and confirms readiness. The tablet sends idempotent start/stop commands with a unique take ID and notebook/work/session identity. Show Recording only after the phone acknowledges actual capture; a shared countdown follows camera readiness. Record locally at full quality on the phone. Confirm finalization and checksum before presenting the take as saved, then use the Drive transport for later availability and optional downloads. Reading the score should not require live video streaming or a cloud round trip for each command.
+
+For nearby Android devices, evaluate Nearby Connections as the first native transport candidate. Its encrypted offline peer-to-peer channel supports small control messages, file transfers and authenticated pairing; Google documents Bluetooth/BLE/Wi-Fi transport underneath. A native feasibility test must check permissions, latency and reconnection on the target devices. The SDK's documented usage diagnostics must be assessed against SPino's privacy commitments before adoption; it is not yet an accepted dependency. [Overview and data collection](https://developers.google.com/nearby/connections/overview), [connection authentication](https://developers.google.com/nearby/connections/android/manage-connections).
+
+Loss of the control link must not discard a take: keep recording locally on the phone, retain a manual Stop action there, show disconnected/recording-unknown on the tablet and reconcile the take/state on reconnection. Deduplicate repeated start/stop commands. Do not treat wall clocks as synchronized; map capture time and practice markers with an estimated monotonic-clock offset and record the actual capture-start acknowledgment. For initial delivery keep the phone in the foreground with explicit camera consent; locked/background capture needs a separate native lifecycle design. [Android camera foreground-service restrictions](https://developer.android.com/develop/background-work/services/fgs/service-types).
