@@ -15,7 +15,7 @@ export async function openMediaStore(name = 'spino-local-media') {
   return {
     installation,onChange:callback=>{onChange=callback;},
     async put(record) {
-      if (!record.id || !record.workId || !(record.blob instanceof Blob) || !record.blob.size || !/^(audio|video)\//.test(record.blob.type)) throw Error('The recording is empty or invalid.');
+      if (!record.id || typeof record.workId !== 'string' || !(record.blob instanceof Blob) || !record.blob.size || !/^(audio|video)\//.test(record.blob.type)) throw Error('The recording is empty or invalid.');
       const tx = db.transaction('recordings', 'readwrite'), committed = done(tx);
       const records=tx.objectStore('recordings'),existing=records.get(record.id);existing.onsuccess=()=>{try{records.put({...record,...(existing.result?{blob:existing.result.blob,cloud:existing.result.cloud||record.cloud}:{}),installation});}catch{tx.abort();}};await committed;onChange();
     },

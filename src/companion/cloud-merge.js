@@ -8,17 +8,21 @@ export function notebookContent(backup) {
   const value = structuredClone(backup);
   delete value.exportedAt;
   delete value.cloudBackup;
+  // Catalogue import reports are regenerated on each device, not shared user edits.
+  if(value.library)delete value.library.report;
   return value;
 }
 
-export function mergeNotebooks(base, local, remote, preference = null) {
-  const conflicts = [];
+export function mergeNotebooks(base, local, remote, preference = null, reviewedPaths = []) {
+  const conflicts = [], reviewed = new Set(reviewedPaths);
   const equal = (a, b) => stableJSON(a) === stableJSON(b);
   const object = value => value && typeof value === 'object' && !Array.isArray(value);
   function merge(b, l, r, path) {
-    if (equal(l, r)) return l;
-    if (base && equal(l, b)) return r;
-    if (base && equal(r, b)) return l;
+    if(reviewed.has(path))return preference==='remote'?r:l;
+    const reviewing=[...reviewed].some(item=>item.startsWith(path+'/'));
+    if (!reviewing && equal(l, r)) return l;
+    if (!reviewing && base && equal(l, b)) return r;
+    if (!reviewing && base && equal(r, b)) return l;
     // On first connection, absent records are additions, not deletions.
     if (!base || b === undefined) {
       if (l === undefined) return r;

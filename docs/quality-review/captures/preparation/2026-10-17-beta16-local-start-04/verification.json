@@ -1,0 +1,93 @@
+{
+  "kind": "responsive-browser-synthetic-drive",
+  "date": "2026-10-17T09:05:40.662Z",
+  "nativeAcceptance": false,
+  "startMs": 26,
+  "frames": [
+    {
+      "state": "practice-started-with-stalled-drive",
+      "width": 390,
+      "height": 844,
+      "file": "practice-started-with-stalled-drive-390x844.png"
+    },
+    {
+      "state": "practice-started-with-stalled-drive",
+      "width": 844,
+      "height": 390,
+      "file": "practice-started-with-stalled-drive-844x390.png"
+    },
+    {
+      "state": "practice-started-with-stalled-drive",
+      "width": 768,
+      "height": 1024,
+      "file": "practice-started-with-stalled-drive-768x1024.png"
+    },
+    {
+      "state": "practice-started-with-stalled-drive",
+      "width": 1024,
+      "height": 768,
+      "file": "practice-started-with-stalled-drive-1024x768.png"
+    },
+    {
+      "state": "late-changes-deferred",
+      "width": 390,
+      "height": 844,
+      "file": "late-changes-deferred-390x844.png"
+    },
+    {
+      "state": "late-changes-deferred",
+      "width": 844,
+      "height": 390,
+      "file": "late-changes-deferred-844x390.png"
+    },
+    {
+      "state": "late-changes-deferred",
+      "width": 768,
+      "height": 1024,
+      "file": "late-changes-deferred-768x1024.png"
+    },
+    {
+      "state": "late-changes-deferred",
+      "width": 1024,
+      "height": 768,
+      "file": "late-changes-deferred-1024x768.png"
+    },
+    {
+      "state": "saved-and-synchronized",
+      "width": 390,
+      "height": 844,
+      "file": "saved-and-synchronized-390x844.png"
+    },
+    {
+      "state": "saved-and-synchronized",
+      "width": 844,
+      "height": 390,
+      "file": "saved-and-synchronized-844x390.png"
+    },
+    {
+      "state": "saved-and-synchronized",
+      "width": 768,
+      "height": 1024,
+      "file": "saved-and-synchronized-768x1024.png"
+    },
+    {
+      "state": "saved-and-synchronized",
+      "width": 1024,
+      "height": 768,
+      "file": "saved-and-synchronized-1024x768.png"
+    }
+  ],
+  "sessionId": "adc17154-46a3-453f-ad00-ec5555df9226",
+  "scoreAssetsAndAnnotationsUnchanged": true,
+  "savedSessionRetained": true,
+  "lateRemoteNoteAdoptedAfterPractice": true,
+  "syncRemainsEnabled": true,
+  "runtimeErrors": [],
+  "sourceHashes": {
+    "src/companion/app.js": "f446c3ad1d8450c3393e4cbdf6a92f1182b5eee69608c2140358a9d13acba60f",
+    "src/companion/cloud-policy.js": "0f6b54db32371f8bf1c24fbf3778c6fd2b76f290cf7112151c44ac022603f61a",
+    "src/companion/cloud-sync.js": "258d15fccdaaf2b004dc31f37377a12aa6362d3ea6d87b7bdf76f36781f17b2f",
+    "tests/cloud-local.browser.test.js": "2679962d7c594476eb185d40935b01f2b714418fa1350a7286566890333e8ad3"
+  },
+  "buildIndexSha256": "cd0a7a4b7b8f54f9550cc651b9ed1e50587a28507a62d6d63e7fddcc9633b8ab"
+}

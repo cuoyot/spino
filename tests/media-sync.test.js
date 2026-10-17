@@ -10,7 +10,7 @@ function memoryStore(records=[]){
  return {rows,ignoredKeys:ignored,index:async()=>[...rows.values()].map(({blob,...r})=>({...r,bytes:blob.size})),get:async id=>rows.get(id),ignored:async(key,id)=>ignored.has(key+'.'+id),attachCloud:async(id,cloud)=>{if(rows.has(id))rows.set(id,{...rows.get(id),cloud});},importRemote:async(record,key)=>{if(!rows.has(record.id)&&!ignored.has(key+'.'+record.id))rows.set(record.id,record);},remove:async id=>{const r=rows.get(id);if(r?.cloud)ignored.add(r.cloud.accountId+'.'+r.cloud.notebookId+'.'+id);rows.delete(id);}};
 }
 function device(t,server,records=[],options={}){
- const store=options.store||memoryStore(records),progress=options.progress||new Map();let context={accountId:'synthetic-owner',notebookId:'synthetic-book',works:[{id:'work-1',title:'Original piece'}],wifiOnly:true};
+ const store=options.store||memoryStore(records),progress=options.progress||new Map();let context={accountId:'synthetic-owner',notebookId:'synthetic-book',works:options.works||[{id:'work-1',title:'Original piece'}],wifiOnly:true};
  const engine=createMediaSync({store,getContext:()=>context,eligible:()=>true,network:options.network,connection:async c=>createDriveMedia({request:options.request||server.request,state:{get:async k=>progress.get(k),set:async(k,v)=>progress.set(k,structuredClone(v))},...c})});
  t.after(()=>engine.stop());return {engine,store,progress,disconnect:()=>{context=null;},switchBook:()=>{context={...context,notebookId:'another-book'};}};
 }
@@ -44,4 +44,14 @@ test('corrupt downloads never become playable local recordings and can be retrie
 
 test('deleting a recording during upload keeps the completed cloud copy without resurrecting it locally',async t=>{
  const server=syntheticDrive();let a;const request=async options=>{const result=await server.request(options);if(options.method==='PUT'&&result.status===200)await a.store.remove('take-1');return result;};a=device(t,server,[recording()],{request});await a.engine.sync();await a.engine.sync();assert.equal(a.store.rows.size,0);assert.equal(server.files.size,1);
+});
+
+test('free audio and video copy to an empty repertoire without inventing a piece',async t=>{
+ const server=syntheticDrive(),free=['audio','video'].map(kind=>({...recording('free-'+kind,kind),workId:'',workTitle:'',title:'Free '+kind}));
+ const a=device(t,server,free,{works:[]}),b=device(t,server,[],{works:[]});
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);
+ await b.engine.sync();assert.equal(b.engine.state.status,'saved',b.engine.state.error);assert.equal(b.store.rows.size,2);
+ assert.ok([...server.files.values()].every(f=>f.appProperties.spinoMedia==='spino-media-free-v1'));
+ for(const original of free){const copied=b.store.rows.get(original.id);assert.equal(copied.workId,'');assert.equal(copied.workTitle,'');assert.equal(copied.title,original.title);assert.equal(await mediaHash(copied.blob),await mediaHash(original.blob));}
+ await a.engine.sync();await b.engine.sync();assert.equal(server.files.size,2);
 });

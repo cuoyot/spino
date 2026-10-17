@@ -90,7 +90,7 @@ export function mergeCommitGraph(commits){
   ancestryCache.set(key,found);return found;
  };
  for(const [hash,commit] of commits)for(const change of commit.changes){const history=histories.get(change.key)||new Map();history.set(hash,{hash,...change});histories.set(change.key,history);}
- const records={},versions={},conflicts=[],conflictKeys=[];
+ const records={},versions={},conflicts=[],conflictKeys=[],conflictDetails={};
  for(const [key,history] of histories){
   const superseded=new Set();
   for(const version of history.values())for(const previous of version.previous){if(!history.has(previous)||!ancestor(previous,version.hash))throw atomicFailure('An incremental record has an invalid predecessor.');superseded.add(previous);}
@@ -103,10 +103,10 @@ export function mergeCommitGraph(commits){
    for(const candidate of current.slice(1)){
     if(key.startsWith('order/')){const next=value(candidate);if(result&&next&&result.idKey===next.idKey){result={idKey:result.idKey,ids:[...new Set([...result.ids,...next.ids])]};continue;}}
     const wrap=v=>v===undefined?{}:{record:v},merged=mergeNotebooks(common.length?wrap(base):null,wrap(result),wrap(value(candidate)));
-    if(merged.conflicts.length){conflictKeys.push(key);for(const path of merged.conflicts)conflicts.push('/'+key+path.replace(/^\/record/,''));}result=merged.backup.record;
+    if(merged.conflicts.length){const detail=conflictDetails[key]??={base,hasBase:common.length>0,paths:[]};detail.paths.push(...merged.conflicts);conflictKeys.push(key);for(const path of merged.conflicts)conflicts.push('/'+key+path.replace(/^\/record/,''));}result=merged.backup.record;
    }
   }
   if(result!==undefined)records[key]=result;
  }
- return {records,heads,versions,conflicts:[...new Set(conflicts)],conflictKeys:[...new Set(conflictKeys)]};
+ return {records,heads,versions,conflicts:[...new Set(conflicts)],conflictKeys:[...new Set(conflictKeys)],conflictDetails};
 }

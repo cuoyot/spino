@@ -1,0 +1,887 @@
+{
+  "date": "2026-10-17T08:47:31.810Z",
+  "kind": "responsive-browser-synthetic-streams",
+  "nativeAcceptance": false,
+  "frames": [
+    {
+      "file": "light-home-entry-390x844.png",
+      "state": "home-entry",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-home-entry-844x390.png",
+      "state": "home-entry",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-home-entry-768x1024.png",
+      "state": "home-entry",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 0,
+        "right": 768,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-home-entry-1024x768.png",
+      "state": "home-entry",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-home-entry-320x640.png",
+      "state": "home-entry",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-home-entry-390x844.png",
+      "state": "home-entry",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-home-entry-844x390.png",
+      "state": "home-entry",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-home-entry-768x1024.png",
+      "state": "home-entry",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 0,
+        "right": 768,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-home-entry-1024x768.png",
+      "state": "home-entry",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-home-entry-320x640.png",
+      "state": "home-entry",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-choose-piece-390x844.png",
+      "state": "choose-piece",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 245.515625,
+        "bottom": 598.46875,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-choose-piece-844x390.png",
+      "state": "choose-piece",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 29.71875,
+        "bottom": 360.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-choose-piece-768x1024.png",
+      "state": "choose-piece",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 346.71875,
+        "bottom": 677.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-choose-piece-1024x768.png",
+      "state": "choose-piece",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 218.71875,
+        "bottom": 549.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-choose-piece-320x640.png",
+      "state": "choose-piece",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 143.515625,
+        "bottom": 496.46875,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-choose-piece-390x844.png",
+      "state": "choose-piece",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 245.515625,
+        "bottom": 598.46875,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-choose-piece-844x390.png",
+      "state": "choose-piece",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 29.71875,
+        "bottom": 360.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-choose-piece-768x1024.png",
+      "state": "choose-piece",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 346.71875,
+        "bottom": 677.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-choose-piece-1024x768.png",
+      "state": "choose-piece",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 218.71875,
+        "bottom": 549.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-choose-piece-320x640.png",
+      "state": "choose-piece",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 143.515625,
+        "bottom": 496.46875,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-audio-detected-390x844.png",
+      "state": "audio-detected",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 235.203125,
+        "bottom": 608.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-audio-detected-844x390.png",
+      "state": "audio-detected",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 42.203125,
+        "bottom": 347.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-audio-detected-768x1024.png",
+      "state": "audio-detected",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 325.203125,
+        "bottom": 698.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-audio-detected-1024x768.png",
+      "state": "audio-detected",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 197.203125,
+        "bottom": 570.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-audio-detected-320x640.png",
+      "state": "audio-detected",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 133.203125,
+        "bottom": 506.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-audio-detected-390x844.png",
+      "state": "audio-detected",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 235.203125,
+        "bottom": 608.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-audio-detected-844x390.png",
+      "state": "audio-detected",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 42.203125,
+        "bottom": 347.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-audio-detected-768x1024.png",
+      "state": "audio-detected",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 325.203125,
+        "bottom": 698.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-audio-detected-1024x768.png",
+      "state": "audio-detected",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 197.203125,
+        "bottom": 570.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-audio-detected-320x640.png",
+      "state": "audio-detected",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 133.203125,
+        "bottom": 506.78125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-multimedia-entry-390x844.png",
+      "state": "multimedia-entry",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-multimedia-entry-844x390.png",
+      "state": "multimedia-entry",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-multimedia-entry-768x1024.png",
+      "state": "multimedia-entry",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 0,
+        "right": 768,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-multimedia-entry-1024x768.png",
+      "state": "multimedia-entry",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-multimedia-entry-320x640.png",
+      "state": "multimedia-entry",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-multimedia-entry-390x844.png",
+      "state": "multimedia-entry",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-multimedia-entry-844x390.png",
+      "state": "multimedia-entry",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-multimedia-entry-768x1024.png",
+      "state": "multimedia-entry",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 0,
+        "right": 768,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-multimedia-entry-1024x768.png",
+      "state": "multimedia-entry",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-multimedia-entry-320x640.png",
+      "state": "multimedia-entry",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 68,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-camera-390x844.png",
+      "state": "video-camera",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 238.71875,
+        "bottom": 605.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-camera-844x390.png",
+      "state": "video-camera",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-camera-768x1024.png",
+      "state": "video-camera",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 249.40625,
+        "bottom": 774.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-camera-1024x768.png",
+      "state": "video-camera",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 121.40625,
+        "bottom": 646.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-camera-320x640.png",
+      "state": "video-camera",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 156.40625,
+        "bottom": 483.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-camera-390x844.png",
+      "state": "video-camera",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 238.71875,
+        "bottom": 605.28125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-camera-844x390.png",
+      "state": "video-camera",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-camera-768x1024.png",
+      "state": "video-camera",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 253.40625,
+        "bottom": 770.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-camera-1024x768.png",
+      "state": "video-camera",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 121.40625,
+        "bottom": 646.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-camera-320x640.png",
+      "state": "video-camera",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 156.40625,
+        "bottom": 483.59375,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-review-390x844.png",
+      "state": "video-review",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 147.84375,
+        "bottom": 696.15625,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-review-844x390.png",
+      "state": "video-review",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-review-768x1024.png",
+      "state": "video-review",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 180.921875,
+        "bottom": 843.078125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-review-1024x768.png",
+      "state": "video-review",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 52.921875,
+        "bottom": 715.078125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "light-video-review-320x640.png",
+      "state": "video-review",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 54.328125,
+        "bottom": 585.65625,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-review-390x844.png",
+      "state": "video-review",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 16,
+        "right": 374,
+        "top": 147.84375,
+        "bottom": 696.15625,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-review-844x390.png",
+      "state": "video-review",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-review-768x1024.png",
+      "state": "video-review",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "box": {
+        "left": 64,
+        "right": 704,
+        "top": 184.921875,
+        "bottom": 839.078125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-review-1024x768.png",
+      "state": "video-review",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 192,
+        "right": 832,
+        "top": 52.921875,
+        "bottom": 715.078125,
+        "overflow": false
+      }
+    },
+    {
+      "file": "dark-video-review-320x640.png",
+      "state": "video-review",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "box": {
+        "left": 16,
+        "right": 304,
+        "top": 54.328125,
+        "bottom": 585.65625,
+        "overflow": false
+      }
+    }
+  ],
+  "recordings": [
+    {
+      "id": "884f64e3-acd3-49ee-942a-9bf730fc004e",
+      "workId": "a",
+      "workTitle": "Prélude original",
+      "title": "Prélude original",
+      "sessionId": null,
+      "createdAt": "2026-10-17T08:47:30.532Z",
+      "draft": false,
+      "kind": "video",
+      "durationMs": 453,
+      "installation": "33e257b6-d1d2-465e-86a8-35bad50ef317",
+      "bytes": 3997
+    },
+    {
+      "id": "9a03307a-eba6-4952-8298-d9d471166ae0",
+      "workId": "b",
+      "workTitle": "Synthetic étude b",
+      "title": "Standalone audio take",
+      "sessionId": null,
+      "createdAt": "2026-10-17T08:47:28.631Z",
+      "draft": false,
+      "kind": "audio",
+      "durationMs": 1282,
+      "installation": "33e257b6-d1d2-465e-86a8-35bad50ef317",
+      "bytes": 17285
+    }
+  ],
+  "notebookAndAssetsUnchanged": true,
+  "audioSilenceAndSignalVerified": true,
+  "permissionCancellationTracksReleased": true,
+  "runtimeErrors": [],
+  "sourceHashes": {
+    "src/companion/media-view.js": "434db68d468efceb01b2adcd401c5aef5ce583e34ca0ceb722cb38901a1c8a70",
+    "src/companion/media.css": "ed6af21f83774b0b509c0484a5435825390ed92e56bd4a7d1a12ab1509b96b0b",
+    "src/companion/app.js": "f446c3ad1d8450c3393e4cbdf6a92f1182b5eee69608c2140358a9d13acba60f",
+    "src/companion/locale-ca.js": "938db129ed95d38d11f82983416e33dac7508daca99cc525a0b7fa0ddc927cc5",
+    "tests/media-standalone.browser.test.js": "3dce19a6fd2ee4d968656d4a6d9ce3d8ecbccc95eef47579d552a1443011d037"
+  },
+  "buildIndexSha256": "4dd1e12e618a8bea20c99ca3659548cc4fe7c909ecbfaa672a45b710b67590c5"
+}

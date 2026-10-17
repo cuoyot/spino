@@ -25,8 +25,8 @@ export function syntheticDrive(){
         return s.size===s.total?ok(files.get(s.metadata.id)):ok(null,308,{range:`bytes=0-${s.size-1}`});
       }
       if(u.pathname.endsWith('/files')){
-        const q=u.searchParams.get('q'),notebook=/key='notebookId' and value='([^']+)'/.exec(q)?.[1];
-        return ok({files:[...files.values()].filter(f=>f.accountId===accountId&&f.appProperties.notebookId===notebook).map(({blob,accountId,...f})=>f)});
+        const q=u.searchParams.get('q'),notebook=/key='notebookId' and value='([^']+)'/.exec(q)?.[1],formats=[...q.matchAll(/key='spinoMedia' and value='([^']+)'/g)].map(m=>m[1]);
+        return ok({files:[...files.values()].filter(f=>f.accountId===accountId&&f.appProperties.notebookId===notebook&&formats.includes(f.appProperties.spinoMedia)).map(({blob,accountId,...f})=>f)});
       }
       const f=files.get(u.pathname.split('/').at(-1));if(!f||f.accountId!==accountId)return ok(null,404);
       if(u.searchParams.get('alt')==='media'){

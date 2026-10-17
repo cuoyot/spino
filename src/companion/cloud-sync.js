@@ -2,6 +2,7 @@ import { validNotebookId, parseDeviceLink, encodeDeviceLink } from './device-lin
 import { CloudBackup, backupHash, createCloudBackup } from './cloud-backup.js';
 import { validateBackup } from './model.js';
 import { mergeNotebooks, notebookContent, stableJSON } from './cloud-merge.js';
+import { notebookConflictReview, notebookConflictValues } from './cloud-conflict-review.js';
 import { cloudErrorCode } from './cloud-errors.js';
 import {driveNotebookContent} from './notebook-transport.js';
 
@@ -55,9 +56,12 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!state.enabled) return;
     state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
-    const remoteConflicts=remoteFile.conflicts||[];
+    const pendingRemoteConflicts=remoteFile.conflicts||[];
+    const remoteConflicts=pendingRemoteConflicts.filter(path=>!/^\/(?:header\/)?library\/report(?:\/|$)/.test(path));
     result.conflicts=[...new Set([...result.conflicts,...remoteConflicts])];
-    const conflictHash = result.conflicts.length ? await backupHash(stableJSON({ local, remote, ...(remoteConflicts.length?{remoteRevision:remoteFile.hash}: {}) })) : null;
+    // Bind a choice to the values actually reviewed; unrelated saves must not invalidate it.
+    const graphVersions=Object.fromEntries((remoteFile.conflictKeys||[]).filter(key=>remoteConflicts.some(path=>path==='/'+key||path.startsWith('/'+key+'/'))).map(key=>[key,remoteFile.versions?.[key]||remoteFile.hash]));
+    const conflictHash = result.conflicts.length ? await backupHash(stableJSON({values:notebookConflictValues(local,remote,result.conflicts,remoteConflicts),graphVersions})) : null;
     if (!state.enabled) return;
     const selected = preference || state.resolution?.preference;
     const reviewedHash = preference ? state.conflictHash : state.resolution?.hash;
@@ -65,6 +69,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       state.resolution = null;
       state.status = 'conflict'; state.conflicts = result.conflicts;
       state.conflictHash = conflictHash;
+      state.conflictReview = notebookConflictReview(local,remote,result.backup,result.conflicts,remoteConflicts);
       state.error = 'Both devices changed the same data. Choose which conflicting values to keep. Independent changes will be kept from both devices.';
       return;
     }
@@ -78,7 +83,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     const localChanged = stableJSON(local) !== stableJSON(merged);
     if (!eligible() || captured !== revision) { state.status = 'waiting'; return; }
     if (localChanged && state.resolution && !canApply()) { state.status = 'waiting'; state.waitReason = applyBlocker(); return; }
-    if (remoteConflicts.length || !remoteId || stableJSON(remote) !== stableJSON(merged)) {
+    if (pendingRemoteConflicts.length || !remoteId || stableJSON(remote) !== stableJSON(merged)) {
       uploaded=true; state.operation = 'write'; state.status = 'writing'; publish();
       const expectedHash = await backupHash(remoteFile.text);
       if (!state.enabled) return;
@@ -107,7 +112,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     lastSyncedRevision=captured;lastRemoteHash=remoteFile.hash||await backupHash(remoteFile.text);
     state.operation = null; state.errorCode = ''; state.retryable = false; state.retryCount = 0;
     const updated=localChanged||uploaded;
-    state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null; state.lastCheckedAt = new Date().toISOString(); if(updated)state.lastWrittenAt=state.lastCheckedAt;
+    state.status = 'saved'; state.resolution = null; state.waitReason = null; state.error = ''; state.conflicts = []; state.conflictHash = null;state.conflictReview=null; state.lastCheckedAt = new Date().toISOString(); if(updated)state.lastWrittenAt=state.lastCheckedAt;
     publish();
     if (localChanged) adopted();
   }

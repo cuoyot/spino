@@ -1,0 +1,106 @@
+{
+  "version": "6.1.0-beta.16",
+  "appVersion": "6.1.0-beta.16",
+  "build": 69,
+  "date": "2026-10-17T09:41:40.897449+00:00",
+  "webBuild": "passed",
+  "androidBuild": "Java21 assembleDebug and testDebugUnitTest passed",
+  "androidUnitTests": 7,
+  "focusedChecks": 117,
+  "focusedTestLog": "output/review/beta16-final-focused-tests.log",
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 261,
+  "apkBytes": 24173171,
+  "apkSha256": "757561aa148d0198a3565314bf8e0386740020feeefb4474315dce85fac9d195",
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/multimedia/2026-10-17-beta16-recording-09/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-17-beta16-final-release-05/verification.json",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-17-beta16-native-10/native.json",
+  "foreground": "    topResumedActivity=ActivityRecord{bc4b4fe u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t101}",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "originalLogicalStoreCount": 0,
+  "originalStoresUnchanged": true,
+  "retainedBlobFiles": 53,
+  "originalRetentionVerified": false,
+  "retentionScope": "Raw IndexedDB files match immediately after replacement installation and immutable blobs remain unchanged after review. The original logical baseline remains empty following the previously recorded beta13 emulator incident; this does not establish recovery of that earlier notebook. Review uses isolated namespaced synthetic databases and private recovery archives.",
+  "emulatorCameraCaptureTested": true,
+  "nativeVideo": [
+    {
+      "orientation": "portrait",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 720,
+        "height": 1280,
+        "duration": 1.666,
+        "title": "Prélude en do majeur"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    },
+    {
+      "orientation": "landscape",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 1280,
+        "height": 720,
+        "duration": 1.66,
+        "title": "Grabación libre"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    }
+  ],
+  "physicalCaptureTested": false,
+  "physicalDeviceAcceptance": false,
+  "titleDateOverlayImplemented": true,
+  "publicVerification": "6.1.0-beta.16-publication.json",
+  "sources": {
+    "src/companion/app.js": "1374625c0c6e29a195d5cfce7927ee1f2aa3e74708e8dd957df81b805b5f6428",
+    "src/companion/media-view.js": "adc748de32f5fb2c99597eb4000a5e2e32808f8cf63072affd7cc04a579f4ca8",
+    "src/companion/media.css": "22bbef04d425d02e4f3a1f2bd1f53aeab0aa45702565e38eac6e8bcc357e8139",
+    "src/companion/media-store.js": "70ba46f2876ebccbed09120262d5d7f9536b4dc703f37b5bd61fd0e568f7f6db",
+    "src/companion/media-sync.js": "7f155f676dae4d9833d0d9506702ba942ebe17ca42fac3ec5c24dc1ef5f68d6f",
+    "src/companion/drive-media.js": "2420a776fa71de19c46281f56c6371ae5f8753fc0a76e62622a749c2e0f9f36f",
+    "package-lock.json": "0bee8a2e6f0f55d92a884b399a133623a5e4d10f99cf46e38c7073512e70ff8a",
+    "android/app/build.gradle": "31bbc065a07c320dfab47fe4ce07e86d628e3fca5ffc648e1a10f3a6c610eb1e",
+    "src/companion/cloud-merge.js": "c5e73c1e9822c4d427c9832e7f4aab066cd906176252f0345310247357b7b55e",
+    "src/companion/cloud-sync.js": "aaf5372fa3630fd09b45e236b17c508d49f6c4a97dde78a73f6f3c443dd30449",
+    "src/companion/atomic-notebook.js": "d2b69d8cb90a7e15cf771f7d90ea96c2943390744ecce0d298a5c6cb3fa50dd0",
+    "src/companion/drive-incremental.js": "e5a56a787507f9af599eff24bfbdd02baf10272b1f4d1c50611ee60c315ae325",
+    "src/companion/cloud-conflict-review.js": "87357bae9dddeccfd17d0e69a17b24895bcaab54de08e6f48a489d1de31df22d",
+    "src/companion/cloud-backup-view.js": "aa2f681e602c78e7255d541d1b60cfc3a08643a59b33da973887656fe8c660d4"
+  },
+  "syncConflictEvidence": [
+    "../quality-review/captures/profile/2026-10-17-practice-conflicts-04/local.json",
+    "../quality-review/captures/profile/2026-10-17-practice-conflicts-04/remote.json"
+  ],
+  "practiceStartEvidence": "../quality-review/captures/preparation/2026-10-17-beta16-local-start-05/verification.json"
+}

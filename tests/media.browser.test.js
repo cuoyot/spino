@@ -51,7 +51,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture audio')?.readyState>=1"));
  assert.ok(await evaluate(`Number.isFinite(document.querySelector('#cp-media-capture audio').duration)&&Math.abs(document.querySelector('#cp-media-capture audio').duration-2)<1`));await click('[data-media=close]');
  // Video entry from Repertoire, using the same piece and the active session link.
- await click('[data-action=work-detail][data-id=media-work-a]');await click('[data-action=record-work]');await click('[data-media=video]');await evaluate(until("document.querySelector('[data-media-clock]')?.textContent==='0:02'"));
+ await click('[data-action=work-detail][data-id=media-work-a]');await click('[data-action=record-work]');await click('[data-media=video]');await evaluate(until("document.querySelector('[data-media=start-video]')"));await click('[data-media=start-video]');await evaluate(until("document.querySelector('[data-media-clock]')?.textContent==='0:02'"));
  for(const [name,width,height] of layouts)await capture('recording','light',name,width,height);
  // Controls stay usable in the score viewers' modal top layer.
  await evaluate(`window.syntheticScore=document.createElement('dialog');syntheticScore.className='synthetic-score';document.body.append(syntheticScore);syntheticScore.showModal();`);

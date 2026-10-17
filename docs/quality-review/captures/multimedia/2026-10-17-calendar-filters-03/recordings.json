@@ -1,0 +1,62 @@
+[
+  {
+    "id": "audio-now",
+    "kind": "audio",
+    "workId": "a",
+    "workTitle": "Prélude en do majeur",
+    "title": "audio-now",
+    "createdAt": "2026-10-17T10:00:00",
+    "durationMs": 1000,
+    "draft": false
+  },
+  {
+    "id": "video-now",
+    "kind": "video",
+    "workId": "a",
+    "workTitle": "Prélude en do majeur",
+    "title": "video-now",
+    "createdAt": "2026-10-17T10:00:00",
+    "durationMs": 1000,
+    "draft": false
+  },
+  {
+    "id": "audio-week",
+    "kind": "audio",
+    "workId": "b",
+    "workTitle": "Synthetic étude",
+    "title": "audio-week",
+    "createdAt": "2026-10-12T10:00:00",
+    "durationMs": 1000,
+    "draft": false
+  },
+  {
+    "id": "audio-old",
+    "kind": "audio",
+    "workId": "a",
+    "workTitle": "Prélude en do majeur",
+    "title": "audio-old",
+    "createdAt": "2026-10-04T10:00:00",
+    "durationMs": 1000,
+    "draft": false
+  },
+  {
+    "id": "video-old",
+    "kind": "video",
+    "workId": "b",
+    "workTitle": "Synthetic étude",
+    "title": "video-old",
+    "createdAt": "2026-09-07T10:00:00",
+    "durationMs": 1000,
+    "draft": false
+  },
+  {
+    "id": "draft-now",
+    "kind": "video",
+    "workId": "a",
+    "workTitle": "Prélude en do majeur",
+    "title": "draft-now",
+    "createdAt": "2026-10-17T10:00:00",
+    "durationMs": 1000,
+    "draft": true
+  }
+]

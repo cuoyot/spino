@@ -191,3 +191,8 @@ D-039 refines the merged-week appearance using the owner's Runna references. The
 ## Weekly duration follow-up — 2026-10-16
 
 Owner requested the weekly widget use hours/minutes like Progress. The total and optional goal now reuse the existing formatter, including the progress bar’s accessible value; numeric calculations and whole-minute rounding stay unchanged. Production build and ten focused unit/browser checks pass. [Dated responsive evidence](captures/today/2026-10-16-hours-minutes-01/README.md) covers both themes and four phone/tablet orientations using disposable notebooks, including 199 min → 3 hr 19 min and a 90-minute goal → 1 hr 30 min. Source/build hashes and fixtures are retained. Local browser review is open at http://127.0.0.1:5216/. No APK or publication; native and owner visual acceptance remain open.
+
+
+## 2026-10-17 — Standalone recording (D-057)
+
+Owner requests Record from Home and Multimedia. Implemented as a contextual header button, opening only recording controls and current repertoire selection, with live camera or measured microphone level feedback. Existing practice/weekly/commitment hierarchy remains in place. Shared header parity and Home entry geometry pass in both themes, phone/tablet orientations and 320 px. [Current evidence](captures/multimedia/2026-10-17-standalone-recording-02/verification.json); [recording review](recording.md). No new practice session is created by recording, and the existing notebook remains unchanged. Responsive browser only; owner/native acceptance and packaging remain open.

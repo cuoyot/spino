@@ -32,7 +32,9 @@ const messages = {
     relink: 'Select the sync file again',
     providerUnavailable: 'The selected cloud file is unavailable. Open your file provider, check your account, then select the same sync file again.',
     conflictNote: 'Only overlapping edits need a choice. Other changes are kept from both devices.',
-    conflictCount: '{count} conflicting values', local: 'Use this device’s edits', remote: 'Use the cloud edits',
+    conflictOne:'1 conflicting value', conflictCount: '{count} conflicting values', local: 'Prefer this device for conflicts', remote: 'Prefer the cloud for conflicts',
+    keptCount: '{count} independent practices will be kept', keptNote: 'Both choices keep these practices. Only the conflicting values below are affected.', thisDevice: 'This device', cloudValue: 'Cloud', removedValue: 'Removed', emptyValue: 'Empty', detailsValue: 'Details differ', yesValue: 'Yes', noValue: 'No',
+    fields: {record:'Conflicting record',sessionId:'Practice linked to this plan',title:'Title',notes:'Notes',next:'Next step',bpm:'Tempo',status:'Status',elapsedMs:'Practice time',results:'Practice results',blocks:'Practice activities',weeklyMinutes:'Weekly goal',language:'Language',name:'Name',mood:'Rating',active:'Current practice'},
     technical: 'Technical details',
     syncHelpTitle: 'Same file, every device', syncHelp: 'Select the same sync file in the same cloud account on each device. Independent edits are combined.',
     backupHelpTitle: 'Restore when you choose', backupHelp: 'A one-device backup does not import changes automatically. Restoration is always manual.',
@@ -66,7 +68,9 @@ const messages = {
     relink: 'Volver a seleccionar el archivo',
     providerUnavailable: 'El archivo de nube seleccionado no está disponible. Abre tu proveedor de archivos, comprueba tu cuenta y vuelve a seleccionar el mismo archivo de sincronización.',
     conflictNote: 'Solo debes elegir entre los cambios que coinciden. El resto se conserva de ambos dispositivos.',
-    conflictCount: '{count} valores en conflicto', local: 'Usar los cambios de este dispositivo', remote: 'Usar los cambios de la nube',
+    conflictOne:'1 valor en conflicto', conflictCount: '{count} valores en conflicto', local: 'Preferir aquí en los conflictos', remote: 'Preferir nube en los conflictos',
+    keptCount: 'Se conservarán {count} prácticas independientes', keptNote: 'Ambas opciones conservan estas prácticas. Solo afectan a los valores en conflicto que se muestran debajo.', thisDevice: 'Aquí', cloudValue: 'Nube', removedValue: 'Eliminado', emptyValue: 'Vacío', detailsValue: 'Los detalles son distintos', yesValue: 'Sí', noValue: 'No',
+    fields: {record:'Registro en conflicto',sessionId:'Práctica vinculada a este plan',title:'Título',notes:'Notas',next:'Próximo paso',bpm:'Tempo',status:'Estado',elapsedMs:'Tiempo de práctica',results:'Resultados de práctica',blocks:'Actividades de práctica',weeklyMinutes:'Objetivo semanal',language:'Idioma',name:'Nombre',mood:'Valoración',active:'Práctica actual'},
     technical: 'Detalles técnicos',
     syncHelpTitle: 'El mismo archivo en cada dispositivo', syncHelp: 'Selecciona el mismo archivo de sincronización en la misma cuenta de nube. Los cambios independientes se combinan.',
     backupHelpTitle: 'Restaura cuando lo necesites', backupHelp: 'La copia de un solo dispositivo no importa cambios automáticamente. La restauración es siempre manual.',
@@ -155,7 +159,11 @@ export function cloudConflictMarkup(state, options = {}) {
     const parts = path.split('/').filter(Boolean), key = parts[0] === 'data' ? parts[1] : parts[0];
     return t.conflictGroups[key] || t.conflictGroups.unknown;
   }))];
-  return `<div class="cp-cloud-dialog" data-cloud-dialog="conflicts"><p>${esc(t.conflictNote)}</p><div class="cp-cloud-conflict-summary"><strong>${esc(t.conflictCount.replace('{count}', conflicts.length))}</strong><p>${esc(groups.join(' · '))}</p></div><div class="cp-cloud-conflict-actions">${button('cloud-resolve-local', t.local, 'primary', disabled(state))}${button('cloud-resolve-remote', t.remote, '', disabled(state))}</div><details class="cp-cloud-details"><summary>${esc(t.technical)}</summary><ul class="cp-cloud-technical">${conflicts.map(path => `<li>${esc(path)}</li>`).join('')}</ul></details>${footer(t)}</div>`;
+  const review=state.conflictReview;
+  const value=entry=>!entry?'':entry.kind==='practice'?esc(entry.title)+'<small>'+esc(entry.date)+' · '+Math.round(entry.elapsedMs/60000)+' min</small>':entry.kind==='duration'?Math.round(entry.elapsedMs/60000)+' min':entry.kind==='text'?esc(entry.text):esc(t[entry.kind+'Value']||t.detailsValue);
+  const kept=review?`<section class="cp-cloud-preserved"><strong>✓ ${esc(t.keptCount.replace('{count}',review.practiceCount))}</strong><p>${esc(t.keptNote)}</p>${review.practices.length?`<ul>${review.practices.map(s=>`<li>${esc(s.title)}<small>${esc(s.date)} · ${Math.round((s.elapsedMs||0)/60000)} min</small></li>`).join('')}</ul>`:''}</section>`:'';
+  const values=review?.values?.length?`<div class="cp-cloud-conflict-values">${review.values.map(item=>`<section><h3>${esc(item.title||t.conflictGroups[item.group]||t.conflictGroups.unknown)}</h3><p>${esc(t.fields[item.field]||t.conflictGroups[item.group]||t.conflictGroups.unknown)}</p><dl><div><dt>${esc(t.thisDevice)}</dt><dd>${value(item.local)}</dd></div><div><dt>${esc(t.cloudValue)}</dt><dd>${value(item.remote)}</dd></div></dl></section>`).join('')}</div>`:'';
+  return `<div class="cp-cloud-dialog" data-cloud-dialog="conflicts">${review?'':`<p>${esc(t.conflictNote)}</p>`}${kept}<div class="cp-cloud-conflict-summary"><strong>${esc(conflicts.length===1?t.conflictOne:t.conflictCount.replace('{count}', conflicts.length))}</strong><p>${esc(groups.join(' · '))}</p></div>${values}<div class="cp-cloud-conflict-actions">${button('cloud-resolve-local', t.local, '', disabled(state))}${button('cloud-resolve-remote', t.remote, '', disabled(state))}</div><details class="cp-cloud-details"><summary>${esc(t.technical)}</summary><ul class="cp-cloud-technical">${conflicts.map(path => `<li>${esc(path)}</li>`).join('')}</ul></details>${footer(t)}</div>`;
 }
 
 export function cloudHelpMarkup(options = {}) {

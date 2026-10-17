@@ -263,3 +263,15 @@ test('a connected or paused notebook cannot be replaced through join, create or 
  assert.equal(picks,0);assert.equal(creates,0);
  await a.engine.disconnect();a.adapter.pickBackup=async()=>{picks++;return {cancelled:true};};await a.engine.joinShared();assert.equal(picks,1);assert.equal(a.engine.state.name,'');assert.deepEqual(a.get().data.works,[{id:'kept'}]);
 });
+
+test('reviewed conflicting values remain valid after unrelated practice and diagnostic updates',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original',notes:''}])),b=device(t,shared,book());await a.engine.createShared();await b.engine.joinShared();
+ a.edit(v=>v.data.works[0].title='Local');b.edit(v=>v.data.works[0].title='Cloud');await b.engine.sync();await a.engine.sync();assert.equal(a.engine.state.status,'conflict');
+ a.edit(v=>{v.data.sessions.push({id:'independent-practice'});v.data.works[0].notes='New independent note';v.library={report:{checkedAt:'2026-10-17T11:00:00Z'}};});
+ await a.engine.resolve('local');assert.equal(a.engine.state.status,'saved',a.engine.state.error);assert.equal(a.get().data.works[0].title,'Local');assert.equal(a.get().data.works[0].notes,'New independent note');assert.equal(a.get().data.sessions[0].id,'independent-practice');
+});
+test('legacy catalogue diagnostic conflicts are repaired without choosing between notebooks',async t=>{
+ const shared={},a=device(t,shared,book([{id:'a',title:'Original'}]));await a.engine.createShared();const read=a.adapter.readLinked;let pending=true,writes=0;const write=a.adapter.write;
+ a.adapter.readLinked=async()=>({...await read(),conflicts:pending?['/header/library/report/checkedAt']:[]});a.adapter.write=async args=>{writes++;await write(args);pending=false;};
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);assert.equal(writes,1);assert.equal(a.get().data.works[0].title,'Original');
+});

@@ -36,3 +36,15 @@ test('empty rhythm and period navigation render in English and Catalan without a
   setAppLanguage('en');assert.match(streakDetailMarkup(data,'2026-10-01','2026-10-16'),/0 <small>weeks/);assert.match(mediaMarkup([],[]),/No local recordings/);
   setAppLanguage('ca');assert.match(progressHighlightsMarkup(data,[],'2026-10-16'),/Gravacions/);assert.match(streakDetailMarkup(data,'2026-10-01','2026-10-16'),/Sessions de la ratxa/);const markup=mediaMarkup([],[],{month:'2026-10-16'});assert.match(markup,/Setmana/);assert.match(markup,/Mostrar mes/);assert.doesNotMatch(markup,/media-from|media-type|media-work/);assert.doesNotMatch(markup,/Offline playback and sync/);setAppLanguage('en');
 });
+
+test('piece filtering retains recorded pieces outside the current repertoire and escapes their original titles',async()=>{
+  const {recordedPieces,mediaPieceFilterMarkup,mediaMarkup}=await import('../src/companion/media-view.js');
+  const rows=[{id:'old-take',workId:'archived',workTitle:'Original <étude>',title:'Saved take',kind:'audio',createdAt:'2026-10-17T12:00:00',bytes:12,durationMs:1000}];
+  const before=JSON.stringify(rows);
+  setAppLanguage('en');
+  assert.deepEqual(recordedPieces(rows,[]),[{id:'archived',title:'Original <étude>'}]);
+  assert.match(mediaPieceFilterMarkup(rows,[],'archived'),/Original &lt;étude&gt;/);
+  assert.match(mediaMarkup(rows,[],{month:'2026-10-17',workId:'archived',type:'video'}),/No recordings match these filters/);
+  setAppLanguage('ca');assert.match(mediaPieceFilterMarkup(rows,[]),/Totes les obres/);assert.match(mediaMarkup(rows,[],{month:'2026-10-17'}),/Filtres de gravacions/);
+  assert.equal(JSON.stringify(rows),before);setAppLanguage('en');
+});

@@ -8,7 +8,7 @@ import { progressHistoryMarkup } from './progress-history.js';
 import { bindScoreThumbnails } from './score-thumbnail.js';
 import './progress-history.css';
 import { openMediaStore } from './media-store.js';
-import { mediaMarkup, createMediaCapture } from './media-view.js';
+import { mediaMarkup, mediaPieceFilterMarkup, createMediaCapture } from './media-view.js';
 import './media.css';
 import './browse-surfaces.css';
 import { repertoireProgressMarkup, techniqueProgressMarkup } from './progress-learning.js';
@@ -22,7 +22,7 @@ import { createWalkthrough } from './walkthrough.js';
 import { rateApp, shareApp } from './app-actions.js';
 import { applyTheme } from './theme.js';
 import { ui, getAppLanguage, setAppLanguage, localizeMessage, APP_LANGUAGES } from './locale.js';
-import { printActionButton } from './score-controls.js';
+import { printActionButton, scoreIcon } from './score-controls.js';
 import { DEFAULT_PRACTICE_MINUTES, practiceMinutes, resizePractice } from './practice-duration.js';
 import { editSession, restoreCurrentRuntime, settleSuspendedBlocks } from './session-edit.js';
 import { sessionMarkup, workPickerMarkup } from './session-view.js';
@@ -119,7 +119,7 @@ export async function bootCompanion(reader) {
   let scoreViewer = null, openingScore = false, importingScore = false;
   let sessionWriting = false, sessionDrag = null;
   let cloud = null, restoringBackup = false, cloudAdopted = false;
-  let pendingLocalPractice = null;
+  let startingPractice = false;
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
   let driveConnecting = false, mediaSync = null;
@@ -133,7 +133,7 @@ export async function bootCompanion(reader) {
     setScreenAwake(practiceNeedsScreen({active:data.active,view,readerVisible:root.hidden,scoreVisible:!!scoreViewer,hidden:document.hidden})).catch(error=>console.warn('Could not update practice screen policy.',error));
   }
   let mediaStore = null, mediaRecords = [], mediaCapture = null;
-  const mediaCalendar = {month:localDate(),mode:'week'};
+  const mediaCalendar = {month:localDate(),mode:'week',type:'',workId:''};
   let streakMonth=localDate();
   function openStreak() { showDialog(ui('Keep your rhythm','Mantén tu ritmo'),streakDetailMarkup(data,streakMonth)); }
   try { mediaStore = await openMediaStore(); mediaRecords = await mediaStore.index(); }
@@ -141,7 +141,7 @@ export async function bootCompanion(reader) {
   function multimedia() { return mediaMarkup(mediaRecords,data.works,mediaCalendar); }
   async function refreshMedia() { mediaRecords = await mediaStore.index(); if(['multimedia','work','progress'].includes(view))render(); }
   function recordWork(id) { if(!mediaCapture)throw Error(ui('Local recording storage is unavailable. Reopen the app and try again.','El almacenamiento local de grabaciones no está disponible. Abre de nuevo la app y vuelve a intentarlo.'));if(mediaCapture.recording){mediaCapture.stop();return;}mediaCapture.open(id,currentBlock()?.workId===id?data.active?.id:null); }
-  if(mediaStore)mediaCapture=createMediaCapture({store:mediaStore,changed:refreshMedia,report:message=>toast(message),getWork:id=>data.works.find(w=>w.id===id&&!w.trashedAt)});
+  if(mediaStore)mediaCapture=createMediaCapture({store:mediaStore,changed:refreshMedia,report:message=>toast(message),getWork:id=>data.works.find(w=>w.id===id&&!w.trashedAt),getWorks:()=>data.works.filter(w=>!w.trashedAt)});
   let library = await store.library(), libraryFilters = {state:'usable'}, libraryPage = 0, libraryReady = false;
   for (const e of Object.values(library.executions)) {
     if (['queued', 'downloading'].includes(e.job?.status)) e.job.status = 'paused';
@@ -537,38 +537,27 @@ export async function bootCompanion(reader) {
   }
 
   async function startSession(source, afterStart = null) {
-    if (!data.active && cloud?.state.enabled) {
-      const pending = { source: copy(source), afterStart };
-      pendingLocalPractice = pending;
-      const localActions = `<p>${ui('You can keep practising locally. Changes stay on this device until you resume synchronization.','Puedes seguir practicando en local. Los cambios se guardan en este dispositivo hasta que reanudes la sincronización.')}</p><div class="cp-actions">${btn('cloud-continue-local',ui('Continue locally','Continuar en local'),'','primary')}${btn('close-dialog',ui('Cancel','Cancelar'))}</div>`;
-      showDialog(ui('Synchronizing notebook…','Sincronizando cuaderno…'),`<p role="status" data-cloud-preflight>${ui('Checking for changes from your other devices.','Buscando cambios de tus otros dispositivos.')}</p>${localActions}`);
-      dialogCleanup = () => { if (pendingLocalPractice === pending) pendingLocalPractice = null; };
-      await cloud.sync();
-      if (cloudAdopted || pendingLocalPractice !== pending) return;
-      if (['error','conflict','waiting'].includes(cloud.state.status)) {
-        showDialog(ui('Synchronization needs attention','La sincronización necesita atención'),`<p>${ui('The notebook could not finish synchronizing. Your saved notebook is available on this device.','No se ha podido completar la sincronización. Tu cuaderno guardado está disponible en este dispositivo.')}</p>${localActions}<div class="cp-actions">${btn(cloud.state.status==='conflict'?'cloud-conflicts':'profile-data-backup',ui('Resolve sync problem','Resolver sincronización'))}</div>`);
-        pendingLocalPractice = pending;
-        dialogCleanup = () => { if (pendingLocalPractice === pending) pendingLocalPractice = null; };
-        return;
+    if (startingPractice || cloudAdopted || root.inert) return;
+    // Start from the saved local notebook; provider I/O must never gate practice.
+    // Reserve the transition before MIDI/storage awaits so a late sync cannot adopt over it.
+    startingPractice = true;
+    try {
+      if(data.active){go('session');return;}
+      if(source.routinePolicy) { try { await reader.refreshMidi(); } catch {} source=routineForPractice(source,data,!!reader.devices.length,{keepTempo:!!source.routinePrepared}); }
+      for (const b of source.blocks) {
+        const work = data.works.find(w => w.id === b.workId);
+        if (work?.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw new Error(ui("The selected score needs validation, analysis or piano-part selection.", "La partitura seleccionada necesita validación, análisis o selección de las partes de piano."));
       }
-      pendingLocalPractice = null;
-      dialog.close();
-    }
-    if(data.active){go('session');return;}
-    if(source.routinePolicy) { try { await reader.refreshMidi(); } catch {} source=routineForPractice(source,data,!!reader.devices.length,{keepTempo:!!source.routinePrepared}); }
-    for (const b of source.blocks) {
-      const work = data.works.find(w => w.id === b.workId);
-      if (work?.libraryId && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === work.libraryId), executionFor(library, work.libraryId), library).playable) throw new Error(ui("The selected score needs validation, analysis or piano-part selection.", "La partitura seleccionada necesita validación, análisis o selección de las partes de piano."));
-    }
-    // Piano and MIDI sessions open with a Hanon warm-up, unless it is switched off or the plan already has one.
-    const warm = warmupPreferences(data.preferences);
-    const planned = !source.routinePolicy && (source.includeWarmup ?? warm.enabled) && source.context !== 'mobile' && !source.blocks.some(b => b.type === 'warmup') ? { ...source, blocks: [block('warmup', warmupBlockValues(data)), ...source.blocks] } : source;
-    const next=copy(data);next.active=beginSession(planned);next.active.runningSince=Date.now();
-    if(source.blocks.some(b=>b.quickPractice)){next.active.quickScore=emptyQuickScore();next.active.quickBest=quickRecords(data.sessions)[0]?.quickScore.points||0;}
-    if(source.routinePolicy)next.active.autoMidi=true;
-    await store.save(next);data=next;readerMounted=false;readerBase=null;quiz=null;go('session');
-    if (currentBlock()?.type === 'repertoire' && workHasScore(resource(currentBlock().workId))) await openScorePractice();
-    await afterStart?.();
+      // Piano and MIDI sessions open with a Hanon warm-up, unless it is switched off or the plan already has one.
+      const warm = warmupPreferences(data.preferences);
+      const planned = !source.routinePolicy && (source.includeWarmup ?? warm.enabled) && source.context !== 'mobile' && !source.blocks.some(b => b.type === 'warmup') ? { ...source, blocks: [block('warmup', warmupBlockValues(data)), ...source.blocks] } : source;
+      const next=copy(data);next.active=beginSession(planned);next.active.runningSince=Date.now();
+      if(source.blocks.some(b=>b.quickPractice)){next.active.quickScore=emptyQuickScore();next.active.quickBest=quickRecords(data.sessions)[0]?.quickScore.points||0;}
+      if(source.routinePolicy)next.active.autoMidi=true;
+      await store.save(next);data=next;readerMounted=false;readerBase=null;quiz=null;go('session');
+      if (currentBlock()?.type === 'repertoire' && workHasScore(resource(currentBlock().workId))) await openScorePractice();
+      await afterStart?.();
+    } finally { startingPractice = false; }
   }
   function sessionPage() {
     if (!data.active) return home();
@@ -818,6 +807,7 @@ export async function bootCompanion(reader) {
       if(view==='practice'){controls.setAttribute('title',controls.querySelector('small')?.textContent||'');controls.innerHTML=`<span aria-hidden="true">▶</span><span>${ui('Quick practice','Práctica rápida')}</span>`;}
       root.querySelector('.cp-header-controls').append(controls);
     }
+    if(['home','multimedia'].includes(view))root.querySelector('.cp-header-controls').innerHTML=btn('record-media',scoreIcon('record')+'<span>'+ui('Record','Grabar')+'</span>','','primary cp-record-entry');
     root.querySelector('.cp-header-controls').hidden=!root.querySelector('.cp-header-controls').childElementCount;
     (heading?.closest('.cp-row,.cp-dashboard-heading,.cp-profile-heading') || heading)?.classList.add('cp-page-heading');
     if(materialSelection && ['catalog','library-detail','downloads'].includes(view)) root.querySelector('.cp-content').insertAdjacentHTML('afterbegin',`${ui("<section class=\"cp-notice\"><b>Choose a score</b><p>Your practice is kept. Download a score and choose “Use in this practice”. The practice will use “With piano”.</p>", "<section class=\"cp-notice\"><b>Elige una partitura</b><p>Conservamos tu práctica. Descarga una partitura y pulsa «Usar en esta práctica». Se utilizará el modo «Con piano».</p>")}${btn('return-to-preparation',ui("Back to practice", "Volver a la práctica"),'','quiet')}</section>`);
@@ -920,11 +910,11 @@ export async function bootCompanion(reader) {
   const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
   if (cloudAvailable()) {
     let lastCloudKey='',lastProfileCloud='';
-    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting,
-      canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,dialog,scoreViewer,openingScore,document}),
-      applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,dialog,scoreViewer,openingScore,document}),
+    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
+      canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,startingPractice,dialog,scoreViewer,openingScore,document}),
+      applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
-      apply: async (text, syncBase) => { root.inert=true; try { if(cloudTransport.transport==='drive'){const incoming=JSON.parse(text);for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];text=JSON.stringify(incoming);}
+      apply: async (text, syncBase) => { root.inert=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive')for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
         data = await store.restore(text, { syncBase }); await reminders(); } finally {root.inert=false;} },
       adopted: () => {cloudAdopted=true;location.reload();},
       changed: () => { const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason]);if(panel&&lastCloudKey!==key){panel.outerHTML=cloudBackupMarkup(visible,cloudOptions());lastCloudKey=key;}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
@@ -1101,11 +1091,15 @@ export async function bootCompanion(reader) {
     prepare:id=>prepare(id||'reading'),
     'multimedia':async()=>{if(mediaStore)await refreshMedia();go('multimedia');},
     'record-work':recordWork,
-    'work-media':async id=>{if(mediaStore)await refreshMedia();Object.assign(mediaCalendar,{month:recordingDate(mediaRecords.find(r=>r.workId===id)||{})||localDate(),mode:'week'});libraryScroll.multimedia=0;go('multimedia');},
+    'record-media':()=>{if(!mediaCapture)throw Error(ui('Local recording storage is unavailable. Reopen the app and try again.','El almacenamiento local de grabaciones no está disponible. Abre de nuevo la app y vuelve a intentarlo.'));mediaCapture.openStandalone(view==='multimedia'?mediaCalendar.workId:'');},
+    'work-media':async id=>{if(mediaStore)await refreshMedia();Object.assign(mediaCalendar,{month:recordingDate(mediaRecords.find(r=>r.workId===id)||{})||localDate(),mode:'week',type:'',workId:''});libraryScroll.multimedia=0;go('multimedia');},
+    'media-filter-type':id=>{if(!['audio','video'].includes(id))return;mediaCalendar.type=mediaCalendar.type===id?'':id;render();root.querySelector('.cp-media-filters')?.querySelector(`[data-action=media-filter-type][data-id="${id}"]`)?.focus({preventScroll:true});},
+    'media-filter-work':()=>showDialog(ui('Filter by piece','Filtrar por obra'),mediaPieceFilterMarkup(mediaRecords,data.works,mediaCalendar.workId)),
+    'media-select-work':id=>{mediaCalendar.workId=id;dialog.close();render();root.querySelector('[data-action=media-filter-work]')?.focus({preventScroll:true});},
     'media-play':id=>mediaCapture?.play(id),
     'progress-streak':()=>{streakMonth=localDate();openStreak();},
     'streak-month':id=>{streakMonth=shiftMonth(streakMonth,Number(id));openStreak();dialog.querySelector(`[data-action=streak-month][data-id="${id}"]`)?.focus({preventScroll:true});},
-    'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week'});if(mediaStore)await refreshMedia();go('multimedia');},
+    'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week',type:'',workId:''});if(mediaStore)await refreshMedia();go('multimedia');},
     'media-toggle-month':()=>{mediaCalendar.mode=mediaCalendar.mode==='week'?'month':'week';render();root.querySelector('[data-action=media-toggle-month]')?.focus({preventScroll:true});},
     'media-month':id=>{mediaCalendar.month=shiftCalendar(mediaCalendar.month,Number(id),mediaCalendar.mode);render();root.querySelector(`[data-action=media-month][data-id="${id}"]`)?.focus({preventScroll:true});},
     'close-dialog':()=>dialog.close(),
@@ -1323,7 +1317,7 @@ export async function bootCompanion(reader) {
     'media-sync':async()=>{if(!cloud?.state.enabled)throw Error(ui('Resume synchronization first.','Reanuda primero la sincronización.'));await cloud.retry();await mediaSync?.sync();},
     'cloud-sync':async()=>{dialog.close();await cloud?.retry();mediaSync?.markDirty();},
     'cloud-relink':()=>{dialog.close();return cloud?.relink();},
-    'cloud-continue-local':async()=>{const pending=pendingLocalPractice;pendingLocalPractice=null;mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Backup & sync.','Trabajando en local. Reanuda la sincronización desde Copia y sincronización.'));if(pending)await startSession(pending.source,pending.afterStart);},
+    'cloud-continue-local':async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Backup & sync.','Trabajando en local. Reanuda la sincronización desde Copia y sincronización.'));},
     'cloud-disconnect':()=>confirm(ui("Disconnect backup", "Desconectar copia"),ui("The connection on this device will stop. Files saved in the cloud will be kept.", "Se detendrá la conexión en este dispositivo. Los archivos guardados en la nube se conservarán."),async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();await cloud.disconnect();}),
     'cloud-restore':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const result=await CloudBackup.pickBackup();if(result.text)reviewBackupRestore(result.text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
     'cloud-recovery':async()=>{if(cloud?.busy)throw new Error(ui("Wait for the current backup to finish.", "Espera a que termine la copia en curso."));pauseSession();reviewBackupRestore((await CloudBackup.readRecovery()).text);},

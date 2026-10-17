@@ -1,7 +1,7 @@
 import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
-const root=resolve('dist'),evidence='docs/quality-review/captures/progress/2026-10-16-beta15-rhythm';
+const root=resolve('dist'),evidence=process.env.RHYTHM_EVIDENCE||'docs/quality-review/captures/progress/2026-10-16-beta15-rhythm';
 const fixture=JSON.parse(await readFile(evidence+'/fixture.json','utf8'));
 const records=JSON.parse(await readFile(evidence+'/recordings.json','utf8'));
 const source=await readFile('src/companion/media-store.js','utf8');
@@ -26,7 +26,7 @@ if(synthetic){
  for(const record of ${safe(records)})await media.put({...record,blob:record.kind==='audio'?audio:video});media.close();
 }
 const observer=new MutationObserver(openProgress);
-function openProgress(){const button=document.querySelector('.cp-nav [data-action=progress]');if(button){observer.disconnect();button.click();document.querySelector('.cp-progress-highlights')?.scrollIntoView({block:'center'});document.title='SPino — synthetic rhythm & recordings review'}}
+function openProgress(){const button=document.querySelector('.cp-nav [data-action=progress]');if(button){observer.disconnect();button.click();if(new URLSearchParams(location.search).get('review')==='media'){document.querySelector('[data-action=progress-media-week]')?.click()}else document.querySelector('.cp-progress-highlights')?.scrollIntoView({block:'center'});document.title='SPino — synthetic rhythm & recordings review'}}
 observer.observe(document.body,{childList:true,subtree:true});await import(${safe(src)});openProgress();
 </script>`);
   res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png'})[extname(path)]||'application/octet-stream');res.end(body);

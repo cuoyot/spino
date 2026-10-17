@@ -1,5 +1,15 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Record|Gravar
+Microphone level|Nivell del micròfon
+Sound detected|So detectat
+Listening…|Escoltant…
+Audio level unavailable|Nivell d’àudio no disponible
+Add a piece to your repertoire before recording.|Afegeix una obra al repertori abans de gravar.
+
+Recording filters|Filtres de gravacions
+Filter by piece|Filtrar per obra
+
 The Drive notebook request failed ({cause}). Your local notebook is kept.|La petició del quadern a Drive ha fallat ({cause}). Es conserva el quadern local.
 Drive could not complete a notebook request ({code}). Your local notebook is kept.|Drive no ha pogut completar una petició del quadern ({code}). Es conserva el quadern local.
 Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.|Google Drive no està disponible. El quadern es desa en aquest dispositiu; torna a connectar o prova-ho més tard.
@@ -1282,6 +1292,29 @@ Answer with|Respondre amb
 Focus or passage|Objectiu o passatge
 Previous practice is kept.|Es conserva la pràctica anterior.
 Apply block|Aplicar el bloc
+Camera ready · not recording|Càmera preparada · sense gravar
+Camera|Càmera
+Start recording|Començar a gravar
+Pause recording|Pausar la gravació
+Resume recording|Reprendre la gravació
+Could not open this camera. Choose another camera or try again.|No s’ha pogut obrir aquesta càmera. Tria’n una altra o torna-ho a provar.
+1 conflicting value|1 valor en conflicte
+Prefer this device for conflicts|Prefereix aquest dispositiu als conflictes
+Prefer the cloud for conflicts|Prefereix el núvol als conflictes
+{count} independent practices will be kept|Es conservaran {count} pràctiques independents
+Both choices keep these practices. Only the conflicting values below are affected.|Les dues opcions conserven aquestes pràctiques. Només afecten els valors en conflicte de sota.
+This device|Aquí
+Cloud|Núvol
+Removed|Eliminat
+Empty|Buit
+Details differ|Els detalls són diferents
+Conflicting record|Registre en conflicte
+Practice linked to this plan|Pràctica vinculada a aquest pla
+Practice results|Resultats de pràctica
+Practice activities|Activitats de pràctica
+Free recording|Gravació lliure
+No piece assigned|Sense peça assignada
+Use Record to capture freely or choose a repertoire piece.|Fes servir Grava per a una presa lliure o tria una obra del repertori.
 Choose a repertoire work.|Tria una obra del repertori.
 Keep one block|Conservar un bloc
 The session cannot contain more than 30 blocks.|La sessió no pot contenir més de 30 blocs.

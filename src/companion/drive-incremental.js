@@ -1,7 +1,7 @@
 import {backupHash} from './cloud-backup.js';
 import {validateBackup} from './model.js';
 import {validNotebookId} from './device-link.js';
-import {stableJSON} from './cloud-merge.js';
+import {stableJSON,mergeNotebooks} from './cloud-merge.js';
 import {ATOMIC_FORMAT,atomicFailure,notebookRecords,recordsNotebook,recordChanges,validateCommit,validateChanges,mergeCommitGraph,hashPattern} from './atomic-notebook.js';
 import {createDriveObjects,ROOT_MARKER,COMMIT_MARKER,OBJECT_MARKER,objectFields,validDriveId} from './drive-objects.js';
 import {createDriveJournal} from './drive-journal.js';
@@ -96,7 +96,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   const materialized=await graph(c);if(c.lastGraph===materialized&&c.lastRead)return c.lastRead;
   const result=materialized,backup=await recordsNotebook(result.records,c.objects.get);
   backup.cloudBackup={sharedNotebookId:c.notebookId,atomicHeads:result.heads};
-  const text=stableJSON(backup);validate(text);const answer={text,hash:await backupHash(text),conflicts:result.conflicts,conflictKeys:result.conflictKeys,records:result.records,heads:result.heads,versions:result.versions};c.lastGraph=materialized;c.lastRead=answer;return answer;
+  const text=stableJSON(backup);validate(text);const answer={text,hash:await backupHash(text),conflicts:result.conflicts,conflictKeys:result.conflictKeys,conflictDetails:result.conflictDetails,records:result.records,heads:result.heads,versions:result.versions};c.lastGraph=materialized;c.lastRead=answer;return answer;
  }
  async function link(root,file){const connected=await account();save({...state(),link:{id:file.id,name:file.name,notebookId:root.notebookId,rootId:root.rootId,folderId:root.folderId,startToken:root.startToken,initialHeads:root.initialHeads,accountId:connected.id,format:ATOMIC_FORMAT},setupPending:true,pending:null});}
  async function descriptor(id){const file=await metadata(id);if(file.appProperties?.spinoType!==ROOT_MARKER)throw atomicFailure('This is not an incremental SPino notebook.');const root=parse(await api(`/drive/v3/files/${id}?alt=media`));if(root.notebookId!==file.appProperties.notebookId||root.rootId!==file.appProperties.rootId)throw atomicFailure('The notebook descriptor identity does not match.');return {root,file};}
@@ -163,7 +163,13 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   create:({text,name='SPino notebook.json'})=>serialized(async()=>{const value=await createRoot(text,name);await link(value.root,value.file);return {name:value.file.name};}),
   readLinked:()=>serialized(async()=>read(await current())),
   write:({text,expectedHash})=>serialized(async()=>{const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');const backup=validate(text);if(JSON.parse(text).cloudBackup?.sharedNotebookId!==c.notebookId)throw atomicFailure('Notebook identity cannot change during synchronization.');await recovery.saveRecovery({text:before.text});const records=await notebookRecords(backup,c.objects.put);await publish(c,records,{force:before.conflictKeys,base:before});return {providerAccepted:true};}),
-  async resolveRemote({local,merged,preference,expectedHash}){const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The synchronized conflict changed. Review the latest changes.','CONFLICT');const wanted=await notebookRecords(validate(merged),c.objects.put),localRecords=await notebookRecords(validate(local),c.objects.put);for(const key of before.conflictKeys){const source=preference==='local'?localRecords:before.records;if(Object.hasOwn(source,key))wanted[key]=source[key];else delete wanted[key];}const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);},
+  async resolveRemote({local,merged,preference,expectedHash}){const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The synchronized conflict changed. Review the latest changes.','CONFLICT');const wanted=await notebookRecords(validate(merged),c.objects.put),localRecords=await notebookRecords(validate(local),c.objects.put);for(const key of before.conflictKeys){
+   if(preference!=='local'){if(Object.hasOwn(before.records,key))wanted[key]=before.records[key];else delete wanted[key];continue;}
+   const detail=before.conflictDetails[key],wrap=value=>value===undefined?{}:{record:value};
+   // Apply the reviewed choice only to conflicting fields, retaining independent edits in the same record.
+   const resolved=mergeNotebooks(detail.hasBase?wrap(detail.base):null,wrap(localRecords[key]),wrap(before.records[key]),'local',detail.paths).backup.record;
+   if(resolved!==undefined)wanted[key]=resolved;else delete wanted[key];
+  }const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);},
   async acknowledgeSetup(){save({...state(),setupPending:false});},
   saveRecovery:o=>recovery.saveRecovery(o),readRecovery:()=>recovery.readRecovery(),
   async clearDeviceCache(){if(task)throw atomicFailure('Wait for synchronization.','BUSY');await journal.clear();client=null;},

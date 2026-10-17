@@ -1,0 +1,688 @@
+{
+  "date": "2026-10-17T09:38:28.534Z",
+  "kind": "responsive-browser-synthetic-drive",
+  "preference": "remote",
+  "frames": [
+    {
+      "file": "remote-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-light-390x844-choices.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-light-844x390-choices.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-light-768x1024-choices.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-light-1024x768-choices.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-light-320x640-choices.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-dark-390x844-choices.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-dark-844x390-choices.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-dark-768x1024-choices.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-dark-1024x768-choices.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    },
+    {
+      "file": "remote-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "contained": true,
+        "noOverflow": true
+      }
+    },
+    {
+      "file": "remote-dark-320x640-choices.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "choices": {
+        "visible": true,
+        "targets": true,
+        "equalSize": true
+      }
+    }
+  ],
+  "review": {
+    "practiceCount": 2,
+    "practices": [
+      {
+        "id": "c56be68e-0637-4d58-8672-3921f074bf6d",
+        "title": "Tablet practice",
+        "date": "2026-10-17",
+        "elapsedMs": 120000
+      },
+      {
+        "id": "92a57cae-0138-4527-a78c-b2fc91b75bff",
+        "title": "Phone practice",
+        "date": "2026-10-17",
+        "elapsedMs": 120000
+      }
+    ],
+    "values": [
+      {
+        "path": "/data/plans/shared-plan/sessionId",
+        "group": "plans",
+        "title": "Shared practice plan",
+        "field": "sessionId",
+        "local": {
+          "kind": "practice",
+          "title": "Phone practice",
+          "date": "2026-10-17",
+          "elapsedMs": 120000
+        },
+        "remote": {
+          "kind": "practice",
+          "title": "Tablet practice",
+          "date": "2026-10-17",
+          "elapsedMs": 120000
+        }
+      }
+    ]
+  },
+  "initial": {
+    "data": {
+      "schemaVersion": 1,
+      "preferences": {
+        "name": "Synthetic sync review",
+        "context": "mobile",
+        "weeklyMinutes": 90,
+        "wifiOnly": true,
+        "theme": "light",
+        "language": "ca",
+        "warmup": {
+          "enabled": false,
+          "minutes": 3,
+          "exercise": "rotate"
+        }
+      },
+      "works": [
+        {
+          "id": "synthetic-work",
+          "title": "Synthetic score",
+          "composer": "",
+          "stage": "Por empezar",
+          "target": null,
+          "bpm": 60,
+          "passage": "",
+          "notes": "Preserve this local note.",
+          "assetId": "synthetic-pdf",
+          "assetFormat": "pdf"
+        }
+      ],
+      "downloads": [],
+      "downloadJobs": [],
+      "routines": [],
+      "plans": [
+        {
+          "id": "shared-plan",
+          "title": "Shared practice plan",
+          "context": "piano",
+          "date": "2026-10-17",
+          "time": "10:00",
+          "status": "planned",
+          "blocks": [
+            {
+              "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "synthetic-work"
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "sessions": [],
+      "active": null,
+      "lastBackup": null
+    },
+    "assets": [
+      {
+        "id": "synthetic-pdf",
+        "name": "Synthetic score.pdf",
+        "type": "application/pdf",
+        "base64": "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==",
+        "annotations": {
+          "version": 1,
+          "marks": [
+            {
+              "id": "synthetic-mark",
+              "page": 1,
+              "type": "fingering",
+              "color": "#2878c8",
+              "width": 0.002,
+              "points": [
+                {
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              ],
+              "text": "3"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "localBefore": {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "Synthetic sync review",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "ca",
+      "warmup": {
+        "enabled": false,
+        "minutes": 3,
+        "exercise": "rotate"
+      }
+    },
+    "works": [
+      {
+        "id": "synthetic-work",
+        "title": "Synthetic score",
+        "composer": "",
+        "stage": "Por empezar",
+        "target": null,
+        "bpm": 60,
+        "passage": "",
+        "notes": "Preserve this local note.",
+        "assetId": "synthetic-pdf",
+        "assetFormat": "pdf"
+      }
+    ],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [
+      {
+        "id": "shared-plan",
+        "title": "Shared practice plan",
+        "context": "piano",
+        "date": "2026-10-17",
+        "time": "10:00",
+        "status": "completed",
+        "blocks": [
+          {
+            "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "synthetic-work"
+          }
+        ],
+        "sessionId": "92a57cae-0138-4527-a78c-b2fc91b75bff"
+      }
+    ],
+    "events": [],
+    "sessions": [
+      {
+        "id": "92a57cae-0138-4527-a78c-b2fc91b75bff",
+        "title": "Phone practice",
+        "context": "piano",
+        "planId": "shared-plan",
+        "blocks": [
+          {
+            "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "synthetic-work"
+          }
+        ],
+        "blockIndex": 1,
+        "results": [
+          {
+            "block": {
+              "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "synthetic-work"
+            },
+            "context": "piano",
+            "elapsedMs": 120000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-10-17T10:00:00.000Z",
+        "date": "2026-10-17",
+        "elapsedMs": 120000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1792231320000,
+        "notes": "",
+        "next": "",
+        "mood": null,
+        "workIds": [
+          "synthetic-work"
+        ],
+        "endedAt": "2026-10-17T10:02:00.000Z",
+        "status": "completed",
+        "manual": false
+      }
+    ],
+    "active": null,
+    "lastBackup": null
+  },
+  "after": {
+    "data": {
+      "schemaVersion": 1,
+      "preferences": {
+        "name": "Synthetic sync review",
+        "context": "mobile",
+        "weeklyMinutes": 90,
+        "language": "ca",
+        "warmup": {
+          "enabled": false,
+          "minutes": 3,
+          "exercise": "rotate"
+        },
+        "theme": "light",
+        "wifiOnly": true
+      },
+      "works": [
+        {
+          "id": "synthetic-work",
+          "title": "Synthetic score",
+          "composer": "",
+          "stage": "Por empezar",
+          "target": null,
+          "bpm": 60,
+          "passage": "",
+          "notes": "Preserve this local note.",
+          "assetId": "synthetic-pdf",
+          "assetFormat": "pdf"
+        }
+      ],
+      "downloads": [],
+      "downloadJobs": [],
+      "routines": [],
+      "plans": [
+        {
+          "id": "shared-plan",
+          "title": "Shared practice plan",
+          "context": "piano",
+          "date": "2026-10-17",
+          "time": "10:00",
+          "status": "completed",
+          "blocks": [
+            {
+              "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "synthetic-work"
+            }
+          ],
+          "sessionId": "c56be68e-0637-4d58-8672-3921f074bf6d"
+        }
+      ],
+      "events": [],
+      "sessions": [
+        {
+          "id": "92a57cae-0138-4527-a78c-b2fc91b75bff",
+          "title": "Phone practice",
+          "context": "piano",
+          "planId": "shared-plan",
+          "blocks": [
+            {
+              "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "synthetic-work"
+            }
+          ],
+          "blockIndex": 1,
+          "results": [
+            {
+              "block": {
+                "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+                "type": "repertoire",
+                "minutes": 5,
+                "bpm": 60,
+                "timing": "timed",
+                "target": "C-major",
+                "hand": "right",
+                "input": "piano",
+                "figures": "1",
+                "passage": "",
+                "workId": "synthetic-work"
+              },
+              "context": "piano",
+              "elapsedMs": 120000,
+              "measurement": null,
+              "material": null
+            }
+          ],
+          "startedAt": "2026-10-17T10:00:00.000Z",
+          "date": "2026-10-17",
+          "elapsedMs": 120000,
+          "blockElapsedMs": 0,
+          "runningSince": null,
+          "updatedAt": 1792231320000,
+          "notes": "",
+          "next": "",
+          "mood": null,
+          "workIds": [
+            "synthetic-work"
+          ],
+          "endedAt": "2026-10-17T10:02:00.000Z",
+          "status": "completed",
+          "manual": false
+        },
+        {
+          "blockElapsedMs": 0,
+          "blockIndex": 1,
+          "blocks": [
+            {
+              "bpm": 60,
+              "figures": "1",
+              "hand": "right",
+              "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+              "input": "piano",
+              "minutes": 5,
+              "passage": "",
+              "target": "C-major",
+              "timing": "timed",
+              "type": "repertoire",
+              "workId": "synthetic-work"
+            }
+          ],
+          "context": "piano",
+          "date": "2026-10-17",
+          "elapsedMs": 120000,
+          "endedAt": "2026-10-17T11:02:00.000Z",
+          "id": "c56be68e-0637-4d58-8672-3921f074bf6d",
+          "manual": false,
+          "mood": null,
+          "next": "",
+          "notes": "",
+          "planId": "shared-plan",
+          "results": [
+            {
+              "block": {
+                "bpm": 60,
+                "figures": "1",
+                "hand": "right",
+                "id": "9fdaa1c2-941d-466e-838c-f634c97487c9",
+                "input": "piano",
+                "minutes": 5,
+                "passage": "",
+                "target": "C-major",
+                "timing": "timed",
+                "type": "repertoire",
+                "workId": "synthetic-work"
+              },
+              "context": "piano",
+              "elapsedMs": 120000,
+              "material": null,
+              "measurement": null
+            }
+          ],
+          "runningSince": null,
+          "startedAt": "2026-10-17T11:00:00.000Z",
+          "status": "completed",
+          "title": "Tablet practice",
+          "updatedAt": 1792234920000,
+          "workIds": [
+            "synthetic-work"
+          ]
+        }
+      ],
+      "active": null,
+      "lastBackup": null
+    },
+    "assets": [
+      {
+        "id": "synthetic-pdf",
+        "name": "Synthetic score.pdf",
+        "type": "application/pdf",
+        "base64": "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg==",
+        "annotations": {
+          "version": 1,
+          "marks": [
+            {
+              "id": "synthetic-mark",
+              "page": 1,
+              "type": "fingering",
+              "color": "#2878c8",
+              "width": 0.002,
+              "points": [
+                {
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              ],
+              "text": "3"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "closingReviewPreservesLocal": true,
+  "bothSavedPracticesRetained": true,
+  "assetsAndAnnotationsUnchanged": true,
+  "runtimeErrors": [],
+  "buildIndexSha256": "1b3c8f48e11c704a7d00343cd4ed69a6f538941eaffcfc209468480af3bb31b6",
+  "sourceHashes": {
+    "src/companion/cloud-merge.js": "c5e73c1e9822c4d427c9832e7f4aab066cd906176252f0345310247357b7b55e",
+    "src/companion/atomic-notebook.js": "d2b69d8cb90a7e15cf771f7d90ea96c2943390744ecce0d298a5c6cb3fa50dd0",
+    "src/companion/drive-incremental.js": "e5a56a787507f9af599eff24bfbdd02baf10272b1f4d1c50611ee60c315ae325",
+    "src/companion/cloud-conflict-review.js": "87357bae9dddeccfd17d0e69a17b24895bcaab54de08e6f48a489d1de31df22d",
+    "src/companion/cloud-backup-view.js": "aa2f681e602c78e7255d541d1b60cfc3a08643a59b33da973887656fe8c660d4"
+  }
+}

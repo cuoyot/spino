@@ -22,7 +22,9 @@ Setup errors remain visible in Manage. A revision conflict can distinguish downl
 
 ## When synchronization runs
 
-Saved notebook edits upload shortly afterwards (about 1.5 seconds when eligible). SPino checks for changes from the other device every 30 seconds while open. An unchanged check keeps the existing card and controls mounted. Incoming notebook changes wait for practice, editing and dialogs to finish.
+Saved notebook edits upload shortly afterwards (about 1.5 seconds when eligible). SPino checks for changes from the other device every 30 seconds while open. An unchanged check keeps the existing card and controls mounted. Incoming notebook changes wait for practice initialization, active practice, editing and dialogs to finish.
+
+Starting practice uses the notebook already saved on this device and does not wait for a Drive check. Slow, offline or failed synchronization does not require **Continue locally** before starting, and starting practice does not pause automatic synchronization. When practice is saved and the app can apply incoming changes safely, pending synchronization continues; overlapping edits still require review. This behavior is verified in the 2026-10-17 browser follow-up and included in Android beta16/build69. Physical two-device Google acceptance remains open.
 
 Manage can pause automatic synchronization or disconnect this device. Local saves continue. Errors keep local data and show connection details; reconnect the same Google account when permission expires.
 
@@ -51,3 +53,16 @@ Export file, Restore file and Convert a copy remain in Backup & sync. JSON copie
 ## Verification status
 
 Synthetic protocol/browser checks cover first/second-device connection, migration/cancel/reconnect, concurrent edits, no-change polling, recording-copy integrity/resumption, network policy and offline playback. Native checks verify actual menus, account guards and transfer-cache readback. The beta14 emulator has an empty original logical baseline following the previously recorded beta13 WebView corruption, so this run does not establish preservation of that earlier notebook. Real Google authorization and copying on the owner’s physical devices remain separate acceptance checks. The earlier isolated transfer test has been removed from beta12.
+
+
+2026-10-17 source follow-up D-056: production build and 62 focused checks pass. Twelve responsive-browser frames in `docs/quality-review/captures/preparation/2026-10-17-local-practice-start-02/` use disposable notebooks and simulated stalled/offline Drive, including a valid late second-device change, retained saved practice/PDFs/annotations and automatic sync remaining enabled. Native/physical-device acceptance remains open; no new package or publication.
+
+
+Android beta16/build69 includes these 2026-10-17 follow-ups. Final source passes 117 focused checks, 3 website checks and 7 Android unit checks. See `docs/releases/6.1.0-beta.16-validation.json` and the accompanying publication manifest for package hashes, emulator installation, retention scope and verified public delivery. Browser recording evidence uses synthetic streams; native emulator camera/rotation evidence and physical-device acceptance are identified separately.
+
+
+## Reviewing overlapping changes
+
+New practices have separate stable identities and combine automatically, including offline practices from both devices. When another value overlaps, Review changes lists the independent practices that will be retained and shows Here/Cloud values for each conflicting field. For example, two practices of the same shared plan can conflict over which one is linked to that plan, while both remain saved in History. Prefer this device for conflicts or Prefer the cloud for conflicts applies only to the overlapping values, retaining independent fields and records. Closing the review makes no selection.
+
+Changes to an already-reviewed conflicting value require another review. Unrelated new practices or regenerated local catalogue reports do not invalidate that choice. Catalogue import diagnostics stay on their device and in complete manual JSON copies. Existing incremental report-only conflicts can clear automatically; repertoire, practices, files and annotations retain their identities. Update both devices to the version containing this correction before retesting the same notebook.

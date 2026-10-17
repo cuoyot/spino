@@ -614,7 +614,7 @@
 .cp-header-title {flex:1;min-width:0;}
 .cp-header-controls {display:flex;align-items:center;gap:8px;flex:none;}
 #app-shell .cp-app-header .cp-profile-nav {display:grid;place-items:center;background:transparent;border:0;padding:0;width:44px;height:44px;}
-.cp-app-header .cp-avatar {width:36px;height:36px;color:var(--ink);background:var(--theme-tint);border-color:var(--theme-border);}
+.cp-app-header .cp-avatar {width:44px;height:44px;box-sizing:border-box;color:var(--ink);background:var(--theme-tint);border-color:var(--theme-border);}
 #app-shell .cp-app-header .cp-midi-status {background:var(--theme-panel);border:1px solid var(--line);}
 #app-shell .cp-app-header .cp-quick-practice {width:auto;margin:0;gap:6px;padding:8px 10px;min-height:40px;font-size:13px;white-space:nowrap;background:var(--theme-panel);}
 #app-shell .cp-app-header .cp-segment button {min-height:40px;padding:6px 10px;}

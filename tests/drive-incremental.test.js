@@ -6,6 +6,7 @@ import {syntheticNotebookDrive} from './fixtures/drive/notebook-server.js';
 import {cloudRecoveryFixture} from '../scripts/review/cloud-recovery-fixture.mjs';
 import {createNotebookCloud} from '../src/companion/cloud-sync.js';
 import {createCloudBackup} from '../src/companion/cloud-backup.js';
+import {block,beginSession,saveSession} from '../src/companion/model.js';
 const fixture=()=>cloudRecoveryFixture('en');
 function device(server,{account='synthetic-owner',initial={}}={}){
  let settings=structuredClone(initial),recovery=null;const values=new Map(),native=server.native(account);
@@ -179,4 +180,37 @@ test('duplicate and out-of-order discovery replays the same graph once; missing 
  const count=commits(server).length,unchanged=await b.adapter.readLinked();await b.adapter.write({text:unchanged.text,expectedHash:unchanged.hash});assert.equal(commits(server).length,count);
  const missing=[...server.files.values()].find(f=>f.appProperties?.spinoType==='spino-object-v2'&&JSON.parse(f.text).kind==='score-bytes');server.files.delete(missing.id);
  const c=device(server);c.adapter.choose(roots(server)[0].id);await assert.rejects(c.adapter.pickBackup(),error=>['FILE_UNAVAILABLE','INCOMPLETE'].includes(error.code));
+});
+
+test('choosing local conflicting notes retains an independent remote tempo in that same piece',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server);
+ await concurrent(server,a,b,v=>v.data.works[0].notes='Local conflicting note',v=>{v.data.works[0].notes='Cloud conflicting note';v.data.works[0].bpm=96;});
+ const remote=await a.adapter.readLinked(),local=fixture();local.data.works[0].notes='Local conflicting note';
+ const resolved=JSON.parse(await a.adapter.resolveRemote({local:JSON.stringify(local),merged:remote.text,preference:'local',expectedHash:remote.hash}));
+ assert.equal(resolved.data.works[0].notes,'Local conflicting note');assert.equal(resolved.data.works[0].bpm,96);
+});
+test('both fully saved offline practices survive either conflict choice on the same shared plan',async()=>{
+ for(const preference of ['local','remote']){
+  const server=syntheticNotebookDrive(),a=device(server),b=device(server),initial=fixture(),plan={id:'shared-plan',title:'Shared practice plan',context:'piano',date:'2026-10-17',time:'10:00',status:'planned',blocks:[block('repertoire',{workId:'synthetic-work'})]};initial.data.plans.push(plan);
+  await a.adapter.create({text:JSON.stringify(initial)});b.adapter.choose(roots(server)[0].id);await b.adapter.pickBackup();let left;
+  const save=(value,title,now)=>{const active=beginSession({...plan,planId:plan.id},now);active.elapsedMs=active.blockElapsedMs=120000;saveSession(value.data,active,{title},now+120000);return value;};
+  await concurrent(server,a,b,v=>{save(v,'Phone practice',Date.parse('2026-10-17T10:00:00Z'));left=structuredClone(v);},v=>save(v,'Tablet practice',Date.parse('2026-10-17T11:00:00Z')));
+  const remote=await a.adapter.readLinked();assert.ok(remote.conflicts.some(p=>p.includes('sessionId')));assert.equal(JSON.parse(remote.text).data.sessions.length,2);
+  const resolved=JSON.parse(await a.adapter.resolveRemote({local:JSON.stringify(left),merged:remote.text,preference,expectedHash:remote.hash}));assert.equal(resolved.data.sessions.length,2);assert.deepEqual(new Set(resolved.data.sessions.map(s=>s.title)),new Set(['Phone practice','Tablet practice']));
+  await a.adapter.write({text:JSON.stringify(resolved),expectedHash:remote.hash});const after=await load(b.restart());assert.equal(after.data.sessions.length,2);assert.deepEqual(after.assets,initial.assets);assert.deepEqual((await b.adapter.readLinked()).conflicts,[]);
+ }
+});
+
+test('a reviewed original local field can win without reverting another remote field',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server),original=fixture();
+ await concurrent(server,a,b,v=>v.data.works[0].notes='First edit',v=>{v.data.works[0].notes='Second edit';v.data.works[0].bpm=108;});
+ const remote=await a.adapter.readLinked(),resolved=JSON.parse(await a.adapter.resolveRemote({local:JSON.stringify(original),merged:remote.text,preference:'local',expectedHash:remote.hash}));assert.equal(resolved.data.works[0].notes,original.data.works[0].notes);assert.equal(resolved.data.works[0].bpm,108);
+});
+
+test('choosing one conflicting annotation retains an independently added annotation and original score bytes',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server),original=fixture();
+ await concurrent(server,a,b,v=>v.assets[0].annotations.marks[0].text='1',v=>{v.assets[0].annotations.marks[0].text='2';v.assets[0].annotations.marks.push({...v.assets[0].annotations.marks[0],id:'independent-mark',text:'4'});});
+ const remote=await a.adapter.readLinked(),local=fixture();local.assets[0].annotations.marks[0].text='1';
+ const resolved=JSON.parse(await a.adapter.resolveRemote({local:JSON.stringify(local),merged:remote.text,preference:'local',expectedHash:remote.hash}));
+ assert.equal(resolved.assets[0].annotations.marks.length,2);assert.equal(resolved.assets[0].annotations.marks.find(m=>m.id==='synthetic-mark').text,'1');assert.equal(resolved.assets[0].annotations.marks.find(m=>m.id==='independent-mark').text,'4');assert.equal(resolved.assets[0].base64,original.assets[0].base64);
 });

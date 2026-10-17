@@ -17,7 +17,13 @@
         "MEDIA-02",
         "MEDIA-03"
       ],
-      "coverage": "Beta14 implements incremental immutable record/score objects, durable IDs, change-feed polling and retained-file migration from the prior Drive JSON format. Synthetic concurrency, interruption, idempotence, integrity and traffic checks pass; real Google and physical two-device acceptance remain open. Native menu/account/cache checks pass, with an empty original logical baseline after the earlier recorded emulator corruption. Beta13 account reconfiguration, recording copies, JSON export/recovery and offline use remain available."
+      "coverage": "Android beta16/build69 includes immediate local practice start without waiting for Drive or disabling synchronization. Starting/active practice defers incoming adoption. Conflict review lists retained independent practices and overlapping values; both choices retain independent records, fields and annotation marks. Technical catalogue reports no longer create/invalidate reviewed decisions. The incremental format, stable IDs, JSON export/recovery and additive recording copies remain available, including free takes without a piece. Final synthetic graph/browser tests and Android emulator checks pass; physical Google/two-device acceptance remains open. Original emulator logical baseline is empty after the earlier beta13 incident; current review uses isolated synthetic notebooks.",
+      "verifiedAgainst": "profile/2026-10-17-practice-conflicts-04",
+      "decisions": [
+        "D-052",
+        "D-056",
+        "D-058"
+      ]
     },
     {
       "id": "today",
@@ -37,7 +43,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -168,12 +174,14 @@
         "PIANO-02",
         "MEDIA-01"
       ],
-      "verifiedAgainst": "progress/2026-10-16-rhythm-media-14",
+      "verifiedAgainst": "multimedia/2026-10-17-beta16-recording-09",
       "decisions": [
         "D-053",
-        "D-054"
+        "D-054",
+        "D-055",
+        "D-057"
       ],
-      "coverage": "Musical weekly streak card/detail, recording counts and weekly shortcut, default weekly calendar expanded/collapsed through its month heading, previous/next period navigation and automatic period-specific recording lists without filter controls. Responsive browser evidence uses disposable notebooks; native and owner visual acceptance remain open. Packaged as Android beta15/build68; final source/browser and separate native-emulator installation/navigation checks pass. Physical-device acceptance remains separate. Visual History adds local PDF/MXL thumbnails, colored practice badges, prominent labeled feedback and whole-card session opening. Verified in progress/2026-10-16-visual-history-05, including keyboard activation and unchanged notebook/score assets; native/owner acceptance remains open."
+      "coverage": "Android beta16/build69 includes musical streak/calendar/history behavior and compact uncounted audio/video icons, toggleable type filters and a visible piece filter. Home and Multimedia offer standalone free or repertoire recording with horizontal stand-only cards and Other pieces search. Audio measures actual input; video starts at preview with camera selection, start/pause/resume/finish, encoded portrait/landscape output and a framed title/date caption. Selecting the suggested title clears it for typing. Existing recording/session/work IDs, notebook, PDFs and annotations are retained. Final 100-frame browser evidence uses synthetic streams; separate Android emulator camera/rotation checks pass. Physical-device and owner visual acceptance remain open."
     }
   ],
   "plannedChapters": [
