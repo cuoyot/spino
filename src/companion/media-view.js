@@ -148,7 +148,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
         if(attempt!==requestId||stage!=='preview'){source.pause();source.srcObject=null;return;}
         const portrait=matchMedia('(orientation: portrait)').matches,canvas=document.createElement('canvas');canvas.width=portrait?720:1280;canvas.height=portrait?1280:720;
         const context=canvas.getContext('2d',{alpha:false});record.createdAt=new Date().toISOString();
-        const caption=document.createElement('canvas'),margin=Math.round(Math.min(canvas.width,canvas.height)*.03),fontSize=20,padding=12,lineHeight=27;
+        const caption=document.createElement('canvas'),margin=Math.round(Math.min(canvas.width,canvas.height)*.03),bottomMargin=Math.round(canvas.height*.1),fontSize=20,padding=12,lineHeight=27;
         const text=caption.getContext('2d');text.font='500 '+fontSize+'px sans-serif';
         const date=new Intl.DateTimeFormat(getAppLanguage(),{dateStyle:'medium'}).format(new Date(record.createdAt)),maxText=canvas.width*.82-padding*2;
         let title=record.workTitle||'';
@@ -156,7 +156,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
         const lines=[...(title?[title]:[]),date];caption.width=Math.ceil(Math.max(...lines.map(line=>text.measureText(line).width))+padding*2);caption.height=lineHeight*lines.length+padding*2;
         text.fillStyle='rgba(10,18,30,.9)';text.strokeStyle='rgba(255,255,255,.45)';text.lineWidth=1.5;text.beginPath();text.roundRect(1,1,caption.width-2,caption.height-2,9);text.fill();text.stroke();text.fillStyle='#fff';text.font='500 '+fontSize+'px sans-serif';text.textBaseline='top';lines.forEach((line,index)=>text.fillText(line,padding,padding+index*lineHeight));
         let lastFrame=0;
-        const paint=timestamp=>{if(frameVideo!==source)return;if(source.videoWidth&&source.videoHeight&&timestamp-lastFrame>=1000/30){const scale=Math.max(canvas.width/source.videoWidth,canvas.height/source.videoHeight),width=source.videoWidth*scale,height=source.videoHeight*scale;context.drawImage(source,(canvas.width-width)/2,(canvas.height-height)/2,width,height);context.drawImage(caption,margin,canvas.height-margin-caption.height);lastFrame=timestamp;}videoFrame=requestAnimationFrame(paint);};
+        const paint=timestamp=>{if(frameVideo!==source)return;if(source.videoWidth&&source.videoHeight&&timestamp-lastFrame>=1000/30){const scale=Math.max(canvas.width/source.videoWidth,canvas.height/source.videoHeight),width=source.videoWidth*scale,height=source.videoHeight*scale;context.drawImage(source,(canvas.width-width)/2,(canvas.height-height)/2,width,height);context.drawImage(caption,margin,canvas.height-bottomMargin-caption.height);lastFrame=timestamp;}videoFrame=requestAnimationFrame(paint);};
         paint(performance.now());encodedStream=new MediaStream([...canvas.captureStream(30).getVideoTracks(),...stream.getAudioTracks()]);
       }
 

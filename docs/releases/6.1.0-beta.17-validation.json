@@ -1,0 +1,99 @@
+{
+  "version": "6.1.0-beta.17",
+  "appVersion": "6.1.0-beta.17",
+  "build": 70,
+  "date": "2026-10-17T10:14:16.598179+00:00",
+  "webBuild": "passed",
+  "androidBuild": "Java21 assembleDebug and testDebugUnitTest passed",
+  "androidUnitTests": 7,
+  "focusedChecks": 30,
+  "focusedTestLog": "output/review/beta17-focused-tests.log",
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 261,
+  "apkBytes": 23363072,
+  "apkSha256": "29528dffea1878ba25f317f7406cea70a572f27ffb9d6e7febca4d8cef763b88",
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/multimedia/2026-10-17-beta17-recording-01/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-17-beta17-release-01/verification.json",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-17-beta17-native-01/native.json",
+  "foreground": "    topResumedActivity=ActivityRecord{5b125ac u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t102}",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "originalLogicalStoreCount": 0,
+  "originalStoresUnchanged": true,
+  "retainedBlobFiles": 60,
+  "originalRetentionVerified": false,
+  "retentionScope": "Raw IndexedDB files match immediately after replacement installation and immutable blobs remain unchanged after review. The original logical baseline remains empty following the previously recorded beta13 emulator incident; this does not establish recovery of that earlier notebook. Review uses isolated namespaced synthetic databases and private recovery archives.",
+  "emulatorCameraCaptureTested": true,
+  "nativeVideo": [
+    {
+      "orientation": "portrait",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 720,
+        "height": 1280,
+        "duration": 1.837,
+        "title": "Prélude en do majeur"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    },
+    {
+      "orientation": "landscape",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 1280,
+        "height": 720,
+        "duration": 1.847,
+        "title": "Grabación libre"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    }
+  ],
+  "physicalCaptureTested": false,
+  "physicalDeviceAcceptance": false,
+  "titleDateOverlayImplemented": true,
+  "publicVerification": "6.1.0-beta.17-publication.json",
+  "sources": {
+    "src/companion/app.js": "2bbd222e5983b31bc26f33a7aab06d7371b5313e39ce139e800421fe5f764eda",
+    "src/companion/media-view.js": "9a6175a8243c2356c08b2d60aa0f18f917a74802d9ea49822949167e7e940f1f",
+    "src/companion/media-network.js": "71ef1797b43d3894856b3af1d091724f7e7cbb782187f18058ec5d09a792fca4",
+    "src/companion/drive-sync-view.js": "f83e0db6702b6052b94a09c2874632262fcc426484d8ee22a5ee752fe97853d2",
+    "src/companion/drive-media-native.js": "ef52a56079cf31206086ee087b1fe4a1785e98cb712e174714a60ae65f410068",
+    "src/companion/media-sync.js": "7f155f676dae4d9833d0d9506702ba942ebe17ca42fac3ec5c24dc1ef5f68d6f",
+    "package-lock.json": "ff0bd7eef357344ce0ea4d2bcfb48fe299157cbdcbafc123a2d2b78f5300c744",
+    "android/app/build.gradle": "69aee3ffe16bc7af62cef8a149bd530b5e65a9cae501db848a78789fc982694d"
+  },
+  "mediaNetworkEvidence": "../quality-review/captures/profile/2026-10-17-beta17-media-mobile-data-01/verification.json",
+  "captionBottomInsetRatio": 0.1,
+  "mediaMobileDataImplemented": true,
+  "websiteImagesRetainedFrom": "../quality-review/captures/website/2026-10-17-beta16-final-03/capture.json"
+}

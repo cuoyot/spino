@@ -1,0 +1,5 @@
+# Recording copies over mobile data
+
+2026-10-17. Responsive Chromium with disposable simulated native/Drive notebooks and a metered cellular connection. The new device-local mobile-data switch starts from the existing network policy, enables both upload and download, passes wifiOnly=false to the native bridge, survives reload and can return to Wi-Fi-only copying. Local recordings remain available. The notebook, score-download Wi-Fi preference, original PDFs and annotations are unchanged.
+
+Twenty frames cover both themes, phone/tablet portrait/landscape and 320 px, with an accessible named switch, 44 px target and no horizontal overflow. verification.json records source/build hashes and assertions. The production build and 25 focused checks pass, including exact audio/video hashes, mobile transfers, offline waiting, interruption recovery, account separation and existing cloud-policy behavior. This is browser/fixture evidence; no real Google or cellular-device acceptance is claimed. No APK/version/publication change.

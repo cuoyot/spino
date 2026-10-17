@@ -10,7 +10,7 @@ function memoryStore(records=[]){
  return {rows,ignoredKeys:ignored,index:async()=>[...rows.values()].map(({blob,...r})=>({...r,bytes:blob.size})),get:async id=>rows.get(id),ignored:async(key,id)=>ignored.has(key+'.'+id),attachCloud:async(id,cloud)=>{if(rows.has(id))rows.set(id,{...rows.get(id),cloud});},importRemote:async(record,key)=>{if(!rows.has(record.id)&&!ignored.has(key+'.'+record.id))rows.set(record.id,record);},remove:async id=>{const r=rows.get(id);if(r?.cloud)ignored.add(r.cloud.accountId+'.'+r.cloud.notebookId+'.'+id);rows.delete(id);}};
 }
 function device(t,server,records=[],options={}){
- const store=options.store||memoryStore(records),progress=options.progress||new Map();let context={accountId:'synthetic-owner',notebookId:'synthetic-book',works:options.works||[{id:'work-1',title:'Original piece'}],wifiOnly:true};
+ const store=options.store||memoryStore(records),progress=options.progress||new Map();let context={accountId:'synthetic-owner',notebookId:'synthetic-book',works:options.works||[{id:'work-1',title:'Original piece'}],wifiOnly:options.wifiOnly!==false};
  const engine=createMediaSync({store,getContext:()=>context,eligible:()=>true,network:options.network,connection:async c=>createDriveMedia({request:options.request||server.request,state:{get:async k=>progress.get(k),set:async(k,v)=>progress.set(k,structuredClone(v))},...c})});
  t.after(()=>engine.stop());return {engine,store,progress,disconnect:()=>{context=null;},switchBook:()=>{context={...context,notebookId:'another-book'};}};
 }
@@ -54,4 +54,12 @@ test('free audio and video copy to an empty repertoire without inventing a piece
  assert.ok([...server.files.values()].every(f=>f.appProperties.spinoMedia==='spino-media-free-v1'));
  for(const original of free){const copied=b.store.rows.get(original.id);assert.equal(copied.workId,'');assert.equal(copied.workTitle,'');assert.equal(copied.title,original.title);assert.equal(await mediaHash(copied.blob),await mediaHash(original.blob));}
  await a.engine.sync();await b.engine.sync();assert.equal(server.files.size,2);
+});
+
+test('allowed mobile networks upload and download exact audio/video bytes, while offline still waits',async t=>{
+ const server=syntheticDrive(),mobile=async()=>({online:true,wifi:false,metered:true});
+ const a=device(t,server,[recording(),recording('mobile-video','video')],{network:mobile,wifiOnly:false}),b=device(t,server,[],{network:mobile,wifiOnly:false});
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);await b.engine.sync();assert.equal(b.engine.state.status,'saved',b.engine.state.error);
+ for(const original of a.store.rows.values())assert.equal(await mediaHash(b.store.rows.get(original.id).blob),await mediaHash(original.blob));
+ const offline=device(t,syntheticDrive(),[recording()],{wifiOnly:false,network:async()=>({online:false,wifi:false,metered:true})});await offline.engine.sync();assert.equal(offline.engine.state.status,'offline');assert.equal(offline.store.rows.size,1);
 });

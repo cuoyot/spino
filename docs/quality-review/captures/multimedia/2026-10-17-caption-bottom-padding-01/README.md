@@ -1,0 +1,5 @@
+# Raised video caption clearance
+
+2026-10-17. Owner requests more bottom padding for the title/date caption after reviewing beta16 and explicitly asks not to recreate the APK. The encoded caption now sits 10% of the frame height above the lower edge; the horizontal inset and framed text remain unchanged. No version, package, website download or existing recording is changed.
+
+Production browser build and both standalone recording tests pass. Actual MediaRecorder output is decoded and the dark frame is located in the image pixels: portrait 720x1280 retains 130 px clear below the frame, and landscape 1280x720 retains 74 px. encoded-caption-portrait.png shows a repertoire title/date; encoded-caption-landscape.png shows a free take with date only. The 100 responsive frames cover both themes, phone/tablet orientations and 320 px. verification.json records source/build hashes, dimensions, measured caption clearance and unchanged notebook/assets. Streams and notebooks are disposable synthetic fixtures. This is responsive browser evidence, not native-device acceptance.

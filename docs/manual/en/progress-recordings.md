@@ -38,3 +38,5 @@ Android beta16/build69 includes these 2026-10-17 follow-ups. Final source passes
 
 
 Video includes the original piece title and recording date in a small dark rounded frame with white text and a pale border, positioned inside the lower-left image margin. The date follows the app language. Free takes show only the date. The frame is burned into the saved video and remains visible when shared; playback controls are outside the encoded image. Long titles are shortened visually to fit without changing repertoire or recording metadata.
+
+Android beta17/build70 raises the framed title/date overlay in new videos: the lower edge of the frame sits 10% of the encoded video height above the bottom, in portrait and landscape. The original left inset, contrast frame and date-only free take behavior remain. Previously saved videos are unchanged.

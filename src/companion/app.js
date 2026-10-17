@@ -1,6 +1,7 @@
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
 import {createMediaSync} from './media-sync.js';
 import {mediaSyncMarkup} from './drive-sync-view.js';
+import {readMediaWifiOnly,saveMediaWifiOnly} from './media-network.js';
 import { practiceTimeOverviewMarkup, practiceTimeDetailMarkup, TIME_RANGES } from './progress-time.js';
 import './progress-time.css';
 import {formatProgressDuration} from './progress-duration.js';
@@ -123,7 +124,7 @@ export async function bootCompanion(reader) {
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
   let driveConnecting = false, mediaSync = null;
-  const cloudOptions = () => ({ driveOnly:true,media:mediaSync?.state, available: cloudAvailable(), driveAvailable: driveNotebookAvailable(), transport: cloudTransport.transport==='drive'?'drive':'provider', linked:!!cloud?.state.name, platform: cloudPlatform(), lang: getAppLanguage() });
+  const cloudOptions = () => ({ driveOnly:true,media:mediaSync?.state,mediaWifiOnly:readMediaWifiOnly(data.preferences.wifiOnly), available: cloudAvailable(), driveAvailable: driveNotebookAvailable(), transport: cloudTransport.transport==='drive'?'drive':'provider', linked:!!cloud?.state.name, platform: cloudPlatform(), lang: getAppLanguage() });
   const instrument = createInstrumentController({ changed: () => {
     const panel = document.querySelector('#instrument-panel');
     if (panel) panel.outerHTML = instrumentMarkup(instrument.state, {lang:getAppLanguage()});
@@ -920,7 +921,7 @@ export async function bootCompanion(reader) {
       changed: () => { const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason]);if(panel&&lastCloudKey!==key){panel.outerHTML=cloudBackupMarkup(visible,cloudOptions());lastCloudKey=key;}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
     if(driveNotebookAvailable()&&mediaStore){
       mediaSync=createMediaSync({store:mediaStore,connection:connectDriveMedia,
-        getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:data.preferences.wifiOnly!==false}:null;},
+        getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:readMediaWifiOnly(data.preferences.wifiOnly)}:null;},
         eligible:()=>cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
         network:networkStatus,changed:()=>{const panel=document.querySelector('#cloud-media');if(panel)panel.outerHTML=mediaSyncMarkup(mediaSync.state,cloudOptions());},
         refreshed:async()=>{mediaRecords=await mediaStore.index();if(['multimedia','work','progress'].includes(view))render();}});
@@ -1315,6 +1316,12 @@ export async function bootCompanion(reader) {
     'cloud-resolve-remote':()=>{dialog.close();return cloud?.resolve('remote');},
     'cloud-toggle':async value=>{dialog.close();if(value!=='true'){mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();}await cloud?.setEnabled(value==='true');mediaSync?.markDirty();},
     'media-sync':async()=>{if(!cloud?.state.enabled)throw Error(ui('Resume synchronization first.','Reanuda primero la sincronización.'));await cloud.retry();await mediaSync?.sync();},
+    'media-mobile-data':async value=>{
+      mediaSync?.pause();
+      try{if(driveNotebookAvailable())await pauseDriveMedia();saveMediaWifiOnly(value!=='true');}
+      finally{const panel=document.querySelector('#cloud-media');if(panel)panel.outerHTML=mediaSyncMarkup(mediaSync?.state||{},cloudOptions());mediaSync?.markDirty();}
+      document.querySelector('[data-action=media-mobile-data]')?.focus({preventScroll:true});
+    },
     'cloud-sync':async()=>{dialog.close();await cloud?.retry();mediaSync?.markDirty();},
     'cloud-relink':()=>{dialog.close();return cloud?.relink();},
     'cloud-continue-local':async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Backup & sync.','Trabajando en local. Reanuda la sincronización desde Copia y sincronización.'));},

@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-17T10:12:34.581Z",
+  "kind": "responsive-browser-simulated-native-and-Drive",
+  "realCellularTransferTested": false,
+  "frames": [
+    {
+      "file": "wifi-only-light-390x844.png",
+      "state": "wifi-only",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-light-844x390.png",
+      "state": "wifi-only",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-light-768x1024.png",
+      "state": "wifi-only",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-light-1024x768.png",
+      "state": "wifi-only",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-light-320x640.png",
+      "state": "wifi-only",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-dark-390x844.png",
+      "state": "wifi-only",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-dark-844x390.png",
+      "state": "wifi-only",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-dark-768x1024.png",
+      "state": "wifi-only",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-dark-1024x768.png",
+      "state": "wifi-only",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "wifi-only-dark-320x640.png",
+      "state": "wifi-only",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "false"
+      }
+    },
+    {
+      "file": "mobile-data-light-390x844.png",
+      "state": "mobile-data",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-light-844x390.png",
+      "state": "mobile-data",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-light-768x1024.png",
+      "state": "mobile-data",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-light-1024x768.png",
+      "state": "mobile-data",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-light-320x640.png",
+      "state": "mobile-data",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-dark-390x844.png",
+      "state": "mobile-data",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-dark-844x390.png",
+      "state": "mobile-data",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-dark-768x1024.png",
+      "state": "mobile-data",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-dark-1024x768.png",
+      "state": "mobile-data",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    },
+    {
+      "file": "mobile-data-dark-320x640.png",
+      "state": "mobile-data",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "visible": true,
+        "target": true,
+        "checked": "true"
+      }
+    }
+  ],
+  "checks": [
+    "Wi-Fi policy waits on metered cellular",
+    "Device switch allows upload and download",
+    "Native bridge receives wifiOnly false",
+    "Device permission survives reload",
+    "Restoring Wi-Fi policy stops cellular copying",
+    "Score downloads, notebook, PDFs and annotations unchanged"
+  ],
+  "sourceHashes": {
+    "src/companion/media-network.js": "71ef1797b43d3894856b3af1d091724f7e7cbb782187f18058ec5d09a792fca4",
+    "src/companion/app.js": "2bbd222e5983b31bc26f33a7aab06d7371b5313e39ce139e800421fe5f764eda",
+    "src/companion/drive-sync-view.js": "f83e0db6702b6052b94a09c2874632262fcc426484d8ee22a5ee752fe97853d2",
+    "tests/drive-media.browser.test.js": "e240e7a2740e44eb6b21d635cd4de288e4a5e38de17079c7c11a0b9de5e92bd8"
+  },
+  "buildIndexSha256": "509883ae35e27acdad660dd269de4407434bb10e6b2d7aa62bdb63445a5fcab8"
+}

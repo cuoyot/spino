@@ -17,12 +17,13 @@
         "MEDIA-02",
         "MEDIA-03"
       ],
-      "coverage": "Android beta16/build69 includes immediate local practice start without waiting for Drive or disabling synchronization. Starting/active practice defers incoming adoption. Conflict review lists retained independent practices and overlapping values; both choices retain independent records, fields and annotation marks. Technical catalogue reports no longer create/invalidate reviewed decisions. The incremental format, stable IDs, JSON export/recovery and additive recording copies remain available, including free takes without a piece. Final synthetic graph/browser tests and Android emulator checks pass; physical Google/two-device acceptance remains open. Original emulator logical baseline is empty after the earlier beta13 incident; current review uses isolated synthetic notebooks.",
+      "coverage": "Android beta16/build69 includes immediate local practice start without waiting for Drive or disabling synchronization. Starting/active practice defers incoming adoption. Conflict review lists retained independent practices and overlapping values; both choices retain independent records, fields and annotation marks. Technical catalogue reports no longer create/invalidate reviewed decisions. The incremental format, stable IDs, JSON export/recovery and additive recording copies remain available, including free takes without a piece. Final synthetic graph/browser tests and Android emulator checks pass; physical Google/two-device acceptance remains open. Original emulator logical baseline is empty after the earlier beta13 incident; current review uses isolated synthetic notebooks. Source-only D-059 adds a device-local mobile-data switch for recording copies, independent of score downloads and shared notebook transport. Browser metered-cellular upload/download, policy propagation and reload persistence pass in profile/2026-10-17-media-mobile-data-01; published beta16 is unchanged. Packaged in Android beta17/build70 with final browser evidence at profile/2026-10-17-beta17-media-mobile-data-01 and release validation/publication manifests. Physical cellular/Google acceptance remains open.",
       "verifiedAgainst": "profile/2026-10-17-practice-conflicts-04",
       "decisions": [
         "D-052",
         "D-056",
-        "D-058"
+        "D-058",
+        "D-059"
       ]
     },
     {
@@ -181,7 +182,7 @@
         "D-055",
         "D-057"
       ],
-      "coverage": "Android beta16/build69 includes musical streak/calendar/history behavior and compact uncounted audio/video icons, toggleable type filters and a visible piece filter. Home and Multimedia offer standalone free or repertoire recording with horizontal stand-only cards and Other pieces search. Audio measures actual input; video starts at preview with camera selection, start/pause/resume/finish, encoded portrait/landscape output and a framed title/date caption. Selecting the suggested title clears it for typing. Existing recording/session/work IDs, notebook, PDFs and annotations are retained. Final 100-frame browser evidence uses synthetic streams; separate Android emulator camera/rotation checks pass. Physical-device and owner visual acceptance remain open."
+      "coverage": "Android beta16/build69 includes musical streak/calendar/history behavior and compact uncounted audio/video icons, toggleable type filters and a visible piece filter. Home and Multimedia offer standalone free or repertoire recording with horizontal stand-only cards and Other pieces search. Audio measures actual input; video starts at preview with camera selection, start/pause/resume/finish, encoded portrait/landscape output and a framed title/date caption. Selecting the suggested title clears it for typing. Existing recording/session/work IDs, notebook, PDFs and annotations are retained. Final 100-frame browser evidence uses synthetic streams; separate Android emulator camera/rotation checks pass. Physical-device and owner visual acceptance remain open. Source-only 2026-10-17 caption follow-up raises the encoded frame with a 10% bottom inset, verified from decoded portrait/landscape pixels in multimedia/2026-10-17-caption-bottom-padding-01. The owner requests no APK recreation; the published beta16 package remains unchanged. Raised video caption clearance is packaged in Android beta17/build70; final browser evidence is multimedia/2026-10-17-beta17-recording-01. Earlier source-only statements record the prior stage."
     }
   ],
   "plannedChapters": [
