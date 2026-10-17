@@ -21,3 +21,5 @@ Final beta16/build69 [native emulator verification](captures/multimedia/2026-10-
 
 
 Video includes the original piece title and recording date in a small dark rounded frame with white text and a pale border, positioned inside the lower-left image margin. The date follows the app language. Free takes show only the date. The frame is burned into the saved video and remains visible when shared; playback controls are outside the encoded image. Long titles are shortened visually to fit without changing repertoire or recording metadata.
+
+Beta16/build69 is now published. [Public verification](../releases/6.1.0-beta.16-publication.json) confirms the final APK hash, three language pages and current website imagery. Both physical devices should update before retesting the existing synchronization connection. Physical-device acceptance remains separate.

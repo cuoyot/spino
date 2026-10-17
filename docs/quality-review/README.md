@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.0.0 (53), the Android beta is 6.1.0-beta.14 (67), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.0.0 (53), the Android beta is 6.1.0-beta.16 (69), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
 
 Previous beta 2 focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
 
@@ -13,6 +13,8 @@ Previous beta 3 focus (2026-10-12): [beta 3 QR linking and backup compatibility]
 Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4.md). Owner reports stable/beta on one tablet using Drive. Closed-dialog form blocking and lost reviewed choices reproduced/corrected in synthetic tests. Direct file selection nested in device linking/manage. Actual personal tablet acceptance pending.
 
 ## Resume work here
+
+2026-10-17 beta16/build69 is published. [Public verification](../releases/6.1.0-beta.16-publication.json) confirms successful Cloudflare deployment, three exact language pages, the checksum manifest, four artifact downloads and 34 current website images. The APK matches the final tested package. [Validation](../releases/6.1.0-beta.16-validation.json) records 117 focused app checks, 3 website checks, 7 Android unit checks, 261 matching packaged web files and replacement installation/foreground. New recording, camera, orientation and title/date caption behavior is included alongside compact media filters, the larger avatar, immediate local practice start and scoped conflict review. Browser evidence uses synthetic streams/notebooks; native evidence uses the existing emulator with virtual cameras and isolated storage. Physical two-device Google and microphone/camera acceptance remains open. Next: update both devices to beta16 and retest the existing connection without deleting notebook files.
 
 2026-10-17 D-058 — owner stopped before selecting Here/Cloud, fearing loss of practices from the other device. [Conflict review follow-up](cloud-connection.md#2026-10-17--independent-practices-and-conflict-review-d-058) records the two-practice reproduction, preserved independent IDs with either choice, more explicit review and fixes for same-record preference scope and volatile catalogue diagnostics. Included in the owner-authorized beta16 package before publication.
 

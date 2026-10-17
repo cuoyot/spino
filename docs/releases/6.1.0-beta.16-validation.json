@@ -102,5 +102,8 @@
     "../quality-review/captures/profile/2026-10-17-practice-conflicts-04/local.json",
     "../quality-review/captures/profile/2026-10-17-practice-conflicts-04/remote.json"
   ],
-  "practiceStartEvidence": "../quality-review/captures/preparation/2026-10-17-beta16-local-start-05/verification.json"
+  "practiceStartEvidence": "../quality-review/captures/preparation/2026-10-17-beta16-local-start-05/verification.json",
+  "sourceCommit": "be4d64b9105907a25999fac9e7bb5c91ff288485",
+  "publicVerificationPassed": true,
+  "publicVerifiedAt": "2026-10-17T09:45:36.099681+00:00"
 }

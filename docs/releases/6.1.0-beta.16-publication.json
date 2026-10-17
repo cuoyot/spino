@@ -1,0 +1,232 @@
+{
+  "verifiedAt": "2026-10-17T09:45:36.099681+00:00",
+  "version": "6.1.0-beta.16",
+  "build": 69,
+  "websiteCommit": "be4d64b9105907a25999fac9e7bb5c91ff288485",
+  "tag": "v6.1.0-beta.16",
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "bytes": 64672,
+      "sha256": "20284cfdfc5604d8c048a3735ac82ac11689eb062a17ab9e9f2499aa419c82ec"
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "bytes": 67260,
+      "sha256": "01ee7ee4fc530db891b228d00256d8a8467a4211a0f391b8b2a659a087710777"
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "bytes": 64639,
+      "sha256": "7ec0bb3cdd4e653b56957688ac965ccbc9b82314c6a4ecd1806f3d0a79724a79"
+    }
+  ],
+  "manifestSHA256": "dc155dd4acd043b10af3ad65f132e70f891792904eb6918dbd611b17137587cd",
+  "downloads": [
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.0-beta.16-69-android.apk",
+      "bytes": 24173171,
+      "sha256": "757561aa148d0198a3565314bf8e0386740020feeefb4474315dce85fac9d195"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.0-beta.15-68-android.apk",
+      "bytes": 23353200,
+      "sha256": "29eecbe43cccbcb0c8cb7dbd80907bf963cec808e00cc3f5074954afd305f39b"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+    }
+  ],
+  "websiteImages": [
+    {
+      "url": "https://spinoapp.com/img/ca/01-today.png?v=2026-10-17-beta16-final-03",
+      "bytes": 153646,
+      "sha256": "2e92f36f3e39fd6d1ccdac2f25036167184243b9e8157b016b7ca3bf88a85039"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/02-routine.png?v=2026-10-17-beta16-final-03",
+      "bytes": 135997,
+      "sha256": "09202c87a28854c4739b7f4389b7d5eeeebad0eeb546152cb2e5b3bef0f36d73"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/03-repertoire.png?v=2026-10-17-beta16-final-03",
+      "bytes": 139656,
+      "sha256": "b570fd7977d851ae56102459de0951c0950b434ba30d3c234ffd44f517fdb0f2"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/04-quick-practice.png?v=2026-10-17-beta16-final-03",
+      "bytes": 320042,
+      "sha256": "23cbd11f9fad8132221dd0b4ecc88a833e54b8f1ca7da1d57e8fe9e4ee753d01"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/05-quick-result.png?v=2026-10-17-beta16-final-03",
+      "bytes": 124757,
+      "sha256": "aa74607fe6ec4832a7ea24de09b13debceed1cf82d468bc469af88b83c46373e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/06-progress.png?v=2026-10-17-beta16-final-03",
+      "bytes": 173675,
+      "sha256": "561e4d31d9116bafcc0680e37a9a41220b26a369a80d26032293378e79360dd1"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/07-multimedia.png?v=2026-10-17-beta16-final-03",
+      "bytes": 193938,
+      "sha256": "08f9bada2ac874ce8ccd172e311711317f8598f3f21af753330e06d00b1a570d"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/08-time-details.png?v=2026-10-17-beta16-final-03",
+      "bytes": 159940,
+      "sha256": "5174e60ad8f1f99657c14f5a00d7fbb58dc461e0fa53f0aaf9ee7e94aff95769"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/09-calendar.png?v=2026-10-17-beta16-final-03",
+      "bytes": 146122,
+      "sha256": "721e903bc5a2980d31a7752d859e9156e7ede2fec229a9fde47291d35be531af"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/landscape-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 73852,
+      "sha256": "458007fffcd8b47b4db7ec71973e6565cea5ad11f98534e96763c95d232ce5c2"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/wide-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 384752,
+      "sha256": "be3ae2ed137b027fa1384f83af8e2acb924db79a3dfe2b517eaa915fd61a33af"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/01-today.png?v=2026-10-17-beta16-final-03",
+      "bytes": 156345,
+      "sha256": "deef131d3155209d6d2a75686ec6bd41a43ce72f8b21b9c11b1b42f7d48b99f1"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/02-routine.png?v=2026-10-17-beta16-final-03",
+      "bytes": 129443,
+      "sha256": "157b024766cf2a3472a5db563cfd77500639e823bb4414a5bb4710b8487128af"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/03-repertoire.png?v=2026-10-17-beta16-final-03",
+      "bytes": 136405,
+      "sha256": "f23480776bb22e55fe7d4da9dbe4bbc94e8a4ee0f53df23ca718802911736853"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/04-quick-practice.png?v=2026-10-17-beta16-final-03",
+      "bytes": 275658,
+      "sha256": "3b52c8997fd65aabb3058b8950f06c8976e7c63f251973f3f4db502121838e56"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/05-quick-result.png?v=2026-10-17-beta16-final-03",
+      "bytes": 120444,
+      "sha256": "582262715d36080c3d07484c506b724f0970d5f09730415019184a9b155e89d2"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/06-progress.png?v=2026-10-17-beta16-final-03",
+      "bytes": 170342,
+      "sha256": "c8c466cc4dc1206289f6484ce98c1e085bbba0d513779b214471d9d0c10925d0"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/07-multimedia.png?v=2026-10-17-beta16-final-03",
+      "bytes": 195787,
+      "sha256": "95bcf6d4737f92e0a379f0938c2357b65db6f514a81794b29727bc78d3de6bb7"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/08-time-details.png?v=2026-10-17-beta16-final-03",
+      "bytes": 148816,
+      "sha256": "783af86c9266c9e38bbc6e8460cfaa0d7f82b6ef3cdc419bae3f6a3cce3576cc"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/09-calendar.png?v=2026-10-17-beta16-final-03",
+      "bytes": 138823,
+      "sha256": "ed75aa7ce8e114f9ab55ca776a6a1ab69d9f3b4098d1ca4dffd383048f0fe4a6"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/landscape-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 73565,
+      "sha256": "248f25b75b0045ff74d7874171307f32c6afd6557e18f042d59cd25cc74a49f4"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/wide-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 380687,
+      "sha256": "d1d7e19e6fcb495a8eb177e6318f4ad699734ba25b000d571121362b249ffbb1"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/01-today.png?v=2026-10-17-beta16-final-03",
+      "bytes": 149082,
+      "sha256": "49bb9a5d4458ce9e7906df9e444553164c4302a25d22120fa72a96980d4c0f3a"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/02-routine.png?v=2026-10-17-beta16-final-03",
+      "bytes": 132732,
+      "sha256": "4856b0f6d4c1211dd9aa47c3578d602a562af5945db63d361214ccaae96b7d27"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/03-repertoire.png?v=2026-10-17-beta16-final-03",
+      "bytes": 132634,
+      "sha256": "b27b12c6b10fce3748c08c949f3ea1077ff300d56d0e491038d100131c3eafb0"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/04-quick-practice.png?v=2026-10-17-beta16-final-03",
+      "bytes": 293973,
+      "sha256": "292d8c75f203a8b13063fd1efddc1ad0ad8c6b684f4cd82867b7f34f2da78cf9"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/05-quick-result.png?v=2026-10-17-beta16-final-03",
+      "bytes": 130301,
+      "sha256": "b524d78e9731ad0f1367aaad19567ad8f82c22c3208e3facf639ca3f566380d8"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/06-progress.png?v=2026-10-17-beta16-final-03",
+      "bytes": 168770,
+      "sha256": "f6f5383745e13449a30f8c3f180b61d1269aee9af3da3e456bdbe3ca6dda075e"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/07-multimedia.png?v=2026-10-17-beta16-final-03",
+      "bytes": 197652,
+      "sha256": "037ea7f181b64bc654a7d2054f5ae18bdcbfbcaf5ca6eff191dc790356b7f46d"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/08-time-details.png?v=2026-10-17-beta16-final-03",
+      "bytes": 154360,
+      "sha256": "a877508330e7d48ab1d02a708253363737e044adb773b1ecf7fe7ad8f1e537cf"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/09-calendar.png?v=2026-10-17-beta16-final-03",
+      "bytes": 147451,
+      "sha256": "9b21dcad675ad1bdc82ea3c39ad41f22b3f0f912fbb3d5a12337d8a270fbbcef"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/landscape-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 73441,
+      "sha256": "bf842161b16b8157bf183be17d21cd247f04c60c5cfbfd934dcfdcac2d50b5de"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/wide-reading.png?v=2026-10-17-beta16-final-03",
+      "bytes": 380569,
+      "sha256": "cef237bad55cf450fcd0e76ec7044299f0b288f751fce976264c381ce6f0bd9e"
+    },
+    {
+      "url": "https://spinoapp.com/img/icon.png",
+      "bytes": 156405,
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    }
+  ],
+  "languagePagesWithoutCacheQueryVerified": true,
+  "deployment": {
+    "provider": "Cloudflare Workers Builds",
+    "check": "Workers Builds: spino",
+    "status": "completed",
+    "conclusion": "success",
+    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/7e29c469-7092-4df8-a58c-62ef7aaa81cd"
+  },
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-17-beta16-native-10/native.json",
+  "physicalDeviceAcceptance": false
+}
