@@ -1,0 +1,1180 @@
+{
+  "date": "2026-10-17T10:26:45.446Z",
+  "kind": "responsive-browser-synthetic-notebook-and-Drive",
+  "frames": [
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "recording-sync",
+      "file": "recording-sync-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "sync-management",
+      "file": "sync-management-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "export-copy",
+      "file": "export-copy-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 320,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 514,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 250,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "profile-level",
+      "file": "profile-level-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "downloads",
+      "file": "downloads-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-repertoire",
+      "file": "progress-repertoire-expanded.png",
+      "expanded": true
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-light-390x844.png",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-light-844x390.png",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-light-768x1024.png",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-light-1024x768.png",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-light-320x640.png",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-dark-390x844.png",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-dark-844x390.png",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-dark-768x1024.png",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-dark-1024x768.png",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-dark-320x640.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "noOverflow": true,
+        "closed": true,
+        "bodyHidden": true,
+        "target": true,
+        "width": 44,
+        "height": 44,
+        "minHeight": "44px"
+      }
+    },
+    {
+      "state": "progress-technique",
+      "file": "progress-technique-expanded.png",
+      "expanded": true
+    }
+  ],
+  "checks": [
+    "Seven surfaces, both themes, phone/tablet orientations and 320 px",
+    "Info is closed initially and opens with Enter",
+    "Transfer progress preserves open help",
+    "Format compatibility warning remains visible and required",
+    "Original notebook, PDF and annotations unchanged"
+  ],
+  "sources": {
+    "src/companion/more-info.js": "3b9b59b39f0c1bd7a91294996db169ce752296ab55fef7831b1d9090a9fdfee5",
+    "src/companion/app.js": "1a54103792c959d48b3c6b4805d6f63af4a3b49184cc4c78f2ebc90c0ab445a3",
+    "src/companion/app.css": "4705942c16726c227cae62a675b0083965fac1a242c782b82b8f3871ee937ae3",
+    "src/companion/drive-sync-view.js": "80009c59e0d06aa1bd0c746c8c37f56b7995e89ec1127a876b622079d22bc1e8",
+    "src/companion/download-view.js": "d579dc76977a25d951e6c0737c7b4ff33d00d9270fd416ee94b2bb634b9fa487",
+    "src/companion/profile-view.js": "bce3fac20be51926e44b66483618b4e5a49eb2b46b03ce569159263d33c121c0",
+    "src/companion/progress-learning.js": "b5beac34f7e7f7016a45b7f929bae81af4500a9ebecd78e1d6226fed48fbf466",
+    "src/companion/library-view.js": "f40d3d0bba0ef4ad6f6222adb448d6342640eeaaafaaccab73ec18fc3f27c1b8",
+    "src/companion/drive-notebook-view.js": "5839055fa4dbc48565f1993e9574e28e04ccc389afbf4b7fd57c9840a810a3c1"
+  },
+  "buildIndexSha256": "50611f392d5bc0955e7b9770a5ab7afc5758b8762d0628f7e4b94a40f7dda7bc"
+}

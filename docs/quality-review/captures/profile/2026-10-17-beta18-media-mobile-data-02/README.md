@@ -1,0 +1,3 @@
+# Final beta18 mobile-data recording copies
+
+2026-10-17. Twenty responsive frames use disposable simulated native/Drive notebooks and a metered cellular connection. The device-local switch allows uploads/downloads, passes wifiOnly=false to the native bridge, survives reload and restores Wi-Fi-only copying. The explanatory paragraph is behind + Info; transfer state, permissions and actions remain visible. Notebook, score-download policy, PDFs, annotations and local recording IDs remain unchanged. This is browser/fixture evidence, not real cellular/Google acceptance. verification.json records source/build hashes and checks.

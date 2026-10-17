@@ -665,3 +665,10 @@
 .cp-today-progress .cp-day-minutes { font-size: 10px; font-variant-numeric: tabular-nums; color: var(--theme-link); }
 .cp-today-progress .cp-today-days [aria-current=date] b { background: var(--theme-accent); color: white; }
 .cp-today-progress .cp-today-marks { flex-basis: auto; }
+.cp-more-info { margin: 6px 0 12px; font-size: 13px; line-height: 1.5; }
+.cp-more-info > summary { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; padding: 0 4px; list-style: none; cursor: pointer; color: var(--theme-link, #3066db); text-decoration: underline; text-underline-offset: 3px; }
+#app-shell .cp-more-info > summary, #cp-dialog .cp-more-info > summary { min-width: 44px; }
+.cp-more-info > summary::-webkit-details-marker { display: none; }
+.cp-more-info > summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 4px; }
+.cp-more-info-content { color: var(--theme-muted, #adb9cb); overflow-wrap: anywhere; }
+.cp-more-info-content p { margin: 0 0 8px; }

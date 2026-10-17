@@ -1,0 +1,7 @@
+# Final beta18 Android emulator evidence
+
+2026-10-17. Replacement installation of beta18/build71 passes, with the app launched and confirmed foreground. Disposable namespaced notebooks exercise media filters, stand-only/free recording, camera selection, paused preview, pause/resume and encoded portrait/landscape video with the raised caption. Recording review no longer contains the offline/Drive/JSON paragraph. Native camera input is virtual; real cellular/Google and physical-device acceptance remain separate.
+
+The first review attempt stalled with the emulator. Its cold restart did not expose the beta package. The current beta was installed and the private pre-review app-storage archive restored before opening WebView; all 121 file hashes matched. recovery.json records the archive hash, paths, file hashes and scope. No clear-data or wipe command was used. The original logical baseline remains empty following the prior beta13 incident; this restores the current emulator beta storage, not that earlier notebook. No physical device was accessed.
+
+native.json records the successful final replacement installation, APK hash, foreground activity, original store/blob comparisons and virtual-camera dimensions/controls. Earlier partial run 01 remains local as a dated diagnostic. Rotation preferences are restored; synthetic takes are discarded. Private recovery archives are excluded from version control.

@@ -1,3 +1,4 @@
+import {moreInfo} from './more-info.js';
 import { APP_VERSION } from './app-version.js';
 import { catalanCopy } from './locale-ca.js';
 import { ui, getAppLanguage, APP_LANGUAGES } from './locale.js';
@@ -46,7 +47,7 @@ export function profileMarkup(data, {cloud={}, assetCount=null, reminders=null, 
 }
 export function identityMarkup(preferences,lang=getAppLanguage()) {
   const t=words(lang);
-  return `<form id="profile-identity-form"><label>${t.name}<input name="name" maxlength="80" autocomplete="given-name" value="${esc(preferences.name)}" /></label><label>${t.goal} (${t.minutes})<input type="number" name="weeklyMinutes" min="0" max="3000" required value="${preferences.weeklyMinutes}" /></label><label>${t.level}<select name="level">${options(pianistLevelOptions(),String(pianistLevel(preferences)))}</select></label><p class="muted cp-level-hint">${t.levelHint}</p><label>${t.language}<select name="language">${options(Object.entries(APP_LANGUAGES),preferences.language || lang)}</select></label><div class="cp-actions">${button('close-dialog',t.cancel)}<button type="submit" class="primary">${t.save}</button></div></form>`;
+  return `<form id="profile-identity-form"><label>${t.name}<input name="name" maxlength="80" autocomplete="given-name" value="${esc(preferences.name)}" /></label><label>${t.goal} (${t.minutes})<input type="number" name="weeklyMinutes" min="0" max="3000" required value="${preferences.weeklyMinutes}" /></label><label>${t.level}<select name="level">${options(pianistLevelOptions(),String(pianistLevel(preferences)))}</select></label>${moreInfo(`<p class="cp-level-hint">${esc(t.levelHint)}</p>`)}<label>${t.language}<select name="language">${options(Object.entries(APP_LANGUAGES),preferences.language || lang)}</select></label><div class="cp-actions">${button('close-dialog',t.cancel)}<button type="submit" class="primary">${t.save}</button></div></form>`;
 }
 const options = (entries,value) => entries.map(([id,label])=>`<option value="${id}" ${id===value?'selected':''}>${label}</option>`).join('');
 // Warm-up before piano and MIDI sessions: on by default, a few minutes, a rotating set of Hanon exercises.
@@ -68,7 +69,7 @@ export function manualBackupMarkup(lastBackup,lang=getAppLanguage(),native=false
 }
 export function remindersMarkup(state,native,lang=getAppLanguage()) {
   const t=words(lang);
-  return `<section class="cp-profile">${profileHeading(t.notifications,lang)}<section class="cp-preference-card"><span class="cp-setting-icon">${profileIcon('bell')}</span><h2>${!native?t.unavailable:state?.enabled?t.on:t.off}</h2><p class="muted">${t.reminderHint}</p>${state?.deferred?`<p class="muted">${ui('Upcoming reminders are scheduled first. Later reminders refresh when you open the app.','Se programan primero los recordatorios más próximos. Los posteriores se actualizan al abrir la app.')}</p>`:''}${native&&!state?.enabled?button('notification-permission',t.enable,'primary'):''}</section></section>`;
+  return `<section class="cp-profile">${profileHeading(t.notifications,lang)}<section class="cp-preference-card"><span class="cp-setting-icon">${profileIcon('bell')}</span><h2>${!native?t.unavailable:state?.enabled?t.on:t.off}</h2><p class="muted">${t.reminderHint}</p>${state?.deferred?`${moreInfo(`<p class="muted">${ui('Upcoming reminders are scheduled first. Later reminders refresh when you open the app.','Se programan primero los recordatorios más próximos. Los posteriores se actualizan al abrir la app.')}</p>`)}`:''}${native&&!state?.enabled?button('notification-permission',t.enable,'primary'):''}</section></section>`;
 }
 export function fileSize(bytes,lang=getAppLanguage()) {
   if (bytes < 1024) return `${bytes} B`;

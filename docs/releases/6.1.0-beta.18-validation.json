@@ -1,0 +1,114 @@
+{
+  "version": "6.1.0-beta.18",
+  "appVersion": "6.1.0-beta.18",
+  "build": 71,
+  "date": "2026-10-17T10:36:43.869715+00:00",
+  "webBuild": "passed",
+  "androidBuild": "Java21 assembleDebug and testDebugUnitTest passed",
+  "androidUnitTests": 7,
+  "focusedChecks": 26,
+  "focusedTestLog": "output/review/beta18-final-focused-tests.log",
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 261,
+  "apkBytes": 23363560,
+  "apkSha256": "00dd4bc564521cede0d858b87b5b7514670cdfb83d7409d66742f8389da72d28",
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/multimedia/2026-10-17-beta18-recording-03/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-17-beta18-release-01/verification.json",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-17-beta18-native-02/native.json",
+  "foreground": "    topResumedActivity=ActivityRecord{9a0555b u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t105}",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "originalLogicalStoreCount": 0,
+  "originalStoresUnchanged": true,
+  "retainedBlobFiles": 74,
+  "originalRetentionVerified": false,
+  "retentionScope": "The emulator froze during the initial review. After a cold restart did not expose the beta package, the current beta was installed and its private pre-review app-storage archive restored; all 121 file hashes matched before opening WebView. No clear-data/wipe command was used. The final replacement install preserves raw IndexedDB files; original logical stores and immutable blobs match after isolated review. The original logical baseline remains empty after the previously recorded beta13 incident; this does not establish recovery of that earlier notebook.",
+  "emulatorCameraCaptureTested": true,
+  "nativeVideo": [
+    {
+      "orientation": "portrait",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 720,
+        "height": 1280,
+        "duration": 1.764,
+        "title": "Prélude en do majeur"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    },
+    {
+      "orientation": "landscape",
+      "preview": {
+        "width": 1280,
+        "height": 720,
+        "cameras": [
+          "camera2 1, facing front",
+          "camera2 0, facing back"
+        ]
+      },
+      "encoded": {
+        "width": 1280,
+        "height": 720,
+        "duration": 1.707,
+        "title": "Grabación libre"
+      },
+      "overlayPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "captionFrameEncoded": true,
+      "previewInitiallyNotRecording": true,
+      "pauseClockFrozen": true
+    }
+  ],
+  "physicalCaptureTested": false,
+  "physicalDeviceAcceptance": false,
+  "titleDateOverlayImplemented": true,
+  "publicVerification": "6.1.0-beta.18-publication.json",
+  "sources": {
+    "src/companion/app.js": "1a54103792c959d48b3c6b4805d6f63af4a3b49184cc4c78f2ebc90c0ab445a3",
+    "src/companion/app.css": "4705942c16726c227cae62a675b0083965fac1a242c782b82b8f3871ee937ae3",
+    "src/companion/media-view.js": "7c00d38082d7e93c6ac2e0841ce333146309f1277c09d9eb8dc9e5e44fbd4a48",
+    "src/companion/more-info.js": "3b9b59b39f0c1bd7a91294996db169ce752296ab55fef7831b1d9090a9fdfee5",
+    "src/companion/drive-sync-view.js": "80009c59e0d06aa1bd0c746c8c37f56b7995e89ec1127a876b622079d22bc1e8",
+    "src/companion/download-view.js": "d579dc76977a25d951e6c0737c7b4ff33d00d9270fd416ee94b2bb634b9fa487",
+    "src/companion/profile-view.js": "bce3fac20be51926e44b66483618b4e5a49eb2b46b03ce569159263d33c121c0",
+    "src/companion/progress-learning.js": "b5beac34f7e7f7016a45b7f929bae81af4500a9ebecd78e1d6226fed48fbf466",
+    "src/companion/library-view.js": "f40d3d0bba0ef4ad6f6222adb448d6342640eeaaafaaccab73ec18fc3f27c1b8",
+    "src/companion/drive-notebook-view.js": "5839055fa4dbc48565f1993e9574e28e04ccc389afbf4b7fd57c9840a810a3c1",
+    "src/companion/locale-ca.js": "08da5f8c262c637e611736ef3cfd5eba75a0eceb86423703a3ba8f550f5c2787",
+    "src/companion/media-network.js": "71ef1797b43d3894856b3af1d091724f7e7cbb782187f18058ec5d09a792fca4",
+    "package-lock.json": "f095d8250d10b938abad3b37fbe80f67199fe4d9ead9955c7e4cb2f4d84525c2",
+    "android/app/build.gradle": "a124a8b9dee9463738753fca5c524f8305403e86a38b3faaa85ea10ccae92e26"
+  },
+  "mediaNetworkEvidence": "../quality-review/captures/profile/2026-10-17-beta18-media-mobile-data-02/verification.json",
+  "captionBottomInsetRatio": 0.1,
+  "mediaMobileDataImplemented": true,
+  "focusedTotal": 27,
+  "optionalChecksSkipped": 1,
+  "optionalSkipReason": "Optional real acquired-score fixture is not downloaded; synthetic score checks pass.",
+  "compactHelpEvidence": "../quality-review/captures/themes/2026-10-17-beta18-compact-help-01/verification.json",
+  "websiteImages": "../quality-review/captures/website/2026-10-17-beta18-site-01/capture.json",
+  "emulatorRecoveryEvidence": "../quality-review/captures/multimedia/2026-10-17-beta18-native-02/recovery.json",
+  "emulatorRecoveryFiles": 121,
+  "emulatorRecoveryHashesMatch": true,
+  "recordingExplanatoryParagraphRemoved": true,
+  "compactHelpImplemented": true
+}

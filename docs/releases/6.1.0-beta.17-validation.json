@@ -95,5 +95,8 @@
   "mediaNetworkEvidence": "../quality-review/captures/profile/2026-10-17-beta17-media-mobile-data-01/verification.json",
   "captionBottomInsetRatio": 0.1,
   "mediaMobileDataImplemented": true,
-  "websiteImagesRetainedFrom": "../quality-review/captures/website/2026-10-17-beta16-final-03/capture.json"
+  "websiteImagesRetainedFrom": "../quality-review/captures/website/2026-10-17-beta16-final-03/capture.json",
+  "sourceCommit": "834861a4bc429e817796d72fc7242363d8b577f6",
+  "publicVerificationPassed": true,
+  "publicVerifiedAt": "2026-10-17T10:17:26.307952+00:00"
 }

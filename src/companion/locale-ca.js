@@ -1,5 +1,13 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Format 2 requires SPino 6.0.0-beta.3 or later. Conversion keeps the original file.|El format 2 requereix SPino 6.0.0-beta.3 o posterior. La conversió conserva el fitxer original.
+
+Practise reading or technique to start comparing results.|Practica lectura o tècnica per començar a comparar resultats.
+Manual practice · no automatic scoring|Pràctica manual · sense puntuació automàtica
+PDFs available offline|PDF disponibles sense connexió
+not downloaded|sense baixar
+New editions arrive with app updates. Previous editions with annotations stay in your repertoire.|Les noves edicions arriben amb les actualitzacions de l’app. Les edicions anteriors amb anotacions es conserven al repertori.
+
 Record|Gravar
 Microphone level|Nivell del micròfon
 Sound detected|So detectat

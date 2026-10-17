@@ -1,0 +1,3 @@
+# Final beta18 recording browser evidence
+
+2026-10-17. One hundred responsive frames cover both themes, phone/tablet portrait/landscape and 320 px, using disposable notebooks and actual MediaRecorder encoding of synthetic audio/video streams. Recording review and playback no longer show the offline/Drive/JSON paragraph. Existing controls, title selection, free takes, camera selection, pause/resume, input metering, permissions, original notebook/assets and encoded title/date remain verified. Decoded portrait/landscape images measure the raised caption clearance. verification.json records source/build hashes. Browser evidence is separate from native-emulator and physical-device acceptance.
