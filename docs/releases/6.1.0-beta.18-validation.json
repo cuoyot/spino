@@ -110,5 +110,8 @@
   "emulatorRecoveryFiles": 121,
   "emulatorRecoveryHashesMatch": true,
   "recordingExplanatoryParagraphRemoved": true,
-  "compactHelpImplemented": true
+  "compactHelpImplemented": true,
+  "sourceCommit": "9c52ea28e32bab27c4836be7608426f65af7dcf5",
+  "publicVerificationPassed": true,
+  "publicVerifiedAt": "2026-10-17T10:39:26.342619+00:00"
 }
