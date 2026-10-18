@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-18T17:40:51.610856+00:00",
+  "version": "6.1.0-beta.20",
+  "build": 73,
+  "websiteCommit": "4c7926c656d5943bcebf8bb7ea511bd30eec43f1",
+  "tag": "v6.1.0-beta.20",
+  "deployment": {
+    "provider": "Cloudflare Workers Builds",
+    "check": "Workers Builds: spino",
+    "status": "completed",
+    "conclusion": "success",
+    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/8a781fa7-50fc-45f6-bc08-180b5b750e4e",
+    "completedAt": "2026-10-18T17:34:09Z"
+  },
+  "publicVerificationPassed": false,
+  "publicVerificationStatus": "incomplete_due_to_connection_timeout",
+  "normalDomain": "https://spinoapp.com/",
+  "error": "TCP connection to spinoapp.com:443 times out from this session; browser navigation and repeated normal HTTPS requests also fail. No DNS, TLS or security settings were changed.",
+  "resolvedIPv4": [
+    "188.114.96.5",
+    "188.114.97.5"
+  ],
+  "languagePages": [],
+  "downloads": [],
+  "websiteImages": [],
+  "fallbackDownload": {
+    "url": "https://raw.githubusercontent.com/cuoyot/spino/v6.1.0-beta.20/site/downloads/spino-6.1.0-beta.20-73-android.apk",
+    "bytes": 23377676,
+    "sha256": "e9917c98dc9969c8b12cdc2b4519c5961316dc738107fe6a53e904504098a381",
+    "verified": true,
+    "source": "Immutable GitHub tag; this does not establish custom-domain download verification"
+  },
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-18-beta20-native-02/native.json",
+  "physicalDeviceAcceptance": false
+}

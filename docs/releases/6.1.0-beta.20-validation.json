@@ -63,5 +63,11 @@
     "src/companion/media-view.js": "903e95c5c8b0c7caa9c2300249486b636d7fbdd20e377a958dbc0b6d136c7356",
     "src/companion/media.css": "7ab9f137b3e79ed3153f605ff6e952cd7f3012cccdcf12e41894c474d10ac624",
     "src/companion/locale-ca.js": "45107c424d8c078e832d2a48c071ba2f2f7a1f4be4c37cb9ef62b65b726a39b1"
-  }
+  },
+  "sourceCommit": "4c7926c656d5943bcebf8bb7ea511bd30eec43f1",
+  "publicVerificationPassed": false,
+  "publicVerificationStatus": "incomplete_due_to_connection_timeout",
+  "cloudflareDeploymentPassed": true,
+  "fallbackDownloadVerified": true,
+  "fallbackDownloadURL": "https://raw.githubusercontent.com/cuoyot/spino/v6.1.0-beta.20/site/downloads/spino-6.1.0-beta.20-73-android.apk"
 }
