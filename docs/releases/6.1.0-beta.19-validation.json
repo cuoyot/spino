@@ -16,7 +16,7 @@
   "browserCameraEvidence": "../quality-review/captures/multimedia/2026-10-18-beta19-camera-01/verification.json",
   "browserRotationEvidence": "../quality-review/captures/multimedia/2026-10-18-beta19-rotation-01/verification.json",
   "browserSharingEvidence": "../quality-review/captures/multimedia/2026-10-18-beta19-sharing-01/verification.json",
-  "websiteEvidence": "../quality-review/captures/website/2026-10-18-beta19-release-01/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-18-beta19-release-02/verification.json",
   "websiteImages": "../quality-review/captures/website/2026-10-18-beta19-site-01/capture.json",
   "nativeEvidence": "../quality-review/captures/multimedia/2026-10-18-beta19-native-01/native.json",
   "foreground": "    topResumedActivity=ActivityRecord{c3e1ff2 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t112}",
@@ -48,5 +48,8 @@
     "src/companion/camera-controls.js": "d382070947085527aae9e778864cdd6fed79a6c1a7bbc6c9aae3d675cee5c689",
     "src/companion/media.css": "84e4ba5dbfafede2403ea9f01e0fcb57ae2823c00bbb662414fd776712567a32",
     "src/companion/locale-ca.js": "eab7ae53ad1b9e5380fd2df46df7842220cf5153bb649b677463cabf3f067a47"
-  }
+  },
+  "sourceCommit": "779cc442e289404200ba8f358ba574c7b2e1339c",
+  "publicVerificationPassed": true,
+  "publicVerifiedAt": "2026-10-18T14:16:34.075279+00:00"
 }
