@@ -1,0 +1,67 @@
+{
+  "version": "6.1.0-beta.20",
+  "build": 73,
+  "date": "2026-10-18T17:28:35.871287+00:00",
+  "webBuild": "passed",
+  "androidBuild": "Java21 assembleDebug and testDebugUnitTest passed",
+  "focusedChecks": 18,
+  "androidUnitTests": 7,
+  "websiteChecks": 3,
+  "packagedWebFilesMatch": 261,
+  "apkBytes": 23377676,
+  "apkSha256": "e9917c98dc9969c8b12cdc2b4519c5961316dc738107fe6a53e904504098a381",
+  "signingSHA1": "73:76:4B:65:8E:94:CA:3D:75:D9:8B:EB:EC:D5:B7:90:AF:82:BD:23",
+  "browserEvidence": "../quality-review/captures/multimedia/2026-10-18-beta20-audio-01/verification.json",
+  "websiteEvidence": "../quality-review/captures/website/2026-10-18-beta20-release-01/verification.json",
+  "websiteImagesRetainedFrom": "../quality-review/captures/website/2026-10-18-beta19-site-01/capture.json",
+  "nativeEvidence": "../quality-review/captures/multimedia/2026-10-18-beta20-native-02/native.json",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "foreground": "    topResumedActivity=ActivityRecord{4d0723e u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t114}",
+  "originalLogicalDatabaseCount": 42,
+  "originalStoresUnchanged": true,
+  "retainedBlobFiles": 102,
+  "retentionScope": "Replacement installation retains the current emulator logical stores and immutable blobs. Review uses namespaced disposable storage. The earlier beta13 notebook loss remains historical; current retention does not establish recovery of that earlier notebook.",
+  "nativeAudioAnimationFrames": 6,
+  "nativeFourDirectionSwipes": [
+    {
+      "dx": 90,
+      "dy": 0,
+      "style": "orbit"
+    },
+    {
+      "dx": 0,
+      "dy": 90,
+      "style": "mixer"
+    },
+    {
+      "dx": -90,
+      "dy": 0,
+      "style": "orbit"
+    },
+    {
+      "dx": 0,
+      "dy": -90,
+      "style": "silk"
+    }
+  ],
+  "nativeRecorderRetained": true,
+  "nativeMonitorAndTracksReleased": true,
+  "nativeAudioVideoSharingVerified": true,
+  "physicalDeviceAcceptance": false,
+  "stableAndroidUnchanged": "6.0.0 (53)",
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
+  "publicVerification": "6.1.0-beta.20-publication.json",
+  "focusedTestLog": "output/review/beta20-focused-tests.log",
+  "websiteTestLog": "output/review/beta20-site-tests.log",
+  "sources": {
+    "package.json": "c8538b639dd7928ac86a4f8c9083ae8f14614a36f0fda69d54505df2d2bfc9c7",
+    "package-lock.json": "9a97539a4e189f10e8c37aa846b2eb3d7d6c2822b8cf80604ccf82e510c79d27",
+    "android/app/build.gradle": "2bac129138678d40a8c4b69084f1513caa13cf99afa477daa8c63d605e97bcc8",
+    "src/companion/about-view.js": "b01d25ebc5a2ee6d1780d5a15db44b62045ef70cf01e853217307fe0d104aaa2",
+    "src/companion/audio-visualizer.js": "cade2bbc97d347593b63b076c12653c80d6d04c4729b2c8cb150026cc03c0a20",
+    "src/companion/media-view.js": "903e95c5c8b0c7caa9c2300249486b636d7fbdd20e377a958dbc0b6d136c7356",
+    "src/companion/media.css": "7ab9f137b3e79ed3153f605ff6e952cd7f3012cccdcf12e41894c474d10ac624",
+    "src/companion/locale-ca.js": "45107c424d8c078e832d2a48c071ba2f2f7a1f4be4c37cb9ef62b65b726a39b1"
+  }
+}

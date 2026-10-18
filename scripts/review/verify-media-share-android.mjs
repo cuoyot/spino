@@ -4,6 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
+import {syntheticAudioSource} from '../../tests/fixtures/audio-visualizer.js';
 import {emptyData} from '../../src/companion/model.js';
 const releaseVersion=JSON.parse(await readFile('package.json','utf8')).version;
 const releaseBuild=Number((await readFile('android/app/build.gradle','utf8')).match(/versionCode\s+(\d+)/)[1]);
@@ -75,10 +76,34 @@ try{
     run(['shell','input','keyevent','KEYCODE_BACK']);await wait(`![...document.querySelectorAll('[data-media=share],[data-action=media-share]')].some(button=>button.disabled)`);
     if(source.kind==='video'){assert.equal(await evaluate(`document.querySelector('#cp-media-capture video')===shareReviewPlayer`),true);await evaluate(`document.querySelector('[data-media=close]').click()`);}
   }
+  let audioArt=null;
+  if(process.argv.includes('--audio-art')){
+    await evaluate(syntheticAudioSource+`window.reviewMonitorContexts=[];window.AudioContext=new Proxy(AudioContext,{construct(target,args){const c=new target(...args);reviewMonitorContexts.push(c);return c;}});`);
+    const tapped=await send('Runtime.evaluate',{expression:`document.querySelector('[data-action=record-media]').click();document.querySelector('[data-media=audio]').click()`,userGesture:true,awaitPromise:true,returnByValue:true});assert.equal(tapped.exceptionDetails,undefined);
+    await wait(`document.querySelector('[data-audio-style]')?.dataset.audioStyle==='silk'&&reviewAudioRecorders.length===1`);
+    await evaluate(`reviewAudioGain.gain.value=.35`);await wait(`document.querySelector('[data-audio-level]').value>20&&document.querySelector('[data-audio-signal]').textContent==='Sound detected'`);
+    const gestures=[];
+    for(const [dx,dy,expected] of [[90,0,'orbit'],[0,90,'mixer'],[-90,0,'orbit'],[0,-90,'silk']]){
+      const point=await evaluate(`(()=>{const r=document.querySelector('.cp-audio-art').getBoundingClientRect();return{x:(r.x+r.width/2)*devicePixelRatio,y:(r.y+r.height/2)*devicePixelRatio,scale:devicePixelRatio}})()`);
+      run(['shell','input','swipe',String(Math.round(point.x)),String(Math.round(point.y)),String(Math.round(point.x+dx*point.scale)),String(Math.round(point.y+dy*point.scale)),'250']);
+      await wait(`document.querySelector('[data-audio-style]').dataset.audioStyle==='${expected}'`);
+      assert.equal(await evaluate(`reviewAudioRecorders.length===1&&reviewAudioRecorders[0].state==='recording'`),true);gestures.push({dx,dy,style:expected});
+    }
+    const frames=[];
+    for(const theme of ['light','dark'])for(const style of ['silk','orbit','mixer']){
+      await evaluate(`document.documentElement.dataset.theme='${theme}'`);
+      for(let n=0;n<3&&await evaluate(`document.querySelector('[data-audio-style]').dataset.audioStyle`)!==style;n++)await evaluate(`document.querySelector('[data-audio-next]').click()`);
+      await wait(`document.querySelector('[data-audio-style]').dataset.audioStyle==='${style}'`);await evaluate(`new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))`);await new Promise(resolve=>setTimeout(resolve,1200));const rendered=await evaluate(`({style:document.querySelector('[data-audio-style]').dataset.audioStyle,label:document.querySelector('[data-audio-style-name]').textContent})`);assert.equal(rendered.style,style);await shot('native-audio-'+theme+'-'+style);frames.push({theme,style,file:'native-audio-'+theme+'-'+style+'.png',rendered});
+    }
+    await evaluate(`document.querySelector('[data-media=stop]').click()`);await wait(`document.querySelector('[data-media=delete]')&&!document.querySelector('[data-media=delete]').disabled`);
+    assert.equal(await evaluate(`reviewAudioTracks.every(t=>t.readyState==='ended')&&reviewMonitorContexts.every(c=>c.state==='closed')`),true);
+    await evaluate(`document.querySelector('[data-media=delete]').click()`);await wait(`!document.querySelector('.cp-media-studio[open]')`);await evaluate(`Promise.all(reviewAudioContexts.map(c=>c.close()));document.documentElement.dataset.theme='light'`);
+    audioArt={input:'Synthetic Web Audio stream inside the installed Android WebView; no physical microphone acceptance',defaultStyle:'silk',gestures,frames,recorderRetained:true,monitorAndTracksReleased:true};
+  }
   const originalStoresAfter=await notebookSnapshot();assert.deepEqual(originalStoresAfter,originalStoresBefore);
   const blobFiles=Object.keys(before).filter(path=>path.includes('.indexeddb.blob/')),after=fileHashes(blobFiles);assert.ok(blobFiles.every(path=>after[path]===before[path]));
   const foreground=run(['shell','dumpsys','activity','activities']).split('\n').filter(line=>/mResumedActivity|topResumedActivity/.test(line)).join('\n');assert.match(foreground,/com\.miguecoll\.spino\.MainActivity/);await shot('native-final-foreground');
   await send('Page.removeScriptToEvaluateOnNewDocument',{identifier:script});assert.deepEqual(errors,[]);
-  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',version:releaseVersion,build:releaseBuild,apkSha256:hash(await readFile(apk)),replacementInstall:install,foreground,originalStoresBefore,originalStoresAfter,originalStoresUnchanged:true,retainedBlobFiles:blobFiles.length,privateBackup,privateBackupSHA256:hash(backupBytes),disposableStoragePrefix:prefix,takes,physicalDeviceAcceptance:false,errors},null,2));
+  await writeFile(folder+'/native.json',JSON.stringify({date:new Date().toISOString(),kind:'native-android-emulator',version:releaseVersion,build:releaseBuild,apkSha256:hash(await readFile(apk)),replacementInstall:install,foreground,originalStoresBefore,originalStoresAfter,originalStoresUnchanged:true,retainedBlobFiles:blobFiles.length,privateBackup,privateBackupSHA256:hash(backupBytes),disposableStoragePrefix:prefix,takes,audioArt,physicalDeviceAcceptance:false,errors},null,2));
   console.log('Native audio/video sharesheet, original-file hashes, cancellation, post-save action, replacement install and notebook retention pass.');
 }finally{ws.close();if(port)run(['forward','--remove','tcp:'+port]);}

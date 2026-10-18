@@ -1,0 +1,536 @@
+{
+  "date": "2026-10-18T16:13:45.602Z",
+  "kind": "responsive-browser-synthetic-audio",
+  "nativeAcceptance": false,
+  "frames": [
+    {
+      "file": "light-silk-390x844.png",
+      "theme": "light",
+      "current": "silk",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "light-orbit-390x844.png",
+      "theme": "light",
+      "current": "orbit",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "light-mixer-390x844.png",
+      "theme": "light",
+      "current": "mixer",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "light-silk-844x390.png",
+      "theme": "light",
+      "current": "silk",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "light-orbit-844x390.png",
+      "theme": "light",
+      "current": "orbit",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "light-mixer-844x390.png",
+      "theme": "light",
+      "current": "mixer",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "light-silk-768x1024.png",
+      "theme": "light",
+      "current": "silk",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "light-orbit-768x1024.png",
+      "theme": "light",
+      "current": "orbit",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "light-mixer-768x1024.png",
+      "theme": "light",
+      "current": "mixer",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "light-silk-1024x768.png",
+      "theme": "light",
+      "current": "silk",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "light-orbit-1024x768.png",
+      "theme": "light",
+      "current": "orbit",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "light-mixer-1024x768.png",
+      "theme": "light",
+      "current": "mixer",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "light-silk-320x640.png",
+      "theme": "light",
+      "current": "silk",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "light-orbit-320x640.png",
+      "theme": "light",
+      "current": "orbit",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "light-mixer-320x640.png",
+      "theme": "light",
+      "current": "mixer",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#356cda",
+        "surface": "color(srgb 0.863529 0.896314 0.965333)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "dark-silk-390x844.png",
+      "theme": "dark",
+      "current": "silk",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "dark-orbit-390x844.png",
+      "theme": "dark",
+      "current": "orbit",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "dark-mixer-390x844.png",
+      "theme": "dark",
+      "current": "mixer",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 358,
+        "canvasHeight": 579.71875,
+        "bottom": 828,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "dark-silk-844x390.png",
+      "theme": "dark",
+      "current": "silk",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "dark-orbit-844x390.png",
+      "theme": "dark",
+      "current": "orbit",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "dark-mixer-844x390.png",
+      "theme": "dark",
+      "current": "mixer",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 812,
+        "canvasHeight": 133.71875,
+        "bottom": 374,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "dark-silk-768x1024.png",
+      "theme": "dark",
+      "current": "silk",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "dark-orbit-768x1024.png",
+      "theme": "dark",
+      "current": "orbit",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "dark-mixer-768x1024.png",
+      "theme": "dark",
+      "current": "mixer",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 736,
+        "canvasHeight": 759.71875,
+        "bottom": 1008,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "dark-silk-1024x768.png",
+      "theme": "dark",
+      "current": "silk",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "dark-orbit-1024x768.png",
+      "theme": "dark",
+      "current": "orbit",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "dark-mixer-1024x768.png",
+      "theme": "dark",
+      "current": "mixer",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 992,
+        "canvasHeight": 503.71875,
+        "bottom": 752,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "mixer"
+      }
+    },
+    {
+      "file": "dark-silk-320x640.png",
+      "theme": "dark",
+      "current": "silk",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "silk"
+      }
+    },
+    {
+      "file": "dark-orbit-320x640.png",
+      "theme": "dark",
+      "current": "orbit",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "orbit"
+      }
+    },
+    {
+      "file": "dark-mixer-320x640.png",
+      "theme": "dark",
+      "current": "mixer",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "overflow": false,
+        "canvasWidth": 288,
+        "canvasHeight": 375.71875,
+        "bottom": 624,
+        "buttonHeight": 44,
+        "color": "#75a9ff",
+        "surface": "color(srgb 0.124078 0.155451 0.209725)",
+        "style": "mixer"
+      }
+    }
+  ],
+  "oneFingerFourDirections": true,
+  "twoFingerAndCancelIgnored": true,
+  "keyboardAlternative": true,
+  "defaultResetsToSilk": true,
+  "recorderRetainedDuringSwipes": true,
+  "silenceAndSignalVerified": true,
+  "notebookAndAssetsUnchanged": true,
+  "tracksReleased": true,
+  "reducedMotionSmoke": true,
+  "sources": {
+    "src/companion/audio-visualizer.js": "cade2bbc97d347593b63b076c12653c80d6d04c4729b2c8cb150026cc03c0a20",
+    "src/companion/media-view.js": "903e95c5c8b0c7caa9c2300249486b636d7fbdd20e377a958dbc0b6d136c7356",
+    "src/companion/media.css": "7ab9f137b3e79ed3153f605ff6e952cd7f3012cccdcf12e41894c474d10ac624",
+    "src/companion/locale-ca.js": "45107c424d8c078e832d2a48c071ba2f2f7a1f4be4c37cb9ef62b65b726a39b1",
+    "tests/audio-visualizer.browser.test.js": "8612e2a19c3bd2595bdbdb6b0a644930832120114fa4d6394057625dd7a9d9df",
+    "tests/fixtures/audio-visualizer.js": "a3cd3a293b7a435f5222565884ca5fed28e20f47b26c092fc3a807955fb66c9a"
+  },
+  "buildIndexSha256": "351434874c6cfdf92470940ad113e8d5fcd303a5889c26ea245a1a65adba3945",
+  "errors": []
+}

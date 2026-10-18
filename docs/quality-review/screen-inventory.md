@@ -397,3 +397,9 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 
 
 2026-10-18 beta19/build72 delivery: D-061/D-062 are included in the owner-authorized Android/website release. See [release validation](../releases/6.1.0-beta.19-validation.json) and [publication verification](../releases/6.1.0-beta.19-publication.json). Final synthetic browser checks distinguish decoded camera framing/rotation from the native Android sharing chooser, original-file integrity and retained emulator data. Physical camera capability, receiving-app and owner visual acceptance remain open. Earlier source-only statements are historical.
+
+
+2026-10-18 D-063 — MEDIA-02 reopened for microphone-driven Silk waves/Orbit/Mixer, default Silk waves and one-finger style changes in every direction. [30 responsive-browser frames](captures/multimedia/2026-10-18-audio-art-04/verification.json) cover light/dark, phone/tablet portrait/landscape and 320 px. The original recorder/stream stays mounted through touch and keyboard changes; notebook/assets remain unchanged. Shared PRACTICE-05/SCORE-03 capture, standalone camera and MEDIA-01 sharing/playback regressions pass. [Active recording review](recording.md#2026-10-18--expressive-audio-animations-d-063). Source-only after beta19/build72; native/physical performance and owner acceptance remain open.
+
+
+2026-10-18 beta20/build73 delivery: D-063 is included in the owner-authorized Android/website release. [Release validation](../releases/6.1.0-beta.20-validation.json) records the final browser checks, native replacement installation, actual Android gestures, six native light/dark animation frames, preserved recorder/stream, monitor cleanup, sharing and current original-store/blob retention. [Publication](../releases/6.1.0-beta.20-publication.json) is recorded separately. Physical microphone/performance and owner visual acceptance remain open. Earlier source-only statements are historical.

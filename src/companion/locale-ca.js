@@ -9,6 +9,11 @@ not downloaded|sense baixar
 New editions arrive with app updates. Previous editions with annotations stay in your repertoire.|Les noves edicions arriben amb les actualitzacions de l’app. Les edicions anteriors amb anotacions es conserven al repertori.
 
 Record|Gravar
+Silk waves|Ones de seda
+Orbit|Òrbita
+Mixer|Mixer
+Change animation|Canviar animació
+Swipe to change|Llisca per canviar
 Microphone level|Nivell del micròfon
 Sound detected|So detectat
 Listening…|Escoltant…

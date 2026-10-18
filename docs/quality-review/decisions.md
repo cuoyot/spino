@@ -1,5 +1,13 @@
 # Review decisions and consistency checks
 
+## D-063 — Expressive microphone animations (2026-10-18)
+
+The owner selects Silk waves, Orbit and Mixer from the animated proposals and requests one-finger swipes in any direction, with Silk waves as the default and light/dark review. The objective and selected styles are accepted. Each standalone audio take starts with Silk waves. Right/down selects the next style; left/up selects the previous style, wrapping through all three. A labeled style button provides the same cycle for keyboard and assistive-technology users. Taps, canceled gestures and two fingers do not change styles.
+
+The canvas responds to the existing microphone stream's actual RMS and frequency spectrum. Silence settles the visual; reduced-motion preference removes traveling motion while retaining slower input feedback. Changing styles preserves the recorder, stream, elapsed time and saved file. The analyser, animation frame, gesture listeners and observers are disposed when capture ends. An unavailable analyser leaves recording and save available. The larger audio preview uses theme-specific colors; compact score/PDF capture is covered separately by regression.
+
+Implementation and responsive-browser evidence: [recording review](recording.md#2026-10-18--expressive-audio-animations-d-063), [30 light/dark frames](captures/multimedia/2026-10-18-audio-art-04/verification.json). Source-only after beta19/build72; native/physical performance and owner visual acceptance remain open. No new APK or publication.
+
 ## D-062 — Share saved recordings through Android (2026-10-18)
 
 The owner requests the standard Share button immediately after saving and in Multimedia, opening the Android system sharesheet. The objective is accepted. Save now retains the saved viewer with Share, Delete and Close; this supersedes automatic closing after successful Save. Drafts still offer Save/Discard and cannot be shared. Saved library cards and saved playback offer the same accessible share icon.
@@ -703,3 +711,6 @@ Owner requires Calendar and Library to match the other main headers so switching
 
 
 2026-10-18 beta19/build72 delivery: D-061/D-062 are included in the owner-authorized Android/website release. See [release validation](../releases/6.1.0-beta.19-validation.json) and [publication verification](../releases/6.1.0-beta.19-publication.json). Final synthetic browser checks distinguish decoded camera framing/rotation from the native Android sharing chooser, original-file integrity and retained emulator data. Physical camera capability, receiving-app and owner visual acceptance remain open. Earlier source-only statements are historical.
+
+
+2026-10-18 beta20/build73 delivery: D-063 is included in the owner-authorized Android/website release. [Release validation](../releases/6.1.0-beta.20-validation.json) records the final browser checks, native replacement installation, actual Android gestures, six native light/dark animation frames, preserved recorder/stream, monitor cleanup, sharing and current original-store/blob retention. [Publication](../releases/6.1.0-beta.20-publication.json) is recorded separately. Physical microphone/performance and owner visual acceptance remain open. Earlier source-only statements are historical.
