@@ -17,6 +17,7 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createIncremen
     clearLegacyLink:()=>legacy.disconnect(),
     pendingNotebookId:()=>current().pendingNotebookId?.(),
     status:()=>current().status(),create:options=>current().create(options),pickBackup:options=>current().pickBackup(options),
+    onProgress:callback=>drive.onProgress?.(callback),cancelPending:()=>current().cancelPending?.(),
     readLinked:()=>current().readLinked(),write:options=>current().write(options),
     resolveRemote:options=>current().resolveRemote?.(options),
     saveRecovery:options=>legacy.saveRecovery(options),readRecovery:()=>legacy.readRecovery(),
@@ -24,9 +25,11 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createIncremen
   };
 }
 
-// Keep presentation and network preferences on their own device; manual JSON copies remain complete.
+// In-progress practice and presentation/network preferences stay on their device.
+// Complete manual JSON backups still include the local in-progress session.
 export function driveNotebookContent(backup){
   const value=structuredClone(backup);
+  if(value?.data)value.data.active=null;
   if(value?.data?.preferences)for(const key of ['theme','wifiOnly'])delete value.data.preferences[key];
   return value;
 }

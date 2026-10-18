@@ -1,5 +1,10 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Invalid recording metadata or notebook identity.|No s’han pogut validar les dades d’una gravació de Drive o el seu quadern. Es conserven els fitxers locals.
+
+Google Drive did not respond in time. Pending changes are kept. Retry synchronization.|Google Drive no ha respost a temps. Es conserven els canvis pendents. Torna a provar la sincronització.
+Synchronization paused. Pending changes are kept.|Sincronització en pausa. Es conserven els canvis pendents.
+
 Original plan|Pla original
 Scores worked on|Partitures treballades
 Teacher recordings|Gravacions del professor

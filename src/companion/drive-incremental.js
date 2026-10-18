@@ -1,3 +1,4 @@
+import {createDriveRequestGate} from './drive-request.js';
 import {backupHash} from './cloud-backup.js';
 import {validateBackup} from './model.js';
 import {validNotebookId} from './device-link.js';
@@ -9,14 +10,17 @@ import {createDriveJournal} from './drive-journal.js';
 const oldMarker='spino-notebook-v1',archivedMarker='spino-notebook-archive-v1';
 const parse=response=>JSON.parse(response.text),equal=(a,b)=>stableJSON(a)===stableJSON(b);
 const bytes=text=>new TextEncoder().encode(text).length;
-export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup}){
- let selected=null,client=null,task=null;
+export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=150000}){
+ let selected=null,client=null,progress=null,progressListener=()=>{};
+ const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs});
+ const report=(stage,completed=0,total=null)=>{progress={stage,completed,total};progressListener();};
  const state=()=>settings.read()||{},save=next=>settings.save(next);
- const serialized=async fn=>{if(task)throw atomicFailure('Wait for the current connection operation.','BUSY');task=fn();try{return await task;}finally{task=null;}};
- async function account(){const value=(await native.status()).account;if(!value?.id)throw atomicFailure('Connect Google Drive. Your notebook is saved locally.','PERMISSION_REQUIRED');return value;}
+ const serialized=async fn=>requests.serialized(async()=>{report('checking');try{return await fn();}finally{progress=null;progressListener();}});
+ async function account(){const value=(await requests.run(()=>native.status())).account;if(!value?.id)throw atomicFailure('Connect Google Drive. Your notebook is saved locally.','PERMISSION_REQUIRED');return value;}
  async function api(path,{method='GET',text,etag,contentType,missing=false,allowConflict=false}={}){
   const connected=await account(),link=state().link;if(link&&link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');
-  const r=await native.request({path,method,text,etag,contentType,accountId:connected.id});
+  const requestId=crypto.randomUUID();
+  const r=await requests.run(()=>native.request({path,method,text,etag,contentType,accountId:connected.id,requestId}),{requestId});
   if(missing&&r.status===404)return null;
   if(allowConflict&&r.status===409)return r;
   if(r.status===409||r.status===412)throw atomicFailure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');
@@ -65,20 +69,24 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  async function graph(c,{refreshFeed=true}={}){
   if(refreshFeed)await refresh(c);
   if(c.graph)return c.graph;
+  report('receiving');
   const commits=new Map(),pending=[...new Set([...(c.initialHeads||[]),...c.catalog.files.filter(f=>f.appProperties.spinoType===COMMIT_MARKER).map(f=>f.appProperties.hash)])];
   for(const hash of pending){
    if(commits.has(hash))continue;
+   report('receiving',commits.size,pending.length);
    const commit=validateCommit(await c.objects.get(hash),c.rootId,c.notebookId),changes=[];
    for(const part of commit.parts)changes.push(...structuredClone(validateChanges(await c.objects.get(part))));
    for(const change of changes)if(change.value?.$spinoRecordParts){const refs=change.value.$spinoRecordParts;if(!Array.isArray(refs)||refs.length>1000||!refs.every(h=>hashPattern.test(h)))throw atomicFailure('Invalid large record reference.');const pieces=[];for(const h of refs){const piece=await c.objects.get(h);if(piece.kind!=='large-record-part'||typeof piece.value!=='string')throw atomicFailure('Invalid large record content.');pieces.push(piece.value);}try{change.value=JSON.parse(pieces.join(''));}catch{throw atomicFailure('Invalid large record data.');}}
    if(new Set(changes.map(v=>v.key)).size!==changes.length)throw atomicFailure('An incremental commit repeats a record.');
    commits.set(hash,{...commit,changes});for(const parent of commit.parents)if(!pending.includes(parent))pending.push(parent);if(pending.length>100000)throw atomicFailure('Too many incremental commits.','LIMIT');
   }
+  report('merging');
   const result=mergeCommitGraph(commits);c.graph=result;return result;
  }
  async function publish(c,records,{force=[],base=null}={}){
   const before=base||await graph(c),changes=recordChanges(before.records,records,force).map(change=>({...change,previous:before.versions[change.key]||[]}));
   if(!changes.length)return before;
+  report('sending');
   const parts=[];let chunk=[];
   for(const change of changes){
    // Oversized records are separate content objects; change batches remain small.
@@ -94,6 +102,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  }
  async function read(c){
   const materialized=await graph(c);if(c.lastGraph===materialized&&c.lastRead)return c.lastRead;
+  report('scores');
   const result=materialized,backup=await recordsNotebook(result.records,c.objects.get);
   backup.cloudBackup={sharedNotebookId:c.notebookId,atomicHeads:result.heads};
   const text=stableJSON(backup);validate(text);const answer={text,hash:await backupHash(text),conflicts:result.conflicts,conflictKeys:result.conflictKeys,conflictDetails:result.conflictDetails,records:result.records,heads:result.heads,versions:result.versions};c.lastGraph=materialized;c.lastRead=answer;return answer;
@@ -149,7 +158,9 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  }
  return {
   transport:'drive',
-  get info(){return {transport:'drive',account:state().account||null,incremental:true,syncFormat:state().link?.format||'previous'};},
+  onProgress:callback=>{progressListener=callback;},
+  cancelPending:()=>requests.cancel(),
+  get info(){return {transport:'drive',account:state().account||null,incremental:true,syncFormat:state().link?.format||'previous',progress};},
   pendingNotebookId:()=>state().pending?.notebookId,
   async connect(){const connected=await native.connect();if(state().link&&state().link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');save({...state(),account:connected});return connected;},
   async status(){const result=await native.status(),linkState=state().link;return {linked:!!linkState,name:linkState?.name||'',mode:'sync',setupPending:!!state().setupPending,account:result.account,transport:'drive',recoveryAvailable:true};},
@@ -163,16 +174,16 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   create:({text,name='SPino notebook.json'})=>serialized(async()=>{const value=await createRoot(text,name);await link(value.root,value.file);return {name:value.file.name};}),
   readLinked:()=>serialized(async()=>read(await current())),
   write:({text,expectedHash})=>serialized(async()=>{const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');const backup=validate(text);if(JSON.parse(text).cloudBackup?.sharedNotebookId!==c.notebookId)throw atomicFailure('Notebook identity cannot change during synchronization.');await recovery.saveRecovery({text:before.text});const records=await notebookRecords(backup,c.objects.put);await publish(c,records,{force:before.conflictKeys,base:before});return {providerAccepted:true};}),
-  async resolveRemote({local,merged,preference,expectedHash}){const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The synchronized conflict changed. Review the latest changes.','CONFLICT');const wanted=await notebookRecords(validate(merged),c.objects.put),localRecords=await notebookRecords(validate(local),c.objects.put);for(const key of before.conflictKeys){
+  resolveRemote:({local,merged,preference,expectedHash})=>serialized(async()=>{const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The synchronized conflict changed. Review the latest changes.','CONFLICT');const wanted=await notebookRecords(validate(merged),c.objects.put),localRecords=await notebookRecords(validate(local),c.objects.put);for(const key of before.conflictKeys){
    if(preference!=='local'){if(Object.hasOwn(before.records,key))wanted[key]=before.records[key];else delete wanted[key];continue;}
    const detail=before.conflictDetails[key],wrap=value=>value===undefined?{}:{record:value};
    // Apply the reviewed choice only to conflicting fields, retaining independent edits in the same record.
    const resolved=mergeNotebooks(detail.hasBase?wrap(detail.base):null,wrap(localRecords[key]),wrap(before.records[key]),'local',detail.paths).backup.record;
    if(resolved!==undefined)wanted[key]=resolved;else delete wanted[key];
-  }const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);},
+  }const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);}),
   async acknowledgeSetup(){save({...state(),setupPending:false});},
   saveRecovery:o=>recovery.saveRecovery(o),readRecovery:()=>recovery.readRecovery(),
-  async clearDeviceCache(){if(task)throw atomicFailure('Wait for synchronization.','BUSY');await journal.clear();client=null;},
-  async disconnect(){if(task)throw atomicFailure('Wait for synchronization.','BUSY');await native.disconnect();save({});client=null;selected=null;}
+  async clearDeviceCache(){if(requests.busy)throw atomicFailure('Wait for synchronization.','BUSY');await journal.clear();client=null;},
+  async disconnect(){if(requests.busy)throw atomicFailure('Wait for synchronization.','BUSY');await native.disconnect();save({});client=null;selected=null;}
  };
 }

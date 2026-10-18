@@ -1,5 +1,8 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ['Invalid recording metadata or notebook identity.', 'No se han podido validar los datos de una grabación de Drive o su cuaderno. Los archivos locales se conservan.'],
+  ['Google Drive did not respond in time. Pending changes are kept. Retry synchronization.', 'Google Drive no ha respondido a tiempo. Los cambios pendientes se conservan. Reintenta la sincronización.'],
+  ['Synchronization paused. Pending changes are kept.', 'Sincronización en pausa. Los cambios pendientes se conservan.'],
   ['Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.', 'Google Drive no está disponible. Tu cuaderno se guarda en este dispositivo; reconecta o reintenta más tarde.'],
   ["The Drive notebook transfer timed out. Pending changes are kept for retry.", "La transferencia del cuaderno a Drive ha agotado el tiempo de espera. Los cambios pendientes se conservan para reintentarlo."],
   ["The Drive server could not be reached. Check the connection and retry.", "No se ha podido conectar con el servidor de Drive. Comprueba la conexión y reintenta."],

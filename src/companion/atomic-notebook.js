@@ -12,6 +12,7 @@ const decode=value=>decodeURIComponent(value);
 // The portable backup stays intact locally. Only transport records replace large content with references.
 export async function notebookRecords(backup,putContent){
  const value=notebookContent(backup),records={};
+ value.data.active=null;
  delete value.data.preferences.theme;delete value.data.preferences.wifiOnly;
  for(const [key,list] of Object.entries(value.data)){
   if(!Array.isArray(list))continue;

@@ -74,3 +74,15 @@ In the updated source, open **Profile > Backup & sync > Audio and video copies**
 Included in Android beta17/build70. Browser/fixture verification covers uploads and downloads over a simulated metered mobile network, persistence and unchanged score-download settings. Actual cellular/Google acceptance remains separate. Publication and package verification are recorded in the beta17 release manifests.
 
 Android beta18/build71 keeps optional explanations behind **+ Info**. Open it to read the detail and close it to return to the compact view; keyboard users can focus the link and press Enter. Recording review no longer shows the paragraph about offline playback and JSON exports. Transfer state, permissions, errors, data and required compatibility warnings remain visible.
+
+
+## Pending practice and connection recovery
+
+In the updated source after beta21, the practice currently open stays on its own device. Saved practices, repertoire, scores and annotations continue to synchronize. Full manual JSON exports still include that device's pending practice. A paused phone practice can remain available to continue while newly saved tablet history arrives from navigation screens. Incoming updates wait while practice is running, a practice/score screen is open, or editing/recording is in progress.
+
+Synchronization shows the current phase and a **Pause synchronization** action. Pause retains local work and pending transfers. Resume automatic synchronization and use **Sync now** to retry. Each request has a bounded wait. Transient incremental transfers retry safely; reopening the app can check again after connectivity recovers. Account permission and genuine overlapping edits still require attention. **Last checked** records a successful check even when the last changed notebook time is older.
+
+Old conflicts concerning only the shared current-practice slot can clear after a fresh read with the updated version. Other conflicts continue to show the values requiring review. Update both devices to the version containing this correction; keep the phone's pending practice available locally. Browser/fixture and Java-unit checks are complete; physical Google/two-device acceptance remains open.
+
+
+Beta22/build75 packages the behavior above. Update both devices before testing a pending phone practice alongside completed tablet history. Synthetic browser checks and native installation/retention pass; actual Google authorization and owner-device acceptance remain pending. See `docs/releases/6.1.0-beta.22-validation.json`.

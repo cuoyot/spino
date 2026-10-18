@@ -15,8 +15,15 @@ import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Drive notebook transport. OAuth tokens never leave native memory. */
 @CapacitorPlugin(name="DriveNotebook")
@@ -24,6 +31,27 @@ public class DriveNotebookPlugin extends Plugin {
     private static final String SCOPE="https://www.googleapis.com/auth/drive.file";
     private static final int LIMIT=60000000;
     private final ExecutorService worker=Executors.newSingleThreadExecutor();
+    private final ScheduledExecutorService deadlines=Executors.newSingleThreadScheduledExecutor();
+    private final ConcurrentHashMap<String,Request> requests=new ConcurrentHashMap<>();
+    private final class Request {
+        final String id; final PluginCall call; final AtomicBoolean finished=new AtomicBoolean();
+        volatile HttpURLConnection connection; volatile Future<?> work;
+        volatile ScheduledFuture<?> authDeadline,totalDeadline;
+        Request(String id,PluginCall call){this.id=id;this.call=call;}
+        boolean finish(){
+            if(!finished.compareAndSet(false,true))return false;
+            if(authDeadline!=null)authDeadline.cancel(false);
+            if(totalDeadline!=null)totalDeadline.cancel(false);
+            requests.remove(id,this);return true;
+        }
+        void fail(String message,String code){
+            if(!finish())return;
+            call.reject(message,code);
+            if(work!=null)work.cancel(true);
+            HttpURLConnection c=connection;if(c!=null)c.disconnect();
+        }
+        void resolve(JSObject result){if(finish())call.resolve(result);}
+    }
     private volatile PluginCall pending;
     private ActivityResultLauncher<IntentSenderRequest> authorization;
     private SharedPreferences preferences(){return getContext().getSharedPreferences("spino-drive-account",0);}
@@ -74,15 +102,17 @@ public class DriveNotebookPlugin extends Plugin {
     private byte[] read(InputStream input)throws IOException{
         if(input==null)return new byte[0];try(InputStream in=input;ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] buffer=new byte[65536];int n;while((n=in.read(buffer))!=-1){if(out.size()+n>LIMIT)throw new IOException("The notebook exceeds 60 MB.");out.write(buffer,0,n);}return out.toByteArray();}
     }
-    private JSObject fetch(String path,String method,String token,String text,String etag,String contentType)throws Exception{
+    private JSObject fetch(String path,String method,String token,String text,String etag,String contentType)throws Exception{return fetch(path,method,token,text,etag,contentType,null);}
+    private JSObject fetch(String path,String method,String token,String text,String etag,String contentType,Request request)throws Exception{
         HttpURLConnection c=(HttpURLConnection)new URL("https://www.googleapis.com"+path).openConnection();
         try{
+            if(request!=null){request.connection=c;if(request.finished.get())throw new IOException("Request cancelled.");}
             c.setConnectTimeout(20000);c.setReadTimeout(120000);c.setInstanceFollowRedirects(false);c.setUseCaches(false);c.setRequestMethod(method);
             c.setRequestProperty("Authorization","Bearer "+token);c.setRequestProperty("Accept","application/json");
             if(etag!=null){if(!etag.matches("\"[^\"\\r\\n]+\""))throw new IOException("Invalid Drive revision.");c.setRequestProperty("If-Match",etag);}
             if(text!=null){byte[] body=text.getBytes(StandardCharsets.UTF_8);if(body.length>LIMIT)throw new IOException("The notebook exceeds 60 MB.");c.setRequestProperty("Content-Type",contentType==null?"application/json; charset=UTF-8":contentType);c.setDoOutput(true);c.setFixedLengthStreamingMode(body.length);try(OutputStream out=c.getOutputStream()){out.write(body);}}
             int status=c.getResponseCode();
-            if(status==401)Identity.getAuthorizationClient(getActivity()).clearToken(ClearTokenRequest.builder().setToken(token).build());
+            if(status==401){Identity.getAuthorizationClient(getActivity()).clearToken(ClearTokenRequest.builder().setToken(token).build());}
             String body=new String(read(status>=400?c.getErrorStream():c.getInputStream()),StandardCharsets.UTF_8);
             return new JSObject().put("status",status).put("text",body).put("etag",c.getHeaderField("ETag"));
         }finally{c.disconnect();}
@@ -93,22 +123,43 @@ public class DriveNotebookPlugin extends Plugin {
         if(!validPath(path)||!method.matches("GET|POST|PATCH|PUT")){call.reject("Invalid Google Drive request.","INVALID_REQUEST");return;}
         String accountId=preferences().getString("id","");
         if(accountId.isEmpty()||!accountId.equals(call.getString("accountId"))){call.reject("Reconnect the same Google Drive account.","PERMISSION_REQUIRED");return;}
+        String requestId=call.getString("requestId",UUID.randomUUID().toString());
+        if(!requestId.matches("[a-zA-Z0-9_-]{1,100}")){call.reject("Invalid Drive request identity.","INVALID_REQUEST");return;}
+        Request request=new Request(requestId,call);
+        if(requests.putIfAbsent(requestId,request)!=null){call.reject("This Drive request is already pending.","BUSY");return;}
+        request.totalDeadline=deadlines.schedule(()->request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR"),140,TimeUnit.SECONDS);
+        request.authDeadline=deadlines.schedule(()->request.fail("Google Drive did not respond in time. Pending changes are kept. Retry synchronization.","PROVIDER_ERROR"),30,TimeUnit.SECONDS);
         // Silent renewal never launches consent from an automatic sync timer.
-        getActivity().runOnUiThread(()->Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(false))
+        getActivity().runOnUiThread(()->{if(request.finished.get())return;Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(false))
             .addOnSuccessListener(result->{
-                if(result.hasResolution()||!DriveMediaPlugin.hasDrivePermission(result)){call.reject("Reconnect Google Drive to renew permission. Your notebook is saved locally.","PERMISSION_REQUIRED");return;}
+                if(request.finished.get())return;
+                if(result.hasResolution()||!DriveMediaPlugin.hasDrivePermission(result)){request.fail("Reconnect Google Drive to renew permission. Your notebook is saved locally.","PERMISSION_REQUIRED");return;}
                 final String token=result.getAccessToken();
-                worker.execute(()->{try{
-                    if(!accountId.equals(preferences().getString("id","")))throw new IOException();
-                    call.resolve(fetch(path,method,token,call.getString("text"),call.getString("etag"),contentType));
-                }catch(java.net.SocketTimeoutException error){call.reject("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR");}
-                catch(java.net.UnknownHostException error){call.reject("The Drive server could not be reached. Check the connection and retry.","PROVIDER_ERROR");}
-                catch(Exception error){call.reject("The Drive notebook request failed ("+error.getClass().getSimpleName()+"). Your local notebook is kept.","PROVIDER_ERROR");}});
-            }).addOnFailureListener(error->call.reject("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED")));
+                if(token==null||token.isEmpty()){request.fail("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED");return;}
+                if(!accountId.equals(preferences().getString("id",""))){request.fail("Reconnect the same Google Drive account.","ACCOUNT_MISMATCH");return;}
+                transfer(request,path,method,token,contentType,accountId);
+            }).addOnFailureListener(error->request.fail("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED"));});
+    }
+    private void transfer(Request request,String path,String method,String token,String contentType,String accountId){
+        if(request.authDeadline!=null)request.authDeadline.cancel(false);
+        if(request.finished.get())return;
+        request.work=worker.submit(()->{try{
+            if(request.finished.get())return;
+            if(!accountId.equals(preferences().getString("id","")))throw new IOException();
+            request.resolve(fetch(path,method,token,request.call.getString("text"),request.call.getString("etag"),contentType,request));
+        }catch(java.net.SocketTimeoutException error){request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR");}
+        catch(java.net.UnknownHostException error){request.fail("The Drive server could not be reached. Check the connection and retry.","PROVIDER_ERROR");}
+        catch(Exception error){request.fail("The Drive notebook request failed ("+error.getClass().getSimpleName()+"). Your local notebook is kept.","PROVIDER_ERROR");}});
+        if(request.finished.get())request.work.cancel(true);
+    }
+    @PluginMethod public void cancel(PluginCall call){
+        Request request=requests.get(call.getString("requestId",""));
+        if(request!=null)request.fail("Synchronization paused. Pending changes are kept.","CANCELLED");
+        call.resolve();
     }
     @PluginMethod public void disconnect(PluginCall call){
         if(pending!=null){call.reject("Wait for the Google connection to finish.","BUSY");return;}
         worker.execute(()->{if(preferences().edit().clear().commit())call.resolve();else call.reject("Could not disconnect Google Drive.");});
     }
-    @Override protected void handleOnDestroy(){worker.shutdownNow();}
+    @Override protected void handleOnDestroy(){for(Request request:requests.values())request.fail("Synchronization paused. Pending changes are kept.","CANCELLED");deadlines.shutdownNow();worker.shutdownNow();}
 }

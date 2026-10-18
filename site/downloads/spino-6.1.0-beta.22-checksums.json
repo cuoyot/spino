@@ -1,0 +1,38 @@
+{
+  "version": "6.1.0-beta.22",
+  "build": 75,
+  "date": "2026-10-18",
+  "channel": "beta",
+  "stable": {
+    "version": "6.0.0",
+    "build": 53
+  },
+  "googlePlay": {
+    "version": "5.2.3",
+    "build": 35
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.0-beta.22-75-android.apk",
+      "bytes": 23386152,
+      "sha256": "b6f0a6e9b0349c9befc08570659d388c6a0c26734465320d1f7ba61726a95e73",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino.beta",
+      "version": "6.1.0-beta.22",
+      "build": 75
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    }
+  ],
+  "source": {
+    "tag": "v6.1.0-beta.22",
+    "url": "https://github.com/cuoyot/spino/tree/v6.1.0-beta.22"
+  }
+}

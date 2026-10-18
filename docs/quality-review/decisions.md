@@ -730,3 +730,21 @@ Teacher recordings can be selected from saved local audio/video or captured from
 
 
 2026-10-18 beta21 publication follow-up: source/APK tag `v6.1.0-beta.21` is pushed and Cloudflare deployment succeeds. [Publication record](../releases/6.1.0-beta.21-publication.json) keeps public-domain verification incomplete because spinoapp.com times out, while the immutable GitHub APK download matches the release size/SHA-256. Provider success is separate from custom-domain acceptance.
+
+
+## D-065 — Keep pending practice local and recover Drive synchronization
+
+2026-10-18. The owner reports beta19 Android phone connection failures after a tablet practice. Subsequent tablet evidence identifies a current-practice conflict: local empty versus a cloud repertoire session, while 19 saved practices are explicitly retained. The owner confirms a phone practice was pending completion. This establishes a shared current-session-slot conflict, separate from the phone's network error. No personal notebook or Google account was accessed.
+
+Drive now shares completed history while keeping the current session on its own device, alongside existing device-local preferences. Full manual JSON copies retain the pending session. Incoming adoption preserves the complete local pending checkpoint; it remains deferred during running practice, practice/score screens, editing, recording and transitions. Paused practice on another navigation screen can receive history without finishing it. Old conflicts confined to the current-session slot are retired after a fresh read; other conflicts still require review. Immutable historical objects and the merge baseline remain intact.
+
+Each bridge call has a bounded wait and cancellation identity. Native silent authorization has a 30-second deadline and requests have a 140-second total deadline; the JS bridge gate has a 150-second fallback. Pause cancels the current request, retains journals/outbox IDs and guards late replies. Incremental uncertain writes retry by re-reading and reusing their durable immutable IDs. Legacy writes, identity/integrity failures and permission errors retain their safeguards. Foreground return can recover exhausted transient retries without resuming an explicit pause.
+
+The sync view reports its phase, offers Pause while waiting, and distinguishes the last check from the last changed notebook. Unchanged background polling updates the check text without remounting the card. Recording metadata accepts an absent optional Drive SHA256 field while retaining app checksum/identity checks and verifying actual bytes; mismatches still fail. This is a documented compatibility defect, not confirmation of the exact invalid recording shown on the owner's tablet.
+
+[Active review](cloud-connection.md#2026-10-18--current-practice-conflicts-and-connection-recovery-d-065). Source/browser and Java-unit evidence is separate from physical Google/two-device acceptance.
+
+
+### Beta22 package follow-up (2026-10-18)
+
+D-065 is packaged as Android 6.1.0-beta.22 (75). Final validation passes 122 unit, 16 browser, three website and seven Java checks. Native replacement installation is foreground with 46 unchanged logical databases and 108 retained blobs. The first stalled emulator review required restoring the private pre-review archive before launch; 162 regular-file hashes match, without a wipe or application-data clear. See [release validation](../releases/6.1.0-beta.22-validation.json) for separate browser, native, recovery and pending physical scope. Both owner devices need the update for device-local current practices. Publication is recorded separately.

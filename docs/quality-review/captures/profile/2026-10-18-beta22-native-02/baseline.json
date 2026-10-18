@@ -1,0 +1,468 @@
+{
+  "version": "6.1.0-beta.22",
+  "build": 75,
+  "originalStoresBefore": {
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "b3b2a634cda8a7d574621d28d940144d0e34389a6bd94175dad90b9d2afb3045"
+      }
+    },
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f5d070acafc7a7363ca19d88f2bf6ff1db976a0051953a4b4ddf38fa678e5007"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "a9b24a92e53379bd44a3ac640c33c05d223672846013cc98a505423d53c95845"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a874ce989625fd903f894b209cebef79dd5eb36e01fe2f93ff6689561b2beeb6"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b46549c87aaa4b7a82fd1a10cf14cd89d37937049a5bb7d9c5a513f7f0ea9015"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "ba761b47dca304e4a0996c9ed3387f5ce1e3614fcec1b2894150c81b51d5669e"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0dc56553bb253c4ed76cc92fc9f55a488fff40767a3800630eed5c1dcfecfd14"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "53c9e223aebf734d23d25a86b34ca2b348d11d9abd9ec0e5481f2549c0399003"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "8aea462d5c6419efac7737edf973445d8692e5ddaa049ac1d178fc55fb35b185"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0db81ba37d6a9ebd3b6c5a5b1190aaa4eb03fc25527203657d4b2985994ef8aa"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "b0c172fba0d47d6fa8bc37af95e5217a815a8e0068cf7092ec10e01a3290706d"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "51891531658ff875fc0b99f88b6aad68964020747718cb0cfae1ac6b83333b34"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "797ec29d4b9b87a04581ae31d1cd45982375e92c3ddf2a9c9ffde0ef3fc0c4ab"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "45d9c3640f80ef9c3efbac717c7fd7f9b307731a8996aea7183676a140a2e189"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e15ddb23d733b4569ebb9c61ed2f480c91d55094291cc4b984d13ced9db37553"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "80eac4417e9b1b0ec31ded33c4457e4b96128f6d3569c0566a2c1c0ac23ef501"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "f595ebbcede59395f5fa46ca33a30493d13d4d57fd9e7d142bc290e0bdcfe10c"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "3d08757a71c5bed3505ca85725a2999d9d776fa0cd730ab044bf42851f4023ea"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "c1ab924cf28892b3f9cd6680dd1ca4e1eb6537c729def7192ce5a9049c31af18"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dae429fcf7dce287da820a816c0abc336f9650b88585c37ffcefe63c62a9df53"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "76aa9445468f55a7219bf092c96fe94bd28051269db97849926bcffb0599fded"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d56e59e1cc237f26a0d03636d1ecd0dfaf880fa52c97d69501e44928e30aba0a"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c49e342d6c7b26398f8ee040b81365bf71090342c43c26eaf517f824100b483"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "6b98cd699b9df90f3d490a05687d4ea3300ea479f43d0fba543c49eebcb412cd"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "df88df030526f24f41815982890f1cd5614577317b14f0a545a0e066b8db9d08"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "4ead7289e9ee433ee875a03140d16664cc57b15e9ee05b3d2761254ef139e250"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "b959aa012fb3fac14f3c066a666bc2861bb91096f9af561ec52eac7e08e00f8d"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "77468cba234e61a2e947f3694c9f506e8417f3ce93c8f6cfe689800e2b3f9473"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "c16fac1fbc023ea7096a5e426f194686897a9fbe316d539c99fe8e2d40cd5351"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "2a26cd1c5d259093dbcf888eafda586ce61ee7ee820e9378c85437712b3e03c6"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "57a848531c9f07759628a793b384eab030fe54ff611c2c61c350585d0abbd131"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "decdd2d807f91adfb4753ad090e7feb74cb5dd54c615997329454c23108263ca"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "4a599c189ccd2411f849c3ac125321081420239fd23032a52007c91ce9eb9227"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "72f90778e38d70f87f314e8f830f9e0d84612f386f24524ba29296237f7c5e4d"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "1868f9389902bfbd163c19f5af52605ba2acd2cd83c9b63c72d16dfd0862939a"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "79fee33f4372f1551f70ee149b62d7ce12ad988d8332dcdb3d1158634111bd75"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "fe9d10418e65dd1594b25f2c8e63b91c4a92305cc039ae4e0967a220d0894391"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f7b8e0b9187e29c906d9219c8b32130a34dc6337c4fda31f8c1bcc25c7349c57"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d2957d9a4c74d949c1beefb70417538766690915a935280fdf60f85cccc16f6d"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "67374818748967581bd9f9991100d15bafd2b6ac93b5a1e3506293fad1964d64"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "8fd9328ecebf1f75a75a93da578bb99d15e0ffb11aff56ea188b93dc4388c971"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "94117069cf2d0bf915d436f9efbac22a441c93f72439bff8669fac0a4777e942"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "763004a5b51d015e3569e0850fccd701bfcb52899989f71660663435878df91c"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "24d0f0433712b477034807838f85b7419d8cdcf4a24d89b9decbd69ab25cebb0"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a9f85302915e7687dca4be43f71c125a47f7eb6412b1a4551c3800d0e921c499"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c07ea5e02cfa491b79952d494e701d2e75c1aa34922fcefed9235f458425107"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "578014311cc9e9796d1e4cc05e3760978472ef8cf3c7ff4edb5c5e6d490fc27a"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "059aea456a5c654fc748c9871ed531daa2ea637ceb92d94b2a6b044ffea37dbe"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "676f3bc9ba2f69cb0129ed6d12d8cd6d418789dff88fe897ccb86fd9e13c81bc"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "a174856670bd9c0c6cb2b222d804d8d2d4573fc2671118f9eb03cae3e80ed1b4"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dfb1aa825823fa65d98c5a9c615c6c96780d1f46386992e8df095fff66aa1337"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25da9ff7f109f55750fce8502e945baed82651ff775c378cbfef6861c123888b"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd02be6a452d564930f6cd4f1dfa5c839112f54b6566b1a3fa1657f7db48ecd1"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "99bd8b427544fcb7f2fc509ab80e77e1168c5f3d95ac49eac948f49daf358bf8"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "5447ce6c1a352ec1aa780e5ebd178aa2e522cb1fd4b3b9c7fd17e7aa2c3b2fe7"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "42a96e570a1ca51d7267bcc69787706bf64d5b3514744a6d41e2288a2c03715b"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d642ae6e67aab23295b371dd9967642b1adb963e1d77e03b61c1e98f543dd2d7"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e7ecdec925c3f6b710ec06f6b32434343c4a6bad3b34ec41247470da1f3ea0f6"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "de7195e7737c28f9ab01f26f4a42e0d8b5cee44ad94e54e13a2461246f923199"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d9d9d4c6574e718f497830c8a24726d236a799384fe68377650b9ab8c0f29398"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "407f7a06b42442f7596b2492572be5f2a00d5369a9fdab662b6437c73534310e"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd0a030046f7556329fb56e7c3668018e7dc5057806bf0124fc24f4d4e7c7df2"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c8a9d5fdde1123b0531463e3e4a8e8614e5677e4d66a352918d3619505ebc85b"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "969543969c0983ce2e4ae74653ae6080597e1fff001f398b3731229c6a1f11d1"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "9adc8758c235a7fc8775fb8de512357af91f32205591ca5b77336a045aa1637d"
+      }
+    }
+  },
+  "privateBackup": "/Users/migue/Source/spino/output/native-review-backups/com.miguecoll.spino.beta-11adabc0-721b-4ea1-bc84-a6e38ad1c18f.tar",
+  "privateBackupSHA256": "671e24985e58f0492b23440ca010ed0b5563d685701e97fc48d282e85a4dc9cb"
+}

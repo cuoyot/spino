@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "en"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}

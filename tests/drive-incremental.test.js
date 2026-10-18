@@ -214,3 +214,48 @@ test('choosing one conflicting annotation retains an independently added annotat
  const resolved=JSON.parse(await a.adapter.resolveRemote({local:JSON.stringify(local),merged:remote.text,preference:'local',expectedHash:remote.hash}));
  assert.equal(resolved.assets[0].annotations.marks.length,2);assert.equal(resolved.assets[0].annotations.marks.find(m=>m.id==='synthetic-mark').text,'1');assert.equal(resolved.assets[0].annotations.marks.find(m=>m.id==='independent-mark').text,'4');assert.equal(resolved.assets[0].base64,original.assets[0].base64);
 });
+
+test('a tablet practice retries uncertain incremental uploads and reaches the phone once without changing scores',async t=>{
+ for(const lostResponse of [false,true]){
+  const server=syntheticNotebookDrive(),tablet=device(server);let local=fixture(),base=null,meta={};
+  const engine=createNotebookCloud({adapter:tablet.adapter,delay:15,settings:{read:()=>meta,save:v=>{meta=structuredClone(v);}},snapshot:async()=>JSON.stringify(local),eligible:()=>true,readBase:async()=>base,saveBase:async v=>{base=structuredClone(v);},apply:async text=>{local=JSON.parse(text);},backupFactory:o=>createCloudBackup({...o,settings:{read:()=>null,save:()=>{}}})});t.after(()=>engine.stop());
+  await engine.createShared();const phone=device(server);phone.adapter.choose(roots(server)[0].id);await phone.adapter.pickBackup();const initial=await load(phone.adapter),before=commits(server).length;
+  const active=beginSession({title:'Tablet practice after network loss',context:'piano',blocks:[block('repertoire',{workId:'synthetic-work'})]});active.elapsedMs=active.blockElapsedMs=300000;const saved=saveSession(local.data,active,{notes:'Keep teacher feedback',mood:4});engine.markDirty();
+  let failures=0;server.beforeCommit=()=>{server.beforeCommit=null;failures++;if(lostResponse)server.dropMediaResponse=true;else throw Object.assign(Error('The Drive server could not be reached. Check the connection and retry.'),{code:'PROVIDER_ERROR'});};
+  await engine.sync();assert.equal(engine.state.status,'error');assert.equal(engine.state.retryable,true);assert.equal(local.data.sessions.filter(s=>s.id===saved.id).length,1);
+  if(!lostResponse)assert.equal((await load(phone.adapter)).data.sessions.some(s=>s.id===saved.id),false,'Phone can be up to date while tablet has not uploaded its pending practice');
+  for(let n=0;n<100&&engine.state.status!=='saved';n++)await new Promise(r=>setTimeout(r,10));assert.equal(engine.state.status,'saved');assert.equal(failures,1);assert.equal(commits(server).length,before+1);
+  const received=await load(phone.restart());assert.equal(received.data.sessions.filter(s=>s.id===saved.id).length,1);assert.equal(received.data.sessions.find(s=>s.id===saved.id).notes,'Keep teacher feedback');assert.deepEqual(received.assets,initial.assets);assert.deepEqual(received.data.works,initial.data.works);engine.stop();
+ }
+});
+
+test('pause releases a stalled incremental read and an uncached late response cannot overwrite newer practice',async t=>{
+ const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});const b=device(server);b.adapter.choose(roots(server)[0].id);await b.adapter.pickBackup();
+ const native=a.options.native,request=native.request;let release,entered,stall=true;const started=new Promise(r=>entered=r);native.request=async options=>{if(stall&&options.path.startsWith('/drive/v3/changes?')){entered();await new Promise(r=>release=r);}return request(options);};
+ const stale=a.adapter.readLinked();await started;a.adapter.cancelPending();await assert.rejects(stale,e=>e.code==='CANCELLED');stall=false;
+ const original=await b.adapter.readLinked(),updated=JSON.parse(original.text);const active=beginSession({title:'New tablet practice',context:'piano',blocks:[block('free')]});active.elapsedMs=active.blockElapsedMs=120000;const saved=saveSession(updated.data,active);await b.adapter.write({text:JSON.stringify(updated),expectedHash:original.hash});
+ const received=await a.adapter.readLinked();assert.ok(JSON.parse(received.text).data.sessions.some(s=>s.id===saved.id));release();await new Promise(r=>setTimeout(r,0));assert.deepEqual(await a.adapter.readLinked(),received);
+});
+
+test('legacy current-practice conflicts cannot block completed history or erase the phone in-progress session',async t=>{
+ const {backupHash}=await import('../src/companion/cloud-backup.js'),{stableJSON}=await import('../src/companion/cloud-merge.js');
+ const server=syntheticNotebookDrive(),tablet=device(server);await tablet.adapter.create({text:JSON.stringify(fixture())});const phone=device(server);phone.adapter.choose(roots(server)[0].id);await phone.adapter.pickBackup();
+ const root=JSON.parse(roots(server)[0].text);
+ // Recreate old-client commits without running the new transport normalization.
+ const oldCommit=async(before,changes)=>{
+  const put=async(value,commit=false)=>{const text=stableJSON(value),hash=await backupHash(text),id='old-client-'+server.nextID++,file={id,owner:'synthetic-owner',name:'Old client fixture',mimeType:'application/json',text,revision:1,appProperties:{spinoType:commit?'spino-commit-v2':'spino-object-v2',rootId:root.rootId,notebookId:root.notebookId,hash}};server.files.set(id,file);server.checksums.set(id,hash);server.touch(file);return hash;};
+  const part=await put({kind:'record-changes',changes:changes.map(c=>({...c,previous:before.versions[c.key]||[]}))});await put({format:'spino-notebook-v2',rootId:root.rootId,notebookId:root.notebookId,parents:before.heads,parts:[part]},true);
+ };
+ const paused=beginSession({title:'Phone pending repertoire',context:'piano',blocks:[block('repertoire',{workId:'synthetic-work'})]});paused.elapsedMs=paused.blockElapsedMs=60000;
+ let before=await tablet.adapter.readLinked();const oldHeader=structuredClone(before.records.header);oldHeader.data.active=paused;await oldCommit(before,[{key:'header',value:oldHeader}]);before=await tablet.adapter.readLinked();
+ const tabletLocal=JSON.parse(before.text),phoneLocal=JSON.parse(before.text),oldBase=JSON.parse(before.text);tabletLocal.data.active=null;
+ const practice=beginSession({title:'Tablet completed repertoire',context:'piano',blocks:[block('repertoire',{workId:'synthetic-work'})]});practice.elapsedMs=practice.blockElapsedMs=31*60000;const saved=saveSession(tabletLocal.data,practice);
+ const finishedHeader=structuredClone(before.records.header);finishedHeader.data.active=null;
+ await oldCommit(before,[{key:'header',value:finishedHeader},{key:'data/sessions/'+saved.id,value:saved},{key:'order/sessions',value:{idKey:'id',ids:tabletLocal.data.sessions.map(s=>s.id)}}]);
+ const updatedHeader=structuredClone(oldHeader);updatedHeader.data.active.elapsedMs=updatedHeader.data.active.blockElapsedMs=120000;phoneLocal.data.active=structuredClone(updatedHeader.data.active);await oldCommit(before,[{key:'header',value:updatedHeader}]);
+ const conflicted=await tablet.adapter.readLinked();assert.ok(conflicted.conflicts.includes('/header/data/active'));
+ const engine=(device,initial,initialActive)=>{let local=structuredClone(initial),base=structuredClone(oldBase),meta={mode:'sync',enabled:true,status:'conflict',conflicts:conflicted.conflicts,name:'Synthetic shared notebook',notebookId:root.notebookId};const e=createNotebookCloud({adapter:device.adapter,delay:100000,settings:{read:()=>meta,save:v=>meta=structuredClone(v)},snapshot:async()=>JSON.stringify(local),eligible:()=>true,readBase:async()=>base,saveBase:async v=>base=structuredClone(v),apply:async text=>{local=JSON.parse(text);local.data.active=structuredClone(initialActive);},backupFactory:o=>createCloudBackup({...o,settings:{read:()=>null,save:()=>{}}})});t.after(()=>e.stop());return {e,get:()=>local};};
+ const a=engine(tablet,tabletLocal,null);await a.e.init();assert.equal(a.e.state.status,'pending');await a.e.sync();assert.equal(a.e.state.status,'saved');assert.equal(a.get().data.active,null);
+ const b=engine(phone,phoneLocal,phoneLocal.data.active);await b.e.init();await b.e.sync();assert.equal(b.e.state.status,'saved');assert.deepEqual(b.get().data.active,phoneLocal.data.active);assert.ok(b.get().data.sessions.some(s=>s.id===saved.id));assert.deepEqual(b.get().assets,oldBase.assets);assert.equal((await phone.adapter.readLinked()).conflicts.length,0);
+ assert.deepEqual((await load(tablet.adapter)).data.active,null,'New shared snapshots do not share the current-session slot');
+});

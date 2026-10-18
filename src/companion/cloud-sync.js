@@ -19,10 +19,16 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   let task = null, timer = null, revision = 0, applying = false, lastSyncedRevision=null, lastRemoteHash=null;
   const independent = backupFactory({ adapter, snapshot, eligible, changed, delay });
   const publish = () => { settings.save(state); changed(); };
+  adapter.onProgress?.(()=>{
+    if(!task||!state.enabled)return;
+    if(state.status==='saved'&&adapter.info?.progress?.stage!=='checking'&&adapter.info?.progress)state.status='writing';
+    changed();
+  });
   const schedule = (wait=delay) => {
     if (timer) return;
     if (state.mode === 'sync' && state.enabled && state.status !== 'conflict' && (state.status !== 'error' || state.retryable)) timer = setTimeout(() => { timer = null; void sync(null, true); }, state.status === 'error' ? Math.min(60000, delay * 2 ** (state.retryCount || 0)) : wait);
   };
+  const localOnlyConflict = path => /^\/(?:header\/)?library\/report(?:\/|$)/.test(path)||adapter.transport==='drive'&&/^\/(?:header\/)?data\/active(?:\/|$)/.test(path);
   const shared = value => adapter.transport === 'drive' ? driveNotebookContent(value) : value;
   const content = text => shared(notebookContent(validate(text)));
   const encode = backup => {
@@ -57,7 +63,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     state.operation = 'merge';
     let result = mergeNotebooks(base, local, remote);
     const pendingRemoteConflicts=remoteFile.conflicts||[];
-    const remoteConflicts=pendingRemoteConflicts.filter(path=>!/^\/(?:header\/)?library\/report(?:\/|$)/.test(path));
+    const remoteConflicts=pendingRemoteConflicts.filter(path=>!localOnlyConflict(path));
     result.conflicts=[...new Set([...result.conflicts,...remoteConflicts])];
     // Bind a choice to the values actually reviewed; unrelated saves must not invalidate it.
     const graphVersions=Object.fromEntries((remoteFile.conflictKeys||[]).filter(key=>remoteConflicts.some(path=>path==='/'+key||path.startsWith('/'+key+'/'))).map(key=>[key,remoteFile.versions?.[key]||remoteFile.hash]));
@@ -129,6 +135,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       }
     }
   }
+  const retrySafe = () => state.errorCode === 'PROVIDER_ERROR' && (state.operation === 'read' || state.operation === 'write' && adapter.info?.incremental);
   async function sync(preference = null, automatic = false) {
     if (state.mode !== 'sync') return independent.retry();
     if (task || !state.enabled) return task;
@@ -144,10 +151,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         if (!state.enabled) return;
         state.status = 'error'; state.error = error.message || String(error);
         state.errorCode = cloudErrorCode(error);
-        // Retry only failed provider reads. A failed write may already have
-        // committed; malformed data and local storage failures need attention.
+        // Incremental writes are immutable and have durable allocated IDs.
+        // Reconcile afresh after uncertain responses; never resend a stale snapshot.
+        // Legacy writes and local-storage/integrity failures still need attention.
         state.retryCount = (state.retryCount || 0) + 1;
-        state.retryable = state.operation === 'read' && state.errorCode === 'PROVIDER_ERROR' && state.retryCount <= 3;
+        state.retryable = retrySafe() && state.retryCount <= 3;
       }
       finally { task = null; publish(); schedule(); }
     })();
@@ -211,6 +219,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if (state.mode !== 'sync') return independent.init();
       if (!destination.linked) { state.enabled = false; state.status = 'disconnected'; state.name = ''; }
       else state.name = destination.name;
+      if(state.status==='conflict'&&state.conflicts?.length&&state.conflicts.every(localOnlyConflict)){state.status='pending';state.conflicts=[];state.conflictHash=null;state.conflictReview=null;state.resolution=null;state.error='';}
       publish(); schedule();
     },
     async connect() {
@@ -284,6 +293,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       clearTimeout(timer); timer = null;
       // Do not wait for a stalled provider. Late I/O cannot apply incoming data.
       revision++; state.enabled = false; state.status = 'paused'; state.waitReason = null;
+      adapter.cancelPending?.();
       state.retryable = false; state.retryCount = 0; state.resolution = null;
       publish();
     },
@@ -321,6 +331,12 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       clearTimeout(timer); timer = null; if (task) await task; clearTimeout(timer); timer = null;
       await independent.disconnect(); await saveBase(null);
       state = { mode: 'backup', enabled: false }; publish();
+    },
+    resumeChecks() {
+      if(state.mode!=='sync'||!state.enabled||task||state.status==='conflict')return Promise.resolve();
+      if(state.status==='error'&&!retrySafe())return Promise.resolve();
+      state.retryCount=0;
+      return sync(null,true);
     },
     retry: () => sync(), sync: () => sync(),
     stop() { clearTimeout(timer); timer = null; independent.stop(); },

@@ -1,0 +1,291 @@
+{
+  "kind": "responsive-browser-synthetic-drive",
+  "date": "2026-10-18T20:50:27.903Z",
+  "frames": [
+    {
+      "file": "phone-retained-and-tablet-history-received-light-390x844.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-light-844x390.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-light-768x1024.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-light-1024x768.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-light-320x640.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-dark-390x844.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-dark-844x390.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-dark-768x1024.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-dark-1024x768.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "phone-retained-and-tablet-history-received-dark-320x640.png",
+      "state": "phone-retained-and-tablet-history-received",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "pending-phone-and-tablet-history-light-390x844.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "pending-phone-and-tablet-history-light-844x390.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "pending-phone-and-tablet-history-light-768x1024.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "pending-phone-and-tablet-history-light-1024x768.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "pending-phone-and-tablet-history-light-320x640.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "pending-phone-and-tablet-history-dark-390x844.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "pending-phone-and-tablet-history-dark-844x390.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "pending-phone-and-tablet-history-dark-768x1024.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "pending-phone-and-tablet-history-dark-1024x768.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "pending-phone-and-tablet-history-dark-320x640.png",
+      "state": "pending-phone-and-tablet-history",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "stalled-drive-pause-available-light-390x844.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "stalled-drive-pause-available-light-844x390.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "stalled-drive-pause-available-light-768x1024.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "stalled-drive-pause-available-light-1024x768.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "stalled-drive-pause-available-light-320x640.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "stalled-drive-pause-available-dark-390x844.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "stalled-drive-pause-available-dark-844x390.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "stalled-drive-pause-available-dark-768x1024.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "stalled-drive-pause-available-dark-1024x768.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "stalled-drive-pause-available-dark-320x640.png",
+      "state": "stalled-drive-pause-available",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "paused-keeps-pending-practice-light-390x844.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "paused-keeps-pending-practice-light-844x390.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "paused-keeps-pending-practice-light-768x1024.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "paused-keeps-pending-practice-light-1024x768.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "paused-keeps-pending-practice-light-320x640.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "paused-keeps-pending-practice-dark-390x844.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "paused-keeps-pending-practice-dark-844x390.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "paused-keeps-pending-practice-dark-768x1024.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "paused-keeps-pending-practice-dark-1024x768.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "paused-keeps-pending-practice-dark-320x640.png",
+      "state": "paused-keeps-pending-practice",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    }
+  ],
+  "phonePendingPracticeRetained": true,
+  "tabletCompletedPracticeReceived": true,
+  "scoreBytesAndAnnotationsUnchanged": true,
+  "stalledPauseAndRetryWithoutLateAdoption": true,
+  "runtimeErrors": []
+}

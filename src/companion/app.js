@@ -2,7 +2,7 @@ import {completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
 import {createMediaSync} from './media-sync.js';
-import {mediaSyncMarkup} from './drive-sync-view.js';
+import {mediaSyncMarkup,driveLastCheck} from './drive-sync-view.js';
 import {readMediaWifiOnly,saveMediaWifiOnly} from './media-network.js';
 import { practiceTimeOverviewMarkup, practiceTimeDetailMarkup, TIME_RANGES } from './progress-time.js';
 import './progress-time.css';
@@ -941,13 +941,13 @@ export async function bootCompanion(reader) {
   if (cloudAvailable()) {
     let lastCloudKey='',lastProfileCloud='';
     cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
-      canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,startingPractice,dialog,scoreViewer,openingScore,document}),
-      applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,startingPractice,dialog,scoreViewer,openingScore,document}),
+      canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
+      applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
-      apply: async (text, syncBase) => { root.inert=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive')for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
-        data = await store.restore(text, { syncBase }); await reminders(); } finally {root.inert=false;} },
+      apply: async (text, syncBase) => { root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
+        data = await store.restore(text, { syncBase }); await reminders(); } finally {root.inert=false;sessionWriting=false;} },
       adopted: () => {cloudAdopted=true;location.reload();},
-      changed: () => { const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
+      changed: () => { const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
     if(driveNotebookAvailable()&&mediaStore){
       mediaSync=createMediaSync({store:mediaStore,connection:connectDriveMedia,
         getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:readMediaWifiOnly(data.preferences.wifiOnly)}:null;},
@@ -1406,9 +1406,9 @@ export async function bootCompanion(reader) {
   window.addEventListener('piano:range-changed',()=>{if(data.active&&readerMounted){checkpoint();updateClock();}});
   window.addEventListener('piano:midi-lost',()=>{if(data.active?.context==='midi'){const returnToSession=root.hidden||view==='session';pauseSession();if(returnToSession){hideReader();go('session');}toast(ui("MIDI disconnected. Evaluation has been paused.", "MIDI desconectado. Se ha pausado la evaluación."));}});
   window.addEventListener('piano:devices',()=>{if(!root.hidden&&view==='session')render();});
-  window.addEventListener('online',()=>{if(cloud?.state.enabled&&cloud.state.status!=='conflict')cloud.retry().catch(error=>toast(error.message));downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
+  window.addEventListener('online',()=>{if(cloud?.state.enabled&&cloud.state.status!=='conflict')cloud.resumeChecks().catch(error=>toast(error.message));downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
   setInterval(()=>{if(!document.hidden){if(data.downloadJobs.some(j=>j.status==='waiting-wifi'))downloads.pump().catch(()=>{});if(Object.values(library.executions).some(e=>e.job?.status==='waiting-wifi'))libraryDownloads.pump().catch(()=>{});}},10000);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {void cloud?.resumeChecks().catch(error=>toast(error.message));mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
   let sessionResize;
   window.addEventListener('resize', () => {
     if(view==='prepare')requestAnimationFrame(revealStandSelection);

@@ -113,3 +113,23 @@ The production browser build and 25 focused checks pass. [Synthetic browser evid
 2026-10-17: the owner now requests website publication. These follow-ups are included in Android beta17/build70, with [final package validation](../releases/6.1.0-beta.17-validation.json) and separate public verification. Earlier source-only/no-APK statements record the preceding review stage.
 
 The final owner-authorized beta18/build71 package includes the shorter recording view and selected + Info explanations. [Validation](../releases/6.1.0-beta.18-validation.json) records final source/browser checks, native installation/foreground, the emulator recovery scope and forthcoming public verification.
+
+
+## 2026-10-18 — Current-practice conflicts and connection recovery (D-065)
+
+Physical evidence from the owner distinguishes two problems in beta19: the phone reports inability to reach the Drive server after waiting, and the tablet blocks on a shared current-practice conflict (Here empty; Cloud repertoire). The conflict view lists 19 retained independent practices, including today's tablet entry. The owner confirms an unfinished phone practice. The connection screenshot alone did not establish an authorization hang; code inspection separately found an unbounded silent authorization callback. Neither personal notebook contents nor the real Google file were read by this review.
+
+Implemented: current practice is device-local in Drive transport and retained in manual backups. Completed history remains shared. Adoption preserves the local pending checkpoint and can run from navigation with a paused practice; running practice, readers/editors, recording and transitions retain their existing adoption gates. Old active-only conflicts can recover after a fresh read, without selecting a whole notebook or discarding either device's current local session. Genuine practice/score/plan conflicts retain explicit review.
+
+Added bounded bridge/native waits, native request IDs/cancellation, direct Pause, phase/count feedback, a last-checked line, safe incremental write retries and foreground recovery after exhausted transient failures. Late responses cannot advance an abandoned operation. Uncertain accepted uploads reuse their durable ID; no original notebook/record/file identity is reset. The raw journal and immutable remote objects are retained.
+
+Recording compatibility: Google documents SHA256 metadata as present only when available. Missing optional provider checksum no longer rejects otherwise valid metadata; actual binary bytes remain checked against the stored checksum before use/confirmation. A mismatched provider checksum, changed bytes, foreign notebook/account or invalid identity is still rejected. [Google Drive files reference](https://developers.google.com/workspace/drive/api/reference/rest/v3/files). The exact metadata failure in the owner's file remains unverified.
+
+[Final responsive evidence](captures/profile/2026-10-18-sync-recovery-03/verification.json) contains 40 light/dark frames across phone/tablet portrait/landscape and 320 px: received tablet history with retained phone practice, history detail, stalled sync with Pause, and paused state. Synthetic Drive/browser tests verify actual stored session IDs, a 31-minute tablet result, unchanged PDF bytes/annotation IDs, reload, pause/retry and blocked late responses. No real account/emulator notebook was modified by these browser fixtures.
+
+Validation: 93 focused unit checks pass; 15 existing browser checks pass, and the added pending-practice browser check passes in its focused rerun. The first combined run's sole failure was a test helper-name typo, corrected before the final capture run. Seven Android unit checks and Java compilation pass. No physical OAuth/deadline or real two-device transfer acceptance is claimed. Preview: `node scripts/review/preview-sync-recovery.mjs` at http://127.0.0.1:5303/?theme=light (or dark), with synthetic Drive and disposable origin storage. Package/publication verification is recorded separately.
+
+
+### Beta22 package follow-up (2026-10-18)
+
+D-065 is packaged as Android 6.1.0-beta.22 (75). Final validation passes 122 unit, 16 browser, three website and seven Java checks. Native replacement installation is foreground with 46 unchanged logical databases and 108 retained blobs. The first stalled emulator review required restoring the private pre-review archive before launch; 162 regular-file hashes match, without a wipe or application-data clear. See [release validation](../releases/6.1.0-beta.22-validation.json) for separate browser, native, recovery and pending physical scope. Both owner devices need the update for device-local current practices. Publication is recorded separately.

@@ -53,3 +53,10 @@ test('aborted and invalid recordings perform no network writes',async()=>{
   const server=syntheticDrive(),a=device(server),controller=new AbortController();controller.abort();await assert.rejects(a.client.upload({...take,signal:controller.signal}),/paused/);
   await assert.rejects(a.client.upload({...take,blob:new Blob(['wrong'],{type:'text/plain'})}),/Invalid/);assert.equal(server.sessions.size,0);assert.equal(server.files.size,0);
 });
+
+test('optional Drive checksum metadata does not block copying and actual recording bytes still verify',async()=>{
+ const server=syntheticDrive(),a=device(server);const uploaded=await a.client.upload(take);delete server.files.get(uploaded.id).sha256Checksum;
+ const b=device(server);assert.equal((await b.client.list()).length,1);const result=await b.client.download(uploaded.id);assert.deepEqual(new Uint8Array(await result.blob.arrayBuffer()),new Uint8Array(await take.blob.arrayBuffer()));
+ assert.equal((await a.client.upload(take)).id,uploaded.id);server.files.get(uploaded.id).blob=new Blob([new Uint8Array(take.blob.size).fill(17)],{type:'audio/webm'});
+ await assert.rejects(b.client.download(uploaded.id),/checksum differs/);await assert.rejects(a.client.upload(take),/checksum differs/);
+});

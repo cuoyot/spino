@@ -15,9 +15,10 @@ export function driveURL(value) {
   if(url.origin !== 'https://www.googleapis.com' || url.username || url.password || url.hash || !/^\/(?:upload\/)?drive\/v3\//.test(url.pathname)) throw fail('Invalid Drive endpoint.', 'INVALID_URL');
   return url.href;
 }
+export const recordingChecksum = file => file.sha256Checksum || file.appProperties.sha256;
 export function validateRemote(file, notebookId) {
   const p=file?.appProperties;
-  if(!id(file?.id)||file.trashed||!((p?.spinoMedia==='spino-media-v1'&&id(p.workId))||(p?.spinoMedia==='spino-media-free-v1'&&p.workId===''))||p.notebookId!==notebookId||!id(p.takeId)||!(p.workId===''||id(p.workId))||!checksum(p.sha256)||!mime(file.mimeType)||!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT||file.sha256Checksum!==p.sha256) throw fail('Invalid recording metadata or notebook identity.', 'INVALID_MEDIA');
+  if(!id(file?.id)||file.trashed||!((p?.spinoMedia==='spino-media-v1'&&id(p.workId))||(p?.spinoMedia==='spino-media-free-v1'&&p.workId===''))||p.notebookId!==notebookId||!id(p.takeId)||!(p.workId===''||id(p.workId))||!checksum(p.sha256)||!mime(file.mimeType)||!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT||file.sha256Checksum!=null&&file.sha256Checksum!==p.sha256) throw fail('Invalid recording metadata or notebook identity.', 'INVALID_MEDIA');
   return file;
 }
 export function createDriveMedia({request, state, accountId, notebookId, downloadFile,hashBlob=mediaHash,readChunk=(blob,start,end)=>blob.slice(start,end)}) {
@@ -26,6 +27,11 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
   const scoped = (url, options={}) => request({...options,url:driveURL(url),accountId});
   const key = takeId => `media1.${accountId}.${notebookId}.${takeId}`;
   const expect = (r, codes=[200]) => { if(!codes.includes(r.status))throw fail(r.status===401?'Reconnect Google Drive.':r.status===403?'Drive permission or storage quota prevents this operation.':`Drive transfer failed (${r.status}).`,String(r.status));return r; };
+  const verifyUploaded = async file => {
+    // Drive's SHA-256 metadata is optional. Verify actual bytes when it is absent.
+    if(!file.sha256Checksum){const result=await downloadContent(file);try{if(!result.verified&&await mediaHash(result.blob)!==recordingChecksum(file))throw fail('Uploaded recording checksum differs.','INTEGRITY');}finally{await result.cleanup?.();}}
+    return file;
+  };
   const metadata = async fileId => {const r=expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`));return validateRemote(r.json,notebookId);};
   async function upload({takeId,workId,title,blob,onProgress=()=>{},signal,createdAt=new Date().toISOString(),durationMs=0}) {
     if(!id(takeId)||!(workId===''||id(workId))||!(blob instanceof Blob)||!blob.size||blob.size>MEDIA_LIMIT||!mime(blob.type)||typeof title!=='string'||title.length>200||!Number.isFinite(durationMs)||durationMs<0||!Number.isFinite(Date.parse(createdAt)))throw fail('Invalid local recording.','INVALID_MEDIA');
@@ -40,7 +46,7 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     }
     // Check the preallocated ID first: a completed final PUT may have lost its response.
     const existing=await scoped(`${API}/files/${encodeURIComponent(saved.fileId)}?fields=${encodeURIComponent(fields)}`);
-    if(existing.status===200){const found=validateRemote(existing.json,notebookId);if(found.appProperties.takeId!==takeId||found.sha256Checksum!==hash)throw fail('Recording identity conflict.','IDENTITY_CONFLICT');return found;}
+    if(existing.status===200){const found=validateRemote(existing.json,notebookId);if(found.appProperties.takeId!==takeId||recordingChecksum(found)!==hash)throw fail('Recording identity conflict.','IDENTITY_CONFLICT');return verifyUploaded(found);}
     expect(existing,[404]);aborted();
     const start=async()=>{
       const properties={spinoMedia:workId===''?'spino-media-free-v1':'spino-media-v1',notebookId,takeId,workId,sha256:hash,createdAt,durationMs:String(Math.max(0,Math.round(durationMs)))};
@@ -50,14 +56,14 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     if(!saved.session)await start();
     let offset=0;
     const probe=await scoped(saved.session,{method:'PUT',headers:{'Content-Range':`bytes */${blob.size}`}});
-    if(probe.status===200||probe.status===201){const found=await metadata(saved.fileId);if(found.sha256Checksum!==hash)throw fail('Uploaded recording checksum differs.','INTEGRITY');return found;}
+    if(probe.status===200||probe.status===201){const found=await metadata(saved.fileId);if(recordingChecksum(found)!==hash)throw fail('Uploaded recording checksum differs.','INTEGRITY');return verifyUploaded(found);}
     if(probe.status===404||probe.status===410)await start();
     else {expect(probe,[308]);offset=confirmed(probe,blob.size);}
     onProgress(offset,blob.size);
     while(offset<blob.size){
       aborted();const end=Math.min(blob.size,offset+DRIVE_CHUNK);
       const r=await scoped(saved.session,{method:'PUT',headers:{'Content-Type':blob.type,'Content-Range':`bytes ${offset}-${end-1}/${blob.size}`},body:await readChunk(blob,offset,end)});
-      if(r.status===200||r.status===201){const found=await metadata(saved.fileId);if(found.sha256Checksum!==hash||found.appProperties.takeId!==takeId)throw fail('Uploaded recording checksum differs.','INTEGRITY');onProgress(blob.size,blob.size);return found;}
+      if(r.status===200||r.status===201){const found=await metadata(saved.fileId);if(recordingChecksum(found)!==hash||found.appProperties.takeId!==takeId)throw fail('Uploaded recording checksum differs.','INTEGRITY');onProgress(blob.size,blob.size);return verifyUploaded(found);}
       expect(r,[308]);const next=confirmed(r,blob.size);if(next<=offset||next>end)throw fail('Drive returned an invalid upload offset.','INVALID_RESPONSE');offset=next;onProgress(offset,blob.size);
     }
     throw fail('Drive has not confirmed the completed upload. Retry to verify it.','INCOMPLETE');
@@ -73,17 +79,17 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     }while(page);
     return files;
   }
-  async function download(fileId){
-    if(!id(fileId))throw fail('Invalid recording ID.','INVALID_MEDIA');
-    const file=await metadata(fileId);
-    if(downloadFile)return downloadFile({fileId,accountId,notebookId,bytes:Number(file.size),sha256:file.sha256Checksum,mimeType:file.mimeType});
+  async function downloadContent(file){
+    const fileId=file.id;
+    if(downloadFile)return downloadFile({fileId,accountId,notebookId,bytes:Number(file.size),sha256:recordingChecksum(file),mimeType:file.mimeType});
     const chunks=[];for(let offset=0;offset<Number(file.size);offset+=DRIVE_CHUNK){
       const end=Math.min(Number(file.size)-1,offset+DRIVE_CHUNK-1);
       const r=expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?alt=media`,{headers:{Range:`bytes=${offset}-${end}`},binary:true}),[206,200]);
       if(!(r.body instanceof Uint8Array)||r.body.length!==end-offset+1||(r.status===200&&Number(file.size)>DRIVE_CHUNK))throw fail('Drive returned incomplete recording bytes.','INTEGRITY');chunks.push(r.body);
     }
-    const blob=new Blob(chunks,{type:file.mimeType});if(await mediaHash(blob)!==file.sha256Checksum)throw fail('Downloaded recording checksum differs.','INTEGRITY');return {blob};
+    const blob=new Blob(chunks,{type:file.mimeType});if(await mediaHash(blob)!==recordingChecksum(file))throw fail('Downloaded recording checksum differs.','INTEGRITY');return {blob};
   }
+  async function download(fileId){if(!id(fileId))throw fail('Invalid recording ID.','INVALID_MEDIA');return downloadContent(await metadata(fileId));}
   return {upload,list,download};
 }
 function confirmed(response,size){

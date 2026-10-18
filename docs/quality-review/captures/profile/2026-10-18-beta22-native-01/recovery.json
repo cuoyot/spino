@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-18T20:57:13.973246+00:00",
+  "reason": "Headless emulator became unresponsive during namespaced review. Console shutdown did not respond; the specific QEMU process received SIGTERM. Same AVD restarted without wiping data. Package was not registered after cold boot; replacement installation re-registered it before recovering the private pre-review archive.",
+  "privateBackup": "output/native-review-backups/com.miguecoll.spino.beta-92bb6a5c-8ac8-4766-a522-a735ccb76db3.tar",
+  "privateBackupSHA256": "671e24985e58f0492b23440ca010ed0b5563d685701e97fc48d282e85a4dc9cb",
+  "existingAppDirectoriesQuarantinedIfPresent": true,
+  "regularFilesRestoredAndHashVerified": 162,
+  "allRestoredHashesMatch": true,
+  "noClearOrWipeCommandUsed": true
+}

@@ -275,3 +275,13 @@ test('legacy catalogue diagnostic conflicts are repaired without choosing betwee
  a.adapter.readLinked=async()=>({...await read(),conflicts:pending?['/header/library/report/checkedAt']:[]});a.adapter.write=async args=>{writes++;await write(args);pending=false;};
  await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);assert.equal(writes,1);assert.equal(a.get().data.works[0].title,'Original');
 });
+
+test('returning to the app resumes exhausted transient retries but retains pauses and permission errors',async t=>{
+ const shared={},a=device(t,shared,book([{id:'retained-work'}]),2);await a.engine.createShared();let reads=0;
+ shared.beforeRead=()=>{reads++;throw Object.assign(Error('DNS temporarily unavailable'),{code:'PROVIDER_ERROR'});};
+ for(let n=0;n<100&&a.engine.state.retryable!==false;n++)await new Promise(r=>setTimeout(r,5));
+ await a.engine.sync();for(let n=0;n<100&&(a.engine.state.status!=='error'||a.engine.state.retryable);n++)await new Promise(r=>setTimeout(r,5));assert.equal(a.engine.state.retryable,false);assert.equal(a.engine.state.errorCode,'PROVIDER_ERROR');
+ shared.beforeRead=null;await a.engine.resumeChecks();assert.equal(a.engine.state.status,'saved');assert.equal(a.get().data.works[0].id,'retained-work');
+ shared.beforeRead=()=>{reads++;throw Object.assign(Error('Permission revoked'),{code:'PERMISSION_REQUIRED'});};await a.engine.sync();const attempts=reads;await a.engine.resumeChecks();assert.equal(reads,attempts);assert.equal(a.engine.state.errorCode,'PERMISSION_REQUIRED');
+ a.engine.continueLocal();shared.beforeRead=null;await a.engine.resumeChecks();assert.equal(a.engine.state.status,'paused');assert.equal(a.engine.state.enabled,false);
+});

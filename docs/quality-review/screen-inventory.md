@@ -403,3 +403,6 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 
 
 2026-10-18 beta20/build73 delivery: D-063 is included in the owner-authorized Android/website release. [Release validation](../releases/6.1.0-beta.20-validation.json) records the final browser checks, native replacement installation, actual Android gestures, six native light/dark animation frames, preserved recorder/stream, monitor cleanup, sharing and current original-store/blob retention. [Publication](../releases/6.1.0-beta.20-publication.json) is recorded separately. Physical microphone/performance and owner visual acceptance remain open. Earlier source-only statements are historical.
+
+
+2026-10-18 D-065 reopens CLOUD-01/02/05, PROFILE-01, PRACTICE-01 and C-TRANSFER/C-DIALOG after the owner's beta19 phone/tablet screenshots. Current practice is device-local for Drive, completed history can arrive while a paused practice remains intact, and old active-only conflicts can recover. Phase feedback, Pause, bounded requests and safe incremental retries have 40 responsive frames in profile/2026-10-18-sync-recovery-03; real account/device acceptance remains separate.

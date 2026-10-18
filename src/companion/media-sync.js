@@ -1,4 +1,4 @@
-import {mediaHash} from './drive-media.js';
+import {mediaHash,recordingChecksum} from './drive-media.js';
 
 // Copies are additive. Deleting a local take keeps its cloud copy and records a local exclusion.
 export function createMediaSync({store, connection, getContext, eligible, changed=()=>{}, refreshed=()=>{}, network=async()=>({online:true,wifi:true,metered:false}), delay=30000}) {
@@ -17,7 +17,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
       try{
         const policy=await network();if(!policy.online||context.wifiOnly&&(!policy.wifi||policy.metered)){publish({status:policy.online?'wifi':'offline'});return;}
         client=await connection(context);if(!current(key))return;
-        const byTake=new Map();for(const f of await client.list()){const previous=byTake.get(f.appProperties.takeId);if(previous&&(previous.sha256Checksum!==f.sha256Checksum||previous.appProperties.workId!==f.appProperties.workId))throw Error('Recording identity conflict. Local recordings were kept.');if(!previous)byTake.set(f.appProperties.takeId,f);}
+        const byTake=new Map();for(const f of await client.list()){const previous=byTake.get(f.appProperties.takeId);if(previous&&(recordingChecksum(previous)!==recordingChecksum(f)||previous.appProperties.workId!==f.appProperties.workId))throw Error('Recording identity conflict. Local recordings were kept.');if(!previous)byTake.set(f.appProperties.takeId,f);}
         const remote=[...byTake.values()],local=await store.index(),works=new Map(context.works.map(w=>[w.id,w]));
         const uploads=local.filter(r=>!r.draft&&(r.workId===''||works.has(r.workId))&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId)&&!remote.some(f=>f.appProperties.takeId===r.id));
         const downloads=[];
@@ -30,7 +30,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
           await store.attachCloud(record.id,{accountId:context.accountId,notebookId:context.notebookId,pending:true});
           const file=await client.upload({takeId:record.id,workId:record.workId,title:record.title,blob:record.blob,createdAt:record.createdAt,durationMs:record.durationMs,signal,onProgress:(done,bytes)=>publish({percent:Math.floor(done/bytes*100)})});
           if(!current(key))return;
-          await store.attachCloud(record.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:file.sha256Checksum});
+          await store.attachCloud(record.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:recordingChecksum(file)});
           publish({completed:++completed,percent:0});
         }
         for(const file of downloads){
@@ -39,7 +39,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
           try{
             if(!current(key))return;
             const p=file.appProperties,blob=result.blob;
-            if(!(blob instanceof Blob)||blob.size!==Number(file.size)||!result.verified&&await mediaHash(blob)!==p.sha256)throw Error('Downloaded recording failed verification. Local recordings were kept.');
+            if(!(blob instanceof Blob)||blob.size!==Number(file.size)||!result.verified&&await mediaHash(blob)!==recordingChecksum(file))throw Error('Downloaded recording failed verification. Local recordings were kept.');
             const durationMs=Number(p.durationMs),createdAt=p.createdAt;
             if(!Number.isFinite(durationMs)||durationMs<0||!Number.isFinite(Date.parse(createdAt)))throw Error('Invalid recording dates or duration.');
             await store.importRemote({id:p.takeId,workId:p.workId,workTitle:works.get(p.workId)?.title||'',title:file.name,createdAt,durationMs,kind:file.mimeType.startsWith('video/')?'video':'audio',draft:false,blob,cloud:{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:p.sha256}},key);
@@ -47,7 +47,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
           publish({completed:++completed,percent:0});
         }
         // Attach existing copies after a lost response, without rewriting titles edited locally.
-        for(const f of remote){const r=local.find(r=>r.id===f.appProperties.takeId);if(r&&(!r.cloud||r.cloud.pending)&&!r.draft&&(r.workId===''||works.has(r.workId))){const record=await store.get(r.id);if(record&&await mediaHash(record.blob)!==f.sha256Checksum)throw Error('Recording identity conflict. Local recordings were kept.');if(record)await store.attachCloud(r.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:f.id,sha256:f.sha256Checksum});}}
+        for(const f of remote){const r=local.find(r=>r.id===f.appProperties.takeId);if(r&&(!r.cloud||r.cloud.pending)&&!r.draft&&(r.workId===''||works.has(r.workId))){const record=await store.get(r.id);if(record&&await mediaHash(record.blob)!==recordingChecksum(f))throw Error('Recording identity conflict. Local recordings were kept.');if(record)await store.attachCloud(r.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:f.id,sha256:recordingChecksum(f)});}}
         if(current(key)){publish({status:'saved',completed,total,error:'',percent:100,lastCheckedAt:new Date().toISOString()});if(total)await refreshed();}
       }catch(error){if(!signal.aborted)publish({status:'error',error:error.message||String(error)});}
       finally{task=null;controller=null;schedule();}
