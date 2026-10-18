@@ -5,7 +5,7 @@ const owned = notification => notification.extra?.spinoReminder === true;
 export function reminderNotifications(data, language, now = Date.now()) {
   const records = [
     ...data.plans.filter(plan => plan.status === 'planned').map(record => ({ record, type: 'plan' })),
-    ...reminderEvents(data.events, now).map(record => ({ record, type: 'event' })),
+    ...reminderEvents(data.events, now).filter(e=>!data.sessions?.some(s=>s.lessonEventId===e.id)).map(record => ({ record, type: 'event' })),
   ].filter(({ record }) => record.reminder && record.time)
     .sort((a, b) => `${a.type}:${a.record.id}`.localeCompare(`${b.type}:${b.record.id}`));
   const used = new Set();

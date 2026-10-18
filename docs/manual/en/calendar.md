@@ -9,3 +9,17 @@ Each day keeps one row. Swipe sideways when more circles are available; the scro
 Choose **+ Add** in a weekly day to plan practice, record a completed practice or add an event on that date. Planned practices and events retain their detail/actions.
 
 Available in Android beta 12/build51. Responsive Chromium verification covers both themes, phone/tablet orientations, 320px layouts and durations through 720 minutes. Emulator replacement installation, data retention, version and foreground are verified separately. Physical-device gesture/visual acceptance remains open. The iOS Simulator download remains beta 9 and does not yet include these calendar refinements.
+
+
+## Complete a lesson
+
+In a Lesson appointment, choose **Complete lesson**. Enter the actual date and duration, then optionally add a rating, comments, selected repertoire pieces and a next step. Save adds one result to your history and marks that appointment completed. **Edit completed lesson** updates the same result. The original plan and the other lessons in a recurring series stay independent. Deleting the saved result makes the appointment pending again.
+
+**Scores worked on** opens the selected repertoire entries and their available scores. The total lesson duration does not automatically assign minutes to individual scores. Use the result's existing **Edit practice** action if you want to record an explicit activity breakdown.
+
+Under **Teacher recordings**, choose **Associate recordings** to link saved audio/video, or **Record teacher** to make a new take. Saving a take from the lesson links it automatically. You can play or share it from the lesson or its saved result. Unchecking a recording removes only its association. An unavailable local recording retains a placeholder; recordings keep the existing separate recording-copy policy.
+
+These lesson additions are currently verified in the source/browser review after Android beta20/build73 and are not yet included in a new published APK. Responsive checks use a disposable notebook and synthetic microphone; native and physical-device acceptance remains open.
+
+
+Release follow-up: D-064 is packaged in website Android beta21/build74. Final responsive checks use the production web build; replacement installation retains the current emulator notebook and original blobs and confirms the app is in the foreground. Publication/download verification is tracked separately in the release record. Physical-device lesson capture and owner visual acceptance remain open.

@@ -175,7 +175,9 @@ export function validateData(input) {
     }
   }
   for (const e of input.events) if (!date(e.date) || !str(e.title, 200) || !str(e.time, 5) || !str(e.notes) || !str(e.place, 200) || !Array.isArray(e.workIds) || !e.workIds.every(v => str(v, 100)) || (e.milestones != null && (!Array.isArray(e.milestones)||e.milestones.length>100||!e.milestones.every(m=>obj(m)&&str(m.title,200)&&typeof m.done==='boolean')))) fail();
+  for(const e of input.events) if(e.recordingIds!==undefined&&(!Array.isArray(e.recordingIds)||e.recordingIds.length>500||!e.recordingIds.every(id=>str(id,100)&&id)))fail();
   const checkSession = s => {
+    if(s?.lessonEventId!==undefined&&(!str(s.lessonEventId,100)||!s.lessonEventId))fail();
     if(s?.quickBest!==undefined&&(!Number.isSafeInteger(s.quickBest)||s.quickBest<0))fail();
     if(s?.quickRecordBeaten!==undefined&&typeof s.quickRecordBeaten!=='boolean')fail();
     if(s?.quickScore!==undefined&&!validQuickScore(s.quickScore))fail();

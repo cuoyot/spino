@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [
+    {
+      "id": "score-a",
+      "title": "Prélude — synthetic review",
+      "composer": "Example composer",
+      "stage": "En estudio",
+      "notes": "Preserve score notes",
+      "passage": "",
+      "target": null,
+      "bpm": 60
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [
+    {
+      "id": "review-lesson",
+      "type": "Clase",
+      "date": "2026-10-18",
+      "time": "18:00",
+      "title": "Clase con profesor",
+      "place": "Studio",
+      "notes": "Preparar digitación y pedal",
+      "workIds": [
+        "score-a"
+      ],
+      "reminder": false,
+      "milestones": [],
+      "recurrence": {
+        "id": "review-lesson",
+        "frequency": "weekly",
+        "until": null,
+        "rule": true,
+        "excluded": []
+      }
+    }
+  ],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}

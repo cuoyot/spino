@@ -47,3 +47,22 @@ Owner authorizes website and Git publication. Android beta 12/build51 packages t
 ## 2026-10-15 — Shared primary-header height
 
 Owner reports that Calendar is taller than Progress. The shared primary bar is now 68 px high and keeps Profile, title and MIDI aligned across main routes; Week/Month remains inline and retains its labels and targets. Library tabs use a separate sticky page row. Three-language/two-theme responsive measurements and representative phone/tablet captures are in [header parity](captures/themes/2026-10-15-header-parity/README.md). Included in signed stable 6.0.0/build53 and published on the website. Native installation, loaded first launch and foreground are verified; populated native/physical and owner visual acceptance remain separate.
+
+## 2026-10-18 — Lesson completion and teacher recordings (D-064)
+
+The owner requests completing a planned lesson with duration, rating, scores, comments and next steps, then adds teacher audio/video demonstrations. This is an accepted functional objective; the implemented visual arrangement remains open for feedback.
+
+CAL-07 now exposes Complete lesson, an editable actual date/duration, optional mood, comments, repertoire selection and next step. The completed summary links to the saved result and selected works/scores. Calendar/Today mark the appointment as completed; its single result is also available in the existing calendar circles and Progress history. Actual dates can differ from the appointment date. The original plan remains intact. Editing retains the saved result/block IDs; deleting the result returns the appointment to pending. Completed reminders are excluded without affecting other dates in a series.
+
+Teacher recordings can be associated before or after completion. Associate recordings selects existing saved local audio/video. Record teacher uses the existing recorder and links the take automatically after saving; Play and Share remain available in the lesson and its result. Removing an association retains the original file. Missing local recordings keep a visible placeholder and their link unless explicitly unchecked. These links survive notebook validation/backup and independent cloud edits; recording binaries retain their existing separate local/Drive policy.
+
+The lesson total uses one manual timing block, with selected pieces retained as tags rather than fabricated equal per-score durations. Later explicit edits to its activity breakdown are preserved when the lesson total/feedback is edited.
+
+Final evidence: [2026-10-18-lesson-completion-04](captures/calendar/2026-10-18-lesson-completion-04/verification.json), 40 responsive-browser frames covering form, completed summary, recording actions and association picker, both themes, phone/tablet portrait/landscape and 320 px. Tests use a disposable notebook and a synthetic microphone; no personal notebook or emulator was changed. Runs 01/02/03 remain historical iterations; run 04 waits for the save toast to expire before capturing the completed view.
+
+Validation: production build, 64 focused unit checks (lesson/model, agenda, recurrence, reminders, planning, saved edits, localization, backup and cloud), and five browser checks pass. The new browser flow covers failed result save/retry, duplicate submission, stable result editing, failed recording-link save/retry, automatic association, unlink/relink, playback, reload and unchanged works. Existing audio/video standalone capture, recurrence editing and saved-practice editing remain covered.
+
+Preview: `node scripts/review/preview-lessons.mjs`, [light](http://127.0.0.1:5301/?theme=light) / [dark](http://127.0.0.1:5301/?theme=dark). The preview uses namespaced disposable storage, a synthetic audio example and a synthetic microphone. Source only after beta20/build73; no new APK/publication. Physical Android/iOS, actual teacher camera/microphone capture and owner visual acceptance remain separate.
+
+
+2026-10-18 beta21/build74 delivery preparation: the owner authorizes website publication of D-064. [Release validation](../releases/6.1.0-beta.21-validation.json) and [native emulator evidence](captures/calendar/2026-10-18-beta21-native-01/native.json) record final packaging, replacement installation, current-data retention and sharing. The 40 lesson frames remain responsive-browser evidence; native installation does not establish physical lesson camera/microphone acceptance. Public deployment/download verification is recorded separately. Earlier source-only statements are historical.

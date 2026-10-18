@@ -20,7 +20,7 @@ export function agendaEntries(data, date) {
   const entries = plans.map(plan => ({ kind: 'plan', id: plan.id, plan, session: data.sessions.find(s => s.id === plan.sessionId && s.date === date), time: plan.time || '' }));
   const linked = new Set(entries.map(e => e.session?.id).filter(Boolean));
   for (const session of data.sessions.filter(s => s.date === date && !linked.has(s.id))) entries.push({ kind: 'session', id: session.id, session, time: '' });
-  for (const event of eventsBetween(data.events, date, date)) entries.push({ kind: 'event', id: event.id, event, time: event.time || '' });
+  for (const event of eventsBetween(data.events, date, date)) { const result=data.sessions.find(s=>s.lessonEventId===event.id);entries.push({ kind: 'event', id: event.id, event, lessonCompleted:!!result, time: event.time || '' }); }
   return entries.sort((a, b) => (a.time || '99:99').localeCompare(b.time || '99:99') || a.id.localeCompare(b.id));
 }
 export function todayPractice(data, today = localDate()) {
@@ -33,7 +33,7 @@ export function todayPractice(data, today = localDate()) {
 export function agendaCard(entry, { detailed = false, movable = false, compact = false } = {}) {
   const s = entry.session, p = entry.plan, event = entry.event;
   const type = event ? 'event' : (p || s).blocks[0]?.type || 'free';
-  const state = s ? s.status === 'partial' ? ui("Partial", "Parcial") : ui("Completed", "Realizada") : event ? eventTypeLabel(event.type) : p.status === 'partial' ? ui("Partial", "Parcial") : p.status === 'completed' ? ui("Completed", "Realizada") : ui("Planned", "Prevista");
+  const state = s ? s.status === 'partial' ? ui("Partial", "Parcial") : ui("Completed", "Realizada") : event ? (entry.lessonCompleted?ui('Completed lesson','Clase completada'):eventTypeLabel(event.type)) : p.status === 'partial' ? ui("Partial", "Parcial") : p.status === 'completed' ? ui("Completed", "Realizada") : ui("Planned", "Prevista");
   const title = event?.title || s?.title || p.title;
   const action = event ? 'event-detail' : s ? 'session-detail' : 'plan-detail';
   const id = event?.id || s?.id || p.id;

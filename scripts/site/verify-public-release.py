@@ -18,7 +18,7 @@ manifest = json.loads((root / 'site' / manifest_path).read_text())
 sha = lambda data: hashlib.sha256(data).hexdigest()
 
 def fetch(url):
-    return subprocess.run(['curl', '-fsSL', '--retry', '2', '--retry-delay', '2', '--max-time', '60', url], check=True, capture_output=True).stdout
+    return subprocess.run(['curl', '-fsSL', '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', '30', url], check=True, capture_output=True).stdout
 
 previous_status = None
 for attempt in range(40):
@@ -56,8 +56,11 @@ actual_manifest = fetch(origin + manifest_path)
 assert actual_manifest == (root / 'site' / manifest_path).read_bytes()
 
 artifacts = {a['file']: a for a in manifest['artifacts']}
-previous_manifest = json.loads((root / 'docs/releases/6.1.0-beta.19-artifacts.json').read_text())
-artifacts[previous_manifest['artifacts'][0]['file']] = previous_manifest['artifacts'][0]
+previous = [json.loads(path.read_text()) for path in (root / 'docs/releases').glob('*-artifacts.json')]
+previous = [item for item in previous if item.get('channel') == manifest.get('channel') and item.get('build', 0) < manifest['build']]
+if previous:
+    previous_manifest = max(previous, key=lambda item: item['build'])
+    artifacts[previous_manifest['artifacts'][0]['file']] = previous_manifest['artifacts'][0]
 for artifact in json.loads((root / 'site/downloads/spino-6.0.0-checksums.json').read_text())['artifacts']:
     artifacts[artifact['file']] = artifact
 
@@ -79,6 +82,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     downloads = list(executor.map(verify_artifact, artifacts.values()))
     images = list(executor.map(verify_image, sorted(image_paths)))
 
-result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': '../quality-review/captures/multimedia/2026-10-18-beta20-native-02/native.json', 'physicalDeviceAcceptance': False}
+result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': json.loads((root / f'docs/releases/{version}-validation.json').read_text())['nativeEvidence'], 'physicalDeviceAcceptance': False}
 (root / f'docs/releases/{version}-publication.json').write_text(json.dumps(result, indent=2) + '\n')
 print(f'Public verification passes: {len(pages)} language pages, manifest, {len(downloads)} downloads and {len(images)} images.', flush=True)

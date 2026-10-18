@@ -157,14 +157,16 @@
       "status": "draft",
       "reviewIds": [
         "CAL-01",
-        "CAL-02"
+        "CAL-02",
+        "CAL-07"
       ],
-      "verifiedAgainst": "2026-10-15-day-separators",
+      "verifiedAgainst": "calendar/2026-10-18-beta21-lessons-01",
       "decisions": [
         "D-040",
-        "D-041"
+        "D-041",
+        "D-064"
       ],
-      "coverage": "Android beta 12/build51 contains D-040/D-041 circular session rows, hidden horizontal scrolling, fixed Week Add, subtle day dividers, compact month/year wording and a one-line Calendar selector. Responsive checks cover both themes, four orientations, 320px, three languages and durations through 720 min. Emulator replacement installation/data retention/foreground and package hashes pass; physical/native visual acceptance remains separate. iOS remains beta 9/build48."
+      "coverage": "Android beta 12/build51 contains D-040/D-041 circular session rows, hidden horizontal scrolling, fixed Week Add, subtle day dividers, compact month/year wording and a one-line Calendar selector. Responsive checks cover both themes, four orientations, 320px, three languages and durations through 720 min. Emulator replacement installation/data retention/foreground and package hashes pass; physical/native visual acceptance remains separate. iOS remains beta 9/build48. D-064 source/browser adds planned lesson completion and editing with stable result/occurrence IDs, selected scores and teacher recording association/capture/playback. Forty responsive frames, 64 focused unit checks and five browser checks pass. Not packaged or published after beta20/build73; native/physical acceptance remains open. Release follow-up: packaged in website Android beta21/build74; 64 unit, five browser, three website and seven Android checks pass. Native replacement installation/foreground and current-data retention pass; public deployment/download verification is separate."
     },
     {
       "id": "progress-recordings",

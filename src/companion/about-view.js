@@ -1,5 +1,6 @@
 import { APP_VERSION } from './app-version.js';
 import { localize } from './locale.js';
+import release610beta21 from '../../docs/releases/6.1.0-beta.21.md?raw';
 import release610beta20 from '../../docs/releases/6.1.0-beta.20.md?raw';
 import release610beta19 from '../../docs/releases/6.1.0-beta.19.md?raw';
 import release610beta15 from '../../docs/releases/6.1.0-beta.15.md?raw';
@@ -28,6 +29,7 @@ const listingNotes = language => listing.split(`<!-- field:${language}:notes -->
 export function aboutMarkup(lang = 'en') {
   const es = lang === 'es', word = (en, spanish) => localize(en, spanish, lang);
   const history = [
+    ['6.1.0-beta.21', section(release610beta21, '## Release notes')],
     ['6.1.0-beta.20', section(release610beta20, '## Release notes')],
     ['6.1.0-beta.19', section(release610beta19, '## Release notes')],
     ['6.1.0-beta.15', section(release610beta15, '## Release notes')],

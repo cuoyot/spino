@@ -1,5 +1,25 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Original plan|Pla original
+Scores worked on|Partitures treballades
+Teacher recordings|Gravacions del professor
+Associate recordings|Associar gravacions
+Record teacher|Gravar el professor
+Recording unavailable on this device|Gravació no disponible en aquest dispositiu
+Link audio or video demonstrations to this lesson.|Associa demostracions d’àudio o vídeo a aquesta classe.
+Completed lesson|Classe completada
+Edit completed lesson|Editar classe completada
+Complete lesson|Completar classe
+Lesson|Classe
+Duration (minutes)|Durada (minuts)
+View result|Veure resultat
+View lesson|Veure classe
+Save a recording first.|Desa primer una gravació.
+This lesson changed. Reopen the editor.|Aquesta classe ha canviat. Torna a obrir l’editor.
+This lesson is no longer available.|Aquesta classe ja no està disponible.
+Enter a valid date and a duration between 1 and 720 minutes.|Indica una data vàlida i una durada entre 1 i 720 minuts.
+A selected piece is no longer available.|Una de les obres seleccionades ja no està disponible.
+
 Format 2 requires SPino 6.0.0-beta.3 or later. Conversion keeps the original file.|El format 2 requereix SPino 6.0.0-beta.3 o posterior. La conversió conserva el fitxer original.
 
 Practise reading or technique to start comparing results.|Practica lectura o tècnica per començar a comparar resultats.

@@ -1,0 +1,417 @@
+{
+  "kind": "responsive-browser-synthetic-notebook-and-audio",
+  "nativeAcceptance": false,
+  "date": "2026-10-18T20:22:32.453Z",
+  "frames": [
+    {
+      "file": "complete-form-light-390x844.png",
+      "state": "complete-form",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "width": 364,
+        "scrollWidth": 364,
+        "bottom": 798.796875
+      }
+    },
+    {
+      "file": "complete-form-light-844x390.png",
+      "state": "complete-form",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 367.5
+      }
+    },
+    {
+      "file": "complete-form-light-768x1024.png",
+      "state": "complete-form",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 928.453125
+      }
+    },
+    {
+      "file": "complete-form-light-1024x768.png",
+      "state": "complete-form",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 726.59375
+      }
+    },
+    {
+      "file": "complete-form-light-320x640.png",
+      "state": "complete-form",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "width": 294,
+        "scrollWidth": 294,
+        "bottom": 605
+      }
+    },
+    {
+      "file": "complete-form-dark-390x844.png",
+      "state": "complete-form",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "width": 364,
+        "scrollWidth": 364,
+        "bottom": 798.796875
+      }
+    },
+    {
+      "file": "complete-form-dark-844x390.png",
+      "state": "complete-form",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 367.5
+      }
+    },
+    {
+      "file": "complete-form-dark-768x1024.png",
+      "state": "complete-form",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 928.453125
+      }
+    },
+    {
+      "file": "complete-form-dark-1024x768.png",
+      "state": "complete-form",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 726.59375
+      }
+    },
+    {
+      "file": "complete-form-dark-320x640.png",
+      "state": "complete-form",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "width": 294,
+        "scrollWidth": 294,
+        "bottom": 605
+      }
+    },
+    {
+      "file": "completed-recordings-light-390x844.png",
+      "state": "completed-recordings",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-light-844x390.png",
+      "state": "completed-recordings",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-light-768x1024.png",
+      "state": "completed-recordings",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-light-1024x768.png",
+      "state": "completed-recordings",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-light-320x640.png",
+      "state": "completed-recordings",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-dark-390x844.png",
+      "state": "completed-recordings",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-dark-844x390.png",
+      "state": "completed-recordings",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-dark-768x1024.png",
+      "state": "completed-recordings",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-dark-1024x768.png",
+      "state": "completed-recordings",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": null
+    },
+    {
+      "file": "completed-recordings-dark-320x640.png",
+      "state": "completed-recordings",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-light-390x844.png",
+      "state": "teacher-recording-actions",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-light-844x390.png",
+      "state": "teacher-recording-actions",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-light-768x1024.png",
+      "state": "teacher-recording-actions",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-light-1024x768.png",
+      "state": "teacher-recording-actions",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-light-320x640.png",
+      "state": "teacher-recording-actions",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-dark-390x844.png",
+      "state": "teacher-recording-actions",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-dark-844x390.png",
+      "state": "teacher-recording-actions",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-dark-768x1024.png",
+      "state": "teacher-recording-actions",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-dark-1024x768.png",
+      "state": "teacher-recording-actions",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": null
+    },
+    {
+      "file": "teacher-recording-actions-dark-320x640.png",
+      "state": "teacher-recording-actions",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": null
+    },
+    {
+      "file": "recording-picker-light-390x844.png",
+      "state": "recording-picker",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "width": 364,
+        "scrollWidth": 364,
+        "bottom": 527.1875
+      }
+    },
+    {
+      "file": "recording-picker-light-844x390.png",
+      "state": "recording-picker",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 298.59375
+      }
+    },
+    {
+      "file": "recording-picker-light-768x1024.png",
+      "state": "recording-picker",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 615.59375
+      }
+    },
+    {
+      "file": "recording-picker-light-1024x768.png",
+      "state": "recording-picker",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 487.59375
+      }
+    },
+    {
+      "file": "recording-picker-light-320x640.png",
+      "state": "recording-picker",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "width": 294,
+        "scrollWidth": 294,
+        "bottom": 441.28125
+      }
+    },
+    {
+      "file": "recording-picker-dark-390x844.png",
+      "state": "recording-picker",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "width": 364,
+        "scrollWidth": 364,
+        "bottom": 527.1875
+      }
+    },
+    {
+      "file": "recording-picker-dark-844x390.png",
+      "state": "recording-picker",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 298.59375
+      }
+    },
+    {
+      "file": "recording-picker-dark-768x1024.png",
+      "state": "recording-picker",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 615.59375
+      }
+    },
+    {
+      "file": "recording-picker-dark-1024x768.png",
+      "state": "recording-picker",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "width": 558,
+        "scrollWidth": 558,
+        "bottom": 487.59375
+      }
+    },
+    {
+      "file": "recording-picker-dark-320x640.png",
+      "state": "recording-picker",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "width": 294,
+        "scrollWidth": 294,
+        "bottom": 441.28125
+      }
+    }
+  ],
+  "failedSaveRetryWithoutDuplicates": true,
+  "resultIdRetained": "bce76e24-cdea-4ff5-86db-7ea5393c0cc9",
+  "teacherCaptureAutoLinked": true,
+  "failedRecordingAssociationRetry": true,
+  "unlinkRelinkAndPlayback": true,
+  "reloadRetainsLinks": true,
+  "seriesOtherDatesUnchanged": true,
+  "originalWorksUnchanged": true,
+  "runtimeErrors": [],
+  "buildIndexSha256": "b8e68b1d8f913a536fc730479f621814eb2c01d65b0238fada91244eeb6598fd"
+}

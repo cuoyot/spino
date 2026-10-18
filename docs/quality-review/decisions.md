@@ -714,3 +714,16 @@ Owner requires Calendar and Library to match the other main headers so switching
 
 
 2026-10-18 beta20/build73 delivery: D-063 is included in the owner-authorized Android/website release. [Release validation](../releases/6.1.0-beta.20-validation.json) records the final browser checks, native replacement installation, actual Android gestures, six native light/dark animation frames, preserved recorder/stream, monitor cleanup, sharing and current original-store/blob retention. [Publication](../releases/6.1.0-beta.20-publication.json) is recorded separately. Physical microphone/performance and owner visual acceptance remain open. Earlier source-only statements are historical.
+
+## D-064 — Complete planned lessons and retain teacher demonstrations
+
+2026-10-18. The owner requests completing planned lessons with actual duration, rating, scores, comments and follow-up, and associating teacher recordings for later reference. This objective is accepted; the implemented arrangement awaits owner visual feedback.
+
+Lesson appointments now offer Complete lesson and Edit completed lesson. One saved result links to the appointment's stable occurrence ID, appears in history/progress, and retains its result/block IDs when edited. The original date, preparation notes, linked preparation works and other recurring appointments remain independent. Deleting the saved result makes the appointment pending again. Completed occurrences no longer schedule a reminder. A lesson's total is recorded without inventing a time split among selected scores; the existing saved-practice editor can record an explicit activity breakdown.
+
+Teacher recordings can be selected from saved local audio/video or captured from the appointment. A newly saved take is linked automatically; existing recordings retain their original IDs and bytes. Links can be removed without deleting the recording. Missing local files remain visible as unavailable. Notebook JSON/cloud merge preserve the references; binary recording transfer keeps its existing separate lifecycle.
+
+[Calendar review](calendar.md#2026-10-18--lesson-completion-and-teacher-recordings-d-064) contains dated synthetic evidence and the local preview. Source only after beta20/build73; no new APK or website publication. Responsive Chromium checks do not establish native/physical-device acceptance.
+
+
+2026-10-18 beta21/build74 delivery preparation: the owner authorizes website publication of D-064. [Release validation](../releases/6.1.0-beta.21-validation.json) and [native emulator evidence](captures/calendar/2026-10-18-beta21-native-01/native.json) record final packaging, replacement installation, current-data retention and sharing. The 40 lesson frames remain responsive-browser evidence; native installation does not establish physical lesson camera/microphone acceptance. Public deployment/download verification is recorded separately. Earlier source-only statements are historical.
