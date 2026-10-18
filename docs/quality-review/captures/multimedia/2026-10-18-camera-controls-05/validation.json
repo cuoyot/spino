@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-18T06:19:26.612Z",
+  "version": "6.1.0-beta.18",
+  "scope": "Source-only D-061; no new APK/version/publication",
+  "productionBuild": "passed",
+  "runtime": "Node.js v24.19.0",
+  "focusedChecks": {
+    "tests": 22,
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "files": [
+      "tests/camera-controls.test.js",
+      "tests/camera-controls.browser.test.js",
+      "tests/media-standalone.browser.test.js",
+      "tests/media.browser.test.js",
+      "tests/media-duration.browser.test.js",
+      "tests/pdf-practice.browser.test.js",
+      "tests/locale.test.js",
+      "tests/compact-help.browser.test.js"
+    ]
+  },
+  "responsiveFrames": {
+    "cameraControls": 30,
+    "standaloneRegression": 100
+  },
+  "cameraEvidence": "verification.json",
+  "recordingEvidence": "../2026-10-18-camera-regression-03/verification.json",
+  "nativeDeviceAcceptance": false,
+  "physicalCameraAcceptance": false,
+  "sourceHashes": {
+    "src/companion/camera-controls.js": "d382070947085527aae9e778864cdd6fed79a6c1a7bbc6c9aae3d675cee5c689",
+    "src/companion/media-view.js": "ef6e6ffff0d423d1dbc206c7ae829ad2528b8c12f1ffc671943762ce46b549cd",
+    "src/companion/media.css": "7c7ded29679d841f8ea837a18651b0ee760acdfc43e4c34263bfa0629f94b0b1",
+    "src/companion/locale-ca.js": "108586d642e9acea6fad62de6624fef4490b8b6ad4040e91197b8f1b079a3dd7",
+    "tests/camera-controls.browser.test.js": "90d6c890e0b441fbdb3e8274c64c9f31ef2a0864bf7314deecff46eadb4432ff",
+    "tests/fixtures/camera-controls.js": "87d530d00ef6f961e9d0d1f686b17294d1843fc4f3e203fbde39ec4ab1df133d"
+  },
+  "buildIndexSha256": "003ba16814ee50d63737782b6c163f634fdcf6d8d6e99a6bd4c5348d34883447"
+}

@@ -45,7 +45,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await evaluate(`window.originalPut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(value,...args){if(this.name==='recordings'&&value.draft===false)throw new DOMException('Synthetic quota failure','QuotaExceededError');return originalPut.call(this,value,...args);};document.querySelector('#media-title').value='Audio progress take';`);
  await click('[data-media=save]');await evaluate(until("document.querySelector('[data-media-error]')?.textContent.includes('Could not save')"));
  assert.equal(await evaluate(`document.querySelector('#media-title').value`),'Audio progress take');
- await evaluate(`IDBObjectStore.prototype.put=originalPut`);await click('[data-media=save]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
+ await evaluate(`IDBObjectStore.prototype.put=originalPut`);await click('[data-media=save]');await evaluate(until("document.querySelector('[data-media=share]')&&!document.querySelector('[data-media=share]').disabled"));await click('[data-media=close]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelectorAll('.cp-media-list article').length===1"));
  assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),1);
  await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture audio')?.readyState>=1"));
@@ -59,7 +59,7 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  await click('[data-media=minimize]');assert.equal(await evaluate(`getComputedStyle(document.querySelector('.cp-media-live')).display`),'none');
  await click('[data-media=stop]');await evaluate(until("document.querySelector('#media-title')&&!document.querySelector('[data-media=save]').disabled"));
  await evaluate(`syntheticScore.close();syntheticScore.remove();`);await evaluate(until("document.body===document.querySelector('#cp-media-capture').parentElement"));
- await evaluate(`document.querySelector('#media-title').value='Video progress take'`);await click('[data-media=save]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
+ await evaluate(`document.querySelector('#media-title').value='Video progress take'`);await click('[data-media=save]');await evaluate(until("document.querySelector('[data-media=share]')&&!document.querySelector('[data-media=share]').disabled"));await click('[data-media=close]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
  await click('[data-action=work-media]');await evaluate(until("document.querySelectorAll('.cp-media-list article').length===2"));assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),2);
  await click('[data-action=media-play]');await evaluate(until("document.querySelector('#cp-media-capture video')?.readyState>=1"));assert.ok(await evaluate(`document.querySelector('#cp-media-capture video').videoWidth>0&&Number.isFinite(document.querySelector('#cp-media-capture video').duration)`));await click('[data-media=close]');
  // Separate installations, missing blobs and metadata from other devices never appear.
@@ -102,6 +102,6 @@ test('local audio/video capture, playback, restart, quota retry, device isolatio
  assert.ok(await evaluate(`document.querySelector('#cp-media-capture').textContent.includes('background')`));assert.equal(await evaluate(`captureTracks.every(t=>t.readyState==='ended')`),true);
  const draft=await evaluate(`new Promise(resolve=>{const r=indexedDB.open('spino-local-media');r.onsuccess=()=>{const q=r.result.transaction('recordings').objectStore('recordings').getAll();q.onsuccess=()=>{resolve(q.result.filter(r=>r.draft).map(r=>({id:r.id,workId:r.workId,bytes:r.blob.size})));r.result.close();};};})`);
  assert.equal(draft.length,1);assert.equal(draft[0].workId,'media-work-b');assert.ok(draft[0].bytes>0);
- await click('[data-media=save]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
+ await click('[data-media=save]');await evaluate(until("document.querySelector('[data-media=share]')&&!document.querySelector('[data-media=share]').disabled"));await click('[data-media=close]');await evaluate(until("document.querySelector('#cp-media-capture').hidden"));
  assert.deepEqual(errors,[]);
 });

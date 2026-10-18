@@ -1,0 +1,808 @@
+{
+  "date": "2026-10-18T06:19:26.612Z",
+  "kind": "responsive-browser-synthetic-camera",
+  "nativeAcceptance": false,
+  "frames": [
+    {
+      "file": "light-hardware-preview-390x844.png",
+      "state": "hardware-preview",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-hardware-preview-844x390.png",
+      "state": "hardware-preview",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-hardware-preview-768x1024.png",
+      "state": "hardware-preview",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 68.21875,
+        "bottom": 955.78125,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-hardware-preview-1024x768.png",
+      "state": "hardware-preview",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 16,
+        "bottom": 752,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-hardware-preview-320x640.png",
+      "state": "hardware-preview",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-hardware-preview-390x844.png",
+      "state": "hardware-preview",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-hardware-preview-844x390.png",
+      "state": "hardware-preview",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-hardware-preview-768x1024.png",
+      "state": "hardware-preview",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 72.21875,
+        "bottom": 951.78125,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-hardware-preview-1024x768.png",
+      "state": "hardware-preview",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 16,
+        "bottom": 752,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-hardware-preview-320x640.png",
+      "state": "hardware-preview",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-digital-preview-390x844.png",
+      "state": "digital-preview",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-digital-preview-844x390.png",
+      "state": "digital-preview",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-digital-preview-768x1024.png",
+      "state": "digital-preview",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 96.21875,
+        "bottom": 927.78125,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-digital-preview-1024x768.png",
+      "state": "digital-preview",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 16,
+        "bottom": 752,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-digital-preview-320x640.png",
+      "state": "digital-preview",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-digital-preview-390x844.png",
+      "state": "digital-preview",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-digital-preview-844x390.png",
+      "state": "digital-preview",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-digital-preview-768x1024.png",
+      "state": "digital-preview",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 92.21875,
+        "bottom": 931.78125,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-digital-preview-1024x768.png",
+      "state": "digital-preview",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 16,
+        "bottom": 752,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-digital-preview-320x640.png",
+      "state": "digital-preview",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-recording-390x844.png",
+      "state": "recording",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 51.3125,
+        "bottom": 792.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-recording-844x390.png",
+      "state": "recording",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-recording-768x1024.png",
+      "state": "recording",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 136.3125,
+        "bottom": 887.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-recording-1024x768.png",
+      "state": "recording",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 32.3125,
+        "bottom": 735.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "light-recording-320x640.png",
+      "state": "recording",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-recording-390x844.png",
+      "state": "recording",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 51.3125,
+        "bottom": 792.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 155,
+            "height": 44
+          },
+          {
+            "width": 155,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-recording-844x390.png",
+      "state": "recording",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "geometry": {
+        "left": 102,
+        "right": 742,
+        "top": 16,
+        "bottom": 374,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-recording-768x1024.png",
+      "state": "recording",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "geometry": {
+        "left": 64,
+        "right": 704,
+        "top": 136.3125,
+        "bottom": 887.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-recording-1024x768.png",
+      "state": "recording",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "geometry": {
+        "left": 192,
+        "right": 832,
+        "top": 32.3125,
+        "bottom": 735.6875,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 296,
+            "height": 44
+          },
+          {
+            "width": 296,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "dark-recording-320x640.png",
+      "state": "recording",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "geometry": {
+        "left": 16,
+        "right": 304,
+        "top": 16,
+        "bottom": 624,
+        "overflow": false,
+        "controls": [
+          {
+            "width": 120,
+            "height": 44
+          },
+          {
+            "width": 120,
+            "height": 44
+          }
+        ]
+      }
+    }
+  ],
+  "initial": {
+    "width": 1080,
+    "height": 1920,
+    "edge": [
+      176,
+      32,
+      32,
+      255
+    ],
+    "center": [
+      80,
+      80,
+      80,
+      255
+    ]
+  },
+  "brighter": {
+    "width": 1080,
+    "height": 1920,
+    "edge": [
+      220,
+      40,
+      40,
+      255
+    ],
+    "center": [
+      100,
+      100,
+      100,
+      255
+    ]
+  },
+  "cropped": {
+    "width": 1080,
+    "height": 1920,
+    "edge": [
+      100,
+      100,
+      100,
+      255
+    ],
+    "center": [
+      100,
+      100,
+      100,
+      255
+    ]
+  },
+  "encoded": {
+    "width": 1080,
+    "height": 1920,
+    "edge": [
+      100,
+      100,
+      100,
+      255
+    ],
+    "center": [
+      100,
+      100,
+      100,
+      255
+    ]
+  },
+  "hardwareZoomReset": true,
+  "hardwareExposureLock": true,
+  "rejectedSettingRecovered": true,
+  "digitalZoomEncoded": true,
+  "brightnessEncoded": true,
+  "notebookUnchanged": true,
+  "tracksReleased": true,
+  "errors": [],
+  "sourceHashes": {
+    "src/companion/camera-controls.js": "d382070947085527aae9e778864cdd6fed79a6c1a7bbc6c9aae3d675cee5c689",
+    "src/companion/media-view.js": "ef6e6ffff0d423d1dbc206c7ae829ad2528b8c12f1ffc671943762ce46b549cd",
+    "src/companion/media.css": "7c7ded29679d841f8ea837a18651b0ee760acdfc43e4c34263bfa0629f94b0b1",
+    "src/companion/locale-ca.js": "108586d642e9acea6fad62de6624fef4490b8b6ad4040e91197b8f1b079a3dd7",
+    "tests/camera-controls.browser.test.js": "90d6c890e0b441fbdb3e8274c64c9f31ef2a0864bf7314deecff46eadb4432ff",
+    "tests/fixtures/camera-controls.js": "87d530d00ef6f961e9d0d1f686b17294d1843fc4f3e203fbde39ec4ab1df133d"
+  },
+  "buildIndexSha256": "003ba16814ee50d63737782b6c163f634fdcf6d8d6e99a6bd4c5348d34883447"
+}

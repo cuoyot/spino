@@ -56,7 +56,7 @@ try{
   await wait(`Number(document.querySelector('[data-media-clock]')?.textContent.split(':')[0])*60+Number(document.querySelector('[data-media-clock]')?.textContent.split(':')[1])>=2`);await shot('native-'+kind+'-recording');
   await click('[data-media=stop]');await wait(`document.querySelector('#media-title')&&!document.querySelector('[data-media=save]').disabled`);await shot('native-'+kind+'-review');
   const previewReady=await evaluate(`!!document.querySelector('#cp-media-capture '+${JSON.stringify(kind==='video'?'video':'audio')})`);
-  await click('[data-media=save]');await wait(`document.querySelector('#cp-media-capture').hidden`);takes.push({kind,previewReady});
+  await click('[data-media=save]');await wait(`!!document.querySelector('[data-media=share]')`);await click('[data-media=close]');await wait(`document.querySelector('#cp-media-capture').hidden`);takes.push({kind,previewReady});
  }
  const recordings=await evaluate(`new Promise(resolve=>{const r=indexedDB.open('spino-local-media');r.onsuccess=()=>{const db=r.result,q=db.transaction('recordings').objectStore('recordings').getAll();q.onsuccess=()=>{resolve(q.result.map(r=>({kind:r.kind,workId:r.workId,bytes:r.blob.size,type:r.blob.type,draft:r.draft})));db.close();};};})`);assert.equal(recordings.length,2);assert.ok(recordings.every(r=>r.bytes>0&&!r.draft));
  await click('.cp-session [data-action=session-end]');await wait(`document.querySelector('#cp-dialog [data-action=discard-session]')`);await click('#cp-dialog [data-action=discard-session]');await click('#cp-confirm');await wait(`document.querySelector('.cp-today')`);

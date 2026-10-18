@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-18T14:11:36.732Z",
+  "kind": "responsive-browser-synthetic-camera",
+  "nativeAcceptance": false,
+  "takes": [
+    {
+      "name": "portrait-sensor",
+      "sensorPortrait": true,
+      "format": "9:16",
+      "turns": 0,
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "preview": {
+        "width": 1080,
+        "height": 1920,
+        "corners": [
+          [
+            240,
+            32,
+            32,
+            255
+          ],
+          [
+            32,
+            224,
+            32,
+            255
+          ],
+          [
+            224,
+            224,
+            32,
+            255
+          ],
+          [
+            32,
+            32,
+            224,
+            255
+          ]
+        ]
+      },
+      "encoded": {
+        "width": 1080,
+        "height": 1920,
+        "corners": [
+          [
+            234,
+            32,
+            36,
+            255
+          ],
+          [
+            30,
+            224,
+            28,
+            255
+          ],
+          [
+            230,
+            223,
+            32,
+            255
+          ],
+          [
+            30,
+            34,
+            213,
+            255
+          ]
+        ]
+      }
+    },
+    {
+      "name": "rotated-landscape-sensor",
+      "sensorPortrait": false,
+      "format": "9:16",
+      "turns": 1,
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "preview": {
+        "width": 1080,
+        "height": 1920,
+        "corners": [
+          [
+            32,
+            32,
+            224,
+            255
+          ],
+          [
+            240,
+            32,
+            32,
+            255
+          ],
+          [
+            32,
+            224,
+            32,
+            255
+          ],
+          [
+            224,
+            224,
+            32,
+            255
+          ]
+        ]
+      },
+      "encoded": {
+        "width": 1080,
+        "height": 1920,
+        "corners": [
+          [
+            31,
+            35,
+            214,
+            255
+          ],
+          [
+            232,
+            34,
+            33,
+            255
+          ],
+          [
+            31,
+            226,
+            27,
+            255
+          ],
+          [
+            230,
+            224,
+            27,
+            255
+          ]
+        ]
+      }
+    },
+    {
+      "name": "manual-landscape",
+      "sensorPortrait": false,
+      "format": "16:9",
+      "turns": 3,
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "preview": {
+        "width": 1920,
+        "height": 1080,
+        "corners": [
+          [
+            32,
+            224,
+            32,
+            255
+          ],
+          [
+            224,
+            224,
+            32,
+            255
+          ],
+          [
+            32,
+            32,
+            224,
+            255
+          ],
+          [
+            240,
+            32,
+            32,
+            255
+          ]
+        ]
+      },
+      "encoded": {
+        "width": 1920,
+        "height": 1080,
+        "corners": [
+          [
+            26,
+            225,
+            21,
+            255
+          ],
+          [
+            229,
+            222,
+            33,
+            255
+          ],
+          [
+            33,
+            33,
+            225,
+            255
+          ],
+          [
+            238,
+            33,
+            36,
+            255
+          ]
+        ]
+      }
+    }
+  ],
+  "rotationDuringRecording": true,
+  "errors": [],
+  "sourceHashes": {
+    "src/companion/media-view.js": "4713d6eb5cd00416ae18b82ad32cc24115d66b3cc82d97ee0e4ce0474868ab18",
+    "src/companion/media.css": "84e4ba5dbfafede2403ea9f01e0fcb57ae2823c00bbb662414fd776712567a32",
+    "tests/camera-controls.browser.test.js": "1ec701a1a8ec019a96c3ed9dca0d9cc5ff95463b923a47ecb17540317bf7faac",
+    "tests/fixtures/camera-controls.js": "e9d3798f55b59ace488212cc437b2b6d1d113b053806ff1037438e0efaa9587e"
+  },
+  "buildIndexSha256": "943040f28dc6f6c816ae62f35ffe7099d772808c18977a9552b13e8abc564701"
+}

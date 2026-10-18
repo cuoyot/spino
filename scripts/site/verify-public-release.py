@@ -56,7 +56,7 @@ actual_manifest = fetch(origin + manifest_path)
 assert actual_manifest == (root / 'site' / manifest_path).read_bytes()
 
 artifacts = {a['file']: a for a in manifest['artifacts']}
-previous_manifest = json.loads((root / 'docs/releases/6.1.0-beta.17-artifacts.json').read_text())
+previous_manifest = json.loads((root / 'docs/releases/6.1.0-beta.18-artifacts.json').read_text())
 artifacts[previous_manifest['artifacts'][0]['file']] = previous_manifest['artifacts'][0]
 for artifact in json.loads((root / 'site/downloads/spino-6.0.0-checksums.json').read_text())['artifacts']:
     artifacts[artifact['file']] = artifact
@@ -79,6 +79,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     downloads = list(executor.map(verify_artifact, artifacts.values()))
     images = list(executor.map(verify_image, sorted(image_paths)))
 
-result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': '../quality-review/captures/multimedia/2026-10-17-beta18-native-02/native.json', 'physicalDeviceAcceptance': False}
+result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': '../quality-review/captures/multimedia/2026-10-18-beta19-native-01/native.json', 'physicalDeviceAcceptance': False}
 (root / f'docs/releases/{version}-publication.json').write_text(json.dumps(result, indent=2) + '\n')
 print(f'Public verification passes: {len(pages)} language pages, manifest, {len(downloads)} downloads and {len(images)} images.', flush=True)

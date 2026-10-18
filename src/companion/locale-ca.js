@@ -745,6 +745,9 @@ Personal copy created: {name}|Còpia personal creada: {name}
 My settings|La meva configuració
 Export|Exportar
 Share|Compartir
+Share recording|Comparteix la gravació
+Recording downloaded.|Gravació descarregada.
+Could not share. Your recording is still saved.|No s’ha pogut compartir. La gravació continua desada.
 Copied to clipboard|Copiat al porta-retalls
 Delete template|Eliminar la plantilla
 Import a template|Importar una plantilla
@@ -1302,6 +1305,21 @@ Previous practice is kept.|Es conserva la pràctica anterior.
 Apply block|Aplicar el bloc
 Camera ready · not recording|Càmera preparada · sense gravar
 Camera|Càmera
+Camera controls|Controls de càmera
+Ready|Preparada
+Camera settings|Ajustos de càmera
+Rotate image 90°|Gira la imatge 90°
+Switch video format|Canvia el format de vídeo
+Zoom|Zoom
+Digital zoom|Zoom digital
+Brightness|Brillantor
+Lock exposure|Fixa l’exposició
+Unlock exposure|Desbloqueja l’exposició
+Brightness stays at your chosen value for this take.|La brillantor manté el valor triat durant aquesta presa.
+Lock exposure to stop the camera adjusting to changes in light.|Fixa l’exposició perquè la càmera deixi d’adaptar-se als canvis de llum.
+This camera does not expose an exposure lock; automatic exposure may still change.|Aquesta càmera no ofereix bloqueig d’exposició; l’exposició automàtica pot continuar canviant.
+Digital zoom crops the image and reduces detail.|El zoom digital retalla la imatge i redueix el detall.
+Could not apply this camera setting. Try again.|No s’ha pogut aplicar aquest ajust de càmera. Torna-ho a provar.
 Start recording|Començar a gravar
 Pause recording|Pausar la gravació
 Resume recording|Reprendre la gravació

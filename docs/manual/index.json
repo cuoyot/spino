@@ -45,7 +45,7 @@
       "visualAcceptance": {
         "date": "2026-10-01",
         "evidence": "2026-10-01-compact",
-        "scope": "Presented Today layout and implemented D-002\u2013D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
+        "scope": "Presented Today layout and implemented D-002–D-004 scope; child flows and remaining behavior/accessibility/native coverage stay open."
       },
       "decisions": [
         "D-002",
@@ -176,15 +176,17 @@
         "PIANO-02",
         "MEDIA-01"
       ],
-      "verifiedAgainst": "multimedia/2026-10-17-beta16-recording-09",
+      "verifiedAgainst": "multimedia/2026-10-18-beta19-native-01",
       "decisions": [
         "D-053",
         "D-054",
         "D-055",
         "D-057",
-        "D-060"
+        "D-060",
+        "D-061",
+        "D-062"
       ],
-      "coverage": "Android beta16/build69 includes musical streak/calendar/history behavior and compact uncounted audio/video icons, toggleable type filters and a visible piece filter. Home and Multimedia offer standalone free or repertoire recording with horizontal stand-only cards and Other pieces search. Audio measures actual input; video starts at preview with camera selection, start/pause/resume/finish, encoded portrait/landscape output and a framed title/date caption. Selecting the suggested title clears it for typing. Existing recording/session/work IDs, notebook, PDFs and annotations are retained. Final 100-frame browser evidence uses synthetic streams; separate Android emulator camera/rotation checks pass. Physical-device and owner visual acceptance remain open. Source-only 2026-10-17 caption follow-up raises the encoded frame with a 10% bottom inset, verified from decoded portrait/landscape pixels in multimedia/2026-10-17-caption-bottom-padding-01. The owner requests no APK recreation; the published beta16 package remains unchanged. Raised video caption clearance is packaged in Android beta17/build70; final browser evidence is multimedia/2026-10-17-beta17-recording-01. Earlier source-only statements record the prior stage. Beta18/build71 places optional explanations behind + Info and removes the recording-view offline/JSON paragraph. Browser verification in themes/2026-10-17-beta18-compact-help-01 checks keyboard access, mandatory compatibility confirmation, preserved transfer help and unchanged notebook/assets."
+      "coverage": "Android beta16/build69 includes musical streak/calendar/history behavior and compact uncounted audio/video icons, toggleable type filters and a visible piece filter. Home and Multimedia offer standalone free or repertoire recording with horizontal stand-only cards and Other pieces search. Audio measures actual input; video starts at preview with camera selection, start/pause/resume/finish, encoded portrait/landscape output and a framed title/date caption. Selecting the suggested title clears it for typing. Existing recording/session/work IDs, notebook, PDFs and annotations are retained. Final 100-frame browser evidence uses synthetic streams; separate Android emulator camera/rotation checks pass. Physical-device and owner visual acceptance remain open. Source-only 2026-10-17 caption follow-up raises the encoded frame with a 10% bottom inset, verified from decoded portrait/landscape pixels in multimedia/2026-10-17-caption-bottom-padding-01. The owner requests no APK recreation; the published beta16 package remains unchanged. Raised video caption clearance is packaged in Android beta17/build70; final browser evidence is multimedia/2026-10-17-beta17-recording-01. Earlier source-only statements record the prior stage. Beta18/build71 places optional explanations behind + Info and removes the recording-view offline/JSON paragraph. Browser verification in themes/2026-10-17-beta18-compact-help-01 checks keyboard access, mandatory compatibility confirmation, preserved transfer help and unchanged notebook/assets. Source-only D-061 (2026-10-18) adds uncropped full-field 1× framing, Full HD/8 Mbps, hardware/digital zoom, fixed image brightness and capability-gated exposure lock. Synthetic camera controls, decoded brightness/crop, rejection recovery, both themes/five layouts and standalone/PDF regression are verified; physical/native/owner acceptance remains open. No new APK or publication. D-061 follow-up verifies explicit 9:16/16:9, manual clockwise image rotation, decoded colored-corner orientation, full-screen standalone preview, collapsed settings and always-visible capture actions. Current evidence: camera-compact-03, camera-rotation-03 and camera-compact-regression-02. Native/physical/owner acceptance remains open. D-062 adds Share to saved library cards and saved playback, and retains saved review for immediate Share/Close. Browser original-file hashes, cancellation/retry, duplicate prevention and retained notebook/player are verified; Android emulator chooser/staging/retention are recorded separately. Same-version local review APK only; published beta18 and physical recipient acceptance remain separate. Beta19/build72 packages D-061 and D-062: final production browser checks cover full-field camera controls, decoded rotation/portrait/landscape and original-file sharing. Native emulator replacement installation verifies the Android audio/video chooser, post-save sharing, cancellation, matching temporary-file hashes, unchanged original logical stores and retained immutable blobs. Public delivery is recorded in the beta19 validation/publication manifests. Physical camera/receiving-app and owner acceptance remain open; earlier source-only statements describe the preceding stage."
     }
   ],
   "plannedChapters": [

@@ -28,6 +28,7 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(MidiPlugin.class);
         registerPlugin(NotebookPlugin.class);
+        registerPlugin(MediaSharePlugin.class);
         registerPlugin(ScorePrinterPlugin.class);
         registerPlugin(CloudBackupPlugin.class);
         registerPlugin(DriveMediaPlugin.class);

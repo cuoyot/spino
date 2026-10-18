@@ -1,0 +1,28 @@
+{
+  "packagedWebFiles": 261,
+  "apkSHA256": "29b273f3f083bf75bc8dd3c1ec7900f4705f0d77dfb1c135b4e9fa781e915c88",
+  "nativeUnitTests": 7,
+  "nativeFailures": 0,
+  "date": "2026-10-18T13:38:36.263Z",
+  "scope": "Same-version local review APK after beta18/build71; no website publication",
+  "productionBuild": "passed",
+  "focusedTests": {
+    "total": 27,
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0
+  },
+  "responsiveSharingFrames": 20,
+  "browserEvidence": "../2026-10-18-share-04/verification.json",
+  "nativeEvidence": "native.json",
+  "foregroundVerified": true,
+  "originalStoresUnchanged": true,
+  "retainedBlobFiles": 93,
+  "sourceHashes": {
+    "android/app/src/main/java/com/miguecoll/spino/MediaSharePlugin.java": "1004e83bfad59e9fab4445a7d64cae1c0a193665d2108d7aaf74860cc0319182",
+    "android/app/src/main/java/com/miguecoll/spino/MainActivity.java": "383959d5e9d14a348eacf8dd527ddab81ab29875c254a8c300f48c6509b27e2a",
+    "src/companion/media-share.js": "d94eb04b25370f13803552cafb73fb417ee406ed1ec3170fd8e65ee45bf6ad1a",
+    "src/companion/media-view.js": "4713d6eb5cd00416ae18b82ad32cc24115d66b3cc82d97ee0e4ce0474868ab18",
+    "scripts/review/verify-media-share-android.mjs": "6a28e68a34e6ade665570595d6d06d6734952ff3329bc3c001b926256f2d9a99"
+  }
+}

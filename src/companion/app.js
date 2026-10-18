@@ -1099,6 +1099,7 @@ export async function bootCompanion(reader) {
     'media-filter-work':()=>showDialog(ui('Filter by piece','Filtrar por obra'),mediaPieceFilterMarkup(mediaRecords,data.works,mediaCalendar.workId)),
     'media-select-work':id=>{mediaCalendar.workId=id;dialog.close();render();root.querySelector('[data-action=media-filter-work]')?.focus({preventScroll:true});},
     'media-play':id=>mediaCapture?.play(id),
+    'media-share':id=>mediaCapture?.share(id),
     'progress-streak':()=>{streakMonth=localDate();openStreak();},
     'streak-month':id=>{streakMonth=shiftMonth(streakMonth,Number(id));openStreak();dialog.querySelector(`[data-action=streak-month][data-id="${id}"]`)?.focus({preventScroll:true});},
     'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week',type:'',workId:''});if(mediaStore)await refreshMedia();go('multimedia');},
