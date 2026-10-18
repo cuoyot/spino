@@ -1,27 +1,27 @@
 {
-  "verifiedAt": "2026-10-18T14:16:34.075279+00:00",
+  "verifiedAt": "2026-10-18T14:19:00.798798+00:00",
   "version": "6.1.0-beta.19",
   "build": 72,
-  "websiteCommit": "779cc442e289404200ba8f358ba574c7b2e1339c",
+  "websiteCommit": "70977cc571a0c20a4f11fd50c10575c9727688e3",
   "tag": "v6.1.0-beta.19",
   "languagePages": [
     {
       "language": "es",
       "url": "https://spinoapp.com/",
-      "bytes": 67892,
-      "sha256": "6771f197d22b7f3169db0488ea916377f3d42fbdd980b049ef266e379221eb4c"
+      "bytes": 67893,
+      "sha256": "8a85a529d63514e4cc63c7749652c939be4b9faa8b0bd5f933f5e2bba3962fb6"
     },
     {
       "language": "en",
       "url": "https://spinoapp.com/en/",
-      "bytes": 70743,
-      "sha256": "61c0421599af05d7255be2f60238283187b2a3bdf69cc1323a93de5b32e2414a"
+      "bytes": 70744,
+      "sha256": "be187cb32821bbad8c13ac140cf29db9f8ade8a5bd42cd71f6085e4d3434c32e"
     },
     {
       "language": "ca",
       "url": "https://spinoapp.com/ca/",
-      "bytes": 67867,
-      "sha256": "9eb8f001f031082ccafd658fb34f6148c138258a2d4aded094688193165d8c5a"
+      "bytes": 67868,
+      "sha256": "3ddbdb8dea1dafacd4af32fc72762a5877495d5ad9920ec3836e0031c8af2336"
     }
   ],
   "manifestSHA256": "2b5dc254204ae6a76ce13833c0803d42282439bbe86d999eb16c0870b41ae92d",
@@ -225,7 +225,7 @@
     "check": "Workers Builds: spino",
     "status": "completed",
     "conclusion": "success",
-    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/db0b8dab-9bac-4936-a77f-e5faf7e4f49b"
+    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/8b7f4905-4d5d-4c1e-b083-82d384cbe1de"
   },
   "nativeEvidence": "../quality-review/captures/multimedia/2026-10-18-beta19-native-01/native.json",
   "physicalDeviceAcceptance": false
