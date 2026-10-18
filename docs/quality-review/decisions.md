@@ -727,3 +727,6 @@ Teacher recordings can be selected from saved local audio/video or captured from
 
 
 2026-10-18 beta21/build74 delivery preparation: the owner authorizes website publication of D-064. [Release validation](../releases/6.1.0-beta.21-validation.json) and [native emulator evidence](captures/calendar/2026-10-18-beta21-native-01/native.json) record final packaging, replacement installation, current-data retention and sharing. The 40 lesson frames remain responsive-browser evidence; native installation does not establish physical lesson camera/microphone acceptance. Public deployment/download verification is recorded separately. Earlier source-only statements are historical.
+
+
+2026-10-18 beta21 publication follow-up: source/APK tag `v6.1.0-beta.21` is pushed and Cloudflare deployment succeeds. [Publication record](../releases/6.1.0-beta.21-publication.json) keeps public-domain verification incomplete because spinoapp.com times out, while the immutable GitHub APK download matches the release size/SHA-256. Provider success is separate from custom-domain acceptance.
