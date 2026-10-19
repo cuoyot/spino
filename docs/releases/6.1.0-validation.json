@@ -49,5 +49,7 @@
   "realGoogleAuthorizationAcceptance": false,
   "googlePlayUnchanged": "5.2.3 (35)",
   "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
-  "nextBeta": "6.1.1-beta.1 (minimum build 77), planned not released"
+  "nextBeta": "6.1.1-beta.1 (minimum build 77), planned not released",
+  "publicVerificationPassed": true,
+  "publication": "6.1.0-publication.json"
 }

@@ -1,6 +1,6 @@
 # Release quality review
 
-This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.0.0 (53), the Android beta is 6.1.0-beta.22 (75), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
+This workspace records the screen-by-screen review requested on 2026-10-01, which began with technical version 5.0.0. The owner has since requested and authorized releases: the website stable is signed Android 6.1.0 (76), the Android beta is 6.1.0-beta.22 (75), and Google Play remains separately labeled 5.2.3 (35). The iOS Simulator download remains beta 9 (48). Historical screen objectives and evidence remain preserved below.
 
 Previous beta 2 focus (2026-10-12): [beta 2 practice adjustments](../releases/6.0.0-beta.2.md), verified in four responsive layouts; Android build41 installed and foreground confirmed without clearing data. Physical MIDI/cloud and Android closed-app notifications remain open; the iOS OS-delivery path is verified in the disposable simulator. The owner-requested fixed header/profile relocation and light MIDI treatment are implemented with six-screen, two-theme, four-layout responsive evidence.
 
@@ -13,6 +13,8 @@ Previous beta 3 focus (2026-10-12): [beta 3 QR linking and backup compatibility]
 Current focus (2026-10-12): [beta 4 tablet sync repair](../releases/6.0.0-beta.4.md). Owner reports stable/beta on one tablet using Drive. Closed-dialog form blocking and lost reviewed choices reproduced/corrected in synthetic tests. Direct file selection nested in device linking/manage. Actual personal tablet acceptance pending.
 
 ## Resume work here
+
+2026-10-19 stable 6.1 publication — signed production Android 6.1.0/build76 is published and publicly verified at https://spinoapp.com. [Validation](../releases/6.1.0-validation.json), [website audit](../releases/6.1.0-website.md), [publication evidence](../releases/6.1.0-publication.json) and [native handoff](captures/releases/2026-10-19-stable61/README.md) record the scope. Three localized pages, 34 images, privacy policy and stable/retained downloads match. The Play AAB, listing, forms and screenshot pack are prepared; no Console upload or rollout. Next beta: 6.1.1-beta.1/build77 or greater, not released. Physical-device and real Google authorization acceptance remain separate.
 
 2026-10-18 beta22 publication — source/APK commit `5395d3e` and tag `v6.1.0-beta.22` are pushed. Cloudflare build `3d1759d6-7bb0-4d9b-849a-8979155e7242` completes successfully. [Publication evidence](../releases/6.1.0-beta.22-publication.json) keeps normal custom-domain verification incomplete: HTTPS to spinoapp.com times out with curl code 28. The immutable-tag APK download is verified at 23,386,152 bytes and SHA-256 `b6f0a6e9b0349c9befc08570659d388c6a0c26734465320d1f7ba61726a95e73`. Both phone and tablet must update for D-065 pending-practice isolation. Next: owner two-device acceptance and actual Google/recording-metadata checks; when reachable, rerun `python3 scripts/site/verify-public-release.py 6.1.0-beta.22 5395d3ed03af32ba2c85c4a8d62bd78bb5ee9b62`. Provider success alone does not prove public pages/downloads/images.
 
