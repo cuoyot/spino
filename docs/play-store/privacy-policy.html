@@ -23,7 +23,7 @@
 <body>
 <main>
 <h1>SPino: Smart Piano Notebook</h1>
-<p class="muted">Privacy policy · Política de privacidad · Effective / vigente desde: 16 October 2026</p>
+<p class="muted">Privacy policy · Política de privacidad · Effective / vigente desde: 19 October 2026</p>
 <nav><a href="#en">English</a><a href="#es">Español</a></nav>
 
 <section id="en" lang="en">
@@ -37,15 +37,15 @@
 <li>Your notebook: name and optional profile picture, preferences and pianist level, practice sessions, notes and ratings, plans, events, routines and repertoire.</li>
 <li>Scores you import or download, with your annotations and saved framing.</li>
 <li>Device settings such as paired Bluetooth MIDI instruments, pedal mapping and backup destination.</li>
-<li>In beta 6.1 and later, audio/video recordings you create, their titles and repertoire links, and a random installation identifier used to show only recordings available on this installation.</li>
+<li>In version 6.1 and later, audio/video recordings you create, their titles and repertoire links, and a random installation identifier used to show only recordings available on this installation.</li>
 </ul>
 <p>This information is kept in the app's private storage. It is not transmitted to the developer. You can delete it in <em>Profile → Manage local data</em>, by clearing the app's storage in Android settings, or by uninstalling the app.</p>
 
 <h2>Backups and shared notebooks (optional)</h2>
-<p>If you turn on backup or a shared notebook, Stable releases can use a file chosen through the device’s file picker; Android beta12 uses the direct Google Drive connection described below. That file is handled by the storage provider you selected, under its own terms and privacy policy. SPino reads that file again only to restore or synchronise your notebook. You can disconnect backup at any time in the app.</p>
+<p>If you turn on backup or a shared notebook, Android 6.1 uses the direct Google Drive connection described below; portable JSON copies can be saved through the device’s file picker. That file is handled by the storage provider you selected, under its own terms and privacy policy. SPino reads that file again only to restore or synchronise your notebook. You can disconnect backup at any time in the app.</p>
 
-<h2>Optional Google Drive synchronization (Android beta12)</h2>
-<p>From Android beta12, Profile → Backup &amp; sync connects directly to your own Google Drive account using the limited drive.file permission. The previous file-provider connection and isolated transfer test are removed from this beta’s connection flow; existing files are kept. After you connect and choose a notebook, SPino reads and writes its repertoire, practice history, plans, scores, annotations and shared practice preferences in your Drive. Theme, network preferences, MIDI and device permissions remain local. The account name, email, Drive identifiers, merge history and resumable transfer references are stored privately on your device. Access tokens remain in native memory. Google handles authorization, token renewal and file transfers under its own privacy policy. The developer receives neither your notebook nor Google credentials.</p>
+<h2>Optional Google Drive synchronization (Android 6.1)</h2>
+<p>From Android 6.1, Profile → Backup &amp; sync connects directly to your own Google Drive account using the limited drive.file permission. The previous file-provider connection and isolated transfer test are removed from the Android connection flow; existing files are kept. After you connect and choose a notebook, SPino reads and writes its repertoire, practice history, plans, scores, annotations and shared practice preferences in your Drive. Theme, network preferences, MIDI and device permissions remain local. The account name, email, Drive identifiers, merge history and resumable transfer references are stored privately on your device. Access tokens remain in native memory. Google handles authorization, token renewal and file transfers under its own privacy policy. The developer receives neither your notebook nor Google credentials.</p>
 <p>Saved audio/video recordings linked to the connected notebook are also copied to your Drive and downloaded on connected devices using the same Google account. Copies include the recording and repertoire identifiers, title at upload, creation date, duration, media type and a checksum. Draft recordings are excluded. Copies respect your network preference, resume after interruption and are verified before becoming available locally. The installation identifier is not uploaded. Transfers run while SPino is open and pause for practice/editing or disconnection. Deleting a local take keeps any existing Drive copy and stores a private exclusion so that device does not download it again. Title edits stay local to each copy.</p>
 <p>Local saving, offline playback, JSON notebook export/import/conversion and recovery remain available. JSON files and notebook QR codes do not embed audio/video files. Disconnecting stops future access on that device and keeps local and Drive copies. You can revoke Google permission separately in your Google Account settings and delete Drive files through Google Drive. Clearing app storage, uninstalling or confirming Erase notebook can remove local recordings; unfinished captures can be lost if the app is terminated.</p>
 
@@ -58,8 +58,8 @@
 <li><strong>Location (Android 11 and older only)</strong>: required by those Android versions to scan for Bluetooth devices. Your location is never read or stored.</li>
 <li><strong>Notifications</strong> and <strong>run at start-up</strong>: to show the practice reminders you schedule, also after a restart. Reminders are created and shown on your device.</li>
 <li><strong>Internet and network state</strong>: to download scores and to respect the "Wi-Fi only" download setting.</li>
-<li><strong>Camera</strong>: to scan a notebook connection QR and, in beta 6.1, record practice videos you request.</li>
-<li><strong>Microphone</strong> (beta 6.1): to record audio or the audio track of your practice videos. Capture stops when you stop recording, leave the app or reach the recording limit.</li>
+<li><strong>Camera</strong>: to scan a notebook connection QR and, in version 6.1, record practice videos you request.</li>
+<li><strong>Microphone</strong> (version 6.1): to record audio or the audio track of your practice videos. Capture stops when you stop recording, leave the app or reach the recording limit.</li>
 <li>USB MIDI keyboards connect without extra permissions.</li>
 </ul>
 
@@ -85,13 +85,13 @@
 <p>Esta información se guarda en el almacenamiento privado de la app y no se envía al desarrollador. Puedes borrarla en <em>Perfil → Gestionar datos locales</em>, borrando el almacenamiento de la app en los ajustes de Android o desinstalándola.</p>
 
 <h2>Copias de seguridad y cuadernos compartidos (opcional)</h2>
-<p>Si activas la copia de seguridad o el cuaderno compartido, Las versiones estables pueden usar un archivo elegido con el selector del dispositivo; la beta12 de Android usa la conexión directa con Google Drive descrita abajo. Ese archivo lo gestiona el proveedor de almacenamiento que hayas elegido, con sus propias condiciones y política de privacidad. SPino solo vuelve a leerlo para restaurar o sincronizar tu cuaderno. Puedes desconectar la copia en cualquier momento desde la app.</p>
+<p>Si activas la copia de seguridad o el cuaderno compartido, Android 6.1 usa la conexión directa con Google Drive descrita abajo; las copias JSON portátiles se pueden guardar con el selector de archivos del dispositivo. Ese archivo lo gestiona el proveedor de almacenamiento que hayas elegido, con sus propias condiciones y política de privacidad. SPino solo vuelve a leerlo para restaurar o sincronizar tu cuaderno. Puedes desconectar la copia en cualquier momento desde la app.</p>
 
 <h2>Descarga de partituras</h2>
 <p>Al descargar una partitura de la biblioteca, la app pide el archivo público a su fuente (por ejemplo mutopiaproject.org o raw.githubusercontent.com). Estas peticiones no incluyen datos personales de tu cuaderno; como en cualquier petición web, el servidor de origen puede ver tu dirección IP. Los enlaces a las páginas de fuente y licencia se abren en tu navegador.</p>
 
-<h2>Sincronización opcional con Google Drive (beta12 de Android)</h2>
-<p>Desde la beta12 de Android, Perfil → Copia y sincronización conecta directamente con tu cuenta de Google Drive mediante el permiso limitado drive.file. La conexión anterior por proveedor de archivos y la prueba aislada se retiran de este flujo; se conservan los archivos existentes. Tras conectar y elegir un cuaderno, SPino lee y escribe su repertorio, historial, planes, partituras, anotaciones y preferencias de práctica compartidas en tu Drive. El tema, las preferencias de red, MIDI y los permisos del dispositivo son locales. El nombre, correo, identificadores de Drive, historial de combinación y referencias de transferencias reanudables se guardan de forma privada en tu dispositivo. Los tokens permanecen en memoria nativa. Google gestiona la autorización, renovación y transferencia conforme a su política de privacidad. El desarrollador no recibe tu cuaderno ni tus credenciales.</p>
+<h2>Sincronización opcional con Google Drive (Android 6.1)</h2>
+<p>Desde Android 6.1, Perfil → Copia y sincronización conecta directamente con tu cuenta de Google Drive mediante el permiso limitado drive.file. La conexión anterior por proveedor de archivos y la prueba aislada se retiran de este flujo; se conservan los archivos existentes. Tras conectar y elegir un cuaderno, SPino lee y escribe su repertorio, historial, planes, partituras, anotaciones y preferencias de práctica compartidas en tu Drive. El tema, las preferencias de red, MIDI y los permisos del dispositivo son locales. El nombre, correo, identificadores de Drive, historial de combinación y referencias de transferencias reanudables se guardan de forma privada en tu dispositivo. Los tokens permanecen en memoria nativa. Google gestiona la autorización, renovación y transferencia conforme a su política de privacidad. El desarrollador no recibe tu cuaderno ni tus credenciales.</p>
 <p>Las grabaciones de audio y vídeo guardadas y vinculadas al cuaderno conectado también se copian a tu Drive y se descargan en los dispositivos conectados con la misma cuenta de Google. Las copias incluyen los identificadores de grabación y obra, el título al subirla, fecha, duración, tipo y suma de verificación. Se excluyen los borradores. Las copias respetan la preferencia de red, se reanudan tras una interrupción y se verifican antes de guardarlas localmente. No se sube el identificador de instalación. Se transfieren con SPino abierto y se pausan durante la práctica, edición o desconexión. Borrar una toma local conserva su copia existente de Drive y guarda una exclusión privada para no descargarla de nuevo en ese dispositivo. Los cambios de título son locales a cada copia.</p>
 <p>Se mantienen el guardado local, la reproducción sin conexión, las copias JSON del cuaderno y la recuperación. Los JSON y códigos QR no incluyen archivos de audio o vídeo. Desconectar detiene futuros accesos en ese dispositivo y conserva las copias locales y de Drive. Puedes revocar el permiso desde tu cuenta de Google y borrar archivos desde Drive. Borrar el almacenamiento, desinstalar o confirmar Borrar el cuaderno puede eliminar las grabaciones locales; las capturas sin terminar pueden perderse al cerrar la app.</p>
 
@@ -101,8 +101,8 @@
 <li><strong>Ubicación (solo Android 11 y anteriores)</strong>: esas versiones la exigen para buscar dispositivos Bluetooth. Tu ubicación nunca se lee ni se guarda.</li>
 <li><strong>Notificaciones</strong> y <strong>ejecución al iniciar</strong>: para mostrar los recordatorios de práctica que programas, también tras reiniciar. Se crean y se muestran en tu dispositivo.</li>
 <li><strong>Internet y estado de la red</strong>: para descargar partituras y respetar el ajuste de descargas "solo Wi-Fi".</li>
-<li><strong>Cámara</strong>: para escanear el QR de conexión de un cuaderno y, en la beta 6.1, grabar los vídeos de práctica que solicites.</li>
-<li><strong>Micrófono</strong> (beta 6.1): para grabar audio o la pista de audio de tus vídeos de práctica. La captura se detiene al parar, salir de la app o llegar al límite de grabación.</li>
+<li><strong>Cámara</strong>: para escanear el QR de conexión de un cuaderno y, en la versión 6.1, grabar los vídeos de práctica que solicites.</li>
+<li><strong>Micrófono</strong> (version 6.1): para grabar audio o la pista de audio de tus vídeos de práctica. La captura se detiene al parar, salir de la app o llegar al límite de grabación.</li>
 <li>Los teclados USB MIDI se conectan sin permisos adicionales.</li>
 </ul>
 

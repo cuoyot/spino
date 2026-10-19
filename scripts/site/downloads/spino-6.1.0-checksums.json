@@ -1,0 +1,45 @@
+{
+  "version": "6.1.0",
+  "build": 76,
+  "channel": "stable",
+  "date": "2026-10-19",
+  "artifacts": [
+    {
+      "file": "spino-6.1.0-76-android.apk",
+      "bytes": 19794727,
+      "sha256": "ea0f5d705320649f65ff7458df430a7518812ae428d4e119acb523d225a1c4bd",
+      "platform": "Android",
+      "applicationId": "com.miguecoll.spino",
+      "version": "6.1.0",
+      "build": 76
+    }
+  ],
+  "googlePlay": {
+    "version": "5.2.3",
+    "build": 35,
+    "url": "https://play.google.com/store/apps/details?id=com.miguecoll.spino"
+  },
+  "betaUnchanged": {
+    "version": "6.1.0-beta.22",
+    "build": 75
+  },
+  "nextBeta": {
+    "version": "6.1.1-beta.1",
+    "minimumBuild": 77,
+    "status": "planned_not_released"
+  },
+  "source": {
+    "tag": "v6.1.0",
+    "url": "https://github.com/cuoyot/spino/tree/v6.1.0"
+  },
+  "signerCertificateSha256": "d27604f0725c3040b3a476617e1e7bc4c6d31d7aabc36a65e8a2d5cb65fc7de7",
+  "playBundle": {
+    "file": "SPino-6.1.0-76.aab",
+    "bytes": 19358734,
+    "sha256": "d4ea73da780ab731fdfe097138bb65674d4a589cde1609f5fe8005ac97718c3b"
+  },
+  "packagedWebFilesMatch": {
+    "apk": 261,
+    "aab": 261
+  }
+}

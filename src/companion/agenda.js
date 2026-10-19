@@ -1,4 +1,4 @@
-import { icon } from './icons.js';
+import { savedSessionCardMarkup } from './saved-session-card.js';
 import { progressMetrics } from './progress-metrics.js';
 import { formatProgressDuration } from './progress-duration.js';
 import { eventsBetween, upcomingEvents } from './event-recurrence.js';
@@ -6,7 +6,7 @@ import { ui, getAppLanguage } from './locale.js';
 import { quickRecordsMarkup } from './quick-score.js';
 import { ACTIVITIES, CONTEXTS, eventTypeLabel, localDate, addDays, weekOf, summary, daysUntil } from './model.js';
 import { targetById } from './curriculum.js';
-import { escapeHTML as esc, FACES, MOODS } from './views.js';
+import { escapeHTML as esc } from './views.js';
 
 const button = (action, label, id = '', css = '') => `<button type="button" data-action="${action}" data-id="${esc(id)}" class="${css}">${label}</button>`;
 const minutes = ms => Math.round(ms / 60000);
@@ -30,39 +30,30 @@ export function todayPractice(data, today = localDate()) {
   const next = entries.find(e => e.kind === 'plan' && e.plan.status === 'planned' && !e.session)?.plan;
   return { active: data.active, next, entries };
 }
-export function agendaCard(entry, { detailed = false, movable = false, compact = false } = {}) {
+export function agendaCard(entry, { detailed = false, movable = false, works = [], sessionOptions = {} } = {}) {
   const s = entry.session, p = entry.plan, event = entry.event;
-  const type = event ? 'event' : (p || s).blocks[0]?.type || 'free';
-  const state = s ? s.status === 'partial' ? ui("Partial", "Parcial") : ui("Completed", "Realizada") : event ? (entry.lessonCompleted?ui('Completed lesson','Clase completada'):eventTypeLabel(event.type)) : p.status === 'partial' ? ui("Partial", "Parcial") : p.status === 'completed' ? ui("Completed", "Realizada") : ui("Planned", "Prevista");
-  const title = event?.title || s?.title || p.title;
-  const action = event ? 'event-detail' : s ? 'session-detail' : 'plan-detail';
-  const id = event?.id || s?.id || p.id;
   const plannedMinutes = p?.blocks.reduce((n, b) => n + b.minutes, 0);
-  if (compact && s) {
-    const activity = s.blocks.find(b => b.type !== 'warmup')?.type || type;
-    const activities = [...new Set(s.blocks.map(b => ACTIVITIES[b.type]).filter(Boolean))].join(' / ');
-    const label = [state, entry.time, title, activities, `${minutes(s.elapsedMs)} ${ui('min practised', 'min practicados')}`, s.mood ? MOODS[s.mood - 1] : ''].filter(Boolean).join(' · ');
-    return `<button type="button" class="cp-session-chip" data-activity="${activity}" data-entry-id="${esc(entry.id)}" data-action="session-detail" data-id="${esc(s.id)}" aria-label="${esc(label)}" title="${esc(label)}">
-      <span class="cp-session-chip-icon" aria-hidden="true">${icon(activity)}</span><span class="cp-session-chip-duration"><b>${minutes(s.elapsedMs)}</b> <small>min</small></span>${s.mood ? `<span class="cp-session-chip-mood" aria-hidden="true">${FACES[s.mood - 1]}</span>` : ''}${s.status === 'partial' ? '<span class="cp-session-chip-status" aria-hidden="true">◐</span>' : ''}
-    </button>`;
-  }
-  const detail = event ? event.place || ui("Event", "Evento") : `${ACTIVITIES[type]} · ${CONTEXTS[(s || p).context]}`;
-  const timing = s ? `${minutes(s.elapsedMs)} ${ui('min practised', 'min practicados')}${p ? ` · ${plannedMinutes} ${ui('min planned', 'min previstos')}` : ''}` : event ? ui("Preparation and repertoire", "Preparación y repertorio") : `${plannedMinutes} min · ${p.blocks.length} ${p.blocks.length === 1 ? ui("block", "bloque") : ui("blocks", "bloques")}`;
+  if (s) return savedSessionCardMarkup(s, works, { ...sessionOptions, entryId: entry.id, time: entry.time, plannedMinutes: p ? plannedMinutes : null, notes: detailed });
+  const type = event ? 'event' : p.blocks[0]?.type || 'free';
+  const state = event ? (entry.lessonCompleted?ui('Completed lesson','Clase completada'):eventTypeLabel(event.type)) : p.status === 'partial' ? ui("Partial", "Parcial") : p.status === 'completed' ? ui("Completed", "Realizada") : ui("Planned", "Prevista");
+  const title = event?.title || p.title;
+  const action = event ? 'event-detail' : 'plan-detail';
+  const id = event?.id || p.id;
+  const detail = event ? event.place || ui("Event", "Evento") : `${ACTIVITIES[type]} · ${CONTEXTS[p.context]}`;
+  const timing = event ? ui("Preparation and repertoire", "Preparación y repertorio") : `${plannedMinutes} min · ${p.blocks.length} ${p.blocks.length === 1 ? ui("block", "bloque") : ui("blocks", "bloques")}`;
   return `<article class="cp-agenda-card" data-activity="${type}" data-entry-id="${esc(entry.id)}">
     <button type="button" class="cp-entry-open" data-action="${action}" data-id="${esc(id)}">
-      <span class="cp-row cp-entry-state"><span>${entry.time ? esc(entry.time) + ' · ' : ''}${esc(state)}</span>${s ? `<span aria-hidden="true">${s.status === 'partial' ? '◐' : '✓'}</span>` : ''}</span>
+      <span class="cp-row cp-entry-state"><span>${entry.time ? esc(entry.time) + ' · ' : ''}${esc(state)}</span></span>
       <strong>${esc(title)}</strong><span class="muted">${esc(detail)}</span><span>${esc(timing)}</span>
-      ${s?.mood ? `<span class="cp-entry-mood">${FACES[s.mood - 1]} ${MOODS[s.mood - 1]}</span>` : ''}
-      ${detailed && s?.notes ? `<span class="cp-entry-note">${esc(s.notes)}</span>` : ''}
     </button>
-    ${!s && p?.status === 'planned' ? `<div class="cp-entry-actions">${button('start-plan', ui("Start", "Empezar"), p.id, 'primary')}${button('edit-plan', ui("Edit practice", "Editar práctica"), p.id, 'quiet')}${movable ? `<button type="button" class="cp-plan-grip" data-move-plan="${esc(p.id)}" aria-label="${ui("Move practice: drag to a day, or use left and right arrow keys", "Mover práctica: arrastra a un día o usa las flechas izquierda y derecha")}" title="${ui("Drag to another day", "Arrastrar a otro día")}">⠿</button>` : ''}</div>` : ''}
+    ${p?.status === 'planned' ? `<div class="cp-entry-actions">${button('start-plan', ui("Start", "Empezar"), p.id, 'primary')}${button('edit-plan', ui("Edit practice", "Editar práctica"), p.id, 'quiet')}${movable ? `<button type="button" class="cp-plan-grip" data-move-plan="${esc(p.id)}" aria-label="${ui("Move practice: drag to a day, or use left and right arrow keys", "Mover práctica: arrastra a un día o usa las flechas izquierda y derecha")}" title="${ui("Drag to another day", "Arrastrar a otro día")}">⠿</button>` : ''}</div>` : ''}
   </article>`;
 }
-export function calendarSessionsMarkup(entries) {
+export function calendarSessionsMarkup(entries, works = [], sessionOptions = {}) {
   const sessions = entries.filter(entry => entry.session);
-  return sessions.length ? `<div class="cp-session-strip" tabindex="0" role="group" aria-label="${ui('Saved practices · scroll horizontally', 'Prácticas realizadas · desliza horizontalmente')}">${sessions.map(entry => agendaCard(entry, { compact: true })).join('')}</div>` : '';
+  return sessions.length ? `<div class="cp-session-strip" tabindex="0" role="group" aria-label="${ui('Saved practices · scroll horizontally', 'Prácticas realizadas · desliza horizontalmente')}">${sessions.map(entry => agendaCard(entry, { works, sessionOptions })).join('')}</div>` : '';
 }
-export function weekAgendaMarkup(data, selected) {
+export function weekAgendaMarkup(data, selected, sessionOptions = {}) {
   const start = weekOf(selected), current = weekOf(localDate());
   // Two adjacent weeks show continuity without an unbounded list or a large picker.
   return `<div class="cp-week-agenda">${[start, addDays(start, 7)].map(week => {
@@ -73,7 +64,7 @@ export function weekAgendaMarkup(data, selected) {
       <div class="cp-agenda-week-title"><div class="cp-row"><h2>${weekLabel(week)}</h2>${week === current ? `<span class="cp-tag">${ui("This week", "Esta semana")}</span>` : ''}</div><p class="muted"><b>${stats.minutes} min</b> ${ui('practised', 'practicados')} · ${planned} ${ui('min planned', 'min previstos')}</p></div>
       ${dates.map(date => { const entries=agendaEntries(data,date);return `<div class="cp-agenda-day ${date === selected ? 'selected-day' : ''}" data-agenda-date="${date}">
         <time datetime="${date}" ${date === localDate() ? 'aria-current="date"' : ''}><span>${dateLabel(date,{weekday:'short'})}</span><b>${+date.slice(8)}</b></time>
-        <div class="cp-day-content">${entries.filter(e=>!e.session).map(e=>agendaCard(e,{movable:true})).join('')}${!entries.length ? `<span class="cp-unplanned">${ui("No practice planned", "Sin práctica prevista")}</span>` : ''}<div class="cp-day-sessions">${calendarSessionsMarkup(entries)}<button type="button" data-action="add-on-day" data-id="${date}" class="cp-add-day quiet" aria-label="${ui('Add to', 'Añadir al')} ${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}">${ui("+ Add", "+ Añadir")}</button></div></div>
+        <div class="cp-day-content">${entries.filter(e=>!e.session).map(e=>agendaCard(e,{movable:true})).join('')}${!entries.length ? `<span class="cp-unplanned">${ui("No practice planned", "Sin práctica prevista")}</span>` : ''}<div class="cp-day-sessions">${calendarSessionsMarkup(entries, data.works, sessionOptions)}<button type="button" data-action="add-on-day" data-id="${date}" class="cp-add-day quiet" aria-label="${ui('Add to', 'Añadir al')} ${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}">${ui("+ Add", "+ Añadir")}</button></div></div>
       </div>`; }).join('')}</section>`;
   }).join('')}</div>`;
 }
@@ -117,7 +108,7 @@ export function todayWeeklyProgress(data, today = localDate()) {
   </section>`;
 }
 
-export function todayMarkup(data, icon, today = localDate()) {
+export function todayMarkup(data, icon, today = localDate(), sessionOptions = {}) {
   const {active,next,entries} = todayPractice(data,today);
   const remaining = entries.filter(e=>active || !next || e.plan?.id !== next.id);
   const events = upcomingEvents(data.events,today);
@@ -125,7 +116,7 @@ export function todayMarkup(data, icon, today = localDate()) {
     <div class="cp-row cp-today-title"><div><h1>${ui("Today", "Hoy")}</h1><p class="muted">${data.preferences.name ? `${ui('Hello', 'Hola')}, ${esc(data.preferences.name)} · ` : ''}${dateLabel(today,{weekday:'long',day:'numeric',month:'long'})}</p></div></div>
     ${todayWeeklyProgress(data,today)}
     ${practiceFocus(active || next,active?'active':next?'planned':'empty')}
-    ${remaining.length ? `<section class="cp-section"><h2>${ui('Also today', 'También hoy')}</h2><div class="cp-today-sessions">${remaining.map(e=>agendaCard(e,{detailed:true})).join('')}</div></section>` : ''}
+    ${remaining.length ? `<section class="cp-section"><h2>${ui('Also today', 'También hoy')}</h2><div class="cp-today-sessions">${remaining.map(e=>agendaCard(e,{detailed:true,works:data.works,sessionOptions})).join('')}</div></section>` : ''}
     <div class="cp-section">
     <section class="cp-card"><div class="cp-row"><h2>${ui("Coming up", "Próximos compromisos")}</h2>${button('new-event',ui("+ Event", "+ Evento"),'','quiet')}</div>${events.length?events.map(e=>`<button type="button" data-action="event-detail" data-id="${esc(e.id)}" class="cp-upcoming-event"><span class="cp-countdown"><b>${daysUntil(e.date,today)}</b><small>${ui("days", "días")}</small></span><span><strong>${esc(e.title)}</strong><small>${esc(dateLabel(e.date))} · ${esc(eventTypeLabel(e.type))}</small></span></button>`).join(''):`<p class="muted">${ui("Add a lesson or audition to keep track of your preparation time.", "Añade una clase o audición y ten presente cuánto queda para prepararla.")}</p>`}</section></div>
   </div>`;

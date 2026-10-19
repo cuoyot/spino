@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {openBrowser} from './browser.js';
 import {driveNotebookBootstrap} from '../scripts/review/drive-notebook-fixture.mjs';
 import {cloudRecoveryFixture} from '../scripts/review/cloud-recovery-fixture.mjs';
-const take={id:'synthetic-personal-take',workId:'synthetic-work',title:'Synthetic recording title',workTitle:'Synthetic score',durationMs:120000,createdAt:'2026-10-16T10:00:00Z',kind:'audio',draft:false,base64:(await readFile('tests/fixtures/media/two-minute-stream.webm')).toString('base64')};
+const take={id:'synthetic-personal-take',workId:'synthetic-work',title:'Synthetic recording title',workTitle:'Synthetic score',durationMs:120000,createdAt:new Date().toISOString(),kind:'audio',draft:false,base64:(await readFile('tests/fixtures/media/two-minute-stream.webm')).toString('base64')};
 const stored=`new Promise(resolve=>{const r=indexedDB.open('spino-local-media',1);r.onsuccess=()=>{const db=r.result,q=db.transaction('recordings').objectStore('recordings').getAll();q.onsuccess=()=>{db.close();resolve(q.result.map(({blob,...r})=>({...r,bytes:blob.size,type:blob.type})));};};})`;
 async function setup(t,options){
  const b=await openBrowser(t,{companion:true});await b.send('Page.addScriptToEvaluateOnNewDocument',{source:driveNotebookBootstrap(options)});await b.send('Page.navigate',{url:b.url});

@@ -1,4 +1,5 @@
 .cp-time-overview, .cp-time-detail { min-width: 0; }
+#app-shell .cp-time-summary h2 { font-size: 18px; font-weight: 750; }
 .cp-time-stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 16px; }
 .cp-time-stats strong, .cp-time-stats span, .cp-time-total > *, .cp-time-comparison span { display: block; }
 .cp-time-stats strong { font-size: clamp(24px,5vw,32px); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
@@ -9,6 +10,9 @@
 .cp-time-chart text { fill: var(--theme-muted); font: 14px system-ui,sans-serif; }
 .cp-time-grid { stroke: var(--theme-line); stroke-width: 1; }
 .cp-time-line { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.cp-time-week { cursor: pointer; outline: none; }
+.cp-time-hit { fill: transparent; }
+.cp-time-week:focus-visible .cp-time-point { stroke-width: 4; fill: currentColor; }
 .cp-time-point { fill: var(--browse-card,var(--theme-panel)); stroke: currentColor; stroke-width: 2.5; }
 .cp-time-chart figcaption { margin-top: 4px; font-size: 12px; }
 #app-shell .cp-time-more { width: 100%; border-radius: 24px; background: transparent; display: flex; align-items: center; justify-content: center; gap: 12px; }
@@ -30,3 +34,5 @@
 .cp-time-values th:last-child, .cp-time-values td:last-child { text-align: end; white-space: nowrap; padding-left: 8px; }
 @media(max-width:339px) { .cp-time-filters { grid-template-columns: 1fr; gap: 8px; } .cp-time-detail, .cp-time-overview { padding: 18px 14px; } }
 @media(min-width:700px) { .cp-time-chart svg { max-height: 330px; } }
+
+#app-shell .cp-time-reset { padding: 0; min-height: 0; border: 0; border-radius: 0; background: transparent; color: var(--theme-link); font: inherit; text-decoration: underline; text-underline-offset: 3px; }

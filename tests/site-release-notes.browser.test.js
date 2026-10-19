@@ -4,7 +4,7 @@ import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {openBrowser} from './browser.js';
 
-test('beta release notes show current and historical versions in a responsive accessible dialog',{timeout:90000},async t=>{
+test('release notes show current and historical versions in a responsive accessible dialog',{timeout:90000},async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{rootDirectory:'site'});
   const evidence=process.env.SPINO_SITE_RELEASE_EVIDENCE,frames=[];
   const wait=condition=>evaluate(`new Promise((resolve,reject)=>{let n=0;const id=setInterval(()=>{if(${condition}){clearInterval(id);resolve()}else if(++n>500){clearInterval(id);reject(Error('Release dialog timeout'))}},20)})`);
@@ -15,7 +15,7 @@ test('beta release notes show current and historical versions in a responsive ac
     await evaluate(`document.querySelector('[data-release-open]').focus();document.querySelector('[data-release-open]').click()`);
     await wait(`document.querySelector('#release-notes').open`);
     const state=await evaluate(`(()=>{const d=document.querySelector('#release-notes'),r=d.getBoundingClientRect(),b=d.querySelector('[data-release-close]').getBoundingClientRect(),body=d.querySelector('.release-body');return{modal:d.matches(':modal'),current:d.querySelector('details').dataset.version,expanded:d.querySelector('details').open,history:[...d.querySelectorAll('details')].map(e=>e.dataset.version),bounds:r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight,overflow:d.scrollWidth>d.clientWidth+1,pageOverflow:document.documentElement.scrollWidth>innerWidth+1,closeVisible:b.top>=0&&b.bottom<=innerHeight&&b.width>=44&&b.height>=44,scrollable:body.scrollHeight>body.clientHeight,focusInDialog:d.contains(document.activeElement)}})()`);
-    assert.equal(state.modal,true);assert.equal(state.current,'6.1.0-beta.22');assert.equal(state.expanded,true);
+    assert.equal(state.modal,true);assert.equal(state.current,'6.1.0');assert.equal(state.expanded,true);
     for(const version of ['6.0.0','6.0.0-beta.13','6.0.0-beta.1','5.2.7','5.2.3','5.1.1','4.0'])assert.ok(state.history.includes(version));
     assert.equal(new Set(state.history).size,state.history.length);
     for(const key of ['bounds','closeVisible','scrollable','focusInDialog'])assert.equal(state[key],true,`${lang} ${layout} ${key}`);

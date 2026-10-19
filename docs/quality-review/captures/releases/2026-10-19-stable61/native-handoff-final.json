@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-19T07:43:31.694638+00:00",
+  "version": "6.1.0",
+  "build": 76,
+  "applicationId": "com.miguecoll.spino",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "applicationStorageCleared": false,
+  "beforeLaunchRetention": {
+    "com.miguecoll.spino": {
+      "filesBefore": 50,
+      "allOriginalFilesUnchanged": true
+    },
+    "com.miguecoll.spino.beta": {
+      "filesBefore": 167,
+      "allOriginalFilesUnchanged": true
+    }
+  },
+  "launch": "Starting: Intent { cmp=com.miguecoll.spino/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.miguecoll.spino/.MainActivity\nTotalTime: 1165\nWaitTime: 1193\nComplete",
+  "foreground": [
+    "topResumedActivity=ActivityRecord{346e520 u0 com.miguecoll.spino/.MainActivity t122}"
+  ],
+  "evidence": "Native emulator installation, version, foreground and pre-launch file retention; no physical device acceptance."
+}

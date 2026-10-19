@@ -1,0 +1,38 @@
+#app-shell .cp-work-page { max-width: 900px; margin-inline: auto; }
+#app-shell .cp-work-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; min-height: 44px; }
+#app-shell .cp-work-heading p { margin: 0; }
+#app-shell .cp-work-menu { position: relative; margin-inline-start: auto; flex: 0 0 auto; }
+#app-shell .cp-work-menu summary { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: var(--theme-muted); cursor: pointer; list-style: none; letter-spacing: 2px; }
+#app-shell .cp-work-menu summary::-webkit-details-marker { display: none; }
+#app-shell .cp-work-menu summary:hover, #app-shell .cp-work-menu[open] summary { background: var(--theme-control); }
+#app-shell .cp-work-menu summary:focus-visible { outline: 3px solid var(--theme-link); outline-offset: 3px; }
+#app-shell .cp-work-menu-items { position: absolute; z-index: 5; inset-inline-end: 0; top: calc(100% + 6px); width: min(260px, calc(100vw - 48px)); padding: 6px; border: 1px solid var(--theme-line); border-radius: 14px; background: var(--theme-panel); box-shadow: 0 8px 24px #0003; }
+#app-shell .cp-work-menu-items button { display: block; width: 100%; text-align: start; }
+#app-shell .cp-work-menu-items .danger { margin-top: 4px; border-top: 1px solid var(--theme-line); border-radius: 0 0 8px 8px; }
+#app-shell .cp-work-metadata { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 24px; }
+#app-shell .cp-work-focus h2 { margin: 0 0 10px; }
+#app-shell .cp-work-goal { line-height: 1.6; margin: 0 0 14px; white-space: pre-wrap; }
+#app-shell .cp-work-tempo { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; margin: 0; }
+#app-shell .cp-work-tempo strong { color: var(--theme-text); font-weight: 650; }
+#app-shell .cp-work-tempo > span { flex-basis: 100%; }
+#app-shell .cp-work-notes { white-space: pre-wrap; line-height: 1.5; }
+#app-shell .cp-work-primary { display: flex; gap: 10px; margin-top: 24px; }
+#app-shell .cp-work-primary button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; }
+#app-shell .cp-work-primary .primary { flex: 1; }
+#app-shell .cp-work-primary svg { width: 20px; height: 20px; flex-shrink: 0; }
+#app-shell .cp-work-resources { padding: 4px 16px; }
+#app-shell .cp-work-resource { display: flex; gap: 4px; align-items: center; min-width: 0; }
+#app-shell .cp-work-resource + .cp-work-resource { border-top: 1px solid var(--theme-line); }
+#app-shell .cp-work-resource-open { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; padding: 16px 0; text-align: start; }
+#app-shell .cp-work-resource-icon { display: grid; place-items: center; flex-shrink: 0; width: 36px; height: 40px; color: var(--browse-blue); }
+#app-shell .cp-work-resource-icon svg { width: 23px; height: 23px; }
+#app-shell .cp-work-resource-copy { display: grid; gap: 5px; flex: 1; min-width: 0; }
+#app-shell .cp-work-resource-copy strong { font-size: 14px; font-weight: 650; }
+#app-shell .cp-work-resource-copy small { font-size: 12px; font-weight: 400; line-height: 1.5; color: var(--theme-muted); }
+#app-shell .cp-work-resource-open > span:last-child { color: var(--theme-muted); font-size: 23px; }
+#app-shell .cp-work-resource > :last-child:not(:first-child) { flex-shrink: 0; padding-inline: 10px; }
+#app-shell .cp-work-record { color: var(--browse-blue); font-size: 13px; }
+#app-shell .cp-work-count { color: var(--theme-muted); font-size: 12px; font-weight: 400; margin-inline-start: 6px; }
+@media (min-width: 700px) {
+  #app-shell .cp-work-primary .primary { flex: 0 1 240px; }
+}

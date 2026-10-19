@@ -48,22 +48,22 @@ export const COPY = {
       [
         "level",
         "See your practice grow",
-        "Review saved sessions, piece histories, feedback and weekly goals. Beta 6.1 adds a 12-week time chart and detailed ranges with combined activity and piece filters. Edit completed practice when its times or blocks need correcting. Technique compares response accuracy after enough comparable practice blocks."
+        "Review saved sessions, piece histories, feedback and weekly goals. Includes a 12-week time chart and detailed ranges with combined activity and piece filters. Edit completed practice when its times or blocks need correcting. Technique compares response accuracy after enough comparable practice blocks."
       ],
       [
         "media",
-        "Record your progress · beta 6.1",
-        "Record audio or video linked to a repertoire piece. Start and stop from the floating score bar, review each take and browse Library → Multimedia. Local files play offline. Android beta12 copies saved recordings through your own Google Drive account; JSON notebook backups exclude the audio/video files."
+        "Record your progress",
+        "Record audio or video linked to a repertoire piece. Start from Record or the floating score bar, review and share takes, and browse Library → Multimedia. Local files play offline. Android 6.1 copies saved recordings through your own Google Drive account; JSON notebook backups exclude the audio/video files."
       ],
       [
         "plan",
         "Make space for lessons and practice",
-        "Switch between week and month, schedule routines and add recurring lessons or events with an optional end date. Supported devices can remind you before planned practice and appointments."
+        "Switch between week and month, schedule routines and add recurring lessons or events with an optional end date. Complete lessons with feedback and linked teacher recordings. Supported devices can remind you before planned practice and appointments."
       ],
       [
         "lock",
         "Back up and connect your notebook",
-        "Export portable JSON copies with scores and annotations. Android beta12 connects directly to your Google Drive account for notebook synchronization and verified audio/video copies. Use the same account and select the existing notebook on the other device. Local saving, offline playback and JSON recovery remain available."
+        "Export portable JSON copies with scores and annotations. Android 6.1 connects directly to your Google Drive account for notebook synchronization and verified audio/video copies. Use the same account and select the existing notebook on the other device. Local saving, offline playback and JSON recovery remain available."
       ],
       [
         "level",
@@ -85,9 +85,9 @@ export const COPY = {
     ],
     "landscapeAlt": "Sight-reading in landscape with the on-screen keyboard and practice controls",
     "wideAlt": "Two-hand sight-reading on a tablet",
-    "shotsNote": "Responsive-browser previews of beta 6.1.0-beta.19 (72), using synthetic notebooks and demo audio. The stable and Google Play downloads are labeled separately above; these are not native-device acceptance captures.",
+    "shotsNote": "Responsive-browser previews of stable 6.1.0 (76), using synthetic notebooks and demo audio. The stable and Google Play downloads are labeled separately above; these are not native-device acceptance captures.",
     "privacyTitle": "Your notebook, your choice",
-    "privacy": "No app account, ads or SPino-operated backend. Data stays local unless you connect Google Drive. Android beta12 can synchronize your notebook and copy saved audio/video recordings to your own Google account. Tokens stay native; the developer receives no notebook, recordings or Google credentials. JSON copies exclude audio/video files.",
+    "privacy": "No app account, ads or SPino-operated backend. Data stays local unless you connect Google Drive. Android 6.1 can synchronize your notebook and copy saved audio/video recordings to your own Google account. Tokens stay native; the developer receives no notebook, recordings or Google credentials. JSON copies exclude audio/video files.",
     "privacyLink": "Privacy policy",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contact",
@@ -146,22 +146,22 @@ export const COPY = {
       [
         "level",
         "Mira cómo crece tu práctica",
-        "Revisa sesiones guardadas, historial de obras, valoraciones y objetivos semanales. La beta 6.1 añade una gráfica de 12 semanas y rangos detallados con filtros por actividad y obra. Puedes corregir los tiempos y bloques de una práctica completada. Técnica compara la precisión de respuesta tras suficientes bloques de práctica comparables."
+        "Revisa sesiones guardadas, historial de obras, valoraciones y objetivos semanales. Incluye una gráfica de 12 semanas y rangos detallados con filtros por actividad y obra. Puedes corregir los tiempos y bloques de una práctica completada. Técnica compara la precisión de respuesta tras suficientes bloques de práctica comparables."
       ],
       [
         "media",
-        "Graba tus progresos · beta 6.1",
-        "Graba audio o vídeo vinculado a una obra. Inicia y detén desde la barra flotante de la partitura, revisa cada toma y consulta Biblioteca → Multimedia. Los archivos locales se reproducen sin conexión. La beta12 de Android copia las grabaciones guardadas mediante tu cuenta de Google Drive; los JSON del cuaderno no incluyen los archivos de audio o vídeo."
+        "Graba tus progresos",
+        "Graba audio o vídeo vinculado a una obra. Inicia desde Grabar o la barra flotante de la partitura, revisa y comparte tomas y consulta Biblioteca → Multimedia. Los archivos locales se reproducen sin conexión. Android 6.1 copia las grabaciones guardadas mediante tu cuenta de Google Drive; los JSON del cuaderno no incluyen los archivos de audio o vídeo."
       ],
       [
         "plan",
         "Haz sitio a las clases y la práctica",
-        "Alterna semana y mes, planifica rutinas y añade clases o eventos recurrentes con fecha final opcional. En dispositivos compatibles puedes recibir recordatorios antes de las prácticas y citas programadas."
+        "Alterna semana y mes, planifica rutinas y añade clases o eventos recurrentes con fecha final opcional. Completa clases con notas y grabaciones del profesor. En dispositivos compatibles puedes recibir recordatorios antes de las prácticas y citas programadas."
       ],
       [
         "lock",
         "Haz copias y conecta tu cuaderno",
-        "Exporta copias JSON portátiles con partituras y anotaciones. La beta12 de Android conecta directamente con tu cuenta de Google Drive para sincronizar el cuaderno y copiar audio y vídeo verificados. Usa la misma cuenta y elige el cuaderno existente en el otro dispositivo. Se mantienen el guardado local, la reproducción sin conexión y la recuperación JSON."
+        "Exporta copias JSON portátiles con partituras y anotaciones. Android 6.1 conecta directamente con tu cuenta de Google Drive para sincronizar el cuaderno y copiar audio y vídeo verificados. Usa la misma cuenta y elige el cuaderno existente en el otro dispositivo. Se mantienen el guardado local, la reproducción sin conexión y la recuperación JSON."
       ],
       [
         "level",
@@ -183,9 +183,9 @@ export const COPY = {
     ],
     "landscapeAlt": "Lectura en apaisado con teclado en pantalla y controles de práctica",
     "wideAlt": "Lectura a dos manos en una tablet",
-    "shotsNote": "Vistas adaptables de la beta 6.1.0-beta.19 (72) en navegador, con cuadernos de ejemplo y audio de demostración. Las descargas estable y de Google Play se identifican por separado arriba; estas capturas no son validación en dispositivos nativos.",
+    "shotsNote": "Vistas adaptables de la versión estable 6.1.0 (76) en navegador, con cuadernos de ejemplo y audio de demostración. Las descargas estable y de Google Play se identifican por separado arriba; estas capturas no son validación en dispositivos nativos.",
     "privacyTitle": "Tu cuaderno, tú decides",
-    "privacy": "Sin cuenta de la app, anuncios ni servidor propio de SPino. Los datos se guardan localmente salvo que conectes Google Drive. La beta12 de Android puede sincronizar el cuaderno y copiar grabaciones guardadas a tu cuenta de Google. Los tokens son nativos; el desarrollador no recibe cuadernos, grabaciones ni credenciales. Los JSON no incluyen archivos de audio o vídeo.",
+    "privacy": "Sin cuenta de la app, anuncios ni servidor propio de SPino. Los datos se guardan localmente salvo que conectes Google Drive. Android 6.1 puede sincronizar el cuaderno y copiar grabaciones guardadas a tu cuenta de Google. Los tokens son nativos; el desarrollador no recibe cuadernos, grabaciones ni credenciales. Los JSON no incluyen archivos de audio o vídeo.",
     "privacyLink": "Política de privacidad",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contacto",
@@ -244,22 +244,22 @@ export const COPY = {
       [
         "level",
         "Mira com creix la pràctica",
-        "Revisa sessions desades, historial d’obres, valoracions i objectius setmanals. La beta 6.1 afegeix una gràfica de 12 setmanes i intervals detallats amb filtres per activitat i obra. Pots corregir els temps i blocs d’una pràctica completada. Tècnica compara la precisió de resposta després de prou blocs de pràctica comparables."
+        "Revisa sessions desades, historial d’obres, valoracions i objectius setmanals. Inclou una gràfica de 12 setmanes i intervals detallats amb filtres per activitat i obra. Pots corregir els temps i blocs d’una pràctica completada. Tècnica compara la precisió de resposta després de prou blocs de pràctica comparables."
       ],
       [
         "media",
-        "Grava els teus progressos · beta 6.1",
-        "Grava àudio o vídeo vinculat a una obra. Inicia i atura des de la barra flotant de la partitura, revisa cada presa i consulta Biblioteca → Multimèdia. Els fitxers locals es reprodueixen sense connexió. La beta12 d’Android copia les gravacions desades mitjançant el teu compte de Google Drive; els JSON del quadern no inclouen els fitxers d’àudio o vídeo."
+        "Grava els teus progressos",
+        "Grava àudio o vídeo vinculat a una obra. Inicia des de Gravar o la barra flotant de la partitura, revisa i comparteix preses i consulta Biblioteca → Multimèdia. Els fitxers locals es reprodueixen sense connexió. Android 6.1 copia les gravacions desades mitjançant el teu compte de Google Drive; els JSON del quadern no inclouen els fitxers d’àudio o vídeo."
       ],
       [
         "plan",
         "Fes lloc a les classes i la pràctica",
-        "Alterna setmana i mes, planifica rutines i afegeix classes o esdeveniments recurrents amb data final opcional. En dispositius compatibles pots rebre recordatoris abans de les pràctiques i cites programades."
+        "Alterna setmana i mes, planifica rutines i afegeix classes o esdeveniments recurrents amb data final opcional. Completa classes amb notes i gravacions del professor. En dispositius compatibles pots rebre recordatoris abans de les pràctiques i cites programades."
       ],
       [
         "lock",
         "Fes còpies i connecta el quadern",
-        "Exporta còpies JSON portàtils amb partitures i anotacions. La beta12 d’Android connecta directament amb el teu compte de Google Drive per sincronitzar el quadern i copiar àudio i vídeo verificats. Fes servir el mateix compte i tria el quadern existent a l’altre dispositiu. Es mantenen el desament local, la reproducció sense connexió i la recuperació JSON."
+        "Exporta còpies JSON portàtils amb partitures i anotacions. Android 6.1 connecta directament amb el teu compte de Google Drive per sincronitzar el quadern i copiar àudio i vídeo verificats. Fes servir el mateix compte i tria el quadern existent a l’altre dispositiu. Es mantenen el desament local, la reproducció sense connexió i la recuperació JSON."
       ],
       [
         "level",
@@ -281,9 +281,9 @@ export const COPY = {
     ],
     "landscapeAlt": "Lectura apaïsada amb teclat en pantalla i controls de pràctica",
     "wideAlt": "Lectura amb dues mans en una tauleta",
-    "shotsNote": "Vistes adaptables de la beta 6.1.0-beta.19 (72) en navegador, amb quaderns d’exemple i àudio de demostració. Les descàrregues estable i de Google Play s’identifiquen per separat més amunt; aquestes captures no són validació en dispositius natius.",
+    "shotsNote": "Vistes adaptables de la versió estable 6.1.0 (76) en navegador, amb quaderns d’exemple i àudio de demostració. Les descàrregues estable i de Google Play s’identifiquen per separat més amunt; aquestes captures no són validació en dispositius natius.",
     "privacyTitle": "El teu quadern, tu decideixes",
-    "privacy": "Sense compte de l’app, anuncis ni servidor propi de SPino. Les dades es desen localment llevat que connectis Google Drive. La beta12 d’Android pot sincronitzar el quadern i copiar gravacions desades al teu compte de Google. Els tokens són natius; el desenvolupador no rep quaderns, gravacions ni credencials. Els JSON no inclouen fitxers d’àudio o vídeo.",
+    "privacy": "Sense compte de l’app, anuncis ni servidor propi de SPino. Les dades es desen localment llevat que connectis Google Drive. Android 6.1 pot sincronitzar el quadern i copiar gravacions desades al teu compte de Google. Els tokens són natius; el desenvolupador no rep quaderns, gravacions ni credencials. Els JSON no inclouen fitxers d’àudio o vídeo.",
     "privacyLink": "Política de privacitat (castellà i anglès)",
     "footer": "SPino · Smart Piano Notebook",
     "contact": "Contacte",

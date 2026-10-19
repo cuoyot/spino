@@ -1,6 +1,10 @@
 # Practice rhythm and recordings
 
+In **Progress → Activity**, tap or click any point in the twelve-week practice chart to show that week’s dates and saved practice time above the chart. Time is displayed in hours and minutes; an empty week shows **0 min**. The selected point is highlighted. Select the last point to return to **This week**, counted through today. With a keyboard, Tab to a point and press Enter or Space. The optional weekly goal is your current profile setting, labeled **Current weekly goal** when viewing an earlier week. This source feature is verified in responsive browsers; native visual acceptance remains open.
+
 In **Progress → Activity**, **Keep your rhythm** shows your consecutive weeks of saved practice, a musical badge and seven dots for practice days in the current week. Select the card to open its monthly calendar. Saved positive practice time marks a day; future sessions and unfinished practice do not count. A single saved practice qualifies a week. The current week remains open until Sunday, so an empty current week does not immediately break the streak earned through last week.
+
+In **More details**, tap a chart point to show its date or week and practice time for the selected type/piece filters. The 7D and 1M charts use daily points; longer ranges use weekly intervals clipped to the chosen range. Tap the selected point again or choose **Total practice time** to restore the full range total and its previous-period comparison. Changing range also restores the total. Changing a filter recalculates the selected interval, including **0 min**. Points also support Enter and Space.
 
 The detail shows the current practice streak, the number of saved sessions within that streak and weekly streak badges beside the monthly calendar. Use the arrows to browse months. The goal streak remains separate and uses your current weekly minutes goal; without a goal it displays a dash. Close the detail with **Close**, Escape or the platform Back action.
 
@@ -16,11 +20,11 @@ Only dates containing recordings matching the active filters receive a colored b
 
 Recording-list icons use the same audio/video colors. Existing playback, review/save, title editing and deletion controls remain available.
 
-In **Progress → Activity → History**, each saved practice shows its date, duration, practice types and manual-entry or instrument context. Pieces keep their original titles. A locally available PDF or MXL score appears as a thumbnail; a missing or unreadable score keeps the practice icon. Existing feedback appears as a large emoji with its rating label. A practice without feedback shows no rating. Select anywhere on the card, or focus it and press Enter, to open the saved session; **View session** is a quiet cue within that same action. Partial practice remains labeled.
+Saved practices use one shared card in **Progress → Activity → History**, work history, Today, Calendar, completed lessons and history/result dialogs. Each saved practice shows its date, duration, practice types and manual-entry or instrument context. Pieces keep their original titles. A locally available PDF or MXL score appears as a thumbnail; a missing or unreadable score keeps the practice icon. Existing feedback appears as a large emoji with its rating label. A practice without feedback shows no rating. Select anywhere on the card, or focus it and press Enter, to open the saved session; **View session** is a quiet cue within that same action. Partial practice remains labeled.
 
 Verified against the current source in a responsive Chromium browser with disposable synthetic data on 2026-10-16. This is not native-device or owner visual acceptance and is not a new published Android package. Evidence: `docs/quality-review/captures/progress/2026-10-16-rhythm-media-14/`.
 
-History verified in `docs/quality-review/captures/progress/2026-10-16-visual-history-05/` with synthetic PDF/MXL scores, notebook/asset retention and keyboard opening. Native-device and owner visual acceptance remain open.
+Shared cards verified in `docs/quality-review/captures/repertoire/2026-10-19-work-detail-05/`; the earlier Progress baseline remains in `docs/quality-review/captures/progress/2026-10-16-visual-history-05/` with synthetic PDF/MXL scores, notebook/asset retention and keyboard opening. Native-device and owner visual acceptance remain open.
 
 
 Packaged in Android 6.1.0-beta.15/build68 on 2026-10-16. Final-version browser checks and separate native-emulator installation/navigation checks pass. Native review uses synthetic namespaced storage, retains existing immutable blobs and has an empty original logical baseline after the earlier documented emulator incident. Owner acceptance covers the presented source layout; physical-device acceptance remains separate. See `docs/releases/6.1.0-beta.15-validation.json` for exact scope.

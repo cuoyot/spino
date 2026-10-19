@@ -1,4 +1,5 @@
 import {completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
+import {eventTimeMarkup, bindEventTime} from './event-time.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
 import {createMediaSync} from './media-sync.js';
@@ -7,9 +8,11 @@ import {readMediaWifiOnly,saveMediaWifiOnly} from './media-network.js';
 import { practiceTimeOverviewMarkup, practiceTimeDetailMarkup, TIME_RANGES } from './progress-time.js';
 import './progress-time.css';
 import {formatProgressDuration} from './progress-duration.js';
-import { progressHistoryMarkup } from './progress-history.js';
+import { savedSessionsMarkup } from './saved-session-card.js';
 import { bindScoreThumbnails } from './score-thumbnail.js';
-import './progress-history.css';
+import './saved-session-card.css';
+import { workDetailMarkup } from './work-detail.js';
+import './work-detail.css';
 import { openMediaStore } from './media-store.js';
 import { mediaMarkup, mediaPieceFilterMarkup, createMediaCapture } from './media-view.js';
 import './media.css';
@@ -197,6 +200,8 @@ export async function bootCompanion(reader) {
       if (modal.dispatchEvent(new Event('cancel', { cancelable: true }))) modal.close();
       return true;
     }
+    const workMenu = root.querySelector('.cp-work-menu[open]');
+    if (workMenu) { workMenu.open = false; workMenu.querySelector('summary').focus(); return true; }
     if (openingScore || importingScore) return true;
     if (root.hidden) { if(data.active?.quickScore){quickExitDialog();return true;}hideReader(); render(); return true; }
     if (view === 'prepare') readDraft();
@@ -274,6 +279,7 @@ export async function bootCompanion(reader) {
       catch (error) { $('#cp-form-error').textContent = localizeMessage(error.message); }
       finally { e.target.removeAttribute('aria-busy'); if (submit) submit.disabled = false; }
     });
+    if (dialog.querySelector('.cp-history-card')) dialogCleanup = bindScoreThumbnails(dialog, store);
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
     dialog.querySelector('.cp-dialog-body').scrollTop = 0;
@@ -290,14 +296,14 @@ export async function bootCompanion(reader) {
   const downloaded = () => [...data.downloads.map(d=>({...d,id:d.catalogId})),...data.works.filter(w=>w.assetId&&!data.downloads.some(d=>d.assetId===w.assetId))];
   const resource = id => data.works.find(w=>w.id===id) || data.downloads.find(d=>d.catalogId===id);
   const resultText = (session, hours=false) => `${hours?formatProgressDuration(session.elapsedMs):minutes(session.elapsedMs)+' min'} · ${session.manual ? ui("Manual entry", "Registro manual") : CONTEXTS[session.context]}${session.status === 'partial' ? ui(' · Partial', ' · Parcial') : ''}${session.mood ? ` · ${FACES[session.mood-1]} ${MOODS[session.mood-1]}` : ''}`;
-  const workParts = (s, workId) => workId ? [...new Set(s.results.filter(r => r.block.workId === workId && r.block.passage).map(r => r.block.passage))] : [];
-  const sessionCards = (sessions, workId = null, hours=false) => sessions.length ? sessions.map(s => `<article class="cp-card"><div class="cp-row"><div><h3>${esc(s.title)}</h3><p class="muted">${esc(dayLabel(s.date))} · ${resultText(s,hours)}</p>${workParts(s, workId).length ? `<p class="cp-work-part">${ui("Part", "Parte")}: ${workParts(s, workId).map(esc).join(' · ')}</p>` : ''}</div>${btn('session-detail', ui("View session", "Ver sesión"), s.id)}</div></article>`).join('') : empty(ui("Your saved practices will appear here. Start with a few minutes at your own pace.", "Tus prácticas guardadas aparecerán aquí. Empieza con unos minutos, a tu ritmo."));
-  function home() { return todayMarkup(data, icon); }
+  const sessionOptions = () => ({ assetFor: work => work.assetId || (work.libraryId && executionFor(library, work.libraryId).assetId) });
+  const sessionCards = (sessions, workId = null) => savedSessionsMarkup(sessions, data.works, { ...sessionOptions(), workId });
+  function home() { return todayMarkup(data, icon, localDate(), sessionOptions()); }
   function practice() { return practiceMarkup(data, icon); }
   function calendar() {
-    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate) : (() => {
+    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate, sessionOptions()) : (() => {
       const entries = agendaEntries(data, selectedDate);
-      return '<div class="cp-agenda">' + (entries.length ? entries.filter(e => !e.session).map(e => agendaCard(e,{movable:true})).join('') + calendarSessionsMarkup(entries) : empty(ui("No plans for this day. Add a practice or log one you have completed.", "Sin planes para este día. Añade una práctica o registra la que ya has realizado."))) + '</div>';
+      return '<div class="cp-agenda">' + (entries.length ? entries.filter(e => !e.session).map(e => agendaCard(e,{movable:true})).join('') + calendarSessionsMarkup(entries, data.works, sessionOptions()) : empty(ui("No plans for this day. Add a practice or log one you have completed.", "Sin planes para este día. Añade una práctica o registra la que ya has realizado."))) + '</div>';
     })();
     return calendarMarkup(data, selectedDate, calendarMode) + agenda;
   }
@@ -318,7 +324,7 @@ export async function bootCompanion(reader) {
     const p = data.plans.find(plan => plan.id === id);
     if (!p) return;
     const result = data.sessions.find(s => s.id === p.sessionId);
-    showDialog(p.title, '<p class="muted">' + esc(dayLabel(p.date)) + (p.time ? ' · ' + esc(p.time) : '') + ' · ' + CONTEXTS[p.context] + '</p><ul class="cp-list">' + p.blocks.map(b => '<li><b>' + ACTIVITIES[b.type] + '</b> · ' + b.minutes + ' min' + (['reading','technique','theory'].includes(b.type) ? '<br>' + esc(targetById(b.target).label) : '') + (b.passage ? '<br>' + esc(b.passage) : '') + '</li>').join('') + '</ul><div class="cp-actions">' + (result ? btn('session-detail', ui("View result", "Ver resultado"), result.id) : p.status === 'planned' ? btn('start-plan', ui("Start", "Empezar"), p.id, 'primary') : '') + (p.recurrence ? ui("<p class=\"muted\">Weekly series through ", "<p class=\"muted\">Serie semanal hasta ") + esc(p.recurrence.until) + ui(". Rescheduling changes this appointment only.</p>", ". Se reprogramará solo esta cita.</p>") + btn('cancel-series', ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"), p.id, 'quiet') : '') + btn('edit-plan', ui("Edit practice", "Editar práctica"), p.id) + btn('reschedule-plan', ui("Reschedule", "Reprogramar"), p.id) + btn('delete-plan', ui("Delete", "Eliminar"), p.id, 'quiet') + btn('close-dialog', ui("Close", "Cerrar")) + '</div>');
+    showDialog(p.title, '<p class="muted">' + esc(dayLabel(p.date)) + (p.time ? ' · ' + esc(p.time) : '') + ' · ' + CONTEXTS[p.context] + '</p><ul class="cp-list">' + p.blocks.map(b => '<li><b>' + ACTIVITIES[b.type] + '</b> · ' + b.minutes + ' min' + (['reading','technique','theory'].includes(b.type) ? '<br>' + esc(targetById(b.target).label) : '') + (b.passage ? '<br>' + esc(b.passage) : '') + '</li>').join('') + '</ul>' + (result ? sessionCards([result]) : '') + '<div class="cp-actions">' + (!result && p.status === 'planned' ? btn('start-plan', ui("Start", "Empezar"), p.id, 'primary') : '') + (p.recurrence ? ui("<p class=\"muted\">Weekly series through ", "<p class=\"muted\">Serie semanal hasta ") + esc(p.recurrence.until) + ui(". Rescheduling changes this appointment only.</p>", ". Se reprogramará solo esta cita.</p>") + btn('cancel-series', ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"), p.id, 'quiet') : '') + btn('edit-plan', ui("Edit practice", "Editar práctica"), p.id) + btn('reschedule-plan', ui("Reschedule", "Reprogramar"), p.id) + btn('delete-plan', ui("Delete", "Eliminar"), p.id, 'quiet') + btn('close-dialog', ui("Close", "Cerrar")) + '</div>');
   }
   function myPiano() { return repertoire(); }
   function libraryNavigation() {
@@ -326,27 +332,27 @@ export async function bootCompanion(reader) {
     if(!pane || materialSelection)return '';
     return `<nav class="cp-library-navigation" aria-label="${ui('Library','Biblioteca')}"><button type="button" data-action="repertoire" ${pane==='repertoire'?'aria-current="page"':''}>${ui('My repertoire','Mi repertorio')}</button><button type="button" data-action="catalog" ${pane==='catalog'?'aria-current="page"':''}>${ui('Catalogue','Catálogo')}</button><button type="button" data-action="multimedia" ${pane==='multimedia'?'aria-current="page"':''}>${ui('Multimedia','Multimedia')}</button></nav>`;
   }
-  let progressSection='activity';
+  let progressSection='activity',progressTimeWeek='',progressTimePoint='';
   const timeFilters={range:'3m',type:'',workId:''};
   function progressTime() {
-    return `<div class="cp-progress-page">${titleRow(ui('Practice time','Tiempo de práctica'),'',btn('profile-back',ui('‹ Progress','‹ Progreso'),'','quiet'))}${practiceTimeDetailMarkup(data,timeFilters)}</div>`;
+    return `<div class="cp-progress-page">${titleRow(ui('Practice time','Tiempo de práctica'),'',btn('profile-back',ui('‹ Progress','‹ Progreso'),'','quiet'))}${practiceTimeDetailMarkup(data,{...timeFilters,selectedPeriod:progressTimePoint})}</div>`;
   }
   function progress() {
     const navigation=`<nav class="cp-progress-sections cp-choice-group" aria-label="${ui('Progress sections','Secciones de progreso')}">${[['activity',ui('Activity','Actividad')],['repertoire',ui('Repertoire','Repertorio')],['technique',ui('Technique','Técnica')]].map(([id,label])=>`<button data-action="progress-section" data-id="${id}" ${progressSection===id?'aria-current="page"':''}>${label}</button>`).join('')}</nav>`;
     if(progressSection!=='activity')return `<div class="cp-progress-page">${titleRow(ui('Progress','Progreso'))}${navigation}${progressSection==='repertoire'?repertoireProgressMarkup(data):techniqueProgressMarkup(data)}</div>`;
 
     const since = addDays(localDate(), -29); const sessions = data.sessions.filter(s=>s.date>=since && s.date<=localDate()); const stats = summary(sessions);
-    return `<div class="cp-progress-page">${titleRow(ui('Progress','Progreso'))}${navigation}${practiceTimeOverviewMarkup(data)}${progressHighlightsMarkup(data,mediaRecords)}<section class="cp-card"><h2>${ui('Scales and modes practiced','Escalas y modos trabajados')}</h2>${Object.entries(stats.byTarget).length?Object.entries(stats.byTarget).map(([id,ms])=>`<div class="cp-row"><span>${esc(targetById(id).label)} · ${formatProgressDuration(ms)}</span>${btn('target-history',ui('View','Ver'),id)}</div>`).join(''):empty(ui('Practice reading or technique to track your musical goals.','Practica lectura o técnica para seguir tus objetivos musicales.'))}</section><h2 class="cp-section">${ui('History','Historial')}</h2>${progressHistoryMarkup(data.sessions,data.works,work=>work.assetId||(work.libraryId&&executionFor(library,work.libraryId).assetId))}</div>`;
+    return `<div class="cp-progress-page">${titleRow(ui('Progress','Progreso'))}${navigation}${practiceTimeOverviewMarkup(data,progressTimeWeek)}${progressHighlightsMarkup(data,mediaRecords)}<section class="cp-card"><h2>${ui('Scales and modes practiced','Escalas y modos trabajados')}</h2>${Object.entries(stats.byTarget).length?Object.entries(stats.byTarget).map(([id,ms])=>`<div class="cp-row"><span>${esc(targetById(id).label)} · ${formatProgressDuration(ms)}</span>${btn('target-history',ui('View','Ver'),id)}</div>`).join(''):empty(ui('Practice reading or technique to track your musical goals.','Practica lectura o técnica para seguir tus objetivos musicales.'))}</section><h2 class="cp-section">${ui('History','Historial')}</h2>${sessionCards(data.sessions)}</div>`;
   }
   function repertoire() {
     return `<div class="cp-repertoire-page"><header class="cp-repertoire-heading"><h1>${ui('Repertoire','Repertorio')}</h1><div class="cp-actions">${btn('import-pdf',ui('Import PDF','Importar PDF'),'','quiet')}${btn('new-work',ui('+ Add work','+ Añadir obra'),'','primary')}</div></header>${repertoireMarkup(data,repertoireFilters,repertoireIndex,{esc,opts,btn,canPrint:workHasScore})}</div>`;
   }
   function workDetail() {
     const w = data.works.find(w=>w.id===detailId); if(!w) return repertoire();
-    const sessions = data.sessions.filter(s=>s.workIds?.includes(w.id)||s.results.some(r=>r.block.workId===w.id));
-    if(w.trashedAt)return `${titleRow(esc(w.title),esc(w.composer))}${ui("<div class=\"cp-card\"><p>This work is in trash. Its score, annotations, history and existing plans are preserved.</p>", "<div class=\"cp-card\"><p>Esta obra está en la papelera. Conserva su partitura, anotaciones, historial y planes.</p>")}${btn('restore-work',ui("Restore work", "Restaurar obra"),w.id,'primary')}</div>${sessionCards(sessions)}`;
-    return `${titleRow(esc(w.title),esc(w.composer),btn('edit-work',ui("Edit", "Editar"),w.id))}<div class="cp-card"><div class="cp-row"><span class="cp-tag">${esc(stageLabel(w.stage))}${isOnStand(w)?` · ${ui("On the music stand", "En el atril")}`:''}</span><span>${esc(w.target ? targetById(w.target).label : ui("Target unknown", "Objetivo sin identificar"))}${ui("</span></div><h2 style=\"margin-top:20px\">Next step</h2><p>", "</span></div><h2 style=\"margin-top:20px\">Próximo paso</h2><p>")}${esc(w.passage || ui("Choose a passage and a clear goal for your next practice.", "Elige un pasaje y un objetivo concreto para la siguiente práctica."))}${ui("</p><p class=\"muted\">Target tempo: ", "</p><p class=\"muted\">Tempo objetivo: ")}${w.bpm} BPM</p>${w.tempoMark?`${ui("<p class=\"muted\">Printed tempo: ", "<p class=\"muted\">Tempo impreso: ")}${esc(w.tempoMark)}</p>`:''}<p style="white-space:pre-wrap">${esc(w.notes)}</p><div class="cp-actions">${btn('practice-work',ui("Practice", "Practicar"),w.id,'primary')}${btn('plan-work',ui("Schedule", "Planificar"),w.id)}${btn('record-work',ui('Record','Grabar'),w.id)}${btn('work-media',ui('Recordings','Grabaciones')+' · '+mediaRecords.filter(r=>r.workId===w.id).length,w.id)}${btn('stand-work',isOnStand(w)?ui("Take off the stand", "Retirar del atril"):ui("Put on the stand", "Poner en el atril"),w.id)}${btn('delete-work',ui("Delete work", "Eliminar obra"),w.id,'danger quiet')}${workHasScore(w)?btn('open-pdf',w.libraryId?ui("Open MusicXML score", "Abrir partitura MusicXML"):ui("Open and annotate PDF", "Abrir y anotar PDF"),w.id):w.libraryId?btn('library-detail',ui("View in the library", "Ver en la biblioteca"),w.libraryId):btn('attach-pdf',ui("Add PDF", "Añadir PDF"),w.id)}${workHasScore(w)?printActionButton('print-work',w.id,esc):''}</div>${w.libraryId?ui("<p class=\"muted\">MusicXML · manual tracking, or follow along with a MIDI keyboard.</p>", "<p class=\"muted\">MusicXML · registro manual o seguimiento con teclado MIDI.</p>"):w.assetId?ui("<p class=\"muted\" style=\"margin-top:12px\">Offline PDF and annotations · manual tracking.</p>", "<p class=\"muted\" style=\"margin-top:12px\">PDF y anotaciones sin conexión · seguimiento manual.</p>"):''}${ui("</div><h2 class=\"cp-section\">Sessions for this work</h2>", "</div><h2 class=\"cp-section\">Sesiones de esta obra</h2>")}${sessionCards(sessions, w.id)}`;
+    const sessions = data.sessions.filter(s => s.workIds?.includes(w.id) || (s.results || []).some(r => r.block.workId === w.id) || s.blocks?.some(b => b.workId === w.id));
+    return workDetailMarkup(w, { hasScore: workHasScore(w), recordingCount: mediaRecords.filter(r => r.workId === w.id).length, history: sessionCards(sessions, w.id) });
   }
+
   function routines() {
     return `${titleRow(ui("Your routines", "Tus rutinas"),ui("Prepare a sequence and use it again.", "Prepara una secuencia y vuelve a utilizarla."),btn('new-routine',ui("+ Create routine", "+ Crear rutina"),'','primary'))}${data.routines.length ? data.routines.map(r=>`<article class="cp-card"><h2>${esc(r.title)}</h2><p class="muted">${r.blocks.map(b=>`${ACTIVITIES[b.type]} ${b.minutes} min`).join(' · ')}</p><div class="cp-actions">${btn('start-routine',ui("Prepare session", "Preparar sesión"),r.id,'primary')}${btn('edit-routine',ui("Edit", "Editar"),r.id)}${btn('delete-routine',ui("Delete", "Eliminar"),r.id,'quiet')}</div></article>`).join('') : empty(ui("Save your warm-up, reading or repertoire blocks as a reusable routine.", "Guarda tus bloques de calentamiento, lectura o repertorio como una rutina reutilizable."))}`;
   }
@@ -501,7 +507,7 @@ export async function bootCompanion(reader) {
     showDialog(existing?ui('Edit event','Editar evento'):ui('New event','Nuevo evento'),`<form id="event-form">
       <label>${ui('Title','Título')}<input name="title" maxlength="200" value="${esc(e.title)}" required /></label>
       <label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label>
-      <div class="cp-fields"><label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label><label>${ui('Time','Hora')}<input type="time" name="time" value="${esc(e.time)}" /></label></div>
+      <div class="cp-fields"><label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>${eventTimeMarkup(e.time)}</div>
       ${!existing ? `<label>${ui('Repeat','Repetir')}<select name="frequency">${opts(eventFrequencyOptions(),'')}</select></label><label data-event-until hidden>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
       <label>${ui('Place','Lugar')}<input name="place" maxlength="200" value="${esc(e.place)}" /></label>
       <label>${ui('Notes','Notas')}<textarea name="notes" maxlength="10000">${esc(e.notes)}</textarea></label><p>${ui('Works you are preparing','Obras que estás preparando')}</p>
@@ -516,6 +522,7 @@ export async function bootCompanion(reader) {
       try { await persist(); } catch(error) { data.events=previous;throw error; }
       await reminders(f.has('reminder'));dialog.close();go('event',!existing && frequency ? `${value.id}@${value.date}` : value.id);
     });
+    bindEventTime(dialog.querySelector('#event-form'));
     if(!existing) {
       const form=dialog.querySelector('#event-form'),update=()=>{const frequency=form.elements.frequency.value;form.querySelector('[data-event-until]').hidden=!frequency;form.elements.until.disabled=!frequency;form.elements.until.min=form.elements.date.value;form.querySelector('[data-event-monthly]').hidden=!['monthly','yearly'].includes(frequency);};
       form.elements.frequency.addEventListener('change',update);form.elements.date.addEventListener('change',update);update();
@@ -548,7 +555,7 @@ export async function bootCompanion(reader) {
   function eventDetail() {
     const e=findEvent(data.events,detailId);if(!e)return calendar();
     const completed=lessonResult(data,e.id);
-    const lesson=e.type==='Clase'?`<section class="cp-card"><div class="cp-row"><h2>${completed?ui('Completed lesson','Clase completada'):ui('Lesson','Clase')}</h2>${btn('complete-lesson',completed?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),e.id,'primary')}</div>${completed?`<p>${esc(dayLabel(completed.date))} · ${formatProgressDuration(completed.elapsedMs)}${completed.mood?' · '+FACES[completed.mood-1]:''}</p><p style="white-space:pre-wrap">${esc(completed.notes)}</p>${completed.next?`<h3>${ui('Next step','Próximo paso')}</h3><p style="white-space:pre-wrap">${esc(completed.next)}</p>`:''}<div class="cp-actions">${btn('session-detail',ui('View result','Ver resultado'),completed.id)}</div>${completed.workIds?.length?`<h3>${ui('Scores worked on','Partituras trabajadas')}</h3>${completed.workIds.map(id=>`<div class="cp-actions">${btn('work-detail',esc(workName(id)),id)}${workHasScore(data.works.find(w=>w.id===id)||{})?btn('open-pdf',ui('Open score','Abrir partitura'),id):''}</div>`).join('')}`:''}`:''}</section>${lessonRecordings(e)}`:'';
+    const lesson=e.type==='Clase'?`<section class="cp-card"><div class="cp-row"><h2>${completed?ui('Completed lesson','Clase completada'):ui('Lesson','Clase')}</h2>${btn('complete-lesson',completed?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),e.id,'primary')}</div>${completed?`${sessionCards([completed])}<p style="white-space:pre-wrap">${esc(completed.notes)}</p>${completed.next?`<h3>${ui('Next step','Próximo paso')}</h3><p style="white-space:pre-wrap">${esc(completed.next)}</p>`:''}${completed.workIds?.length?`<h3>${ui('Scores worked on','Partituras trabajadas')}</h3>${completed.workIds.map(id=>`<div class="cp-actions">${btn('work-detail',esc(workName(id)),id)}${workHasScore(data.works.find(w=>w.id===id)||{})?btn('open-pdf',ui('Open score','Abrir partitura'),id):''}</div>`).join('')}`:''}`:''}</section>${lessonRecordings(e)}`:'';
     return `${titleRow(esc(e.title),`${esc(eventTypeLabel(e.type))} · ${esc(dayLabel(e.date))}${e.time?` · ${esc(e.time)}`:''}`,btn('edit-event',ui("Edit", "Editar"),e.id))}${lesson}<article class="cp-card"><span class="cp-tag warm">${completed?ui('Original plan','Plan original'):daysUntil(e.date)>=0?`${ui("In ", "Faltan ")}${daysUntil(e.date)}${ui(" days", " días")}`:ui("Past event", "Evento pasado")}</span><p style="margin-top:16px">${esc(e.place)}</p><p style="white-space:pre-wrap">${esc(e.notes)}${ui("</p><h2>Preparation steps</h2>", "</p><h2>Pasos de preparación</h2>")}${(e.milestones||[]).map((m,i)=>`<label class="check"><input type="checkbox" data-milestone="${i}" ${m.done?'checked':''} />${esc(m.title)}</label>`).join('')}${ui("<p class=\"muted\">Mark each step when you feel ready.</p></article><h2 class=\"cp-section\">Linked repertoire</h2>", "<p class=\"muted\">Tú marcas cuándo está preparado cada paso.</p></article><h2 class=\"cp-section\">Repertorio asociado</h2>")}${e.workIds.length?e.workIds.map(id=>`<article class="cp-card cp-row"><h3>${esc(workName(id))}</h3><div class="cp-actions">${btn('work-detail',ui("Open", "Abrir"),id)}${btn('plan-work',ui("Schedule rehearsal", "Planificar ensayo"),id)}</div></article>`).join(''):empty(ui("Edit the event to link your works.", "Edita el evento para vincular tus obras."))}<div class="cp-actions">${e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}${ui(". Editing changes this appointment only.</p>", ". Se editará solo esta cita.</p>")}${btn('cancel-series',ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"),e.id,'quiet')}` : ''}${btn('delete-event',ui("Delete event", "Eliminar evento"),e.id,'danger quiet')}</div>`;
   }
   function manualForm() {
@@ -841,7 +848,7 @@ export async function bootCompanion(reader) {
     root.querySelector('.cp-header-controls').hidden=!root.querySelector('.cp-header-controls').childElementCount;
     (heading?.closest('.cp-row,.cp-dashboard-heading,.cp-profile-heading') || heading)?.classList.add('cp-page-heading');
     if(materialSelection && ['catalog','library-detail','downloads'].includes(view)) root.querySelector('.cp-content').insertAdjacentHTML('afterbegin',`${ui("<section class=\"cp-notice\"><b>Choose a score</b><p>Your practice is kept. Download a score and choose “Use in this practice”. The practice will use “With piano”.</p>", "<section class=\"cp-notice\"><b>Elige una partitura</b><p>Conservamos tu práctica. Descarga una partitura y pulsa «Usar en esta práctica». Se utilizará el modo «Con piano».</p>")}${btn('return-to-preparation',ui("Back to practice", "Volver a la práctica"),'','quiet')}</section>`);
-    if(view==='progress'&&root.querySelector('.cp-history')) historyThumbnails=bindScoreThumbnails(root.querySelector('.cp-history'),store);
+    if(root.querySelector('.cp-history-card')) historyThumbnails=bindScoreThumbnails(root.querySelector('.cp-content'),store);
     if(view==='downloads')updateDownloadProgress([...data.downloadJobs,...Object.entries(library.executions).filter(([,e])=>e.job).map(([id,e])=>({...e.job,catalogId:id}))]);
     $('#library-search')?.addEventListener('submit', e => { e.preventDefault(); libraryFilters = Object.fromEntries(new FormData(e.target)); libraryPage = 0; render(); });
     if (view === 'session' && data.active) sessionDrag = bindSessionDrag(root.querySelector('.cp-session'), { change: changeSession, pickup: pauseSession, cancelled: render, report: toast });
@@ -1083,7 +1090,7 @@ export async function bootCompanion(reader) {
     } finally { openingScore = false; }
   }
   async function openDriveNotebooks(expectedId=null) {
-    if(!driveNotebookAvailable())throw new Error('Google Drive connection is available in the Android beta.');
+    if(!driveNotebookAvailable())throw new Error('Google Drive connection is available in the Android app.');
     if(driveConnecting||cloud?.busy)throw new Error(ui('Wait for the current connection operation.','Espera a que termine la conexión en curso.'));
     const t=driveCopy();driveConnecting=true;
     showDialog('Google Drive',`<p role="status">${esc(t.connecting)}</p>`);
@@ -1288,8 +1295,11 @@ export async function bootCompanion(reader) {
     'delete-session':id=>confirm(ui("Delete saved session", "Eliminar sesión guardada"), ui("Delete this session and its feedback from history and progress totals? Any linked practice plan will become pending again. Works, scores and annotations will be kept.", "¿Eliminar esta sesión y su valoración del historial y del progreso? La práctica planificada asociada volverá a estar pendiente. Se conservarán las obras, partituras y anotaciones."), async()=>{const next=copy(data);deleteSession(next,id);await store.save(next);data=next;await reminders();go('progress');}),
     'session-detail':id=>{dialog.close();go('session-detail',id);},
     'repeat-session':id=>{const s=data.sessions.find(s=>s.id===id);prepare('reading',{title:s.title,context:s.context,blocks:s.blocks});},
+    'progress-time-week':id=>{progressTimeWeek=id;const scroll=root.querySelector('.cp-page').scrollTop;render();root.querySelector('.cp-page').scrollTop=scroll;root.querySelector(`[data-action=progress-time-week][data-id="${CSS.escape(id)}"]`)?.focus({preventScroll:true});},
+    'progress-time-point':id=>{progressTimePoint=progressTimePoint===id?'':id;const scroll=root.querySelector('.cp-page').scrollTop;render();root.querySelector('.cp-page').scrollTop=scroll;root.querySelector(`[data-action=progress-time-point][data-id="${CSS.escape(id)}"]`)?.focus({preventScroll:true});},
+    'progress-time-clear':()=>{progressTimePoint='';const scroll=root.querySelector('.cp-page').scrollTop;render();root.querySelector('.cp-page').scrollTop=scroll;root.querySelector('.cp-time-ranges [aria-pressed=true]')?.focus({preventScroll:true});},
     'progress-time':()=>go('progress-time'),
-    'progress-time-range':id=>{if(!TIME_RANGES.includes(id))return;timeFilters.range=id;render();root.querySelector(`[data-action=progress-time-range][data-id="${id}"]`)?.focus({preventScroll:true});},
+    'progress-time-range':id=>{if(!TIME_RANGES.includes(id))return;timeFilters.range=id;progressTimePoint='';render();root.querySelector(`[data-action=progress-time-range][data-id="${id}"]`)?.focus({preventScroll:true});},
     'progress-section':id=>{if(!['activity','repertoire','technique'].includes(id))return;progressSection=id;render();},
     'edit-saved-practice':id=>editSavedPractice(id),
     'edit-session-notes':id=>{const s=data.sessions.find(s=>s.id===id);showDialog(ui("Session feedback", "Valoración de la sesión"),`<form>${feedbackFields(s,data.works)}${formEnd()}</form>`,async f=>{const {parts,...feedback}=readFeedback(f);Object.assign(s,feedback);applyWorkParts(s,parts);await persist();dialog.close();render();});},
@@ -1364,6 +1374,18 @@ export async function bootCompanion(reader) {
     'erase-data':()=>confirm(ui("Erase the notebook", "Borrar el cuaderno"),ui("Local data, scores and recordings will be deleted. Exported backups will not be deleted.", "Se eliminarán los datos locales, las partituras y las grabaciones. Las copias que hayas exportado no se borrarán."),async()=>{if(mediaCapture?.busy)throw Error(ui('Finish the recording first.','Termina primero la grabación.'));if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause downloads before erasing the notebook.", "Pausa las descargas antes de borrar el cuaderno."));await syncReminders({plans:[],events:[]});mediaSync?.stop();if(driveNotebookAvailable())await pauseDriveMedia();await cloud?.disconnect();await cloudTransport.drive?.clearDeviceCache?.();if(cloudAvailable()&&cloudPlatform()==='android')await CloudBackup.clearRecovery();await store.clear();await mediaStore?.clear();location.reload();}),
   };
   const SCORE_OPENERS=new Set(['open-score-practice','open-pdf','library-preview','library-segment-preview','print-work','library-print']);
+  root.addEventListener('click', event => {
+    const menu = root.querySelector('.cp-work-menu[open]');
+    if (menu && (!menu.contains(event.target) || event.target.closest('[data-action]'))) menu.open = false;
+  });
+  root.addEventListener('keydown', event => {
+    if (event.target.closest('[data-action=progress-time-week],[data-action=progress-time-point]') && ['Enter',' '].includes(event.key)) {
+      event.preventDefault();if(!event.repeat)handleAction(event);return;
+    }
+    if (event.key !== 'Escape') return;
+    const menu = root.querySelector('.cp-work-menu[open]');
+    if (menu) { event.preventDefault(); event.stopPropagation(); menu.open = false; menu.querySelector('summary').focus(); }
+  });
   async function handleAction(e) {
     const button=e.target.closest('[data-action]');if(!button || sessionWriting)return;
     const action=actions[button.dataset.action];if(!action)return;

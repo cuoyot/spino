@@ -78,7 +78,7 @@ Android beta18/build71 keeps optional explanations behind **+ Info**. Open it to
 
 ## Pending practice and connection recovery
 
-In the updated source after beta21, the practice currently open stays on its own device. Saved practices, repertoire, scores and annotations continue to synchronize. Full manual JSON exports still include that device's pending practice. A paused phone practice can remain available to continue while newly saved tablet history arrives from navigation screens. Incoming updates wait while practice is running, a practice/score screen is open, or editing/recording is in progress.
+From beta22/build75, a running, paused or unfinished practice stays on its own device. Finishing the practice saves it to completed history, which then synchronizes when connectivity and synchronization policy permit. Repertoire, scores and annotations continue to synchronize. Full manual JSON exports still include that device's pending practice. A paused phone practice can remain available to continue while newly saved tablet history arrives from navigation screens. Incoming updates wait while practice is running, a practice/score screen is open, or editing/recording is in progress.
 
 Synchronization shows the current phase and a **Pause synchronization** action. Pause retains local work and pending transfers. Resume automatic synchronization and use **Sync now** to retry. Each request has a bounded wait. Transient incremental transfers retry safely; reopening the app can check again after connectivity recovers. Account permission and genuine overlapping edits still require attention. **Last checked** records a successful check even when the last changed notebook time is older.
 

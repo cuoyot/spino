@@ -1,0 +1,12 @@
+import {createServer} from 'node:http';
+import {readFile} from 'node:fs/promises';
+import {resolve,extname} from 'node:path';
+import {emptyData} from '../../src/companion/model.js';
+const fixture=emptyData();fixture.preferences.language='es';fixture.preferences.theme='light';
+const root=resolve('dist'),port=Number(process.env.SPINO_EVENT_TIME_PORT||5304);
+const injection=theme=>`window.__SPINO_DISABLE_TOUR=true;
+const open=indexedDB.open.bind(indexedDB);indexedDB.open=(name,...args)=>open('spino-event-time-review-20261019-'+${JSON.stringify(theme)}+'-'+name,...args);
+const storage=new Map();Object.defineProperty(window,'localStorage',{value:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k),clear:()=>storage.clear()}});
+await new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onupgradeneeded=()=>{q.result.createObjectStore('state');q.result.createObjectStore('assets',{keyPath:'id'})};q.onsuccess=()=>{const db=q.result,tx=db.transaction('state','readwrite'),s=tx.objectStore('state');s.get('current').onsuccess=e=>{if(!e.target.result)s.put(${JSON.stringify({...fixture,preferences:{...fixture.preferences,theme}})},'current')};tx.oncomplete=()=>{db.close();resolve()}}});
+let opened=false;const observer=new MutationObserver(()=>{const button=document.querySelector('[data-action=new-event]');if(button&&!opened){opened=true;button.click();observer.disconnect();document.title='SPino · synthetic event time review'}});observer.observe(document.body,{childList:true,subtree:true});`;
+createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),path=resolve(root,'.'+(url.pathname==='/'?'/index.html':url.pathname));if(!path.startsWith(root+'/')){res.writeHead(403).end();return;}let body=await readFile(path);if(path.endsWith('/index.html'))body=body.toString().replace(/<script type="module" crossorigin src="([^"]+)"><\/script>/,(_,src)=>`<script type="module">${injection(url.searchParams.get('theme')==='dark'?'dark':'light')}\nawait import(${JSON.stringify(src)});</script>`);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png'})[extname(path)]||'application/octet-stream');res.end(body);}catch{res.writeHead(404).end();}}).listen(port,'127.0.0.1',()=>console.log('Synthetic event time review: http://127.0.0.1:'+port+'/?theme=light or ?theme=dark'));

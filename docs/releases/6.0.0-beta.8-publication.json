@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-10-14T17:03:33.108020+00:00",
+  "sourceCommit": "5d45d1269db556c01f6562460c543ff7ffc4c1c9",
+  "cloudflare": "success",
+  "deployment": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/5d2cf589-81a4-4a23-a0ac-9c5e20aecc27",
+  "languagePages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "artifacts": [
+    {
+      "file": "spino-6.0.0-beta.8-47-android.apk",
+      "bytes": 22635134,
+      "sha256": "1e97f7035d02f18988b33f8ba5ae36ff3a985915fba113c2ee88a95aea7530de",
+      "platform": "Android"
+    },
+    {
+      "file": "spino-6.0.0-beta.8-47-ios-simulator.zip",
+      "bytes": 17949526,
+      "sha256": "412cb73bcfdd4f61763f190b5963c3a80d766c8e050ce0db670139351948e95a",
+      "platform": "iOS Simulator for Mac/Xcode"
+    }
+  ],
+  "androidHandoff": {
+    "replacementInstall": true,
+    "storageCleared": false,
+    "versionCode": 47,
+    "versionName": "6.0.0-beta.8",
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity"
+  }
+}

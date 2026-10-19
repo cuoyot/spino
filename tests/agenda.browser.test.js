@@ -22,10 +22,10 @@ test('Today and weekly calendar show results and add practices on the chosen dat
   await wait(`document.querySelector('.cp-today [data-entry-id="done"]')`);
   assert.deepEqual(await evaluate(`[...document.querySelectorAll('.cp-nav button')].map(b=>b.getAttribute('aria-label')||b.textContent.trim())`), ['Hoy', 'Practicar', 'Calendario', 'Biblioteca', 'Progreso']);
   assert.equal(await evaluate(`!!document.querySelector('.cp-app-header [data-action=settings]')`), true);
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-today-sessions .cp-agenda-card').length`), 1);
-  assert.match(await evaluate(`document.querySelector('[data-entry-id="done"]').textContent`), /10 min practicados/);
-  assert.match(await evaluate(`document.querySelector('.cp-entry-note').textContent`), /Pulso más estable/);
-  assert.ok(await evaluate(`!!document.querySelector('[data-entry-id="done"] .cp-entry-mood')`));
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-today-sessions .cp-history-card').length`), 1);
+  assert.match(await evaluate(`document.querySelector('[data-entry-id="done"]').textContent`), /10 min/);
+  assert.match(await evaluate(`document.querySelector('.cp-history-note').textContent`), /Pulso más estable/);
+  assert.ok(await evaluate(`!!document.querySelector('[data-entry-id="done"] .cp-history-mood')`));
 
   for (const [width, height] of [[320,568],[390,844],[844,390],[768,1024],[1180,820]]) {
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true });

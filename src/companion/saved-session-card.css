@@ -1,0 +1,52 @@
+/* One saved-session card style for routes, calendars and dialogs. */
+:is(#app-shell,#cp-dialog) :is(.cp-history-card,.cp-history-types > span) { --surface-accent: var(--browse-teal,#6bdcc4); --surface-tint: var(--browse-teal-tint,#203c37); }
+:is(#app-shell,#cp-dialog) :is(.cp-history-card,.cp-history-types > span)[data-activity=reading] { --surface-accent: var(--browse-blue,#9cbfff); --surface-tint: var(--browse-blue-tint,#223751); }
+:is(#app-shell,#cp-dialog) :is(.cp-history-card,.cp-history-types > span)[data-activity=technique] { --surface-accent: var(--browse-purple,#c9b1f2); --surface-tint: var(--browse-purple-tint,#332c45); }
+:is(#app-shell,#cp-dialog) :is(.cp-history-card,.cp-history-types > span):is([data-activity=repertoire],[data-activity=warmup]) { --surface-accent: var(--browse-gold,#edc67d); --surface-tint: var(--browse-gold-tint,#3b3223); }
+:root[data-theme=light] #cp-dialog { --browse-blue:#174da6; --browse-blue-tint:#e7efff; --browse-teal:#146b60; --browse-teal-tint:#e3f4ed; --browse-purple:#674697; --browse-purple-tint:#f1eaff; --browse-gold:#79571b; --browse-gold-tint:#fff1d5; }
+:is(#app-shell,#cp-dialog) .cp-history { display: grid; gap: 12px; }
+:is(#app-shell,#cp-dialog) .cp-history-card.cp-card[data-activity] { padding: 0; margin: 0; overflow: hidden; border-inline-start: 3px solid var(--surface-accent); }
+:is(#app-shell,#cp-dialog) .cp-history-open { width: 100%; display: grid; grid-template-columns: 64px minmax(0,1fr) auto; align-items: start; gap: 12px 14px; padding: 18px; border: 0; border-radius: 12px; background: transparent; text-align: start; font-weight: 400; }
+:is(#app-shell,#cp-dialog) .cp-history-open:hover { background: var(--surface-tint); }
+:is(#app-shell,#cp-dialog) .cp-history-open:focus-visible { outline-offset: -4px; }
+:is(#app-shell,#cp-dialog) .cp-history-visual { width: 64px; height: 80px; display: grid; place-items: center; border-radius: 10px; color: var(--surface-accent); background: var(--surface-tint); overflow: hidden; }
+:is(#app-shell,#cp-dialog) .cp-history-visual > svg { width: 32px; height: 32px; }
+:is(#app-shell,#cp-dialog) .cp-history-visual img { width: 100%; height: 100%; object-fit: cover; object-position: top; background: white; }
+:is(#app-shell,#cp-dialog) .cp-history-visual.has-score { border: 1px solid var(--theme-line); border-radius: 5px; box-shadow: 0 2px 5px #00000012; }
+:is(#app-shell,#cp-dialog) .cp-history-copy { display: grid; gap: 5px; min-width: 0; line-height: 1.35; }
+:is(#app-shell,#cp-dialog) .cp-history-title { font-size: 17px; font-weight: 750; color: var(--theme-text); }
+:is(#app-shell,#cp-dialog) .cp-history-copy time { color: var(--theme-muted); font-size: 12px; }
+:is(#app-shell,#cp-dialog) .cp-history-pieces { color: var(--surface-accent); font-size: 13px; line-height: 1.4; }
+:is(#app-shell,#cp-dialog) .cp-history-mood { min-width: 48px; display: grid; justify-items: center; gap: 5px; color: var(--theme-muted); font-size: 11px; line-height: 1.2; }
+:is(#app-shell,#cp-dialog) .cp-history-face { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; background: var(--surface-tint); font-size: 36px; line-height: 1; }
+:is(#app-shell,#cp-dialog) .cp-history-types { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
+:is(#app-shell,#cp-dialog) .cp-history-types > span { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; border-radius: 8px; background: var(--surface-tint); color: var(--surface-accent); font-size: 11px; font-weight: 600; line-height: 1.3; }
+:is(#app-shell,#cp-dialog) .cp-history-types svg { width: 15px; height: 15px; flex: 0 0 auto; }
+:is(#app-shell,#cp-dialog) .cp-history-footer { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; border-top: 1px solid var(--theme-line); padding-top: 10px; }
+:is(#app-shell,#cp-dialog) .cp-history-duration { color: var(--theme-text); font-size: 18px; font-weight: 750; font-variant-numeric: tabular-nums; }
+:is(#app-shell,#cp-dialog) .cp-history-context { color: var(--theme-muted); font-size: 12px; }
+:is(#app-shell,#cp-dialog) .cp-history-link { display: inline-flex; align-items: center; gap: 6px; margin-inline-start: auto; color: var(--theme-muted); font-size: 12px; }
+:is(#app-shell,#cp-dialog) .cp-history-link > span { font-size: 22px; line-height: 1; }
+@media (max-width: 359px) {
+  :is(#app-shell,#cp-dialog) .cp-history-open { grid-template-columns: 50px minmax(0,1fr) auto; gap: 10px; padding: 13px; }
+  :is(#app-shell,#cp-dialog) .cp-history-visual { width: 50px; height: 70px; }
+  :is(#app-shell,#cp-dialog) .cp-history-title { font-size: 15px; }
+  :is(#app-shell,#cp-dialog) .cp-history-face { width: 44px; height: 44px; font-size: 32px; }
+}
+
+:is(#app-shell,#cp-dialog) .cp-history-note { grid-column: 1 / -1; color: var(--theme-muted); font-size: 13px; white-space: pre-wrap; }
+:is(#app-shell,#cp-dialog) .cp-history-card { min-width: 0; container: saved-session / inline-size; }
+:is(#app-shell,#cp-dialog) .cp-history-copy { overflow-wrap: anywhere; }
+#app-shell .cp-session-strip > .cp-history-card { flex: 0 0 min(360px, 100%); }
+#app-shell .cp-day-sessions { flex-wrap: wrap; }
+#app-shell .cp-day-sessions > .cp-session-strip { flex-basis: 100%; width: 100%; }
+#app-shell .cp-day-sessions > .cp-add-day { margin-inline-start: auto; }
+
+/* Adapt to the card's available width, including narrow calendar columns and dialogs. */
+@container saved-session (max-width: 320px) {
+  :is(#app-shell,#cp-dialog) .cp-history-open { grid-template-columns: 44px minmax(0,1fr) 40px; gap: 10px 8px; padding: 12px; }
+  :is(#app-shell,#cp-dialog) .cp-history-visual { width: 44px; height: 64px; }
+  :is(#app-shell,#cp-dialog) .cp-history-title { font-size: 15px; }
+  :is(#app-shell,#cp-dialog) .cp-history-mood { min-width: 0; font-size: 10px; }
+  :is(#app-shell,#cp-dialog) .cp-history-face { width: 40px; height: 40px; font-size: 32px; }
+}

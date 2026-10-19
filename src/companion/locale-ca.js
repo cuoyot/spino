@@ -1647,6 +1647,7 @@ Fixed page|Pàgina fixa
 Passage or goal|Passatge o objectiu
 For example, bars 1–8|Per exemple, compassos 1–8
 Start session →|Començar la sessió →
+Score and recordings|Partitura i gravacions
 More options|Més opcions
 Your session|La teva sessió
 Session|Sessió
@@ -1749,6 +1750,8 @@ Choose date|Triar una data
 Review date and save|Revisar la data i desar
 Date|Data
 Time|Hora
+Hour|Hora
+Minute|Minut
 Repeat|Repetir
 Notes|Notes
 Save|Desar

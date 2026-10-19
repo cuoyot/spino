@@ -95,9 +95,6 @@
 #app-shell .cp-browse-surface .cp-agenda-day.selected-day { background: var(--browse-blue-tint); }
 #app-shell .cp-browse-surface .cp-agenda-day time[aria-current=date] > b { background: var(--theme-accent); color: white; }
 #app-shell .cp-browse-surface .cp-agenda-card { border-color: var(--browse-edge); border-left-color: var(--surface-accent,var(--activity-color)); background: var(--browse-card); box-shadow: var(--browse-shadow); }
-#app-shell .cp-browse-surface .cp-session-chip { background: var(--surface-tint,var(--theme-panel)); border-color: var(--browse-edge); }
-#app-shell .cp-browse-surface .cp-session-chip:hover { box-shadow: inset 0 0 0 1px var(--surface-accent,var(--theme-link)); }
-#app-shell .cp-browse-surface :is(.cp-session-chip-mood,.cp-session-chip-status) { border-color: var(--theme-bg); }
 #app-shell .cp-browse-surface .cp-add-day { color: var(--browse-blue); }
 #app-shell:has(.cp-browse-surface) .cp-segment [aria-pressed=true] { background: var(--theme-accent); color: white; }
 #app-shell .cp-browse-surface .cp-day[aria-pressed=true] { background: var(--browse-blue-tint); color: var(--browse-blue); }

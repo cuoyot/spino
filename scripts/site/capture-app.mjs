@@ -26,7 +26,7 @@ try {
     fixture.preferences.warmup = {enabled:false,minutes:3,exercise:'rotate'};
     // Keep the reusable sequence and its add/total/save controls visible in one phone frame.
     fixture.routines[0].blocks = fixture.routines[0].blocks.filter(b => b.type !== 'technique');
-    for (const row of [...fixture.plans, ...fixture.events, ...fixture.sessions]) row.date = addDays(row.date, 14);
+    for (const row of [...fixture.plans, ...fixture.events, ...fixture.sessions]) row.date = addDays(row.date, 18);
     if (language === 'ca') {
       fixture.routines[0].title = 'La meva rutina de 40 minuts';
       fixture.routines[1].title = 'Lectura sense piano';
@@ -35,8 +35,8 @@ try {
       fixture.sessions.forEach(s => { s.title = 'Pràctica de piano'; s.notes = 'Pols més estable. Repassar el canvi de posició.'; });
       fixture.works[0].passage = 'Compassos 1–8';
     }
-    for (let week=1;week<12;week++) {
-      const date=addDays('2026-10-15',-week*7),stamp=Date.parse(date+'T10:00:00Z');
+    for (let week=0;week<12;week++) {
+      const date=addDays('2026-10-19',-week*7),stamp=Date.parse(date+'T10:00:00Z');
       const active=beginSession({title:fixture.routines[0].title,context:'piano',blocks:[fixture.routines[0].blocks.find(b=>b.type==='repertoire')]},stamp);
       active.id='website-history-'+week;active.date=date;active.elapsedMs=active.blockElapsedMs=(24+(11-week)*3+week%3*8)*60000;saveSession(fixture,active,{},stamp);
     }
@@ -45,7 +45,7 @@ try {
     prior.quickScore = addQuickAnswer(emptyQuickScore(), true, 3000);
     saveSession(fixture, prior);
     await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(fixture)},'current');tx.oncomplete=()=>{db.close();resolve();};};})`);
-    await evaluate(`new Promise((resolve,reject)=>{const q=indexedDB.open('spino-local-media',1);q.onsuccess=()=>{const db=q.result,tx=db.transaction(['meta','recordings'],'readwrite'),records=tx.objectStore('recordings'),identity=tx.objectStore('meta').get('installation');records.clear();identity.onsuccess=()=>{for(let n=0;n<2;n++){const seconds=n?7:5,count=44100*seconds,buffer=new ArrayBuffer(44+count*2),v=new DataView(buffer),text=(offset,value)=>[...value].forEach((c,i)=>v.setUint8(offset+i,c.charCodeAt(0)));text(0,'RIFF');v.setUint32(4,36+count*2,true);text(8,'WAVE');text(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,44100,true);v.setUint32(28,88200,true);v.setUint16(32,2,true);v.setUint16(34,16,true);text(36,'data');v.setUint32(40,count*2,true);for(let i=0;i<count;i++)v.setInt16(44+i*2,Math.sin(i*2*Math.PI*440/44100)*1200*Math.sin(Math.PI*i/count),true);records.put({id:'website-take-'+n,installation:identity.result,workId:'store-work',workTitle:${JSON.stringify(fixture.works[0].title)},title:${JSON.stringify(language==='es'?['Primera toma','Práctica lenta']:language==='ca'?['Primera presa','Pràctica lenta']:['First take','Slow practice'])}[n],kind:'audio',createdAt:'2026-10-15T10:0'+n+':00.000Z',durationMs:seconds*1000,draft:false,blob:new Blob([buffer],{type:'audio/wav'})})}};tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)}})`);
+    await evaluate(`new Promise((resolve,reject)=>{const q=indexedDB.open('spino-local-media',1);q.onsuccess=()=>{const db=q.result,tx=db.transaction(['meta','recordings'],'readwrite'),records=tx.objectStore('recordings'),identity=tx.objectStore('meta').get('installation');records.clear();identity.onsuccess=()=>{for(let n=0;n<2;n++){const seconds=n?7:5,count=44100*seconds,buffer=new ArrayBuffer(44+count*2),v=new DataView(buffer),text=(offset,value)=>[...value].forEach((c,i)=>v.setUint8(offset+i,c.charCodeAt(0)));text(0,'RIFF');v.setUint32(4,36+count*2,true);text(8,'WAVE');text(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,44100,true);v.setUint32(28,88200,true);v.setUint16(32,2,true);v.setUint16(34,16,true);text(36,'data');v.setUint32(40,count*2,true);for(let i=0;i<count;i++)v.setInt16(44+i*2,Math.sin(i*2*Math.PI*440/44100)*1200*Math.sin(Math.PI*i/count),true);records.put({id:'website-take-'+n,installation:identity.result,workId:'store-work',workTitle:${JSON.stringify(fixture.works[0].title)},title:${JSON.stringify(language==='es'?['Primera toma','Práctica lenta']:language==='ca'?['Primera presa','Pràctica lenta']:['First take','Slow practice'])}[n],kind:'audio',createdAt:'2026-10-19T10:0'+n+':00.000Z',durationMs:seconds*1000,draft:false,blob:new Blob([buffer],{type:'audio/wav'})})}};tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)}})`);
     await send('Page.navigate', { url }); await wait(`document.querySelector('.cp-today')`);
     assert.equal(await evaluate(`document.documentElement.lang`), language);
     const capture = async (name, device = 'phone') => {
@@ -73,7 +73,7 @@ try {
     await evaluate(`document.querySelector('[data-action=quick-finish]').click()`); await wait(`document.querySelector('.cp-quick-result')`);
     await evaluate(`new Promise(resolve=>setTimeout(resolve,700))`); await capture('05-quick-result');
     await evaluate(`document.querySelector('[data-action=close-dialog]').click();document.querySelector('.cp-nav [data-action=progress]').click()`);
-    await wait(`document.querySelector('.cp-progress-page')`);await evaluate(`document.querySelector('.cp-progress-highlights').scrollIntoView({block:'center'})`); await capture('06-progress');
+    await wait(`document.querySelector('.cp-progress-page')`);await evaluate(`document.querySelector('.cp-page').scrollTop=0`); await capture('06-progress');
     await evaluate(`document.querySelector('[data-action=progress-time]').click()`);await wait(`document.querySelector('.cp-time-filters')`);await capture('08-time-details');
     await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click();document.querySelector('[data-action=multimedia]').click()`);await wait(`document.querySelectorAll('.cp-media-list article').length===2`);await capture('07-multimedia');
     await evaluate(`document.querySelector('.cp-nav [data-action=calendar]').click()`);await wait(`document.querySelector('[data-view=calendar]')`);await capture('09-calendar');

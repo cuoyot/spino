@@ -34,7 +34,7 @@ test('day agenda orders appointments and merges a completed plan with its result
   assert.equal(entries[1].plan.id, plan.id);
   const html = todayMarkup(data, () => '', today);
   assert.match(html, /Steady pulse/);
-  assert.match(html, /5 min practicados/);
+  assert.match(html, /cp-history-duration">5 min<\/span>/);
   assert.doesNotMatch(html, /data-action="start-plan"/);
   plan.date = '2026-10-01';
   assert.equal(agendaEntries(data, today).filter(e => e.session?.id === saved.id).length, 1, 'moving a plan retains the actual practice date');

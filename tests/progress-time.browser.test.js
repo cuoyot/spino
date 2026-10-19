@@ -22,7 +22,7 @@ test('practice chart details filter actual blocks, navigate ranges/back and fit 
  validateData(fixture);
  if(capture){await mkdir(capture,{recursive:true});await writeFile(`${capture}/fixture.json`,JSON.stringify(fixture,null,2));}
  const seed=async(locale,theme,source=fixture)=>{
-  const notebook=structuredClone(source);Object.assign(notebook.preferences,{language:locale,theme,weeklyMinutes:90});
+  const notebook=structuredClone(source);Object.assign(notebook.preferences,{language:locale,theme,weeklyMinutes:source.preferences.weeklyMinutes??90});
   await evaluate(`new Promise(r=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const tx=q.result.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(notebook)},'current');tx.oncomplete=r}})`);
   await send('Page.reload');await wait('.cp-today');await evaluate(`document.querySelector('[data-action=progress]').click()`);
   return notebook;
@@ -44,6 +44,36 @@ test('practice chart details filter actual blocks, navigate ranges/back and fit 
   for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await shot('overview',locale,theme,width,height);
   }
+  const overviewTitle=await evaluate(`document.querySelector('.cp-time-overview h2').textContent`);
+  const tapWeek=async index=>{
+   const point=await evaluate(`(()=>{const r=document.querySelectorAll('.cp-time-week .cp-time-point')[${index}].getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+   await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point]});
+   await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  };
+  // Real touch input must select a historical week and keep the card in view.
+  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  await evaluate(`document.querySelector('.cp-time-overview').scrollIntoView()`);
+  const scroll=await evaluate(`document.querySelector('.cp-page').scrollTop`);
+  await tapWeek(10);
+  assert.equal(await evaluate(`document.querySelector('.cp-time-stats strong').textContent`),'52 min');
+  assert.equal(await evaluate(`document.querySelector('.cp-page').scrollTop`),scroll);
+  const expectedRange=[addDays(monday,-7),addDays(monday,-1)].map(d=>new Intl.DateTimeFormat(locale,{day:'numeric',month:'short',year:'numeric'}).format(new Date(d+'T12:00:00'))).join(' – ');
+  assert.equal(await evaluate(`document.querySelector('.cp-time-overview h2').textContent`),expectedRange);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-time-week[aria-pressed=true]').length`),1);
+  // Keyboard selection uses the same total, highlight and focused week after render.
+  await evaluate(`document.querySelectorAll('.cp-time-week')[9].focus()`);
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  assert.equal(await evaluate(`document.querySelector('.cp-time-stats strong').textContent`),'1 hr 9 min');
+  assert.equal(await evaluate(`document.activeElement.getAttribute('aria-pressed')`),'true');
+  for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
+   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await shot('selected-week',locale,theme,width,height);
+  }
+  await evaluate(`document.querySelectorAll('.cp-time-week')[11].focus()`);
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32});
+  assert.equal(await evaluate(`document.querySelector('.cp-time-overview h2').textContent`),overviewTitle);
+  assert.equal(await evaluate(`document.querySelector('.cp-time-stats strong').textContent`),'2 hr 19 min');
   await evaluate(`document.querySelector('[data-action=progress-time]').click()`);
   assert.equal(await evaluate(`document.querySelector('.cp-nav [data-action=progress]').getAttribute('aria-current')`),'page');
   await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="7d"]').click()`);assert.equal(await total(),'2 hr 19 min');
@@ -52,15 +82,53 @@ test('practice chart details filter actual blocks, navigate ranges/back and fit 
   await select('progress-time-type','free');assert.equal(await total(),'0 min');
   assert.equal(await evaluate(`!!document.querySelector('.cp-time-empty')`),true);
   await select('progress-time-type','repertoire');
-  for(const range of ['1m','3m','6m','ytd','1y']){
+  for(const range of ['7d','1m','3m','6m','ytd','1y']){
    await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="${range}"]').click()`);
    assert.equal(await evaluate(`document.querySelector('#progress-time-work').value`),'a');
    assert.equal(await evaluate(`document.activeElement.dataset.id`),range);
+   await evaluate(`document.querySelector('.cp-time-week:last-of-type').dispatchEvent(new MouseEvent('click',{bubbles:true}))`);
+   assert.equal(await total(),'2 hr 4 min');
+   assert.equal(await evaluate(`document.querySelectorAll('.cp-time-week[aria-pressed=true]').length`),1);
+   // Range changes restore the full filtered total, even when selecting the same range.
+   await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="${range}"]').click()`);
+   assert.equal(await evaluate(`document.querySelectorAll('.cp-time-week[aria-pressed=true]').length`),0);
+   assert.equal(await evaluate(`!!document.querySelector('.cp-time-reset')`),false);
   }
   await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="3m"]').click()`);
   for(const [width,height] of [[320,640],[390,844],[844,390],[768,1024],[1024,768]]){
    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await shot('piece-detail',locale,theme,width,height);
   }
+  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  await evaluate(`document.querySelector('.cp-time-chart').scrollIntoView({block:'center'})`);
+  const previousWeekIndex=await evaluate(`[...document.querySelectorAll('.cp-time-week')].findIndex(e=>e.dataset.id==='${addDays(monday,-7)}')`);
+  await tapWeek(previousWeekIndex);
+  assert.equal(await total(),'22 min');
+  assert.equal(await evaluate(`document.querySelector('.cp-time-detail h2').textContent`),expectedRange);
+  assert.equal(await evaluate(`!!document.querySelector('.cp-time-reset')`),true);
+  for(const [width,height] of [[320,640],[390,844],[844,390],[768,1024],[1024,768]]){
+   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.querySelector('.cp-time-detail').scrollIntoView()`);await shot('selected-detail-week',locale,theme,width,height);
+  }
+  await select('progress-time-type','free');assert.equal(await total(),'0 min');
+  assert.equal(await evaluate(`document.querySelector('.cp-time-week[aria-pressed=true]').dataset.id`),addDays(monday,-7));
+  await select('progress-time-type','repertoire');assert.equal(await total(),'22 min');
+  await evaluate(`document.querySelector('.cp-time-reset').click()`);assert.equal(await total(),'7 hr 56 min');
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-time-week[aria-pressed=true]').length`),0);
+  await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="7d"]').click()`);
+  await evaluate(`document.querySelector('.cp-time-week:last-of-type').focus()`);
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  assert.equal(await total(),'2 hr 4 min');
+  assert.equal(await evaluate(`document.activeElement.getAttribute('aria-pressed')`),'true');
+  assert.equal(await evaluate(`document.querySelector('.cp-time-detail h2').textContent`),new Intl.DateTimeFormat(locale,{day:'numeric',month:'short',year:'numeric'}).format(new Date(today+'T12:00:00')));
+  for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
+   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.querySelector('.cp-time-detail').scrollIntoView()`);await shot('selected-detail-day',locale,theme,width,height);
+  }
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32});
+  assert.equal(await evaluate(`document.activeElement.getAttribute('aria-pressed')`),'false');
+  assert.equal(await evaluate(`!!document.querySelector('.cp-time-reset')`),false);
+  await evaluate(`document.querySelector('.cp-time-week').dispatchEvent(new MouseEvent('click',{bubbles:true}))`);assert.equal(await total(),'0 min');
+  await evaluate(`document.querySelector('[data-action=progress-time-range][data-id="3m"]').click()`);
   await evaluate(`document.querySelector('.cp-time-values').open=true`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-time-values tbody tr').length===document.querySelectorAll('.cp-time-point').length`),true);
   await evaluate(`window.dispatchEvent(new Event('spino:back',{cancelable:true}))`);assert.equal(await evaluate(`!!document.querySelector('.cp-time-overview')`),true);
@@ -68,7 +136,13 @@ test('practice chart details filter actual blocks, navigate ranges/back and fit 
   const after=await evaluate(`new Promise(r=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{q.result.transaction('state').objectStore('state').get('current').onsuccess=e=>r(e.target.result)}})`);
   assert.deepEqual(after,notebook);
  }
- await seed('es','light',emptyData());await evaluate(`document.querySelector('[data-action=progress-time]').click()`);
+ const noGoal=emptyData();noGoal.preferences.weeklyMinutes=0;await seed('es','light',noGoal);
+ await evaluate(`document.querySelectorAll('.cp-time-week')[0].dispatchEvent(new MouseEvent('click',{bubbles:true}))`);
+ assert.equal(await evaluate(`document.querySelector('.cp-time-stats strong').textContent`),'0 min');
+ assert.equal(await evaluate(`!!document.querySelector('.cp-time-week[aria-pressed=true][data-id="${addDays(monday,-77)}"]')`),true);
+ assert.equal(await evaluate(`document.querySelectorAll('.cp-time-stats strong').length`),1);
+ await send('Emulation.setDeviceMetricsOverride',{width:320,height:640,deviceScaleFactor:1,mobile:true});await shot('selected-empty-week','es','light',320,640);
+ await evaluate(`document.querySelector('[data-action=progress-time]').click()`);
  assert.equal(await total(),'0 min');await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await shot('empty','es','light',390,844);
  assert.deepEqual(errors,[]);
  if(capture){const sourceHashes={};for(const path of ['src/companion/progress-time.js','src/companion/progress-duration.js','src/companion/progress-time.css','src/companion/app.js','src/companion/progress-metrics.js','src/companion/locale-ca.js','tests/progress-time.browser.test.js'])sourceHashes[path]=hash(await readFile(path));await writeFile(`${capture}/metadata.json`,JSON.stringify({capturedAt:new Date().toISOString(),kind:'responsive-browser',nativeAcceptance:false,gitHead:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),workingTree:'Existing uncommitted work preserved; this run is identified by source hashes.',build:'Vite production build',buildIndexSha256:hash(await readFile('dist/index.html')),browser:await send('Browser.getVersion'),today,sourceHashes,frames,runtimeErrors:errors},null,2));}

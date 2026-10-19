@@ -1,0 +1,5 @@
+{
+  "stable": { "version": "6.1.0", "build": 76 },
+  "nextBeta": { "version": "6.1.1-beta.1", "minimumBuild": 77, "status": "planned_not_released" },
+  "googlePlay": { "version": "5.2.3", "build": 35, "status": "unchanged_until_console_rollout" }
+}

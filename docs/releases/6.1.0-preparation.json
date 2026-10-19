@@ -1,0 +1,16 @@
+{
+  "version": "6.1.0",
+  "build": 76,
+  "playConsoleStatus": "prepared_not_uploaded",
+  "nextBeta": "6.1.1-beta.1",
+  "pack": {
+    "file": "artifacts/play-store/SPino-6.1.0-76-play-console.zip",
+    "bytes": 37256631,
+    "sha256": "13badef7f8ec63e47a02bdc0a184b664e7bab754e054233a87df927c023f065c"
+  },
+  "remainingOwnerAcceptance": [
+    "Production Google OAuth certificate configuration and real Google connection",
+    "Play-installed two-device notebook and recording-copy acceptance",
+    "Review Console pre-launch report and current declarations before rollout"
+  ]
+}

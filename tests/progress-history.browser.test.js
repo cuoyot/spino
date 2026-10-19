@@ -45,7 +45,7 @@ test('visual history renders local scores, prominent optional moods and opens st
   assert.deepEqual(errors, []);
   if (folder) {
     const sourceHashes = {};
-    for (const path of ['src/companion/app.js','src/companion/progress-history.js','src/companion/progress-history.css','src/companion/score-thumbnail.js','tests/progress-history.browser.test.js','tests/progress-history-fixture.js']) sourceHashes[path] = createHash('sha256').update(await readFile(path)).digest('hex');
+    for (const path of ['src/companion/app.js','src/companion/saved-session-card.js','src/companion/saved-session-card.css','src/companion/score-thumbnail.js','tests/progress-history.browser.test.js','tests/progress-history-fixture.js']) sourceHashes[path] = createHash('sha256').update(await readFile(path)).digest('hex');
     await writeFile(folder + '/metadata.json', JSON.stringify({ capturedAt: new Date().toISOString(), kind: 'responsive-browser', nativeAcceptance: false, gitHead: execFileSync('git', ['rev-parse','HEAD'], {encoding:'utf8'}).trim(), build: 'Vite production build', buildIndexSha256: createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes, frames, runtimeErrors: errors, notebookUnchanged: true, assetsUnchanged: true }, null, 2));
   }
 });

@@ -41,6 +41,10 @@ test('Today keeps the next practice action reachable and Practice owns activity 
     } else {
       await wait(`document.querySelector('.cp-session-card')`);
       if (state === 'pending') assert.match(await evaluate(`document.querySelector('#app-shell h1').textContent`), /Lectura y repertorio/);
+      // Finish the synthetic scenario before replacing its notebook: pagehide persists active practice.
+      await action('discard-session');
+      await evaluate(`document.querySelector('#cp-confirm').click()`);
+      await wait(`document.querySelector('.cp-today')`);
     }
   }
   await action('home');

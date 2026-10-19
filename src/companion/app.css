@@ -10,7 +10,7 @@
 #app-shell * { min-width: 0; }
 .boot-message { padding: 32px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.cp-page { overflow-y: auto; overscroll-behavior: contain; padding: 24px 20px 32px; }
+.cp-page { --cp-page-top-space: 24px; overflow-y: auto; overscroll-behavior: contain; padding: var(--cp-page-top-space) 20px 32px; }
 .cp-content { max-width: 1080px; margin: 0 auto; }
 .cp-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 28px; }
 .cp-brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 650; letter-spacing: -.02em; }
@@ -93,6 +93,10 @@
 }
 .cp-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
 .cp-fields .wide { grid-column: 1 / -1; }
+.cp-event-time { min-width: 0; margin: 0 0 14px; padding: 0; border: 0; }
+.cp-event-time legend { padding: 0; margin-bottom: 6px; font-size: 13px; color: var(--theme-muted, #b6bcc6); }
+.cp-event-time-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+.cp-event-time-controls select { min-width: 0; }
 .cp-block { padding: 18px; border: 1px solid var(--line); background: var(--theme-panel, #1e2127); border-radius: 16px; margin-top: 12px; }
 .cp-block-controls { display: flex; gap: 4px; }
 #app-shell .cp-block-controls button { min-width: 44px; padding: 8px; }
@@ -132,12 +136,12 @@
 @media (min-width: 600px) and (min-height: 600px) {
   .managed-practice #practice-toolbar { grid-template-columns: auto minmax(0, 1fr) auto auto auto; }
   #app-shell { grid-template-columns: 180px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
-  .cp-page { grid-column: 2; grid-row: 1; padding: 30px 24px 48px; }
+  .cp-page { --cp-page-top-space: 30px; grid-column: 2; grid-row: 1; padding: var(--cp-page-top-space) 24px 48px; }
   .cp-nav { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; padding: 32px 14px; border-top: 0; border-right: 1px solid var(--line); gap: 10px; }
   #app-shell .cp-nav button { justify-content: flex-start; padding: 14px; }
 }
 @media (max-width: 599px) {
-  .cp-page { padding: 18px 16px 28px; }
+  .cp-page { --cp-page-top-space: 18px; padding: var(--cp-page-top-space) 16px 28px; }
   .cp-header { margin-bottom: 24px; }
   .cp-grid { grid-template-columns: minmax(0, 1fr); }
   .cp-card { padding: 18px; }
@@ -148,7 +152,7 @@
 }
 @media (orientation: landscape) and (max-height: 599px) {
   #app-shell { grid-template-columns: 90px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
-  .cp-page { grid-column: 2; grid-row: 1; padding: 18px 24px; }
+  .cp-page { --cp-page-top-space: 18px; grid-column: 2; grid-row: 1; padding: var(--cp-page-top-space) 24px; }
   .cp-nav { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; justify-content: center; padding: 8px; border-right: 1px solid var(--line); }
   #app-shell .cp-nav button { flex-direction: column; gap: 5px; font-size: 11px; padding: 8px 3px; }
   .cp-shortcuts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -294,24 +298,17 @@
 .cp-content[data-calendar] .cp-agenda-card { flex-wrap: wrap; }
 #app-shell .cp-content[data-calendar] .cp-entry-open { flex-basis: 150px; }
 .cp-content[data-calendar] .cp-entry-actions { max-width: 100%; }
-.cp-agenda-day time { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.cp-agenda-day time > span { text-transform: uppercase; font-size: 11px; color: var(--subtle); }
-.cp-agenda-day time > b { font-size: 22px; font-weight: 650; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
-.cp-agenda-day time[aria-current=date] > b { background: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); }
+.cp-agenda-day > time { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.cp-agenda-day > time > span { text-transform: uppercase; font-size: 11px; color: var(--subtle); }
+.cp-agenda-day > time > b { font-size: 22px; font-weight: 650; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
+.cp-agenda-day > time[aria-current=date] > b { background: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); }
 .cp-day-content { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .cp-day-sessions { display: flex; flex: 1 1 100%; flex-wrap: nowrap; align-items: center; gap: 8px; min-width: 0; }
 .cp-session-strip { display: flex; flex: 1 1 auto; gap: 8px; width: 0; min-width: 0; padding: 4px 4px 14px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .cp-session-strip::-webkit-scrollbar { display: none; }
 .cp-agenda > .cp-session-strip { width: auto; }
 .cp-day-content > .cp-unplanned + .cp-day-sessions { flex: 0 1 auto; }
-#app-shell .cp-session-chip { position: relative; display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; flex: 0 0 64px; width: 64px; height: 64px; min-width: 64px; min-height: 64px; padding: 6px 3px; border: 0; border-radius: 50%; background: var(--theme-panel); color: var(--theme-text); font-weight: 400; text-align: center; overflow: visible; }
-.cp-session-chip-icon { display: flex; color: var(--activity-color); }
-.cp-session-chip-icon svg { width: 20px; height: 20px; }
-.cp-session-chip-duration { display: flex; align-items: baseline; gap: 2px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.cp-session-chip-duration b { font-size: 19px; line-height: 1.1; font-weight: 700; letter-spacing: -.03em; }
-.cp-session-chip-duration small { font-size: 11px; line-height: 1.1; font-weight: 400; }
-.cp-session-chip-mood { position: absolute; right: -3px; bottom: -12px; display: grid; place-items: center; width: 22px; height: 22px; border: 2px solid var(--theme-bg); border-radius: 50%; background: var(--theme-panel); font-size: 16px; line-height: 1; }
-.cp-session-chip-status { position: absolute; right: -2px; top: -2px; display: grid; place-items: center; width: 18px; height: 18px; border: 2px solid var(--theme-bg); border-radius: 50%; background: var(--theme-panel); color: var(--activity-color); font-size: 11px; line-height: 1; }
+
 .cp-unplanned { color: var(--subtle); font-size: 12px; flex: 1 1 130px; }
 #app-shell .cp-add-day { padding: 8px; font-size: 13px; color: var(--theme-muted, #b9c8df); flex: 0 0 auto; }
 .cp-agenda-card { flex: 1 1 280px; display: flex; align-items: center; border: 1px solid var(--line); border-left: 5px solid var(--activity-color); border-radius: 10px; background: var(--theme-panel, #1e2127); overflow-wrap: anywhere; }
@@ -395,7 +392,7 @@
 .cp-practice-routines strong, .cp-practice-routines small { display: block; overflow-wrap: anywhere; }
 .cp-practice-routines small { margin-top: 5px; font-size: 12px; color: var(--subtle); font-weight: 400; }
 @media (max-width: 599px) {
-  .cp-page { padding: 16px 16px 24px; }
+  .cp-page { --cp-page-top-space: 16px; padding: var(--cp-page-top-space) 16px 24px; }
   #app-shell .cp-today-title h1, #app-shell .cp-practice-hub h1 { font-size: 26px; }
   .cp-today-focus { padding: 14px; }
   .cp-focus-actions { width: 100%; }
@@ -405,12 +402,12 @@
   .cp-page:has(.cp-today) { padding-inline: 6px; }
 }
 @media (orientation: landscape) {
-  .cp-page { padding-top: 12px; }
+  .cp-page { --cp-page-top-space: 12px; padding-top: var(--cp-page-top-space); }
   #app-shell .cp-today-title h1 { margin-top: 0; }
   .cp-today-focus { margin-top: 10px; }
 }
 @media (orientation: landscape) and (max-height: 599px) {
-  .cp-page { padding: 8px 16px 20px; }
+  .cp-page { --cp-page-top-space: 8px; padding: var(--cp-page-top-space) 16px 20px; }
   #app-shell h1 { font-size: 27px; margin-top: 0; }
   #app-shell .cp-today-title p { font-size: 12px; }
   .cp-today-title { margin-bottom: 8px; }
@@ -624,7 +621,9 @@
 @media(orientation:landscape) and (max-height:599px){#app-shell {grid-template-columns:90px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);}#app-shell > .cp-page {grid-column:2;grid-row:2;}#app-shell > .cp-nav {grid-column:1;grid-row:2;}}
 #app-shell > .cp-app-header {height:68px;min-height:68px;box-sizing:border-box;padding-block:6px;}
 /* Library tabs belong to the page; primary navigation chrome stays the same height. */
-#app-shell .cp-page > .cp-library-navigation {position:sticky;top:0;z-index:5;max-width:1080px;margin:0 auto 20px;padding-block:0;background:var(--cream);}
+/* Keep the top spacing inside the opaque sticky band so scrolled content cannot show above it. */
+#app-shell .cp-page:has(> .cp-library-navigation) {padding-top:0;}
+#app-shell .cp-page > .cp-library-navigation {position:sticky;top:0;z-index:5;max-width:1080px;margin:0 auto 20px;padding-block:var(--cp-page-top-space) 0;background:var(--cream);}
 @media(max-width:379px){#app-shell .cp-app-header h1{font-size:18px;}}
 @media(max-width:339px){#app-shell > .cp-app-header{gap:6px;padding-inline:8px;}#app-shell .cp-app-header h1{font-size:16px;}}
 

@@ -1,0 +1,53 @@
+{
+  "version": "6.1.0",
+  "build": 76,
+  "date": "2026-10-19T07:49:10.400974+00:00",
+  "webBuild": "passed",
+  "androidBuild": "Java21 assembleRelease, bundleRelease and testReleaseUnitTest passed",
+  "androidReleaseUnitTests": 7,
+  "apkSignature": "verified, existing production/upload certificate",
+  "aabSignature": "jar verified",
+  "packagedWebFilesMatch": {
+    "apk": 261,
+    "aab": 261
+  },
+  "fullSuite": {
+    "total": 494,
+    "passed": 489,
+    "failed": 2,
+    "cancelled": 1,
+    "optionalSkipped": 2,
+    "log": "output/review/stable61-final-tests.log"
+  },
+  "resolvedFullSuiteCases": [
+    "Two historical recording fixtures now date their synthetic takes in the visible week rather than hiding them behind the current-week filter.",
+    "One camera orientation capture timed out during parallel load and passes unchanged in the sequential recheck."
+  ],
+  "sequentialRecheck": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "cancelled": 0,
+    "log": "output/review/stable61-final-recheck.log"
+  },
+  "consolidatedCoverage": {
+    "passed": 492,
+    "optionalSkipped": 2,
+    "unresolvedFailures": 0,
+    "scope": "Full-suite cases with the three failures/cancellation covered by the final sequential rerun; not a claim that the initial full run was all green."
+  },
+  "nativeEvidence": "../quality-review/captures/releases/2026-10-19-stable61/native-handoff-final.json",
+  "applicationStorageCleared": false,
+  "foreground": "com.miguecoll.spino/.MainActivity",
+  "productionAndBetaFilesRetainedBeforeLaunch": {
+    "production": 50,
+    "beta": 167
+  },
+  "websiteEvidence": "../quality-review/captures/website/2026-10-19-stable61-site-04/capture.json",
+  "playScreenshots": "../play-store/screenshots/2026-10-19-stable61/manifest.json",
+  "physicalDeviceAcceptance": false,
+  "realGoogleAuthorizationAcceptance": false,
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
+  "nextBeta": "6.1.1-beta.1 (minimum build 77), planned not released"
+}

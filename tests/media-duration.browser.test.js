@@ -22,7 +22,7 @@ test('two-minute legacy WebM has a full timeline before playback and keeps its o
     const loaded=new Promise((resolve,reject)=>{player.onloadedmetadata=resolve;player.onerror=reject;});player.src=url;await loaded;
     const rawDurationFinite=Number.isFinite(player.duration);player.removeAttribute('src');player.load();URL.revokeObjectURL(url);
     const {openMediaStore}=await import(URL.createObjectURL(new Blob([${JSON.stringify(storeSource)}],{type:'text/javascript'})));
-    const media=await openMediaStore();await media.put({id:'legacy-two-minute',workId:'duration-work',workTitle:'Synthetic duration test',title:'Two-minute legacy take',kind:'audio',createdAt:'2026-10-15T12:00:00Z',durationMs:120000,draft:false,blob});media.close();
+    const media=await openMediaStore();await media.put({id:'legacy-two-minute',workId:'duration-work',workTitle:'Synthetic duration test',title:'Two-minute legacy take',kind:'audio',createdAt:new Date().toISOString(),durationMs:120000,draft:false,blob});media.close();
     await new Promise((resolve,reject)=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(fixture)},'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};});
     return {rawDurationFinite,bytes:blob.size};
   })()`);

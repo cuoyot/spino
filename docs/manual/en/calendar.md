@@ -2,9 +2,9 @@
 
 Calendar offers Week and Month views. Use the arrows to browse dates and the current-week/day action to return to today. The month heading is compact, for example **October 2026**. Week/Month stays beside the Calendar title on one header row, including narrow phones.
 
-Saved practices appear as circles with the activity icon/color, actual minutes and optional mood. Partial sessions keep a partial indicator. Tap a circle for its full title, results, comments, next step and editing actions. A warm-up preceding another activity does not replace the main activity icon; mixed sessions list their activities in the accessible label and full detail.
+Saved practices use the same cards as **Progress → Activity → History**, work history and Today: title, date, local score thumbnail or activity icon, activity badges, optional mood with its label, duration and instrument/manual context. Partial practice remains labeled. Select the card to open its results, comments, next step and editing actions. Durations use hours and minutes from one hour upward.
 
-Each day keeps one row. Swipe sideways when more circles are available; the scrollbar is hidden. Keyboard users can focus the row and use arrow keys, or tab through sessions. In Week view, **+ Add** stays visible outside the scrolling row, and fine lines distinguish adjacent days. Month selected-day sessions use the same scrolling treatment. Durations remain in minutes, including **75 min**, **120 min** and longer sessions.
+Swipe sideways when a day has several saved practices; the scrollbar is hidden. Keyboard users can focus the row and use arrow keys, or tab through sessions. **+ Add** stays outside the scrolling row, below cards when space is narrow. Fine lines distinguish adjacent days. Month selected-day sessions use the same cards and scrolling treatment. A completed plan and its result occupy one card on the practice date; a moved plan keeps its result on the actual practice date. A completed plan's detail dialog also shows its saved result with the shared card.
 
 Choose **+ Add** in a weekly day to plan practice, record a completed practice or add an event on that date. Planned practices and events retain their detail/actions.
 
@@ -23,3 +23,9 @@ These lesson additions are currently verified in the source/browser review after
 
 
 Release follow-up: D-064 is packaged in website Android beta21/build74. Final responsive checks use the production web build; replacement installation retains the current emulator notebook and original blobs and confirms the app is in the foreground. Publication/download verification is tracked separately in the release record. Physical-device lesson capture and owner visual acceptance remain open.
+
+## Set an event time
+
+In **New event** or **Edit event**, choose the hour and minute from the two **Time** lists, using the 24-hour clock. `00:00` is midnight. Choose `--` for the hour to leave the event without a time. A reminder requires a time. Saving and reopening keeps the chosen hour and minute.
+
+This correction is verified in responsive browsers and the Android emulator and included in a local beta22/build75 review APK. It is not yet in the published beta22 download; physical-device acceptance remains open.

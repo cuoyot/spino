@@ -2,6 +2,8 @@
 
 In the 6.0.0 beta, open Profile and choose Appearance to select Light theme, Dark theme or Match device theme. The selection is saved with notebook preferences. Existing notebooks keep their previous dark appearance until you change it. New notebooks follow the device theme.
 
+Android beta 10 appearance (2026-10-15): navigation screens use a quiet background with softly raised weekly summaries and content cards. Headings, context, routine rows and repertoire tables stay flat. Existing activity colors remain. Dark mode uses a deeper background, lighter cards and a subtle light edge to keep the same visual separation. This hierarchy is verified in both themes in responsive browsers and published in Android beta 10/build49. Physical/native visual acceptance remains open; the iOS Simulator download remains beta 9/build48.
+
 The first launch offers a six-screen introduction: Today, Practice, Calendar, Library, Progress and Profile. Choose Skip to exit, or Back and Next to explore. Finish returns to the previous screen. Profile → App tour starts it again. The completion marker belongs to this device; it does not change practice records.
 
 Rate app opens Google Play on Android or requests Apple's in-app review on iOS. Apple decides whether to display its review panel. Share app opens the system sharing sheet with the public SPino website; notebook contents are not included.
@@ -24,6 +26,12 @@ On the connected device, open Profile → Connect another device → Show my not
 Both formats contain repertoire, practice history, scores and annotations. The default compatible JSON copy retains format 1. An organized format 2 copy separates notebook state, repertoire, scores, annotations and score views into sections inside one file; beta 3 or later can restore it. Older apps cannot open format 2. The export dialog requires acknowledging this before writing a format 2 copy.
 
 Convert a backup creates a separate compatible or organized copy without restoring it or modifying its source. Restore previews the format conversion and annotation count before asking permission to replace the local notebook. Future unsupported formats require updating SPino; no data is changed. Cloud synchronization still uses format 1, so choosing an organized manual copy does not change the shared file format.
+
+Current source follow-up (2026-10-14): Light appearance also applies to floating score tools and their annotation/framing panels. Text labels and selected actions were checked in responsive browser layouts; this correction awaits a later packaged release.
+
+## Synchronization errors
+
+The current source shows update errors directly in Backup & sync, including the failed step when known. Use Try again to retry an enabled connection. Temporary provider read failures receive up to three automatic retries while foreground synchronization is eligible. Invalid notebook data and failed writes still require attention. This behavior is browser/synthetic verified and awaits a native release; the existing beta 5 keeps the detailed message under Manage → Connection details.
 
 ## Current source: consistent primary headers
 

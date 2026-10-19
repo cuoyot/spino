@@ -59,21 +59,26 @@ TUS PARTITURAS
 • En apaisado, divide cada página en partes y léela parte a parte a tamaño grande.
 • Pasa página tocando los márgenes o con los pedales del piano.
 
+GRABA Y REVISA
+• Graba audio o vídeo de tus obras, revisa cada toma, reprodúcela sin conexión y compártela con las apps de Android.
+• Consulta 12 semanas de práctica y filtra el tiempo por actividad y obra. Completa clases con notas y enlaces a grabaciones.
+
 PRIVADO POR DISEÑO
 • Sin cuentas, sin anuncios y sin servidores propios: tu cuaderno se guarda en tu dispositivo.
-• Copia de seguridad opcional en el archivo que tú elijas (por ejemplo, en Google Drive) y cuaderno compartido entre dispositivos.
+• Copias JSON con partituras y anotaciones. Conexión opcional con tu Google Drive para sincronizar el cuaderno y copiar grabaciones guardadas. Los JSON no incluyen audio ni vídeo.
 
-Disponible en español e inglés.
+Disponible en español, inglés y catalán.
 <!-- /field -->
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-Novedades de la versión 5.1:
-• Calentamiento con una serie de ejercicios Hanon (n.º 1 a 10) que rota en cada sesión.
-• Repertorio con «En el atril» para las obras que estás trabajando; añade obras desde el catálogo.
-• Planifica repertorio sin elegir la obra: decídela al practicar y cámbiala cuando quieras.
-• Anota qué parte de la obra has trabajado.
-• Seguimiento con MIDI en partituras MusicXML (opcional).
+Novedades de SPino 6.1:
+• Grabación de audio y vídeo, reproducción sin conexión y compartir tomas.
+• Sincronización opcional del cuaderno y copias de grabaciones con tu Google Drive.
+• Gráfica de 12 semanas y filtros de tiempo por actividad y obra.
+• Clases completadas con notas y enlaces a grabaciones.
+• Mejoras en calendario, repertorio y resúmenes de práctica.
+• Español, inglés y catalán.
 <!-- /field -->
 
 ## English — en-US
@@ -131,20 +136,26 @@ YOUR SCORES
 • In landscape, split a page into parts and read it part by part at a large size.
 • Turn pages by tapping the margins or with your piano pedals.
 
+RECORD AND REVIEW
+• Record audio or video for repertoire pieces, review each take, replay offline and share through Android apps.
+• Review 12 weeks of practice and filter time by activity and piece. Complete lessons with notes and recording links.
+
 PRIVATE BY DESIGN
 • No accounts, no ads and no servers of our own: your notebook stays on your device.
-• Optional backup to a file you choose (for example in Google Drive) and a notebook shared between devices.
+• JSON copies with scores and annotations. Optionally connect your own Google Drive to synchronize the notebook and copy saved recordings. JSON files exclude audio and video.
 
-Available in English and Spanish.
+Available in English, Spanish and Catalan.
 <!-- /field -->
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-What's new in 5.1.1:
-• A cleaner practice screen with direct shortcuts for sound, guides, fingering and keyboard recentring.
-• Clear back, next-block and feedback navigation during exercises.
-• A more compact session overview with easier block editing and reordering.
-• Stability and layout improvements across phones and tablets.
+New in SPino 6.1:
+• Record audio and video, replay offline and share takes.
+• Optional notebook synchronization and recording copies with your own Google Drive.
+• 12-week chart and practice-time filters by activity and piece.
+• Completed lessons with notes and recording links.
+• Improved calendar, repertoire and saved-practice summaries.
+• English, Spanish and Catalan.
 <!-- /field -->
 
 ## Other listing fields
