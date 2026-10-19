@@ -9,6 +9,18 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  const {send,evaluate,url,errors}=await openBrowser(t,{companion:true,language:'en'});
  const wait=condition=>evaluate(`new Promise((resolve,reject)=>{let n=0;const id=setInterval(()=>{if(${condition}){clearInterval(id);resolve()}else if(++n>800){clearInterval(id);reject(Error('Timeout'))}},20)})`);
  const action=name=>evaluate(`document.querySelector('[data-action="${name}"]').click()`);
+ const checkClockFrames=async selector=>{
+  const samples=await evaluate(`(async()=>{
+   const button=document.querySelector(${JSON.stringify(selector)}),time=()=>button.querySelector('.pdf-time').textContent.split(':').reduce((n,part)=>n*60+Number(part),0);
+   const realNow=Date.now;let now=realNow();Date.now=()=>now;
+   const frames=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+   const start=time(),samples=[];
+   try{for(let i=1;i<=4;i++){now+=1000;await frames();samples.push(time()-start);}button.click();await frames();}
+   finally{Date.now=realNow;if(button.dataset.running==='false'){button.click();await frames();}}
+   return samples;
+  })()`);
+  assert.deepEqual(samples,[1,2,3,4],'Score seconds repaint on the next frame without waiting for a polling interval.');
+ };
  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);await disableWarmup(evaluate);
  await action('piano');await action('repertoire');await action('new-work');
  await evaluate(`(()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Timer synthetic.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=dt.files;input.dispatchEvent(new Event('change'));})()`);
@@ -16,6 +28,7 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
  await evaluate(`window.timerSeconds=()=>{const [m,s]=document.querySelector('.score-timer .pdf-time').textContent.split(':').map(Number);return m*60+s};window.timerStart=timerSeconds()`);
  await wait(`timerSeconds()>=timerStart+7`);
+ await checkClockFrames('[data-pdf=timer]');
  assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),'true');
  const folder=process.env.SPINO_SCORE_TIMER_EVIDENCE||'artifacts/score-timer';await mkdir(folder,{recursive:true});
  const grip=async()=>evaluate(`(()=>{const r=document.querySelector('.pdf-widget-bar [data-pdf=drag],.pdf-widget-bar [data-xml=drag]').getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2,id:1}})()`);
@@ -78,6 +91,7 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  assert.ok(xmlChunk);
  await evaluate(`(async()=>{const text=${JSON.stringify(musicXMLFixture())},bytes=new TextEncoder().encode(text),sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');window.xmlTiming={running:true,elapsed:0,since:Date.now()};window.xmlReview=await(await import('/assets/${xmlChunk}')).openMusicScore({asset:{base64:btoa(text),sha256,format:'musicxml'},selection:['P'],session:{read:()=>({running:xmlTiming.running,time:'0:'+String(Math.floor((xmlTiming.elapsed+(xmlTiming.running?Date.now()-xmlTiming.since:0))/1000)).padStart(2,'0')}),toggle:()=>{if(xmlTiming.running)xmlTiming.elapsed+=Date.now()-xmlTiming.since;else xmlTiming.since=Date.now();xmlTiming.running=!xmlTiming.running},finish:()=>{}}})})()`);
  await wait(`document.querySelector('.xml-score svg')`);await wait(`Number(document.querySelector('.score-timer .pdf-time').textContent.split(':')[1])>=7`);
+ await checkClockFrames('[data-xml=pause]');
  for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
   await evaluate(`new Promise(resolve=>setTimeout(resolve,550))`);
@@ -87,12 +101,18 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
   const positions=()=>evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-widget-bar button')].filter(b=>b.getBoundingClientRect().width).map(b=>{const r=b.getBoundingClientRect();return[['options','done'].includes(b.dataset.xml)?'edit':b.dataset.xml,{x:r.x,y:r.y,w:r.width,h:r.height}]}))`);
   const pausedPositions=await positions();
   await evaluate(`document.querySelector('[data-xml=options]').click()`);
-  assert.equal(await evaluate(`document.querySelector('[data-xml=pause]').disabled&&!document.querySelector('[data-xml=pause]').hidden`),true);
+  assert.equal(await evaluate(`!document.querySelector('[data-xml=pause]').disabled&&!document.querySelector('[data-xml=pause]').hidden`),true);
   const editingPositions=await positions();assert.deepEqual(Object.keys(editingPositions).sort(),Object.keys(pausedPositions).sort());
   for(const [action,box] of Object.entries(editingPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`MusicXML ${layout}: ${action} ${key} moved`);
-  await evaluate(`document.querySelector('[data-xml=pause]').click()`);assert.equal(await evaluate(`xmlTiming.running`),false);
   await writeFile(`${folder}/xml-${layout}-editing.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
-  await evaluate(`document.querySelector('[data-xml=done]').click()`);
+  const paused=await evaluate(`document.querySelector('.score-timer .pdf-time').textContent`);
+  await evaluate(`document.querySelector('[data-xml=pause]').click()`);
+  await wait(`document.querySelector('[data-xml=done]').hidden`);
+  assert.equal(await evaluate(`xmlTiming.running`),false,'The clock exits MusicXML editing without resuming practice.');
+  await evaluate(`new Promise(resolve=>setTimeout(resolve,1100))`);
+  assert.equal(await evaluate(`document.querySelector('.score-timer .pdf-time').textContent`),paused);
+  await writeFile(`${folder}/xml-${layout}-clock-exits-editing-paused.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await evaluate(`document.querySelector('[data-xml=pause]').click()`);await wait(`document.querySelector('.score-timer').dataset.running==='true'`);
  }
  assert.deepEqual(errors,[]);
 });

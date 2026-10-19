@@ -33,6 +33,7 @@ import { DEFAULT_PRACTICE_MINUTES, practiceMinutes, resizePractice } from './pra
 import { editSession, restoreCurrentRuntime, settleSuspendedBlocks } from './session-edit.js';
 import { sessionMarkup, workPickerMarkup } from './session-view.js';
 import { freePracticeMarkup, metronomeSettings } from './free-practice.js';
+import { watchPracticeClock } from './practice-clock.js';
 import { bindSessionDrag } from './session-drag.js';
 import { routineBuilderMarkup } from './routine-builder.js';
 import { quickPractice } from './quick-practice.js';
@@ -813,8 +814,8 @@ export async function bootCompanion(reader) {
   }
   function updateClock() {
     syncScreenAwake();
-    document.querySelectorAll('[data-session-clock], #practice-clock').forEach(el=>el.textContent=clock(totalMs()));
-    document.querySelectorAll('[data-block-clock]').forEach(el=>el.textContent=clock(blockMs()));
+    document.querySelectorAll('[data-session-clock], #practice-clock').forEach(el=>{const value=clock(totalMs());if(el.textContent!==value)el.textContent=value;});
+    document.querySelectorAll('[data-block-clock]').forEach(el=>{const value=clock(blockMs());if(el.textContent!==value)el.textContent=value;});
   }
   let historyThumbnails = null;
   function render() {
@@ -1444,7 +1445,8 @@ export async function bootCompanion(reader) {
   });
   window.addEventListener('pagehide',()=>{mediaSync?.stop();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});setScreenAwake(false).catch(()=>{});pauseSession();});
   window.addEventListener('popstate', navigateBack);
-  setInterval(()=>{if(data.active){updateClock();if(data.active.runningSince!=null&&Date.now()-checkpointAt>5000){checkpointAt=Date.now();checkpoint();}}},500);
+  watchPracticeClock(() => data.active ? {time:clock(totalMs()),blockTime:clock(blockMs()),running:data.active.runningSince!=null} : null, updateClock);
+  setInterval(()=>{if(data.active?.runningSince!=null&&Date.now()-checkpointAt>5000){checkpointAt=Date.now();checkpoint();}},500);
   if(data.active){data.active.runningSince=null;toast(ui("Your session was recovered in pause. Time with the app closed was not counted.", "Tu sesión se ha recuperado en pausa. El tiempo con la app cerrada no se ha contado."));}
   await persist().catch(()=>{});render();reminders();refreshProfileFiles().catch(()=>{});instrument.init().catch(error=>console.warn('Instrument setup unavailable.',error));
   library = await importLibrary({ previous: library, save: value => store.saveLibrary(value) });

@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-19",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "gitHead": "7ea24a5b7ca445a3ea23f310295161e3d8e4ce02",
+  "sources": {
+    "src/companion/practice-clock.js": "4b887bb590c48bcc65bc93d36769af9c7df8cffb9e0585d52b6f8dcfc4e781a1",
+    "src/companion/app.js": "2e32ece86fdab1cfe866d9543ec0f4825a3d4f4cae9585ca5c120da677ba6d30",
+    "src/companion/pdf-viewer.js": "475fa6e31824d1ecd20ef43198bac9987a31d23f9a5e4872b7a564818e4afaca",
+    "src/companion/musicxml-viewer.js": "fc2f4efc66f687fd9c44e23f2395dd02104c833f2b55ba204fead42379ac3087",
+    "src/companion/score-controls.js": "65e525f5c0d21a03ccbc2563cb6e0a8afa97a1251a926f743c1a0097bda20fbc",
+    "src/companion/pdf-viewer.css": "10dff0b6201b6c383ea6aa85e83fb86d6103dd81f9c40487f5d22479391df884",
+    "tests/practice-clock.browser.test.js": "e5ddaf0a8f027a5e014acbdc1b5b39cef4e966ab2435b58af6937dd86bef3bc1",
+    "tests/score-timer.browser.test.js": "31833f36824a9f124c80612154de678ecd8a2e63a742d2a5d2cc5b97a000771b"
+  },
+  "build": {
+    "command": "npm run build",
+    "status": "passed",
+    "assets": [
+      "app-CGBznsGS.css",
+      "app-LRcfcvsa.js",
+      "musicxml-viewer-DWow1fJj.js",
+      "pdf-viewer-BQhDPv2J.css",
+      "pdf-viewer-C-0-znXJ.js"
+    ]
+  },
+  "changes": [
+    "Paint practice second changes on animation frames independently of checkpoint persistence.",
+    "Keep unchanged clock text nodes and use tabular digits in the PDF/MusicXML timer."
+  ],
+  "fixtures": {
+    "free": "scripts/review/session-fixtures.mjs: running",
+    "reading": "scripts/review/generated-practice-fixtures.mjs",
+    "pdf": "tests/pdf-fixture.js",
+    "musicxml": "tests/musicxml-fixture.js"
+  },
+  "layouts": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      320,
+      568
+    ]
+  ],
+  "validation": {
+    "practiceClock": "4 passed, including synthetic second boundaries, a delayed frame, pause/resume and three reading modes",
+    "scoreTimer": "1 passed: PDF and MusicXML next-frame second changes, checkpoint continuity, pause/resume, responsive controls and minimize/restore",
+    "practiceTimingAndTime": "4 passed",
+    "freePractice": "1 passed on standalone rerun; initial concurrent run failed the asynchronous settings-persistence assertion (volume after reload).",
+    "measuredCadence": "Six consecutive real-time second transitions; observed intervals from 999.0 to 1002.2 ms."
+  },
+  "preview": "http://127.0.0.1:5294/"
+}

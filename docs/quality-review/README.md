@@ -465,3 +465,6 @@ Latest review steering, 2026-10-12: tablet warm-up Next action occupies an extra
 
 
 Final beta16/build69 [native emulator verification](captures/multimedia/2026-10-17-beta16-native-10/native.json) passes replacement installation, foreground, retained original stores/blobs, actual front/back camera changes, preview-before-capture, paused clock and encoded portrait/landscape dimensions. Physical-device acceptance remains separate. Publication is tracked in `docs/releases/6.1.0-beta.16-publication.json`.
+
+
+2026-10-19 practice-clock follow-up: the owner requests steady seconds and tapping the score clock during editing to save, close tools and stay paused. [Active review](practice-clock.md) records 14 passing browser checks, retained earlier evidence, and installed Android 6.1.1-beta.1/build77 with native MusicXML clock checks. Website publication and the full-suite outcome are tracked in the release manifests.

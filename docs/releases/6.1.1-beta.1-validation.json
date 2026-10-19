@@ -1,0 +1,45 @@
+{
+  "version": "6.1.1-beta.1",
+  "build": 77,
+  "webBuild": "passed",
+  "focusedClockChecks": 14,
+  "androidBuild": "assembleDebug, bundleRelease and testDebugUnitTest passed",
+  "androidUnitChecks": 7,
+  "apkSignature": "verified: beta debug signing certificate matches the existing channel",
+  "aabSignature": "jar verified: existing upload certificate",
+  "packagedWebFilesMatch": {
+    "apk": 261,
+    "aab": 261
+  },
+  "nativeEvidence": "../quality-review/captures/releases/2026-10-19-beta611/native-handoff.json",
+  "browserEvidence": "../quality-review/captures/session/2026-10-19-clock-edit-pause-01/responsive-browser",
+  "fullSuite": {
+    "total": 495,
+    "passed": 492,
+    "failed": 1,
+    "cancelled": 0,
+    "optionalSkipped": 2,
+    "log": "output/review/beta611-full-tests.log"
+  },
+  "applicationStorageCleared": false,
+  "physicalDeviceAcceptance": false,
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "stableWebsiteUnchanged": "6.1.0 (76)",
+  "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
+  "nativeClockEvidence": "../quality-review/captures/releases/2026-10-19-beta611/native-clock.json",
+  "nativeClock": "Direct synthetic MusicXML session on the installed Android WebView: clock enabled in editing, editing closes into pause, paused time stable, second tap resumes. No compatibility shim or notebook writes.",
+  "retainedOriginalIndexedDBFiles": 119,
+  "date": "2026-10-19T16:54:46.805Z",
+  "sequentialRecheck": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "log": "output/review/beta611-sequential-recheck.log",
+    "scope": "The camera orientation test timed out waiting for decoded video under parallel load; it and the related camera-controls test pass unchanged when run sequentially."
+  },
+  "consolidatedCoverage": {
+    "passed": 493,
+    "optionalSkipped": 2,
+    "unresolvedFailures": 0
+  }
+}

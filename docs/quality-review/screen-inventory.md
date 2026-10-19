@@ -406,3 +406,6 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 
 
 2026-10-18 D-065 reopens CLOUD-01/02/05, PROFILE-01, PRACTICE-01 and C-TRANSFER/C-DIALOG after the owner's beta19 phone/tablet screenshots. Current practice is device-local for Drive, completed history can arrive while a paused practice remains intact, and old active-only conflicts can recover. Phase feedback, Pause, bounded requests and safe incremental retries have 40 responsive frames in profile/2026-10-18-sync-recovery-03; real account/device acceptance remains separate.
+
+
+2026-10-19 C-SCORE / PRACTICE-05 reopened for the practice clock. The owner accepts tapping the editing clock to save and return to pause; a second tap resumes. Both PDF and MusicXML inherit the clock label/icon and fixed-width digits from the shared controls. [Current evidence](practice-clock.md) retains earlier baselines, adds both-theme/four-orientation/narrow-phone browser checks and records installed beta77/native MusicXML verification separately from physical acceptance.

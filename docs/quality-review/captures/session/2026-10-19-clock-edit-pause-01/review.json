@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-19",
+  "version": "6.1.1-beta.1",
+  "build": 77,
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "focusedTests": 14,
+  "failed": 0,
+  "fixtures": [
+    "tests/pdf-fixture.js",
+    "tests/musicxml-fixture.js",
+    "scripts/review/session-fixtures.mjs",
+    "scripts/review/generated-practice-fixtures.mjs"
+  ],
+  "screens": [
+    "PRACTICE-05",
+    "C-SCORE"
+  ],
+  "states": [
+    "running",
+    "paused",
+    "editing",
+    "clock exits editing to pause",
+    "second tap resumes"
+  ],
+  "layouts": [
+    [
+      320,
+      568
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "sources": {
+    "src/companion/practice-clock.js": "4b887bb590c48bcc65bc93d36769af9c7df8cffb9e0585d52b6f8dcfc4e781a1",
+    "src/companion/app.js": "2e32ece86fdab1cfe866d9543ec0f4825a3d4f4cae9585ca5c120da677ba6d30",
+    "src/companion/pdf-viewer.js": "4ec3bdad79ff2bfb69651aeaf6ff43eb05c1752a98b848721c129a50a58ea609",
+    "src/companion/musicxml-viewer.js": "3e4abdf8f9c387caf603ab654ed78f787355b932838745389d95f12f4337509e",
+    "src/companion/score-controls.js": "1d33b8c5c88f3219a5474cfbf604db478eb96dd2d2d43a0c073d3bf6b085a187",
+    "src/companion/pdf-viewer.css": "10dff0b6201b6c383ea6aa85e83fb86d6103dd81f9c40487f5d22479391df884",
+    "tests/pdf-practice.browser.test.js": "b1aa35740f307a83a4c8ac91f195803e11508b9bfa83ebf255e133324f5f1c3c",
+    "tests/practice-clock.browser.test.js": "e5ddaf0a8f027a5e014acbdc1b5b39cef4e966ab2435b58af6937dd86bef3bc1",
+    "tests/score-timer.browser.test.js": "202d962c8c7d5e65b11c810ecc76921febc3228b9bd79419d0c945fbc11873c0"
+  },
+  "buildIndexSHA256": "697ea0a0f0fc176ebdc32b84a5204669e09fb27a207094d1ec9cb1e7dad7a23a",
+  "log": "output/review/beta611-clock-focused-tests.log"
+}

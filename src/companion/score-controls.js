@@ -36,13 +36,16 @@ const toolButton = (id, label) => `<button type="button" data-tool="${id}" aria-
 
 export function updateScoreTimer(button, info) {
   const running = !!info.running;
-  if (!button.querySelector('.pdf-time') || button.dataset.running !== String(running)) {
-    button.innerHTML = `<span class="score-timer-state">${running ? ui('Practice', 'Práctica') : ui('Paused', 'En pausa')}</span><span class="pdf-time"></span>${scoreIcon(running ? 'pause' : 'play')}`;
+  const editing = !!info.editing;
+  if (!button.querySelector('.pdf-time') || button.dataset.running !== String(running) || button.dataset.editing !== String(editing)) {
+    button.innerHTML = `<span class="score-timer-state">${running ? ui('Practice', 'Práctica') : ui('Paused', 'En pausa')}</span><span class="pdf-time"></span>${scoreIcon(editing ? 'done' : running ? 'pause' : 'play')}`;
   }
   button.classList.add('score-timer');
   button.dataset.running = String(running);
-  button.querySelector('.pdf-time').textContent = info.time;
-  const label = running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
+  button.dataset.editing = String(editing);
+  const time = button.querySelector('.pdf-time');
+  if (time.textContent !== info.time) time.textContent = info.time;
+  const label = editing ? ui('Finish editing and stay paused', 'Finalizar edición y seguir en pausa') : running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
   button.setAttribute('aria-label', label);
   button.title = label;
 }

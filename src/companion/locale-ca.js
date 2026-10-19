@@ -1184,6 +1184,7 @@ Green|Verd
 Ink|Tinta
 Could not save annotations.|No s’han pogut desar les anotacions.
 Resume practice|Reprendre la pràctica
+Finish editing and stay paused|Acabar l’edició i continuar en pausa
 Erase · Options|Esborrar · Opcions
 End of the score|Final de la partitura
 Connect a MIDI keyboard|Connecta un teclat MIDI

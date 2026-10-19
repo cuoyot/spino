@@ -157,7 +157,7 @@
   box-shadow: 0 2px 0 #185e5d, 0 5px 10px #062e3826, inset 0 1px 2px #ffffff45, inset 0 -1px 3px #073d3c30;
 }
 .pdf-viewer .pdf-widget-bar .score-timer[data-running=false] { background: radial-gradient(circle at 40% 25%, #98621d, #795018 80%); }
-.pdf-viewer .pdf-widget-bar .score-timer .pdf-time { min-width: 0; font-size: 23px; font-weight: 750; line-height: 1.15; letter-spacing: -.6px; }
+.pdf-viewer .pdf-widget-bar .score-timer .pdf-time { min-width: 0; font-size: 23px; font-weight: 750; font-variant-numeric: tabular-nums; line-height: 1.15; letter-spacing: -.6px; }
 .pdf-viewer .pdf-widget-bar .score-timer svg { width: 16px; height: 16px; margin: 0; }
 .score-timer-state { font-size: 9px; font-weight: 650; line-height: 1.4; text-transform: uppercase; letter-spacing: .5px; }
 .pdf-widget-bar [data-pdf=drag], .pdf-widget-bar [data-xml=drag] { order: 0; }

@@ -185,18 +185,23 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
         assert.equal(await evaluate(`document.querySelector('[data-pdf=tools]').hidden`),state==='editing');
         assert.equal(await evaluate(`document.querySelector('[data-pdf=split-done]').hidden`),state==='paused');
         assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').hidden`),false);
-        assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').disabled`),state==='editing');
+        assert.equal(await evaluate(`document.querySelector('[data-pdf=timer]').disabled`),false);
         const currentPositions=await positions();assert.deepEqual(Object.keys(currentPositions).sort(),Object.keys(pausedPositions).sort());
         for(const [action,box] of Object.entries(currentPositions))for(const key of ['x','y','w','h'])assert.ok(Math.abs(box[key]-pausedPositions[action][key])<1,`${theme} ${width}x${height}: ${action} ${key} moved: ${JSON.stringify({paused:pausedPositions,current:currentPositions})}`);
-        if(state==='editing'){
-          await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
-          assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'false','Disabled clock cannot resume editing.');
-        }
         const geometry=await evaluate(`(()=>{const bar=document.querySelector('.pdf-widget-bar').getBoundingClientRect(),buttons=[...document.querySelectorAll('.pdf-widget-bar button')].map(b=>({timer:b.matches('.score-timer'),r:b.getBoundingClientRect()})).filter(b=>b.r.width&&b.r.height);return{inside:buttons.every(({r})=>r.left>=bar.left-1&&r.right<=bar.right+1),rows:[...new Set(buttons.filter(b=>!b.timer).map(b=>Math.round(b.r.top)))].length};})()`);
         assert.deepEqual(geometry,{inside:true,rows:1},`${theme} ${state} ${width}x${height}`);
         if(evidence){const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${evidence}/${theme}-${state}-${name}.png`,Buffer.from(shot.data,'base64'));}
+        if(state==='editing'){
+          const paused=await evaluate(`document.querySelector('.pdf-time').textContent`);
+          await evaluate(`document.querySelector('[data-pdf=timer]').click()`);
+          await wait(`document.querySelector('.pdf-panel').hidden && document.querySelector('[data-pdf=split-done]').hidden`);
+          assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'false','The clock finishes editing and keeps practice paused.');
+          await evaluate(`new Promise(resolve=>setTimeout(resolve,1100))`);
+          assert.equal(await evaluate(`document.querySelector('.pdf-time').textContent`),paused);
+          if(evidence){const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${evidence}/${theme}-clock-exits-editing-paused-${name}.png`,Buffer.from(shot.data,'base64'));}
+          await control('timer');await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);await control('timer');
+        }
       }
-      await control('split-done');await control('timer');
     }
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='light'`);await new Promise(resolve=>setTimeout(resolve,220));await ready();
   });

@@ -6,6 +6,7 @@ import { scoreFullscreen } from './platform.js';
 import { scoreIcon, updateScoreTimer, enableScoreWidgetMinimize } from './score-controls.js';
 import { digest } from './library.js';
 import { ui, localizeMessage } from './locale.js';
+import { watchPracticeClock } from './practice-clock.js';
 import { marginTurn, turnEdge } from './pdf-annotations.js';
 import { MARK_COLORS } from './pdf-annotations.js';
 import { onPedalTurn } from './pedals.js';
@@ -108,18 +109,18 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     paintNoteMarks();const snapshot=structuredClone(noteMarks);markSaving=markSaving.catch(()=>{}).then(()=>saveMarks(snapshot)).catch(error=>{status.dataset.error='true';status.textContent=ui('Could not save annotations.','No se pudieron guardar las anotaciones.');controls();throw error;});markSaving.catch(()=>{});
   });
   widget.append(closeButton);
-  let closed = false, timer, zoom = 1, drag = null, expanded = false;
+  let closed = false, stopClock, zoom = 1, drag = null, expanded = false;
   const running = () => !!session?.read().running;
   const controls = () => {
     const editing=expanded||annotationTool!=='read';
     const info = session?.read(); modal.dataset.running = String(running());
     const pause = modal.querySelector('[data-xml=pause]');
-    if (session) updateScoreTimer(pause, info);
+    if (session) updateScoreTimer(pause, { ...info, editing });
     for (const action of ['out', 'in']) modal.querySelector(`[data-xml=${action}]`).hidden = running();
     closeButton.hidden=running()||editing;
     modal.querySelector('[data-xml=drag]').hidden=false;
     modal.querySelector('[data-xml=finish]')?.toggleAttribute('hidden', false);
-    pause.hidden=!session;pause.disabled=editing;
+    pause.hidden=!session;pause.disabled=false;
     options.hidden = !expanded || running();optionToggle.hidden=editing;done.hidden=!editing||running();
     const quick=!expanded&&!running()&&annotationTool!=='read';compact.hidden=!quick;activeTool.hidden=!quick;
     const destination=quick?compact:options;if(marksGroup.parentElement!==destination)destination.append(marksGroup);
@@ -237,12 +238,12 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if (closed) return;
     if (running()) { await session.toggle(); controls(); return; }
     try{await markSaving;}catch{return false;}
-    closed = true; stopFollow(); clearInterval(timer); clearTimeout(zoneTimer); clearTimeout(resizeTimer); resized.disconnect(); stopPedals(); display.AutoResizeEnabled = false; display.clear(); await fullscreen.exit(); modal.close(); modal.remove(); onClose(); return true;
+    closed = true; stopFollow(); stopClock?.(); clearTimeout(zoneTimer); clearTimeout(resizeTimer); resized.disconnect(); stopPedals(); display.AutoResizeEnabled = false; display.clear(); await fullscreen.exit(); modal.close(); modal.remove(); onClose(); return true;
   }
-  async function leaveEditing() {
+  async function leaveEditing({ resume = true } = {}) {
     try { await markSaving; } catch { return; }
     expanded=false; annotationTool='read'; updateDigitControls();
-    if(session && !running()) await session.toggle();
+    if(resume && session && !running()) await session.toggle();
     controls();
   }
   modal.addEventListener('cancel', event => { event.preventDefault(); if(!running() && (expanded || annotationTool!=='read')) void leaveEditing(); else void close(); });
@@ -263,7 +264,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if (action === 'record') { session?.record?.(); return; }
     if (action === 'finish' && session?.finish) { if(running()) { await session.toggle(); controls(); } if (await close()) await session.finish(); return; }
     if (action === 'close') await close();
-    if (action === 'pause') { await session.toggle(); controls(); }
+    if (action === 'pause') { if (!running() && (expanded || annotationTool!=='read')) await leaveEditing({ resume: false }); else { await session.toggle(); controls(); } }
     if (action === 'next' || action === 'prev') turn(action === 'next' ? 1 : -1);
     if (action === 'follow') { followPreference.enabled = !follower; saveFollowPreference(followPreference); if (follower) stopFollow(); else startFollow(); }
     if (!running() && ['in', 'out'].includes(action)) setZoom(Math.max(.6,Math.min(2,zoom+(action==='in'?.2:-.2))));
@@ -273,7 +274,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   handle.onpointermove = e => { if (!drag) return; widget.style.right = 'auto'; widget.style.bottom = 'auto'; widget.style.left = `${Math.max(8, Math.min(modal.clientWidth - widget.offsetWidth - 8, e.clientX - drag.x))}px`; widget.style.top = `${Math.max(pauseButton.hidden ? 8 : 36, Math.min(modal.clientHeight - widget.offsetHeight - 8, e.clientY - drag.y))}px`; };
   handle.onpointerup = handle.onpointercancel = () => { drag = null; };
   if (session) enableScoreWidgetMinimize(widget, handle);
-  controls(); timer = setInterval(controls, 500);
+  controls(); stopClock = watchPracticeClock(() => session?.read(), controls);
   try {
     await display.load(xml.trimStart().startsWith('<?xml')?xml:'<?xml version="1.0"?>'+xml); if (closed) return { close };
     display.render();

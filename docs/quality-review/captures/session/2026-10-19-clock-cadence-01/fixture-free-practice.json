@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "Alex",
+    "context": "piano",
+    "weeklyMinutes": 200,
+    "wifiOnly": true,
+    "theme": "system",
+    "language": "es"
+  },
+  "works": [
+    {
+      "id": "review-work",
+      "title": "Minuet in G · BWV Anh. 114",
+      "composer": "Christian Petzold",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "Compases 1–8",
+      "target": "G-major",
+      "bpm": 60
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [
+    {
+      "id": "review-routine",
+      "title": "Mi rutina de 40 minutos",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "routine-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Compases 1–8",
+          "workId": "review-work"
+        }
+      ]
+    },
+    {
+      "id": "review-routine-mobile",
+      "title": "Lectura sin piano",
+      "context": "mobile",
+      "blocks": [
+        {
+          "id": "routine-mobile",
+          "type": "reading",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "wait",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "id": "review-next",
+      "title": "Lectura y repertorio",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "routine-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Compases 1–8",
+          "workId": "review-work"
+        }
+      ],
+      "date": "2026-10-01",
+      "time": "18:00",
+      "status": "planned",
+      "reminder": false
+    },
+    {
+      "id": "review-completed",
+      "title": "Técnica en Sol mayor",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "done-technique",
+          "type": "technique",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "date": "2026-10-01",
+      "time": "08:30",
+      "status": "completed",
+      "reminder": false,
+      "sessionId": "review-today-result"
+    },
+    {
+      "id": "review-tomorrow",
+      "title": "Mi rutina de 40 minutos",
+      "context": "piano",
+      "blocks": [
+        {
+          "id": "routine-technique",
+          "type": "technique",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-reading",
+          "type": "reading",
+          "minutes": 10,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        },
+        {
+          "id": "routine-repertoire",
+          "type": "repertoire",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "Compases 1–8",
+          "workId": "review-work"
+        }
+      ],
+      "date": "2026-10-02",
+      "time": "18:00",
+      "status": "planned",
+      "reminder": false
+    }
+  ],
+  "events": [
+    {
+      "id": "review-tutor-today",
+      "title": "Clase con mi profesora",
+      "type": "Clase",
+      "date": "2026-10-01",
+      "time": "19:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "review-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-audition",
+      "title": "Audición de otoño",
+      "type": "Audición",
+      "date": "2026-10-10",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "review-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-tutor-next",
+      "title": "Clase de piano",
+      "type": "Clase",
+      "date": "2026-10-06",
+      "time": "19:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "review-work"
+      ],
+      "reminder": false,
+      "milestones": []
+    }
+  ],
+  "sessions": [
+    {
+      "id": "review-today-result",
+      "title": "Técnica en Sol mayor",
+      "context": "piano",
+      "planId": "review-completed",
+      "blocks": [
+        {
+          "id": "review-today-result-technique",
+          "type": "technique",
+          "minutes": 20,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "review-today-result-technique",
+            "type": "technique",
+            "minutes": 20,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 1200000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-10-01",
+      "elapsedMs": 1200000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "Pulso más estable. Repasar el cambio de posición.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-wed",
+      "title": "Práctica de piano",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "review-wed-technique",
+          "type": "technique",
+          "minutes": 35,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "review-wed-technique",
+            "type": "technique",
+            "minutes": 35,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 2100000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-09-30",
+      "elapsedMs": 2100000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-mon",
+      "title": "Práctica de piano",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "review-mon-technique",
+          "type": "technique",
+          "minutes": 40,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "G-major",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "review-mon-technique",
+            "type": "technique",
+            "minutes": 40,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "G-major",
+            "hand": "both",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 2400000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-10-01T10:00:00.000Z",
+      "date": "2026-09-28",
+      "elapsedMs": 2400000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1790848800000,
+      "notes": "",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-10-01T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": {
+    "id": "review-free-active",
+    "title": "Práctica libre",
+    "context": "piano",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "review-free-block",
+        "type": "free",
+        "minutes": 40,
+        "bpm": 60,
+        "timing": "timed",
+        "target": "C-major",
+        "hand": "right",
+        "input": "piano",
+        "figures": "1",
+        "passage": "Sonido y fraseo",
+        "workId": ""
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-10-01T10:00:00.000Z",
+    "date": "2026-10-01",
+    "elapsedMs": 480000,
+    "blockElapsedMs": 480000,
+    "runningSince": null,
+    "updatedAt": 1790848800000,
+    "notes": "",
+    "next": ""
+  },
+  "lastBackup": null
+}

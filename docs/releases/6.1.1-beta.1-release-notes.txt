@@ -1,0 +1,9 @@
+<es-ES>
+El reloj de práctica avanza con regularidad y mantiene los dígitos estables. En PDF y MusicXML, tocar el reloj mientras editas guarda los cambios, cierra la edición y mantiene la práctica en pausa. Tócalo de nuevo para continuar.
+</es-ES>
+<en-US>
+Practice time now updates steadily with stable digits. In PDF and MusicXML, tapping the clock while editing saves your changes, closes editing and keeps practice paused. Tap it again to continue.
+</en-US>
+<ca>
+El rellotge de pràctica avança amb regularitat i manté els dígits estables. En PDF i MusicXML, tocar el rellotge mentre edites desa els canvis, tanca l’edició i manté la pràctica en pausa. Torna’l a tocar per continuar.
+</ca>

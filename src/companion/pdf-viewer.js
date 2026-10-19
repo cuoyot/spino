@@ -6,6 +6,7 @@ import { validateScoreView, fittedFrame, sortSections, sectionLayout, snapSectio
 import { scoreControlsMarkup, scoreIcon, updateScoreTimer, enableScoreWidgetMinimize } from './score-controls.js';
 import { scoreFullscreen, native } from './platform.js';
 import { ui, localizeMessage } from './locale.js';
+import { watchPracticeClock } from './practice-clock.js';
 import './pdf-viewer.css';
 import { printScore } from './score-print.js';
 import { pdfPrintPages, markNode as printableMarkNode } from './pdf-print.js';
@@ -46,12 +47,12 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   let editingRequested=false;
   const running = () => !!session?.read().running;
   const editing = () => !running() && (editingRequested || splitting || tool !== 'read');
-  async function leaveEditing() {
+  async function leaveEditing({ resume = true } = {}) {
     if (dirty && !await persistMarks()) return;
     if (viewSaving && !await viewSaving) return;
     await setSplitting(false);
     selectTool('read'); expanded = false; editingRequested=false;
-    if (session && ready && !running()) await session.toggle();
+    if (resume && session && ready && !running()) await session.toggle();
     updateTimer(); controls();
   }
   const currentOrientation = () => viewport.clientWidth > viewport.clientHeight ? 'landscape' : 'portrait';
@@ -85,7 +86,8 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     $('[data-pdf=in]').disabled = !ready || zoom >= 3 || !!section;
     $('[data-pdf=fit]').disabled = !ready || !!section;
     $('[data-pdf=retry]').hidden = !dirty;
-    $('[data-pdf=timer]')?.toggleAttribute('disabled', editing() || (!ready && !running()));
+    $('[data-pdf=timer]')?.toggleAttribute('disabled', !ready && !running());
+    if (session) updateScoreTimer($('[data-pdf=timer]'), { ...session.read(), editing: editing() });
     $('[data-pdf=save-view]').disabled = !ready || !!viewSaving || !!section;
     $('[data-pdf=split]').textContent = splitting ? ui('Done', 'Hecho') : ui('Split page', 'Dividir página');
     $('[data-pdf=split]').setAttribute('aria-pressed', String(splitting));
@@ -497,7 +499,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (textDialog?.open) { textDialog.close(); closing = false; return; }
     if (dirty && !await persistMarks()) { closing = false; return; }
     if (viewSaving && !await viewSaving) { closing = false; return; }
-    closed = true; renderVersion++; clearTimeout(resizeTimer); clearTimeout(zoneTimer); stopPedals(); clearInterval(ticker); observer.disconnect(); rendering?.cancel();
+    closed = true; renderVersion++; clearTimeout(resizeTimer); clearTimeout(zoneTimer); stopPedals(); stopClock(); observer.disconnect(); rendering?.cancel();
     await task.destroy().catch(() => {});
     await fullscreen.exit().catch(() => {});
     modal.close(); modal.remove(); previousFocus?.focus(); onClose();
@@ -511,7 +513,8 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (colorButton && !running()) { color = colorButton.dataset.color;const selected=annotations.marks.find(m=>m.id===selectedId);if(selected)changed(annotations.marks.map(m=>m.id===selectedId?{...m,color}:m));expanded=false;controls(); }
     const action = event.target.closest('[data-pdf]')?.dataset.pdf;
     try {
-      if (editing() && ['timer', 'close'].includes(action)) return;
+      if (editing() && action === 'close') return;
+      if (editing() && action === 'timer') { await leaveEditing({ resume: false }); return; }
       if (action === 'record') { session?.record?.(); return; }
       if (action === 'finish' && session?.finish) {
         if (running()) { await session.toggle(); updateTimer(); }
@@ -572,7 +575,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (closed) return;
     const info = session?.read() || { running: false, time: '' };
     if (session) {
-      updateScoreTimer($('[data-pdf=timer]'), info);
+      updateScoreTimer($('[data-pdf=timer]'), { ...info, editing: editing() });
     }
     if (wasRunning !== !!info.running) {
       if (info.running) { editingRequested=false; tool = 'read'; draft = null; gesture = null; paint(); expanded = false; textDialog?.close(); if (splitting) void setSplitting(false); }
@@ -580,7 +583,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     }
   }
   const stopPedals = onPedalTurn(delta => { if (!closed) turn(delta); });
-  const ticker = setInterval(updateTimer, 500);
+  const stopClock = watchPracticeClock(() => session?.read(), updateTimer);
   const observer = new ResizeObserver(() => {
     if (pointers.size || !pdf || closed) return;
     const nextOrientation = currentOrientation();
