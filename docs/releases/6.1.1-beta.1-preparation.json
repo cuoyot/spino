@@ -1,0 +1,24 @@
+{
+  "aab": {
+    "file": "artifacts/releases/6.1.1-beta.1/SPino-6.1.1-beta.1-77.aab",
+    "bytes": 19359131,
+    "sha256": "07a4fe468c57ff9aa3f7d4a9e1a40d2777505ea9e2e7e7753566d4f4666f8403"
+  },
+  "playConsoleZIP": {
+    "file": "artifacts/play-store/SPino-6.1.1-beta.1-77-play-console.zip",
+    "bytes": 19184770,
+    "sha256": "9293af6295acca7fa1cdc865da17accaff336009d8108020ef862bc572c0bf59"
+  },
+  "releaseNotes": {
+    "file": "docs/releases/6.1.1-beta.1-release-notes.txt",
+    "bytes": 707,
+    "sha256": "90cf0dd9e0e9574762c2f8211b7e4f56b71c0e3a5317a3b07420f0e070a9c40e"
+  },
+  "version": "6.1.1-beta.1",
+  "build": 77,
+  "playConsoleStatus": "prepared_not_uploaded",
+  "sourceCommit": "6fa1ce1ee90b0c9434d973589e146c35d0b481c7",
+  "tag": "v6.1.1-beta.1",
+  "websiteStatus": "published_and_publicly_verified",
+  "publication": "6.1.1-beta.1-publication.json"
+}

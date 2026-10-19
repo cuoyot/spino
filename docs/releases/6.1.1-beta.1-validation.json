@@ -41,5 +41,7 @@
     "passed": 493,
     "optionalSkipped": 2,
     "unresolvedFailures": 0
-  }
+  },
+  "publicVerificationPassed": true,
+  "publication": "6.1.1-beta.1-publication.json"
 }

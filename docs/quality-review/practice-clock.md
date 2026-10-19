@@ -9,3 +9,5 @@ Fourteen focused browser checks pass with synthetic notebooks/scores. [Dated evi
 [Native handoff](captures/releases/2026-10-19-beta611/native-handoff.json) records replacement installation, foreground and 119 unchanged original IndexedDB files before launch. Browser screenshots are responsive evidence; physical-device acceptance remains separate. Public delivery is recorded in the release publication manifest.
 
 [Native MusicXML clock checks](captures/releases/2026-10-19-beta611/native-clock.json) pass on the installed emulator WebView using a direct synthetic session, without compatibility shims or notebook writes. They verify the enabled editing clock, exit into pause, stable paused time and second-tap resume. Native PDF/physical-device acceptance remains separate.
+
+Published 2026-10-19 as website Android 6.1.1-beta.1 (77). [Public verification](../releases/6.1.1-beta.1-publication.json) confirms the three localized pages and current/retained artifact hashes. The source tag is v6.1.1-beta.1. Consolidated regression coverage has 493 passed, two optional skipped and no unresolved failures after sequential camera recheck.
