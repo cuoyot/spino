@@ -1,5 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {downloadResponse} from '../scripts/site/download-worker.mjs';
+import media from '../scripts/site/media-parts.mjs';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 const file='/downloads/spino-test.apk',payload=new TextEncoder().encode('0123456789abcdef');
 const manifest={[file]:{bytes:payload.length,sha256:'original-sha',parts:[{path:'/part-a',bytes:5},{path:'/part-b',bytes:7},{path:'/part-c',bytes:4}]}};
 const parts={'/part-a':payload.slice(0,5),'/part-b':payload.slice(5,12),'/part-c':payload.slice(12)};
@@ -16,4 +19,21 @@ test('large downloads stream the exact artifact and resume across static-part bo
  for(const range of ['bytes=20-','bytes=8-2','bytes=-0','bytes=1-2,4-5'])assert.equal((await response({Range:range})).status,416);
  assert.equal((await response({},'POST')).status,405);
  const other=await downloadResponse(new Request('https://example.com/other'),assets,manifest);assert.equal(other.status,404);assert.equal(await other.text(),'static');
+});
+
+test('the published Hanon video plays inline with byte ranges matching its exact reviewed media',async()=>{
+ const [path,entry]=Object.entries(media)[0],video=readFileSync('site'+path);
+ assert.equal(video.byteLength,entry.bytes);
+ assert.equal(createHash('sha256').update(video).digest('hex'),entry.sha256);
+ const videoAssets={fetch:async request=>new Response(new URL(request.url).pathname===path?video:'missing')};
+ const respond=headers=>downloadResponse(new Request('https://example.com'+path,{headers}),videoAssets);
+ for(const [range,start,end] of [['bytes=0-1',0,1],['bytes=1048576-1048639',1048576,1048639],['bytes=-128',video.byteLength-128,video.byteLength-1]]){
+  const r=await respond({Range:range});assert.equal(r.status,206);
+  assert.equal(r.headers.get('content-type'),'video/mp4');assert.match(r.headers.get('content-disposition'),/^inline;/);
+  assert.equal(r.headers.get('accept-ranges'),'bytes');assert.equal(r.headers.get('content-range'),`bytes ${start}-${end}/${video.byteLength}`);
+  assert.deepEqual(new Uint8Array(await r.arrayBuffer()),new Uint8Array(video.subarray(start,end+1)));
+ }
+ const head=await downloadResponse(new Request('https://example.com'+path,{method:'HEAD'}),videoAssets);
+ assert.equal(head.headers.get('content-length'),String(video.byteLength));assert.equal(await head.text(),'');
+ const unchanged=await respond({'If-None-Match':'"'+entry.sha256+'"'});assert.equal(unchanged.status,304);
 });

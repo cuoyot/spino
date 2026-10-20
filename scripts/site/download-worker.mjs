@@ -1,4 +1,6 @@
 import downloads from './download-parts.mjs';
+import media from './media-parts.mjs';
+const servedAssets = {...downloads, ...media};
 
 function byteRange(header, size) {
   const match = /^bytes=(\d*)-(\d*)$/.exec(header || '');
@@ -10,13 +12,13 @@ function byteRange(header, size) {
 
 // Streams the original bytes, including resumed ranges across part boundaries.
 // Individual assets remain below the host's 25 MiB limit; the APK is unmodified.
-export async function downloadResponse(request, assets, manifest = downloads) {
+export async function downloadResponse(request, assets, manifest = servedAssets) {
   const url = new URL(request.url), entry = manifest[url.pathname];
   if (!entry) return assets.fetch(request);
   if (!['GET', 'HEAD'].includes(request.method)) return new Response(null, {status:405, headers:{Allow:'GET, HEAD'}});
   const etag = '"' + entry.sha256 + '"', headers = new Headers({
-    'Content-Type':'application/vnd.android.package-archive',
-    'Content-Disposition':`attachment; filename="${url.pathname.split('/').at(-1)}"`,
+    'Content-Type':entry.contentType || 'application/vnd.android.package-archive',
+    'Content-Disposition':`${entry.disposition === 'inline' ? 'inline' : 'attachment'}; filename="${url.pathname.split('/').at(-1)}"`,
     'Cache-Control':'public, max-age=300', 'Accept-Ranges':'bytes', ETag:etag,
     'X-Content-Type-Options':'nosniff',
   });
