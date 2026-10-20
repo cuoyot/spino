@@ -8,8 +8,8 @@
   },
   "playConsoleZIP": {
     "file": "artifacts/play-store/SPino-6.1.1-beta.3-79-play-console.zip",
-    "bytes": 37929963,
-    "sha256": "cde73f52610707ecef118ebde2b5abc3db1771038311e5b2a7d1accd513294a4"
+    "bytes": 37933165,
+    "sha256": "60ffacb36134bd9edc0e7ebe571e2b6cb94a640cf6fc168e08fe42a246aee752"
   },
   "releaseNotes": {
     "file": "docs/releases/6.1.1-beta.3-release-notes.txt",
@@ -22,6 +22,8 @@
     "ca": 250
   },
   "playConsoleStatus": "prepared_not_uploaded",
-  "websiteStatus": "ready_for_publication",
-  "nativePDF": "WebView 113 renderer acceptance open; complete lesson/PDF browser checks passed"
+  "websiteStatus": "published_verified",
+  "nativePDF": "WebView 113 renderer acceptance open; complete lesson/PDF browser checks passed",
+  "publicationEvidence": "docs/releases/6.1.1-beta.3-publication.json",
+  "releaseCommit": "1dc5c92a58c75101454267d2673ee176f3657ea6"
 }

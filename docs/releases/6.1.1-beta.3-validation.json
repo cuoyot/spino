@@ -80,6 +80,10 @@
   "googlePlayUnchanged": "5.2.3 (35)",
   "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
   "physicalDeviceAcceptance": false,
-  "publicVerificationPassed": false,
-  "publication": "pending"
+  "publicVerificationPassed": true,
+  "publication": "published_verified",
+  "publicEvidence": "6.1.1-beta.3-publication.json",
+  "publicVerifiedAt": "2026-10-20T09:49:23.604308+00:00",
+  "releaseCommit": "1dc5c92a58c75101454267d2673ee176f3657ea6",
+  "publicResumedRangesPassed": 3
 }
