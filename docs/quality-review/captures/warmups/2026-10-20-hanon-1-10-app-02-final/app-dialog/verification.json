@@ -1,0 +1,368 @@
+{
+  "kind": "Actual production app dialog; responsive Chromium; disposable synthetic notebook",
+  "date": "2026-10-20T08:16:59.087Z",
+  "buildIndexSHA256": "65c41bdca7af399b89ad1dd9f37b8cdc0e13a14f9f8ef8014fbe7dfa7b4eda77",
+  "frames": [
+    {
+      "file": "light-phone-portrait-opening.png",
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        320,
+        177.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-phone-portrait-descending.png",
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        320,
+        177.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-phone-landscape-opening.png",
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-phone-landscape-descending.png",
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-tablet-portrait-opening.png",
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        698,
+        387.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-tablet-portrait-descending.png",
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        698,
+        387.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-tablet-landscape-opening.png",
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-tablet-landscape-descending.png",
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-narrow-opening.png",
+      "theme": "light",
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        250,
+        138.875
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "light-narrow-descending.png",
+      "theme": "light",
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        250,
+        138.875
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-phone-portrait-opening.png",
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        320,
+        177.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-phone-portrait-descending.png",
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        320,
+        177.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-phone-landscape-opening.png",
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-phone-landscape-descending.png",
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-tablet-portrait-opening.png",
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        698,
+        387.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-tablet-portrait-descending.png",
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        698,
+        387.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-tablet-landscape-opening.png",
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-tablet-landscape-descending.png",
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        734,
+        407.765625
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-narrow-opening.png",
+      "theme": "dark",
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "stage": "opening",
+      "frame": 3,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        250,
+        138.875
+      ],
+      "exercise": "hanon-1"
+    },
+    {
+      "file": "dark-narrow-descending.png",
+      "theme": "dark",
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "stage": "descending",
+      "frame": 735,
+      "modal": true,
+      "pageOverflow": false,
+      "dialogOverflow": false,
+      "bounds": true,
+      "canvas": [
+        250,
+        138.875
+      ],
+      "exercise": "hanon-1"
+    }
+  ],
+  "runtimeErrors": []
+}

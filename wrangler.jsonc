@@ -1,10 +1,13 @@
-// Cloudflare Workers static site: publishes only site/ (landing page, privacy policy). No server code.
+// Static website plus streaming assembly for signed downloads above 25 MiB.
 // Regenerate site/ with `node scripts/site/build-site.mjs`; see docs/play-store/README.md.
 {
   "name": "spino",
+  "main": "scripts/site/download-worker.mjs",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/downloads/*.apk"],
     "not_found_handling": "404-page"
   }
 }

@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { resolve, dirname, relative } from 'node:path';
+import splitDownloads from '../scripts/site/download-parts.mjs';
 import { COPY, page } from '../scripts/site/build-site.mjs';
 
 test('website language variants use matching feature coverage and localized app screenshots', () => {
@@ -18,7 +19,8 @@ test('website language variants use matching feature coverage and localized app 
       if (/^(https?:|#|mailto:)/.test(reference)) continue;
       const pathname = reference.split('?')[0];
       const local = resolve(folder, pathname, pathname.endsWith('/') ? 'index.html' : '');
-      assert.ok(existsSync(local), `${language}: missing ${reference} (${dirname(local)})`);
+      const split = splitDownloads['/' + relative(resolve('site'),local).replaceAll('\\','/')];
+      assert.ok(existsSync(local) || split?.parts.every(part=>existsSync(resolve('site','.'+part.path))), `${language}: missing ${reference} (${dirname(local)})`);
     }
   }
 });

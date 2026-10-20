@@ -1,0 +1,78 @@
+{
+  "version": "6.1.1-beta.2",
+  "build": 78,
+  "webBuild": "passed",
+  "wholeHandSourcePoses": 2544,
+  "additionalComposedFingerTargets": 129600,
+  "renderedBrowserFrames": 14400,
+  "browserEvidence": "../quality-review/captures/warmups/2026-10-20-hanon-1-10-app-02-final/README.md",
+  "focusedHanonChecks": 10,
+  "negativeFirstFrameTimestampRegression": "passed",
+  "androidBuild": "assembleDebug, signed bundleRelease and testDebugUnitTest passed",
+  "packagedWebFilesMatch": {
+    "apk": 464,
+    "aab": 464
+  },
+  "apkSignature": "verified: existing beta signing certificate",
+  "aabSignature": "jar verified: existing upload certificate",
+  "nativeEvidence": "../quality-review/captures/releases/2026-10-20-beta612/native-final-install/native-handoff.json",
+  "nativeAnimationEvidence": "../quality-review/captures/releases/2026-10-20-beta612/native-hanon-04-final/native-hanon.json",
+  "nativeFullPlayback": "passed: frame 0 through 1439, then stopped",
+  "retainedOriginalIndexedDBFiles": 120,
+  "applicationStorageCleared": false,
+  "fullSuite": {
+    "tests": 497,
+    "pass": 491,
+    "fail": 4,
+    "skipped": 2,
+    "log": "output/review/beta612-full-tests.log"
+  },
+  "rechecks": {
+    "camera": "Both camera-controls browser tests pass unchanged when run sequentially after the parallel-load preview timeout.",
+    "progress": "Fixture now puts current-week data on today rather than assuming Monday; the entire responsive progress test passes. Production Progress code is unchanged.",
+    "website": "Four final localized release/download tests pass. Expectations follow the already accepted simplified download cards; exact assembled APK and resumed byte ranges pass in local Workers runtime.",
+    "hanon": "Ten final focused tests pass after the frame-zero timing fix."
+  },
+  "consolidatedCoverage": {
+    "passed": 496,
+    "optionalSkipped": 2,
+    "unresolvedFailures": 0,
+    "note": "497-test full run plus the added download-stream test. Four initial failures were rerun or corrected as described; final changed Hanon and website scopes are verified separately."
+  },
+  "localDownloadVerification": {
+    "bytes": 43091620,
+    "sha256": "fc97aff5c91974d552f939f834b7abae3414be5491d2f2d3f91741e4712454c2",
+    "exactSignedAPK": true,
+    "ranges": [
+      {
+        "range": [
+          20971510,
+          20971530
+        ],
+        "bytes": 21
+      },
+      {
+        "range": [
+          41943030,
+          41943060
+        ],
+        "bytes": 31
+      },
+      {
+        "range": [
+          43091589,
+          43091619
+        ],
+        "bytes": 31
+      }
+    ]
+  },
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "stableWebsiteUnchanged": "6.1.0 (76)",
+  "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
+  "blender": "Separate authoring prototype; keyboard/material trials are not included in this beta.",
+  "physicalDeviceAcceptance": false,
+  "nativePlaybackElapsedMilliseconds": 72397,
+  "nativeAnimationExercisesChecked": 10,
+  "date": "2026-10-20T08:30:40.148Z"
+}

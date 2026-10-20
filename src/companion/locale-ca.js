@@ -1,5 +1,22 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Starting hand position on the Hanon keyboard|Posició inicial de les mans al teclat de Hanon
+Hand movement demonstration|Demostració del moviment de les mans
+Follow the written fingering|Segueix la digitació indicada
+Hanon hand movement on a fixed keyboard. Blue keys: left hand. Orange keys: right hand.|Moviment de Hanon sobre un teclat fix. Tecles blaves: mà esquerra. Tecles taronges: mà dreta.
+Play|Reproduir
+Replay|Repetir
+Next note|Nota següent
+Speed|Velocitat
+Slow|Lenta
+Demonstration position|Posició de la demostració
+Loading demonstration…|Carregant la demostració…
+Could not load the demonstration. Try again.|No s’ha pogut carregar la demostració. Torna-ho a provar.
+Final C|Do final
+Ascending|Ascens
+Descending|Descens
+Let released fingers gather and prepare the next position while the playing finger stays on its key. Gradually reopen the spaces between fingers 1–2 and 5–4. Let the wrist follow, moving slightly toward the back of the keys when the thumb needs room.|Deixa que els dits lliures es recullin i preparin la posició següent mentre el dit que toca es manté a la seva tecla. Torna a obrir a poc a poc els espais entre els dits 1–2 i 5–4. Deixa que el canell acompanyi i avanci una mica cap al fons del teclat quan el polze necessiti espai.
+After an octave, follow the descending pattern back to C.|Després d’una octava, segueix el patró descendent per tornar al Do.
 Invalid recording metadata or notebook identity.|No s’han pogut validar les dades d’una gravació de Drive o el seu quadern. Es conserven els fitxers locals.
 
 Google Drive did not respond in time. Pending changes are kept. Retry synchronization.|Google Drive no ha respost a temps. Es conserven els canvis pendents. Torna a provar la sincronització.

@@ -1,0 +1,27 @@
+{
+  "version": "6.1.1-beta.2",
+  "build": 78,
+  "aab": {
+    "file": "artifacts/releases/6.1.1-beta.2/SPino-6.1.1-beta.2-78.aab",
+    "bytes": 38118915,
+    "sha256": "df02ba512ba2f10153daba498ec31fdf556984374e21678c94db286a5747a1cd"
+  },
+  "playConsoleZIP": {
+    "file": "artifacts/play-store/SPino-6.1.1-beta.2-78-play-console.zip",
+    "bytes": 37927317,
+    "sha256": "4f9a3a24aa481d5b82581bdfa4a972f78f48f2596c4cdc7ce134803ce7778e3f"
+  },
+  "releaseNotes": {
+    "file": "docs/releases/6.1.1-beta.2-release-notes.txt",
+    "bytes": 746,
+    "sha256": "cb76915381266c9c54e98eae7052148d10468bb00ddc333ee7d31409d7f2decd"
+  },
+  "playConsoleStatus": "prepared_not_uploaded",
+  "websiteStatus": "validation_in_progress",
+  "notesCharacters": {
+    "es-ES": 234,
+    "en-US": 229,
+    "ca": 224
+  },
+  "candidate": "Final frame-zero timing correction"
+}

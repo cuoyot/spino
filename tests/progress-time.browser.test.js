@@ -15,7 +15,9 @@ test('practice chart details filter actual blocks, navigate ranges/back and fit 
  const fixture=emptyData(),today=localDate(),monday=weekOf(today),frames=[];
  fixture.works=['a','b'].map((id,i)=>({id,title:i?'Study <B> & second piece':'Prélude en do majeur',composer:'Synthetic',stage:'En estudio',notes:'',passage:'Bars 1–8',target:null,bpm:60}));
  for(let i=0;i<12;i++){
-  const date=addDays(monday,-7*i),now=new Date(date+'T12:00:00').getTime(),s=beginSession({title:'Synthetic mixed practice',context:'piano',blocks:[block('warmup',{target:WARMUP_IDS[0]}),block('repertoire',{workId:'a'}),block('repertoire',{workId:'b'})]},now);
+  // The daily-detail assertions select today; keep the current fixture on today
+  // rather than assuming that the test is always run on a Monday.
+  const date=i===0?today:addDays(monday,-7*i),now=new Date(date+'T00:00:00').getTime(),s=beginSession({title:'Synthetic mixed practice',context:'piano',blocks:[block('warmup',{target:WARMUP_IDS[0]}),block('repertoire',{workId:'a'}),block('repertoire',{workId:'b'})]},now);
   for(const n of [5,i===0?124:20+i*2,10+i%3*15]){s.elapsedMs+=n*60000;s.blockElapsedMs=n*60000;finishBlock(s,null,now);}
   saveSession(fixture,s,{},now);
  }

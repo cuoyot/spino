@@ -126,13 +126,17 @@ test('a warm-up set streams each exercise once, then starts again', () => {
   assert.ok(bars(30).every(n => n.exercise === 0));
 });
 
-test('the guide explains movement with four soft snapshots instead of a generated hand animation', () => {
+test('the guide offers the approved animation and explains independent finger preparation', () => {
   const both = warmupGuideMarkup(warmupById('hanon-1'), { hand: 'both', start: true });
-  assert.match(both, /data-warmup-snapshots/);
-  assert.equal((both.match(/class="ws-frame"/g) || []).length, 4);
-  assert.doesNotMatch(both, /class="wg-diagram"/);
+  assert.match(both, /data-hanon-animation/);
+  assert.match(both, /posters\/hanon-1-both.webp/);
+  assert.match(both, /data-ha-play disabled/);
   assert.match(both, /data-warmup-start/);
-  assert.doesNotMatch(both, /data-wv-play|data-warmup-demo/);
-  assert.match(both, /Right|Derecha/); assert.match(both, /Left|Izquierda/);
-  assert.match(both, /advance the hand|avanza un poco la mano/);
+  assert.match(both, /Right hand/); assert.match(both, /Left hand/);
+  assert.match(both, /playing finger stays on its key/);
+  for (const hand of ['left', 'right']) {
+    const single = warmupGuideMarkup(warmupById('hanon-7'), { hand });
+    assert.match(single, new RegExp(`posters/hanon-7-${hand}.webp`));
+    assert.equal((single.match(/class="wg-figure"/g) || []).length, 1);
+  }
 });

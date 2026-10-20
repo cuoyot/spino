@@ -1,0 +1,795 @@
+{
+  "cases": [
+    {
+      "theme": "light",
+      "width": 320,
+      "height": 740,
+      "windowWidth": 320,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 216.09375,
+          "right": 320
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 0,
+          "right": 88.5625
+        },
+        {
+          "label": "SlowNormal",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 268.71875,
+          "right": 320
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 320
+        }
+      ],
+      "foreground": "rgb(26, 28, 31)"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "windowWidth": 390,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 286.09375,
+          "right": 390
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 338.71875,
+          "right": 390
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 390
+        }
+      ],
+      "foreground": "rgb(26, 28, 31)"
+    },
+    {
+      "theme": "light",
+      "width": 844,
+      "height": 815,
+      "windowWidth": 844,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 360.09375,
+          "right": 474.28125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 740.09375,
+          "right": 844
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 844
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 792.71875,
+          "right": 844
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 844
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 844
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 844
+        }
+      ],
+      "foreground": "rgb(26, 28, 31)"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "windowWidth": 768,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 322.09375,
+          "right": 436.28125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 664.09375,
+          "right": 768
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 768
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 716.71875,
+          "right": 768
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 768
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 768
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 768
+        }
+      ],
+      "foreground": "rgb(26, 28, 31)"
+    },
+    {
+      "theme": "light",
+      "width": 1009,
+      "height": 907,
+      "windowWidth": 1024,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 442.59375,
+          "right": 556.78125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 905.09375,
+          "right": 1009
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 1009
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 957.71875,
+          "right": 1009
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 1009
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 1009
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 1009
+        }
+      ],
+      "foreground": "rgb(26, 28, 31)"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "height": 740,
+      "windowWidth": 320,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 216.09375,
+          "right": 320
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 0,
+          "right": 88.5625
+        },
+        {
+          "label": "SlowNormal",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 268.71875,
+          "right": 320
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 320
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 320
+        }
+      ],
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "windowWidth": 390,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 286.09375,
+          "right": 390
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 338.71875,
+          "right": 390
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 390
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 390
+        }
+      ],
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "width": 844,
+      "height": 815,
+      "windowWidth": 844,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 360.09375,
+          "right": 474.28125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 740.09375,
+          "right": 844
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 844
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 792.71875,
+          "right": 844
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 844
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 844
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 844
+        }
+      ],
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "windowWidth": 768,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 322.09375,
+          "right": 436.28125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 664.09375,
+          "right": 768
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 768
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 716.71875,
+          "right": 768
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 768
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 768
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 768
+        }
+      ],
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "width": 1009,
+      "height": 907,
+      "windowWidth": 1024,
+      "bounds": [
+        {
+          "label": "Left 4 · C4",
+          "left": 0,
+          "right": 94.265625
+        },
+        {
+          "label": "Descending · 1 / 7",
+          "left": 442.59375,
+          "right": 556.78125
+        },
+        {
+          "label": "Right 2 · C5",
+          "left": 905.09375,
+          "right": 1009
+        },
+        {
+          "label": "Play",
+          "left": 0,
+          "right": 52.890625
+        },
+        {
+          "label": "Frame −",
+          "left": 60.890625,
+          "right": 139.84375
+        },
+        {
+          "label": "Frame +",
+          "left": 147.84375,
+          "right": 226.796875
+        },
+        {
+          "label": "Next note",
+          "left": 234.796875,
+          "right": 323.359375
+        },
+        {
+          "label": "SlowNormal",
+          "left": 331.359375,
+          "right": 1009
+        },
+        {
+          "label": "Frame 712 / 1440",
+          "left": 0,
+          "right": 131.0625
+        },
+        {
+          "label": "Contact",
+          "left": 957.71875,
+          "right": 1009
+        },
+        {
+          "label": "Animation frame",
+          "left": 0,
+          "right": 1009
+        },
+        {
+          "label": null,
+          "left": 0,
+          "right": 16
+        },
+        {
+          "label": "Left: 1 G4 · 2 E4 · 3 D4 · 4 C4 · 5 B3",
+          "left": 0,
+          "right": 1009
+        },
+        {
+          "label": "Right: 1 B4 · 2 C5 · 3 D5 · 4 E5 · 5 G5",
+          "left": 0,
+          "right": 1009
+        }
+      ],
+      "foreground": "rgb(255, 255, 255)"
+    }
+  ],
+  "runtimeErrors": []
+}

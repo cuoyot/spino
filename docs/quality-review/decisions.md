@@ -1,5 +1,21 @@
 # Review decisions and consistency checks
 
+## D-067 — Approved articulated Hanon demonstrations (2026-10-20)
+
+The owner explicitly approves the corrected No. 1 appearance and movement, requests the same approach for Nos. 2–10, and authorizes app integration, a new beta and website publication. This supersedes D-015's four snapshots and the earlier preview-only restriction. The same continuous soft hand identities, wrapping blue/orange cuffs and absence of nails are retained. The keyboard geometry and scale are invariant. Only played keys are highlighted; released fingers gather, prepare and reopen independently while the playing contact remains anchored.
+
+The app guide now offers manual Play/Pause, slow playback, next-note stepping and seeking, with the selected hand mode and synchronized ascending/descending fingering rows. The session card uses the current exercise's starting pose. All frames are offline-authored bitmaps; no 3D authoring engine is shipped. Eight decoded sheets are retained at most and bitmap resources close on eviction/disposal. Notes, fingering, notebook records and practice timing are preserved.
+
+[Whole-hand and responsive evidence](captures/warmups/2026-10-20-hanon-1-10-app-02-final/README.md) covers 2,390 additional measured source poses, 129,600 composed finger targets, all 14,400 display frames, both themes/four orientations/320 px, single hands and the actual modal using a disposable synthetic notebook. Source measurements distinguish active skin contact from idle clearance. The first native candidate exposed an early RAF timestamp and frame-zero underflow; elapsed time is now clamped nonnegative and a deterministic browser regression passes. Final signed beta.2/build78 installation, native playback and public download verification are recorded separately in the release manifests. Physical-device/teacher acceptance remains open.
+
+The owner also authorizes a separate Blender environment in parallel. Its v1 rig preserves the approved identity. A later explicit review requests full-size keyboard proportions, red rear felt and hinged key depression with matching fingertip contact. Those v2 authoring changes remain a separate preview and are not part of this beta.
+
+## D-066 — Select weekly practice chart points (2026-10-19)
+
+The owner requests that tapping a point in Progress → Activity update the heading with the corresponding week and show its practiced hours. The requested behavior is accepted. The source implementation selects any of the twelve weeks, shows its localized date interval and saved hours/minutes, moves the selection halo and restores **This week** from the last point. The optional goal continues to reflect the current profile setting; historical selections explicitly say **Current weekly goal**. Selection is in memory only.
+
+PIANO-02 is reopened. [Active review](progress.md#2026-10-19--select-a-practice-week-d-066) records 80 synthetic responsive-browser frames, touch/keyboard/zero-week checks, retained notebook data and eight passing focused tests. Owner/native visual acceptance remains open. Source-only after beta22/build75; no package/publication.
+
 ## D-063 — Expressive microphone animations (2026-10-18)
 
 The owner selects Silk waves, Orbit and Mixer from the animated proposals and requests one-finger swipes in any direction, with Silk waves as the default and light/dark review. The objective and selected styles are accepted. Each standalone audio take starts with Silk waves. Right/down selects the next style; left/up selects the previous style, wrapping through all three. A labeled style button provides the same cycle for keyboard and assistive-technology users. Taps, canceled gestures and two fingers do not change styles.
@@ -437,6 +453,9 @@ Verified: production browser build, four-layout navigation bounds/profile/dialog
 
 ## D-015 — Soft snapshot sequence for Hanon hand movement
 
+- 2026-10-20 owner approval: the separate [articulated No. 1 preview](captures/warmups/2026-10-20-articulated-transitions-02-final/README.md) is the approved visual/movement reference. It varies 1–2/5–4 spacing through closure and reopening, keeps the playing fingertip anchored, removes nails and wraps the sleeves around the wrists. All-finger/skin checks and complete browser playback pass. The owner requests extending this approach to Nos. 2–10, with each exercise's own movement and fingering. This approval does not integrate the preview into the app; D-015's current app snapshots remain unchanged.
+- 2026-10-20 all-finger follow-up: the [complete-hand audit](captures/warmups/2026-10-20-whole-hand-audit-01/README.md) **fails the separate animation preview**. The earlier checks validated the playing fingertip only; several idle fingertips are misplaced. Original source/evidence are retained and no new hand generation was attempted. Full ascending/descending footprints must be repaired and checked before another motion preview or integration. D-015's existing app snapshots remain unchanged.
+- 2026-10-20 follow-up: a [review-only static-frame animation](captures/warmups/2026-10-20-static-frame-01/README.md) now demonstrates the original soft style on a deterministic fixed keyboard. It uses twelve static whole-hand drawings, Hanon No. 1's existing score/fingering and frame stepping. Responsive-browser contact/player checks pass; owner visual acceptance is pending. This preview does not supersede D-015 or authorize an app implementation beyond the owner's requested preview scope.
 - Status: **implemented; responsive browser review completed; owner visual acceptance and native evidence pending** on 2026-10-05.
 - Agreement: replace the live SVG/3D hand animation with four clear, static snapshots using the softer B hand model: relaxed placement, playing the figure, gathering for the transition, and shifting/reopening for the next figure. The compact session card uses the same artwork, while **How to play** shows the complete sequence with short explanations and fingering rows.
 - Biomechanics: for a wider span, the hand advances toward the back of the keys before reopening. This lets the thumb and little finger approach the keys more perpendicularly without twisting the wrist. The third and fourth snapshots and their copy must make that preparation visible.

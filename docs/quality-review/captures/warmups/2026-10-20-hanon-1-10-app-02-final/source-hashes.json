@@ -1,0 +1,8 @@
+{
+  "src/companion/hanon-animation.js": "649bed14a93d907ef9f7392531795f36197718bfa0df38f4b542ff76ff624048",
+  "src/companion/warmup-guide.js": "7d08ee2f7dd1477b5c80e707a75c5a698c6e6ba5a455b2163430ca69ab7e2362",
+  "src/companion/warmup-guide.css": "1d466156c828a69c03d3714e8276f7c6e8383cc792128b3d4062793ae3e27361",
+  "src/companion/session-view.js": "10a5c8411e523b2016b3e020bd6dc9ec8d237fe23dae683727598fe461cc29f1",
+  "src/companion/warmups.js": "676399b939692ff229aae2f8263caa453af5fca5678e8f8b0a0fc00ab15cfcf7",
+  "public/warmups/hanon-frames-v1/index.json": "8206472d9ff473bd9dc6b51a919deaae4055692aa9eee9efb872e996a3755ba1"
+}

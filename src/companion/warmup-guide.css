@@ -7,7 +7,9 @@
 .wg-figure > span { padding-bottom: 6px; color: var(--hand); font-size: 13px; font-weight: 650; }
 .wg-figure ol { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .wg-figure li { flex: 1; min-width: 0; display: grid; justify-items: center; gap: 1px; padding: 4px 0; border: 1px solid #343a45; border-radius: 8px; background: var(--theme-control, #1d2129); }
-.wg-figure li b { color: #fff; font-size: 16px; }
+.wg-figure li b { color: var(--theme-text, #fff); font-size: 16px; }
+.wg-figure li.is-playing { border-color: var(--hand); box-shadow: inset 0 -3px var(--hand); }
+.wg-figure li[hidden] { display: none; }
 .wg-figure li small { color: var(--theme-hint, #aeb7c4); font-size: 11px; }
 .wg-steps { display: grid; gap: 8px; margin: 0; padding-left: 22px; }
 .wg-steps li b { display: block; }
@@ -20,25 +22,33 @@
 .wg-set button { min-height: 32px; padding: 4px 10px; font-size: 13px; }
 .wg-set button[aria-current="step"] { border-color: #2f6fe0; background: #2f6fe0; color: #fff; }
 
-.ws-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.ws-frame { overflow: hidden; border: 1px solid #303744; border-radius: 12px; background: var(--theme-control, #171b21); }
-.ws-picture { position: relative; aspect-ratio: 1.5; overflow: hidden; background: var(--theme-control, #171b21); }
-.ws-picture img { display: block; width: 200%; height: 200%; max-width: none; user-select: none; }
-.ws-picture.snapshot-0 img { transform: translate(0, 0); }
-.ws-picture.snapshot-1 img { transform: translate(-50%, 0); }
-.ws-picture.snapshot-2 img { transform: translate(0, -50%); }
-.ws-picture.snapshot-3 img { transform: translate(-50%, -50%); }
-.ws-frame > div:last-child { padding: 9px 10px 11px; }
-.ws-frame b { color: var(--theme-text, #f0f2f5); font-size: 13px; }
-.ws-frame p { margin: 3px 0 0; color: var(--subtle, var(--theme-hint, #aeb7c4)); font-size: 12px; line-height: 1.4; }
-.ws-snapshots.is-compact .ws-picture { aspect-ratio: 1.5; border-radius: 12px; }
+.hanon-animation { display: grid; gap: 8px; min-width: 0; }
+.ha-stage { position: relative; aspect-ratio: 1.8; overflow: hidden; border-radius: 12px; background: #f2f0eb; }
+.ha-stage canvas, .ha-stage > .ha-poster { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ha-stage canvas { display: block; }
+.ha-stage canvas[hidden], .ha-poster[hidden] { display: none; }
+.ha-poster { overflow: hidden; aspect-ratio: 1.8; border-radius: 12px; background: #f2f0eb; }
+.ha-poster img { display: block; width: 100%; height: auto; user-select: none; }
+.ha-reading { display: flex; gap: 4px 16px; flex-wrap: wrap; justify-content: space-between; color: var(--theme-muted, #aeb7c4); font-size: 12px; }
+.ha-reading b { color: var(--theme-text, #e8eaed); white-space: nowrap; }
+.ha-left { border-left: 4px solid #4f8cff; padding-left: 6px; }
+.ha-right { border-left: 4px solid #ff8a3d; padding-left: 6px; }
+.ha-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.ha-controls button { min-height: 36px; padding: 6px 12px; font-size: 13px; }
+.ha-controls label { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--theme-muted, #aeb7c4); }
+.ha-controls select { width: auto; min-height: 36px; padding: 4px 8px; font-size: 13px; }
+.ha-timeline { width: 100%; min-width: 0; margin: 0; accent-color: #4f8cff; }
+.ha-status { margin: 0; font-size: 13px; color: var(--theme-muted, #aeb7c4); }
+#cp-dialog .ha-controls label { flex-direction: row; align-items: center; margin: 0 0 0 auto; }
+#cp-dialog .ha-controls select { width: auto; min-height: 36px; padding: 4px 8px; font-size: 13px; }
+#cp-dialog .ha-controls button { min-height: 38px; padding: 6px 12px; font-size: 13px; }
+#cp-dialog input.ha-timeline { min-height: 24px; height: 24px; padding: 0; border: 0; border-radius: 0; background: transparent; }
 
 #cp-dialog:has(.cp-warmup-guide) { width: min(780px, calc(100vw - 24px)); max-width: none; }
 .cp-session-warmup { display: grid; gap: 6px; margin-top: 4px; }
 .cp-session-warmup p { margin: 0; color: var(--subtle, var(--theme-hint, #aeb7c4)); font-size: 13px; }
 
 @media (max-width: 560px) {
-  .ws-grid { grid-template-columns: 1fr; }
   .wg-figure { grid-template-columns: 1fr; }
   .wg-figure > span { padding: 0; }
 }

@@ -1,0 +1,1 @@
+Hand artwork derived from @webxr-input-profiles/assets generic-hand, Copyright (c) 2019 Amazon, MIT. Geometry and fixed-length articulated offline authoring are retained in the review sources. Keyboard, materials and composition by SPino. Original exercise notes by C.-L. Hanon (public domain); existing app edition/fingering retained.

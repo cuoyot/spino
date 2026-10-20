@@ -28,8 +28,8 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   assert.equal(await evaluate(`document.querySelector('.cp-session-card .eyebrow').textContent`), 'Bloque 1 de 2 · Calentamiento');
   // At pianist level 1 three minutes hold two exercises, played one after another.
   assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 1 · 2');
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-session-warmup .ws-picture').length`), 1);
-  assert.equal(await evaluate(`document.querySelector('.cp-session-warmup img').getAttribute('src')`), './warmups/hanon-soft-snapshots.png');
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-session-warmup .ha-poster').length`), 1);
+  assert.equal(await evaluate(`document.querySelector('.cp-session-warmup img').getAttribute('src')`), './warmups/hanon-frames-v1/posters/hanon-1-both.webp');
   const stored = await read();
   assert.deepEqual(stored.active.blocks.map(b => b.type), ['warmup', 'reading']);
   assert.equal(stored.active.blocks[0].hand, 'both');
@@ -41,9 +41,21 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   await evaluate(`document.querySelector('#cp-dialog [data-warmup-step="1"]').click()`);
   assert.match(await evaluate(`document.querySelector('#cp-dialog .wg-focus').textContent`), /Hanon n\.º 2/);
   await evaluate(`document.querySelector('#cp-dialog [data-warmup-step="0"]').click()`);
-  assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog .ws-frame').length`), 4);
-  assert.deepEqual(await evaluate(`[...document.querySelectorAll('#cp-dialog .ws-frame b')].map(el=>el.textContent)`), ['1. Coloca','2. Toca la figura','3. Recoge','4. Desplaza y abre']);
-  assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog canvas, #cp-dialog svg.wg-diagram').length`), 0);
+  await wait(`document.querySelector('#cp-dialog [data-hanon-animation]')?.dataset.ready==='true'`);
+  assert.equal(await evaluate(`document.querySelectorAll('#cp-dialog canvas').length`), 1);
+  assert.equal(await evaluate(`document.querySelector('#cp-dialog [data-hanon-animation]').dataset.playing`), undefined);
+  await evaluate(`(async()=>{const r=document.querySelector('#cp-dialog [data-hanon-animation]');await r.hanonPlayer.seek(0);const original=window.requestAnimationFrame;window.requestAnimationFrame=callback=>{window.requestAnimationFrame=original;return original(time=>callback(time-80));};r.querySelector('[data-ha-play]').click();})()`);
+  await wait(`Number(document.querySelector('#cp-dialog [data-hanon-animation]').dataset.event)>0`);
+  await evaluate(`document.querySelector('#cp-dialog [data-ha-play]').click();document.querySelector('#cp-dialog [data-hanon-animation]').hanonPlayer.seek(3)`);
+  await wait(`document.querySelector('#cp-dialog [data-hanon-animation]').dataset.frame==='3'`);
+  await evaluate(`document.querySelector('#cp-dialog [data-ha-next]').click()`);
+  await wait(`document.querySelector('#cp-dialog [data-hanon-animation]').dataset.event==='1'`);
+  assert.deepEqual(await evaluate(`[...document.querySelectorAll('#cp-dialog .wg-figure li.is-playing b')].map(el=>el.textContent)`), ['2','4']);
+  await evaluate(`document.querySelector('#cp-dialog [data-ha-play]').click()`);
+  await wait(`document.querySelector('#cp-dialog [data-hanon-animation]').dataset.playing==='true'`);
+  await wait(`Number(document.querySelector('#cp-dialog [data-hanon-animation]').dataset.event)>1`);
+  await evaluate(`document.querySelector('#cp-dialog [data-ha-play]').click()`);
+  assert.equal(await evaluate(`document.querySelector('#cp-dialog [data-hanon-animation]').dataset.playing`), 'false');
   await evaluate(`document.querySelector('#cp-dialog [data-action=close-dialog]').click()`);
   await wait(`!document.querySelector('#cp-dialog').open`);
 

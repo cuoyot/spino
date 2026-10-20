@@ -1,0 +1,375 @@
+{
+  "kind": "Offline authored-mesh measurements composed against actual app score; visual/browser checks are separate",
+  "sourcePoses": 2390,
+  "exercises": [
+    {
+      "exercise": 2,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489762166,
+      "maxActiveSurfaceErrorMetres": 0.0001895709673015722,
+      "maxResidualMetres": 6.674786749009512e-16,
+      "maxBendDegrees": 67.34935821844768,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "left54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        },
+        "right12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "right54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 356,
+        "movingIdleFrames": 2540
+      }
+    },
+    {
+      "exercise": 3,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489762166,
+      "maxActiveSurfaceErrorMetres": 0.0001895709673015722,
+      "maxResidualMetres": 6.674786749009512e-16,
+      "maxBendDegrees": 67.34935821844768,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "left54": {
+          "min": 43.999999999999986,
+          "max": 87.99999999999997,
+          "range": 43.999999999999986
+        },
+        "right12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "right54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 318,
+        "movingIdleFrames": 2470
+      }
+    },
+    {
+      "exercise": 4,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489762166,
+      "maxActiveSurfaceErrorMetres": 0.00019506941933603028,
+      "maxResidualMetres": 6.88309333456002e-16,
+      "maxBendDegrees": 67.75,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "left54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        },
+        "right12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "right54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 320,
+        "movingIdleFrames": 2560
+      }
+    },
+    {
+      "exercise": 5,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.001514853409571859,
+      "maxActiveSurfaceErrorMetres": 0.00019726570163947077,
+      "maxResidualMetres": 7.221139395610517e-16,
+      "maxBendDegrees": 70.00000000000034,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 44,
+          "max": 71.50000000000003,
+          "range": 27.50000000000003
+        },
+        "left54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        },
+        "right12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "right54": {
+          "min": 43.999999999999986,
+          "max": 71.50000000000003,
+          "range": 27.500000000000043
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 292,
+        "movingIdleFrames": 2522
+      }
+    },
+    {
+      "exercise": 6,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489762166,
+      "maxActiveSurfaceErrorMetres": 0.00019506941933603028,
+      "maxResidualMetres": 7.315434001031318e-16,
+      "maxBendDegrees": 70.00000000000034,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 21.999999999999993,
+          "max": 88.00000000000003,
+          "range": 66.00000000000003
+        },
+        "left54": {
+          "min": 21.999999999999993,
+          "max": 87.99999999999997,
+          "range": 65.99999999999997
+        },
+        "right12": {
+          "min": 21.999999999999993,
+          "max": 88,
+          "range": 66
+        },
+        "right54": {
+          "min": 21.999999999999993,
+          "max": 88.00000000000001,
+          "range": 66.00000000000003
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 340,
+        "movingIdleFrames": 2566
+      }
+    },
+    {
+      "exercise": 7,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489761889,
+      "maxActiveSurfaceErrorMetres": 0.00019574321093991567,
+      "maxResidualMetres": 6.882910506272434e-16,
+      "maxBendDegrees": 70.00000000000034,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 21.999999999999996,
+          "max": 88.00000000000003,
+          "range": 66.00000000000003
+        },
+        "left54": {
+          "min": 21.999999999999968,
+          "max": 88.00000000000001,
+          "range": 66.00000000000004
+        },
+        "right12": {
+          "min": 21.999999999999968,
+          "max": 77,
+          "range": 55.00000000000003
+        },
+        "right54": {
+          "min": 27.5,
+          "max": 88.00000000000001,
+          "range": 60.500000000000014
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.25,
+        "poses": 368,
+        "movingIdleFrames": 2708
+      }
+    },
+    {
+      "exercise": 8,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.001513213341915981,
+      "maxActiveSurfaceErrorMetres": 0.00019506941933603028,
+      "maxResidualMetres": 6.88309333456002e-16,
+      "maxBendDegrees": 67.75,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 38.49999999999999,
+          "max": 88.00000000000003,
+          "range": 49.500000000000036
+        },
+        "left54": {
+          "min": 38.49999999999999,
+          "max": 87.99999999999997,
+          "range": 49.49999999999998
+        },
+        "right12": {
+          "min": 38.49999999999999,
+          "max": 88,
+          "range": 49.50000000000001
+        },
+        "right54": {
+          "min": 38.49999999999999,
+          "max": 88.00000000000001,
+          "range": 49.50000000000002
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.25,
+        "poses": 306,
+        "movingIdleFrames": 2486
+      }
+    },
+    {
+      "exercise": 9,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.00151485837301582,
+      "maxActiveSurfaceErrorMetres": 0.0001895709673015722,
+      "maxResidualMetres": 6.669103736874448e-16,
+      "maxBendDegrees": 70.00000000000034,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 27.50000000000001,
+          "max": 88.00000000000003,
+          "range": 60.500000000000014
+        },
+        "left54": {
+          "min": 27.5,
+          "max": 87.99999999999997,
+          "range": 60.49999999999997
+        },
+        "right12": {
+          "min": 27.50000000000001,
+          "max": 88,
+          "range": 60.499999999999986
+        },
+        "right54": {
+          "min": 27.5,
+          "max": 88.00000000000001,
+          "range": 60.500000000000014
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 352,
+        "movingIdleFrames": 2550
+      }
+    },
+    {
+      "exercise": 10,
+      "renderedFrames": 1440,
+      "allFingerTargets": 14400,
+      "activeSkinContacts": 2202,
+      "idleClearanceChecks": 8808,
+      "minIdleClearanceMetres": 0.0015132082489762166,
+      "maxActiveSurfaceErrorMetres": 0.0001895709673015722,
+      "maxResidualMetres": 6.881694162982012e-16,
+      "maxBendDegrees": 67.34938986212433,
+      "whiteCollisions": 0,
+      "blackCollisions": 0,
+      "gapRanges": {
+        "left12": {
+          "min": 44,
+          "max": 88.00000000000003,
+          "range": 44.00000000000003
+        },
+        "left54": {
+          "min": 43.999999999999986,
+          "max": 87.99999999999997,
+          "range": 43.999999999999986
+        },
+        "right12": {
+          "min": 44,
+          "max": 88,
+          "range": 44
+        },
+        "right54": {
+          "min": 43.999999999999986,
+          "max": 88.00000000000001,
+          "range": 44.00000000000003
+        }
+      },
+      "statistics": {
+        "largestSpan": 5,
+        "largestFingerJump": 0.125,
+        "poses": 312,
+        "movingIdleFrames": 2490
+      }
+    }
+  ]
+}

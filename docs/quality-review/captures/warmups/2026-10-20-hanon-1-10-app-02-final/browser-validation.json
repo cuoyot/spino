@@ -1,0 +1,305 @@
+{
+  "kind": "Responsive browser evidence of the actual app component; no native-device acceptance",
+  "notebook": "Disposable browser profile; no personal notebook",
+  "exercises": [
+    {
+      "number": 1,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 2,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 3,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 4,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 5,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 6,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 7,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 8,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 9,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    },
+    {
+      "number": 10,
+      "renderedFrames": 1440,
+      "finalEvent": 112,
+      "finalSection": "Do final",
+      "keyboardPixel": "35,35,37,255"
+    }
+  ],
+  "captures": [
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "file": "phone-portrait-light.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        244.671875,
+        332,
+        184.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "file": "phone-portrait-dark.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        244.671875,
+        332,
+        184.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "file": "phone-landscape-light.png",
+      "overflow": false,
+      "canvas": [
+        49,
+        140.6875,
+        746,
+        414.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "file": "phone-landscape-dark.png",
+      "overflow": false,
+      "canvas": [
+        49,
+        140.6875,
+        746,
+        414.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "file": "tablet-portrait-light.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        140.6875,
+        710,
+        394.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "file": "tablet-portrait-dark.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        140.6875,
+        710,
+        394.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "theme": "light",
+      "file": "tablet-landscape-light.png",
+      "overflow": false,
+      "canvas": [
+        131.5,
+        140.6875,
+        746,
+        414.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "file": "tablet-landscape-dark.png",
+      "overflow": false,
+      "canvas": [
+        131.5,
+        140.6875,
+        746,
+        414.4375
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "theme": "light",
+      "file": "narrow-light.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        244.671875,
+        262,
+        145.546875
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "layout": "narrow",
+      "width": 320,
+      "height": 740,
+      "theme": "dark",
+      "file": "narrow-dark.png",
+      "overflow": false,
+      "canvas": [
+        33,
+        244.671875,
+        262,
+        145.546875
+      ],
+      "left": "5 · Do4",
+      "right": "1 · Do5",
+      "figure": [
+        "1",
+        "5"
+      ]
+    }
+  ],
+  "playback": [
+    {
+      "frame": 270,
+      "playing": "true"
+    },
+    {
+      "frame": 550,
+      "playing": "true"
+    },
+    {
+      "frame": 829,
+      "playing": "true"
+    },
+    {
+      "frame": 1101,
+      "playing": "true"
+    },
+    {
+      "frame": 1369,
+      "playing": "true"
+    },
+    {
+      "frame": 1439,
+      "playing": "false"
+    }
+  ],
+  "runtimeErrors": []
+}

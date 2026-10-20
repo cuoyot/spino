@@ -1,0 +1,3 @@
+# Stress run — correct start, software-emulator playback too slow
+
+This run verifies the frame-zero correction: playback advances into descent, reaching frame 736. The earlier 72-second watchdog ended the run before the final frame. It had first opened all ten exercises and sought through ninety representative image states on the old software-rendered Android emulator. It is not a passing full-playback result. A separate representative complete playback starts before that stress sequence and uses a bounded 180-second watchdog; its actual elapsed time is recorded. Selected frame screenshots and original failure logs remain preserved. No notebook data was used for these reviews.

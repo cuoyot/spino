@@ -1,0 +1,51 @@
+{
+  "status": "Ready and owner-approved as the reference for Nos. 2–10",
+  "applicationIntegration": false,
+  "sourceBuild": "6c91f4af02473f81451be04631a4f9fba081fcf7 + existing working tree",
+  "fragmentSha256": "57ff0e3c4500b9d7a73ab84b4edc39ef7c8ee1023336c68d65cf2ab5c65ded7a",
+  "atlasSha256": "55f1b3d3e911c44b74e5d5e289d9f69740da8a2262f05f8176f130f6d90f135a",
+  "keyboardSha256": "ac91a3a75a5b0309b58e34eed5d7e20dca93703ad7480e9e598baee9d0fb1d74",
+  "handMeshes": {
+    "left": "bc67783144944ea1cda54d9247885825ea5fb9d4651469fe7d00be517a5c2b87",
+    "right": "291790c14f7f88a7f9bd35330c47392ed8e8d395ae6728f4bb7089f1bc1f2b96"
+  },
+  "checks": {
+    "projectedFingerChecks": 14400,
+    "activeContactChecks": 2202,
+    "minimumIdleClearanceMetres": 0.0015752981958461754,
+    "maximumActiveErrorMetres": 0.0001895709673015722,
+    "sourcePoses": 154,
+    "nailMeshes": 0,
+    "globalWhiteCollisions": 0,
+    "globalBlackCollisions": 0,
+    "minimumLowSkinDepth": 228.4665672506411,
+    "breathing": [
+      {
+        "hand": "left",
+        "section": "up",
+        "gap12RangePixels": 21.200000000000045,
+        "gap54RangePixels": 44.849999999999994
+      },
+      {
+        "hand": "right",
+        "section": "up",
+        "gap12RangePixels": 45.039999999999964,
+        "gap54RangePixels": 20.399999999999977
+      },
+      {
+        "hand": "left",
+        "section": "down",
+        "gap12RangePixels": 45.120000000000005,
+        "gap54RangePixels": 20.399999999999977
+      },
+      {
+        "hand": "right",
+        "section": "down",
+        "gap12RangePixels": 21.479999999999905,
+        "gap54RangePixels": 44.85000000000002
+      }
+    ]
+  },
+  "ownerFeedback": "wow, el resultado es mucho mejor ahora! Esto es lo que buscamos!!",
+  "continuation": "Nos. 2–10 authorized; completion heartbeat remains active for that expanded scope"
+}

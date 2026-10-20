@@ -1,0 +1,3 @@
+# First native guide attempt — system UI blocked playback
+
+Preserved failed evidence. Android System UI displayed its own unresponsive-process dialog after the emulator cold boot. Synthetic guide seeks and packaged image decoding worked, but requestAnimationFrame playback remained at frame 0 behind that OS dialog. This is not a passing animation run. The baseline package replacement installation and 120 unchanged pre-launch IndexedDB files remain separately verified. No application storage was cleared. Once the OS dialog was gone, document focus and requestAnimationFrame were independently verified before the final run.

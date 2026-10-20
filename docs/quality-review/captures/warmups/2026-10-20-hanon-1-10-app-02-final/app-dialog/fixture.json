@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "system",
+    "language": "es"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": {
+    "id": "bd50a22d-c632-4043-a28a-67f408f43f40",
+    "title": "Lectura",
+    "context": "piano",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "06e3ca20-9739-434e-9575-d90fb47e27f8",
+        "type": "warmup",
+        "minutes": 3,
+        "bpm": 60,
+        "timing": "timed",
+        "target": "hanon-1",
+        "hand": "both",
+        "input": "piano",
+        "figures": "1",
+        "passage": "",
+        "workId": "",
+        "exercises": [
+          "hanon-1",
+          "hanon-2"
+        ],
+        "level": 0,
+        "presentation": "auto"
+      },
+      {
+        "id": "9abd1276-50eb-481f-a6aa-642358db32c1",
+        "type": "reading",
+        "minutes": 40,
+        "bpm": 60,
+        "timing": "timed",
+        "target": "C-major",
+        "hand": "right",
+        "input": "piano",
+        "figures": "1",
+        "passage": "",
+        "workId": "",
+        "level": 0,
+        "presentation": "auto"
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-10-20T08:16:57.783Z",
+    "date": "2026-10-20",
+    "elapsedMs": 72,
+    "blockElapsedMs": 72,
+    "runningSince": null,
+    "updatedAt": 1792484217855,
+    "notes": "",
+    "next": "",
+    "currentMeasurement": null
+  },
+  "lastBackup": null
+}

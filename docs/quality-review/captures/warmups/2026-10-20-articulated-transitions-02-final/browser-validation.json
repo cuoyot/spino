@@ -1,0 +1,2554 @@
+{
+  "kind": "Responsive browser evidence; no native acceptance",
+  "source": "6c91f4af02473f81451be04631a4f9fba081fcf7 + existing working tree",
+  "notebook": "No notebook loaded; disposable browser profile",
+  "identity": {
+    "frames": 1440,
+    "events": 113,
+    "poses": 154,
+    "keyboard": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+    "canvasCount": 1
+  },
+  "geometryChecks": {
+    "projectedFingerChecks": 14400,
+    "activeContactChecks": 2202,
+    "minimumIdleClearanceMetres": 0.0015752981958461754,
+    "maximumActiveErrorMetres": 0.0001895709673015722,
+    "sourcePoses": 154,
+    "nailMeshes": 0,
+    "globalWhiteCollisions": 0,
+    "globalBlackCollisions": 0,
+    "minimumLowSkinDepth": 228.4665672506411,
+    "breathing": [
+      {
+        "hand": "left",
+        "section": "up",
+        "gap12RangePixels": 21.200000000000045,
+        "gap54RangePixels": 44.849999999999994
+      },
+      {
+        "hand": "right",
+        "section": "up",
+        "gap12RangePixels": 45.039999999999964,
+        "gap54RangePixels": 20.399999999999977
+      },
+      {
+        "hand": "left",
+        "section": "down",
+        "gap12RangePixels": 45.120000000000005,
+        "gap54RangePixels": 20.399999999999977
+      },
+      {
+        "hand": "right",
+        "section": "down",
+        "gap12RangePixels": 21.479999999999905,
+        "gap54RangePixels": 44.85000000000002
+      }
+    ]
+  },
+  "allFrameReview": {
+    "renderedFrames": 1440,
+    "contacts": [
+      {
+        "frame": 3,
+        "event": 0,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 15,
+        "event": 1,
+        "left": {
+          "d": 23,
+          "finger": 4,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 27,
+        "event": 2,
+        "left": {
+          "d": 24,
+          "finger": 3,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 3,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 39,
+        "event": 3,
+        "left": {
+          "d": 25,
+          "finger": 2,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 4,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 51,
+        "event": 4,
+        "left": {
+          "d": 26,
+          "finger": 1,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 5,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 63,
+        "event": 5,
+        "left": {
+          "d": 25,
+          "finger": 2,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 4,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 75,
+        "event": 6,
+        "left": {
+          "d": 24,
+          "finger": 3,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 3,
+          "name": "F4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 87,
+        "event": 7,
+        "left": {
+          "d": 23,
+          "finger": 4,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 99,
+        "event": 8,
+        "left": {
+          "d": 22,
+          "finger": 5,
+          "name": "D3"
+        },
+        "right": {
+          "d": 29,
+          "finger": 1,
+          "name": "D4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 111,
+        "event": 9,
+        "left": {
+          "d": 24,
+          "finger": 4,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 123,
+        "event": 10,
+        "left": {
+          "d": 25,
+          "finger": 3,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 3,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 135,
+        "event": 11,
+        "left": {
+          "d": 26,
+          "finger": 2,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 4,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 147,
+        "event": 12,
+        "left": {
+          "d": 27,
+          "finger": 1,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 5,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 159,
+        "event": 13,
+        "left": {
+          "d": 26,
+          "finger": 2,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 4,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 171,
+        "event": 14,
+        "left": {
+          "d": 25,
+          "finger": 3,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 3,
+          "name": "G4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 183,
+        "event": 15,
+        "left": {
+          "d": 24,
+          "finger": 4,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 195,
+        "event": 16,
+        "left": {
+          "d": 23,
+          "finger": 5,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 1,
+          "name": "E4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 207,
+        "event": 17,
+        "left": {
+          "d": 25,
+          "finger": 4,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 2,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 219,
+        "event": 18,
+        "left": {
+          "d": 26,
+          "finger": 3,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 3,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 231,
+        "event": 19,
+        "left": {
+          "d": 27,
+          "finger": 2,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 4,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 243,
+        "event": 20,
+        "left": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 5,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 255,
+        "event": 21,
+        "left": {
+          "d": 27,
+          "finger": 2,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 4,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 267,
+        "event": 22,
+        "left": {
+          "d": 26,
+          "finger": 3,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 3,
+          "name": "A4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 279,
+        "event": 23,
+        "left": {
+          "d": 25,
+          "finger": 4,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 2,
+          "name": "G4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 291,
+        "event": 24,
+        "left": {
+          "d": 24,
+          "finger": 5,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 1,
+          "name": "F4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 303,
+        "event": 25,
+        "left": {
+          "d": 26,
+          "finger": 4,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 2,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 315,
+        "event": 26,
+        "left": {
+          "d": 27,
+          "finger": 3,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 3,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 327,
+        "event": 27,
+        "left": {
+          "d": 28,
+          "finger": 2,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 4,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 339,
+        "event": 28,
+        "left": {
+          "d": 29,
+          "finger": 1,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 5,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 351,
+        "event": 29,
+        "left": {
+          "d": 28,
+          "finger": 2,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 4,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 363,
+        "event": 30,
+        "left": {
+          "d": 27,
+          "finger": 3,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 3,
+          "name": "B4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 375,
+        "event": 31,
+        "left": {
+          "d": 26,
+          "finger": 4,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 2,
+          "name": "A4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 387,
+        "event": 32,
+        "left": {
+          "d": 25,
+          "finger": 5,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 1,
+          "name": "G4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 399,
+        "event": 33,
+        "left": {
+          "d": 27,
+          "finger": 4,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 2,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 411,
+        "event": 34,
+        "left": {
+          "d": 28,
+          "finger": 3,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 3,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 423,
+        "event": 35,
+        "left": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 4,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 435,
+        "event": 36,
+        "left": {
+          "d": 30,
+          "finger": 1,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 5,
+          "name": "E5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 447,
+        "event": 37,
+        "left": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 4,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 459,
+        "event": 38,
+        "left": {
+          "d": 28,
+          "finger": 3,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 3,
+          "name": "C5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 471,
+        "event": 39,
+        "left": {
+          "d": 27,
+          "finger": 4,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 2,
+          "name": "B4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 483,
+        "event": 40,
+        "left": {
+          "d": 26,
+          "finger": 5,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 1,
+          "name": "A4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 495,
+        "event": 41,
+        "left": {
+          "d": 28,
+          "finger": 4,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 2,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 507,
+        "event": 42,
+        "left": {
+          "d": 29,
+          "finger": 3,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 3,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 519,
+        "event": 43,
+        "left": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 4,
+          "name": "E5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 531,
+        "event": 44,
+        "left": {
+          "d": 31,
+          "finger": 1,
+          "name": "F4"
+        },
+        "right": {
+          "d": 38,
+          "finger": 5,
+          "name": "F5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 543,
+        "event": 45,
+        "left": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 4,
+          "name": "E5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 555,
+        "event": 46,
+        "left": {
+          "d": 29,
+          "finger": 3,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 3,
+          "name": "D5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 567,
+        "event": 47,
+        "left": {
+          "d": 28,
+          "finger": 4,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 2,
+          "name": "C5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 579,
+        "event": 48,
+        "left": {
+          "d": 27,
+          "finger": 5,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 1,
+          "name": "B4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 591,
+        "event": 49,
+        "left": {
+          "d": 29,
+          "finger": 4,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 2,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 603,
+        "event": 50,
+        "left": {
+          "d": 30,
+          "finger": 3,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 3,
+          "name": "E5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 615,
+        "event": 51,
+        "left": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "right": {
+          "d": 38,
+          "finger": 4,
+          "name": "F5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 627,
+        "event": 52,
+        "left": {
+          "d": 32,
+          "finger": 1,
+          "name": "G4"
+        },
+        "right": {
+          "d": 39,
+          "finger": 5,
+          "name": "G5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 639,
+        "event": 53,
+        "left": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "right": {
+          "d": 38,
+          "finger": 4,
+          "name": "F5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 651,
+        "event": 54,
+        "left": {
+          "d": 30,
+          "finger": 3,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 3,
+          "name": "E5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 663,
+        "event": 55,
+        "left": {
+          "d": 29,
+          "finger": 4,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 2,
+          "name": "D5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 675,
+        "event": 56,
+        "left": {
+          "d": 32,
+          "finger": 1,
+          "name": "G4"
+        },
+        "right": {
+          "d": 39,
+          "finger": 5,
+          "name": "G5"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 687,
+        "event": 57,
+        "left": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 4,
+          "name": "E5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 699,
+        "event": 58,
+        "left": {
+          "d": 29,
+          "finger": 3,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 3,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 711,
+        "event": 59,
+        "left": {
+          "d": 28,
+          "finger": 4,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 2,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 723,
+        "event": 60,
+        "left": {
+          "d": 27,
+          "finger": 5,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 1,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 735,
+        "event": 61,
+        "left": {
+          "d": 28,
+          "finger": 4,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 2,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 747,
+        "event": 62,
+        "left": {
+          "d": 29,
+          "finger": 3,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 3,
+          "name": "D5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 759,
+        "event": 63,
+        "left": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 4,
+          "name": "E5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 771,
+        "event": 64,
+        "left": {
+          "d": 31,
+          "finger": 1,
+          "name": "F4"
+        },
+        "right": {
+          "d": 38,
+          "finger": 5,
+          "name": "F5"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 783,
+        "event": 65,
+        "left": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 4,
+          "name": "D5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 795,
+        "event": 66,
+        "left": {
+          "d": 28,
+          "finger": 3,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 3,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 807,
+        "event": 67,
+        "left": {
+          "d": 27,
+          "finger": 4,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 2,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 819,
+        "event": 68,
+        "left": {
+          "d": 26,
+          "finger": 5,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 1,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 831,
+        "event": 69,
+        "left": {
+          "d": 27,
+          "finger": 4,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 2,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 843,
+        "event": 70,
+        "left": {
+          "d": 28,
+          "finger": 3,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 3,
+          "name": "C5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 855,
+        "event": 71,
+        "left": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 4,
+          "name": "D5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 867,
+        "event": 72,
+        "left": {
+          "d": 30,
+          "finger": 1,
+          "name": "E4"
+        },
+        "right": {
+          "d": 37,
+          "finger": 5,
+          "name": "E5"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 879,
+        "event": 73,
+        "left": {
+          "d": 28,
+          "finger": 2,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 4,
+          "name": "C5"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 891,
+        "event": 74,
+        "left": {
+          "d": 27,
+          "finger": 3,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 3,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 903,
+        "event": 75,
+        "left": {
+          "d": 26,
+          "finger": 4,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 2,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 915,
+        "event": 76,
+        "left": {
+          "d": 25,
+          "finger": 5,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 1,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 927,
+        "event": 77,
+        "left": {
+          "d": 26,
+          "finger": 4,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 2,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 939,
+        "event": 78,
+        "left": {
+          "d": 27,
+          "finger": 3,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 3,
+          "name": "B4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 951,
+        "event": 79,
+        "left": {
+          "d": 28,
+          "finger": 2,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 4,
+          "name": "C5"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 963,
+        "event": 80,
+        "left": {
+          "d": 29,
+          "finger": 1,
+          "name": "D4"
+        },
+        "right": {
+          "d": 36,
+          "finger": 5,
+          "name": "D5"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 975,
+        "event": 81,
+        "left": {
+          "d": 27,
+          "finger": 2,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 4,
+          "name": "B4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 987,
+        "event": 82,
+        "left": {
+          "d": 26,
+          "finger": 3,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 3,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 999,
+        "event": 83,
+        "left": {
+          "d": 25,
+          "finger": 4,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 2,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1011,
+        "event": 84,
+        "left": {
+          "d": 24,
+          "finger": 5,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 1,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1023,
+        "event": 85,
+        "left": {
+          "d": 25,
+          "finger": 4,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 2,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1035,
+        "event": 86,
+        "left": {
+          "d": 26,
+          "finger": 3,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 3,
+          "name": "A4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1047,
+        "event": 87,
+        "left": {
+          "d": 27,
+          "finger": 2,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 4,
+          "name": "B4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1059,
+        "event": 88,
+        "left": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "right": {
+          "d": 35,
+          "finger": 5,
+          "name": "C5"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 1071,
+        "event": 89,
+        "left": {
+          "d": 26,
+          "finger": 2,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 4,
+          "name": "A4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1083,
+        "event": 90,
+        "left": {
+          "d": 25,
+          "finger": 3,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 3,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1095,
+        "event": 91,
+        "left": {
+          "d": 24,
+          "finger": 4,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1107,
+        "event": 92,
+        "left": {
+          "d": 23,
+          "finger": 5,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 1,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1119,
+        "event": 93,
+        "left": {
+          "d": 24,
+          "finger": 4,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 2,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1131,
+        "event": 94,
+        "left": {
+          "d": 25,
+          "finger": 3,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 3,
+          "name": "G4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1143,
+        "event": 95,
+        "left": {
+          "d": 26,
+          "finger": 2,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 4,
+          "name": "A4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1155,
+        "event": 96,
+        "left": {
+          "d": 27,
+          "finger": 1,
+          "name": "B3"
+        },
+        "right": {
+          "d": 34,
+          "finger": 5,
+          "name": "B4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 1167,
+        "event": 97,
+        "left": {
+          "d": 25,
+          "finger": 2,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 4,
+          "name": "G4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1179,
+        "event": 98,
+        "left": {
+          "d": 24,
+          "finger": 3,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 3,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1191,
+        "event": 99,
+        "left": {
+          "d": 23,
+          "finger": 4,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1203,
+        "event": 100,
+        "left": {
+          "d": 22,
+          "finger": 5,
+          "name": "D3"
+        },
+        "right": {
+          "d": 29,
+          "finger": 1,
+          "name": "D4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1215,
+        "event": 101,
+        "left": {
+          "d": 23,
+          "finger": 4,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 2,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1227,
+        "event": 102,
+        "left": {
+          "d": 24,
+          "finger": 3,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 3,
+          "name": "F4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1239,
+        "event": 103,
+        "left": {
+          "d": 25,
+          "finger": 2,
+          "name": "G3"
+        },
+        "right": {
+          "d": 32,
+          "finger": 4,
+          "name": "G4"
+        },
+        "phase": "Contact · gathering"
+      },
+      {
+        "frame": 1251,
+        "event": 104,
+        "left": {
+          "d": 26,
+          "finger": 1,
+          "name": "A3"
+        },
+        "right": {
+          "d": 33,
+          "finger": 5,
+          "name": "A4"
+        },
+        "phase": "Contact · reopening"
+      },
+      {
+        "frame": 1263,
+        "event": 105,
+        "left": {
+          "d": 24,
+          "finger": 2,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 4,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1275,
+        "event": 106,
+        "left": {
+          "d": 23,
+          "finger": 3,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 3,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1287,
+        "event": 107,
+        "left": {
+          "d": 22,
+          "finger": 4,
+          "name": "D3"
+        },
+        "right": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1299,
+        "event": 108,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1311,
+        "event": 109,
+        "left": {
+          "d": 22,
+          "finger": 4,
+          "name": "D3"
+        },
+        "right": {
+          "d": 29,
+          "finger": 2,
+          "name": "D4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1323,
+        "event": 110,
+        "left": {
+          "d": 23,
+          "finger": 3,
+          "name": "E3"
+        },
+        "right": {
+          "d": 30,
+          "finger": 3,
+          "name": "E4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1335,
+        "event": 111,
+        "left": {
+          "d": 24,
+          "finger": 2,
+          "name": "F3"
+        },
+        "right": {
+          "d": 31,
+          "finger": 4,
+          "name": "F4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1347,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1359,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1371,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1383,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1395,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1407,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1419,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1431,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Contact"
+      },
+      {
+        "frame": 1439,
+        "event": 112,
+        "left": {
+          "d": 21,
+          "finger": 5,
+          "name": "C3"
+        },
+        "right": {
+          "d": 28,
+          "finger": 1,
+          "name": "C4"
+        },
+        "phase": "Release / prepare"
+      }
+    ],
+    "blackKeySamplesInvariant": true
+  },
+  "playback": [
+    {
+      "frame": 244,
+      "playing": "true",
+      "section": "Ascending · 3 / 7"
+    },
+    {
+      "frame": 489,
+      "playing": "true",
+      "section": "Ascending · 6 / 7"
+    },
+    {
+      "frame": 734,
+      "playing": "true",
+      "section": "Descending · 1 / 7"
+    },
+    {
+      "frame": 979,
+      "playing": "true",
+      "section": "Descending · 4 / 7"
+    },
+    {
+      "frame": 1224,
+      "playing": "true",
+      "section": "Descending · 6 / 7"
+    },
+    {
+      "frame": 1439,
+      "playing": "false",
+      "section": "Final C"
+    }
+  ],
+  "slowFrame": 37,
+  "captures": [
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "initial",
+      "frame": 3,
+      "file": "phone-portrait-initial.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "middle-fingers",
+      "frame": 27,
+      "file": "phone-portrait-middle-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "3 · F3",
+      "right": "3 · F4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "thumb",
+      "frame": 51,
+      "file": "phone-portrait-thumb.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · A3",
+      "right": "5 · A4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "gather",
+      "frame": 91,
+      "file": "phone-portrait-gather.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · E3",
+      "right": "2 · E4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "reopening",
+      "frame": 100,
+      "file": "phone-portrait-reopening.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · D3",
+      "right": "1 · D4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "next-group",
+      "frame": 111,
+      "file": "phone-portrait-next-group.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · F3",
+      "right": "2 · F4"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "turnaround",
+      "frame": 675,
+      "file": "phone-portrait-turnaround.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · G4",
+      "right": "5 · G5"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "descending-inner-fingers",
+      "frame": 711,
+      "file": "phone-portrait-descending-inner-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · C4",
+      "right": "2 · C5"
+    },
+    {
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "name": "final",
+      "frame": 1347,
+      "file": "phone-portrait-final.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        390,
+        216.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "initial",
+      "frame": 3,
+      "file": "phone-landscape-initial.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "middle-fingers",
+      "frame": 27,
+      "file": "phone-landscape-middle-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "3 · F3",
+      "right": "3 · F4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "thumb",
+      "frame": 51,
+      "file": "phone-landscape-thumb.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · A3",
+      "right": "5 · A4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "gather",
+      "frame": 91,
+      "file": "phone-landscape-gather.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · E3",
+      "right": "2 · E4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "reopening",
+      "frame": 100,
+      "file": "phone-landscape-reopening.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · D3",
+      "right": "1 · D4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "next-group",
+      "frame": 111,
+      "file": "phone-landscape-next-group.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · F3",
+      "right": "2 · F4"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "turnaround",
+      "frame": 675,
+      "file": "phone-landscape-turnaround.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · G4",
+      "right": "5 · G5"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "descending-inner-fingers",
+      "frame": 711,
+      "file": "phone-landscape-descending-inner-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · C4",
+      "right": "2 · C5"
+    },
+    {
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "name": "final",
+      "frame": 1347,
+      "file": "phone-landscape-final.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        844,
+        468.875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "initial",
+      "frame": 3,
+      "file": "tablet-portrait-initial.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "middle-fingers",
+      "frame": 27,
+      "file": "tablet-portrait-middle-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "3 · F3",
+      "right": "3 · F4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "thumb",
+      "frame": 51,
+      "file": "tablet-portrait-thumb.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · A3",
+      "right": "5 · A4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "gather",
+      "frame": 91,
+      "file": "tablet-portrait-gather.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · E3",
+      "right": "2 · E4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "reopening",
+      "frame": 100,
+      "file": "tablet-portrait-reopening.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · D3",
+      "right": "1 · D4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "next-group",
+      "frame": 111,
+      "file": "tablet-portrait-next-group.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · F3",
+      "right": "2 · F4"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "turnaround",
+      "frame": 675,
+      "file": "tablet-portrait-turnaround.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · G4",
+      "right": "5 · G5"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "descending-inner-fingers",
+      "frame": 711,
+      "file": "tablet-portrait-descending-inner-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · C4",
+      "right": "2 · C5"
+    },
+    {
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "name": "final",
+      "frame": 1347,
+      "file": "tablet-portrait-final.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        768,
+        426.65625
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "initial",
+      "frame": 3,
+      "file": "tablet-landscape-initial.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "middle-fingers",
+      "frame": 27,
+      "file": "tablet-landscape-middle-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "3 · F3",
+      "right": "3 · F4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "thumb",
+      "frame": 51,
+      "file": "tablet-landscape-thumb.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · A3",
+      "right": "5 · A4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "gather",
+      "frame": 91,
+      "file": "tablet-landscape-gather.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · E3",
+      "right": "2 · E4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "reopening",
+      "frame": 100,
+      "file": "tablet-landscape-reopening.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · D3",
+      "right": "1 · D4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "next-group",
+      "frame": 111,
+      "file": "tablet-landscape-next-group.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · F3",
+      "right": "2 · F4"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "turnaround",
+      "frame": 675,
+      "file": "tablet-landscape-turnaround.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "1 · G4",
+      "right": "5 · G5"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "descending-inner-fingers",
+      "frame": 711,
+      "file": "tablet-landscape-descending-inner-fingers.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "4 · C4",
+      "right": "2 · C5"
+    },
+    {
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "name": "final",
+      "frame": 1347,
+      "file": "tablet-landscape-final.png",
+      "overflow": false,
+      "canvas": [
+        0,
+        36,
+        1009,
+        560.546875
+      ],
+      "geometry": "{\"width\":1080,\"height\":600,\"left\":34,\"keyWidth\":44,\"firstDiatonic\":19,\"count\":23,\"top\":59.49277012072128,\"bottom\":351.40460098889525,\"blackBottom\":205.91799717999825}",
+      "left": "5 · C3",
+      "right": "1 · C4"
+    }
+  ],
+  "runtimeErrors": []
+}

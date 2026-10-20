@@ -1,0 +1,9 @@
+<es-ES>
+Nuevas demostraciones animadas de Hanon 1–10: teclado fijo y teclas pulsadas con un color para cada mano. Los dedos se recogen, preparan y vuelven a abrir según cada ejercicio. Reproducción lenta, avance por nota y manos por separado.
+</es-ES>
+<en-US>
+New animated demonstrations for Hanon 1–10: a fixed keyboard and separate pressed-key colors for each hand. Fingers gather, prepare and reopen for each exercise. Includes slow playback, next-note stepping and separate-hand views.
+</en-US>
+<ca>
+Noves demostracions animades de Hanon 1–10: teclat fix i tecles premudes amb un color per a cada mà. Els dits es recullen, preparen i tornen a obrir segons cada exercici. Reproducció lenta, avanç per nota i mans per separat.
+</ca>

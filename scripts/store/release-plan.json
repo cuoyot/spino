@@ -4,8 +4,8 @@
     "build": 76
   },
   "nextBeta": {
-    "version": "6.1.1-beta.2",
-    "minimumBuild": 78,
+    "version": "6.1.1-beta.3",
+    "minimumBuild": 79,
     "status": "planned_not_released"
   },
   "googlePlay": {
@@ -14,7 +14,7 @@
     "status": "unchanged_until_console_rollout"
   },
   "beta": {
-    "version": "6.1.1-beta.1",
-    "build": 77
+    "version": "6.1.1-beta.2",
+    "build": 78
   }
 }

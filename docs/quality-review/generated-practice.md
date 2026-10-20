@@ -36,6 +36,32 @@ D-011 replaces the ambiguous Session/Finish pairing with directional navigation.
 
 ## Hanon guide refinement
 
+### 2026-10-20 — Hanon 1–10 integrated for beta.2 (D-067)
+
+The owner-approved No. 1 reference is extended to the nine remaining existing exercises, with independently traveling idle fingers, held playing contacts and nonrigid 1–2/5–4 separation. [Final evidence](captures/warmups/2026-10-20-hanon-1-10-app-02-final/README.md) records all source/skin checks, every display frame, both themes/four orientations, narrow-phone/single-hand states and the actual app modal with a disposable notebook. The guide player starts paused, supports slow/normal speed, next note and seeking, and updates the written fingering for the current passage. The warm-up card shows the matching initial pose. Original score/fingering and notebook data remain unchanged; No. 7's existing LH edition difference is documented.
+
+The latest owner instruction explicitly authorizes integration, beta.2/build78 and website publication, superseding earlier preview-only limits. A native first-frame timestamp underflow found during verification is corrected and covered by a regression. Final package/native/public results are tracked in the beta.2 release manifests. Physical-device/teacher visual acceptance remains separate. The additionally authorized Blender v2 preview is isolated from the beta and is now refining standard keyboard spacing/proportions, red felt and physical key depression.
+
+### 2026-10-20 — Articulated No. 1 reference approved; Nos. 2–10 requested
+
+The owner approves the [complete articulated browser result](captures/warmups/2026-10-20-articulated-transitions-02-final/README.md): consistent soft hands, an invariant single keyboard, changing 1–2 and 5–4 spacing, stationary playing contacts, progressive gathering/reopening, wrapping sleeves and no nails. Its 154 source poses pass all-five-finger and whole-skin checks; the complete 1,440-frame/60-second playback and final image-fidelity checks pass. The previous failed atlas/audits remain historical evidence, not accepted assets.
+
+The owner now requests applying the approach to Nos. 2–10 already in the app. Their whole-hand movement must follow each score/fingering, including internal finger replacements and recurring outer-finger support. The same approved hand geometry and style are retained. No app integration, native build, publication or manual feature claim is authorized.
+
+2026-10-20 diagnostic presentation correction: the owner identified a black stripe through the displayed keyboard. The two separate hand crops had a 20 px panel gap. The [current continuous-keyboard inspection](captures/warmups/2026-10-20-whole-hand-audit-02-continuous-keyboard/README.md) draws both hands on one fixed keyboard with all ten annotations. Twelve responsive-browser captures and the one-canvas/navigation checks pass. This changes presentation only; original artwork, measurements and failed whole-hand findings remain retained.
+
+### 2026-10-20 — Whole-hand audit fails the animation preview
+
+The owner clarified that every finger must be checked, including idle fingers. The earlier test constrained only the playing fingertip, so it did not establish correct complete-hand placement. The [whole-hand audit](captures/warmups/2026-10-20-whole-hand-audit-01/README.md) retains the original source and measures sixty fingertip centers across twelve poses. It inspects all 1,440 frames and 1,130 settled event/finger projections. It finds 189 clear idle-finger wrong-note projections, 616 seam/clearance cases labeled uncertain, and eight unrestricted final-tonic idle positions. Active fingertip centers remain correct. At the first descent the right index/middle/ring are over D5/E5/F5 instead of C5/D5/E5.
+
+The annotated review exposes all ten fingertips and expected/observed notes for all 113 events. Its controls and twelve four-layout responsive-browser captures pass. No new artwork was generated and no app code, notebook or manual feature claim was changed. The animation is not ready to integrate. Next: establish the entire five-finger footprint in both directions, then validate those static poses before assembling more motion. This failure supersedes the earlier preview's pending-acceptance status; D-015 remains the existing app behavior.
+
+### 2026-10-20 — Fixed-keyboard static-frame preview
+
+Owner reopened the animation work and requested a preview in conversation before app integration, with a fixed keyboard, distinct left/right pressed-key colors, consistent hands, natural depth adjustments and precise finger/key contacts. A single generated atlas based on the original D-015 soft artwork supplies twelve whole-hand poses. A review-only player assembles 1,440 frames from those static drawings with translation only and the existing Hanon No. 1 score/fingering. It covers all seven ascending/seven descending groups and final C at 60 BPM, with slow playback, pause, frame stepping, next note and scrubbing.
+
+[Dated evidence and scope](captures/warmups/2026-10-20-static-frame-01/README.md) include the exact prompt, source/score manifest, 226 registered event contacts and 28 responsive-browser captures across phone/tablet portrait/landscape. Browser control, contact-alpha, no-overflow and runtime checks pass. These checks establish score registration and player behavior; owner acceptance of the artwork and movement is pending. D-015 remains the current app implementation. No app source, manual feature claim, notebook or native package was changed. Next action: owner review of this one proposal before considering integration or further exercises.
+
 ### 2026-10-09 — 2D frame-animation production proposal
 
 Owner requested a more cartoon rendering of the anchored single pose. Built-in style-only edit saved as `captures/warmups/2026-10-09-frame-pilot/hanon1-left-anchored-cartoon-v1.png`. Prompt: retain five-digit silhouette, fingertip anchors and keyboard geometry; replace realistic skin/fabric textures with smooth peach fills, warm outlines and simple cel shading. Visual inspection retains contacts on C3/E3/F3/G3/A3 below black-key ends. Cartoon-style acceptance and anatomical curvature remain pending; no app integration or animation.

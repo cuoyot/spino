@@ -153,3 +153,9 @@ if(beta611){
  beta611.notes.es="El reloj de práctica avanza con regularidad y mantiene los dígitos estables. En PDF y MusicXML, tocar el reloj mientras editas guarda los cambios, cierra la edición y mantiene la práctica en pausa. Tócalo de nuevo para continuar.";
  beta611.notes.ca="El rellotge de pràctica avança amb regularitat i manté els dígits estables. En PDF i MusicXML, tocar el rellotge mentre edites desa els canvis, tanca l’edició i manté la pràctica en pausa. Torna’l a tocar per continuar.";
 }
+
+const beta612=releases.find(r=>r.version==='6.1.1-beta.2');
+if(beta612){
+ beta612.notes.es='Las demostraciones animadas de Hanon 1–10 recorren el ascenso y el descenso completos. Un único teclado fijo distingue las teclas pulsadas de la mano izquierda en azul y la derecha en naranja. Los dedos libres se recogen, preparan y vuelven a abrir mientras el dedo que toca mantiene su apoyo. Reproduce lentamente, avanza nota a nota o mira cada mano por separado. La tarjeta de calentamiento muestra la posición inicial del ejercicio.';
+ beta612.notes.ca='Les demostracions animades de Hanon 1–10 recorren l’ascens i el descens complets. Un únic teclat fix distingeix les tecles premudes de la mà esquerra en blau i la dreta en taronja. Els dits lliures es recullen, preparen i tornen a obrir mentre el dit que toca manté el suport. Reprodueix lentament, avança nota a nota o mira cada mà per separat. La targeta d’escalfament mostra la posició inicial de l’exercici.';
+}

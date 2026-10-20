@@ -1,0 +1,3 @@
+# Native timestamp boundary failure — preserved
+
+The native emulator delivers a first requestAnimationFrame timestamp slightly earlier than the performance.now() captured when Play is pressed. Starting at frame zero produced a negative carry, attempted frame -1 and stopped the loop. The guide could still seek and draw the selected frames, but complete playback failed. This is a failed candidate and is not final acceptance. The final player clamps negative elapsed time to zero; a browser regression supplies an early first timestamp, and native full playback is rerun after the corrected package installation. The Replay label after a seek away from the last frame is also corrected.

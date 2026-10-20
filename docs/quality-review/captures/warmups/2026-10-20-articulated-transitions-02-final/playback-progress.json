@@ -1,0 +1,32 @@
+[
+  {
+    "frame": 244,
+    "playing": "true",
+    "section": "Ascending · 3 / 7"
+  },
+  {
+    "frame": 489,
+    "playing": "true",
+    "section": "Ascending · 6 / 7"
+  },
+  {
+    "frame": 734,
+    "playing": "true",
+    "section": "Descending · 1 / 7"
+  },
+  {
+    "frame": 979,
+    "playing": "true",
+    "section": "Descending · 4 / 7"
+  },
+  {
+    "frame": 1224,
+    "playing": "true",
+    "section": "Descending · 6 / 7"
+  },
+  {
+    "frame": 1439,
+    "playing": "false",
+    "section": "Final C"
+  }
+]

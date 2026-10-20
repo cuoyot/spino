@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-20T08:30:40.148Z",
+  "kind": "Native Android emulator; direct synthetic guide component over packaged images",
+  "version": "6.1.1-beta.2",
+  "build": 78,
+  "sourceImports": "Actual source modules loaded in memory with relative imports remapped to blob URLs; no compatibility or drawing shims. CSS and images come from the installed package.",
+  "notebookWrites": false,
+  "personalNotebookUsedAsTestData": false,
+  "sourceHashes": {
+    "src/companion/warmup-guide.js": "7d08ee2f7dd1477b5c80e707a75c5a698c6e6ba5a455b2163430ca69ab7e2362",
+    "src/companion/locale.js": "6359f35fd4d268300d8dc2912583ad872b28c533625096570b927d2ed5afb2a3",
+    "src/companion/locale-messages.js": "83edf3bb1eca945948d1f9f1d0a664750c7ebfc476a1ebeddab34f23d9091bb4",
+    "src/companion/locale-ca.js": "99162e6720e768b3cd5cf6b40607b419fcc78d43c380ec27ee2971714876d79a",
+    "src/companion/warmups.js": "676399b939692ff229aae2f8263caa453af5fca5678e8f8b0a0fc00ab15cfcf7",
+    "src/music.js": "dbed3339f97cee9e3cbc2860259509bb7c06f155aac512e9db65c3e2e2d3d1ad",
+    "src/companion/rhythm-levels.js": "5ed6155101cb8865bd9b0fab59cd6a16615a46f4c7ac5212d4350ca535f383c7",
+    "src/companion/practice-defaults.js": "2eb851a94d7ee6ff8f2e48e78b88b21703ce92334de31c06076a4f4665aa0ace",
+    "src/companion/hanon-animation.js": "f168793295eaf9b3357be1cca114406ad19a260579b692e1431491a0ef1f49cb"
+  },
+  "reviews": [
+    {
+      "exercise": 1,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 2,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 3,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 4,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 5,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 6,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 7,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 8,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 9,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "exercise": 10,
+      "finalFrame": 1439,
+      "finalNote": 112,
+      "finalLabel": "Final C",
+      "userAgent": "Mozilla/5.0 (Linux; Android 14; sdk_gphone64_arm64 Build/UE1A.230829.030; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/113.0.5672.136 Mobile Safari/537.36",
+      "canvas": [
+        1080,
+        600
+      ],
+      "overflow": false
+    }
+  ],
+  "captures": [
+    "native-hanon-1.png",
+    "native-hanon-2.png",
+    "native-hanon-3.png",
+    "native-hanon-4.png",
+    "native-hanon-5.png",
+    "native-hanon-6.png",
+    "native-hanon-7.png",
+    "native-hanon-8.png",
+    "native-hanon-9.png",
+    "native-hanon-10.png"
+  ],
+  "playback": [
+    {
+      "frame": 271,
+      "playing": "true"
+    },
+    {
+      "frame": 459,
+      "playing": "true"
+    },
+    {
+      "frame": 713,
+      "playing": "true"
+    },
+    {
+      "frame": 931,
+      "playing": "true"
+    },
+    {
+      "frame": 1191,
+      "playing": "true"
+    },
+    {
+      "frame": 1439,
+      "playing": "false"
+    }
+  ],
+  "playbackElapsedMilliseconds": 72397,
+  "foreground": [
+    "    topResumedActivity=ActivityRecord{a59560b u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t127}"
+  ],
+  "runtimeErrors": [],
+  "physicalDeviceAcceptance": false
+}
