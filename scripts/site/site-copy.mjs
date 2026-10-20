@@ -9,6 +9,14 @@ export const COPY = {
     "cta": "Explore the app",
     "ctaNote": "Android · free · no ads",
     "featuresTitle": "A place for every kind of practice",
+    "hanon": {
+      "title": "Warm up with Hanon",
+      "description": "Watch both hands prepare, play and move across the keyboard, with piano and views from different angles.",
+      "label": "Hanon 1–10 warm-up demonstration with piano",
+      "caption": "Preview of the hand guides · excerpts from Hanon 1–10 · 87 seconds",
+      "fallback": "Play the Hanon video",
+      "credits": "Music and model credits"
+    },
     "features": [
       [
         "read",
@@ -107,6 +115,14 @@ export const COPY = {
     "cta": "Descubre la app",
     "ctaNote": "Android · gratis · sin anuncios",
     "featuresTitle": "Un espacio para cada forma de practicar",
+    "hanon": {
+      "title": "Calienta con Hanon",
+      "description": "Observa cómo ambas manos se preparan, tocan y se desplazan por el teclado, con piano y vistas desde distintos ángulos.",
+      "label": "Demostración de calentamientos Hanon 1–10 con piano",
+      "caption": "Vista previa de las guías de manos · fragmentos de Hanon 1–10 · 87 segundos",
+      "fallback": "Reproducir el vídeo de Hanon",
+      "credits": "Créditos de música y modelos"
+    },
     "features": [
       [
         "read",
@@ -205,6 +221,14 @@ export const COPY = {
     "cta": "Descobreix l’app",
     "ctaNote": "Android · gratuït · sense anuncis",
     "featuresTitle": "Un espai per a cada manera de practicar",
+    "hanon": {
+      "title": "Escalfa amb Hanon",
+      "description": "Observa com totes dues mans es preparen, toquen i es desplacen pel teclat, amb piano i vistes des de diferents angles.",
+      "label": "Demostració d’escalfaments Hanon 1–10 amb piano",
+      "caption": "Vista prèvia de les guies de mans · fragments de Hanon 1–10 · 87 segons",
+      "fallback": "Reprodueix el vídeo de Hanon",
+      "credits": "Crèdits de música i models"
+    },
     "features": [
       [
         "read",

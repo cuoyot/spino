@@ -1,0 +1,19 @@
+Hanon 1–10 — Hand motion study
+Music: Charles-Louis Hanon, The Virtuoso Pianist, Part I (1873; public domain).
+Exercise notes and fingering: existing SPino Hanon 1–10 data, preserving its documented edition choices.
+
+Sampled piano: YDP Grand Piano, FreePats release 2016-08-04.
+Original Yamaha Disklavier Pro multisamples for OLPC: Dr. Mikhail Krishtal and the team at Zenph Studios.
+SoundFont and sample modifications: Roberto, FreePats project.
+License: Creative Commons Attribution 3.0 Unported.
+Source: https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+License: https://creativecommons.org/licenses/by/3.0/
+The samples are rendered as a new performance from MIDI; the sound bank itself is not modified.
+
+Offline SoundFont rendering: TinySoundFont, Bernhard Schelling and contributors, MIT license.
+MIDI parsing: TinyMidiLoader, Bernhard Schelling, zlib license.
+Source: https://github.com/schellingb/TinySoundFont
+Exact dependency revisions and license notices are preserved in audio/dependencies/.
+
+Hand base: generic-hand assets, Copyright 2019 Amazon.com, Inc. or its affiliates, MIT license.
+Authoring and animation: the separate SPino Blender Hanon prototype.

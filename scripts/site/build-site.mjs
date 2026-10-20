@@ -55,6 +55,7 @@ section{padding:48px 0}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
 .feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
 .feature svg{width:30px;height:30px;color:var(--accent)}.feature h3{margin:12px 0 6px;font-size:19px}.feature p{margin:0;color:var(--muted);font-size:16px}
+.hanon-demo>p{max-width:760px;color:var(--muted)}.hanon-demo figure{margin:24px 0 0}.hanon-demo video{display:block;width:100%;height:auto;aspect-ratio:1920/804;background:#111a21;border:1px solid var(--line);border-radius:18px}.hanon-demo figcaption{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px;color:var(--muted);font-size:14px}
 .shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
 .shots img{flex:0 0 auto;width:min(240px,62vw);border-radius:20px;border:1px solid var(--line);scroll-snap-align:start}
 .wide{margin-top:24px;border-radius:18px;border:1px solid var(--line)}
@@ -93,6 +94,7 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 ${downloads(t)}</div>
 <img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=2026-10-19-stable61-site-04" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
+<section id="hanon" class="hanon-demo" aria-labelledby="hanon-title"><h2 id="hanon-title">${t.hanon.title}</h2><p>${t.hanon.description}</p><figure><video controls playsinline preload="metadata" width="1920" height="804" poster="${t.root}media/hanon-warmups-2026-10-20.jpg" aria-label="${t.hanon.label}" aria-describedby="hanon-caption"><source src="${t.root}media/hanon-warmups-2026-10-20.mp4" type="video/mp4"><a href="${t.root}media/hanon-warmups-2026-10-20.mp4">${t.hanon.fallback}</a></video><figcaption id="hanon-caption"><span>${t.hanon.caption}</span><a href="${t.root}media/hanon-warmups-2026-10-20-credits.txt">${t.hanon.credits}</a></figcaption></figure></section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 <section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
 <img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=2026-10-19-stable61-site-04" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
@@ -138,6 +140,7 @@ await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="es"><meta cha
 await writeFile(join(OUT, '_headers'), (await readFile(join(OUT, '_headers'), 'utf8')) + "\n/downloads/*.zip\n  Content-Type: application/zip\n  Content-Disposition: attachment\n  Cache-Control: public, max-age=300\n");
 await cp('scripts/site/downloads' , join(OUT, 'downloads'), { recursive: true });
 await cp('scripts/site/arcade', join(OUT, 'arcade'), { recursive: true });
+await cp('scripts/site/media', join(OUT, 'media'), { recursive: true });
 console.log('site/ built');
 
 }

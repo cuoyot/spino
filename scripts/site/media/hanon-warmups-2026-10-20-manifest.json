@@ -1,0 +1,25 @@
+{
+  "title": "Hanon 1\u201310 warm-up demonstration",
+  "durationSeconds": 87,
+  "width": 1920,
+  "height": 804,
+  "fps": 24,
+  "scope": "Multi-angle exercise excerpts; preview of the hand guides.",
+  "files": [
+    {
+      "file": "hanon-warmups-2026-10-20.mp4",
+      "bytes": 22190578,
+      "sha256": "639abea0dc4c1a3ca24e936a25681d4300fd654dfbbe55da5e3c2e4258f2539e"
+    },
+    {
+      "file": "hanon-warmups-2026-10-20.jpg",
+      "bytes": 95266,
+      "sha256": "d355cc313a64ae82bf519059f2159711c6c6b9331584448132425112e62ea837"
+    },
+    {
+      "file": "hanon-warmups-2026-10-20-credits.txt",
+      "bytes": 1186,
+      "sha256": "a20d6674fd003912f9a682bf3f274f93f7ea0ad2347a11291574a402c7383a58"
+    }
+  ]
+}
