@@ -17,11 +17,14 @@
     "sha256": "cb76915381266c9c54e98eae7052148d10468bb00ddc333ee7d31409d7f2decd"
   },
   "playConsoleStatus": "prepared_not_uploaded",
-  "websiteStatus": "validation_in_progress",
+  "websiteStatus": "published_and_publicly_verified",
   "notesCharacters": {
     "es-ES": 234,
     "en-US": 229,
     "ca": 224
   },
-  "candidate": "Final frame-zero timing correction"
+  "candidate": "Final frame-zero timing correction",
+  "sourceCommit": "bea6853f22666dc27d1fa35532de31cd9a76f65e",
+  "tag": "v6.1.1-beta.2",
+  "publication": "6.1.1-beta.2-publication.json"
 }
