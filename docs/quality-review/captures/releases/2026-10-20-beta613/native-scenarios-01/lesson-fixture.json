@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "en"
+  },
+  "works": [
+    {
+      "id": "native-lesson-score",
+      "title": "Synthetic lesson score",
+      "composer": "",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "assetId": "native-lesson-pdf"
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [
+    {
+      "id": "native-lesson",
+      "type": "Clase",
+      "title": "Synthetic lesson",
+      "date": "2026-10-20",
+      "time": "12:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "native-lesson-score"
+      ],
+      "milestones": []
+    }
+  ],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}

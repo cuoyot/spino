@@ -159,3 +159,9 @@ if(beta612){
  beta612.notes.es='Las demostraciones animadas de Hanon 1–10 recorren el ascenso y el descenso completos. Un único teclado fijo distingue las teclas pulsadas de la mano izquierda en azul y la derecha en naranja. Los dedos libres se recogen, preparan y vuelven a abrir mientras el dedo que toca mantiene su apoyo. Reproduce lentamente, avanza nota a nota o mira cada mano por separado. La tarjeta de calentamiento muestra la posición inicial del ejercicio.';
  beta612.notes.ca='Les demostracions animades de Hanon 1–10 recorren l’ascens i el descens complets. Un únic teclat fix distingeix les tecles premudes de la mà esquerra en blau i la dreta en taronja. Els dits lliures es recullen, preparen i tornen a obrir mentre el dit que toca manté el suport. Reprodueix lentament, avança nota a nota o mira cada mà per separat. La targeta d’escalfament mostra la posició inicial de l’exercici.';
 }
+
+const beta613=releases.find(r=>r.version==='6.1.1-beta.3');
+if(beta613){
+ beta613.notes.es="Partituras Hanon más despejadas, con compases adaptados a la pantalla y notas separadas de las barras. Las clases abren directamente la partitura y conservan el tiempo practicado por obra al pausar y reanudar. Encabezado corregido al volver de una práctica.";
+ beta613.notes.ca="Partitures Hanon més clares, amb compassos adaptats a la pantalla i notes separades de les barres. Les classes obren directament la partitura i conserven el temps practicat per obra en pausar i reprendre. Capçalera corregida en tornar d’una pràctica.";
+}

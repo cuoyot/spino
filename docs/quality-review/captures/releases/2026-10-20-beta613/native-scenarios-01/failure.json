@@ -1,0 +1,6 @@
+{
+  "message": "Error: Native state timeout: document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'",
+  "checks": [],
+  "runtimeErrors": [],
+  "screen": "Synthetic lesson score\n\nWith piano\n·\nSession 0:01\n\nFinish session\n\nBLOCK 1 OF 1 · REPERTOIRE\n\nPaused\nSynthetic lesson score\nThis block\n0:01\n5 min\nsuggested\n60 BPM\nContinue practice\nRecord\nChange piece\nTimer options\nYour session\n5 suggested min\nAdd\n\nHold a block to move it or drop it in the bin.\n\n1\nRepertoire\nNow\nSynthetic lesson score\nSuggested minutes for Repertoire: Synthetic lesson score\nmin\nContinue later\nDiscard\nToday\nPractice\nCalendar\nLibrary\nProgress\n0:00\n— / —"
+}

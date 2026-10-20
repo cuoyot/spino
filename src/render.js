@@ -1,6 +1,6 @@
 import { Renderer, Stave, StaveNote, TickContext, ModifierContext, Accidental, Annotation, Beam, Dot, StaveConnector, BarlineType } from 'vexflow/bravura';
 import { clefOf, keyAccidentals } from './music.js';
-import { pageRows } from './page-layout.js';
+import { pageRows, pageBeatGrid } from './page-layout.js';
 
 const COLORS = {
   pending: '#1a1a1a',
@@ -121,9 +121,9 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
   // so the score scrolls at a perfectly constant speed in timed mode.
   const unit = ppb + BAR_GAP / beatsPerBar;
   const X = (beat) => beat * unit;
-  // bar line sits in the gap before the downbeat, leaving room for an accidental on it
+  // Bar lines split the space between consecutive rhythmic slots.
   const minSpacing = ppb >= 110 ? unit / 4 : ppb >= 74 ? unit / 2 : unit;
-  const barOffset = Math.min(15, minSpacing * 0.45);
+  const barOffset = minSpacing / 2;
 
   container.replaceChildren();
 
@@ -178,10 +178,15 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
     return s;
   });
 
+  const probeNote = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
+  probeNote.setStave(staves[0]).setContext(ctx);
+  new TickContext().addTickable(probeNote).preFormat().setX(0);
+  const headOffset = headCentre(probeNote);
+
   // bar lines
   for (let b = Math.ceil(beat0 / beatsPerBar) * beatsPerBar; b <= lastBeat; b += beatsPerBar) {
     if (b <= 0) continue;
-    const x = xLocal(b) - barOffset;
+    const x = xLocal(b) + headOffset - barOffset;
     ctx.beginPath();
     ctx.moveTo(x, staves[0].getYForLine(0));
     ctx.lineTo(x, staves[staves.length - 1].getYForLine(4));
@@ -190,10 +195,6 @@ export function renderScore(container, { notes, onsets, states, clef, key, beats
 
   const slice = notes.slice(from, to);
   const accs = accidentalsToShow(slice, key, false);
-  const probeNote = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
-  probeNote.setStave(staves[0]).setContext(ctx);
-  new TickContext().addTickable(probeNote).preFormat().setX(0);
-  const headOffset = headCentre(probeNote);
   const drawn = slice.map((n, j) => {
     const i = from + j;
     const c = clefOf(n, clef);
@@ -262,6 +263,7 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
   const from = onsets.findIndex((o) => o >= startBeat);
   let to = onsets.findIndex((o) => o >= startBeat + systems * beatsPerSystem);
   if (to < 0) to = notes.length;
+  const shortestBeat = Math.min(beatsPerBar, ...notes.slice(from, to).map(n => n.units / 4));
   container.replaceChildren();
 
   const rows = [];
@@ -295,18 +297,12 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       new StaveConnector(staves[0], staves[1]).setType('singleLeft').setContext(ctx).draw();
       new StaveConnector(staves[0], staves[1]).setType(s === systems - 1 ? 'boldDoubleRight' : 'singleRight').setContext(ctx).draw();
     }
-    // Keep the beat grid independent of clef/key header widths and note durations.
-    const probe = new StaveNote({ keys: ['b/4'], duration: 'q', clef: 'treble' });
-    probe.setStave(staves[0]).setContext(ctx);
-    new TickContext().addTickable(probe).preFormat().setX(0);
-    const headOffset = headCentre(probe) - probe.getAbsoluteX();
+    // Keep every notehead inside its measure, with half a rhythmic slot on either side.
+    // A fixed inset can exceed the last slot in a dense bar and push that note across the bar line.
     const x0 = Math.max(...staves.map((st) => st.getNoteStartX())) + 4;
     const x1 = staves[0].getNoteEndX() - 6;
-    // Reserve margins once per system, not once per bar. A per-bar inset
-    // makes the clock cursor jump across the unused space at each downbeat.
-    // Notes and guides share one continuous, constant-speed beat grid.
-    const barW = (x1 - x0 - 24) / barsPerSystem;
-    const xLocal = (beat) => x0 + 16 + (beat - sysStart) * barW / beatsPerBar;
+    const {barWidth:barW,xAt} = pageBeatGrid(x0,x1,barsPerSystem,beatsPerBar,shortestBeat);
+    const xLocal = beat => xAt(beat-sysStart);
     // bar lines between bars
     for (let b = 1; b < barsPerSystem; b++) {
       const x = x0 + b * barW;
@@ -326,7 +322,7 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       const sn = makeStaveNote(n, c, accs[j], COLORS.pending, fingering);
       sn.setStave(staves[clefs.indexOf(c)]).setContext(ctx);
       sn.addToModifierContext(new ModifierContext());
-      placeNote(sn, xLocal(onsets[i]) + headOffset);
+      placeNote(sn, xLocal(onsets[i]));
       return { sn, c, bar: n.bar, i };
     });
     const beams = [];
@@ -348,7 +344,7 @@ export function renderPage(container, { notes, onsets, states, clef, key, beatsP
       groups[d.i] = d.sn.getSVGElement();
       posOf.set(d.i, headCentre(d.sn) * zoom);
     });
-    rows.push({ top: offset+s * rowH, height: rowH, sysStart, xAt: (beat) => (xLocal(beat) + headOffset) * zoom, ...staffGuide(staves, zoom) });
+    rows.push({ top: offset+s * rowH, height: rowH, sysStart, xAt: (beat) => xLocal(beat) * zoom, ...staffGuide(staves, zoom) });
   }
 
   const systemOf = (beat) => Math.max(0, Math.min(systems - 1, Math.floor((beat - startBeat) / beatsPerSystem)));

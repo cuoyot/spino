@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "system"
+  },
+  "works": [
+    {
+      "id": "score",
+      "title": "Synthetic lesson score",
+      "composer": "",
+      "stage": "En estudio",
+      "notes": "",
+      "passage": "",
+      "target": null,
+      "bpm": 60,
+      "assetId": "pdf"
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [
+    {
+      "id": "lesson",
+      "type": "Clase",
+      "title": "Synthetic lesson",
+      "date": "2026-10-20",
+      "time": "12:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "score"
+      ],
+      "milestones": []
+    }
+  ],
+  "sessions": [],
+  "active": null,
+  "lastBackup": null
+}

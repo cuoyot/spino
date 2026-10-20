@@ -141,7 +141,7 @@ dialog .muted, .level-row .lname, .level-row .ldesc { overflow-wrap: anywhere; }
 }
 
 /* Managed practice keeps primary controls stable and exposes frequent actions directly. */
-.managed-practice header { grid-template-columns: minmax(0, 1fr) !important; position: relative; z-index: 6; }
+.managed-practice #reader-view > header { grid-template-columns: minmax(0, 1fr) !important; position: relative; z-index: 6; }
 .managed-practice .quick {
   grid-template-columns: minmax(116px, 1.2fr) minmax(44px, 1fr) 44px;
   grid-template-areas: "timing start settings";

@@ -9,7 +9,7 @@ import './companion/print-controls.css';
 import './landscape-keyboard.css';
 import { KEYS, NAMINGS, generatePhrase, generateRandomBars, generateScaleBars, generateTwoHands, assignFingering, scaleNotes, pickKey, keyInfo, TIME_SIGS, allowedUnits, shortestUnit, noteLabel, noteId, rangeFor, makeNote, samePitchClass, setNaming, namingForLocale, letterName, labelFromId, pitchName } from './music.js';
 import { renderScore, renderPage, pxPerBeatFor, setUserZoom } from './render.js';
-import { pageSystemCount } from './page-layout.js';
+import { pageSystemCount, pageBarCount } from './page-layout.js';
 import { LANGUAGES, t, tError, setLanguage, languageForLocale, applyStatic } from './i18n.js';
 import { LEVELS, TEMPLATE_KEYS, levelIndex, isLevel, clone, exerciseOf, exportTemplate, importTemplate, DEFAULT_GOAL, prefersMidi } from './levels.js';
 import { playNote, holdNote, click, now as audioNow } from './audio.js';
@@ -18,7 +18,7 @@ import * as midi from './midi.js';
 import { bootCompanion } from './companion/app.js';
 import { generateTargetBars, targetById } from './companion/curriculum.js';
 import { rhythmFigures, rhythmLevel } from './companion/rhythm-levels.js';
-import { warmupExercises, warmupLabel } from './companion/warmups.js';
+import { warmupExercises, warmupLabel, warmupUnit } from './companion/warmups.js';
 
 // ---------- persistence ----------
 const DEFAULTS = {
@@ -148,7 +148,9 @@ const selfPaced = () => managed?.context === 'mobile' && managed.block.timing ==
 const mobileKeyboardPractice = () => managed?.context === 'mobile' && settings.input === 'piano';
 const pageMode = () => selfPaced() || settings.layoutMode === 'page' && (!isPhone() || !!managed);
 const BARS_PER_SYSTEM = 4;
-const responsiveBars = () => managed && staffEl.clientWidth < 600 ? 2 : BARS_PER_SYSTEM;
+const responsiveBars = () => managed?.block.type === 'warmup'
+  ? pageBarCount(staffEl.clientWidth, beatsPerBar(), warmupUnit(managed.block.figures) / 4, pageZoom() * 1.08)
+  : managed && staffEl.clientWidth < 600 ? 2 : BARS_PER_SYSTEM;
 const barsPerSystem = () => selfPaced() ? line?.waitBars || responsiveBars() : responsiveBars();
 // Managed practice supports simultaneous hands on phones and tablets, including manual piano practice.
 const togetherMode = () => managedBothHands() || settings.pianoMode && settings.hands === 'together' && !isPhone() && settings.mode === 'melody';
@@ -212,7 +214,9 @@ function resolvedKey(forceNew) {
 }
 
 const beatsPerBar = () => TIME_SIGS[settings.timeSig] || 4;
-const ppb = () => pxPerBeatFor(shortestUnit(allowedUnits(settings.figures, settings.dotted)));
+const ppb = () => pxPerBeatFor(managed?.block.type === 'warmup'
+  ? warmupUnit(managed.block.figures)
+  : shortestUnit(allowedUnits(settings.figures, settings.dotted)));
 
 function weightOf(n) {
   const s = stats.notes[noteId(n)];

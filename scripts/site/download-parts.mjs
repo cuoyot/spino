@@ -20,5 +20,26 @@ export default {
         "sha256": "7f5ac3a4db3ba0e378e4d973273e0e8e984e94613a953805da01fe11de9cb651"
       }
     ]
+  },
+  "/downloads/spino-6.1.1-beta.3-79-android.apk": {
+    "bytes": 42447787,
+    "sha256": "a3b3b29696776d21a0a079aa8ce901a99d443275784289d70f739266ad4c3b75",
+    "parts": [
+      {
+        "path": "/downloads/parts/spino-6.1.1-beta.3-79-android.apk.000.bin",
+        "bytes": 20971520,
+        "sha256": "9538b504f9e16f86eafb399562fe3f64bf3762378bf992bcc26b90dec0253b29"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.1-beta.3-79-android.apk.001.bin",
+        "bytes": 20971520,
+        "sha256": "5e3fd2f907dfe26dec438ab43481eba2bd58d2c26257f5fc10b93d517e4179d0"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.1-beta.3-79-android.apk.002.bin",
+        "bytes": 504747,
+        "sha256": "b36c5b67a2f1521cabc47f8b56961557377c403602559376b4e4d1c3cf4db16c"
+      }
+    ]
   }
 };

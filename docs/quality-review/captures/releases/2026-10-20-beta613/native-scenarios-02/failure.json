@@ -1,0 +1,6 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: Begin at the inert storage-check asset\n+ actual - expected\n\n+ 'blank'\n- '/licenses/webm-duration-mit.txt'\n",
+  "checks": [],
+  "runtimeErrors": [],
+  "screen": ""
+}

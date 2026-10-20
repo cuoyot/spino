@@ -1,0 +1,27 @@
+{
+  "version": "6.1.1-beta.3",
+  "build": 79,
+  "aab": {
+    "file": "artifacts/releases/6.1.1-beta.3/SPino-6.1.1-beta.3-79.aab",
+    "bytes": 38119884,
+    "sha256": "87dc4b82d91359280191eb64f3ec20c931f8ee3e0b5bea622f0ee0cdb93ed501"
+  },
+  "playConsoleZIP": {
+    "file": "artifacts/play-store/SPino-6.1.1-beta.3-79-play-console.zip",
+    "bytes": 37929963,
+    "sha256": "cde73f52610707ecef118ebde2b5abc3db1771038311e5b2a7d1accd513294a4"
+  },
+  "releaseNotes": {
+    "file": "docs/releases/6.1.1-beta.3-release-notes.txt",
+    "bytes": 799,
+    "sha256": "c2218d0dce56aa5711d99f6a4cd7251e8b4acc4ee16cda72d65e6d35a6acd364"
+  },
+  "notesCharacters": {
+    "es-ES": 257,
+    "en-US": 235,
+    "ca": 250
+  },
+  "playConsoleStatus": "prepared_not_uploaded",
+  "websiteStatus": "ready_for_publication",
+  "nativePDF": "WebView 113 renderer acceptance open; complete lesson/PDF browser checks passed"
+}

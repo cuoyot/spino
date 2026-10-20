@@ -1,0 +1,9 @@
+<es-ES>
+Partituras Hanon más despejadas, con compases adaptados a la pantalla y notas separadas de las barras. Las clases abren directamente la partitura y conservan el tiempo practicado por obra al pausar y reanudar. Encabezado corregido al volver de una práctica.
+</es-ES>
+<en-US>
+Clearer Hanon scores, with measures adapted to the screen and space around bar lines. Lessons open the score directly and retain each piece’s practice time when pausing and resuming. Fixed header controls after returning from practice.
+</en-US>
+<ca>
+Partitures Hanon més clares, amb compassos adaptats a la pantalla i notes separades de les barres. Les classes obren directament la partitura i conserven el temps practicat per obra en pausar i reprendre. Capçalera corregida en tornar d’una pràctica.
+</ca>

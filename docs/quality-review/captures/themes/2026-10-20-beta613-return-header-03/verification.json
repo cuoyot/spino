@@ -1,0 +1,5213 @@
+{
+  "date": "2026-10-20T09:33:49.703Z",
+  "surface": "Responsive browser, disposable notebooks after returning from a real generated practice; not native-device acceptance",
+  "results": [
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 240.546875,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 99.984375,
+          "bottom": 45.5,
+          "width": 35.984375,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "light-home-phone-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 203.015625,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 122.984375,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 145.03125,
+          "bottom": 45.5,
+          "width": 81.03125,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "light-practice-phone-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 195.296875,
+            "y": 11.5,
+            "right": 268.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 272.5,
+            "y": 11.5,
+            "right": 321,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 160.9375,
+          "bottom": 45.5,
+          "width": 96.9375,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "light-calendar-phone-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 158.890625,
+          "bottom": 45.5,
+          "width": 94.890625,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 240.546875,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 163.890625,
+          "bottom": 45.5,
+          "width": 99.890625,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 145.671875,
+          "bottom": 45.5,
+          "width": 81.671875,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 110.796875,
+          "bottom": 45.5,
+          "width": 46.796875,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "light-settings-phone-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 686.546875,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "light-home-phone-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 638,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "light-practice-phone-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 641.296875,
+            "y": 11.5,
+            "right": 714.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 718.5,
+            "y": 11.5,
+            "right": 767,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "light-calendar-phone-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 686.546875,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "light-settings-phone-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 610.546875,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "light-home-tablet-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 562,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "light-practice-tablet-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 565.296875,
+            "y": 11.5,
+            "right": 638.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 642.5,
+            "y": 11.5,
+            "right": 691,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "light-calendar-tablet-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 610.546875,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "light-settings-tablet-portrait.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 866.546875,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "light-home-tablet-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 818,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "light-practice-tablet-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 821.296875,
+            "y": 11.5,
+            "right": 894.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 898.5,
+            "y": 11.5,
+            "right": 947,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "light-calendar-tablet-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 866.546875,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "light-settings-tablet-landscape.png"
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 176.546875,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 87.515625,
+          "bottom": 43.09375,
+          "width": 29.515625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 139.015625,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 122.984375,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 125.09375,
+          "bottom": 43.09375,
+          "width": 67.09375,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 154.890625,
+            "y": 11.5,
+            "right": 209,
+            "bottom": 55.5,
+            "width": 54.109375,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 213,
+            "y": 11.5,
+            "right": 257,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 137.890625,
+          "bottom": 43.09375,
+          "width": 79.890625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 136.390625,
+          "bottom": 43.09375,
+          "width": 78.390625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 176.546875,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 140.328125,
+          "bottom": 43.09375,
+          "width": 82.328125,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 125.453125,
+          "bottom": 43.09375,
+          "width": 67.453125,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 97.046875,
+          "bottom": 43.09375,
+          "width": 39.046875,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 665.546875,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "light-home-reported-local.png"
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 617,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "light-practice-reported-local.png"
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 620.296875,
+            "y": 11.5,
+            "right": 693.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 697.5,
+            "y": 11.5,
+            "right": 746,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "light-calendar-reported-local.png"
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 665.546875,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "light",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "light-settings-reported-local.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 240.546875,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 99.984375,
+          "bottom": 45.5,
+          "width": 35.984375,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "dark-home-phone-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 203.015625,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 122.984375,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 145.03125,
+          "bottom": 45.5,
+          "width": 81.03125,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "dark-practice-phone-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 195.296875,
+            "y": 11.5,
+            "right": 268.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 272.5,
+            "y": 11.5,
+            "right": 321,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 160.9375,
+          "bottom": 45.5,
+          "width": 96.9375,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "dark-calendar-phone-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 158.890625,
+          "bottom": 45.5,
+          "width": 94.890625,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 240.546875,
+            "y": 11.5,
+            "right": 326,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 163.890625,
+          "bottom": 45.5,
+          "width": 99.890625,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 145.671875,
+          "bottom": 45.5,
+          "width": 81.671875,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 68,
+          "width": 390,
+          "height": 68
+        },
+        "grid": "44px 262px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 12,
+            "y": 11.5,
+            "right": 56,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 334,
+            "y": 11.5,
+            "right": 378,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 64,
+          "y": 21.5,
+          "right": 110.796875,
+          "bottom": 45.5,
+          "width": 46.796875,
+          "height": 24
+        },
+        "nav": {
+          "x": 0,
+          "y": 771,
+          "right": 390,
+          "bottom": 844,
+          "width": 390,
+          "height": 73
+        },
+        "overflow": false
+      },
+      "capture": "dark-settings-phone-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 686.546875,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "dark-home-phone-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 638,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "dark-practice-phone-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 641.296875,
+            "y": 11.5,
+            "right": 714.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 718.5,
+            "y": 11.5,
+            "right": 767,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "dark-calendar-phone-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 686.546875,
+            "y": 11.5,
+            "right": 772,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 844,
+          "bottom": 68,
+          "width": 844,
+          "height": 68
+        },
+        "grid": "44px 700px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 784,
+            "y": 11.5,
+            "right": 828,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 90,
+          "bottom": 390,
+          "width": 90,
+          "height": 322
+        },
+        "overflow": false
+      },
+      "capture": "dark-settings-phone-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 610.546875,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "dark-home-tablet-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 562,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "dark-practice-tablet-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 565.296875,
+            "y": 11.5,
+            "right": 638.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 642.5,
+            "y": 11.5,
+            "right": 691,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "dark-calendar-tablet-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 610.546875,
+            "y": 11.5,
+            "right": 696,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-portrait",
+      "width": 768,
+      "height": 1024,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 768,
+          "bottom": 68,
+          "width": 768,
+          "height": 68
+        },
+        "grid": "44px 624px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 708,
+            "y": 11.5,
+            "right": 752,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1024,
+          "width": 156,
+          "height": 956
+        },
+        "overflow": false
+      },
+      "capture": "dark-settings-tablet-portrait.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 866.546875,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "dark-home-tablet-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 818,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "dark-practice-tablet-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 821.296875,
+            "y": 11.5,
+            "right": 894.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 898.5,
+            "y": 11.5,
+            "right": 947,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "dark-calendar-tablet-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 866.546875,
+            "y": 11.5,
+            "right": 952,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1024,
+          "bottom": 68,
+          "width": 1024,
+          "height": 68
+        },
+        "grid": "44px 880px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 964,
+            "y": 11.5,
+            "right": 1008,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 768,
+          "width": 156,
+          "height": 700
+        },
+        "overflow": false
+      },
+      "capture": "dark-settings-tablet-landscape.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 176.546875,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 87.515625,
+          "bottom": 43.09375,
+          "width": 29.515625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 139.015625,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 122.984375,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 125.09375,
+          "bottom": 43.09375,
+          "width": 67.09375,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 154.890625,
+            "y": 11.5,
+            "right": 209,
+            "bottom": 55.5,
+            "width": 54.109375,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 213,
+            "y": 11.5,
+            "right": 257,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 137.890625,
+          "bottom": 43.09375,
+          "width": 79.890625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 136.390625,
+          "bottom": 43.09375,
+          "width": 78.390625,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 176.546875,
+            "y": 11.5,
+            "right": 262,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 140.328125,
+          "bottom": 43.09375,
+          "width": 82.328125,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 125.453125,
+          "bottom": 43.09375,
+          "width": 67.453125,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "narrow-phone",
+      "width": 320,
+      "height": 568,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 320,
+          "bottom": 68,
+          "width": 320,
+          "height": 68
+        },
+        "grid": "44px 204px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 8,
+            "y": 11.5,
+            "right": 52,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 268,
+            "y": 11.5,
+            "right": 312,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 58,
+          "y": 23.90625,
+          "right": 97.046875,
+          "bottom": 43.09375,
+          "width": 39.046875,
+          "height": 19.1875
+        },
+        "nav": {
+          "x": 0,
+          "y": 495,
+          "right": 320,
+          "bottom": 568,
+          "width": 320,
+          "height": 73
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "home",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 665.546875,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 111.296875,
+          "bottom": 46.6875,
+          "width": 39.296875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "dark-home-reported-local.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "practice",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "quick-practice",
+            "x": 617,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 134,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.21875,
+          "bottom": 46.6875,
+          "width": 88.21875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "dark-practice-reported-local.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "calendar",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 620.296875,
+            "y": 11.5,
+            "right": 693.5,
+            "bottom": 55.5,
+            "width": 73.203125,
+            "height": 44
+          },
+          {
+            "action": "calendar-mode",
+            "x": 697.5,
+            "y": 11.5,
+            "right": 746,
+            "bottom": 55.5,
+            "width": 48.5,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 177.890625,
+          "bottom": 46.6875,
+          "width": 105.890625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "dark-calendar-reported-local.png"
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "piano",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 175.390625,
+          "bottom": 46.6875,
+          "width": 103.390625,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "multimedia",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "record-media",
+            "x": 665.546875,
+            "y": 11.5,
+            "right": 751,
+            "bottom": 55.5,
+            "width": 85.453125,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 180.953125,
+          "bottom": 46.6875,
+          "width": 108.953125,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "progress",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 160.859375,
+          "bottom": 46.6875,
+          "width": 88.859375,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      }
+    },
+    {
+      "theme": "dark",
+      "layout": "reported-local",
+      "width": 823,
+      "height": 1253,
+      "route": "settings",
+      "metrics": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 823,
+          "bottom": 68,
+          "width": 823,
+          "height": 68
+        },
+        "grid": "44px 679px 44px",
+        "controls": [
+          {
+            "action": "settings",
+            "x": 16,
+            "y": 11.5,
+            "right": 60,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "action": "midi-settings",
+            "x": 763,
+            "y": 11.5,
+            "right": 807,
+            "bottom": 55.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "title": {
+          "x": 72,
+          "y": 20.296875,
+          "right": 122.6875,
+          "bottom": 46.6875,
+          "width": 50.6875,
+          "height": 26.390625
+        },
+        "nav": {
+          "x": 0,
+          "y": 68,
+          "right": 156,
+          "bottom": 1253,
+          "width": 156,
+          "height": 1185
+        },
+        "overflow": false
+      },
+      "capture": "dark-settings-reported-local.png"
+    }
+  ],
+  "sourceSHA256": {
+    "src/layout.css": "f16811bb8cc65a23712ced52ae29ef655925c99273c9b526629c58f9a0823207",
+    "src/companion/app.js": "f5c70eb9295c6785890f0d7ef030c1f1108e12d551297afe2b28b717dea60172",
+    "src/companion/app.css": "568f70b4c3e736dc75a34ede1dc801fea0be416823deaab2ae23b6bf9cd00f7b",
+    "dist/index.html": "420a4a236ee0036bb0ef984e26e34ee23addf7779b15d715303382582930e813"
+  },
+  "errors": []
+}

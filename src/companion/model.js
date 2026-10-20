@@ -202,6 +202,15 @@ export function validateData(input) {
       if (s.blockRuntime.reduce((sum, r) => sum + r.elapsedMs, s.blockElapsedMs) > s.elapsedMs) fail();
     }
   };
+  for (const e of input.events) if (e.scorePractices !== undefined) {
+    if (!Array.isArray(e.scorePractices) || e.scorePractices.length > 500) fail();
+    const workIds = new Set();
+    for (const practice of e.scorePractices) {
+      checkSession(practice);
+      if (practice.runningSince != null || practice.blocks.length !== 1 || practice.blocks[0].type !== 'repertoire' || !practice.blocks[0].workId || workIds.has(practice.blocks[0].workId)) fail();
+      workIds.add(practice.blocks[0].workId);
+    }
+  }
   input.sessions.forEach(checkSession);
   if (input.active != null) checkSession(input.active);
   // Remove prototype-bearing keys anywhere before data enters the application.

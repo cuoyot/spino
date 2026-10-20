@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {emptyData,validateData,validateBackup,deleteSession} from '../src/companion/model.js';
-import {completeLesson,lessonResult,linkLessonRecordings} from '../src/companion/lessons.js';
+import {beginLessonPractice,pauseLessonPractice,completeLesson,lessonResult,linkLessonRecordings} from '../src/companion/lessons.js';
 import {mergeNotebooks} from '../src/companion/cloud-merge.js';
 import {eventsBetween} from '../src/companion/event-recurrence.js';
 import {agendaEntries,agendaCard} from '../src/companion/agenda.js';
@@ -29,4 +29,19 @@ test('lesson result and recording references survive notebook backup and indepen
  const initial=fixture(),base={format:'cuaderno-piano',version:1,data:initial,assets:[]},local=structuredClone(base),remote=structuredClone(base);
  completeLesson(local.data,'lesson@2026-10-18',values,now);linkLessonRecordings(local.data,'lesson@2026-10-18',['original-media-id']);remote.data.works[0].notes='Independent teacher note';
  const merged=mergeNotebooks(base,local,remote);assert.deepEqual(merged.conflicts,[]);const restored=validateBackup(JSON.stringify(merged.backup));assert.equal(restored.data.sessions[0].lessonEventId,'lesson@2026-10-18');assert.deepEqual(restored.data.events.find(e=>e.id==='lesson@2026-10-18').recordingIds,['original-media-id']);assert.equal(restored.data.works[0].notes,'Independent teacher note');
+});
+
+test('lesson score clocks resume independently and completion credits exact piece times once',()=>{
+ const d=fixture();d.events[0].workIds=['a','b'];const id='lesson@2026-10-18';
+ beginLessonPractice(d,id,'a',now);pauseLessonPractice(d,now+30000);
+ beginLessonPractice(d,id,'b',now+40000);pauseLessonPractice(d,now+60000);
+ const restored=validateBackup(JSON.stringify({format:'cuaderno-piano',version:1,data:d,assets:[]})).data;
+ beginLessonPractice(restored,id,'a',now+70000);assert.equal(restored.active.elapsedMs,30000);
+ const result=completeLesson(restored,id,{...values,minutes:1},now+90000);
+ assert.equal(restored.active,null);assert.equal(result.elapsedMs,70000);
+ assert.deepEqual(result.results.map(r=>[r.block.workId,r.elapsedMs]),[['b',20000],['a',50000]]);
+ assert.equal(result.results.reduce((n,r)=>n+r.elapsedMs,0),result.elapsedMs);
+ assert.doesNotThrow(()=>validateData(restored));
+ assert.throws(()=>beginLessonPractice(restored,id,'a',now+100000));
+ completeLesson(restored,id,{...values,minutes:2},now+110000);assert.equal(restored.sessions.length,1);
 });

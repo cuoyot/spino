@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-20T09:23:09.015Z",
+  "kind": "Responsive Chromium browser; disposable synthetic lesson and PDF; not native acceptance",
+  "measuredPieceMs": 2019,
+  "firstTime": 1317,
+  "practiceId": "d08c603a-e609-41fa-b83d-94949da46cf7",
+  "frames": [
+    "lesson-score-phone-portrait.png",
+    "lesson-score-phone-landscape.png",
+    "lesson-score-tablet-portrait.png",
+    "lesson-score-tablet-landscape.png",
+    "lesson-paused-0.png",
+    "lesson-paused-1.png",
+    "lesson-completed.png"
+  ],
+  "sourceSHA256": {
+    "src/companion/app.js": "f5c70eb9295c6785890f0d7ef030c1f1108e12d551297afe2b28b717dea60172",
+    "src/companion/lessons.js": "37e64729d271865c65cdede79cf6fa2f12a8919789559ad973f479eb66fd4c11",
+    "src/companion/model.js": "5eebae496d143681d8e1f13a8bdd0a05dc378cecd7dfa88ff1aedcc9fb17977f",
+    "src/companion/pdf-viewer.js": "3edba0172fd8db76fb91ee2624eaed8b602800fded6f597c9ae31010d942d091",
+    "src/companion/musicxml-viewer.js": "e43daf52e4b0062e04c32f551d8503f4c685f4e25424764148560845e7c7575f",
+    "dist/index.html": "300fa7ab162514f7b4f0f0c801fc6dbbcffed452f1a16ad6d0128435000ba323"
+  },
+  "checks": [
+    "Score opens directly and runs without preparation",
+    "Timer stop and Back return to the lesson",
+    "Pause excludes elapsed time; reload and resume keep the practice ID",
+    "Completion credits exact measured piece time once and retains the total breakdown"
+  ],
+  "errors": []
+}

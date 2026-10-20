@@ -15,7 +15,9 @@ Available in Android beta 12/build51. Responsive Chromium verification covers bo
 
 In a Lesson appointment, choose **Complete lesson**. Enter the actual date and duration, then optionally add a rating, comments, selected repertoire pieces and a next step. Save adds one result to your history and marks that appointment completed. **Edit completed lesson** updates the same result. The original plan and the other lessons in a recurring series stay independent. Deleting the saved result makes the appointment pending again.
 
-**Scores worked on** opens the selected repertoire entries and their available scores. The total lesson duration does not automatically assign minutes to individual scores. Use the result's existing **Edit practice** action if you want to record an explicit activity breakdown.
+Before completing a lesson, choose **Practice score** beside a linked score to open practice with its clock running. Stopping or leaving the score returns to the lesson directly. Each piece keeps its own accumulated time when reopened. Completing the lesson saves those measured times in the pieces' practice history; any additional lesson duration is saved as unassigned time. Merely selecting a piece does not assign time to it. **Scores worked on** opens the selected repertoire entries and their available scores.
+
+Direct lesson score practice is verified in the source/browser build on 2026-10-20; native-device acceptance remains open.
 
 Under **Teacher recordings**, choose **Associate recordings** to link saved audio/video, or **Record teacher** to make a new take. Saving a take from the lesson links it automatically. You can play or share it from the lesson or its saved result. Unchecking a recording removes only its association. An unavailable local recording retains a placeholder; recordings keep the existing separate recording-copy policy.
 

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "en"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [],
+  "sessions": [],
+  "active": {
+    "id": "f872d7f1-b010-4bd5-8866-a67616ad4bb9",
+    "title": "Synthetic Hanon spacing",
+    "context": "piano",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "1182d505-f642-48f9-b99c-f5bbf2619766",
+        "type": "warmup",
+        "minutes": 3,
+        "bpm": 60,
+        "timing": "timed",
+        "target": "hanon-5",
+        "hand": "both",
+        "input": "piano",
+        "figures": "2",
+        "passage": "",
+        "workId": "",
+        "exercises": [
+          "hanon-5"
+        ],
+        "presentation": "page"
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-10-20T09:38:55.320Z",
+    "date": "2026-10-20",
+    "elapsedMs": 0,
+    "blockElapsedMs": 0,
+    "runningSince": null,
+    "updatedAt": 1792489135320,
+    "notes": "",
+    "next": ""
+  },
+  "lastBackup": null
+}

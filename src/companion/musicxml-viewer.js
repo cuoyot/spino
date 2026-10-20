@@ -236,7 +236,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   resized.observe(scroll);
   async function close() {
     if (closed) return;
-    if (running()) { await session.toggle(); controls(); return; }
+    if (running()) { await session.toggle(); controls(); if (!session.returnOnStop) return; }
     try{await markSaving;}catch{return false;}
     closed = true; stopFollow(); stopClock?.(); clearTimeout(zoneTimer); clearTimeout(resizeTimer); resized.disconnect(); stopPedals(); display.AutoResizeEnabled = false; display.clear(); await fullscreen.exit(); modal.close(); modal.remove(); onClose(); return true;
   }
@@ -264,7 +264,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if (action === 'record') { session?.record?.(); return; }
     if (action === 'finish' && session?.finish) { if(running()) { await session.toggle(); controls(); } if (await close()) await session.finish(); return; }
     if (action === 'close') await close();
-    if (action === 'pause') { if (!running() && (expanded || annotationTool!=='read')) await leaveEditing({ resume: false }); else { await session.toggle(); controls(); } }
+    if (action === 'pause') { if (!running() && (expanded || annotationTool!=='read')) await leaveEditing({ resume: false }); else { await session.toggle(); controls(); if(session.returnOnStop && !running()) await close(); } }
     if (action === 'next' || action === 'prev') turn(action === 'next' ? 1 : -1);
     if (action === 'follow') { followPreference.enabled = !follower; saveFollowPreference(followPreference); if (follower) stopFollow(); else startFollow(); }
     if (!running() && ['in', 'out'].includes(action)) setZoom(Math.max(.6,Math.min(2,zoom+(action==='in'?.2:-.2))));

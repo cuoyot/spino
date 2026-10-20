@@ -1,0 +1,650 @@
+[
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "c96d1ef6-ee19-42dd-8181-e9080a47ea5e",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-1-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-1",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-1"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "eeb5d642-9027-4767-ae95-26feb13ccb27",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-2-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-2",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-2"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "2bfb40a1-e85e-4cb6-9603-c5fd574756db",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-3-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-3",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-3"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "847ff23f-6305-439d-b0a4-0353ed3392de",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-4-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-4",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-4"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "a7de0abf-fe68-491e-b8b7-ec9fd880c28d",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-5-1",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-5",
+          "hand": "both",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-5"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "0513bcf0-ee31-4b93-bba7-2e9603e23824",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-5-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-5",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-5"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "095b15ba-a29c-4b63-8ee4-371a738b3f57",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-5-4",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-5",
+          "hand": "both",
+          "input": "piano",
+          "figures": "4",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-5"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "8e96b966-9e98-4229-8b36-52231573ee62",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-6-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-6",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-6"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "ddc0f263-a12f-4c1b-ab84-3c834c669182",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-7-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-7",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-7"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "06e51ce5-9613-4be5-b347-9d4ca520e22a",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-8-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-8",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-8"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "ffc539c1-f187-480d-9842-02236f2e176f",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-9-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-9",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-9"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  },
+  {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": {
+      "id": "8f88571f-f05a-4327-8e86-f0b589e89e03",
+      "title": "Hanon score spacing review",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "spacing-hanon-10-2",
+          "type": "warmup",
+          "minutes": 3,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "hanon-10",
+          "hand": "both",
+          "input": "piano",
+          "figures": "2",
+          "passage": "",
+          "workId": "",
+          "exercises": [
+            "hanon-10"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "blockIndex": 0,
+      "results": [],
+      "startedAt": "2026-10-20T10:00:00.000Z",
+      "date": "2026-10-20",
+      "elapsedMs": 0,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1792490400000,
+      "notes": "",
+      "next": ""
+    },
+    "lastBackup": null
+  }
+]

@@ -494,7 +494,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   async function close() {
     if (closed || closing) return;
     // Back during practice pauses first; leaving the score is a separate paused action.
-    if (running()) { await session.toggle(); updateTimer(); return; }
+    if (running()) { await session.toggle(); updateTimer(); if (!session.returnOnStop) return; }
     closing = true;
     if (textDialog?.open) { textDialog.close(); closing = false; return; }
     if (dirty && !await persistMarks()) { closing = false; return; }
@@ -525,7 +525,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
       if (action === 'prev') turn(-1); if (action === 'next') turn(1);
       if (action === 'timer') {
         if (!running() && dirty && !await persistMarks()) return;
-        await session.toggle(); updateTimer(); return;
+        await session.toggle(); updateTimer(); if(session.returnOnStop && !running()) await close(); return;
       }
       if (action === 'tools') {
         if (!session && expanded) { expanded=false; editingRequested=false; controls(); return; }

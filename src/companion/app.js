@@ -1,4 +1,4 @@
-import {completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
+import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
@@ -536,7 +536,7 @@ export async function bootCompanion(reader) {
   function lessonForm(id) {
     const e=findEvent(data.events,id);if(e?.type!=='Clase')return;
     const s=lessonResult(data,id),date=s?.date||(e.date>localDate()?localDate():e.date);
-    showDialog(s?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),`<form id="lesson-form"><div class="cp-fields"><label>${ui('Date','Fecha')}<input type="date" name="date" max="${localDate()}" value="${date}" required /></label><label>${ui('Duration (minutes)','Duración (minutos)')}<input type="number" name="minutes" min="1" max="720" step="0.01" value="${s?s.elapsedMs/60000:60}" required /></label></div>${feedbackFields(s?{...s,results:[],blocks:[]}:{title:e.title,workIds:e.workIds,notes:'',next:''},data.works)}${formEnd()}</form>`,async f=>{
+    showDialog(s?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),`<form id="lesson-form"><div class="cp-fields"><label>${ui('Date','Fecha')}<input type="date" name="date" max="${localDate()}" value="${date}" required /></label><label>${ui('Duration (minutes)','Duración (minutos)')}<input type="number" name="minutes" min="1" max="720" step="0.01" value="${s?s.elapsedMs/60000:e.scorePractices?.length?Math.max(1,Math.ceil(e.scorePractices.reduce((n,p)=>n+p.elapsedMs,0)/600)/100):60}" required /></label></div>${feedbackFields(s?{...s,results:[],blocks:[]}:{title:e.title,workIds:e.workIds,notes:'',next:''},data.works)}${formEnd()}</form>`,async f=>{
       if(lessonResult(data,id)!==s)throw Error(ui('This lesson changed. Reopen the editor.','Esta clase ha cambiado. Abre de nuevo el editor.'));
       const next=copy(data);completeLesson(next,id,{...readFeedback(f),date:String(f.get('date')),minutes:Number(f.get('minutes'))});
       await store.save(next);data=next;dialog.close();await reminders();go('event',id);
@@ -557,7 +557,7 @@ export async function bootCompanion(reader) {
     const e=findEvent(data.events,detailId);if(!e)return calendar();
     const completed=lessonResult(data,e.id);
     const lesson=e.type==='Clase'?`<section class="cp-card"><div class="cp-row"><h2>${completed?ui('Completed lesson','Clase completada'):ui('Lesson','Clase')}</h2>${btn('complete-lesson',completed?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),e.id,'primary')}</div>${completed?`${sessionCards([completed])}<p style="white-space:pre-wrap">${esc(completed.notes)}</p>${completed.next?`<h3>${ui('Next step','Próximo paso')}</h3><p style="white-space:pre-wrap">${esc(completed.next)}</p>`:''}${completed.workIds?.length?`<h3>${ui('Scores worked on','Partituras trabajadas')}</h3>${completed.workIds.map(id=>`<div class="cp-actions">${btn('work-detail',esc(workName(id)),id)}${workHasScore(data.works.find(w=>w.id===id)||{})?btn('open-pdf',ui('Open score','Abrir partitura'),id):''}</div>`).join('')}`:''}`:''}</section>${lessonRecordings(e)}`:'';
-    return `${titleRow(esc(e.title),`${esc(eventTypeLabel(e.type))} · ${esc(dayLabel(e.date))}${e.time?` · ${esc(e.time)}`:''}`,btn('edit-event',ui("Edit", "Editar"),e.id))}${lesson}<article class="cp-card"><span class="cp-tag warm">${completed?ui('Original plan','Plan original'):daysUntil(e.date)>=0?`${ui("In ", "Faltan ")}${daysUntil(e.date)}${ui(" days", " días")}`:ui("Past event", "Evento pasado")}</span><p style="margin-top:16px">${esc(e.place)}</p><p style="white-space:pre-wrap">${esc(e.notes)}${ui("</p><h2>Preparation steps</h2>", "</p><h2>Pasos de preparación</h2>")}${(e.milestones||[]).map((m,i)=>`<label class="check"><input type="checkbox" data-milestone="${i}" ${m.done?'checked':''} />${esc(m.title)}</label>`).join('')}${ui("<p class=\"muted\">Mark each step when you feel ready.</p></article><h2 class=\"cp-section\">Linked repertoire</h2>", "<p class=\"muted\">Tú marcas cuándo está preparado cada paso.</p></article><h2 class=\"cp-section\">Repertorio asociado</h2>")}${e.workIds.length?e.workIds.map(id=>`<article class="cp-card cp-row"><h3>${esc(workName(id))}</h3><div class="cp-actions">${btn('work-detail',ui("Open", "Abrir"),id)}${btn('plan-work',ui("Schedule rehearsal", "Planificar ensayo"),id)}</div></article>`).join(''):empty(ui("Edit the event to link your works.", "Edita el evento para vincular tus obras."))}<div class="cp-actions">${e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}${ui(". Editing changes this appointment only.</p>", ". Se editará solo esta cita.</p>")}${btn('cancel-series',ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"),e.id,'quiet')}` : ''}${btn('delete-event',ui("Delete event", "Eliminar evento"),e.id,'danger quiet')}</div>`;
+    return `${titleRow(esc(e.title),`${esc(eventTypeLabel(e.type))} · ${esc(dayLabel(e.date))}${e.time?` · ${esc(e.time)}`:''}`,btn('edit-event',ui("Edit", "Editar"),e.id))}${lesson}<article class="cp-card"><span class="cp-tag warm">${completed?ui('Original plan','Plan original'):daysUntil(e.date)>=0?`${ui("In ", "Faltan ")}${daysUntil(e.date)}${ui(" days", " días")}`:ui("Past event", "Evento pasado")}</span><p style="margin-top:16px">${esc(e.place)}</p><p style="white-space:pre-wrap">${esc(e.notes)}${ui("</p><h2>Preparation steps</h2>", "</p><h2>Pasos de preparación</h2>")}${(e.milestones||[]).map((m,i)=>`<label class="check"><input type="checkbox" data-milestone="${i}" ${m.done?'checked':''} />${esc(m.title)}</label>`).join('')}${ui("<p class=\"muted\">Mark each step when you feel ready.</p></article><h2 class=\"cp-section\">Linked repertoire</h2>", "<p class=\"muted\">Tú marcas cuándo está preparado cada paso.</p></article><h2 class=\"cp-section\">Repertorio asociado</h2>")}${e.workIds.length?e.workIds.map(id=>`<article class="cp-card cp-row"><h3>${esc(workName(id))}${e.scorePractices?.some(s=>s.blocks[0].workId===id)?` · ${clock(e.scorePractices.find(s=>s.blocks[0].workId===id).elapsedMs)}`:''}</h3><div class="cp-actions">${e.type==='Clase'&&!completed&&workHasScore(resource(id))?btn('lesson-score',ui("Practice score", "Practicar partitura"),id,'primary'):''}${btn('work-detail',ui("Open", "Abrir"),id)}${btn('plan-work',ui("Schedule rehearsal", "Planificar ensayo"),id)}</div></article>`).join(''):empty(ui("Edit the event to link your works.", "Edita el evento para vincular tus obras."))}<div class="cp-actions">${e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}${ui(". Editing changes this appointment only.</p>", ". Se editará solo esta cita.</p>")}${btn('cancel-series',ui("Cancel this and future appointments", "Cancelar esta cita y las siguientes"),e.id,'quiet')}` : ''}${btn('delete-event',ui("Delete event", "Eliminar evento"),e.id,'danger quiet')}</div>`;
   }
   function manualForm() {
     showDialog(ui("Log completed practice", "Registrar práctica realizada"),`${ui("<form><div class=\"cp-fields\"><label>Date<input name=\"date\" type=\"date\" max=\"", "<form><div class=\"cp-fields\"><label>Fecha<input name=\"date\" type=\"date\" max=\"")}${localDate()}" value="${selectedDate>localDate()?localDate():selectedDate}${ui("\" required /></label><label>Minutes<input name=\"minutes\" type=\"number\" min=\"1\" max=\"720\" value=\"20\" required /></label></div><label>Activity<select name=\"type\">", "\" required /></label><label>Minutos<input name=\"minutes\" type=\"number\" min=\"1\" max=\"720\" value=\"20\" required /></label></div><label>Actividad<select name=\"type\">")}${opts(Object.entries(ACTIVITIES).filter(([type])=>!['theory','warmup'].includes(type)),'free')}${ui("</select></label><label>Work (optional)<select name=\"workId\"><option value=\"\">No linked work</option>", "</select></label><label>Obra (opcional)<select name=\"workId\"><option value=\"\">Sin obra asociada</option>")}${opts(data.works.filter(w=>!w.trashedAt).map(w=>[w.id,w.title]),'')}</select></label>${feedbackFields({title:ui("Piano practice", "Práctica de piano")},data.works)}${formEnd()}</form>`,async f=>{
@@ -760,6 +760,7 @@ export async function bootCompanion(reader) {
     }
   }
   function endSession() {
+    if(data.active?.lessonPracticeEventId)return returnToLesson();
     mediaCapture?.stop();
     if(data.active?.quickScore)return quickExitDialog();
     if(!data.active)return;pauseSession();hideReader();go('session');
@@ -917,7 +918,7 @@ export async function bootCompanion(reader) {
       const controller = await openMusicScore({ asset, selection: e.selection, start: segment?.start_measure_index || 0, end: segment?.end_measure_index_exclusive ?? e.analysis.metrics.measure_count ?? e.parts.find(p => p.id === e.selection[0]).measures, session,
         saveMarks: async musicxmlMarks => { const current=await store.asset(e.assetId);if(!current)throw new Error('Score unavailable');await store.putAsset({...current,musicxmlMarks}); },
         onRendered: async () => { const stamp = { sha256: e.sha256, configHash: e.configHash, version: RENDERER_VERSION }; await libraryDownloads.update(id, segmentId ? { segmentRenders: { ...e.segmentRenders, [segmentId]: stamp } } : { render: stamp }); },
-        onClose: () => { alreadyClosed = true; scoreViewer = null; render(); updateClock(); },
+        onClose: () => { alreadyClosed = true; scoreViewer = null; if(data.active?.lessonPracticeEventId) void returnToLesson().catch(error=>toast(error.message)); else {render(); updateClock();} },
       });
       if (!alreadyClosed) scoreViewer = controller;
     } catch (error) {
@@ -1043,6 +1044,30 @@ export async function bootCompanion(reader) {
     };
     document.body.append(input); input.click();
   }
+  let returningToLesson = null;
+  function returnToLesson() {
+    if (returningToLesson) return returningToLesson;
+    returningToLesson = saveLessonPause().finally(() => { returningToLesson = null; });
+    return returningToLesson;
+  }
+  async function saveLessonPause() {
+    if (!data.active?.lessonPracticeEventId) return;
+    pauseSession();
+    const next = copy(data), id = pauseLessonPractice(next);
+    await store.save(next); data = next;
+    go('event', id);
+  }
+  async function openLessonScore(workId) {
+    if (startingPractice || openingScore || scoreViewer || root.inert) return;
+    startingPractice = true;
+    try {
+      const next = copy(data);
+      beginLessonPractice(next, detailId, workId);
+      await store.save(next); data = next;
+      go('session');
+      await openScorePractice();
+    } finally { startingPractice = false; }
+  }
   async function openScorePractice() {
     const block = currentBlock();
     if (!data.active || block?.type !== 'repertoire' || openingScore || scoreViewer) return;
@@ -1058,7 +1083,8 @@ export async function bootCompanion(reader) {
       const inPractice = view === 'session' && currentBlock()?.type === 'repertoire';
       if (inPractice && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === libraryWork.libraryId), executionFor(library, libraryWork.libraryId), library).playable) throw new Error(ui("This score needs validation, analysis or piano-part selection before practice.", "Esta partitura necesita validación, análisis o selección de las partes de piano antes de practicar."));
       return previewLibrary(libraryWork.libraryId, null, inPractice ? {
-        finish: () => endSession(),
+        returnOnStop: !!data.active?.lessonPracticeEventId,
+        finish: () => data.active?.lessonPracticeEventId ? returnToLesson() : endSession(),
         record: () => recordWork(currentBlock()?.workId),
           read: () => ({ time: clock(totalMs()), running: data.active?.runningSince != null }),
         toggle: () => { if (!data.active) return; if (data.active.runningSince == null) { data.active.runningSince = Date.now(); checkpoint(); } else pauseSession(); updateClock(); },
@@ -1080,12 +1106,13 @@ export async function bootCompanion(reader) {
         save: annotations => store.saveAnnotations(asset.id, annotations),
         saveView: scoreView => store.saveScoreView(asset.id, scoreView),
         session: inPractice ? {
-          finish: () => endSession(),
+          returnOnStop: !!data.active?.lessonPracticeEventId,
+        finish: () => data.active?.lessonPracticeEventId ? returnToLesson() : endSession(),
         record: () => recordWork(currentBlock()?.workId),
           read: () => ({ time: clock(totalMs()), running: data.active?.runningSince != null }),
           toggle: () => { if (!data.active) return; if (data.active.runningSince == null) { data.active.runningSince = Date.now(); checkpoint(); } else pauseSession(); updateClock(); },
         } : null,
-        onClose: () => { alreadyClosed = true; scoreViewer = null; render(); updateClock(); },
+        onClose: () => { alreadyClosed = true; scoreViewer = null; if(data.active?.lessonPracticeEventId) void returnToLesson().catch(error=>toast(error.message)); else {render(); updateClock();} },
       });
       if (!alreadyClosed) scoreViewer = controller;
     } finally { openingScore = false; }
@@ -1270,6 +1297,7 @@ export async function bootCompanion(reader) {
     'new-event':()=>{if(view==='home')selectedDate=localDate();eventForm();},'edit-event':id=>eventForm(findEvent(data.events,id)),
     'event-detail':id=>go('event',id),
     'delete-event':id=>confirm(ui("Delete event", "Eliminar evento"),ui("Works and their history will be kept.", "Las obras y su historial se conservarán."),async()=>{data.events=removeEventOccurrence(data.events,id);await persist();await reminders();go('calendar');}),
+    'lesson-score':openLessonScore,
     'complete-lesson':lessonForm,
     'lesson-recordings':lessonRecordingForm,
     'record-lesson':recordLesson,

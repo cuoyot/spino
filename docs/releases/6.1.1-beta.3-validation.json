@@ -1,0 +1,85 @@
+{
+  "version": "6.1.1-beta.3",
+  "build": 79,
+  "date": "2026-10-20T09:41:07.681Z",
+  "scope": [
+    "D-068 generated Hanon score spacing",
+    "Direct lesson score opening and measured per-piece timing",
+    "Post-practice shared header controls"
+  ],
+  "webBuild": "passed",
+  "focusedChecks": {
+    "tests": 105,
+    "pass": 105,
+    "fail": 0,
+    "log": "output/review/beta613/focused-tests.log"
+  },
+  "headerChecks": {
+    "mainRouteStates": 384,
+    "postPracticeStates": 84,
+    "postPracticeFrames": 40,
+    "allPassed": true,
+    "earlierHarnessFailuresRetained": true,
+    "log": "output/review/beta613/header-return-final-tests-03.log"
+  },
+  "websiteChecks": {
+    "tests": 3,
+    "pass": 3,
+    "fail": 0,
+    "log": "output/review/beta613/website-tests.log"
+  },
+  "androidBuild": "assembleDebug, signed bundleRelease and testDebugUnitTest passed",
+  "packagedWebFilesMatch": {
+    "apk": 464,
+    "aab": 464
+  },
+  "apkSignature": "verified: existing beta channel certificate",
+  "aabSignature": "jar verified: existing production upload configuration",
+  "nativeEvidence": "../quality-review/captures/releases/2026-10-20-beta613/native-final-install/native-handoff.json",
+  "nativeScenarioEvidence": "../quality-review/captures/releases/2026-10-20-beta613/native-scenarios-03/native-verification.json",
+  "nativeHanonAndHeader": "passed with actual installed WebView assets and namespaced synthetic notebook",
+  "retainedOriginalIndexedDBFiles": 120,
+  "applicationStorageCleared": false,
+  "originalLogicalStoresRetained": true,
+  "lessonBrowserEvidence": "../quality-review/captures/calendar/2026-10-20-beta613-lesson-practice-01/verification.json",
+  "hanonBrowserEvidence": "../quality-review/captures/warmups/2026-10-20-beta613-score-spacing-01/verification.json",
+  "headerBrowserEvidence": "../quality-review/captures/themes/2026-10-20-beta613-return-header-03/verification.json",
+  "nativePDFLimitation": "The existing emulator uses Android WebView 113. PDF.js stays in its opening state, as in earlier release reviews. Native PDF/lesson acceptance remains open. Complete direct opening, timer stop, Back, reload/resume and exact per-piece credit pass in the production browser. No PDF drawing shim was applied.",
+  "localDownloadVerification": {
+    "bytes": 42447787,
+    "sha256": "a3b3b29696776d21a0a079aa8ce901a99d443275784289d70f739266ad4c3b75",
+    "exactSignedAPK": true,
+    "ranges": [
+      {
+        "range": [
+          20971510,
+          20971530
+        ],
+        "bytes": 21,
+        "status": 206
+      },
+      {
+        "range": [
+          41943030,
+          41943060
+        ],
+        "bytes": 31,
+        "status": 206
+      },
+      {
+        "range": [
+          42447756,
+          42447786
+        ],
+        "bytes": 31,
+        "status": 206
+      }
+    ]
+  },
+  "stableWebsiteUnchanged": "6.1.0 (76)",
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "iosSimulatorUnchanged": "6.0.0-beta.9 (48)",
+  "physicalDeviceAcceptance": false,
+  "publicVerificationPassed": false,
+  "publication": "pending"
+}
