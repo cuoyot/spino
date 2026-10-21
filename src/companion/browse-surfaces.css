@@ -37,8 +37,8 @@
 #app-shell .cp-browse-surface :is(.cp-dashboard-minutes strong,.cp-streaks strong,.cp-learning-comparison strong,.cp-number) { color: var(--browse-teal); font-variant-numeric: tabular-nums; }
 #app-shell .cp-browse-surface :is(.cp-dashboard-meter,.cp-progress) > span,
 #app-shell .cp-browse-surface .cp-dashboard-bar-track i { background: linear-gradient(90deg,#4f8cff,#32c6ac); }
-#app-shell .cp-browse-surface .cp-progress-sections { padding: 4px; border-radius: 14px; background: var(--theme-control); }
-#app-shell .cp-browse-surface .cp-progress-sections [aria-current=page] { border-radius: 10px; background: var(--theme-accent); color: white; }
+#app-shell .cp-browse-surface .cp-section-tabs { padding: 4px; border-radius: 14px; background: var(--theme-control); }
+#app-shell .cp-browse-surface .cp-section-tabs [aria-current=page] { border-radius: 10px; background: var(--theme-accent); color: white; }
 #app-shell .cp-browse-surface .cp-setting-icon { background: var(--browse-panel); color: var(--browse-blue); }
 #app-shell .cp-browse-surface .cp-setting-row:nth-child(even) .cp-setting-icon { background: var(--browse-tint); color: var(--browse-teal); }
 #app-shell .cp-browse-surface .cp-setting-row { border-bottom-color: var(--theme-line); }
@@ -108,17 +108,15 @@
 #app-shell .cp-browse-surface .cp-repertoire-table td { border-color: var(--theme-line); }
 #app-shell .cp-browse-surface .cp-repertoire-table .cp-stand-icon[aria-pressed=true] { background: var(--browse-teal-tint); color: var(--browse-teal); border-radius: 10px; }
 #app-shell .cp-browse-surface .cp-repertoire-table .cp-repertoire-open b { color: var(--browse-blue); }
-#app-shell:has(.cp-browse-surface:is([data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=work],[data-view=library-detail])) .cp-library-navigation [aria-current=page] { color: #9cbfff; border-color: #38c8ac; }
 #app-shell .cp-browse-surface .cp-score-card { border-inline-start: 3px solid var(--browse-blue); }
 #app-shell .cp-browse-surface .cp-score-card .cp-tag { background: var(--browse-blue-tint); color: var(--browse-blue); }
 #app-shell .cp-browse-surface .cp-library-search { background: var(--browse-blue-tint); border: 1px solid var(--theme-line); border-radius: 14px; padding: 12px; }
 #app-shell .cp-browse-surface :is(.cp-library-maintenance,.cp-practice-hub .cp-section) > h2 { color: var(--browse-teal); }
-:root[data-theme=light] #app-shell:has(.cp-browse-surface:is([data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=work],[data-view=library-detail])) .cp-library-navigation [aria-current=page] { color: #174da6; }
 #app-shell:has(.cp-browse-surface[data-view=practice]) .cp-app-header .cp-quick-practice { background: linear-gradient(110deg,var(--theme-tint),var(--theme-panel)); border-color: var(--theme-link); }
 #app-shell .cp-browse-surface .cp-library-tabs [aria-pressed=true] { background: var(--browse-blue-tint); color: var(--browse-blue); border-color: var(--browse-blue); }
 :root[data-theme=light] #app-shell .cp-browse-surface .cp-library-tabs [aria-pressed=true] { color: var(--browse-blue); }
 
-/* Calendar and Progress share one segmented navigation treatment. */
+/* Calendar, Library and Progress share one segmented navigation treatment. */
 #app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group {
   --choice-background: #252f40;
   --choice-selected: #315f9d;
@@ -199,3 +197,65 @@
   border-bottom-color: transparent;
   box-shadow: 0 2px 8px #0000000a;
 }
+
+/* Catalogue proposal: continuous score rows with small, accessible actions. */
+#app-shell .cp-catalogue { max-width: 1000px; margin-inline: auto; }
+#app-shell .cp-catalogue-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+#app-shell .cp-catalogue-heading h1 { margin: 0; }
+#app-shell .cp-catalogue-heading > button { background: transparent; border: 0; padding-inline: 8px; color: var(--theme-link); font-size: 13px; }
+#app-shell .cp-catalogue-search { margin: 0 0 10px; }
+#app-shell .cp-catalogue-search-line { display: flex; align-items: center; gap: 8px; }
+#app-shell .cp-catalogue-search-line input { flex: 1; width: 0; min-width: 0; margin: 0; }
+#app-shell .cp-catalogue-search-line button { min-height: 44px; padding: 8px 12px; font-size: 13px; }
+#app-shell .cp-catalogue-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px; margin-top: 8px; }
+#app-shell .cp-catalogue-toolbar nav { display: flex; gap: 12px; }
+#app-shell .cp-catalogue-toolbar nav button { min-height: 44px; padding: 6px 0; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: var(--theme-muted); font-size: 13px; }
+#app-shell .cp-catalogue-toolbar nav button[aria-pressed=true] { color: var(--theme-link); border-bottom-color: var(--theme-link); }
+#app-shell .cp-catalogue-toolbar nav button span { font-size: 12px; opacity: .8; padding-left: 4px; }
+#app-shell .cp-catalogue-toolbar label { margin: 0; }
+#app-shell .cp-catalogue-toolbar select { width: auto; min-height: 44px; margin: 0; font-size: 13px; padding: 6px 24px 6px 8px; background-color: transparent; border-color: transparent; }
+#app-shell .cp-catalogue-filters { font-size: 13px; margin-top: 4px; color: var(--theme-muted); }
+#app-shell .cp-catalogue-filters label { max-width: 440px; }
+#app-shell .cp-catalogue-count { margin: 6px 0; font-size: 12px; color: var(--theme-muted); }
+#app-shell .cp-catalogue-row { display: flex; align-items: center; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--theme-line); }
+#app-shell .cp-catalogue-piece { flex: 1; min-width: 0; }
+#app-shell .cp-catalogue-piece h2 { margin: 0; font-size: 15px; line-height: 1.35; }
+#app-shell .cp-catalogue-title { display: block; width: 100%; min-height: 0; border: 0; border-radius: 0; padding: 3px 0; text-align: start; font: inherit; color: var(--theme-text); background: transparent; overflow-wrap: anywhere; }
+#app-shell .cp-catalogue-piece p { margin: 3px 0 0; color: var(--theme-muted); font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+#app-shell .cp-catalogue-status.is-local { color: var(--browse-teal); }
+#app-shell .cp-catalogue-row-actions { display: flex; flex-shrink: 0; align-items: center; gap: 2px; }
+#app-shell .cp-catalogue-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; min-height: 44px; padding: 11px; background: transparent; border: 0; color: var(--theme-link); border-radius: 8px; }
+#app-shell .cp-catalogue-icon svg { width: 21px; height: 21px; }
+#app-shell .cp-catalogue-icon:hover { background: var(--theme-selected); }
+#app-shell .cp-catalogue-more, #app-shell .cp-catalogue-empty { text-align: center; padding: 20px 0; }
+#app-shell .cp-catalogue-end { text-align: center; color: var(--theme-muted); font-size: 12px; margin: 20px 0; }
+#app-shell .cp-catalogue-tools { margin-top: 24px; font-size: 13px; color: var(--theme-muted); }
+@media (min-width: 700px) {
+  #app-shell .cp-catalogue-row { padding-block: 10px; }
+  #app-shell .cp-catalogue-piece h2 { font-size: 16px; }
+}
+#app-shell .cp-transfers { max-width: 1000px; margin-inline: auto; }
+#app-shell .cp-transfer-network { border-bottom: 1px solid var(--theme-line); padding-block: 8px 12px; font-size: 13px; }
+#app-shell .cp-transfer-network .check { margin: 0; }
+#app-shell .cp-transfer-network p { margin-block: 6px; }
+#app-shell .cp-transfer-summary { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; padding-block: 12px; font-size: 13px; color: var(--theme-muted); }
+#app-shell .cp-transfer-summary button { min-height: 44px; background: transparent; border: 0; font-size: 13px; color: var(--theme-link); padding-inline: 4px; }
+#app-shell .cp-transfer-row { display: flex; gap: 12px; align-items: center; border-bottom: 1px solid var(--theme-line); padding-block: 14px; }
+#app-shell .cp-transfer-row > div { flex: 1; min-width: 0; }
+#app-shell .cp-transfer-row h2 { font-size: 15px; margin: 0; overflow-wrap: anywhere; }
+#app-shell .cp-transfer-row p { font-size: 12px; color: var(--theme-muted); margin: 4px 0; }
+#app-shell .cp-transfer-row progress { display: block; width: 100%; height: 5px; margin-top: 8px; }
+#app-shell .cp-transfer-row > button { min-height: 44px; font-size: 13px; padding: 8px 12px; }
+#app-shell .cp-transfer-completed { margin-top: 20px; font-size: 13px; color: var(--theme-muted); }
+#app-shell .cp-catalogue-heading:empty { display: none; }
+#app-shell .cp-catalogue-secondary { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+#app-shell .cp-catalogue-secondary .cp-catalogue-filters { flex: 1; min-width: 0; margin: 0; }
+#app-shell .cp-catalogue-secondary summary { min-height: 44px; padding-block: 12px; }
+#app-shell .cp-catalogue-secondary > button { min-height: 44px; padding: 6px 0 6px 8px; background: transparent; border: 0; font-size: 12px; color: var(--theme-link); }
+#app-shell .cp-catalogue-count { margin-top: 0; }
+#app-shell .cp-catalogue-preview { min-height: 100px; }
+#cp-dialog:has(.cp-catalogue-preview) { width: min(960px, calc(100vw - 24px)); max-width: 960px; }
+#cp-dialog .cp-catalogue-preview-sheet { overflow: auto; max-height: 65vh; background: white; color: #111; border: 1px solid #cbd5e1; border-radius: 4px; }
+#cp-dialog .cp-catalogue-preview-sheet canvas { display: block; width: 100%; height: auto; min-width: 560px; }
+#cp-dialog .cp-catalogue-preview-sheet svg { background: white; }
+#cp-dialog .cp-catalogue-preview-sheet img { display: block; width: 100%; height: auto; min-width: 560px; }

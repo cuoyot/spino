@@ -30,13 +30,13 @@ afterEach(() => setAppLanguage('en'));
 test('catalogue and advanced score detail follow the current language and keep source data untouched', () => {
   const data = local(), before = structuredClone(data);
   setAppLanguage('es');
-  assert.match(libraryMarkup(data), /Biblioteca de partituras/);
+  assert.match(libraryMarkup(data), /Catálogo de partituras/);
   const detail = libraryDetailMarkup(data, record.piece_id);
   assert.match(detail, /Fuentes, derechos y créditos/);
-  assert.match(detail, /Compases escritos/);
-  assert.match(detail, /Revisar derechos de la edición/);
-  assert.match(detail, /Métricas, versiones y avisos/);
-  assert.match(detail, /Revisar pasaje/);
+  assert.match(detail, /Seleccionar partes de piano/);
+  assert.doesNotMatch(detail, /Revisar derechos de la edición/);
+  assert.doesNotMatch(detail, /Métricas, versiones y avisos/);
+  assert.doesNotMatch(detail, /Revisar pasaje/);
   assert.doesNotMatch(visibleText(detail), /Parts and reviews|Written measures|Review excerpt|Sources, rights and credits|pending calibration/);
   assert.ok(detail.includes(esc(record.display_title)));
   assert.ok(detail.includes(esc(record.rights.attribution)));
@@ -44,8 +44,8 @@ test('catalogue and advanced score detail follow the current language and keep s
   assert.match(libraryDetailMarkup(data, 'missing'), /No se encuentra/);
   assert.match(libraryDetailMarkup(data, record.piece_id, false, 'en'), /Sources, rights and credits/);
   setAppLanguage('en');
-  assert.match(libraryMarkup(data), /Score library/);
-  assert.match(libraryDetailMarkup(data, record.piece_id), /Written measures/);
+  assert.match(libraryMarkup(data), /Score catalogue/);
+  assert.match(libraryDetailMarkup(data, record.piece_id), /Select piano parts/);
 });
 
 test('PDF and MusicXML transfers localize visible state, actions, errors and progress labels', () => {

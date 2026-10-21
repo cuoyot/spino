@@ -1,5 +1,43 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Could not load the score preview.|No s’ha pogut carregar la vista prèvia de la partitura.
+Preview score|Vista prèvia de la partitura
+Score preview|Vista prèvia de la partitura
+First page of the score|Primera pàgina de la partitura
+Opening measures of the score|Primers compassos de la partitura
+First page · PDF|Primera pàgina · PDF
+Opening excerpt · MusicXML|Primers compassos · MusicXML
+Loading preview…|Carregant la vista prèvia…
+Download settings|Configuració de descàrrega
+No written measures are available to preview.|No hi ha compassos escrits per previsualitzar.
+No downloadable score is available.|No hi ha cap partitura disponible per descarregar.
+Filtered by musical goal|Filtrat per objectiu musical
+Search the catalogue|Cercar al catàleg
+Search titles, composers…|Cercar títols, compositors…
+All scores|Totes
+All formats|Tots els formats
+Downloaded|Descarregades
+More filters|Més filtres
+scores|partitures
+on this device|en aquest dispositiu
+View transfer|Veure transferència
+Retry download|Reintentar descàrrega
+Add to repertoire|Afegir al repertori
+In your repertoire|Al teu repertori
+Your downloaded scores will appear here.|Aquí apareixeran les teves partitures descarregades.
+No scores match your search.|No hi ha partitures amb aquesta cerca.
+Search all scores|Cercar a tot el catàleg
+Show more scores|Mostrar més partitures
+End of results|Fi dels resultats
+Catalogue options|Opcions del catàleg
+Transfers|Transferències
+View downloaded|Veure descarregades
+scores on this device|partitures en aquest dispositiu
+No pending transfers.|No hi ha transferències pendents.
+If your browser cannot identify Wi-Fi, turn this off to download.|Si el navegador no pot identificar el Wi-Fi, desactiva-ho per descarregar.
+Downloads run while the app is open. Scores remain available offline after downloading.|Les descàrregues es fan amb l’aplicació oberta. Després, les partitures estan disponibles sense connexió.
+Some sources could not be loaded. Try refreshing the catalogue.|No s’han pogut carregar algunes fonts. Prova d’actualitzar el catàleg.
+Download the score before adding it to your repertoire.|Descarrega la partitura abans d’afegir-la al repertori.
 Starting hand position on the Hanon keyboard|Posició inicial de les mans al teclat de Hanon
 Hand movement demonstration|Demostració del moviment de les mans
 Follow the written fingering|Segueix la digitació indicada

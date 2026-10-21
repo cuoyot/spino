@@ -1,6 +1,12 @@
 # Repertoire and score import
 
-Active surfaces: REP-01 / REP-03 / REP-04; review continuing, not visually approved.
+2026-10-21 catalogue proposal: unified PDF/XML search, compact continuous rows, combined Downloaded filters, acquisition-before-repertoire guards and consolidated transfer queue implemented. Eye previews show the XML opening temporarily and bundled PDF first pages offline. Build, 19 unit checks and four browser regressions pass, including real-source previews, four layouts, no notebook writes during preview and planned-practice selection. [Evidence](captures/repertoire/2026-10-21-catalogue-rows-01/README.md). Layout is presented for owner feedback; release/native handoff follows separately.
+
+2026-10-21 owner follow-up: score-only catalogue implemented. The default selection has 55 MusicXML/MXL downloads and 10 PDFs, all checked with successful full-file responses. Research-only references are excluded from visible search/filter/counts; internal snapshots and user history are preserved. Editorial tools, pending-analysis reports and raw metrics are removed from score details. Build, 15 unit checks and four-layout responsive catalogue/detail checks pass. Evidence: [score-only catalogue](captures/repertoire/2026-10-21-score-only-01/README.md). Native/owner visual acceptance remains open; no APK/publication.
+
+Active surfaces: REP-01 / REP-03 / REP-04; review continuing. D-030 minimal layout accepted; current color refinement is open for visual review.
+
+2026-10-14 color follow-up: owner requests consistency with Practice/Calendar. Current Library headings/counts/stand controls and catalogue tabs/search/cards now share blue/teal accents while retaining D-030's flat table. [Responsive evidence](captures/themes/2026-10-14-navigation-parity/index.html) includes synthetic populated stand/collection and bundled catalogue states in both themes and four layouts. Contrast, overflow and catalogue-selection-from-preparation exclusion checks pass. New colors are not yet owner/native accepted or packaged.
 
 2026-10-06: owner approved D-030's presented minimal layout and requested D-031. Library now offers My repertoire/Catalogue top navigation with retained searches and scroll; routines belong to Practice. [Current 24-view browser gallery](captures/repertoire/2026-10-06-library-tabs-02/index.html). New navigation visual/native acceptance remains open; import D-028 remains separate.
 
@@ -15,3 +21,24 @@ Owner-requested REP-01 refinement, 2026-10-06: Music stand first, followed by a 
 Current direct repertoire file picker accepts PDF only. D-028 requests MusicXML/MXL alongside PDF and a MuseScore-assisted authorized download/import/source-link flow. Catalogue edition attachment already has broader format support; reuse validation rather than creating a second parser. Direct account integration is not available.
 
 Next proposal: a format-neutral Score file entry; preserve PDF metadata detection, use MusicXML title/composer metadata and offer part selection when needed. Test invalid files, cancellation, original bytes, stable work IDs and annotations before declaring implementation available. No product behavior changed in this baseline.
+
+## 2026-10-19 — Work detail and shared saved-session cards
+
+REP-02 is reopened after the owner's screenshot of crowded actions. The accepted objective is a clear action hierarchy and one session-summary design everywhere, inherited from Progress. The implemented layout remains open for owner/native visual acceptance.
+
+Practice and Schedule now sit beneath the next goal and tempo. A separate resource card has a score row with its print control and a recordings row with the count and Record action. More options contains Edit, music-stand membership and Delete work; deletion retains its existing confirmation/trash/restore behavior. Notes, passage, musical target, printed tempo and original titles remain available. Empty score/catalogue routes retain their attach/open actions.
+
+`src/companion/saved-session-card.js` and its stylesheet are the sole saved-session summary component for Progress, work/trash history, Today, Calendar Week/Month, completed lessons and target/completed-plan dialogs. This supersedes D-054's earlier exclusion of work and target-history presentation, and the earlier Calendar circle presentation. Local PDF/MXL thumbnails, colored activity badges, optional labeled mood, hours/minutes, whole-card/keyboard opening and contextual passages/plan timing/Today notes are retained. Container queries adapt the same card to narrow calendar columns. AGENTS.md records the ongoing shared-component rule.
+
+[Current evidence](captures/repertoire/2026-10-19-work-detail-05/README.md) includes 30 phone/tablet orientation and narrow-width frames in both themes, two focused history/dialog views and ten reopened Progress frames. Build, 20 focused unit checks and seven browser checks pass, including existing lesson result/edit/capture, repertoire trash/restore, Progress sections and Today checks. Notebook and score assets are unchanged by navigation. Earlier evidence runs remain preserved. This is responsive-browser verification; owner/native acceptance remains open. No APK/publication is part of this work. Preview: http://127.0.0.1:5311/.
+
+Next: owner review of the presented work layout; native-device layout and accessibility acceptance remain separate from the passing browser geometry/keyboard checks.
+
+
+## 2026-10-19 — Library sticky-tab scroll repair
+
+The owner reports content appearing behind/above the Library tabs during upward scrolling. Reproduced the visible Add work button in the padding gap between the fixed app header and sticky tabs. This is a scoped defect repair under the existing navigation objective; the layout still awaits owner/native visual acceptance.
+
+The page's responsive top spacing now sits inside the opaque sticky navigation band. The band meets the fixed header throughout scrolling; the tab buttons and content retain their original positions. The shared change covers Repertoire, Catalogue and Multimedia. Existing header parity evidence is reopened for this scroll seam; Today, Practice, Calendar, Progress and Profile retain their established geometry.
+
+[Final responsive evidence](captures/repertoire/2026-10-19-sticky-tabs-02/README.md) contains 30 frames in both themes and five phone/tablet layouts, safe areas and 180 intermediate/far-scroll geometry and hit-test probes. Build, focused scroll, existing three-language/eight-viewport header parity and repertoire management regressions pass. Notebook, PDFs/MXL, history, local recording metadata and blob bytes are retained; only the test-selected theme changes. No personal notebook is used. Manual navigation wording and its verification reference are updated. Preview: http://127.0.0.1:5315/. Native/owner acceptance remains open; no APK/publication requested.

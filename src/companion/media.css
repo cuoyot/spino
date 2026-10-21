@@ -31,8 +31,8 @@
 #cp-media-capture.is-minimized header b { display:none; }
 #cp-media-capture.is-minimized p { margin:0; font-size:13px; white-space:nowrap; }
 @media (max-height:500px) { #cp-media-capture { bottom:max(8px,env(safe-area-inset-bottom)); max-height:calc(100dvh - 24px - env(safe-area-inset-top)); } #cp-media-capture video { max-height:100px; } }
-.cp-media-browser { display:grid; gap:20px; grid-template-columns:minmax(270px,360px) minmax(0,1fr); align-items:start; }
-.cp-media-calendar-panel { min-width:0; }
+.cp-media-browser { display:grid; gap:20px; grid-template-columns:minmax(0,1fr); align-items:start; }
+.cp-media-calendar-panel { min-width:0; width:100%; }
 .cp-media-day-icons { display:flex; align-items:center; justify-content:center; gap:2px; min-height:28px; width:100%; margin-top:2px; }
 #app-shell .cp-media .cp-media-day-kind { display:grid; place-items:center; flex:0 1 24px; min-width:0; min-height:28px; padding:0; margin:0; border:0; border-radius:5px; background:transparent; }
 #app-shell .cp-media .cp-media-day-audio { color:var(--media-audio); }
@@ -57,7 +57,7 @@
 .cp-media-kind { display:grid; place-items:center; flex:0 0 34px; height:34px; border-radius:10px; background:color-mix(in srgb,var(--media-audio) 14%,transparent); color:var(--media-audio); }
 .cp-media-kind svg { width:22px; height:22px; }
 .cp-media-kind-video { color:var(--media-video); background:color-mix(in srgb,var(--media-video) 14%,transparent); }
-@media(max-width:720px) { .cp-media-browser { grid-template-columns:1fr; } .cp-media-calendar-panel { width:100%; max-width:420px; justify-self:center; } }
+
 .cp-media-calendar-panel,.cp-media-list { scroll-margin-top:64px; }
 .cp-media .cp-activity-calendar h3 { font-size:15px; text-transform:none; }
 
@@ -166,3 +166,6 @@
 #cp-media-capture .cp-camera-adjustments select { margin-top:2px; font-size:13px; }
 #cp-media-capture:not(.is-minimized):not(.is-recording).is-video-stage:not(.cp-media-studio *) .cp-camera-preview { height:180px; }
 #cp-media-capture.is-minimized .cp-camera-preview,#cp-media-capture.is-minimized .cp-camera-toolbar,#cp-media-capture.is-minimized .cp-camera-adjustments { display:none; }
+
+#app-shell .cp-media [data-action="media-date"] { padding:4px; min-width:32px; min-height:32px; border:0; background:transparent; color:inherit; }
+#app-shell .cp-media [data-action="media-date"][aria-pressed="true"] { background:var(--theme-text); color:var(--theme-panel); border-radius:50%; }

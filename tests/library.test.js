@@ -12,14 +12,14 @@ import { RENDERER_VERSION } from '../src/companion/analysis-versions.js';
 const read = path => readFile(`Exercises_Library/${path}`, 'utf8');
 test('all enabled manifests import idempotently, retaining executions, progress and pending records', async () => {
   const first = await importLibrary({ read }); assert.equal(first.report.inserted, 618); assert.equal(first.report.errors.length, 0);
-  const counts = libraryCounts(first); assert.deepEqual([counts.records, counts.works, counts.candidates, counts.ready, counts.downloaded], [618,563,55,0,0]);
+  const counts = libraryCounts(first); assert.deepEqual([counts.records, counts.works, counts.candidates, counts.ready, counts.downloaded], [55,0,55,0,0]);
   const id = catalogueRecords(first)[0].piece_id;
   first.executions[id] = { reviews: { rights: { approved: true, notes: 'Human review retained.' } }, customProgress: 42 };
   const again = await importLibrary({ previous: first, read });
   assert.equal(again.report.inserted, 0); assert.equal(again.report.skipped, 618); assert.deepEqual(again.executions, first.executions);
-  assert.equal(filterCatalogue(again, { query: 'Czerny Op.821' }).length, 160); assert.equal(filterCatalogue(again, { level: 'unknown' }).length, 618);
+  assert.equal(filterCatalogue(again, { query: 'Czerny Op.821' }).length, 0); assert.equal(filterCatalogue(again, { level: 'unknown' }).length, 55);
   assert.equal(filterCatalogue(again, { maxLeap: '5' }).length, 0); assert.equal(filterCatalogue(again, { key: '0' }).length, 0);
-  assert.equal(filterCatalogue(again, { state: 'pending' }).length, 618);
+  assert.equal(filterCatalogue(again, { state: 'pending' }).length, 55);
   const optional = await importLibrary({ previous: again, read, optional: true }); assert.equal(catalogueRecords(optional).length, 2080); assert.equal(libraryCounts(optional).accompaniment, 1462);
   const disabled = await importLibrary({ previous: optional, read, optional: false }); assert.equal(catalogueRecords(disabled).length, 618); assert.equal(catalogueRecords(disabled, { includeDisabled: true }).length, 2080);
   const legacy = legacyMigrationReport({ works: [{ catalogId: 'chaulieu_op9_c_major' }] }, { done: { chaulieu_op9_g_minor: true } });

@@ -8,7 +8,7 @@ import { CATALOG } from '../src/companion/catalog.js';
 test('catalogue tabs preserve a planned draft and add a downloaded PDF without selecting metadata-only works', {timeout:60000}, async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
   const wait=expression=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve();}else if(++n>500){clearInterval(timer);reject(Error('Timeout: '+${JSON.stringify(expression)}));}},20);})`);
-  const action=name=>evaluate(`document.querySelector('[data-action="${name}"]').click()`);
+  const action=name=>evaluate(name==='library-pdfs' ? `(()=>{const form=document.querySelector('#library-search');form.elements.query.value='';form.elements.format.value='pdf';form.requestSubmit()})()` : `document.querySelector('[data-action="${name}"]').click()`);
   await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);
   const data=emptyData();data.downloads=[{...CATALOG[0],catalogId:CATALOG[0].id,assetId:'score-fixture'}];
   const asset={id:'score-fixture',name:'Test score.pdf',type:'application/pdf',base64:scorePDF()};
@@ -17,12 +17,12 @@ test('catalogue tabs preserve a planned draft and add a downloaded PDF without s
   await action('calendar');await action('add-on-day');await action('plan-practice');
   await evaluate(`document.querySelector('[name="minutes-0"]').value='17';document.querySelector('[name="bpm-0"]').value='90'`);
   await action('choose-catalogue');await wait(`document.querySelector('#library-search')`);
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^618 resultados/);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^65 /);
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=library-practice]').length`),0,'unacquired cards offer downloading, not a disabled practice action');
   assert.equal(await evaluate(`!!document.querySelector('[data-action=select-catalogue-pdf]')`),false);
-  await action('library-research');
-  assert.equal(await evaluate(`document.querySelector('#library-results').textContent.startsWith('563 resultados')`),true);
-  await action('library-detail');assert.ok(await evaluate(`!!document.querySelector('[data-action=return-to-preparation]')`));
+  assert.equal(await evaluate(`!!document.querySelector('[data-action=library-research]')`),false);
+  await evaluate(`const form=document.querySelector('#library-search');form.elements.query.value='Czerny Op.821';form.requestSubmit()`);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^0 /);
   await action('return-to-preparation');
   assert.equal(await evaluate(`document.querySelector('[name="minutes-0"]').value`),'17');
   assert.equal(await evaluate(`document.querySelector('[name="bpm-0"]').value`),'90');

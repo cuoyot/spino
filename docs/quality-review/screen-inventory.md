@@ -183,16 +183,16 @@ Source: `src/companion/library-browse.js`, `library-view.js`, `library-ui.js`, `
 
 | ID | Surface and entry point | States and branches to inspect | Shared components | Status | PP | PL | TP | TL |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAT-01 | Scores catalogue: MusicXML tab | Available/downloaded/pending/ready cards; search, expanded filters, pagination, no matches; composer/group/key/level filters; selecting material from preparation | C-EMPTY, C-TRANSFER, C-PRACTICE | N | — | — | — | — |
-| CAT-02 | Scores catalogue: PDF tab | Reviewed PDF editions; source/credits; not downloaded/downloading/local/update states; add to repertoire, open/practice/use in draft; target-filtered entry | C-TRANSFER, C-SCORE, C-PRACTICE | N | — | — | — | — |
-| CAT-03 | Research tab and all-records view | Bibliographic references without downloadable file; explanation of limits; all-records filters; original titles/evidence; no implication that metadata is a playable score | C-EMPTY, C-LOCALE | N | — | — | — | — |
+| CAT-01 | Unified score catalogue | Compact rows; mixed-format live search; downloaded/format/composer filters; continuous loading; no matches; selection from preparation | C-EMPTY, C-TRANSFER, C-PRACTICE | N | — | — | — | — |
+| CAT-02 | Catalogue PDF scores and previews | Offline first-page previews; source/credits; acquired/downloadable states; repertoire controls after acquisition; full-score open/use in draft | C-TRANSFER, C-SCORE, C-PRACTICE | N | — | — | — | — |
+| CAT-03 | Research references (retired from app, 2026-10-21) | Retained only in internal snapshots for stable IDs/history; excluded from visible catalogue | C-EMPTY, C-LOCALE | N | — | — | — | — |
 | CAT-04 | Catalogue detail route | Downloadable/no asset; validating/analysis pending/failed; part selection required; manual-ready/unsuitable; open/practice/attach; edition evidence and analysis disclosures; unavailable record | C-TRANSFER, C-SCORE, C-DIALOG | N | — | — | — | — |
 | CAT-05 | Catalogue information/tools disclosure | Counts by lifecycle; import errors; refresh catalogue; batch piano-edition download; optional accompaniment; legacy personal-testing setting disclosure | C-TRANSFER, C-DIALOG | N | — | — | — | — |
 | CAT-06 | Select piano parts dialog | Part/voice evidence; optional verified hand assignment; no selection/unsupported selection; analysis in progress/error; changed selection invalidating earlier result | C-DIALOG, C-SCORE | N | — | — | — | — |
 | CAT-07 | Editorial review dialogs | Suitability and edition-rights reviews; required evidence/reviewer/jurisdiction fields; approve/reject; error states; exact-file/hash context; personal full-score practice kept distinct from distribution approval | C-DIALOG, C-SCORE | N | — | — | — | — |
 | CAT-08 | Attach edition dialog | Local PDF/MusicXML/MXL; edition/source fields; native picker cancel; validation/progress/failure; reference PDF versus analyzable score; duplicate file | C-DIALOG, C-TRANSFER, C-SCORE | N | — | — | — | — |
 | CAT-09 | Excerpt list, review dialog and preview | Independently analyzed boundary context; preview requirement; approve/reject; tie/tuplet boundary rejection; technical metrics disclosure; unavailable excerpt | C-DIALOG, C-SCORE | N | — | — | — | — |
-| CAT-10 | Downloads route | Separate PDF/MusicXML jobs; empty, queued, downloading, waiting Wi-Fi, paused, failed, complete; progress/retry; pause all; updates; Wi-Fi/mobile-data policy; foreground and score-viewing suspension | C-TRANSFER, C-EMPTY, C-DIALOG | N | — | — | — | — |
+| CAT-10 | Downloads route | Unified PDF/MusicXML queue; empty, queued, downloading, waiting Wi-Fi, paused, failed, complete; progress/retry; pause all; updates; Wi-Fi/mobile-data policy; foreground and score-viewing suspension | C-TRANSFER, C-EMPTY, C-DIALOG | N | — | — | — | — |
 
 ## Profile, backup and instrument
 
@@ -439,3 +439,11 @@ Persistent-header follow-up (2026-10-12): all six main screens and shared naviga
 The owner accepted the 19px, unfilled synchronization proposal, without the redundant exclamation badge. Connected/error states retain their accessible labels and 44px touch target. The owner then requested moving Record to Today’s practice focus, Quick practice to the activity choices, and Week/Month beside Plan your week within Calendar. The planner action occupies the same toolbar position in Week and Month; week arrows sit beside the first date range, which returns to the current week when selected. Multimedia keeps Record within its page.
 
 A reported broken Profile ring was caused by the external avatar outline being clipped by the generic header button. Selection now uses one continuous inset border, with a circular button and visible keyboard focus. Source/browser acceptance passes 54 unit checks and four final browser regressions, including 60 light/dark responsive captures at 320×640, 390×844, 844×390, 768×1024 and 1024×768. Earlier UI evidence is reopened for Today, Practice, Calendar, Multimedia, Profile and shared header geometry. [Final browser evidence](captures/navigation/2026-10-21-page-actions-03/README.md). Native/package and publication acceptance are tracked in the beta6 release.
+
+## 2026-10-21 — Stacked Multimedia and focused browsing
+
+2026-10-21 owner follow-up: Multimedia now stacks the calendar/filters above the full-width recording grid at every width, supporting continuous scrolling without a narrow side column. Pending-session cards are omitted throughout Library (including piece/catalogue details and downloads) and Progress (including time details). The Practice navigation dot remains available. Production build and the disposable browser regression pass across phone/tablet portrait/landscape. Evidence: captures/multimedia/2026-10-21-stacked-library-01. Responsive browser verification only; native/owner visual acceptance remains open.
+
+## 2026-10-21 — Shared Library and Progress tabs
+
+2026-10-21 owner follow-up: Library adopts Progress's segmented three-tab design. Both use the shared cp-section-tabs and cp-choice-group styles, including selected fill, text, corner radius and responsive spacing. Library retains sticky placement. Removed obsolete underline and repertoire-specific selected-color overrides. Production build and synthetic browser comparison of computed styles/navigation pass in phone/tablet portrait/landscape. Evidence: captures/multimedia/2026-10-21-shared-tabs-01. Responsive browser only; native and owner visual acceptance remain open.

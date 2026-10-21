@@ -57,19 +57,19 @@ test('manual practice requires a current validated analysis and identified or re
   assert.equal(manualPracticeState(record, { ...execution, reviews: { suitability: { ...suitability, approved: false } } }).playable, false, 'an explicit rejection blocks even automatically identified piano parts');
 });
 
-test('the usable catalogue shows downloads and local scores while retaining bibliographic records in the full catalogue', async () => {
+test('all visible catalogue filters exclude research while internal snapshots preserve stable records', async () => {
   const library = await importLibrary({ read });
   const records = catalogueRecords(library), candidates = filterCatalogue(library, { state: 'usable' });
   assert.equal(records.length, 618);
   assert.equal(candidates.length, 55);
   assert.ok(candidates.every(record => record.catalogue_group === 'piano_candidates'));
-  assert.equal(filterCatalogue(library, { query: 'Czerny Op.821' }).length, 160);
+  assert.equal(filterCatalogue(library, { query: 'Czerny Op.821' }).length, 0);
   assert.equal(filterCatalogue(library, { query: 'Czerny Op.821', state: 'usable' }).length, 0);
   const record = records.find(item => item.record_kind === 'work');
   const { execution } = await localScore(record);
   library.executions[record.piece_id] = execution;
   const counts = libraryCounts(library);
-  assert.equal(counts.records, 618);
+  assert.equal(counts.records, 56);
   assert.equal(counts.available, 56);
   assert.equal(counts.manualReady, 1);
   assert.equal(counts.ready, 0);

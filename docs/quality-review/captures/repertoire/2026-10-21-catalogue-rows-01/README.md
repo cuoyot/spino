@@ -1,0 +1,13 @@
+# Unified compact catalogue and previews — 2026-10-21
+
+Owner-requested objective: prioritize finding and evaluating pieces, continuous scrolling, compact controls, downloaded access and adding to repertoire only after acquisition. The implemented row layout is a proposal for owner review; native acceptance is recorded separately during release handoff.
+
+One alphabetical catalogue combines 55 MusicXML/MXL editions and 10 PDFs. Search covers both formats; Downloaded, format and composer filters combine. It initially renders 24 rows, appends up to 24 more near the scroll boundary, retains loaded rows and restores position from details. Show more remains a keyboard fallback. Download/preview icons retain 44px hit targets. Downloaded rows expose full-score opening and repertoire addition. Action handlers reject adding an unacquired score. Existing IDs, assets, history and annotation stores are retained.
+
+Transfers are combined into one PDF/XML queue, with one network preference, downloaded access, progress/retry/pause and a collapsed completed section. Research and incomplete editorial panels remain outside the visible catalogue.
+
+An eye icon previews unacquired scores. MusicXML previews render the first 12 written measures (or available opening measures), preserving source parts without claiming piano suitability or a difficulty grade. These are temporary memory-only transfers subject to the user's network preference. All 10 PDF first-page previews are bundled locally (1,342,763 PNG bytes), preserving the exact score and original source/edition credits. The generation index records source PDF and preview hashes. The browser's cross-origin restriction on the PDF host is thereby avoided for previews without a remote proxy. Full PDF downloads still use the existing native/browser acquisition path.
+
+Build, 19 unit checks and four browser regressions pass: four-layout catalogue/downloaded/transfers/preview evidence; continuous scrolling through 65 records; mixed-format search; PDF/XML acquisition and add-to-repertoire guards; previewing without changing notebook/assets; PDF previews with fetch disabled; real-source XML preview plus actual bundled PDF rendering; preserving planned practice durations/tempo/material selection. Synthetic fixtures are disposable. Real preview captures are explicitly named real-preview. No personal notebook is used as test data.
+
+Difficulty remains unassigned: current parser metrics do not produce a calibrated grade. Proposed enrichment is source-attributed Henle 1–9 or ABRSM Initial–8 only when the exact work/version is matched. Simplified arrangements must not inherit an original's grade. This is a proposal, not an available rating feature.

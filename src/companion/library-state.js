@@ -43,8 +43,12 @@ export function manualPracticeState(record, execution = {}) {
   return { playable: reasons.length === 0, reasons, renderPending,
     status: !execution.assetId ? record?.assets?.length ? 'asset_located' : 'catalogue_only' : execution.validated !== true ? 'blocked' : reasons.length ? 'parsed' : 'ready' };
 }
+// Keep research snapshots for stable IDs and backups; expose only acquired or downloadable scores.
+export function scoreCatalogueRecords(library) {
+  return catalogueRecords(library).filter(record => executionFor(library, record.piece_id).assetId || acquisitionCandidates(library, record).length);
+}
 export function libraryCounts(library) {
-  const records = catalogueRecords(library), executions = records.map(r => executionFor(library, r.piece_id));
+  const records = scoreCatalogueRecords(library), executions = records.map(r => executionFor(library, r.piece_id));
   return { records: records.length, works: records.filter(r => r.record_kind === 'work').length, candidates: records.filter(r => r.catalogue_group === 'piano_candidates').length,
     accompaniment: records.filter(r => r.catalogue_group === 'accompaniment_optional').length, located: records.filter(r => r.assets.some(a => a.download_url) || executionFor(library, r.piece_id).editions?.length).length,
     downloaded: executions.filter(e => e.assetId).length, analyzed: executions.filter(currentAnalysis).length,
@@ -66,7 +70,7 @@ export function discoveryQueue(library) {
 export function filterCatalogue(library, { query = '', group = '', composer = '', state = '', level = '', maxLeap = '', key = '' } = {}) {
   const fold = s => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const terms = fold(query).trim().split(/\s+/).filter(Boolean);
-  return catalogueRecords(library).filter(record => {
+  return scoreCatalogueRecords(library).filter(record => {
     const e = executionFor(library, record.piece_id), analyzed = currentAnalysis(e), m = analyzed ? e.analysis.metrics : {}, ready = practiceState(record, e, library).playable;
     const haystack = fold([record.piece_id, record.display_title, ...Object.values(record.known_metadata)].filter(v => v != null).join(' '));
     return terms.every(term => haystack.includes(term)) && (!group || group === record.catalogue_group) && (!composer || composer === record.known_metadata.composer)

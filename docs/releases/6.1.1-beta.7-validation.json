@@ -1,0 +1,67 @@
+{
+  "version": "6.1.1-beta.7",
+  "build": 83,
+  "applicationId": "com.miguecoll.spino.beta",
+  "checkedAt": "2026-10-21T11:34:39.486579+00:00",
+  "replacementInstall": true,
+  "existingDataFilesPreservedBeforeLaunch": 138,
+  "indexedDBFilesPreserved": 130,
+  "packagedWebFilesMatched": 345,
+  "offlineHanonVideosUnchanged": 30,
+  "foregroundConfirmed": true,
+  "physicalDeviceAcceptance": false,
+  "privateRecoveryArchives": "output/native-review-backups/2026-10-21-beta7",
+  "signedAAB": {
+    "file": "spino-6.1.1-beta.7-83-android.aab",
+    "bytes": 40015838,
+    "sha256": "21b2a64fb5a05ba246ee3dd578c496ba133c7510eefc34dead64b351fcec0005",
+    "platform": "Android App Bundle",
+    "applicationId": "com.miguecoll.spino",
+    "version": "6.1.1-beta.7",
+    "build": 83
+  },
+  "apk": {
+    "file": "spino-6.1.1-beta.7-83-android.apk",
+    "bytes": 45087624,
+    "sha256": "a4faf9a2651af6544d3405d2c29fb6c864cc4ded8041851472eea992c375b067",
+    "platform": "Android beta",
+    "applicationId": "com.miguecoll.spino.beta",
+    "version": "6.1.1-beta.7",
+    "build": 83
+  },
+  "sameBetaSigningCertificate": true,
+  "betaSigningCertificateSHA256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+  "allUnitChecks": {
+    "passed": 333,
+    "skipped": 1
+  },
+  "scopedUnitChecks": 19,
+  "browserRegressions": 4,
+  "browserEvidence": "repertoire/2026-10-21-catalogue-rows-01",
+  "androidUnitSuites": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0"
+    }
+  ],
+  "publication": "pending",
+  "newScoresAddedFromResearch": 0,
+  "siteUnitChecks": 4,
+  "siteBrowserChecks": 2,
+  "aabSignatureVerified": true,
+  "androidUnitChecks": 7
+}

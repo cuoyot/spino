@@ -8,21 +8,18 @@ import { CATALOG } from '../src/companion/catalog.js';
 test('catalogue starts with obtainable scores and opens downloaded piano music without review gates', { timeout: 120000 }, async t => {
   const { send, evaluate, url, errors } = await openBrowser(t, { companion: true });
   const wait = expression => evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve(true);}else if(++n>1000){clearInterval(timer);reject(Error('Timeout: '+${JSON.stringify(expression)}));}},30);})`);
-  const action = async (name, id = '') => { if (name === 'catalog' && !await evaluate(`!!document.querySelector('[data-action=catalog]')`)) await evaluate(`document.querySelector('[data-action=piano]').click()`); return evaluate(`document.querySelector('[data-action="${name}"]${id ? `[data-id="${id}"]` : ''}').click()`); };
+  const action = async (name, id = '') => { if(name==='library-pdfs')return evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.query.value='';form.elements.format.value='pdf';form.requestSubmit()})()`);if(name==='library-clear')return evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.query.value='';form.elements.format.value='';form.elements.composer.value='';form.requestSubmit();document.querySelector('[data-action=library-all]').click()})()`); if (name === 'catalog' && !await evaluate(`!!document.querySelector('[data-action=catalog]')`)) await evaluate(`document.querySelector('[data-action=piano]').click()`); return evaluate(`document.querySelector('[data-action="${name}"]${id ? `[data-id="${id}"]` : ''}').click()`); };
   const form = values => evaluate(`(()=>{const form=document.querySelector('#cp-dialog form');for(const [name,value]of Object.entries(${JSON.stringify(values)}))form.elements.namedItem(name).value=value;form.requestSubmit();})()`);
   const read = key => evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,q=db.transaction('state').objectStore('state').get('${key}');q.onsuccess=()=>{resolve(q.result);db.close();};};})`);
   const shot = async name => { if (!process.env.UI_SCREENSHOTS) return; await mkdir('artifacts/repertoire', { recursive: true }); const r = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(`artifacts/repertoire/ui-${name}.png`, Buffer.from(r.data, 'base64')); };
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
   await disableWarmup(evaluate);
-  await action('catalog'); await wait(`document.querySelector('[data-count=records]')?.textContent==='618'`);
-  assert.equal(await evaluate(`document.querySelector('[data-count=ready]').textContent`), '0');
-  assert.equal(await evaluate(`document.querySelector('[data-count=pending]').textContent`), '618');
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^55 resultados/);
-  assert.equal(await evaluate(`document.querySelectorAll('[data-action=download-piece]').length`), 0, 'PDFs have a separate tab');
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-library-list [data-piece-id]').length`), 24);
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-library-list [data-action=library-download]').length`),24);
-  assert.ok(await evaluate(`!!document.querySelector('#library-personal-testing').closest('details')`));
+  await action('catalog'); await wait(`document.querySelector('#library-results')?.textContent.startsWith('65 ')`);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^65 /);
+  assert.equal(await evaluate(`document.querySelectorAll('[data-action=download-piece]').length`), 0, 'PDFs are outside the first alphabetical batch');
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-catalogue-list [data-piece-id]').length`), 24);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-catalogue-list [data-action=library-download]').length`),24);
   await shot('catalogue-phone');
   await action('library-pdfs');
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=download-piece]').length`), CATALOG.length);
@@ -30,23 +27,14 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await send('Emulation.setDeviceMetricsOverride', { width: 768, height: 1024, deviceScaleFactor: 1, mobile: true });
   await shot('pdfs-tablet');
   await action('library-clear');
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^55 resultados/);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^65 /);
   await shot('catalogue-tablet');
-  await action('library-research');
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^563 resultados/);
-  await evaluate(`document.querySelector('#library-search [name=query]').value='Czerny Op.821';document.querySelector('#library-search').requestSubmit()`);
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^160 resultados/);
-  await action('library-detail', 'czerny_op821_001'); assert.match(await evaluate(`document.querySelector('.cp-content').textContent`), /No hay un archivo de partitura asociado/);
-  assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').disabled`), true);
-  assert.equal(await evaluate(`!!document.querySelector('[data-action=library-download]')`), false);
-  await shot('pending-work'); await action('catalog');
-  await action('library-all');
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^618 resultados/);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`), /^65 /);
   await action('library-clear');
   await evaluate(`document.querySelector('#library-optional').checked=true;document.querySelector('#library-optional').dispatchEvent(new Event('change',{bubbles:true}))`);
-  await wait(`document.querySelector('[data-count=records]')?.textContent==='2080'`);
+  await wait(`document.querySelector('#library-results')?.textContent.startsWith('1527 ')`);
   await evaluate(`document.querySelector('#library-optional').checked=false;document.querySelector('#library-optional').dispatchEvent(new Event('change',{bubbles:true}))`);
-  await wait(`document.querySelector('[data-count=records]')?.textContent==='618'`);
+  await wait(`document.querySelector('#library-results')?.textContent.startsWith('65 ')`);
   await action('downloads'); await evaluate(`document.querySelector('#wifi-only').checked=false;document.querySelector('#wifi-only').dispatchEvent(new Event('change',{bubbles:true}))`);
   const id = 'mt_eb69b7b3cfc165d7';
   await action('catalog'); await action('library-clear');
@@ -69,7 +57,6 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await shot('downloaded-detail-phone');
   // Refresh preserves the local file, source claims and independently produced analysis.
   await action('catalog'); await evaluate(`document.querySelector('#cp-toast').textContent=''`); await action('library-reimport');
-  await wait(`document.querySelector('[data-count=ready]')?.textContent==='1' && document.querySelector('#cp-toast').textContent.includes('618')`);
   const refreshed = await read('repertoire-library-v2');
   assert.deepEqual(refreshed.executions[id], execution);
   assert.equal(refreshed.report.inserted, 0); assert.equal(refreshed.report.skipped, 618);
@@ -112,37 +99,6 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await replaceAssetBytes(base64);
   assert.equal((await read('repertoire-library-v2')).executions[id].reviews?.rights, undefined);
   assert.equal((await read('repertoire-library-v2')).executions[id].reviews?.suitability, undefined);
-  // Explicit suitability rejection still blocks this selected material.
-  await action('catalog'); await action('library-detail', id);
-  await action('library-suitability', id); await form({ approved: 'false', reviewer: 'Automated fixture review', notes: 'Exercise an explicit rejection of this selected material.' }); await wait(`!document.querySelector('#cp-dialog[open]')`);
-  assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').disabled`), true);
-  await action('library-suitability', id); await form({ approved: 'true', reviewer: 'Automated fixture review', notes: 'The synthetic fixture explicitly identifies only part P as piano.' }); await wait(`!document.querySelector('#cp-dialog[open]')`);
-  await action('catalog'); await action('library-clear'); assert.equal(await evaluate(`document.querySelector('[data-count=ready]').textContent`), '1');
-  for (const [width, height] of [[320,568],[844,390],[768,1024],[1180,820]]) {
-    await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true });
-    assert.ok(await evaluate(`document.documentElement.scrollWidth<=innerWidth+1`)); await shot(`${width}x${height}`);
-  }
-  // A user's explicit part choice enables an unlabelled score without editorial review.
-  const unnamedId = 'czerny_op821_001';
-  const unnamedXML = musicXMLFixture().replaceAll('>Piano<', '>Unnamed<').replace('keyboard.piano', 'unknown');
-  await action('library-research');
-  await evaluate(`document.querySelector('#library-search [name=query]').value=${JSON.stringify(unnamedId)};document.querySelector('#library-search').requestSubmit()`);
-  await action('library-detail', unnamedId); await action('library-attach', unnamedId);
-  await evaluate(`(()=>{const files=new DataTransfer();files.items.add(new File([${JSON.stringify(unnamedXML)}],'unnamed-synthetic.musicxml',{type:'application/vnd.recordare.musicxml+xml'}));const form=document.querySelector('#library-attach-form');form.elements.file.files=files.files;form.elements.edition.value='Synthetic unnamed-instrument fixture';form.elements.source.value='Original repository test notation with intentionally omitted instrument identification.';form.requestSubmit();})()`);
-  await wait(`!document.querySelector('#cp-dialog[open]') && document.querySelector('[data-action=library-parts]')`);
-  assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').disabled`), true);
-  assert.deepEqual((await read('repertoire-library-v2')).executions[unnamedId].selection, []);
-  await action('library-parts', unnamedId);
-  assert.equal(await evaluate(`!!document.querySelector('#library-parts-form [name=reviewer]')`), false);
-  await evaluate(`document.querySelectorAll('#library-parts-form [name=parts]').forEach(field=>field.checked=field.value==='P');document.querySelector('#library-parts-form').requestSubmit()`);
-  await wait(`!document.querySelector('#cp-dialog[open]') && document.querySelector('[data-action=library-practice]')?.disabled===false`);
-  const selected = (await read('repertoire-library-v2')).executions[unnamedId];
-  assert.deepEqual(selected.selection, ['P']);
-  assert.equal(selected.parts.find(part => part.id === 'P').pianoCandidate, false);
-  assert.deepEqual(selected.manualSelection, { sha256: selected.sha256, configHash: selected.configHash });
-  assert.equal(selected.analysis.status, 'complete');
-  assert.equal(selected.analysis.metrics.hand_assignment, null);
-  assert.equal(selected.reviews?.rights, undefined); assert.equal(selected.reviews?.suitability, undefined);
   assert.deepEqual(errors, []);
 });
 

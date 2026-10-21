@@ -75,11 +75,11 @@ import { exportFile, importFile, downloadPDF, syncReminders, remindersAvailable,
 import { scoreImportMarkup, bindScoreImport } from './score-import.js';
 import { CATALOG, catalogPresentation } from './catalog.js';
 import { emptyLibrary, importLibrary, catalogueRecords, legacyMigrationReport } from './library.js';
-import { libraryMarkup, libraryDetailMarkup, libraryDownloadMarkup } from './library-view.js';
+import { libraryMarkup, libraryDetailMarkup } from './library-view.js';
 import { createLibraryDownloads } from './library-pipeline.js';
 import { createLibraryUI } from './library-ui.js';
 import { downloadScore } from './score-transfer.js';
-import { executionFor, manualPracticeState } from './library-state.js';
+import { acquisitionCandidates, executionFor, manualPracticeState } from './library-state.js';
 import { RENDERER_VERSION } from './analysis-versions.js';
 import { createDownloads, catalogChanges } from './downloads.js';
 import { downloadMarkup, updateDownloadProgress } from './download-view.js';
@@ -146,7 +146,7 @@ export async function bootCompanion(reader) {
     setScreenAwake(practiceNeedsScreen({active:data.active,view,readerVisible:root.hidden,scoreVisible:!!scoreViewer,hidden:document.hidden})).catch(error=>console.warn('Could not update practice screen policy.',error));
   }
   let mediaStore = null, mediaRecords = [], mediaCapture = null;
-  const mediaCalendar = {month:localDate(),mode:'week',type:'',workId:''};
+  const mediaCalendar = {month:localDate(),mode:'week',type:'',workId:'',date:'',limit:24};
   let streakMonth=localDate();
   function openStreak() { showDialog(ui('Keep your rhythm','Mantén tu ritmo'),streakDetailMarkup(data,streakMonth)); }
   try { mediaStore = await openMediaStore(); mediaRecords = await mediaStore.index(); }
@@ -155,7 +155,7 @@ export async function bootCompanion(reader) {
   async function refreshMedia() { mediaRecords = await mediaStore.index(); if(['multimedia','work','progress','event','session-detail'].includes(view))render(); }
   function recordWork(id) { if(!mediaCapture)throw Error(ui('Local recording storage is unavailable. Reopen the app and try again.','El almacenamiento local de grabaciones no está disponible. Abre de nuevo la app y vuelve a intentarlo.'));if(mediaCapture.recording){mediaCapture.stop();return;}mediaCapture.open(id,currentBlock()?.workId===id?data.active?.id:null); }
   if(mediaStore)mediaCapture=createMediaCapture({store:mediaStore,changed:refreshMedia,report:message=>toast(message),getWork:id=>data.works.find(w=>w.id===id&&!w.trashedAt),getWorks:()=>data.works.filter(w=>!w.trashedAt)});
-  let library = await store.library(), libraryFilters = {state:'usable'}, libraryPage = 0, libraryReady = false;
+  let library = await store.library(), libraryFilters = {}, libraryPage = 0, libraryReady = false, catalogueSearchTimer;
   for (const e of Object.values(library.executions)) {
     if (['queued', 'downloading'].includes(e.job?.status)) e.job.status = 'paused';
     if (e.analysis?.status === 'running') e.analysis.status = 'pending';
@@ -349,7 +349,7 @@ export async function bootCompanion(reader) {
   function libraryNavigation() {
     const pane=libraryRoute(view);
     if(!pane || materialSelection)return '';
-    return `<nav class="cp-library-navigation" aria-label="${ui('Library','Biblioteca')}"><button type="button" data-action="repertoire" ${pane==='repertoire'?'aria-current="page"':''}>${ui('My repertoire','Mi repertorio')}</button><button type="button" data-action="catalog" ${pane==='catalog'?'aria-current="page"':''}>${ui('Catalogue','Catálogo')}</button><button type="button" data-action="multimedia" ${pane==='multimedia'?'aria-current="page"':''}>${ui('Multimedia','Multimedia')}</button></nav>`;
+    return `<div class="cp-library-navigation"><nav class="cp-section-tabs cp-choice-group" aria-label="${ui('Library','Biblioteca')}"><button type="button" data-action="repertoire" ${pane==='repertoire'?'aria-current="page"':''}>${ui('My repertoire','Mi repertorio')}</button><button type="button" data-action="catalog" ${pane==='catalog'?'aria-current="page"':''}>${ui('Catalogue','Catálogo')}</button><button type="button" data-action="multimedia" ${pane==='multimedia'?'aria-current="page"':''}>${ui('Multimedia','Multimedia')}</button></nav></div>`;
   }
   let progressSection='activity',progressTimeWeek='',progressTimePoint='';
   const timeFilters={range:'3m',type:'',workId:''};
@@ -357,7 +357,7 @@ export async function bootCompanion(reader) {
     return `<div class="cp-progress-page">${titleRow(ui('Practice time','Tiempo de práctica'),'',btn('profile-back',ui('‹ Progress','‹ Progreso'),'','quiet'))}${practiceTimeDetailMarkup(data,{...timeFilters,selectedPeriod:progressTimePoint})}</div>`;
   }
   function progress() {
-    const navigation=`<nav class="cp-progress-sections cp-choice-group" aria-label="${ui('Progress sections','Secciones de progreso')}">${[['activity',ui('Activity','Actividad')],['repertoire',ui('Repertoire','Repertorio')],['technique',ui('Technique','Técnica')]].map(([id,label])=>`<button data-action="progress-section" data-id="${id}" ${progressSection===id?'aria-current="page"':''}>${label}</button>`).join('')}</nav>`;
+    const navigation=`<nav class="cp-progress-sections cp-section-tabs cp-choice-group" aria-label="${ui('Progress sections','Secciones de progreso')}">${[['activity',ui('Activity','Actividad')],['repertoire',ui('Repertoire','Repertorio')],['technique',ui('Technique','Técnica')]].map(([id,label])=>`<button data-action="progress-section" data-id="${id}" ${progressSection===id?'aria-current="page"':''}>${label}</button>`).join('')}</nav>`;
     if(progressSection!=='activity')return `<div class="cp-progress-page">${titleRow(ui('Progress','Progreso'))}${navigation}${progressSection==='repertoire'?repertoireProgressMarkup(data):techniqueProgressMarkup(data)}</div>`;
 
     const since = addDays(localDate(), -29); const sessions = data.sessions.filter(s=>s.date>=since && s.date<=localDate()); const stats = summary(sessions);
@@ -377,21 +377,12 @@ export async function bootCompanion(reader) {
   }
 
   function catalog() {
-    return libraryReady ? libraryMarkup(library, libraryFilters, libraryPage, !!materialSelection, {lang:getAppLanguage(),pdfs:libraryFilters.format==='pdf'?reviewedCatalog():'',pdfCount:CATALOG.length,repertoire:libraryRepertoire()}) : ui("<p role=\"status\">Loading bundled repertoire catalogue…</p>", "<p role=\"status\">Cargando el catálogo de repertorio…</p>");
+    return libraryReady ? libraryMarkup(library, libraryFilters, libraryPage, !!materialSelection, {lang:getAppLanguage(),data}) : ui("<p role=\"status\">Loading bundled repertoire catalogue…</p>", "<p role=\"status\">Cargando el catálogo de repertorio…</p>");
   }
   // MusicXML works added from the catalogue get their score when the library download finishes.
   const workHasScore = w => !!(w?.assetId || w?.libraryId && executionFor(library, w.libraryId)?.assetId);
   const workPlayable = w => !w?.libraryId || manualPracticeState(catalogueRecords(library).find(r => r.piece_id === w.libraryId), executionFor(library, w.libraryId), library).playable;
   const libraryRepertoire = () => new Map(data.works.filter(w=>w.libraryId&&!w.trashedAt).map(w=>[w.libraryId,w.id]));
-  const repertoireAction = (work, id) => work && !work.trashedAt ? btn('work-detail',ui("✓ In your repertoire", "✓ En tu repertorio"),work.id,'quiet') : btn('add-catalog-work',ui("+ Repertoire", "+ Repertorio"),id,'quiet');
-  function reviewedCatalog() {
-    const items = CATALOG.filter(c=>!filteredTarget || c.targets.includes(filteredTarget)).map(item => catalogPresentation(item));
-    return `${ui("<section aria-label=\"PDF scores\"><p class=\"muted\">Complete scores to play and annotate offline.</p>", "<section aria-label=\"Partituras PDF\"><p class=\"muted\">Partituras completas para tocar y anotar, sin conexión.</p>")}${catalogChanges(data.downloads).length?`${ui("<div class=\"cp-notice\">New editions are available. ", "<div class=\"cp-notice\">Hay nuevas ediciones. ")}${btn('downloads',ui("View updates", "Ver actualizaciones"))}</div>`:''}${ui("<label>Musical goal<select id=\"catalog-target\"><option value=\"\">All pieces</option>", "<label>Objetivo musical<select id=\"catalog-target\"><option value=\"\">Todas las piezas</option>")}${targets(filteredTarget)}</select></label><div class="cp-library-list">${items.map(c=>{
-      const w=data.works.find(w=>w.catalogId===c.id), saved=w?.assetId?w:data.downloads.find(d=>d.catalogId===c.id), job=data.downloadJobs.find(j=>j.catalogId===c.id);
-      const busy=['downloading','queued','waiting-wifi'].includes(job?.status);
-      return `<article class="cp-card cp-score-card" data-pdf-id="${esc(c.id)}"><span class="cp-tag">PDF · ${saved?.assetId?ui("On this device", "En el dispositivo"):ui("Downloadable", "Descargable")}</span><h2>${esc(c.title)}</h2><p class="muted">${esc(c.composer)}</p><p class="cp-score-state">${job?.status==='waiting-wifi'?ui("Waiting for Wi-Fi · manage networks in Downloads", "Esperando Wi-Fi · configura la red en Descargas"):job?.status==='failed'?ui("Download failed · try again", "Descarga fallida · puedes reintentar"):esc(c.keyLabel)}</p><div class="cp-actions">${saved?.assetId ? btn(materialSelection?'select-catalogue-pdf':'practice-catalog-pdf',materialSelection?ui("Use in this practice", "Usar en esta práctica"):ui("Practice", "Practicar"),c.id,'primary')+btn('open-pdf',ui("Open", "Abrir"),w?.id||c.id)+printActionButton('print-work',w?.id||c.id,esc)+repertoireAction(w,c.id) : btn('download-piece',busy?ui("View download", "Ver descarga"):ui("Download score", "Descargar partitura"),c.id,'primary')+repertoireAction(w,c.id)}${ui("</div><details><summary>Edition and source</summary><p>", "</div><details><summary>Edición y fuente</summary><p>")}${esc(c.reason)}</p><p class="muted">${esc(c.licenseLabel)} · ${esc(c.edition)}</p><a href="${esc(c.source)}${ui("\" target=\"_blank\" rel=\"noopener noreferrer\">View source and terms</a><div class=\"cp-actions\">", "\" target=\"_blank\" rel=\"noopener noreferrer\">Ver fuente y condiciones</a><div class=\"cp-actions\">")}</div></details></article>`;
-    }).join('') || ui("<p>No PDFs for this goal.</p>", "<p>No hay PDF para este objetivo.</p>")}</div></section>`;
-  }
   function settingsPage() {
     return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,driveNotebook:driveNotebookAvailable(),lang:getAppLanguage()});
   }
@@ -839,6 +830,8 @@ export async function bootCompanion(reader) {
   }
   let historyThumbnails = null;
   function render() {
+    const catalogueScroll = view === 'catalog' && root.querySelector('.cp-page')?.dataset.view === 'catalog' ? root.querySelector('.cp-page').scrollTop : 0;
+    const catalogueInput = view === 'catalog' && document.activeElement?.id === 'catalogue-query' ? {value:document.activeElement.value,caret:document.activeElement.selectionStart} : null;
     historyThumbnails?.(); historyThumbnails = null;
     applyTheme(data.preferences.theme);
     if(libraryRoute(view)) libraryPane=libraryRoute(view);
@@ -848,8 +841,8 @@ export async function bootCompanion(reader) {
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
-    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
-    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
+    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
+    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
       root.querySelectorAll('.cp-nav [aria-current]').forEach(el=>el.removeAttribute('aria-current'));
@@ -864,10 +857,34 @@ export async function bootCompanion(reader) {
     if(materialSelection && ['catalog','library-detail','downloads'].includes(view)) root.querySelector('.cp-content').insertAdjacentHTML('afterbegin',`${ui("<section class=\"cp-notice\"><b>Choose a score</b><p>Your practice is kept. Download a score and choose “Use in this practice”. The practice will use “With piano”.</p>", "<section class=\"cp-notice\"><b>Elige una partitura</b><p>Conservamos tu práctica. Descarga una partitura y pulsa «Usar en esta práctica». Se utilizará el modo «Con piano».</p>")}${btn('return-to-preparation',ui("Back to practice", "Volver a la práctica"),'','quiet')}</section>`);
     if(root.querySelector('.cp-history-card')) historyThumbnails=bindScoreThumbnails(root.querySelector('.cp-content'),store);
     if(view==='downloads')updateDownloadProgress([...data.downloadJobs,...Object.entries(library.executions).filter(([,e])=>e.job).map(([id,e])=>({...e.job,catalogId:id}))]);
-    $('#library-search')?.addEventListener('submit', e => { e.preventDefault(); libraryFilters = Object.fromEntries(new FormData(e.target)); libraryPage = 0; render(); });
+    if(view === 'catalog' && $('#library-search')) {
+      const page = root.querySelector('.cp-page'), form = $('#library-search');
+      page.scrollTop = catalogueScroll;
+      const search = () => {
+        clearTimeout(catalogueSearchTimer);
+        if(view !== 'catalog' || !form.isConnected)return;
+        const input = form.elements.query, focused = document.activeElement === input, caret = input.selectionStart;
+        libraryFilters = Object.fromEntries(new FormData(form)); libraryFormDraft = null; libraryPage = 0;
+        render(); root.querySelector('.cp-page').scrollTop = 0;
+        if(focused) { const next=$('#catalogue-query'); next.focus({preventScroll:true}); next.setSelectionRange(caret,caret); }
+      };
+      form.addEventListener('submit', event => { event.preventDefault(); search(); });
+      form.addEventListener('input', event => { if(event.target.name === 'query') { clearTimeout(catalogueSearchTimer); catalogueSearchTimer=setTimeout(search,180); } });
+      form.addEventListener('change', event => { if(event.target.name && event.target.name !== 'query')search(); });
+      if(catalogueInput) { const input=form.elements.query;input.value=catalogueInput.value;input.focus({preventScroll:true});input.setSelectionRange(catalogueInput.caret,catalogueInput.caret);if(input.value !== (libraryFilters.query || '')) {clearTimeout(catalogueSearchTimer);catalogueSearchTimer=setTimeout(search,180);} }
+      page.addEventListener('scroll', () => {
+        if(page.scrollHeight-page.scrollTop-page.clientHeight<350) page.querySelector('[data-action=library-more]')?.click();
+      }, {passive:true});
+    }
     if (view === 'session' && data.active) sessionDrag = bindSessionDrag(root.querySelector('.cp-session'), { change: changeSession, pickup: pauseSession, cancelled: render, report: toast });
     if(view==='prepare'&&preparePurpose==='routine') sessionDrag=bindSessionDrag(root.querySelector('.cp-routine-builder'),{change:changeRoutineBlocks,pickup:readDraft,cancelled:()=>{},report:toast});
     if(view==='planner')bindPlanner($('#weekly-plan-form'),()=>data,saveWeek);
+    if(view==='multimedia') {
+      const page=root.querySelector('.cp-page');
+      page.addEventListener('scroll',()=>{
+        if(page.scrollHeight-page.scrollTop-page.clientHeight<500)root.querySelector('[data-action=media-more]')?.click();
+      },{passive:true});
+    }
     if(view==='calendar') {
       const content=root.querySelector('.cp-content');content.dataset.calendar='true';
       if(calendarMode==='week') {
@@ -930,6 +947,34 @@ export async function bootCompanion(reader) {
       const title=work?.title||catalogueRecords(library).find(record=>record.piece_id===libraryId)?.display_title||asset.name||'Score';
       await printScoreAsset(asset,title);
     } finally { openingScore=false; }
+  }
+  async function previewCatalogue(id) {
+    const pdf = CATALOG.find(item => item.id === id), record = catalogueRecords(library).find(item => item.piece_id === id);
+    if(!pdf && !record)return;
+    pauseSession();
+    const title = pdf?.title || record.display_title, controller = new AbortController();
+    showDialog(title, `<p class="muted">${pdf ? ui('First page · PDF','Primera página · PDF') : ui('Opening excerpt · MusicXML','Primeros compases · MusicXML')}</p><div class="cp-catalogue-preview" data-catalogue-preview aria-busy="true"><p role="status">${ui('Loading preview…','Cargando vista previa…')}</p></div><div class="cp-actions">${btn('catalogue-save-preview',ui('Download score','Descargar partitura'),id,'quiet')}</div><p class="muted">${esc(pdf?.licenseLabel || record.rights.attribution)}</p>`);
+    const target=dialog.querySelector('[data-catalogue-preview]');
+    dialogCleanup=()=>controller.abort();
+    try {
+      const execution=executionFor(library,id), saved=pdf ? data.downloads.find(item=>item.catalogId===id) : null;
+      const assetId=pdf ? saved?.assetId || data.works.find(work=>work.catalogId===id)?.assetId : execution.assetId;
+      let asset=pdf ? {format:'pdf',previewURL:new URL(`catalogue-previews/pdf/${pdf.id}.png`,document.baseURI).href} : assetId && await store.asset(assetId);
+      if(!asset) {
+        {
+          const descriptor=acquisitionCandidates(library,record)[0];
+          if(!descriptor)throw Error(ui('No downloadable score is available.','No hay una partitura disponible para descargar.'));
+          const receipt=await downloadScore(descriptor.download_url,{id:`preview-${id}`,wifiOnly:data.preferences.wifiOnly,signal:controller.signal});
+          if(!receipt.complete)throw Error(receipt.error);
+          asset={format:descriptor.format,base64:receipt.base64};
+        }
+      }
+      if(controller.signal.aborted)return;
+      const {renderCataloguePreview}=await import('./catalogue-preview.js');
+      await renderCataloguePreview(target,asset,{signal:controller.signal});
+    } catch(error) {
+      if(!controller.signal.aborted && target.isConnected)target.innerHTML=`<p role="alert">${esc(localizeMessage(error.message))}</p>${btn('preview-transfer-settings',ui('Download settings','Ajustes de descarga'),'','quiet')}`;
+    } finally { if(target.isConnected)target.removeAttribute('aria-busy'); }
   }
   async function previewLibrary(id, segmentId = null, session = null) {
     if (openingScore || scoreViewer) return;
@@ -1172,10 +1217,16 @@ export async function bootCompanion(reader) {
     ...libraryUI.actions,
     'library-downloadable':()=>{libraryFilters={state:'located'};libraryPage=0;render();},
     'library-candidates-download':()=>libraryDownloads.enqueueCandidates(),
-    'library-clear':()=>{libraryFilters={state:'usable'};libraryPage=0;render();},
-    'library-pdfs':()=>{libraryFilters={format:'pdf'};libraryPage=0;render();},
+    'library-clear':()=>{libraryFilters={};libraryFormDraft=null;libraryPage=0;render();root.querySelector('.cp-page').scrollTop=0;},
+    'library-pdfs':()=>{libraryFilters={...libraryFilters,format:'pdf'};libraryPage=0;render();},
     'library-research':()=>{libraryFilters={state:'missing'};libraryPage=0;render();},
-    'library-all':()=>{libraryFilters={};libraryPage=0;render();},
+    'library-all':()=>{libraryFilters={...libraryFilters,state:''};libraryFormDraft=null;libraryPage=0;render();root.querySelector('.cp-page').scrollTop=0;},
+    'catalogue-local':()=>{libraryFilters={state:'downloaded'};libraryFormDraft=null;libraryPage=0;go('catalog');root.querySelector('.cp-page').scrollTop=0;},
+    'library-downloaded':()=>{libraryFilters={...libraryFilters,state:'downloaded'};libraryFormDraft=null;libraryPage=0;render();root.querySelector('.cp-page').scrollTop=0;},
+    'catalogue-preview':previewCatalogue,
+    'preview-transfer-settings':()=>{dialog.close();go('downloads');},
+    'catalogue-save-preview':id=>{dialog.close();return CATALOG.some(item=>item.id===id)?downloads.enqueue(id):libraryDownloads.enqueue(id);},
+    'library-more':()=>{libraryPage++;render();},
     'library-page':id=>{libraryPage=Number(id);render();root.querySelector('.cp-page')?.scrollTo(0,0);},
     home:()=>go('home'),practice:()=>go('practice'),'today-calendar':()=>{selectedDate=localDate();calendarMode='week';go('calendar');},calendar:()=>go('calendar'),piano:()=>go(libraryPane==='multimedia'?'multimedia':libraryPane==='catalog'?'catalog':'piano'),settings:async()=>{go('settings');await refreshProfileFiles();},progress:()=>go('progress'),repertoire:()=>go('repertoire'),routines:()=>go('routines'),catalog:()=>{filteredTarget='';go('catalog');},
     'quick-practice':async()=>{if(dialog.open)dialog.close();if(data.active){go('session');toast(ui('Continue or finish your pending session first.','Continúa o termina primero tu sesión pendiente.'));return;}await startSession(quickPractice(data.preferences),()=>openReader());},
@@ -1183,15 +1234,19 @@ export async function bootCompanion(reader) {
     'multimedia':async()=>{if(mediaStore)await refreshMedia();go('multimedia');},
     'record-work':recordWork,
     'record-media':()=>{if(!mediaCapture)throw Error(ui('Local recording storage is unavailable. Reopen the app and try again.','El almacenamiento local de grabaciones no está disponible. Abre de nuevo la app y vuelve a intentarlo.'));mediaCapture.openStandalone(view==='multimedia'?mediaCalendar.workId:'');},
-    'work-media':async id=>{if(mediaStore)await refreshMedia();Object.assign(mediaCalendar,{month:recordingDate(mediaRecords.find(r=>r.workId===id)||{})||localDate(),mode:'week',type:'',workId:''});libraryScroll.multimedia=0;go('multimedia');},
-    'media-filter-type':id=>{if(!['audio','video'].includes(id))return;mediaCalendar.type=mediaCalendar.type===id?'':id;render();root.querySelector('.cp-media-filters')?.querySelector(`[data-action=media-filter-type][data-id="${id}"]`)?.focus({preventScroll:true});},
+    'work-media':async id=>{if(mediaStore)await refreshMedia();Object.assign(mediaCalendar,{month:recordingDate(mediaRecords.find(r=>r.workId===id)||{})||localDate(),mode:'week',type:'',workId:id,date:'',limit:24});libraryScroll.multimedia=0;go('multimedia');},
+    'media-more':()=>{const page=root.querySelector('.cp-page'),scroll=page.scrollTop;mediaCalendar.limit+=24;render();root.querySelector('.cp-page').scrollTop=scroll;},
+    'media-date-type':id=>{const [date,type]=id.split('|');Object.assign(mediaCalendar,{date,type,limit:24});render();},
+    'media-date':id=>{mediaCalendar.date=mediaCalendar.date===id?'':id;mediaCalendar.limit=24;render();},
+    'media-clear-date':()=>{mediaCalendar.date='';mediaCalendar.limit=24;render();},
+    'media-filter-type':id=>{if(!['audio','video'].includes(id))return;mediaCalendar.type=mediaCalendar.type===id?'':id;mediaCalendar.limit=24;render();root.querySelector('.cp-media-filters')?.querySelector(`[data-action=media-filter-type][data-id="${id}"]`)?.focus({preventScroll:true});},
     'media-filter-work':()=>showDialog(ui('Filter by piece','Filtrar por obra'),mediaPieceFilterMarkup(mediaRecords,data.works,mediaCalendar.workId)),
-    'media-select-work':id=>{mediaCalendar.workId=id;dialog.close();render();root.querySelector('[data-action=media-filter-work]')?.focus({preventScroll:true});},
+    'media-select-work':id=>{mediaCalendar.workId=id;mediaCalendar.limit=24;dialog.close();render();root.querySelector('[data-action=media-filter-work]')?.focus({preventScroll:true});},
     'media-play':id=>mediaCapture?.play(id),
     'media-share':id=>mediaCapture?.share(id),
     'progress-streak':()=>{streakMonth=localDate();openStreak();},
     'streak-month':id=>{streakMonth=shiftMonth(streakMonth,Number(id));openStreak();dialog.querySelector(`[data-action=streak-month][data-id="${id}"]`)?.focus({preventScroll:true});},
-    'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week',type:'',workId:''});if(mediaStore)await refreshMedia();go('multimedia');},
+    'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week',type:'',workId:'',date:'',limit:24});if(mediaStore)await refreshMedia();go('multimedia');},
     'media-toggle-month':()=>{mediaCalendar.mode=mediaCalendar.mode==='week'?'month':'week';render();root.querySelector('[data-action=media-toggle-month]')?.focus({preventScroll:true});},
     'media-month':id=>{mediaCalendar.month=shiftCalendar(mediaCalendar.month,Number(id),mediaCalendar.mode);render();root.querySelector(`[data-action=media-month][data-id="${id}"]`)?.focus({preventScroll:true});},
     'close-dialog':()=>{if(!dialogBusy())dialog.close();},
@@ -1299,6 +1354,7 @@ export async function bootCompanion(reader) {
     'stand-work':async id=>{const work=data.works.find(w=>w.id===id);if(!work)return;const next=copy(data);setWorkOnStand(next,id,!isOnStand(work));await store.save(next);data=next;render();toast(isOnStand(next.works.find(w=>w.id===id))?ui("On the music stand.", "En el atril."):ui("Moved to the rest of your repertoire.", "Pasada al resto del repertorio."));},
     'library-add-work':async id=>{
       const record=catalogueRecords(library).find(r=>r.piece_id===id);if(!record)return;
+      if(!executionFor(library,id).assetId)throw Error(ui('Download the score before adding it to your repertoire.','Descarga la partitura antes de añadirla al repertorio.'));
       const existing=data.works.find(w=>w.libraryId===id),next=copy(data);
       if(existing)setWorkTrashed(next,existing.id,false);
       else{const e=executionFor(library,id);next.works.push({id:uid(),libraryId:id,title:record.display_title.slice(0,200),composer:record.known_metadata.composer||'',stage:STAGES[0],target:null,bpm:60,passage:'',notes:'',onStand:false,...(e.assetId?{assetId:e.assetId,assetFormat:'musicxml'}:{})});}
@@ -1316,9 +1372,10 @@ export async function bootCompanion(reader) {
     'download-piece':id=>{if(['queued','downloading','waiting-wifi'].includes(data.downloadJobs.find(j=>j.catalogId===id)?.status)){go('downloads');return;}const task=downloads.enqueue(id);toast(ui("Download added. View its progress in Downloads.", "Descarga añadida. Puedes ver el progreso en Descargas."));return task;},
     'download-updates':async()=>{for(const item of catalogChanges(data.downloads))await downloads.enqueue(item.id);},
     'pause-download':id=>downloads.pause(id),'pause-downloads':pauseTransfers,
-    'add-catalog-work':id=>catalogWork(id),
+    'add-catalog-work':id=>{if(!data.downloads.some(d=>d.catalogId===id&&d.assetId)&&!data.works.some(w=>w.catalogId===id&&w.assetId))throw Error(ui('Download the score before adding it to your repertoire.','Descarga la partitura antes de añadirla al repertorio.'));return catalogWork(id);},
+    'catalogue-pdf-detail':id=>{const source=CATALOG.find(c=>c.id===id);if(!source)return;const item=catalogPresentation(source);showDialog(item.title,`<p>${esc(item.composer)}</p><p>${esc(item.reason)}</p><p>${esc(item.edition)}</p><p>${esc(item.licenseLabel)}</p><a href="${esc(item.source)}" target="_blank" rel="noopener noreferrer">${ui('View source and terms','Ver fuente y condiciones')}</a>`);},
     'practice-catalog-pdf':async id=>{await catalogWork(id,true);const work=data.works.find(w=>w.catalogId===id);if(work?.assetId)actions['practice-work'](work.id);},
-    'catalog-target':id=>{filteredTarget=id;go('catalog');},
+    'catalog-target':id=>{filteredTarget=id;libraryFilters={format:'pdf',target:id};libraryPage=0;libraryFormDraft=null;go('catalog');},
     'target-history':id=>{const sessions=data.sessions.filter(s=>s.results.some(r=>r.block.target===id));showDialog(targetById(id).label,`${sessionCards(sessions)}<div class="cp-actions">${btn('close-dialog',ui("Close", "Cerrar"))}</div>`);},
     'new-event':()=>{if(view==='home')selectedDate=localDate();eventForm();},'edit-event':id=>eventForm(findEvent(data.events,id)),
     'event-detail':id=>go('event',id),

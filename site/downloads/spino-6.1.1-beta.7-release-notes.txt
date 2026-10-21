@@ -1,0 +1,9 @@
+<es-ES>
+Catálogo unificado de PDF y MusicXML con búsqueda, scroll continuo y acceso a descargadas. Controles compactos y vista previa antes de guardar: primera página de los PDF sin conexión y primeros compases de MusicXML. Añade al repertorio solo después de descargar. Transferencias más claras. Conserva tus partituras, anotaciones e historial.
+</es-ES>
+<en-US>
+Unified PDF and MusicXML catalogue with search, continuous scrolling and downloaded scores. Compact controls and previews before saving: offline PDF first pages and opening MusicXML measures. Add to repertoire after downloading. Clearer transfers. Your scores, annotations and history are retained.
+</en-US>
+<ca>
+Catàleg unificat de PDF i MusicXML amb cerca, desplaçament continu i accés a les descarregades. Controls compactes i vista prèvia abans de desar: primera pàgina dels PDF sense connexió i primers compassos de MusicXML. Afegeix al repertori després de descarregar. Transferències més clares. Conserva les partitures, anotacions i historial.
+</ca>

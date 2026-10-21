@@ -822,3 +822,17 @@ The owner also requests Close at the top of scrolling dialogs. The shared compan
 The owner accepted the 19px, unfilled synchronization proposal, without the redundant exclamation badge. Connected/error states retain their accessible labels and 44px touch target. The owner then requested moving Record to Today’s practice focus, Quick practice to the activity choices, and Week/Month beside Plan your week within Calendar. The planner action occupies the same toolbar position in Week and Month; week arrows sit beside the first date range, which returns to the current week when selected. Multimedia keeps Record within its page.
 
 A reported broken Profile ring was caused by the external avatar outline being clipped by the generic header button. Selection now uses one continuous inset border, with a circular button and visible keyboard focus. Source/browser acceptance passes 54 unit checks and four final browser regressions, including 60 light/dark responsive captures at 320×640, 390×844, 844×390, 768×1024 and 1024×768. Earlier UI evidence is reopened for Today, Practice, Calendar, Multimedia, Profile and shared header geometry. [Final browser evidence](captures/navigation/2026-10-21-page-actions-03/README.md). Native/package and publication acceptance are tracked in the beta6 release.
+
+## 2026-10-21 — Stacked Multimedia and focused browsing
+
+2026-10-21 owner follow-up: Multimedia now stacks the calendar/filters above the full-width recording grid at every width, supporting continuous scrolling without a narrow side column. Pending-session cards are omitted throughout Library (including piece/catalogue details and downloads) and Progress (including time details). The Practice navigation dot remains available. Production build and the disposable browser regression pass across phone/tablet portrait/landscape. Evidence: captures/multimedia/2026-10-21-stacked-library-01. Responsive browser verification only; native/owner visual acceptance remains open.
+
+## 2026-10-21 — Shared Library and Progress tabs
+
+2026-10-21 owner follow-up: Library adopts Progress's segmented three-tab design. Both use the shared cp-section-tabs and cp-choice-group styles, including selected fill, text, corner radius and responsive spacing. Library retains sticky placement. Removed obsolete underline and repertoire-specific selected-color overrides. Production build and synthetic browser comparison of computed styles/navigation pass in phone/tablet portrait/landscape. Evidence: captures/multimedia/2026-10-21-shared-tabs-01. Responsive browser only; native and owner visual acceptance remain open.
+
+## 2026-10-21 — Compact unified catalogue and score previews
+
+Accepted owner objectives: continuous scrolling; title/composer first; compact download controls; combine catalogue search with clear Downloaded access; add to repertoire only after acquiring a score; preview notation before choosing. Implemented proposal combines formats, provides temporary opening previews and offline PDF first-page images, and condenses transfer management. [Evidence](captures/repertoire/2026-10-21-catalogue-rows-01/README.md) records 19 unit and four browser passes, including real-source and read-only preview checks. The row layout remains open for owner visual feedback. Native/release handoff is separate.
+
+Difficulty labels remain proposed. Existing algorithm outputs no calibrated grade. Any future Henle/ABRSM label must cite a source and match the precise work/version; no title-based grades, implicit conversion or inherited grades for arrangements.
