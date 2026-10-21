@@ -1,0 +1,9 @@
+<es-ES>
+Nuevas animaciones completas de manos para Hanon 1–10, con ascenso y descenso, manos juntas o por separado, teclas móviles y colores para cada mano. Incluyen preparación, recogida y apertura de los dedos, reproducción lenta y avance nota a nota. Los diálogos con desplazamiento mantienen Cerrar visible arriba. Se conservan el cuaderno y su progreso.
+</es-ES>
+<en-US>
+Complete new hand animations for Hanon 1–10, with ascent and descent, both or separate hands, moving keys and hand-specific colors. Includes finger preparation, gathering and reopening, slow playback and note-by-note stepping. Scrolling dialogs keep Close visible at the top. Notebook data and progress are retained.
+</en-US>
+<ca>
+Noves animacions completes de mans per a Hanon 1–10, amb ascens i descens, mans juntes o separades, tecles mòbils i colors per a cada mà. Inclouen preparació, recollida i obertura dels dits, reproducció lenta i avanç nota a nota. Els diàlegs amb desplaçament mantenen Tanca visible a dalt. Es conserven el quadern i el progrés.
+</ca>

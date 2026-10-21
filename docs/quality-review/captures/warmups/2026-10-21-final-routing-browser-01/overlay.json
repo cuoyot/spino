@@ -1,0 +1,7 @@
+{
+  "kind": "Actual final routed production build; no runtime asset overlay",
+  "number": 7,
+  "runtimeBank": "hanon-frames-v3",
+  "buildIndexSha256": "b0c3b18f9bc6522555e95476b08bd7e58308dc8259f602610865d11bd0fe9632",
+  "publicIndexCreated": true
+}

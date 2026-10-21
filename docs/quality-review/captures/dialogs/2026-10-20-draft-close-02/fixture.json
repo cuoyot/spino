@@ -1,0 +1,74 @@
+{
+  "data": {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "en",
+      "warmup": {
+        "enabled": false,
+        "minutes": 2,
+        "exercise": "hanon-1"
+      }
+    },
+    "works": [
+      {
+        "id": "a",
+        "title": "Prélude original",
+        "composer": "",
+        "onStand": true,
+        "stage": "En estudio",
+        "notes": "Keep original notes",
+        "passage": "",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "b",
+        "title": "Synthetic étude b",
+        "composer": "",
+        "onStand": false,
+        "stage": "En estudio",
+        "notes": "Keep original notes",
+        "passage": "",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "c",
+        "title": "Synthetic étude c",
+        "composer": "",
+        "onStand": true,
+        "stage": "En estudio",
+        "notes": "Keep original notes",
+        "passage": "",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "removed",
+        "title": "Synthetic étude removed",
+        "composer": "",
+        "onStand": true,
+        "stage": "En estudio",
+        "notes": "Keep original notes",
+        "passage": "",
+        "target": null,
+        "bpm": 60,
+        "trashedAt": "2026-10-01T10:00:00Z"
+      }
+    ],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": null,
+    "lastBackup": null
+  },
+  "assets": []
+}

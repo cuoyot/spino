@@ -1,0 +1,5 @@
+# Complete No.4 compressed-bank browser review
+
+Passed all1,440frame seeks and actual113event playback in each of the three independent hand modes, canonical note/fingering array agreement, twelve phone/tablet portrait/landscape captures, unchangedNo1 cross-bank switching and complete bitmap disposal. Root inspected the twelve-view contact sheet and full-size phone portrait image: fixed continuous keyboard, consistent hands and visible topClose; no horizontal overflow.
+
+Measured playback is about60seconds per mode. Peak ImageBitmap count10 (eight cached packs, keyboard and pending decode), peakdecodedbytes below46MiB; Close leaves zero live bitmaps/bytes with created=closed. Evidence is exact production player plus an isolated completedNo4 asset overlay in a disposable synthetic notebook. This is not final all-ten routing, installed Android or public-release acceptance. The v3 public index remains absent until allnineexports finalize. Original captures/reports remain preserved in output.

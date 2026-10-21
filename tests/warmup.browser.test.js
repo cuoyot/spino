@@ -29,7 +29,7 @@ test('piano sessions open with a Hanon warm-up that explains itself, rotates and
   // At pianist level 1 three minutes hold two exercises, played one after another.
   assert.equal(await evaluate(`document.querySelector('#session-current-title').textContent`), 'Hanon n.º 1 · 2');
   assert.equal(await evaluate(`document.querySelectorAll('.cp-session-warmup .ha-poster').length`), 1);
-  assert.equal(await evaluate(`document.querySelector('.cp-session-warmup img').getAttribute('src')`), './warmups/hanon-frames-v1/posters/hanon-1-both.webp');
+  assert.equal(await evaluate(`document.querySelector('.cp-session-warmup img').getAttribute('src')`), './warmups/hanon-frames-v2/posters/hanon-1-both.webp');
   const stored = await read();
   assert.deepEqual(stored.active.blocks.map(b => b.type), ['warmup', 'reading']);
   assert.equal(stored.active.blocks[0].hand, 'both');

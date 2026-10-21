@@ -1,0 +1,52 @@
+{
+  "version": "6.1.1-beta.4",
+  "build": 80,
+  "date": "2026-10-21T05:37:47.040851+00:00",
+  "scope": [
+    "Complete static native-mode hand animations for Hanon1\u201310",
+    "Persistent top Close controls in scrolling dialogs"
+  ],
+  "newAABBuilt": false,
+  "webBuild": "passed",
+  "focusedChecks": {
+    "pass": 17,
+    "fail": 0
+  },
+  "unitChecks": {
+    "pass": 324,
+    "skip": 1,
+    "fail": 0
+  },
+  "siteChecks": {
+    "pass": 3,
+    "fail": 0
+  },
+  "androidBuild": "assembleDebug and testDebugUnitTest passed; existing beta signing certificate verified",
+  "packagedWebFilesMatch": 6510,
+  "bank": {
+    "replacementExercises": 9,
+    "uniqueImages": 26418,
+    "packs": 5040,
+    "packBytes": 356333542,
+    "acceptedNo1Unchanged": true,
+    "fullSourceNativeVisualIntegrityPassed": true
+  },
+  "nativeEvidence": "../quality-review/captures/releases/2026-10-21-beta614-expanded/native-verification.json",
+  "nativeVisualEvidence": "../quality-review/captures/releases/2026-10-21-beta614-expanded/visual-review.json",
+  "nativeScenario": "All ten exercises and all three modes passed; 20 completed before screenshot infrastructure interruption, 10 resumed after preserved AVD restart; unchanged 120-second bound. Separate final Android OS screenshot and canvas review passes.",
+  "nativeCompleteModes": 30,
+  "originalLogicalStoresRetained": true,
+  "applicationStorageCleared": false,
+  "physicalDeviceAcceptance": false,
+  "apk": {
+    "file": "artifacts/hanon-expanded-beta4-2026-10-21/spino-6.1.1-beta.4-80-android.apk",
+    "bytes": 498335277,
+    "sha256": "2d70e4f33cf901a149489bdd2a832912eb57cd1c652efbc43dd3cd9144cf5e75",
+    "packagedWebFilesByteMatched": 6510,
+    "newAABBuilt": false
+  },
+  "websitePublication": "pending real public verification",
+  "stableWebsiteUnchanged": "6.1.0 (76)",
+  "googlePlayUnchanged": "5.2.3 (35)",
+  "cleanup": "Separate recoverable archive plan; no external files moved."
+}

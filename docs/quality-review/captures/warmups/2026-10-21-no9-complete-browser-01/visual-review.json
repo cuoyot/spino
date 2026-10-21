@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-21T03:39:58.822970+00:00",
+  "kind": "Root responsive visual interpretation of isolated production-player evidence; not final integration/native/publication",
+  "number": 9,
+  "verification": {
+    "path": "/Users/migue/Source/spino/output/app-hanon-2-10-2026-10-20/browser-bank-queue-01/hanon-09/verification.json",
+    "sha256": "80320816175c76abf39d2d43d7f1120e0ad473e67dd9708263d81f5ae4933117"
+  },
+  "inspected": [
+    "contact-sheet.jpg",
+    "hanon-9-both-phone-portrait.png"
+  ],
+  "allTwelveResponsiveStatesReviewed": true,
+  "passed": true,
+  "finding": "All three hand modes in phone/tablet portrait/landscape retain complete continuous keyboard, appropriate hands/highlights, readable guide and visible top Close. Layout remains bounded; complete actualplayer playback/canonical arrays/cache/disposal checks pass separately."
+}

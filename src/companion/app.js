@@ -160,7 +160,8 @@ export async function bootCompanion(reader) {
     // A queued close event can arrive after the shared dialog has already been reopened.
     if (!dialog.open) { dialogCleanup?.(); dialogCleanup = null; }
   });
-  dialog.addEventListener('cancel', event => { if (dialog.querySelector('form[aria-busy="true"]')) event.preventDefault(); });
+  const dialogBusy = () => dialog.getAttribute('aria-busy') === 'true' || Boolean(dialog.querySelector('form[aria-busy="true"]'));
+  dialog.addEventListener('cancel', event => { if (dialogBusy()) event.preventDefault(); });
   const status = document.createElement('div'); status.id = 'cp-toast'; status.role = 'status'; status.hidden = true; document.body.append(status);
   const persist = async () => {
     try { await store.save(data); saveError = ''; }
@@ -270,15 +271,18 @@ export async function bootCompanion(reader) {
   function hideReader() { if (readerMounted) { pauseSession(); reader.hide(); } root.hidden = false; }
   function showDialog(title, body, onSubmit = null, introduction = false) {
     dialogCleanup?.(); dialogCleanup = null;
-    dialog.innerHTML = `<div class="cp-dialog-body"><h2 ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2>${body}<p id="cp-form-error" role="alert"></p></div>`;
+    dialog.removeAttribute('aria-busy');
+    dialog.innerHTML = `<div class="cp-dialog-head"><h2 id="cp-dialog-title" ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2><button type="button" class="quiet" data-action="close-dialog">${ui('Close','Cerrar')}</button></div><div class="cp-dialog-body">${body}<p id="cp-form-error" role="alert"></p></div>`;
+    dialog.setAttribute('aria-labelledby', 'cp-dialog-title');
     dialog.querySelector('form')?.addEventListener('submit', async e => {
       e.preventDefault();
       if (e.target.getAttribute('aria-busy') === 'true') return;
       const submit = e.submitter; if (submit) submit.disabled = true;
+      const close = dialog.querySelector('.cp-dialog-head button'); close.disabled = true;
       e.target.setAttribute('aria-busy', 'true');
       try { await onSubmit?.(new FormData(e.target), e.target, submit); }
       catch (error) { $('#cp-form-error').textContent = localizeMessage(error.message); }
-      finally { e.target.removeAttribute('aria-busy'); if (submit) submit.disabled = false; }
+      finally { e.target.removeAttribute('aria-busy'); if (submit) submit.disabled = false; close.disabled = false; }
     });
     if (dialog.querySelector('.cp-history-card')) dialogCleanup = bindScoreThumbnails(dialog, store);
     if (!dialog.open) dialog.showModal();
@@ -288,7 +292,13 @@ export async function bootCompanion(reader) {
   }
   function confirm(title, description, accept) {
     showDialog(title, `<p>${esc(description)}</p><div class="cp-actions">${btn('close-dialog', ui("Cancel", "Cancelar"))}${ui("<button type=\"button\" id=\"cp-confirm\" class=\"primary\">Confirm</button></div>", "<button type=\"button\" id=\"cp-confirm\" class=\"primary\">Confirmar</button></div>")}`);
-    $('#cp-confirm').onclick = async () => { $('#cp-confirm').disabled = true; try { await accept(); dialog.close(); } catch (e) { $('#cp-form-error').textContent = localizeMessage(e.message); $('#cp-confirm').disabled = false; } };
+    $('#cp-confirm').onclick = async () => {
+      const controls = [...dialog.querySelectorAll('button')]; controls.forEach(button => { button.disabled = true; });
+      dialog.setAttribute('aria-busy', 'true');
+      try { await accept(); dialog.close(); }
+      catch (e) { $('#cp-form-error').textContent = localizeMessage(e.message); }
+      finally { dialog.removeAttribute('aria-busy'); controls.forEach(button => { button.disabled = false; }); }
+    };
   }
   const formEnd = (label = ui("Save", "Guardar")) => `<div class="cp-actions">${btn('close-dialog', ui("Cancel", "Cancelar"))}<button type="submit" class="primary">${label}</button></div>`;
   const titleRow = (title, subtitle = '', action = '') => `<div class="cp-row"><div><h1>${title}</h1>${subtitle ? `<p class="muted">${subtitle}</p>` : ''}</div>${action}</div>`;
@@ -531,7 +541,7 @@ export async function bootCompanion(reader) {
   }
   function lessonRecordings(e) {
     const ids=e.recordingIds||[];
-    return `<section class="cp-card"><div class="cp-row"><h2>${ui('Teacher recordings','Grabaciones del profesor')}</h2><div class="cp-actions">${btn('lesson-recordings',ui('Associate recordings','Asociar grabaciones'),e.id)}${mediaCapture?btn('record-lesson',ui('Record teacher','Grabar al profesor'),e.id):''}</div></div>${ids.map(id=>{const r=mediaRecords.find(r=>r.id===id&&!r.draft);return `<div class="cp-block"><h3>${esc(r?.title||ui('Recording unavailable on this device','Grabación no disponible en este dispositivo'))}</h3>${r?`<p class="muted">${r.kind==='video'?ui('Video','Vídeo'):ui('Audio','Audio')} · ${esc(new Date(r.createdAt).toLocaleString(getAppLanguage()))}</p><div class="cp-actions">${btn('media-play',ui('Play','Reproducir'),id)}${btn('media-share',ui('Share','Compartir'),id)}</div>`:''}</div>`;}).join('')||`<p class="muted">${ui('Link audio or video demonstrations to this lesson.','Asocia demostraciones de audio o vídeo a esta clase.')}</p>`}</section>`;
+    return `<section class="cp-card"><div class="cp-row"><h2>${ui('Teacher recordings','Grabaciones del profesor')}</h2><div class="cp-actions">${btn('lesson-recordings',ui('Associate recordings','Asociar grabaciones'),e.id)}${mediaCapture?btn('record-lesson',ui('Record teacher','Grabar al profesor'),e.id):''}</div></div>${ids.map(id=>{const r=mediaRecords.find(r=>r.id===id);return `<div class="cp-block"><h3>${esc(r?.title||ui('Recording unavailable on this device','Grabación no disponible en este dispositivo'))}</h3>${r?`<p class="muted">${r.kind==='video'?ui('Video','Vídeo'):ui('Audio','Audio')} · ${esc(new Date(r.createdAt).toLocaleString(getAppLanguage()))}${r.draft?' · '+ui('Pending save','Pendiente de guardar'):''}</p><div class="cp-actions">${btn('media-play',r.draft?ui('Review and save','Revisar y guardar'):ui('Play','Reproducir'),id)}${r.draft?'':btn('media-share',ui('Share','Compartir'),id)}</div>`:''}</div>`;}).join('')||`<p class="muted">${ui('Link audio or video demonstrations to this lesson.','Asocia demostraciones de audio o vídeo a esta clase.')}</p>`}</section>`;
   }
   function lessonForm(id) {
     const e=findEvent(data.events,id);if(e?.type!=='Clase')return;
@@ -546,12 +556,13 @@ export async function bootCompanion(reader) {
   async function lessonRecordingForm(id) {
     if(mediaStore)await refreshMedia();
     const e=findEvent(data.events,id);if(e?.type!=='Clase')return;
-    const rows=mediaRecords.filter(r=>!r.draft),missing=(e.recordingIds||[]).filter(id=>!rows.some(r=>r.id===id));
+    const rows=mediaRecords.filter(r=>!r.draft||(e.recordingIds||[]).includes(r.id)),missing=(e.recordingIds||[]).filter(id=>!rows.some(r=>r.id===id));
     showDialog(ui('Teacher recordings','Grabaciones del profesor'),`<form id="lesson-recordings-form">${rows.map(r=>`<label class="check"><input type="checkbox" name="recordingIds" value="${esc(r.id)}" ${(e.recordingIds||[]).includes(r.id)?'checked':''} /><span>${esc(r.title)}<small class="muted"> · ${r.kind==='video'?ui('Video','Vídeo'):ui('Audio','Audio')} · ${esc(new Date(r.createdAt).toLocaleString(getAppLanguage()))}</small></span></label>`).join('')||`<p>${ui('Save a recording first.','Guarda primero una grabación.')}</p>`}${missing.map(id=>`<label class="check"><input type="checkbox" name="recordingIds" value="${esc(id)}" checked />${ui('Recording unavailable on this device','Grabación no disponible en este dispositivo')}</label>`).join('')}${formEnd()}</form>`,async f=>{const next=copy(data);linkLessonRecordings(next,id,f.getAll('recordingIds'));await store.save(next);data=next;dialog.close();render();});
   }
   function recordLesson(id) {
     const e=findEvent(data.events,id);if(e?.type!=='Clase'||!mediaCapture)return;
-    mediaCapture.openStandalone(e.workIds[0]||'',{onSaved:async record=>{const next=copy(data),current=findEvent(next.events,id);linkLessonRecordings(next,id,[...(current?.recordingIds||[]),record.id]);await store.save(next);data=next;}});
+    const linkRecording=async record=>{const next=copy(data),current=findEvent(next.events,id);linkLessonRecordings(next,id,[...(current?.recordingIds||[]),record.id]);await store.save(next);data=next;};
+    mediaCapture.openStandalone(e.workIds[0]||'',{onSaved:linkRecording,onRetained:linkRecording});
   }
   function eventDetail() {
     const e=findEvent(data.events,detailId);if(!e)return calendar();
@@ -1168,7 +1179,7 @@ export async function bootCompanion(reader) {
     'progress-media-week':async()=>{libraryScroll.multimedia=0;Object.assign(mediaCalendar,{month:localDate(),mode:'week',type:'',workId:''});if(mediaStore)await refreshMedia();go('multimedia');},
     'media-toggle-month':()=>{mediaCalendar.mode=mediaCalendar.mode==='week'?'month':'week';render();root.querySelector('[data-action=media-toggle-month]')?.focus({preventScroll:true});},
     'media-month':id=>{mediaCalendar.month=shiftCalendar(mediaCalendar.month,Number(id),mediaCalendar.mode);render();root.querySelector(`[data-action=media-month][data-id="${id}"]`)?.focus({preventScroll:true});},
-    'close-dialog':()=>dialog.close(),
+    'close-dialog':()=>{if(!dialogBusy())dialog.close();},
     'quick-finish':async()=>{dialog.close();await endQuickPractice();},
     'quick-later':()=>{dialog.close();hideReader();checkpoint();go('practice');},
     'quick-continue':()=>{dialog.close();reader.play();},

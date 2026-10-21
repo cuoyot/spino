@@ -1,0 +1,414 @@
+{
+  "message": "Error: spawnSync /Users/migue/Library/Android/sdk/platform-tools/adb ETIMEDOUT",
+  "checks": [
+    {
+      "number": 1,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-both.webp"
+      }
+    },
+    {
+      "number": 1,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-left.webp"
+      }
+    },
+    {
+      "number": 1,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-right.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "5",
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "5"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "5",
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "5"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 7,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "3",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 7,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    }
+  ],
+  "runtimeErrors": [],
+  "screen": null
+}

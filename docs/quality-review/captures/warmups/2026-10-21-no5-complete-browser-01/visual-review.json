@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-20T23:13:36.900704+00:00",
+  "kind": "Root responsive visual interpretation of isolated production-player evidence; not final integration/native/publication",
+  "number": 5,
+  "verification": {
+    "path": "/Users/migue/Source/spino/output/app-hanon-2-10-2026-10-20/browser-bank-queue-01/hanon-05/verification.json",
+    "sha256": "e7022acb98d2ad0828fc30ee8c9aa02a5a64f4516a7daa024dabc95f824b25cc"
+  },
+  "inspected": [
+    "contact-sheet.jpg",
+    "hanon-5-both-phone-portrait.png"
+  ],
+  "allTwelveResponsiveStatesReviewed": true,
+  "passed": true,
+  "finding": "Phone/tablet portrait/landscape in all three hand modes retain the complete keyboard, correct hands and highlights, readable controls, visible top Close and bounded layout. Full automated playback, canonical arrays and bitmap disposal passed separately."
+}

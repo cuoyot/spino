@@ -1,0 +1,4280 @@
+{
+  "date": "2026-10-21T05:36:04.861Z",
+  "version": "6.1.1-beta.4",
+  "build": 80,
+  "exerciseNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "kind": "Installed Android emulator WebView; actual app modal; disposable namespaced notebooks; not physical-device acceptance",
+  "screenshotMethod": "Installed WebView Page.captureScreenshot; prior run used Android OS screencap",
+  "storagePrefix": "spino-beta614-hanon-review-0c73c785-e884-462b-84c7-a37c9f545942-",
+  "originalStoresBefore": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "ff9b9d65f4c02ad7f6590ac2d56af0ac6e7f89176f43a628c8e21ffb78cef98c"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c613318782a84241717c339a5450c21877ee11581628d5640e44eadd3913368f"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a1bf25ee46cf2d32ffcadb39f83b6f5665a106ba1bb25b15faff91684142e58e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "86431bea5448c90581e82b11a6f8aee3ad2dcaa54dbc8b31e77c18a800192144"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "238b92fc8cfab145130598e03df1eb0460e82fcbb880daf4faaf6d1c6cdffa68"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "898ed762ea43cdd260b6be77fad03b088ce5e392fd3c1665778fb177252f8ecc"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f568bef2e0042c6bff371967c9e00004e4602a6f289806b8b6bda5422e0813d7"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "91229e45983a08da653b13777227d3e12c46727e1fb5c06281e6313e2e139335"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "dfa04e711aad5b20cf3ca25cfa0c2b48a907152ff2fdcf741f4c4e25fa0db057"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a44f3c13d9d822e680e694dbb0dd842d66cd6c87c669db360c1118a053e798e2"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a917f229d0e2622ded179f38f2446fe78fdbeff0e53808fa336870997b6a9eac"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "b3b2a634cda8a7d574621d28d940144d0e34389a6bd94175dad90b9d2afb3045"
+      }
+    },
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f5d070acafc7a7363ca19d88f2bf6ff1db976a0051953a4b4ddf38fa678e5007"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "38beac3533a8a8c300530ca86f0d74f94fc30f060f8a00991e5210db35960b4c"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a874ce989625fd903f894b209cebef79dd5eb36e01fe2f93ff6689561b2beeb6"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b46549c87aaa4b7a82fd1a10cf14cd89d37937049a5bb7d9c5a513f7f0ea9015"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "ba761b47dca304e4a0996c9ed3387f5ce1e3614fcec1b2894150c81b51d5669e"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0dc56553bb253c4ed76cc92fc9f55a488fff40767a3800630eed5c1dcfecfd14"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "92b98a6b88a93cb98704b79ae57ccfd60d372ba2b945311f7ca3fc24266da1ac"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "8aea462d5c6419efac7737edf973445d8692e5ddaa049ac1d178fc55fb35b185"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0db81ba37d6a9ebd3b6c5a5b1190aaa4eb03fc25527203657d4b2985994ef8aa"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "baad57013e4f086605d8d90ca544df42e277cbcd0c7a7d97df4ea136aa4fa445"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "51891531658ff875fc0b99f88b6aad68964020747718cb0cfae1ac6b83333b34"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "797ec29d4b9b87a04581ae31d1cd45982375e92c3ddf2a9c9ffde0ef3fc0c4ab"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "45d9c3640f80ef9c3efbac717c7fd7f9b307731a8996aea7183676a140a2e189"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e15ddb23d733b4569ebb9c61ed2f480c91d55094291cc4b984d13ced9db37553"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "dd81268224e49f076033ac0a5d40147228ab8a34f02821abfaa72ac5ad46c175"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "f595ebbcede59395f5fa46ca33a30493d13d4d57fd9e7d142bc290e0bdcfe10c"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "3d08757a71c5bed3505ca85725a2999d9d776fa0cd730ab044bf42851f4023ea"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "bde79125298ad58f9cdb575f0d3ec17d1224aa79d334383937a791c04c84be05"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dae429fcf7dce287da820a816c0abc336f9650b88585c37ffcefe63c62a9df53"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "76aa9445468f55a7219bf092c96fe94bd28051269db97849926bcffb0599fded"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d56e59e1cc237f26a0d03636d1ecd0dfaf880fa52c97d69501e44928e30aba0a"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c49e342d6c7b26398f8ee040b81365bf71090342c43c26eaf517f824100b483"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "a67f547ee22f81e82b732ad24d944d66317b746b0b09d1c2d3699616dc424d46"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "df88df030526f24f41815982890f1cd5614577317b14f0a545a0e066b8db9d08"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "4ead7289e9ee433ee875a03140d16664cc57b15e9ee05b3d2761254ef139e250"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "d80331e45ed33b38bdc79b083826139ee87c998e218aecbe4b412ac7986b6662"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "77468cba234e61a2e947f3694c9f506e8417f3ce93c8f6cfe689800e2b3f9473"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "c16fac1fbc023ea7096a5e426f194686897a9fbe316d539c99fe8e2d40cd5351"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "1b21113c4d54c4096eac2332a728a3e9fbe97e83b27e30c6c255ed6a2ff0ca7c"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "57a848531c9f07759628a793b384eab030fe54ff611c2c61c350585d0abbd131"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "decdd2d807f91adfb4753ad090e7feb74cb5dd54c615997329454c23108263ca"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "69e884c3dbb51586365f68e7f5fe17b71cc2a651c6b1104e8d1107adc2b32d64"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "72f90778e38d70f87f314e8f830f9e0d84612f386f24524ba29296237f7c5e4d"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "1868f9389902bfbd163c19f5af52605ba2acd2cd83c9b63c72d16dfd0862939a"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "a8e1e494d34a00d77271efb0fb4b508eb7a53563dedc240c7f3a29b1a29f60da"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "fe9d10418e65dd1594b25f2c8e63b91c4a92305cc039ae4e0967a220d0894391"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f7b8e0b9187e29c906d9219c8b32130a34dc6337c4fda31f8c1bcc25c7349c57"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "26983669611d0239b8392f1e9cb98fe46870130e3ab96ed563cf670bcfe625e5"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b56d7123bf01ed63c2e0cfe1b0ef9fd20adb0b949b0b8168c5d3d084a8846940"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dc8fc08726b6e0472d5ba883faeb09e3b7653baa71e4f3ef07febddd0b9c7bf0"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "02e1d73f5eb7f1f97d40631a5ee6489efd626174635ecba1d6a42f4d47d36078"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "de533f42eeb22080f636791a9d73dcbcc29d9a3a5e66a824beab85f5ebd4efa8"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d2957d9a4c74d949c1beefb70417538766690915a935280fdf60f85cccc16f6d"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "67374818748967581bd9f9991100d15bafd2b6ac93b5a1e3506293fad1964d64"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c727513b29409e86d0810d23f3803c7eb0ddf8813d5c191a1dfafd936ebd6bd1"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "56da93d2f610778ae083c134ebeee0267a88ec3c662c0aa8a81b1dd354285d15"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e5e8cee2e5be1c8292fd471ddfb29b828261575dc4dda62ce7ebd75f8af43b7d"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "3b3c42526cb302d4238884f1b33959683458853b55400b3564401818f8573436"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "94117069cf2d0bf915d436f9efbac22a441c93f72439bff8669fac0a4777e942"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "763004a5b51d015e3569e0850fccd701bfcb52899989f71660663435878df91c"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "e494693dcd3789506d270f792019e05b887654325ca4da46a96ae22b05a9f70d"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a9f85302915e7687dca4be43f71c125a47f7eb6412b1a4551c3800d0e921c499"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c07ea5e02cfa491b79952d494e701d2e75c1aa34922fcefed9235f458425107"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c4ab777d816bdb14c24e7d1577733c755345a6d68aa180499da8c8353180bf96"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "059aea456a5c654fc748c9871ed531daa2ea637ceb92d94b2a6b044ffea37dbe"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "676f3bc9ba2f69cb0129ed6d12d8cd6d418789dff88fe897ccb86fd9e13c81bc"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "43a70dd2bd6547eb823c9972f32601d9bb896c938aad828ba49b13554eda8051"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dfb1aa825823fa65d98c5a9c615c6c96780d1f46386992e8df095fff66aa1337"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25da9ff7f109f55750fce8502e945baed82651ff775c378cbfef6861c123888b"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "7cdb7bf97565fea1a212cfb55d4f66bd0c3c956a2fd9e41222824e593e8683e7"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "99bd8b427544fcb7f2fc509ab80e77e1168c5f3d95ac49eac948f49daf358bf8"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "5447ce6c1a352ec1aa780e5ebd178aa2e522cb1fd4b3b9c7fd17e7aa2c3b2fe7"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "a8b9f9d05927e7989fa7a3b6cd002e5108896d58c4864f018ee2a89102051a78"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d642ae6e67aab23295b371dd9967642b1adb963e1d77e03b61c1e98f543dd2d7"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e7ecdec925c3f6b710ec06f6b32434343c4a6bad3b34ec41247470da1f3ea0f6"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "bb4c826c6a24d89b6c5e8a8b7268b43aec9c925cac924d5c5cda80bb5bdbc101"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d9d9d4c6574e718f497830c8a24726d236a799384fe68377650b9ab8c0f29398"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "407f7a06b42442f7596b2492572be5f2a00d5369a9fdab662b6437c73534310e"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "e8a0948f255f7fc566bfcc178362be8b8de93d631af15132fb7f608939cba042"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c8a9d5fdde1123b0531463e3e4a8e8614e5677e4d66a352918d3619505ebc85b"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "969543969c0983ce2e4ae74653ae6080597e1fff001f398b3731229c6a1f11d1"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c0c28e6701382abd8fa09f2876e20e5141099df56b9f7309e2c9e9f259955471"
+      }
+    }
+  },
+  "originalStoresAfter": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "ff9b9d65f4c02ad7f6590ac2d56af0ac6e7f89176f43a628c8e21ffb78cef98c"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c613318782a84241717c339a5450c21877ee11581628d5640e44eadd3913368f"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a1bf25ee46cf2d32ffcadb39f83b6f5665a106ba1bb25b15faff91684142e58e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "86431bea5448c90581e82b11a6f8aee3ad2dcaa54dbc8b31e77c18a800192144"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "238b92fc8cfab145130598e03df1eb0460e82fcbb880daf4faaf6d1c6cdffa68"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "898ed762ea43cdd260b6be77fad03b088ce5e392fd3c1665778fb177252f8ecc"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f568bef2e0042c6bff371967c9e00004e4602a6f289806b8b6bda5422e0813d7"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "91229e45983a08da653b13777227d3e12c46727e1fb5c06281e6313e2e139335"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "dfa04e711aad5b20cf3ca25cfa0c2b48a907152ff2fdcf741f4c4e25fa0db057"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a44f3c13d9d822e680e694dbb0dd842d66cd6c87c669db360c1118a053e798e2"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a917f229d0e2622ded179f38f2446fe78fdbeff0e53808fa336870997b6a9eac"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "b3b2a634cda8a7d574621d28d940144d0e34389a6bd94175dad90b9d2afb3045"
+      }
+    },
+    "spino-drive-profile-00806b6f-9f41-4800-9064-d247917adc2d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f5d070acafc7a7363ca19d88f2bf6ff1db976a0051953a4b4ddf38fa678e5007"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "38beac3533a8a8c300530ca86f0d74f94fc30f060f8a00991e5210db35960b4c"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a874ce989625fd903f894b209cebef79dd5eb36e01fe2f93ff6689561b2beeb6"
+      }
+    },
+    "spino-drive-profile-131bdf79-4e86-4b1e-8bff-f37eab1451a2-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b46549c87aaa4b7a82fd1a10cf14cd89d37937049a5bb7d9c5a513f7f0ea9015"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "ba761b47dca304e4a0996c9ed3387f5ce1e3614fcec1b2894150c81b51d5669e"
+      }
+    },
+    "spino-drive-profile-2c1d3fcb-6696-49a5-9b35-165a1a00fc5a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0dc56553bb253c4ed76cc92fc9f55a488fff40767a3800630eed5c1dcfecfd14"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "92b98a6b88a93cb98704b79ae57ccfd60d372ba2b945311f7ca3fc24266da1ac"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "8aea462d5c6419efac7737edf973445d8692e5ddaa049ac1d178fc55fb35b185"
+      }
+    },
+    "spino-drive-profile-336d1381-f54c-44d0-b516-99549ffd4869-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "0db81ba37d6a9ebd3b6c5a5b1190aaa4eb03fc25527203657d4b2985994ef8aa"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "baad57013e4f086605d8d90ca544df42e277cbcd0c7a7d97df4ea136aa4fa445"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "51891531658ff875fc0b99f88b6aad68964020747718cb0cfae1ac6b83333b34"
+      }
+    },
+    "spino-drive-profile-436fe2fd-47b2-4339-a724-8a4be91f6c0f-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "797ec29d4b9b87a04581ae31d1cd45982375e92c3ddf2a9c9ffde0ef3fc0c4ab"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "45d9c3640f80ef9c3efbac717c7fd7f9b307731a8996aea7183676a140a2e189"
+      }
+    },
+    "spino-drive-profile-5379e7ee-cf83-4e21-9531-75e1b7476119-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e15ddb23d733b4569ebb9c61ed2f480c91d55094291cc4b984d13ced9db37553"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "dd81268224e49f076033ac0a5d40147228ab8a34f02821abfaa72ac5ad46c175"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "f595ebbcede59395f5fa46ca33a30493d13d4d57fd9e7d142bc290e0bdcfe10c"
+      }
+    },
+    "spino-drive-profile-586298d2-7e1d-4993-afb0-632a38a55ba1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "3d08757a71c5bed3505ca85725a2999d9d776fa0cd730ab044bf42851f4023ea"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "bde79125298ad58f9cdb575f0d3ec17d1224aa79d334383937a791c04c84be05"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dae429fcf7dce287da820a816c0abc336f9650b88585c37ffcefe63c62a9df53"
+      }
+    },
+    "spino-drive-profile-5bd1abdf-ec87-4b46-9369-bf3be0194aff-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "76aa9445468f55a7219bf092c96fe94bd28051269db97849926bcffb0599fded"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d56e59e1cc237f26a0d03636d1ecd0dfaf880fa52c97d69501e44928e30aba0a"
+      }
+    },
+    "spino-drive-profile-67e15215-97e6-4bbb-8068-617f089f1483-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c49e342d6c7b26398f8ee040b81365bf71090342c43c26eaf517f824100b483"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "a67f547ee22f81e82b732ad24d944d66317b746b0b09d1c2d3699616dc424d46"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "df88df030526f24f41815982890f1cd5614577317b14f0a545a0e066b8db9d08"
+      }
+    },
+    "spino-drive-profile-9b57334b-1a4a-4aab-a7bf-fb68b019d448-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "4ead7289e9ee433ee875a03140d16664cc57b15e9ee05b3d2761254ef139e250"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "d80331e45ed33b38bdc79b083826139ee87c998e218aecbe4b412ac7986b6662"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "77468cba234e61a2e947f3694c9f506e8417f3ce93c8f6cfe689800e2b3f9473"
+      }
+    },
+    "spino-drive-profile-a54656ee-80a4-4f9e-9abb-55325add006a-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "c16fac1fbc023ea7096a5e426f194686897a9fbe316d539c99fe8e2d40cd5351"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "1b21113c4d54c4096eac2332a728a3e9fbe97e83b27e30c6c255ed6a2ff0ca7c"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "57a848531c9f07759628a793b384eab030fe54ff611c2c61c350585d0abbd131"
+      }
+    },
+    "spino-drive-profile-e0a98e3b-332b-4157-aa8c-6d06bbb7e58b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "decdd2d807f91adfb4753ad090e7feb74cb5dd54c615997329454c23108263ca"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "69e884c3dbb51586365f68e7f5fe17b71cc2a651c6b1104e8d1107adc2b32d64"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "72f90778e38d70f87f314e8f830f9e0d84612f386f24524ba29296237f7c5e4d"
+      }
+    },
+    "spino-drive-profile-f4e694e2-167a-4abb-b735-2539c197bae8-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "1868f9389902bfbd163c19f5af52605ba2acd2cd83c9b63c72d16dfd0862939a"
+      },
+      "recordings": {
+        "count": 6,
+        "sha256": "a8e1e494d34a00d77271efb0fb4b508eb7a53563dedc240c7f3a29b1a29f60da"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "fe9d10418e65dd1594b25f2c8e63b91c4a92305cc039ae4e0967a220d0894391"
+      }
+    },
+    "spino-drive-profile-fd096a20-9dae-4d06-8ff8-7466a25b0f02-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f7b8e0b9187e29c906d9219c8b32130a34dc6337c4fda31f8c1bcc25c7349c57"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "26983669611d0239b8392f1e9cb98fe46870130e3ab96ed563cf670bcfe625e5"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b56d7123bf01ed63c2e0cfe1b0ef9fd20adb0b949b0b8168c5d3d084a8846940"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dc8fc08726b6e0472d5ba883faeb09e3b7653baa71e4f3ef07febddd0b9c7bf0"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "02e1d73f5eb7f1f97d40631a5ee6489efd626174635ecba1d6a42f4d47d36078"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "de533f42eeb22080f636791a9d73dcbcc29d9a3a5e66a824beab85f5ebd4efa8"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d2957d9a4c74d949c1beefb70417538766690915a935280fdf60f85cccc16f6d"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "67374818748967581bd9f9991100d15bafd2b6ac93b5a1e3506293fad1964d64"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c727513b29409e86d0810d23f3803c7eb0ddf8813d5c191a1dfafd936ebd6bd1"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "56da93d2f610778ae083c134ebeee0267a88ec3c662c0aa8a81b1dd354285d15"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e5e8cee2e5be1c8292fd471ddfb29b828261575dc4dda62ce7ebd75f8af43b7d"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "3b3c42526cb302d4238884f1b33959683458853b55400b3564401818f8573436"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "94117069cf2d0bf915d436f9efbac22a441c93f72439bff8669fac0a4777e942"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "763004a5b51d015e3569e0850fccd701bfcb52899989f71660663435878df91c"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "e494693dcd3789506d270f792019e05b887654325ca4da46a96ae22b05a9f70d"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a9f85302915e7687dca4be43f71c125a47f7eb6412b1a4551c3800d0e921c499"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c07ea5e02cfa491b79952d494e701d2e75c1aa34922fcefed9235f458425107"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c4ab777d816bdb14c24e7d1577733c755345a6d68aa180499da8c8353180bf96"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "059aea456a5c654fc748c9871ed531daa2ea637ceb92d94b2a6b044ffea37dbe"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "676f3bc9ba2f69cb0129ed6d12d8cd6d418789dff88fe897ccb86fd9e13c81bc"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "43a70dd2bd6547eb823c9972f32601d9bb896c938aad828ba49b13554eda8051"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dfb1aa825823fa65d98c5a9c615c6c96780d1f46386992e8df095fff66aa1337"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25da9ff7f109f55750fce8502e945baed82651ff775c378cbfef6861c123888b"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "7cdb7bf97565fea1a212cfb55d4f66bd0c3c956a2fd9e41222824e593e8683e7"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "99bd8b427544fcb7f2fc509ab80e77e1168c5f3d95ac49eac948f49daf358bf8"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "5447ce6c1a352ec1aa780e5ebd178aa2e522cb1fd4b3b9c7fd17e7aa2c3b2fe7"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "a8b9f9d05927e7989fa7a3b6cd002e5108896d58c4864f018ee2a89102051a78"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d642ae6e67aab23295b371dd9967642b1adb963e1d77e03b61c1e98f543dd2d7"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e7ecdec925c3f6b710ec06f6b32434343c4a6bad3b34ec41247470da1f3ea0f6"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "bb4c826c6a24d89b6c5e8a8b7268b43aec9c925cac924d5c5cda80bb5bdbc101"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d9d9d4c6574e718f497830c8a24726d236a799384fe68377650b9ab8c0f29398"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "407f7a06b42442f7596b2492572be5f2a00d5369a9fdab662b6437c73534310e"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "e8a0948f255f7fc566bfcc178362be8b8de93d631af15132fb7f608939cba042"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c8a9d5fdde1123b0531463e3e4a8e8614e5677e4d66a352918d3619505ebc85b"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "969543969c0983ce2e4ae74653ae6080597e1fff001f398b3731229c6a1f11d1"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "c0c28e6701382abd8fa09f2876e20e5141099df56b9f7309e2c9e9f259955471"
+      }
+    }
+  },
+  "originalStoresUnchanged": true,
+  "checks": [
+    {
+      "number": 1,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-both.webp"
+      }
+    },
+    {
+      "number": 1,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-left.webp"
+      }
+    },
+    {
+      "number": 1,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-approved-blender-no1-static",
+        "canvas": [
+          1080,
+          600
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v3/posters/hanon-2-right.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 2,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 3,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 4,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "5",
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 5,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "5"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "5",
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 6,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "5"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 7,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "3",
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 7,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 7,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "3"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 8,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 8,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 8,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 9,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "2",
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 9,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "4"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 9,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "2"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    },
+    {
+      "number": 10,
+      "hand": "both",
+      "initial": {
+        "hand": "both",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 2
+      },
+      "nextNoteLabels": [
+        "5",
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+      }
+    },
+    {
+      "number": 10,
+      "hand": "left",
+      "initial": {
+        "hand": "left",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "1"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+      }
+    },
+    {
+      "number": 10,
+      "hand": "right",
+      "initial": {
+        "hand": "right",
+        "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+        "canvas": [
+          720,
+          400
+        ],
+        "figures": 1
+      },
+      "nextNoteLabels": [
+        "5"
+      ],
+      "alternate": {
+        "frame": "735",
+        "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+      }
+    }
+  ],
+  "playback": [
+    {
+      "number": 7,
+      "hand": "right",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 99,
+          "event": 8,
+          "playing": "true"
+        },
+        {
+          "frame": 211,
+          "event": 17,
+          "playing": "true"
+        },
+        {
+          "frame": 331,
+          "event": 27,
+          "playing": "true"
+        },
+        {
+          "frame": 452,
+          "event": 37,
+          "playing": "true"
+        },
+        {
+          "frame": 570,
+          "event": 47,
+          "playing": "true"
+        },
+        {
+          "frame": 690,
+          "event": 57,
+          "playing": "true"
+        },
+        {
+          "frame": 810,
+          "event": 67,
+          "playing": "true"
+        },
+        {
+          "frame": 926,
+          "event": 77,
+          "playing": "true"
+        },
+        {
+          "frame": 1047,
+          "event": 87,
+          "playing": "true"
+        },
+        {
+          "frame": 1167,
+          "event": 97,
+          "playing": "true"
+        },
+        {
+          "frame": 1286,
+          "event": 107,
+          "playing": "true"
+        },
+        {
+          "frame": 1406,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65137,
+      "includingDecodeMilliseconds": 80609
+    },
+    {
+      "number": 8,
+      "hand": "both",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 2,
+      "samples": [
+        {
+          "frame": 103,
+          "event": 8,
+          "playing": "true"
+        },
+        {
+          "frame": 220,
+          "event": 18,
+          "playing": "true"
+        },
+        {
+          "frame": 335,
+          "event": 27,
+          "playing": "true"
+        },
+        {
+          "frame": 436,
+          "event": 36,
+          "playing": "true"
+        },
+        {
+          "frame": 552,
+          "event": 46,
+          "playing": "true"
+        },
+        {
+          "frame": 672,
+          "event": 56,
+          "playing": "true"
+        },
+        {
+          "frame": 792,
+          "event": 66,
+          "playing": "true"
+        },
+        {
+          "frame": 913,
+          "event": 76,
+          "playing": "true"
+        },
+        {
+          "frame": 1033,
+          "event": 86,
+          "playing": "true"
+        },
+        {
+          "frame": 1153,
+          "event": 96,
+          "playing": "true"
+        },
+        {
+          "frame": 1273,
+          "event": 106,
+          "playing": "true"
+        },
+        {
+          "frame": 1393,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65113,
+      "includingDecodeMilliseconds": 68681
+    },
+    {
+      "number": 8,
+      "hand": "left",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 116,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 236,
+          "event": 19,
+          "playing": "true"
+        },
+        {
+          "frame": 356,
+          "event": 29,
+          "playing": "true"
+        },
+        {
+          "frame": 476,
+          "event": 39,
+          "playing": "true"
+        },
+        {
+          "frame": 593,
+          "event": 49,
+          "playing": "true"
+        },
+        {
+          "frame": 713,
+          "event": 59,
+          "playing": "true"
+        },
+        {
+          "frame": 834,
+          "event": 69,
+          "playing": "true"
+        },
+        {
+          "frame": 954,
+          "event": 79,
+          "playing": "true"
+        },
+        {
+          "frame": 1073,
+          "event": 89,
+          "playing": "true"
+        },
+        {
+          "frame": 1194,
+          "event": 99,
+          "playing": "true"
+        },
+        {
+          "frame": 1314,
+          "event": 109,
+          "playing": "true"
+        },
+        {
+          "frame": 1434,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65108,
+      "includingDecodeMilliseconds": 68000
+    },
+    {
+      "number": 8,
+      "hand": "right",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 118,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 239,
+          "event": 19,
+          "playing": "true"
+        },
+        {
+          "frame": 359,
+          "event": 29,
+          "playing": "true"
+        },
+        {
+          "frame": 476,
+          "event": 39,
+          "playing": "true"
+        },
+        {
+          "frame": 596,
+          "event": 49,
+          "playing": "true"
+        },
+        {
+          "frame": 703,
+          "event": 58,
+          "playing": "true"
+        },
+        {
+          "frame": 810,
+          "event": 67,
+          "playing": "true"
+        },
+        {
+          "frame": 930,
+          "event": 77,
+          "playing": "true"
+        },
+        {
+          "frame": 1050,
+          "event": 87,
+          "playing": "true"
+        },
+        {
+          "frame": 1170,
+          "event": 97,
+          "playing": "true"
+        },
+        {
+          "frame": 1290,
+          "event": 107,
+          "playing": "true"
+        },
+        {
+          "frame": 1411,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65121,
+      "includingDecodeMilliseconds": 67946
+    },
+    {
+      "number": 9,
+      "hand": "both",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 2,
+      "samples": [
+        {
+          "frame": 120,
+          "event": 10,
+          "playing": "true"
+        },
+        {
+          "frame": 240,
+          "event": 20,
+          "playing": "true"
+        },
+        {
+          "frame": 360,
+          "event": 30,
+          "playing": "true"
+        },
+        {
+          "frame": 480,
+          "event": 40,
+          "playing": "true"
+        },
+        {
+          "frame": 600,
+          "event": 50,
+          "playing": "true"
+        },
+        {
+          "frame": 720,
+          "event": 60,
+          "playing": "true"
+        },
+        {
+          "frame": 841,
+          "event": 70,
+          "playing": "true"
+        },
+        {
+          "frame": 960,
+          "event": 80,
+          "playing": "true"
+        },
+        {
+          "frame": 1080,
+          "event": 90,
+          "playing": "true"
+        },
+        {
+          "frame": 1200,
+          "event": 100,
+          "playing": "true"
+        },
+        {
+          "frame": 1320,
+          "event": 110,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 60099,
+      "includingDecodeMilliseconds": 62853
+    },
+    {
+      "number": 9,
+      "hand": "left",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 119,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 239,
+          "event": 19,
+          "playing": "true"
+        },
+        {
+          "frame": 360,
+          "event": 30,
+          "playing": "true"
+        },
+        {
+          "frame": 480,
+          "event": 40,
+          "playing": "true"
+        },
+        {
+          "frame": 600,
+          "event": 50,
+          "playing": "true"
+        },
+        {
+          "frame": 719,
+          "event": 59,
+          "playing": "true"
+        },
+        {
+          "frame": 835,
+          "event": 69,
+          "playing": "true"
+        },
+        {
+          "frame": 955,
+          "event": 79,
+          "playing": "true"
+        },
+        {
+          "frame": 1075,
+          "event": 89,
+          "playing": "true"
+        },
+        {
+          "frame": 1196,
+          "event": 99,
+          "playing": "true"
+        },
+        {
+          "frame": 1316,
+          "event": 109,
+          "playing": "true"
+        },
+        {
+          "frame": 1436,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65441,
+      "includingDecodeMilliseconds": 68055
+    },
+    {
+      "number": 9,
+      "hand": "right",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 119,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 240,
+          "event": 20,
+          "playing": "true"
+        },
+        {
+          "frame": 360,
+          "event": 30,
+          "playing": "true"
+        },
+        {
+          "frame": 477,
+          "event": 39,
+          "playing": "true"
+        },
+        {
+          "frame": 587,
+          "event": 48,
+          "playing": "true"
+        },
+        {
+          "frame": 706,
+          "event": 58,
+          "playing": "true"
+        },
+        {
+          "frame": 826,
+          "event": 68,
+          "playing": "true"
+        },
+        {
+          "frame": 947,
+          "event": 78,
+          "playing": "true"
+        },
+        {
+          "frame": 1067,
+          "event": 88,
+          "playing": "true"
+        },
+        {
+          "frame": 1187,
+          "event": 98,
+          "playing": "true"
+        },
+        {
+          "frame": 1307,
+          "event": 108,
+          "playing": "true"
+        },
+        {
+          "frame": 1427,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65101,
+      "includingDecodeMilliseconds": 68346
+    },
+    {
+      "number": 10,
+      "hand": "both",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 2,
+      "samples": [
+        {
+          "frame": 119,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 239,
+          "event": 19,
+          "playing": "true"
+        },
+        {
+          "frame": 359,
+          "event": 29,
+          "playing": "true"
+        },
+        {
+          "frame": 479,
+          "event": 39,
+          "playing": "true"
+        },
+        {
+          "frame": 599,
+          "event": 49,
+          "playing": "true"
+        },
+        {
+          "frame": 719,
+          "event": 59,
+          "playing": "true"
+        },
+        {
+          "frame": 840,
+          "event": 70,
+          "playing": "true"
+        },
+        {
+          "frame": 958,
+          "event": 79,
+          "playing": "true"
+        },
+        {
+          "frame": 1071,
+          "event": 89,
+          "playing": "true"
+        },
+        {
+          "frame": 1189,
+          "event": 99,
+          "playing": "true"
+        },
+        {
+          "frame": 1309,
+          "event": 109,
+          "playing": "true"
+        },
+        {
+          "frame": 1420,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65107,
+      "includingDecodeMilliseconds": 68316
+    },
+    {
+      "number": 10,
+      "hand": "left",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 120,
+          "event": 10,
+          "playing": "true"
+        },
+        {
+          "frame": 240,
+          "event": 20,
+          "playing": "true"
+        },
+        {
+          "frame": 360,
+          "event": 30,
+          "playing": "true"
+        },
+        {
+          "frame": 480,
+          "event": 40,
+          "playing": "true"
+        },
+        {
+          "frame": 600,
+          "event": 50,
+          "playing": "true"
+        },
+        {
+          "frame": 720,
+          "event": 60,
+          "playing": "true"
+        },
+        {
+          "frame": 841,
+          "event": 70,
+          "playing": "true"
+        },
+        {
+          "frame": 947,
+          "event": 78,
+          "playing": "true"
+        },
+        {
+          "frame": 1067,
+          "event": 88,
+          "playing": "true"
+        },
+        {
+          "frame": 1187,
+          "event": 98,
+          "playing": "true"
+        },
+        {
+          "frame": 1307,
+          "event": 108,
+          "playing": "true"
+        },
+        {
+          "frame": 1428,
+          "event": 112,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 65114,
+      "includingDecodeMilliseconds": 68163
+    },
+    {
+      "number": 10,
+      "hand": "right",
+      "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+      "canvas": [
+        720,
+        400
+      ],
+      "figures": 1,
+      "samples": [
+        {
+          "frame": 119,
+          "event": 9,
+          "playing": "true"
+        },
+        {
+          "frame": 240,
+          "event": 20,
+          "playing": "true"
+        },
+        {
+          "frame": 360,
+          "event": 30,
+          "playing": "true"
+        },
+        {
+          "frame": 480,
+          "event": 40,
+          "playing": "true"
+        },
+        {
+          "frame": 600,
+          "event": 50,
+          "playing": "true"
+        },
+        {
+          "frame": 720,
+          "event": 60,
+          "playing": "true"
+        },
+        {
+          "frame": 840,
+          "event": 70,
+          "playing": "true"
+        },
+        {
+          "frame": 961,
+          "event": 80,
+          "playing": "true"
+        },
+        {
+          "frame": 1081,
+          "event": 90,
+          "playing": "true"
+        },
+        {
+          "frame": 1201,
+          "event": 100,
+          "playing": "true"
+        },
+        {
+          "frame": 1321,
+          "event": 110,
+          "playing": "true"
+        },
+        {
+          "frame": 1439,
+          "event": 112,
+          "playing": "false"
+        }
+      ],
+      "visitedEvents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "playbackMilliseconds": 60077,
+      "includingDecodeMilliseconds": 63005
+    }
+  ],
+  "priorCheckpoint": {
+    "path": "output/app-hanon-2-10-2026-10-20/native-completed-checkpoint-01.json",
+    "evidence": {
+      "kind": "Preserved completed native checks before screenshot infrastructure timeout; not full final acceptance",
+      "checks": [
+        {
+          "number": 1,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-approved-blender-no1-static",
+            "canvas": [
+              1080,
+              600
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "2",
+            "4"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v3/posters/hanon-2-both.webp"
+          }
+        },
+        {
+          "number": 1,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-approved-blender-no1-static",
+            "canvas": [
+              1080,
+              600
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "4"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v3/posters/hanon-2-left.webp"
+          }
+        },
+        {
+          "number": 1,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-approved-blender-no1-static",
+            "canvas": [
+              1080,
+              600
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "2"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v3/posters/hanon-2-right.webp"
+          }
+        },
+        {
+          "number": 2,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "2",
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 2,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        },
+        {
+          "number": 2,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "2"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+          }
+        },
+        {
+          "number": 3,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "2",
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 3,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        },
+        {
+          "number": 3,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "2"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+          }
+        },
+        {
+          "number": 4,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "2",
+            "4"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 4,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "4"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        },
+        {
+          "number": 4,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "2"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+          }
+        },
+        {
+          "number": 5,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "5",
+            "1"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 5,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "1"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        },
+        {
+          "number": 5,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "5"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+          }
+        },
+        {
+          "number": 6,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "5",
+            "1"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 6,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "1"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        },
+        {
+          "number": 6,
+          "hand": "right",
+          "initial": {
+            "hand": "right",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "5"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-right.webp"
+          }
+        },
+        {
+          "number": 7,
+          "hand": "both",
+          "initial": {
+            "hand": "both",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 2
+          },
+          "nextNoteLabels": [
+            "3",
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-both.webp"
+          }
+        },
+        {
+          "number": 7,
+          "hand": "left",
+          "initial": {
+            "hand": "left",
+            "revision": "2026-10-20-complete-blender-hanon-2-10-static",
+            "canvas": [
+              720,
+              400
+            ],
+            "figures": 1
+          },
+          "nextNoteLabels": [
+            "3"
+          ],
+          "alternate": {
+            "frame": "735",
+            "poster": "./warmups/hanon-frames-v2/posters/hanon-1-left.webp"
+          }
+        }
+      ],
+      "runtimeErrors": [],
+      "failure": {
+        "path": "/Users/migue/Source/spino/output/app-hanon-2-10-2026-10-20/final-native-playback-01/failure.json",
+        "sha256": "67d97dbbe127c647b76c9ff6c03ca5000c611024d7d48b6e6797975b036d9fed"
+      },
+      "log": {
+        "path": "/Users/migue/Source/spino/output/app-hanon-2-10-2026-10-20/final-native-playback-01.log",
+        "sha256": "9c95343ece268434689e736fa97b947384248ea2256ca6a03c77941622112831"
+      },
+      "executedHarnessSha256": "561571b9584a0c4d2515bcdf18699cfbc0104a451458bea306b1b3b14de04fd9",
+      "apkSha256": "2d70e4f33cf901a149489bdd2a832912eb57cd1c652efbc43dd3cd9144cf5e75",
+      "failureScope": "adb exec-out screencap timed out before No7right playback, at sampled frame3; completed20checks each pushed only after all113events/realtime120sec/crossbankdisposal assertions."
+    }
+  },
+  "foreground": [
+    "    topResumedActivity=ActivityRecord{3c18625 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t136}"
+  ],
+  "runtimeErrors": []
+}

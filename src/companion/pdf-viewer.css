@@ -119,6 +119,9 @@
 [data-section-delete] path { stroke: #fff; stroke-width: 2; stroke-linecap: round; }
 .pdf-text-dialog { border: 1px solid var(--theme-border, #414650); border-radius: 16px; background: var(--theme-panel, #1e2127); color: var(--theme-text, #e8eaed); width: min(440px, calc(100% - 32px)); padding: 20px; }
 .pdf-text-dialog::backdrop { background: #0008; }
+.pdf-text-dialog[open] { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
+.pdf-text-dialog > .dialog-head { flex: 0 0 auto; padding: 10px 20px; background: var(--theme-panel, #1e2127); }
+.pdf-text-dialog > form { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px 20px 20px; }
 .pdf-text-dialog textarea { width: 100%; min-height: 100px; margin: 12px 0; font: 16px system-ui; color: var(--theme-text, #e8eaed); background: var(--theme-bg, #14161a); border: 1px solid var(--theme-border, #414650); border-radius: 8px; padding: 10px; }
 .pdf-text-actions { display: flex; justify-content: flex-end; gap: 8px; }
 @media (orientation: landscape) and (max-height: 500px) {

@@ -1,0 +1,8 @@
+{
+  "kind": "Isolated production player plus controlled complete-exercise asset overlay; not finalized bank, native acceptance or publication",
+  "number": 10,
+  "buildIndexSha256": "038c3f21e3e884c34d79631bf84255369f5898ee8b2a0c0f2b77809546dc8cb6",
+  "registrySnapshotSha256": "cfcacd1ce45d36fc292f7ba76385fd0ee15573ae8ca8c19a08cea80205fc673e",
+  "exerciseSha256": "65f7db2b488dcbe317eb065d42a271a5678d831227c15e4eb5c400fac3af600b",
+  "publicIndexCreated": false
+}

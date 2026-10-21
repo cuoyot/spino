@@ -2,6 +2,8 @@
 
 The current-block panel shows what to practise and whether it is Ready, Paused, Practising or waiting for MIDI. Your session lists the blocks in order and highlights the current one.
 
+Long companion dialogs keep **Close** in their title bar while the content scrolls. Closing the warm-up guide stops its demonstration. Close waits while a form or confirmation is being saved. Recording retains its own **Stop and review**, **Save** and **Discard** actions. Closing a pending take first keeps its audio/video and edited title on this device; reopen it from Multimedia or its lesson to review and save it. A failed local write keeps the take open.
+
 ## Start or resume
 
 In short phone-landscape on-screen keyboard practice, pause/timer and tools appear on the right, with answer statistics and quick-practice points on the left. Session and Feedback stay aligned at the top; the score and taller keyboard occupy the center. Timed exercises keep tempo adjustment on the left. Portrait and tablet layouts retain their existing arrangement.

@@ -165,3 +165,10 @@ if(beta613){
  beta613.notes.es="Partituras Hanon más despejadas, con compases adaptados a la pantalla y notas separadas de las barras. Las clases abren directamente la partitura y conservan el tiempo practicado por obra al pausar y reanudar. Encabezado corregido al volver de una práctica.";
  beta613.notes.ca="Partitures Hanon més clares, amb compassos adaptats a la pantalla i notes separades de les barres. Les classes obren directament la partitura i conserven el temps practicat per obra en pausar i reprendre. Capçalera corregida en tornar d’una pràctica.";
 }
+
+const beta614=releases.find(r=>r.version==='6.1.1-beta.4');
+if(beta614){
+ beta614.notes.en="Complete new hand animations for Hanon 1–10, with ascent and descent, both or separate hands, moving keys and hand-specific colors. Includes finger preparation, gathering and reopening, slow playback and note-by-note stepping. Scrolling dialogs keep Close visible at the top. Notebook data and progress are retained.";
+ beta614.notes.es="Nuevas animaciones completas de manos para Hanon 1–10, con ascenso y descenso, manos juntas o por separado, teclas móviles y colores para cada mano. Incluyen preparación, recogida y apertura de los dedos, reproducción lenta y avance nota a nota. Los diálogos con desplazamiento mantienen Cerrar visible arriba. Se conservan el cuaderno y su progreso.";
+ beta614.notes.ca="Noves animacions completes de mans per a Hanon 1–10, amb ascens i descens, mans juntes o separades, tecles mòbils i colors per a cada mà. Inclouen preparació, recollida i obertura dels dits, reproducció lenta i avanç nota a nota. Els diàlegs amb desplaçament mantenen Tanca visible a dalt. Es conserven el quadern i el progrés.";
+}

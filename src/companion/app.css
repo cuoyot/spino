@@ -109,7 +109,11 @@
 .cp-notice { border: 1px solid #dfc593; background: var(--theme-control, #302b22); color: var(--theme-warning, #e6c488); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
 #cp-toast { position: fixed; z-index: 1000; bottom: calc(92px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 12px; background: var(--theme-text, #e8eaed); color: var(--theme-bg, #14161a); box-shadow: 0 6px 25px #0003; }
 #cp-dialog { color-scheme: dark; color: var(--theme-text, #e8eaed); background: var(--theme-bg, #14161a); width: min(560px, calc(100vw - 24px)); border-color: var(--theme-line, #353941); }
-#cp-dialog .cp-dialog-body { padding: 22px; overflow-y: auto; max-height: calc(90dvh - 8px); }
+#cp-dialog[open] { display: flex; flex-direction: column; overflow: hidden; }
+#cp-dialog .cp-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex: 0 0 auto; padding: 10px 22px; border-bottom: 1px solid var(--theme-line, #353941); }
+#cp-dialog .cp-dialog-head h2 { min-width: 0; margin: 0; overflow-wrap: anywhere; line-height: 1.25; max-height: 2.5em; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+#cp-dialog .cp-dialog-head button { flex-shrink: 0; min-height: 44px; }
+#cp-dialog .cp-dialog-body { min-height: 0; padding: 18px 22px 22px; overflow-y: auto; overscroll-behavior: contain; }
 #cp-dialog form { padding: 0; display: block; }
 #cp-dialog h2 { margin: 0 0 18px; font-size: 23px; }
 #cp-dialog .cp-actions { justify-content: flex-end; }

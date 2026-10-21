@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-21T04:45:30.819432+00:00",
+  "kind": "Final routed production build, no runtime asset overlay; Android/publication remain separate",
+  "passed": true,
+  "verificationSha256": "2105cbcff09f314c178cdddf32fde3ac89a618bb8274414389e3b7f006794f3c",
+  "inspected": [
+    "hanon-7-both-phone-portrait.png"
+  ],
+  "scope": "Final routing all3handmodes/full1440seeks/full113events/12responsivecaptures/crossbankNo1/disposal passed; representative final phone portrait visually inspected. The earlier all12visual review is separately preserved."
+}

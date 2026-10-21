@@ -1,0 +1,110 @@
+{
+  "native-completed-checkpoint.json": {
+    "bytes": 9599,
+    "sha256": "5e9038c6919a57c4ccbfa8217b10295807dbff4277e08aeca9e8e2e6fd8259de"
+  },
+  "apk-signature.txt": {
+    "bytes": 307,
+    "sha256": "d69c1e27ac4411bd9c169be167ea0bfa9219c0fc2fd053dd22a252fa0ff2aa6f"
+  },
+  "native-first-infrastructure-failure.json": {
+    "bytes": 8807,
+    "sha256": "67d97dbbe127c647b76c9ff6c03ca5000c611024d7d48b6e6797975b036d9fed"
+  },
+  "hanon-9-both-735-android.png": {
+    "bytes": 447019,
+    "sha256": "7bae25c2cd935da3fd41b5ca734f568aaa573301a22e7f6584fb68fff81ca625"
+  },
+  "hanon-6-both-735-android.png": {
+    "bytes": 454200,
+    "sha256": "30688ac6fbf36b5cfcb37d58bd8142a187e006595b844501e57ce25c99c6e588"
+  },
+  "hanon-3-both-735-android.png": {
+    "bytes": 442612,
+    "sha256": "f5f401fe1cc36f46c61c6eb9b571fe431d4d6431e427b10f9dbe711f9ae6e108"
+  },
+  "native-verification.json": {
+    "bytes": 99542,
+    "sha256": "ce03bc408cfcab320de3e1d5e82921c929b63945dc9217b99b52f0ff44ae2a64"
+  },
+  "native-surface-verification.json": {
+    "bytes": 49717,
+    "sha256": "79a8271a6f226c19e72e4391e1310dc8190dcaad4c8b99bcfb34efefebae3da8"
+  },
+  "hanon-7-both-735-android.png": {
+    "bytes": 432287,
+    "sha256": "e43660744e917d9e22372784d84c89bb533347af55a214065f0b02ad5488d78a"
+  },
+  "hanon-2-both-735-android.png": {
+    "bytes": 442914,
+    "sha256": "8f75fc15eaa630a98971c04f5329626e88479fb94584b4585a777f923013b24d"
+  },
+  "apk-integrity.json": {
+    "bytes": 257,
+    "sha256": "1bf0404c4a1cf07e35fc8007b79be463e17afa1bdbc7e5ad7ab341abd33fdf1f"
+  },
+  "bank-integrity.json": {
+    "bytes": 5251,
+    "sha256": "bf6a6f7dc5ef24a706aea1915a5cd4f2664f977ccb9c6828ee25a230f34c578f"
+  },
+  "visual-review.json": {
+    "bytes": 569,
+    "sha256": "87df0095afdc731b3384536310eb4ad7631814a96a6c896952536a54ce53de86"
+  },
+  "hanon-8-both-735-android.png": {
+    "bytes": 444359,
+    "sha256": "b85fffe6afca79cfe0a138c4080ef95b33cbb84d6dc14ad69c180788c9f5c647"
+  },
+  "native-recovery-original-files.json": {
+    "bytes": 363,
+    "sha256": "167aa24c71e940458faf4b856799fa04fb2c55d03ad2bddd1c9e6789b0608439"
+  },
+  "README.md": {
+    "bytes": 1704,
+    "sha256": "dcbd3902883a1fcdeaecefdff0ae96ff226e3a8778109e565cd310399af88a1e"
+  },
+  "hanon-1-both-735-android.png": {
+    "bytes": 491667,
+    "sha256": "d1076f066206350815e03a4b67d779336078efa26d4bbdc6db8ad40750c83f5d"
+  },
+  "native-first-run.log": {
+    "bytes": 8405,
+    "sha256": "9c95343ece268434689e736fa97b947384248ea2256ca6a03c77941622112831"
+  },
+  "hanon-4-both-735-android.png": {
+    "bytes": 442738,
+    "sha256": "f80cfb036eda56514d2d685545b316a767608a42ae296d3ec8cdde547f0f0eec"
+  },
+  "native-handoff.json": {
+    "bytes": 19349,
+    "sha256": "e3e2bceb8379e92d864bc3f8a0d187267da5bfdfcfd36b5dda84a1c11ee84117"
+  },
+  "native-resumed-executed-harness.mjs": {
+    "bytes": 15542,
+    "sha256": "3a9f972b2bf54d61bdf10896aff5ff512566ac4c8613cbd937699d1bb06c193b"
+  },
+  "hanon-7-right-735-android.png": {
+    "bytes": 467577,
+    "sha256": "36aef67abe888580676998ec80a0806296e9bf9723a354397b2979f0042853fc"
+  },
+  "native-first-executed-harness.mjs": {
+    "bytes": 14186,
+    "sha256": "561571b9584a0c4d2515bcdf18699cfbc0104a451458bea306b1b3b14de04fd9"
+  },
+  "canvas-contact-sheet.jpg": {
+    "bytes": 152665,
+    "sha256": "a76df0308d7f7cf448a15dc0a5aeb60ddb3155cbd180a96d7b87c9189f67753b"
+  },
+  "hanon-10-both-735-android.png": {
+    "bytes": 449174,
+    "sha256": "8a94d45391ff03b662093ca0343c3f655adb61e591773f8c0830409bfafc4161"
+  },
+  "hanon-5-both-735-android.png": {
+    "bytes": 449223,
+    "sha256": "1529fa1004ccaeb12f3c2208f7abe34e2343761d19abd4975617bb5ad6c98cc8"
+  },
+  "native-resumed-run.log": {
+    "bytes": 3248,
+    "sha256": "77325ca204da7cdee55f28ae101f0c557b9869620b4d28a980dfbe7095719406"
+  }
+}

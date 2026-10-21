@@ -1,29 +1,36 @@
 import { getAppLanguage, ui } from './locale.js';
 
-const ASSETS = './warmups/hanon-frames-v1/';
+const COMPLETE_ASSETS = './warmups/hanon-frames-v3/';
+const REVIEWED_ASSETS = './warmups/hanon-frames-v2/';
 const MAX_PACKS = 8;
-let indexRequest;
+const indexRequests = new Map();
 const exerciseRequests = new Map();
-const readJson = async path => {
-  const response = await fetch(ASSETS + path);
+const readJson = async (assets, path) => {
+  const response = await fetch(assets + path);
   if (!response.ok) throw Error('Hanon animation asset unavailable');
   return response.json();
 };
-const getIndex = () => indexRequest ||= readJson('index.json').catch(error => { indexRequest = null; throw error; });
-const getExercise = id => {
-  if (!exerciseRequests.has(id)) exerciseRequests.set(id, readJson(`exercises/${id}.json`).catch(error => { exerciseRequests.delete(id); throw error; }));
-  return exerciseRequests.get(id);
+const getIndex = assets => {
+  if (!indexRequests.has(assets)) indexRequests.set(assets, readJson(assets, 'index.json').catch(error => { indexRequests.delete(assets); throw error; }));
+  return indexRequests.get(assets);
+};
+const getExercise = (assets, id) => {
+  const key = assets + id;
+  if (!exerciseRequests.has(key)) exerciseRequests.set(key, readJson(assets, `exercises/${id}.json`).catch(error => { exerciseRequests.delete(key); throw error; }));
+  return exerciseRequests.get(key);
 };
 const handsFor = hand => hand === 'left' ? ['left'] : hand === 'right' ? ['right'] : ['left', 'right'];
 const safeHand = hand => ['left', 'right'].includes(hand) ? hand : 'both';
 const safeId = exercise => /^hanon-(?:[1-9]|10)$/.test(exercise?.id) ? exercise.id : 'hanon-1';
+const assetsFor = id => id === 'hanon-1' ? REVIEWED_ASSETS : COMPLETE_ASSETS;
 export const hanonNoteName = (diatonic, octave = false) => {
   const pitch = ((diatonic % 7) + 7) % 7;
   return (getAppLanguage() === 'en' ? 'CDEFGAB'[pitch] : ['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si'][pitch]) + (octave ? Math.floor(diatonic / 7) : '');
 };
 
 export function warmupAnimationPosterMarkup(exercise, { hand = 'both' } = {}) {
-  return `<div class="ha-poster"><img src="${ASSETS}posters/${safeId(exercise)}-${safeHand(hand)}.webp" width="1080" height="600" alt="${ui('Starting hand position on the Hanon keyboard', 'Posición inicial de las manos en el teclado de Hanon')}" draggable="false"></div>`;
+  const id = safeId(exercise);
+  return `<div class="ha-poster"><img src="${assetsFor(id)}posters/${id}-${safeHand(hand)}.webp" width="1080" height="600" alt="${ui('Starting hand position on the Hanon keyboard', 'Posición inicial de las manos en el teclado de Hanon')}" draggable="false"></div>`;
 }
 
 export function warmupAnimationMarkup(exercise, { hand = 'both' } = {}) {
@@ -36,8 +43,8 @@ export function warmupAnimationMarkup(exercise, { hand = 'both' } = {}) {
   </section>`;
 }
 
-async function loadBitmap(path) {
-  const response = await fetch(ASSETS + path);
+async function loadBitmap(assets, path) {
+  const response = await fetch(assets + path);
   if (!response.ok) throw Error('Hanon image unavailable');
   const blob = await response.blob();
   if (typeof createImageBitmap === 'function') return createImageBitmap(blob);
@@ -47,8 +54,9 @@ async function loadBitmap(path) {
 }
 
 // All geometry and articulation are baked into the source frames. The player only
-// translates fixed-size sprites over one keyboard, with a bounded decoded cache.
+// composes fixed-size sprites over one keyboard, with a bounded decoded cache.
 export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = () => {} } = {}) {
+  const id = safeId(exercise), assets = assetsFor(id);
   const canvas = root.querySelector('canvas'), ctx = canvas.getContext('2d');
   const find = name => root.querySelector(`[data-ha-${name}]`);
   const play = find('play'), next = find('next'), timeline = find('timeline'), status = find('status'), retry = find('retry');
@@ -66,7 +74,7 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
   const loadPack = id => {
     const cached = touch(id);
     if (cached) return Promise.resolve(cached);
-    if (!pending.has(id)) pending.set(id, loadBitmap(index.packs[id].file).then(bitmap => {
+    if (!pending.has(id)) pending.set(id, loadBitmap(assets, index.packs[id].file).then(bitmap => {
       if (disposed) { bitmap.close?.(); return null; }
       packs.set(id, bitmap);
       while (packs.size > MAX_PACKS) {
@@ -77,7 +85,10 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
     }).finally(() => pending.delete(id)));
     return pending.get(id);
   };
-  const spriteIds = frame => shownHands.map(h => index.sprites[frame[h === 'left' ? 2 : 5]][0]);
+  const singleMode = () => data.composition === 'single-mode-sprite' && shownHands.length === 2;
+  const spriteIds = (frame, number) => singleMode()
+    ? [index.sprites[data.both[number]][0]]
+    : shownHands.map(h => index.sprites[frame[h === 'left' ? 2 : 5]][0]);
   const hasBlackAfter = d => ((d % 7) + 7) % 7 !== 2 && ((d % 7) + 7) % 7 !== 6;
   function heldKey(d, h) {
     const b = index.board, x = b.left + (d - b.firstDiatonic) * b.keyWidth + 1, w = b.keyWidth - 2;
@@ -89,17 +100,21 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
   }
   async function draw(frameNumber) {
     const token = ++generation, frame = data.frames[frameNumber];
-    requestedPacks = new Set(spriteIds(frame));
+    requestedPacks = new Set(spriteIds(frame, frameNumber));
     await Promise.all([...requestedPacks].map(loadPack));
     if (disposed || token !== generation) return false;
     current = frameNumber;
     const event = data.events[frame[0]];
     ctx.clearRect(0, 0, index.width, index.height); ctx.drawImage(keyboard, 0, 0);
-    if (frame[1]) for (const h of shownHands) heldKey(event[h === 'left' ? 0 : 2], h);
+    if (frame[1] && !index.bakedKeys) for (const h of shownHands) heldKey(event[h === 'left' ? 0 : 2], h);
+    const layers = singleMode() ? ['both'] : shownHands;
+    for (const h of layers) {
+      const k = h === 'left' ? 2 : 5;
+      const [id, sx, sy, sw, sh, x, y, w, height] = index.sprites[h === 'both' ? data.both[frameNumber] : frame[k]];
+      ctx.drawImage(touch(id), sx, sy, sw, sh, x + (h === 'both' ? 0 : frame[k + 1]), y + (h === 'both' ? 0 : frame[k + 2]), w, height);
+    }
     for (const h of shownHands) {
-      const k = h === 'left' ? 2 : 5, e = h === 'left' ? 0 : 2;
-      const [id, sx, sy, sw, sh, x, y, w, height] = index.sprites[frame[k]];
-      ctx.drawImage(touch(id), sx, sy, sw, sh, x + frame[k + 1], y + frame[k + 2], w, height);
+      const e = h === 'left' ? 0 : 2;
       find(h).textContent = `${event[e + 1]} · ${hanonNoteName(event[e], true)}`;
     }
     find('section').textContent = event[4] === 2 ? ui('Final C', 'Do final') : `${event[4] === 0 ? ui('Ascending', 'Ascenso') : ui('Descending', 'Descenso')} · ${event[5] % 7 + 1} / 7`;
@@ -108,10 +123,11 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
     canvas.hidden = false; root.querySelector('.ha-poster').hidden = true;
     status.hidden = true; retry.hidden = true; play.disabled = false; timeline.disabled = false;
     root.dataset.ready = 'true'; root.dataset.frame = current; root.dataset.event = frame[0]; root.dataset.pressed = Boolean(frame[1]);
+    root.dataset.assetRevision = index.revision;
     onEvent({ event, eventIndex: frame[0], pressed: Boolean(frame[1]), frame: current });
     for (const offset of [1, 4]) {
-      const future = data.frames[Math.min(current + offset, data.frames.length - 1)];
-      for (const id of spriteIds(future)) loadPack(id).catch(() => {});
+      const number = Math.min(current + offset, data.frames.length - 1), future = data.frames[number];
+      for (const id of spriteIds(future, number)) loadPack(id).catch(() => {});
     }
     return true;
   }
@@ -128,7 +144,7 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
     const advance = Math.floor(carry);
     if (advance) {
       carry -= advance;
-      const frameNumber = Math.min(data.frames.length - 1, current + advance), missing = spriteIds(data.frames[frameNumber]).some(id => !packs.has(id));
+      const frameNumber = Math.min(data.frames.length - 1, current + advance), missing = spriteIds(data.frames[frameNumber], frameNumber).some(id => !packs.has(id));
       try { await draw(frameNumber); } catch { fail(); return; }
       // Decoding a new pack pauses demonstration time rather than skipping notes.
       if (missing) { carry = 0; lastTime = performance.now(); }
@@ -146,9 +162,10 @@ export function bindHanonAnimation(root, exercise, { hand = 'both', onEvent = ()
   async function init() {
     retry.hidden = true; status.hidden = false; status.textContent = ui('Loading demonstration…', 'Cargando demostración…');
     try {
-      [index, data] = await Promise.all([getIndex(), getExercise(safeId(exercise))]);
+      [index, data] = await Promise.all([getIndex(assets), getExercise(assets, id)]);
       if (disposed) return;
-      keyboard ||= await loadBitmap(index.keyboard);
+      canvas.width = index.width; canvas.height = index.height;
+      keyboard ||= await loadBitmap(assets, index.keyboard);
       if (disposed) { keyboard.close?.(); return; }
       ready = true; timeline.max = data.frames.length - 1; await draw(current);
     } catch { fail(); }

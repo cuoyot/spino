@@ -1,0 +1,11 @@
+{
+  "originalFiles": 125,
+  "unchanged": 122,
+  "changed": [
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000004.log",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old"
+  ],
+  "userdataCleared": false,
+  "apkReinstalled": false
+}

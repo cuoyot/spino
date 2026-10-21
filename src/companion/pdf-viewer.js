@@ -369,9 +369,9 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   function addText(point, existing) {
     if (running()) return;
     textDialog = document.createElement('dialog'); textDialog.className = 'pdf-text-dialog';
-    textDialog.innerHTML = `<form><label>${ui('Text on the score', 'Texto en la partitura')}<textarea maxlength="500" required placeholder="${ui('For example: practise slowly', 'Por ejemplo: repasar despacio')}"></textarea></label><div class="pdf-text-actions"><button type="button">${ui('Cancel', 'Cancelar')}</button><button type="submit">${ui('Save text', 'Guardar texto')}</button></div></form>`;
+    textDialog.innerHTML = `<div class="dialog-head"><b>${ui('Text on the score', 'Texto en la partitura')}</b><button type="button">${ui('Close', 'Cerrar')}</button></div><form><label>${ui('Text on the score', 'Texto en la partitura')}<textarea maxlength="500" required placeholder="${ui('For example: practise slowly', 'Por ejemplo: repasar despacio')}"></textarea></label><div class="pdf-text-actions"><button type="button">${ui('Cancel', 'Cancelar')}</button><button type="submit">${ui('Save text', 'Guardar texto')}</button></div></form>`;
     textDialog.querySelector('textarea').value = existing?.text || '';
-    textDialog.querySelector('button').onclick = () => textDialog.close();
+    textDialog.querySelectorAll('button[type="button"]').forEach(button => { button.onclick = () => textDialog.close(); });
     textDialog.onclose = () => { textDialog.remove(); textDialog = null; };
     textDialog.querySelector('form').onsubmit = event => {
       event.preventDefault(); const text = textDialog.querySelector('textarea').value.trim(); if (!text) return;

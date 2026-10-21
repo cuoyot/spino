@@ -43,14 +43,16 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
   await once(server, 'listening');
   const profile = await mkdtemp(join(tmpdir(), 'piano-reading-'));
   const browser = spawn(browserPath(), ['--headless', '--disable-gpu', '--no-first-run', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], { windowsHide: true });
-  let ws;
+  let ws, closeRemote;
   t.after(async () => {
-    ws?.close();
     const exited = browser.exitCode == null && browser.signalCode == null ? once(browser, 'exit') : Promise.resolve();
-    browser.kill();
+    if (closeRemote && ws?.readyState === 1) void closeRemote().catch(() => {});
+    else browser.kill();
+    const forceExit = setTimeout(() => browser.kill('SIGKILL'), 2000);
+    try { await exited.catch(() => {}); } finally { clearTimeout(forceExit); }
+    ws?.close();
     server.closeAllConnections();
     server.close();
-    await exited.catch(() => {});
     await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   });
   const endpoint = await new Promise((resolveEndpoint, reject) => {
@@ -90,6 +92,7 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
     pending.set(id, { resolve: resolveCall, reject });
     ws.send(JSON.stringify({ id, method, params }));
   });
+  closeRemote = () => rawSend('Browser.close');
   const send = async (method, params = {}) => {
     if (method === 'Page.reload') {
       const { frameTree: { frame } } = await rawSend('Page.getFrameTree');

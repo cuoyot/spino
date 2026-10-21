@@ -8,6 +8,7 @@ import re
 import subprocess
 import sys
 import time
+import tempfile
 import urllib.parse
 
 version, commit = sys.argv[1:3]
@@ -17,8 +18,8 @@ manifest_path = f'downloads/spino-{version}-checksums.json'
 manifest = json.loads((root / 'site' / manifest_path).read_text())
 sha = lambda data: hashlib.sha256(data).hexdigest()
 
-def fetch(url):
-    return subprocess.run(['curl', '-fsSL', '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', '30', url], check=True, capture_output=True).stdout
+def fetch(url, max_seconds=30):
+    return subprocess.run(['curl', '-fsSL', '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', str(max_seconds), url], check=True, capture_output=True).stdout
 
 previous_status = None
 for attempt in range(40):
@@ -69,10 +70,22 @@ for artifact in json.loads(stable_manifest.read_text())['artifacts']:
 
 def verify_artifact(artifact):
     url = origin + 'downloads/' + artifact['file']
-    body = fetch(url)
+    body = fetch(url, max_seconds=180)
     assert len(body) == artifact['bytes'], url
     assert sha(body) == artifact['sha256'], url
-    return {'url': url, 'bytes': len(body), 'sha256': sha(body)}
+    result = {'url': url, 'bytes': len(body), 'sha256': sha(body)}
+    if artifact['file'] == manifest['artifacts'][0]['file']:
+        ranges = [(20971510, 20971530), (41943030, 41943060), (len(body)-31, len(body)-1)]
+        result['ranges'] = []
+        for start, end in ranges:
+            with tempfile.NamedTemporaryFile() as headers:
+                response = subprocess.run(['curl', '-fsSL', '--connect-timeout', '10', '--max-time', '60', '--range', f'{start}-{end}', '-D', headers.name, url], check=True, capture_output=True).stdout
+                header_text = pathlib.Path(headers.name).read_text().lower()
+            assert re.search(r'http/[^ ]+ 206', header_text), header_text
+            assert f'content-range: bytes {start}-{end}/{len(body)}' in header_text, header_text
+            assert response == body[start:end+1], f'Public range mismatch: {url} {start}-{end}'
+            result['ranges'].append({'start': start, 'end': end, 'bytes': len(response), 'status': 206, 'sha256': sha(response)})
+    return result
 
 def verify_image(item):
     path, query = item

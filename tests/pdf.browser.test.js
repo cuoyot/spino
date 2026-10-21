@@ -68,6 +68,7 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
     }
     await tool('text'); const r = await rect(); await tap(r.x + r.width * .15, r.y + r.height * .08);
     await wait(`document.querySelector('.pdf-text-dialog[open]')`);
+    assert.equal(await evaluate(`(()=>{const d=document.querySelector('.pdf-text-dialog'),form=d.querySelector('form');form.scrollTop=form.scrollHeight;const b=d.querySelector('.dialog-head button'),r=b.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight&&document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===b;})()`),true,'Annotation Close remains visible above the scrolling form');
     await evaluate(`document.querySelector('.pdf-text-dialog textarea').value=${JSON.stringify('<img onerror=alert(1)>\nRepetir lento')};document.querySelector('.pdf-text-dialog form').requestSubmit()`); await saved();
     assert.equal(await evaluate(`document.querySelectorAll('.pdf-marks [data-mark-id]').length`), 8);
     assert.equal(await evaluate(`document.querySelectorAll('.pdf-marks img').length`), 0);

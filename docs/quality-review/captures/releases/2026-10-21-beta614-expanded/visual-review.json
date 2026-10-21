@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-21T05:37:47.040851+00:00",
+  "kind": "Root visual inspection of actual installed Android screenshots and canvas readbacks",
+  "passed": true,
+  "scope": "All ten both-hand canvases and No7 right solo; OS screenshots confirm real visible canvas and persistent top Close. No image substitution.",
+  "screenshotLimitation": "Resumed playback CDP screenshots omit the accelerated canvas. They are not accepted as visual proof; the separate OS screenshots and actual canvas readback establish the visible result.",
+  "physicalDeviceAcceptance": false
+}
