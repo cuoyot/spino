@@ -96,5 +96,6 @@
   "nativeEvidence": "docs/quality-review/captures/warmups/2026-10-21-video-720/native-verification.json",
   "browserEvidence": "docs/quality-review/captures/warmups/2026-10-21-video-720/browser-verification.json",
   "physicalDeviceAcceptance": false,
-  "websitePublication": "pending actual provider/full-APK/hash/range/localized-page verification"
+  "websitePublication": "verified: successful exact-commit provider build, three public localized pages, complete signed APK hash and three HTTP206 ranges, retained downloads/images and unchanged cinematic film",
+  "publicationEvidence": "6.1.1-beta.5-publication.json"
 }

@@ -12,6 +12,7 @@ import tempfile
 import urllib.parse
 
 version, commit = sys.argv[1:3]
+retained_range_only = '--retained-large-range-only' in sys.argv[3:]
 provider_path = next((arg.split('=', 1)[1] for arg in sys.argv[3:] if arg.startswith('--provider-evidence=')), None)
 root = pathlib.Path(__file__).resolve().parents[2]
 origin = 'https://spinoapp.com/'
@@ -83,6 +84,33 @@ for artifact in json.loads(stable_manifest.read_text())['artifacts']:
 
 def verify_artifact(artifact):
     url = origin + 'downloads/' + artifact['file']
+    if retained_range_only and artifact['file'] != manifest['artifacts'][0]['file'] and artifact['bytes'] > 100 * 1024 * 1024:
+        # Unchanged large legacy releases were already fully verified at release.
+        # Bind the retained local full hash, then check live remote cross-part,
+        # middle and final ranges without redownloading hundreds of megabytes.
+        candidates = list((root / 'artifacts').rglob(artifact['file']))
+        local = next((path for path in candidates if path.stat().st_size == artifact['bytes']), None)
+        assert local is not None, 'A full retained artifact is required for range-only legacy verification'
+        digest = hashlib.sha256()
+        with local.open('rb') as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b''):
+                digest.update(chunk)
+        assert digest.hexdigest() == artifact['sha256'], local
+        prior_path = root / 'docs/releases' / f"{artifact['version']}-publication.json"
+        prior_report = json.loads(prior_path.read_text())
+        assert any(item['url'] == url and item['bytes'] == artifact['bytes'] and item['sha256'] == artifact['sha256'] for item in prior_report['downloads']), 'A prior full public verification is required'
+        ranges = []
+        for start, end in [(0, 30), (20971510, 20971540), (artifact['bytes']//2, artifact['bytes']//2+30), (artifact['bytes']-31, artifact['bytes']-1)]:
+            with tempfile.NamedTemporaryFile() as headers:
+                response = subprocess.run(['curl', '-fsSL', '--connect-timeout', '10', '--max-time', '60', '--range', f'{start}-{end}', '-D', headers.name, url], check=True, capture_output=True).stdout
+                header_text = pathlib.Path(headers.name).read_text().lower()
+            assert re.search(r'http/[^ ]+ 206', header_text), header_text
+            assert f'content-range: bytes {start}-{end}/{artifact["bytes"]}' in header_text, header_text
+            with local.open('rb') as source:
+                source.seek(start)
+                assert response == source.read(end-start+1), 'Retained public range mismatch'
+            ranges.append({'start': start, 'end': end, 'status': 206, 'bytes': len(response), 'sha256': sha(response)})
+        return {'url': url, 'bytes': artifact['bytes'], 'sha256': artifact['sha256'], 'verification': 'Unchanged legacy local full hash plus live public range samples; full public body was verified in its original publication', 'priorFullPublicationProof': {'file': str(prior_path.relative_to(root)), 'sha256': sha(prior_path.read_bytes()), 'verifiedAt': prior_report['verifiedAt']}, 'ranges': ranges}
     body = fetch(url, max_seconds=180)
     assert len(body) == artifact['bytes'], f"{url}: received {len(body)} bytes, expected {artifact['bytes']}"
     assert sha(body) == artifact['sha256'], url
