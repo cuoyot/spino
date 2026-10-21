@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-21",
+  "commit": "2b1bc229b4bffb2cb9e070ac952992ec7c4382a7",
+  "build": "npm run build (passed)",
+  "files": {
+    "src/companion/agenda.js": "d4563922caa0a23f12cbf87cc18e289f239eb41b44a8569e5ba316fad588d6d0",
+    "src/companion/app.js": "d9fca976099d82a97d6db13d5b4f36b48f035d50c68889513d05b268fed64759",
+    "src/companion/profile-view.js": "19305ef879bbfd43865e7bc7074d73a2b8f970848900ccfccbe1d1890bf02f25",
+    "src/companion/profile.css": "c742b0d11ec35723d6ffd94a5d05d8b78bf56876cb58ddd8304acb4a9884b94b",
+    "tests/pending-session.browser.test.js": "7e01a3b2c25bcb4ad035afe2b564e2ea4562635dea6e41504d12804f02ee355c"
+  },
+  "screenshots": {
+    "practice-844x390.png": "3899ee96146a38b4dedaa33423a1e196490f2902cd9652f6fd607c9e715be01d",
+    "practice-390x844.png": "14b11470d824052dc1b7288e0111cf64d0ffa4c53be2a392fc4015e299d14bf9",
+    "calendar-768x1024.png": "9c4d2c5c9d3f61c34ea4524d0d79fdee10429107e55c2f365ca2a145124c8941",
+    "home-768x1024.png": "069db90e872961ea72aa4d66882bc632a944e002cfc3a174df954e1f94b7a1c1",
+    "home-1024x768.png": "a978779852c085649193dda51bf2636298a11ad517d3f3fd154ace2c730cb569",
+    "calendar-1024x768.png": "d3f5bc56ff536932790dc94233f4699457dbf4138772078dc42bc69630715d12",
+    "calendar-390x844.png": "8816ca362bfee71bf3fe8e75569b599c94014dc07827d203eea93712c0db9d1c",
+    "calendar-844x390.png": "3ec6e3fe709382de83de4b9b2e57bb677e155e402bbe9152767a567c5bda4a83",
+    "practice-1024x768.png": "df88d6f9d8fb25ca1f2b21f13db953cb5faf105d05a37e214c78c31eff9cb691",
+    "home-844x390.png": "7a1d7d27d4502bf87389ad7f9f889f9b53211d63d9b621dc69eb88e152e92131",
+    "home-390x844.png": "d2735f072b8d8575fcb610bab6970b9621449d8d9332d874ed9553f27a3df81a",
+    "practice-768x1024.png": "afb768295c6bd77d1423dd9081a433f56b0161943e77d446ddca06402a1ba26b"
+  }
+}
