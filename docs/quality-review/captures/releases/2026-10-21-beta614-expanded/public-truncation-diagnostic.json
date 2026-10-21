@@ -1,0 +1,11 @@
+{
+  "expectedBytes": 498335277,
+  "receivedBytes": 146284544,
+  "receivedSha256": "a9d2bcf20da04ebed0a0c7c2d6cccc8aadb6c7e7561e3c72e0baf1af28f9210a",
+  "matchesExactSignedApkPrefix": true,
+  "headerClaimedBytes": 498335277,
+  "providerBuildSucceeded": true,
+  "releaseNotAccepted": "Public body truncated; no public completion claimed.",
+  "repair": "Native complete-part pipeTo plus FixedLengthStream; boundary-only slicing; no APK changes.",
+  "reference": "https://developers.cloudflare.com/workers/best-practices/workers-best-practices/"
+}

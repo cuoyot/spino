@@ -37,3 +37,22 @@ test('the published Hanon video plays inline with byte ranges matching its exact
  assert.equal(head.headers.get('content-length'),String(video.byteLength));assert.equal(await head.text(),'');
  const unchanged=await respond({'If-None-Match':'"'+entry.sha256+'"'});assert.equal(unchanged.status,304);
 });
+
+test('the 498 MB beta streams every complete part through native pipes without JavaScript readers',async()=>{
+ const bytes=498335277,partSize=20*1024*1024,chunkSize=64*1024;
+ const parts=Array.from({length:Math.ceil(bytes/partSize)},(_,i)=>({path:'/large-'+i,bytes:Math.min(partSize,bytes-i*partSize)}));
+ const expected=createHash('sha256');
+ for(const [i,part] of parts.entries())for(let offset=0;offset<part.bytes;offset+=chunkSize)expected.update(new Uint8Array(Math.min(chunkSize,part.bytes-offset)).fill(i));
+ let nativePipes=0;
+ const largeAssets={fetch:async request=>{
+  const i=Number(new URL(request.url).pathname.slice('/large-'.length)),part=parts[i];let offset=0;
+  const stream=new ReadableStream({pull(controller){if(offset===part.bytes){controller.close();return}const size=Math.min(chunkSize,part.bytes-offset);controller.enqueue(new Uint8Array(size).fill(i));offset+=size}});
+  const nativePipe=stream.pipeTo.bind(stream);stream.pipeTo=(...args)=>{nativePipes++;return nativePipe(...args)};
+  stream.getReader=()=>{throw Error('Complete static parts must use native pipeTo')};
+  return {ok:true,body:stream};
+ }};
+ const r=await downloadResponse(new Request('https://example.com/large.apk'),largeAssets,{'/large.apk':{bytes,sha256:'large',parts}});
+ const actual=createHash('sha256');let received=0;
+ for await(const chunk of r.body){actual.update(chunk);received+=chunk.byteLength}
+ assert.equal(received,bytes);assert.equal(nativePipes,24);assert.equal(actual.digest('hex'),expected.digest('hex'));
+});

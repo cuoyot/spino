@@ -7,3 +7,9 @@ Replacement installation retained 125 original IndexedDB files before launch. La
 The resumed CDP screenshots omit the accelerated canvas and are excluded from visual acceptance. The separate Android OS screenshots and direct installed-canvas readbacks show all ten complete-bank models, correct hand colors, keyboard and visible top Close. The contact sheet contains scaled canvas readbacks. No product rendering shim or screenshot substitution was used. This is emulator evidence, not physical-device acceptance.
 
 The private pre-review notebook backup is not included. Original authoring and failed studies remain recoverable in the working archive; repository cleanup is separate. APK and website only; no new AAB.
+
+## Public download transport repair
+
+The first provider build succeeded, but a real public full download stopped at146,284,544 of498,335,277bytes. Those bytes exactly match the signed APK prefix. Publication acceptance was withheld. The worker now pipes complete static parts natively and uses Cloudflare FixedLengthStream to enforce the total response length; only range boundary parts use JavaScript byte slicing. Four site/download checks pass, including a498MB/24part streaming/hash test that rejects manual readers for complete parts. The exact signed APK is unchanged. A new actual public full-byte/hash/range check is still required after deployment.
+
+Implementation follows [Cloudflare streaming guidance](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/) and [FixedLengthStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/).

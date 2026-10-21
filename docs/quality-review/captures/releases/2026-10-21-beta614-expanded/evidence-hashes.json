@@ -31,6 +31,10 @@
     "bytes": 49717,
     "sha256": "79a8271a6f226c19e72e4391e1310dc8190dcaad4c8b99bcfb34efefebae3da8"
   },
+  "public-truncation-diagnostic.json": {
+    "bytes": 544,
+    "sha256": "d29d30036ab6a2480ed060b712c36e43831b9dfbac5b5920273a70d45326e85a"
+  },
   "hanon-7-both-735-android.png": {
     "bytes": 432287,
     "sha256": "e43660744e917d9e22372784d84c89bb533347af55a214065f0b02ad5488d78a"
@@ -55,13 +59,17 @@
     "bytes": 444359,
     "sha256": "b85fffe6afca79cfe0a138c4080ef95b33cbb84d6dc14ad69c180788c9f5c647"
   },
+  "download-native-pipe-tests.log": {
+    "bytes": 1103,
+    "sha256": "839e2b7e87618d129c457e6ac9d5f6f37b5d3eb38fa98da74905fa9e683fef67"
+  },
   "native-recovery-original-files.json": {
     "bytes": 363,
     "sha256": "167aa24c71e940458faf4b856799fa04fb2c55d03ad2bddd1c9e6789b0608439"
   },
   "README.md": {
-    "bytes": 1704,
-    "sha256": "dcbd3902883a1fcdeaecefdff0ae96ff226e3a8778109e565cd310399af88a1e"
+    "bytes": 2607,
+    "sha256": "7d961afa43f1a3815899d1482e9ae288e96c317d2223373d04b8f73c0dee129e"
   },
   "hanon-1-both-735-android.png": {
     "bytes": 491667,

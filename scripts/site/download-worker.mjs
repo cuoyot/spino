@@ -32,36 +32,41 @@ export async function downloadResponse(request, assets, manifest = servedAssets)
   if (useRange) headers.set('Content-Range',`bytes ${start}-${end}/${entry.bytes}`);
   const status = useRange ? 206 : 200;
   if (request.method === 'HEAD') return new Response(null,{status,headers});
-  async function* chunks() {
+  // Native pipeTo keeps large bodies outside JavaScript chunk queues. FixedLengthStream
+  // also makes an interrupted transfer fail instead of silently looking complete.
+  const length = end - start + 1;
+  const {readable:body,writable} = typeof FixedLengthStream === 'function'
+    ? new FixedLengthStream(length) : new TransformStream();
+  const pipeline = (async () => {
     let partStart = 0;
     for (const part of entry.parts) {
       const partEnd = partStart + part.bytes - 1;
       if (partEnd >= start && partStart <= end) {
         const response = await assets.fetch(new Request(new URL(part.path,url)));
         if (!response.ok || !response.body) throw Error('Download part unavailable');
-        const reader = response.body.getReader(); let read = 0;
-        try {
-          for (;;) {
-            const {value,done} = await reader.read(); if (done) break;
-            const from = Math.max(0,start - partStart - read), to = Math.min(value.byteLength,end - partStart - read + 1);
-            if (to > from) yield value.subarray(from,to);
-            read += value.byteLength;
-            if (partStart + read > end) break;
-          }
-        } finally { await reader.cancel().catch(()=>{}); reader.releaseLock(); }
+        if (start <= partStart && end >= partEnd) {
+          await response.body.pipeTo(writable,{preventClose:true});
+        } else {
+          // Only the boundary parts need byte slicing; complete middle parts stay native.
+          const reader = response.body.getReader(), writer = writable.getWriter();
+          let read = 0;
+          try {
+            for (;;) {
+              const {value,done} = await reader.read(); if (done) break;
+              const from = Math.max(0,start - partStart - read), to = Math.min(value.byteLength,end - partStart - read + 1);
+              if (to > from) await writer.write(value.subarray(from,to));
+              read += value.byteLength;
+              if (partStart + read > end) break;
+            }
+          } finally { await reader.cancel().catch(()=>{}); reader.releaseLock(); writer.releaseLock(); }
+        }
       }
       partStart += part.bytes;
       if (partStart > end) break;
     }
-  }
-  const iterator = chunks();
-  const body = new ReadableStream({
-    async pull(controller) {
-      try { const {value,done}=await iterator.next(); if(done)controller.close(); else controller.enqueue(value); }
-      catch(error) {controller.error(error);}
-    },
-    async cancel() {await iterator.return();},
-  });
+    await writable.close();
+  })();
+  pipeline.catch(error=>writable.abort(error).catch(()=>{}));
   return new Response(body,{status,headers});
 }
 

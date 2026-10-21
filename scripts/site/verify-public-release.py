@@ -71,7 +71,7 @@ for artifact in json.loads(stable_manifest.read_text())['artifacts']:
 def verify_artifact(artifact):
     url = origin + 'downloads/' + artifact['file']
     body = fetch(url, max_seconds=180)
-    assert len(body) == artifact['bytes'], url
+    assert len(body) == artifact['bytes'], f"{url}: received {len(body)} bytes, expected {artifact['bytes']}"
     assert sha(body) == artifact['sha256'], url
     result = {'url': url, 'bytes': len(body), 'sha256': sha(body)}
     if artifact['file'] == manifest['artifacts'][0]['file']:
