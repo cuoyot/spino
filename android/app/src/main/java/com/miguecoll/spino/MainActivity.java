@@ -29,6 +29,7 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(MidiPlugin.class);
         registerPlugin(NotebookPlugin.class);
         registerPlugin(MediaSharePlugin.class);
+        registerPlugin(MediaTrimPlugin.class);
         registerPlugin(ScorePrinterPlugin.class);
         registerPlugin(CloudBackupPlugin.class);
         registerPlugin(DriveMediaPlugin.class);

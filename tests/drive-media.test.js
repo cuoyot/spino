@@ -27,7 +27,7 @@ test('lost final response is recovered using the preallocated immutable file ID'
 test('account and notebook namespaces prevent discovery and state reuse across boundaries',async()=>{
   const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take);
   const foreignAccount=device(server,{accountId:'another-user',state:a.state});assert.deepEqual(await foreignAccount.client.list(),[]);await assert.rejects(foreignAccount.client.download(uploaded.id),/404/);
-  const foreignBook=device(server,{notebookId:'another-book',state:a.state});assert.deepEqual(await foreignBook.client.list(),[]);await assert.rejects(foreignBook.client.download(uploaded.id),/notebook identity/);
+  const foreignBook=device(server,{notebookId:'another-book',state:a.state});assert.deepEqual(await foreignBook.client.list(),[]);await assert.rejects(foreignBook.client.download(uploaded.id),/different notebook/);
 });
 test('changing bytes for an existing take cannot overwrite its original recording',async()=>{
   const server=syntheticDrive(),a=device(server);await a.client.upload(take);
@@ -40,7 +40,7 @@ test('corrupt downloaded bytes are rejected before playback',async()=>{
 });
 test('server metadata cannot redirect a recording into another notebook',async()=>{
   const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take);server.files.get(uploaded.id).appProperties.notebookId='wrong-book';
-  await assert.rejects(a.client.download(uploaded.id),/notebook identity/);
+  await assert.rejects(a.client.download(uploaded.id),/different notebook/);
 });
 test('untrusted upload URLs cannot send native authorization to another host',()=>{
   for(const value of ['http://www.googleapis.com/drive/v3/files','https://evil.example/drive/v3/files','https://www.googleapis.com.evil.example/drive/v3/files','https://user@www.googleapis.com/drive/v3/files','https://www.googleapis.com/oauth2/v1/userinfo'])assert.throws(()=>driveURL(value));
@@ -59,4 +59,35 @@ test('optional Drive checksum metadata does not block copying and actual recordi
  const b=device(server);assert.equal((await b.client.list()).length,1);const result=await b.client.download(uploaded.id);assert.deepEqual(new Uint8Array(await result.blob.arrayBuffer()),new Uint8Array(await take.blob.arrayBuffer()));
  assert.equal((await a.client.upload(take)).id,uploaded.id);server.files.get(uploaded.id).blob=new Blob([new Uint8Array(take.blob.size).fill(17)],{type:'audio/webm'});
  await assert.rejects(b.client.download(uploaded.id),/checksum differs/);await assert.rejects(a.client.upload(take),/checksum differs/);
+});
+
+test('quoted codec parameters copy as supported containers without changing original recording bytes',async()=>{
+ for(const type of ['audio/webm; codecs="opus"','video/webm; codecs="vp8, opus"','video/mp4;codecs="avc1.42E01E,mp4a.40.2"']){
+  const server=syntheticDrive(),requests=[],a=device(server,{request:async options=>{requests.push(options);return server.request(options);}});
+  const original=new Blob(['synthetic recording bytes'],{type}),uploaded=await a.client.upload({...take,blob:original});
+  const start=requests.find(r=>r.method==='POST');assert.equal(start.json.mimeType,type.split(';')[0]);assert.equal(start.headers['X-Upload-Content-Type'],start.json.mimeType);
+  // Reproduce a server returning valid quoted parameters, including type casing.
+  server.files.get(uploaded.id).mimeType=type.replace(/^video/,'Video');
+  const b=device(server),listed=await b.client.list(),download=await b.client.download(uploaded.id);
+  assert.equal(listed[0].mimeType,type.split(';')[0]);assert.equal(await download.blob.text(),await original.text());
+  assert.equal(original.type,type.toLowerCase());assert.equal((await a.client.upload({...take,blob:original})).id,uploaded.id);assert.equal(server.files.size,1);
+ }
+});
+
+test('invalid metadata identifies the failed check and can be isolated without accepting the file',async()=>{
+ const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take),original=structuredClone(server.files.get(uploaded.id));
+ for(const [change,reason] of [
+  [f=>{f.mimeType='text/html';},/format is not supported/],
+  [f=>{f.appProperties.workId='';},/piece association/],
+  [f=>{f.appProperties.takeId='';},/recording identity/],
+  [f=>{f.appProperties.sha256='bad';},/no valid checksum/],
+  [f=>{f.sha256Checksum='a'.repeat(64);},/checksum does not match/],
+  [f=>{f.size='0';},/empty or exceeds/]
+ ]){
+  const file=structuredClone(original);change(file);server.files.set(uploaded.id,file);
+  await assert.rejects(a.client.list(),reason);
+  const rejected=[];assert.deepEqual(await a.client.list({onInvalid:(file,error)=>rejected.push({file,error})}),[]);
+  assert.equal(rejected[0].file.id,uploaded.id);assert.match(rejected[0].error.message,reason);
+  await assert.rejects(a.client.download(uploaded.id),reason);assert.equal(server.files.size,1);
+ }
 });

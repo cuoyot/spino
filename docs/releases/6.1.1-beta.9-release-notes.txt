@@ -1,0 +1,9 @@
+<es-ES>
+Recorta el inicio y el final de tus grabaciones de audio y vídeo, previsualiza el fragmento y guárdalo sustituyendo la toma local. Se conservan el título y la obra asociada. La sincronización identifica las grabaciones problemáticas y permite reintentar mientras copia las demás.
+</es-ES>
+<en-US>
+Trim the beginning and end of audio and video recordings, preview the selection and save it in place of the local take. Titles and piece associations are preserved. Recording sync identifies problematic files and lets you retry while other copies continue.
+</en-US>
+<ca>
+Retalla l’inici i el final de les gravacions d’àudio i vídeo, previsualitza el fragment i desa’l substituint la presa local. Es conserven el títol i l’obra associada. La sincronització identifica les gravacions problemàtiques i permet tornar-ho a provar mentre copia les altres.
+</ca>

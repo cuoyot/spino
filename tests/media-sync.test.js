@@ -63,3 +63,61 @@ test('allowed mobile networks upload and download exact audio/video bytes, while
  for(const original of a.store.rows.values())assert.equal(await mediaHash(b.store.rows.get(original.id).blob),await mediaHash(original.blob));
  const offline=device(t,syntheticDrive(),[recording()],{wifiOnly:false,network:async()=>({online:false,wifi:false,metered:true})});await offline.engine.sync();assert.equal(offline.engine.state.status,'offline');assert.equal(offline.store.rows.size,1);
 });
+
+test('a rejected Drive file does not block other uploads/downloads or cause duplicate uploads on retry',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording('bad'),recording('remote-good')]);await a.engine.sync();
+ const bad=[...server.files.values()].find(f=>f.appProperties.takeId==='bad'),badType=bad.mimeType;bad.mimeType='application/octet-stream';
+ const b=device(t,server,[recording('bad'),recording('local-good')]);await b.engine.sync();
+ assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,2);assert.equal(b.engine.state.issues.length,1);
+ assert.equal(b.engine.state.issues[0].takeId,'bad');assert.equal(b.engine.state.issues[0].title,recording().title);assert.match(b.engine.state.issues[0].message,/format is not supported/);
+ assert.equal(b.store.rows.size,3);assert.equal(b.store.rows.get('bad').cloud,undefined);assert.equal(server.files.size,3);
+ await b.engine.sync();assert.equal(server.files.size,3);assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,0);
+ bad.mimeType=badType;await b.engine.sync();assert.equal(b.engine.state.status,'saved');assert.deepEqual(b.engine.state.issues,[]);assert.equal(b.store.rows.get('bad').cloud.fileId,bad.id);assert.equal(server.files.size,3);
+});
+
+test('a damaged remote take ID cannot duplicate or rebind an existing cloud-linked recording',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording()]);await a.engine.sync();
+ const before=structuredClone(a.store.rows.get('take-1')),file=[...server.files.values()][0];file.appProperties.takeId='';
+ a.store.rows.set('new-take',recording('new-take'));await a.engine.sync();
+ assert.equal(a.engine.state.status,'error');assert.equal(a.engine.state.completed,1);assert.equal(server.files.size,2);
+ assert.deepEqual(a.store.rows.get('take-1'),before);assert.match(a.engine.state.issues[0].message,/recording identity/);
+});
+
+test('bad download bytes stay quarantined while independent recordings are verified and saved',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording('bad'),recording('good')]);await a.engine.sync();
+ const bad=[...server.files.values()].find(f=>f.appProperties.takeId==='bad');
+ const b=device(t,server,[],{request:async options=>{const r=await server.request(options);if(r.body&&new URL(options.url).pathname.endsWith('/'+bad.id))r.body[0]^=1;return r;}});
+ await b.engine.sync();assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,1);assert.equal(b.store.rows.size,1);assert.ok(b.store.rows.has('good'));assert.equal(b.engine.state.issues[0].takeId,'bad');
+ assert.equal(await mediaHash(b.store.rows.get('good').blob),await mediaHash(recording('good').blob));
+});
+
+test('conflicting copies of one take are all excluded while unrelated uploads continue',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording()]);await a.engine.sync();
+ const original=[...server.files.values()][0],conflict=structuredClone(original);conflict.id='conflicting-file';conflict.appProperties.workId='different-work';server.files.set(conflict.id,conflict);
+ const b=device(t,server,[recording(),recording('independent')]);await b.engine.sync();
+ assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,1);assert.match(b.engine.state.issues[0].message,/identity conflict/);assert.equal(b.store.rows.get('take-1').cloud,undefined);assert.equal(server.files.size,3);
+});
+
+test('authorization failure stops the queue, retains all local bytes, and identifies the attempted recording',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording('first'),recording('second')],{request:async options=>options.url.includes('generateIds')?{status:401}:server.request(options)});
+ await a.engine.sync();assert.equal(a.engine.state.status,'error');assert.equal(a.engine.state.issues[0].takeId,'first');assert.equal(a.engine.state.completed,0);assert.equal(server.files.size,0);assert.equal(a.store.rows.size,2);assert.equal(a.store.rows.get('second').cloud,undefined);
+});
+
+test('invalid metadata after a completed upload preserves its immutable ID and does not block the next take',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording('first'),recording('second')],{request:async options=>{
+  const r=await server.request(options);
+  for(const file of server.files.values())if(file.appProperties.takeId==='first')file.mimeType='application/octet-stream';
+  if(r.json?.appProperties?.takeId==='first')r.json.mimeType='application/octet-stream';
+  return r;
+ }});
+ await a.engine.sync();assert.equal(a.engine.state.status,'error');assert.equal(a.engine.state.completed,1);assert.equal(a.engine.state.issues[0].takeId,'first');assert.equal(server.files.size,2);assert.equal(a.store.rows.get('first').cloud.pending,true);
+ const originalIDs=[...server.files.keys()];await a.engine.sync();assert.deepEqual([...server.files.keys()],originalIDs);assert.equal(a.store.rows.size,2);assert.equal(a.engine.state.status,'error');
+});
+
+test('trim revision uploads new bytes while preserving the local record ID and excluding its old backup',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording()]);await a.engine.sync();
+ const old=a.store.rows.get('take-1');a.store.ignoredKeys.add('synthetic-owner.synthetic-book.take-1');
+ a.store.rows.set(old.id,{...old,mediaTakeId:'trim-revision',cloud:undefined,durationMs:1000,blob:new Blob(['trimmed audio'],{type:'audio/webm'})});
+ await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);
+ assert.equal(a.store.rows.size,1);assert.equal(a.store.rows.get(old.id).title,old.title);assert.equal(a.store.rows.get(old.id).cloud.sha256,await mediaHash(a.store.rows.get(old.id).blob));assert.equal(server.files.size,2);
+});

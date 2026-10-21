@@ -1,5 +1,22 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Saving replaces this recording with the selected segment.|En desar, aquesta gravació se substitueix pel fragment seleccionat.
+Save trim|Desa el retall
+Could not save the trim. The original recording is kept.|No s’ha pogut desar el retall. Es conserva la gravació original.
+
+Trim|Retalla
+End|Final
+Use current position|Utilitza la posició actual
+Save a new copy. The original recording is kept.|Desa una còpia nova. Es conserva la gravació original.
+Preview selection|Previsualitza la selecció
+Save trimmed copy|Desa una còpia retallada
+Selected duration|Durada seleccionada
+Could not preview the recording.|No s’ha pogut previsualitzar la gravació.
+Trimming recording…|Retallant la gravació…
+ (trimmed)| (retallada)
+Trim cancelled.|Retall cancel·lat.
+Could not save the trimmed copy. The original recording is kept.|No s’ha pogut desar la còpia retallada. Es conserva la gravació original.
+
 identified work|obra identificada
 score|partitura
 Period|Període
@@ -69,6 +86,16 @@ Descending|Descens
 Let released fingers gather and prepare the next position while the playing finger stays on its key. Gradually reopen the spaces between fingers 1–2 and 5–4. Let the wrist follow, moving slightly toward the back of the keys when the thumb needs room.|Deixa que els dits lliures es recullin i preparin la posició següent mentre el dit que toca es manté a la seva tecla. Torna a obrir a poc a poc els espais entre els dits 1–2 i 5–4. Deixa que el canell acompanyi i avanci una mica cap al fons del teclat quan el polze necessiti espai.
 After an octave, follow the descending pattern back to C.|Després d’una octava, segueix el patró descendent per tornar al Do.
 Invalid recording metadata or notebook identity.|No s’han pogut validar les dades d’una gravació de Drive o el seu quadern. Es conserven els fitxers locals.
+The Drive recording is unavailable. Local files are kept.|La gravació de Drive no està disponible. Es conserven els fitxers locals.
+The Drive recording belongs to a different notebook. Local files are kept.|La gravació de Drive pertany a un altre quadern. Es conserven els fitxers locals.
+The Drive recording has no valid recording identity. Local files are kept.|La gravació de Drive no té un identificador vàlid. Es conserven els fitxers locals.
+The Drive recording has an invalid piece association. Local files are kept.|L’associació amb l’obra de la gravació de Drive no és vàlida. Es conserven els fitxers locals.
+The Drive recording has no valid checksum. Local files are kept.|Falta una empremta d’integritat vàlida a la gravació de Drive. Es conserven els fitxers locals.
+The Drive recording format is not supported. Local files are kept.|El format de la gravació de Drive no és compatible. Es conserven els fitxers locals.
+The Drive recording is empty or exceeds 250 MB. Local files are kept.|La gravació de Drive és buida o supera els 250 MB. Es conserven els fitxers locals.
+The Drive recording checksum does not match. Local files are kept.|La gravació de Drive no coincideix amb la seva empremta d’integritat. Es conserven els fitxers locals.
+Some recording copies need attention. Local files are kept.|Algunes còpies de gravacions necessiten atenció. Es conserven els fitxers locals.
+Recording identity conflict. Local recordings were kept.|Hi ha còpies diferents amb el mateix identificador de gravació. Es conserven les gravacions locals.
 
 Google Drive did not respond in time. Pending changes are kept. Retry synchronization.|Google Drive no ha respost a temps. Es conserven els canvis pendents. Torna a provar la sincronització.
 Synchronization paused. Pending changes are kept.|Sincronització en pausa. Es conserven els canvis pendents.

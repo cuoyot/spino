@@ -169,3 +169,10 @@
 
 #app-shell .cp-media [data-action="media-date"] { padding:4px; min-width:32px; min-height:32px; border:0; background:transparent; color:inherit; }
 #app-shell .cp-media [data-action="media-date"][aria-pressed="true"] { background:var(--theme-text); color:var(--theme-panel); border-radius:50%; }
+
+#cp-media-capture .cp-media-trim label { display:grid; grid-template-columns:1fr auto; gap:4px 12px; }
+#cp-media-capture .cp-media-trim input { grid-column:1/-1; padding:0; accent-color:var(--theme-accent,#2563eb); }
+#cp-media-capture .cp-media-trim label button { grid-column:1/-1; justify-self:start; }
+#cp-media-capture .cp-media-trim output { font-variant-numeric:tabular-nums; }
+#cp-media-capture .cp-media-trim progress { width:100%; }
+#cp-media-capture .cp-media-trim .cp-actions { display:flex; flex-wrap:wrap; gap:8px; }

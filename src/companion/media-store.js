@@ -19,6 +19,19 @@ export async function openMediaStore(name = 'spino-local-media') {
       const tx = db.transaction('recordings', 'readwrite'), committed = done(tx);
       const records=tx.objectStore('recordings'),existing=records.get(record.id);existing.onsuccess=()=>{try{records.put({...record,...(existing.result?{blob:existing.result.blob,cloud:existing.result.cloud||record.cloud}:{}),installation});}catch{tx.abort();}};await committed;onChange();
     },
+    async replaceTrim(record, expectedTakeId) {
+      if (!record.mediaTakeId || record.mediaTakeId === expectedTakeId || !(record.blob instanceof Blob) || !record.blob.size || !record.blob.type.startsWith(record.kind+'/')) throw Error('Invalid trimmed recording.');
+      // Commit the replacement and exclusion together; quota/conflict failures keep the old bytes.
+      const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(record.id);
+      q.onsuccess=()=>{try{
+        const old=q.result;
+        if(!old || old.installation!==installation || (old.mediaTakeId||old.id)!==expectedTakeId || old.workId!==record.workId){tx.abort();return;}
+        const cloud=old.cloud;
+        if(cloud)tx.objectStore('meta').put(true,'removed.'+cloud.accountId+'.'+cloud.notebookId+'.'+expectedTakeId);
+        records.put({...old,...record,title:old.title,cloud:undefined,installation});
+      }catch{tx.abort();}};
+      await committed;onChange();
+    },
     async get(id) {
       const record = await result(db.transaction('recordings').objectStore('recordings').get(id));
       return record?.installation === installation && record.blob instanceof Blob && record.blob.size ? record : null;
@@ -37,9 +50,9 @@ export async function openMediaStore(name = 'spino-local-media') {
       });
       return rows.sort((a,b) => b.createdAt.localeCompare(a.createdAt));
     },
-    async attachCloud(id, cloud) {
+    async attachCloud(id, cloud, expectedTakeId) {
       const tx=db.transaction('recordings','readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
-      q.onsuccess=()=>{try{if(q.result)records.put({...q.result,cloud});}catch{tx.abort();}};await committed;
+      q.onsuccess=()=>{try{if(q.result&&(!expectedTakeId||(q.result.mediaTakeId||id)===expectedTakeId))records.put({...q.result,cloud});}catch{tx.abort();}};await committed;
     },
     async ignored(scope, id) {return !!await result(db.transaction('meta').objectStore('meta').get('removed.'+scope+'.'+id));},
     async importRemote(record, scope) {
@@ -48,7 +61,7 @@ export async function openMediaStore(name = 'spino-local-media') {
     },
     async remove(id) {
       const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
-      q.onsuccess=()=>{try{const cloud=q.result?.cloud;if(cloud)tx.objectStore('meta').put(true,'removed.'+cloud.accountId+'.'+cloud.notebookId+'.'+id);records.delete(id);}catch{tx.abort();}};await committed;onChange();
+      q.onsuccess=()=>{try{const cloud=q.result?.cloud;if(cloud)tx.objectStore('meta').put(true,'removed.'+cloud.accountId+'.'+cloud.notebookId+'.'+(q.result.mediaTakeId||id));records.delete(id);}catch{tx.abort();}};await committed;onChange();
     },
     async clear() { const tx = db.transaction(['recordings','meta'],'readwrite'), committed = done(tx); tx.objectStore('recordings').clear();tx.objectStore('meta').clear();tx.objectStore('meta').put(installation,'installation'); await committed; },
     close: () => db.close(),

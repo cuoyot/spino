@@ -89,3 +89,6 @@
 #cp-dialog .cp-cloud-preserved p { margin:8px 0; }
 #cp-dialog .cp-cloud-preserved ul { padding-left:18px; margin:8px 0 0; }
 #cp-dialog .cp-cloud-conflict-actions button { min-height:64px; }
+.cp-media-sync-issues{padding-inline-start:1.25rem;overflow-wrap:anywhere}
+.cp-media-sync-issues li+li{margin-top:1rem}
+.cp-media-sync-issues p{margin-top:.25rem}

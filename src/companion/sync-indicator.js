@@ -11,7 +11,7 @@ export function syncIndicatorMarkup(state = {}, media = {}, lang = getAppLanguag
   const t = copy[lang] || copy.en;
   const problem = ['error', 'conflict'].includes(state.status) || !!state.error;
   const mediaProblem = media.status === 'error' || media.status === 'offline' || !!media.error;
-  const status = problem ? (state.status === 'conflict' ? 'conflict' : 'error') : mediaProblem ? 'media' : !state.enabled ? 'paused' : state.status === 'writing' || media.status === 'copying' ? 'writing' : ['pending', 'waiting'].includes(state.status) ? state.status : 'saved';
+  const status = problem ? (state.status === 'conflict' ? 'conflict' : 'error') : mediaProblem ? 'media' : !state.enabled ? 'paused' : state.status === 'writing' || ['checking', 'copying'].includes(media.status) ? 'writing' : ['pending', 'waiting'].includes(state.status) ? state.status : 'saved';
   const attention = problem || mediaProblem;
   const label = `${t[status]}. ${t.open}`;
   return `<button type="button" class="cp-sync-status quiet" data-action="sync-settings" data-sync-status="${status}" data-attention="${attention}" aria-label="${label}" title="${label}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8a7 7 0 0 0-12-3L4 8m0-5v5h5M5 16a7 7 0 0 0 12 3l3-3m0 5v-5h-5"/></svg><span class="sr-only" role="status">${t[status]}</span></button>`;

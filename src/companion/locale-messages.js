@@ -1,5 +1,15 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ["The Drive recording is unavailable. Local files are kept.","La grabación de Drive no está disponible. Se conservan los archivos locales."],
+  ["The Drive recording belongs to a different notebook. Local files are kept.","La grabación de Drive pertenece a otro cuaderno. Se conservan los archivos locales."],
+  ["The Drive recording has no valid recording identity. Local files are kept.","La grabación de Drive no tiene un identificador válido. Se conservan los archivos locales."],
+  ["The Drive recording has an invalid piece association. Local files are kept.","La asociación con la obra de la grabación de Drive no es válida. Se conservan los archivos locales."],
+  ["The Drive recording has no valid checksum. Local files are kept.","Falta una huella de integridad válida en la grabación de Drive. Se conservan los archivos locales."],
+  ["The Drive recording format is not supported. Local files are kept.","El formato de la grabación de Drive no es compatible. Se conservan los archivos locales."],
+  ["The Drive recording is empty or exceeds 250 MB. Local files are kept.","La grabación de Drive está vacía o supera los 250 MB. Se conservan los archivos locales."],
+  ["The Drive recording checksum does not match. Local files are kept.","La grabación de Drive no coincide con su huella de integridad. Se conservan los archivos locales."],
+  ["Some recording copies need attention. Local files are kept.","Algunas copias de grabaciones necesitan atención. Se conservan los archivos locales."],
+  ["Recording identity conflict. Local recordings were kept.","Hay copias distintas con el mismo identificador de grabación. Se conservan las grabaciones locales."],
   ['Invalid recording metadata or notebook identity.', 'No se han podido validar los datos de una grabación de Drive o su cuaderno. Los archivos locales se conservan.'],
   ['Google Drive did not respond in time. Pending changes are kept. Retry synchronization.', 'Google Drive no ha respondido a tiempo. Los cambios pendientes se conservan. Reintenta la sincronización.'],
   ['Synchronization paused. Pending changes are kept.', 'Sincronización en pausa. Los cambios pendientes se conservan.'],

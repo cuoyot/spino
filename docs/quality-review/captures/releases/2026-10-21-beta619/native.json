@@ -1,0 +1,1204 @@
+{
+  "date": "2026-10-21T15:56:36.256Z",
+  "kind": "native-android-emulator",
+  "googleAuthorizationTested": false,
+  "realDriveTransferTested": false,
+  "version": "6.1.1-beta.9",
+  "build": 85,
+  "apkSha256": "332c3f61a77069447c69f941cea1dab19b3a6ef7c3e3b616852add0607f2ce66",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "location": "/licenses/webm-duration-mit.txt",
+  "foreground": "    topResumedActivity=ActivityRecord{3570688 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t147}",
+  "indexedDBBefore": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/f": "fccce17c29b52d039b1b5facb07a877c3088590f626f52ce79c8a58b340f8da9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/11/00/11": "7bf06384245d4886a710818bf7d434d48fdad97037332fdbe165a0b97a9bd3c8",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/13/00/10": "4104a04a742d4a61028ac9c946c365bc5aa0702df9b2cf28de7e05410d5b63ce",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/15/00/11": "0de0b557ab797bfb0257c18f6d1706c8aa11232f5f1d950b3526820a89cbf3b2",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/17/00/11": "9e205675c66c4ebb50fe5aec43b535e0b75e53d93b8a4aea7de40ea0a3812f96",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/19/00/11": "0346d11a1d65239bce7ed59c9ffc7c0f7ed0b01ba3deb372120507f4040fe397",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/11": "ad5073197f69b2ad92067a1a010ae86aaa73de055b1320cb3e049d6d6d1c9e75",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/12": "89c3e371f8ff1a1f4d42f37e8313cac5b157678113d4699163e655939947a72a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/8": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/9": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/a": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/b": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/c": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/d": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1d/00/f": "837e9410a920456d552298bf0198f1b793f38f4c9357c9fe076090f2e2e812a5",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1f/00/f": "1a69a0faedb6fad9e66cfafc5adaa52968086dc39e2fffebca3702735b843639",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/21/00/f": "d82a7d228bcb9763bf9fd225edda9dc4b771a76984cb8710a688998538c69150",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/23/00/f": "78be55bd2e1333cbb54c1318c9bead0458fc7d8e957705543c5a7ce5c0b4392f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/25/00/f": "e9d27441e6881549d5fd74e1cd3a7d4f153e605e659354ff0ec67404466411d9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/27/00/f": "18eb014b6fe536983ed66c875ad614c7b5de9e6e19e72c9b05803412eb21854b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/29/00/f": "17922638f8ee3cc7abc7f7ef8839d96de802b990dbcf776cb18a4d23545b9fb7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2b/00/f": "eaf5c6fa7f23f5f7a4ba8d50c2b1a544a3b228ae7b6c424e09feded561e58653",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2d/00/f": "aa3ce57fd529f623f591fe332db255b503da9e3ba72fbe5bc9a56b4eacc3fc16",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2f/00/f": "e4a1ef672363df9827f20ef78f1bd152cfcd5029cff2dd95abe5ccccdf73cf84",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "5396799a5ef85ee3e6202ec91d52419303fcd3db141ba36bee8d1ffe4fa4bb5c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/31/00/f": "f64b1d49dec349333f148e469dbddef92b77c00bd008821bdc79f719cc9bd0ee",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/33/00/f": "2c4cf2263d3a2d16e37e06336675c70b0e4d7be96650700078d40f8df923d465",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/35/00/1d": "f6b7907c04d3ea592a12e2d54290d62e33b0fb2c77c578c1f91301c7ddbbd4f2",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/37/00/f": "ced741a1ee90a91ece2d098ff976e00dabd6ed367c8af390a94705c57404fbe9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/39/00/f": "715d4cde0083a9fbd0a0c7fe6d882d0357f7163a26ead117ebb8c119947f5229",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3b/00/13": "ddf204049e134fdd4eea047d13fdb70699d8b27070df0f814015c15773863ff9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3d/00/f": "cec39f4fec5444b0e83b222e93eb8df6d6e435ca749506f011c27377cb97531b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3f/00/37": "32f940359ec74260ccadfb80c07c089cd1f9bba97b5e53cf09e97195f34d307a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/41/00/21": "369b8309df1bc4d7299f9e02715dff0a9c97cee720d01f42b40331fdbde0bb1d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/43/00/23": "64fb22c970e4b3b444514dc271f9b615ba4f119c466726c2828c6577eb072619",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/45/00/33": "002b2bbb7e3a9ab2c904b63a9bf3081ceabfac6c97d09eaa2b3c38897d4d623b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/47/00/49": "39728351fd3f6882ad0b9043f7ca8d573540570851e70c2cbdc340eae57d53a5",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/49/00/f": "b31f4a1b01cd38d7f24d58ff16e4e955749efdb579db7a761f428df34ee71df1",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4b/00/f": "cc62ff5cb2b74bb09067eef7fa1bca5d06802be4d934ecdfcb81ac312060b777",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4d/00/f": "9f30672c72e8763a1f8bfd3b3d169ab60d965d6c96501f4c7a3a80f079e243ba",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "7891a39855942776aff68eb2c326b08d0361e67e804c35713cbbbf1158759e06",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "6dbb746d2d5c9c66e297aeb76fc311024e3d3ae924ca3e44da436ae000f44933",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/11": "1181c39e04799abc6bd50cdc0eccfbe207e8c5babb115a63c1bdeac68d39c03a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "1e40022191b0192ccc2a7f3b6973b8bbb558d37e38a53e53be759803fc7ec7f8",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "97b90fb711a7cf070a675b9dcd1ea724baf4545593fce342c77ad99b91fd1e7d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/f/00/11": "7ee6dcfabde0bb3fdcbece2ea8fa708d9eb7d964d3e469d29b05a58c35cd1d47",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000004.log": "8d73e6b0f69c52d0d759eca3f19a8a092e48ea43f216ed944625bea2a0bee035",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000005.ldb": "b0581ce72b6b40218b6fcc101fe626a9e46083be19682c22893385f0aec5f6ad",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "21790330959f58ccdf4a097951d7ca1c9f940dfeb93d67b8dfaf8f65e0fd570d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "9a07cb2909aa3b0c042dadaa4a6df1d85c2ed3e5a261a81fbca5ac28012df7f2",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "73f3a2588a0c5e5cb2d1650566407671e8d52bb49cb5058f0476fcea520be655"
+  },
+  "indexedDBAfter": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/f": "fccce17c29b52d039b1b5facb07a877c3088590f626f52ce79c8a58b340f8da9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/11/00/11": "7bf06384245d4886a710818bf7d434d48fdad97037332fdbe165a0b97a9bd3c8",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/13/00/10": "4104a04a742d4a61028ac9c946c365bc5aa0702df9b2cf28de7e05410d5b63ce",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/15/00/11": "0de0b557ab797bfb0257c18f6d1706c8aa11232f5f1d950b3526820a89cbf3b2",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/17/00/11": "9e205675c66c4ebb50fe5aec43b535e0b75e53d93b8a4aea7de40ea0a3812f96",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/19/00/11": "0346d11a1d65239bce7ed59c9ffc7c0f7ed0b01ba3deb372120507f4040fe397",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/11": "ad5073197f69b2ad92067a1a010ae86aaa73de055b1320cb3e049d6d6d1c9e75",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/12": "89c3e371f8ff1a1f4d42f37e8313cac5b157678113d4699163e655939947a72a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/8": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/9": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/a": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/b": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/c": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/d": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1d/00/f": "837e9410a920456d552298bf0198f1b793f38f4c9357c9fe076090f2e2e812a5",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1f/00/f": "1a69a0faedb6fad9e66cfafc5adaa52968086dc39e2fffebca3702735b843639",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/21/00/f": "d82a7d228bcb9763bf9fd225edda9dc4b771a76984cb8710a688998538c69150",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/23/00/f": "78be55bd2e1333cbb54c1318c9bead0458fc7d8e957705543c5a7ce5c0b4392f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/25/00/f": "e9d27441e6881549d5fd74e1cd3a7d4f153e605e659354ff0ec67404466411d9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/27/00/f": "18eb014b6fe536983ed66c875ad614c7b5de9e6e19e72c9b05803412eb21854b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/29/00/f": "17922638f8ee3cc7abc7f7ef8839d96de802b990dbcf776cb18a4d23545b9fb7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2b/00/f": "eaf5c6fa7f23f5f7a4ba8d50c2b1a544a3b228ae7b6c424e09feded561e58653",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2d/00/f": "aa3ce57fd529f623f591fe332db255b503da9e3ba72fbe5bc9a56b4eacc3fc16",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2f/00/f": "e4a1ef672363df9827f20ef78f1bd152cfcd5029cff2dd95abe5ccccdf73cf84",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "5396799a5ef85ee3e6202ec91d52419303fcd3db141ba36bee8d1ffe4fa4bb5c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/31/00/f": "f64b1d49dec349333f148e469dbddef92b77c00bd008821bdc79f719cc9bd0ee",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/33/00/f": "2c4cf2263d3a2d16e37e06336675c70b0e4d7be96650700078d40f8df923d465",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/35/00/1d": "f6b7907c04d3ea592a12e2d54290d62e33b0fb2c77c578c1f91301c7ddbbd4f2",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/37/00/f": "ced741a1ee90a91ece2d098ff976e00dabd6ed367c8af390a94705c57404fbe9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/39/00/f": "715d4cde0083a9fbd0a0c7fe6d882d0357f7163a26ead117ebb8c119947f5229",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3b/00/13": "ddf204049e134fdd4eea047d13fdb70699d8b27070df0f814015c15773863ff9",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3d/00/f": "cec39f4fec5444b0e83b222e93eb8df6d6e435ca749506f011c27377cb97531b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3f/00/37": "32f940359ec74260ccadfb80c07c089cd1f9bba97b5e53cf09e97195f34d307a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/41/00/21": "369b8309df1bc4d7299f9e02715dff0a9c97cee720d01f42b40331fdbde0bb1d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/43/00/23": "64fb22c970e4b3b444514dc271f9b615ba4f119c466726c2828c6577eb072619",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/45/00/33": "002b2bbb7e3a9ab2c904b63a9bf3081ceabfac6c97d09eaa2b3c38897d4d623b",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/47/00/49": "39728351fd3f6882ad0b9043f7ca8d573540570851e70c2cbdc340eae57d53a5",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/49/00/f": "b31f4a1b01cd38d7f24d58ff16e4e955749efdb579db7a761f428df34ee71df1",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4b/00/f": "cc62ff5cb2b74bb09067eef7fa1bca5d06802be4d934ecdfcb81ac312060b777",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4d/00/f": "9f30672c72e8763a1f8bfd3b3d169ab60d965d6c96501f4c7a3a80f079e243ba",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4f/00/f": "838d11d6ac0e21ccced55ad199dddfab2a1ea615b45bf533f248582df4c7d628",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "7891a39855942776aff68eb2c326b08d0361e67e804c35713cbbbf1158759e06",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "6dbb746d2d5c9c66e297aeb76fc311024e3d3ae924ca3e44da436ae000f44933",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/11": "1181c39e04799abc6bd50cdc0eccfbe207e8c5babb115a63c1bdeac68d39c03a",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "1e40022191b0192ccc2a7f3b6973b8bbb558d37e38a53e53be759803fc7ec7f8",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "97b90fb711a7cf070a675b9dcd1ea724baf4545593fce342c77ad99b91fd1e7d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/f/00/11": "7ee6dcfabde0bb3fdcbece2ea8fa708d9eb7d964d3e469d29b05a58c35cd1d47",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000004.log": "935ff2233ad38a20fe0af12efe875ab2d4afed0e3ab2fc2518225902b5da4ed0",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000005.ldb": "b0581ce72b6b40218b6fcc101fe626a9e46083be19682c22893385f0aec5f6ad",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "585c3dd2e3c4a06ba3ed63617b4e83717518c49e6d24398c6633f5363f0cd56c",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "21790330959f58ccdf4a097951d7ca1c9f940dfeb93d67b8dfaf8f65e0fd570d",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "73f3a2588a0c5e5cb2d1650566407671e8d52bb49cb5058f0476fcea520be655"
+  },
+  "retainedFiles": 133,
+  "originalStoresBefore": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "841f8d78b4a15b272edc905d3901a1e60eacfd799a3a4dd821e154739b5044c5"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c613318782a84241717c339a5450c21877ee11581628d5640e44eadd3913368f"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a1bf25ee46cf2d32ffcadb39f83b6f5665a106ba1bb25b15faff91684142e58e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "86431bea5448c90581e82b11a6f8aee3ad2dcaa54dbc8b31e77c18a800192144"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "238b92fc8cfab145130598e03df1eb0460e82fcbb880daf4faaf6d1c6cdffa68"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-0c73c785-e884-462b-84c7-a37c9f545942-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "0968aba66681dc30a76541d58ad58818283b6b7b1c1697125719e099f10eab4d"
+      }
+    },
+    "spino-beta614-hanon-review-0c73c785-e884-462b-84c7-a37c9f545942-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "afd80b42dfba58f246afe7c2707d53422e5cdc5081c873f35d8195a1ff968033"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "898ed762ea43cdd260b6be77fad03b088ce5e392fd3c1665778fb177252f8ecc"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f568bef2e0042c6bff371967c9e00004e4602a6f289806b8b6bda5422e0813d7"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-cb149249-e4d4-4acb-91a3-85baf7432348-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "efedce9f246549476677191fbc7d42c115a492fc22c97a2b144ba93dab0e8dd6"
+      }
+    },
+    "spino-beta614-hanon-review-cb149249-e4d4-4acb-91a3-85baf7432348-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "d549bec153efefc9196c96bf6c54bf88cae286f4883dec8fda8c9497ee681a3e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "91229e45983a08da653b13777227d3e12c46727e1fb5c06281e6313e2e139335"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "dfa04e711aad5b20cf3ca25cfa0c2b48a907152ff2fdcf741f4c4e25fa0db057"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a44f3c13d9d822e680e694dbb0dd842d66cd6c87c669db360c1118a053e798e2"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a917f229d0e2622ded179f38f2446fe78fdbeff0e53808fa336870997b6a9eac"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta615-video-review-3210ad2a-813d-44a0-b1e1-10bd69b9da61-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "8b4d8919adcd3c771d1598ce514fb436a79ee7f500e2053ee54f94f0b4da773d"
+      }
+    },
+    "spino-beta615-video-review-3210ad2a-813d-44a0-b1e1-10bd69b9da61-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "97ed2a9fca44b4802205c31afbde43297fb3001abe7d39d7f8dc19590308b62c"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta615-video-review-ee9e4a06-54ab-4cbe-9baa-064d60f4a2f1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "438bf10914c3b157542614cd7b810d34468358fe39642d52bc13328c4b22b1a0"
+      }
+    },
+    "spino-beta615-video-review-ee9e4a06-54ab-4cbe-9baa-064d60f4a2f1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "7fd27cd526508a4e1fa1e681190110f31b0cba53b36dd72790c832da955b866f"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "26983669611d0239b8392f1e9cb98fe46870130e3ab96ed563cf670bcfe625e5"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b56d7123bf01ed63c2e0cfe1b0ef9fd20adb0b949b0b8168c5d3d084a8846940"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dc8fc08726b6e0472d5ba883faeb09e3b7653baa71e4f3ef07febddd0b9c7bf0"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "02e1d73f5eb7f1f97d40631a5ee6489efd626174635ecba1d6a42f4d47d36078"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "de533f42eeb22080f636791a9d73dcbcc29d9a3a5e66a824beab85f5ebd4efa8"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d2957d9a4c74d949c1beefb70417538766690915a935280fdf60f85cccc16f6d"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "67374818748967581bd9f9991100d15bafd2b6ac93b5a1e3506293fad1964d64"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "8fd9328ecebf1f75a75a93da578bb99d15e0ffb11aff56ea188b93dc4388c971"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "56da93d2f610778ae083c134ebeee0267a88ec3c662c0aa8a81b1dd354285d15"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e5e8cee2e5be1c8292fd471ddfb29b828261575dc4dda62ce7ebd75f8af43b7d"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "1fc942c60790ce866f9a97fb09175e4d214d62a0f6f686f39b324a886a29a113"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "94117069cf2d0bf915d436f9efbac22a441c93f72439bff8669fac0a4777e942"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "763004a5b51d015e3569e0850fccd701bfcb52899989f71660663435878df91c"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "24d0f0433712b477034807838f85b7419d8cdcf4a24d89b9decbd69ab25cebb0"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a9f85302915e7687dca4be43f71c125a47f7eb6412b1a4551c3800d0e921c499"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c07ea5e02cfa491b79952d494e701d2e75c1aa34922fcefed9235f458425107"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "578014311cc9e9796d1e4cc05e3760978472ef8cf3c7ff4edb5c5e6d490fc27a"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "059aea456a5c654fc748c9871ed531daa2ea637ceb92d94b2a6b044ffea37dbe"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "676f3bc9ba2f69cb0129ed6d12d8cd6d418789dff88fe897ccb86fd9e13c81bc"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "a174856670bd9c0c6cb2b222d804d8d2d4573fc2671118f9eb03cae3e80ed1b4"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dfb1aa825823fa65d98c5a9c615c6c96780d1f46386992e8df095fff66aa1337"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25da9ff7f109f55750fce8502e945baed82651ff775c378cbfef6861c123888b"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd02be6a452d564930f6cd4f1dfa5c839112f54b6566b1a3fa1657f7db48ecd1"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "99bd8b427544fcb7f2fc509ab80e77e1168c5f3d95ac49eac948f49daf358bf8"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "5447ce6c1a352ec1aa780e5ebd178aa2e522cb1fd4b3b9c7fd17e7aa2c3b2fe7"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "42a96e570a1ca51d7267bcc69787706bf64d5b3514744a6d41e2288a2c03715b"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d642ae6e67aab23295b371dd9967642b1adb963e1d77e03b61c1e98f543dd2d7"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e7ecdec925c3f6b710ec06f6b32434343c4a6bad3b34ec41247470da1f3ea0f6"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "de7195e7737c28f9ab01f26f4a42e0d8b5cee44ad94e54e13a2461246f923199"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d9d9d4c6574e718f497830c8a24726d236a799384fe68377650b9ab8c0f29398"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "407f7a06b42442f7596b2492572be5f2a00d5369a9fdab662b6437c73534310e"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd0a030046f7556329fb56e7c3668018e7dc5057806bf0124fc24f4d4e7c7df2"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c8a9d5fdde1123b0531463e3e4a8e8614e5677e4d66a352918d3619505ebc85b"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "969543969c0983ce2e4ae74653ae6080597e1fff001f398b3731229c6a1f11d1"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "9adc8758c235a7fc8775fb8de512357af91f32205591ca5b77336a045aa1637d"
+      }
+    }
+  },
+  "originalStoresAfter": {
+    "cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "841f8d78b4a15b272edc905d3901a1e60eacfd799a3a4dd821e154739b5044c5"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c613318782a84241717c339a5450c21877ee11581628d5640e44eadd3913368f"
+      }
+    },
+    "spino-beta613-review-568521f9-74e9-4988-aeb0-9131a2404e82-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a1bf25ee46cf2d32ffcadb39f83b6f5665a106ba1bb25b15faff91684142e58e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-cuaderno-piano": {
+      "assets": {
+        "count": 1,
+        "sha256": "5174275e82f88e6e33ccb4db525227f5693456d7b182594109ea87a6320b53c6"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "86431bea5448c90581e82b11a6f8aee3ad2dcaa54dbc8b31e77c18a800192144"
+      }
+    },
+    "spino-beta613-review-ed59cc76-7f95-46ba-9882-b5f46124b7c3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "238b92fc8cfab145130598e03df1eb0460e82fcbb880daf4faaf6d1c6cdffa68"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-0c73c785-e884-462b-84c7-a37c9f545942-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "0968aba66681dc30a76541d58ad58818283b6b7b1c1697125719e099f10eab4d"
+      }
+    },
+    "spino-beta614-hanon-review-0c73c785-e884-462b-84c7-a37c9f545942-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "afd80b42dfba58f246afe7c2707d53422e5cdc5081c873f35d8195a1ff968033"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "898ed762ea43cdd260b6be77fad03b088ce5e392fd3c1665778fb177252f8ecc"
+      }
+    },
+    "spino-beta614-hanon-review-6fe43283-cff4-4cff-a7ae-2c6b64c447b7-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "f568bef2e0042c6bff371967c9e00004e4602a6f289806b8b6bda5422e0813d7"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-cb149249-e4d4-4acb-91a3-85baf7432348-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "efedce9f246549476677191fbc7d42c115a492fc22c97a2b144ba93dab0e8dd6"
+      }
+    },
+    "spino-beta614-hanon-review-cb149249-e4d4-4acb-91a3-85baf7432348-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "d549bec153efefc9196c96bf6c54bf88cae286f4883dec8fda8c9497ee681a3e"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "91229e45983a08da653b13777227d3e12c46727e1fb5c06281e6313e2e139335"
+      }
+    },
+    "spino-beta614-hanon-review-ec335106-2217-4d52-890f-ee8d860dbe2b-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "dfa04e711aad5b20cf3ca25cfa0c2b48a907152ff2fdcf741f4c4e25fa0db057"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a44f3c13d9d822e680e694dbb0dd842d66cd6c87c669db360c1118a053e798e2"
+      }
+    },
+    "spino-beta614-hanon-review-fbf2141b-e5e7-489e-9b66-04f2a2d27cc5-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "a917f229d0e2622ded179f38f2446fe78fdbeff0e53808fa336870997b6a9eac"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta615-video-review-3210ad2a-813d-44a0-b1e1-10bd69b9da61-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "8b4d8919adcd3c771d1598ce514fb436a79ee7f500e2053ee54f94f0b4da773d"
+      }
+    },
+    "spino-beta615-video-review-3210ad2a-813d-44a0-b1e1-10bd69b9da61-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "97ed2a9fca44b4802205c31afbde43297fb3001abe7d39d7f8dc19590308b62c"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-beta615-video-review-ee9e4a06-54ab-4cbe-9baa-064d60f4a2f1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "438bf10914c3b157542614cd7b810d34468358fe39642d52bc13328c4b22b1a0"
+      }
+    },
+    "spino-beta615-video-review-ee9e4a06-54ab-4cbe-9baa-064d60f4a2f1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "7fd27cd526508a4e1fa1e681190110f31b0cba53b36dd72790c832da955b866f"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "26983669611d0239b8392f1e9cb98fe46870130e3ab96ed563cf670bcfe625e5"
+      }
+    },
+    "spino-event-time-review-8ee00780-65d6-41eb-802b-a1f855db06b6-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "b56d7123bf01ed63c2e0cfe1b0ef9fd20adb0b949b0b8168c5d3d084a8846940"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dc8fc08726b6e0472d5ba883faeb09e3b7653baa71e4f3ef07febddd0b9c7bf0"
+      }
+    },
+    "spino-event-time-review-b9ed0088-0398-4fda-b334-20bb69beb1be-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "02e1d73f5eb7f1f97d40631a5ee6489efd626174635ecba1d6a42f4d47d36078"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "de533f42eeb22080f636791a9d73dcbcc29d9a3a5e66a824beab85f5ebd4efa8"
+      },
+      "recordings": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d2957d9a4c74d949c1beefb70417538766690915a935280fdf60f85cccc16f6d"
+      }
+    },
+    "spino-share-review-0f66b14b-d289-47a9-b0bb-ad07f25b58fa-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "67374818748967581bd9f9991100d15bafd2b6ac93b5a1e3506293fad1964d64"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "8fd9328ecebf1f75a75a93da578bb99d15e0ffb11aff56ea188b93dc4388c971"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "56da93d2f610778ae083c134ebeee0267a88ec3c662c0aa8a81b1dd354285d15"
+      }
+    },
+    "spino-share-review-1338ecd9-b9fc-4407-a334-a6d539bf0bfd-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e5e8cee2e5be1c8292fd471ddfb29b828261575dc4dda62ce7ebd75f8af43b7d"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "1fc942c60790ce866f9a97fb09175e4d214d62a0f6f686f39b324a886a29a113"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "94117069cf2d0bf915d436f9efbac22a441c93f72439bff8669fac0a4777e942"
+      }
+    },
+    "spino-share-review-28c6b913-fc2a-4fb4-8a31-e13de3ad85fe-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "763004a5b51d015e3569e0850fccd701bfcb52899989f71660663435878df91c"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "24d0f0433712b477034807838f85b7419d8cdcf4a24d89b9decbd69ab25cebb0"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "a9f85302915e7687dca4be43f71c125a47f7eb6412b1a4551c3800d0e921c499"
+      }
+    },
+    "spino-share-review-34fe9fac-c054-42aa-975b-aedd80fab6c1-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "6c07ea5e02cfa491b79952d494e701d2e75c1aa34922fcefed9235f458425107"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "578014311cc9e9796d1e4cc05e3760978472ef8cf3c7ff4edb5c5e6d490fc27a"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "059aea456a5c654fc748c9871ed531daa2ea637ceb92d94b2a6b044ffea37dbe"
+      }
+    },
+    "spino-share-review-47b37adf-3076-4204-9cdf-ff2366b723f3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "676f3bc9ba2f69cb0129ed6d12d8cd6d418789dff88fe897ccb86fd9e13c81bc"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "a174856670bd9c0c6cb2b222d804d8d2d4573fc2671118f9eb03cae3e80ed1b4"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "dfb1aa825823fa65d98c5a9c615c6c96780d1f46386992e8df095fff66aa1337"
+      }
+    },
+    "spino-share-review-6c6c4eea-2468-4c7c-a3b8-1dfe10b96f31-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "25da9ff7f109f55750fce8502e945baed82651ff775c378cbfef6861c123888b"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd02be6a452d564930f6cd4f1dfa5c839112f54b6566b1a3fa1657f7db48ecd1"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "99bd8b427544fcb7f2fc509ab80e77e1168c5f3d95ac49eac948f49daf358bf8"
+      }
+    },
+    "spino-share-review-a8d91926-5261-4fb5-9e7c-06728a03db7d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "5447ce6c1a352ec1aa780e5ebd178aa2e522cb1fd4b3b9c7fd17e7aa2c3b2fe7"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "42a96e570a1ca51d7267bcc69787706bf64d5b3514744a6d41e2288a2c03715b"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d642ae6e67aab23295b371dd9967642b1adb963e1d77e03b61c1e98f543dd2d7"
+      }
+    },
+    "spino-share-review-be4dfa37-91f1-4443-929a-e46a87224d3d-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "e7ecdec925c3f6b710ec06f6b32434343c4a6bad3b34ec41247470da1f3ea0f6"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "de7195e7737c28f9ab01f26f4a42e0d8b5cee44ad94e54e13a2461246f923199"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "d9d9d4c6574e718f497830c8a24726d236a799384fe68377650b9ab8c0f29398"
+      }
+    },
+    "spino-share-review-c6c19906-848c-4234-8a8c-e0a3aa2518ee-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "407f7a06b42442f7596b2492572be5f2a00d5369a9fdab662b6437c73534310e"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "dd0a030046f7556329fb56e7c3668018e7dc5057806bf0124fc24f4d4e7c7df2"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-cuaderno-piano": {
+      "assets": {
+        "count": 0,
+        "sha256": "ac342238de5ded6cb750fea136c0b684712dc419829a277f7e4d2248f591fd50"
+      },
+      "state": {
+        "count": 2,
+        "sha256": "c8a9d5fdde1123b0531463e3e4a8e8614e5677e4d66a352918d3619505ebc85b"
+      }
+    },
+    "spino-share-review-e9905974-ffcd-4d4c-800a-d61f02ec8ed3-spino-local-media": {
+      "meta": {
+        "count": 1,
+        "sha256": "969543969c0983ce2e4ae74653ae6080597e1fff001f398b3731229c6a1f11d1"
+      },
+      "recordings": {
+        "count": 2,
+        "sha256": "9adc8758c235a7fc8775fb8de512357af91f32205591ca5b77336a045aa1637d"
+      }
+    }
+  },
+  "retainedBlobFiles": 126,
+  "physicalBlobChanges": [],
+  "privateBackup": "/Users/migue/Source/spino/output/native-review-backups/com.miguecoll.spino.beta-d07a9e79-f1aa-4e95-a1b6-94c47c1775da.tar",
+  "privateBackupSHA256": "adb5d28fcb753e0dbeb74919cccd7aa06c365c5e1d571ccfa24bf911ced4cd5b",
+  "originalLogicalStoreCount": 44,
+  "originalRetentionVerified": true,
+  "checks": {
+    "notebookChecks": {
+      "profileBackupNavigation": true,
+      "googleConnectMenu": true,
+      "localJSONExportImport": true,
+      "googleAuthorizationTested": false,
+      "nativePluginStatus": true,
+      "invalidEndpointRejected": "INVALID_REQUEST",
+      "unauthorizedRequestRejected": "PERMISSION_REQUIRED",
+      "incrementalGuards": {
+        "cursor": "PERMISSION_REQUIRED",
+        "changes": "PERMISSION_REQUIRED",
+        "multipart": "PERMISSION_REQUIRED",
+        "invalidContentType": "INVALID_REQUEST"
+      }
+    },
+    "originalStoresUnchanged": true,
+    "profileEntry": "Backup & syncNot connected",
+    "profileNavigation": true,
+    "disposableProfileStorage": true,
+    "boundedStagingSHA256": "aab6bd24addc5a1847e706ab7a1c75805b7a1ef07a7e900ded52448c78d1c8b9",
+    "invalidOffsetRejected": "STAGING",
+    "unauthorizedRequestRejected": "TRANSFER",
+    "nativeStateRoundTrip": true,
+    "mediaAccountBound": true,
+    "nativeCacheReadback": true,
+    "oldTestEntryRemoved": true,
+    "oldProviderActionsRemoved": true
+  },
+  "errors": []
+}

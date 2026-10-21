@@ -35,6 +35,21 @@ const evaluate=async expression=>{const r=await send('Runtime.evaluate',{express
 try{
   await send('Page.enable');await send('Runtime.enable');let ready=false;for(let i=0;i<100;i++){if(await evaluate(`location.pathname==='/licenses/webm-duration-mit.txt'&&!!document.body?.textContent`)){ready=true;break;}await new Promise(r=>setTimeout(r,100));}assert.ok(ready,'Static storage-check asset did not load');
   const location=await evaluate(`location.pathname`);assert.equal(location,'/licenses/webm-duration-mit.txt');
+  if(process.argv.includes('--trim')){
+    const checks=[];
+    for(const [kind,path] of [['audio','tests/fixtures/media/two-minute-stream.webm'],['video','public/warmups/hanon-video-v1/videos/hanon-1-right.mp4']]){
+      const source=await readFile(path),begin=await evaluate(`Capacitor.nativePromise('MediaTrim','begin',{size:${source.length},kind:${JSON.stringify(kind)}})`),token=begin.token;
+      try{
+        for(let offset=0;offset<source.length;offset+=262144)await evaluate(`Capacitor.nativePromise('MediaTrim','writeChunk',{token:${JSON.stringify(token)},offset:${offset},base64:${JSON.stringify(source.subarray(offset,offset+262144).toString('base64'))}})`);
+        const result=await evaluate(`Capacitor.nativePromise('MediaTrim','trim',{token:${JSON.stringify(token)},startMs:1000,endMs:2000})`);
+        const decoded=await evaluate(`(async()=>{const player=document.createElement('${kind}');player.preload='auto';player.src=Capacitor.convertFileSrc(${JSON.stringify(result.path)});await new Promise((resolve,reject)=>{player.onloadeddata=resolve;player.onerror=()=>reject(Error('Decode failed'));});const result={duration:player.duration,width:player.videoWidth||0,height:player.videoHeight||0};player.removeAttribute('src');player.load();return result;})()`);
+        assert.ok(Math.abs(decoded.duration-1)<.2,JSON.stringify(decoded));if(kind==='video')assert.ok(decoded.width>0&&decoded.height>0);
+        checks.push({kind,source:path,sourceSHA256:hash(source),...result,...decoded});
+      }finally{await evaluate(`Capacitor.nativePromise('MediaTrim','cancel',{token:${JSON.stringify(token)}})`);}
+    }
+    await writeFile(folder+'/trim-native.json',JSON.stringify(checks,null,2));
+  }
+
   // IndexedDB shares LevelDB logs across database names: compare logical original stores,
   // and immutable blob files, rather than expecting log bytes to survive synthetic writes.
   const notebookSnapshot=()=>evaluate(`(async()=>{

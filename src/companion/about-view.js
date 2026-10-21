@@ -1,3 +1,4 @@
+import release619 from '../../docs/releases/6.1.1-beta.9-release-notes.txt?raw';
 import { APP_VERSION } from './app-version.js';
 import { localize } from './locale.js';
 import release610 from '../../docs/releases/6.1.0.md?raw';
@@ -31,6 +32,7 @@ const listingNotes = language => listing.split(`<!-- field:${language}:notes -->
 export function aboutMarkup(lang = 'en') {
   const es = lang === 'es', word = (en, spanish) => localize(en, spanish, lang);
   const history = [
+    ['6.1.1-beta.9', release619.split('<'+({es:'es-ES',ca:'ca'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
     ['6.1.0', section(release610, '## Release notes')],
     ['6.1.0-beta.22', section(release610beta22, '## Release notes')],
     ['6.1.0-beta.21', section(release610beta21, '## Release notes')],
@@ -65,6 +67,7 @@ export function aboutMarkup(lang = 'en') {
     ['OpenSheetMusicDisplay', './repertoire/licenses/opensheetmusicdisplay.txt'],
     ['Tesseract.js / OCR', './licenses/ocr-notices.txt'],
     ['fix-webm-duration', './licenses/webm-duration-mit.txt'],
+    ['AndroidX Media3', './licenses/androidx-media.txt'],
     ['OpenScore', './repertoire/provenance/OpenScore-CC0-1.0.txt'],
     ['xmldom', './repertoire/licenses/@xmldom-xmldom.txt'],
     ['fflate', './repertoire/licenses/fflate.txt'],

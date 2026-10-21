@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "audio",
+    "source": "tests/fixtures/media/two-minute-stream.webm",
+    "sourceSHA256": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "path": "/data/user/0/com.miguecoll.spino.beta/cache/spino-trim/df9fc466-f4cb-4851-a190-0e3b9d43f960.mp4",
+    "bytes": 416131,
+    "mimeType": "audio/mp4",
+    "duration": 0.948,
+    "width": 0,
+    "height": 0
+  },
+  {
+    "kind": "video",
+    "source": "public/warmups/hanon-video-v1/videos/hanon-1-right.mp4",
+    "sourceSHA256": "bb607faa5474ad6b8aed3197041ec78747a63a17c385733ad6a39cfed2b4360d",
+    "path": "/data/user/0/com.miguecoll.spino.beta/cache/spino-trim/9f6db92d-cc01-4233-bd20-96ff910f1f7e.mp4",
+    "bytes": 492030,
+    "mimeType": "video/mp4",
+    "duration": 1,
+    "width": 720,
+    "height": 400
+  }
+]
