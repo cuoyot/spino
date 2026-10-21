@@ -1,0 +1,29 @@
+[
+  {
+    "language": "es",
+    "duration": 87,
+    "seekTime": 43.5,
+    "width": 1920,
+    "height": 804,
+    "error": null,
+    "decodedFrames": 104
+  },
+  {
+    "language": "en",
+    "duration": 87,
+    "seekTime": 43.5,
+    "width": 1920,
+    "height": 804,
+    "error": null,
+    "decodedFrames": 104
+  },
+  {
+    "language": "ca",
+    "duration": 87,
+    "seekTime": 43.5,
+    "width": 1920,
+    "height": 804,
+    "error": null,
+    "decodedFrames": 104
+  }
+]

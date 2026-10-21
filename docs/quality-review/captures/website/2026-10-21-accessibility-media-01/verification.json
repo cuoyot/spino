@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-21T14:29:02.555Z",
+  "baseCommit": "b84509115f1410d304af0259ba8689fe719dd5ef",
+  "scope": "Local responsive browser review; not a deployment or native-device acceptance.",
+  "fixture": "Existing synthetic website images; disposable Chromium profile; no personal notebook accessed.",
+  "changes": [
+    "White download button text on a darker blue, with hover and keyboard focus styling.",
+    "Video preload is none: keep the poster and start downloading on playback."
+  ],
+  "contrast": {
+    "before": 3.2170663480849524,
+    "normal": 5.168555560022562,
+    "hover": 6.701618401398807
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "url": "http://127.0.0.1:5187/",
+    "scores": {
+      "accessibility": 100,
+      "best-practices": 100
+    },
+    "contrastPass": true,
+    "consoleErrors": []
+  },
+  "tests": {
+    "unit": 8,
+    "browser": 4,
+    "video": "No initial MP4 request; start, decoded frames, seek and resume in all three languages.",
+    "layouts": [
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "captures": 24
+  },
+  "publicDiagnostic": {
+    "url": "https://spinoapp.com/media/hanon-warmups-2026-10-20.mp4",
+    "headStatus": 200,
+    "firstTwoBytesStatus": 206,
+    "bytes": 22190578,
+    "fullDownloadSha256": "639abea0dc4c1a3ca24e936a25681d4300fd654dfbbe55da5e3c2e4258f2539e",
+    "reportedConnectionFailureReproduced": false
+  },
+  "visualReview": {
+    "representativeImages": [
+      "es-downloads-390x844.png",
+      "en-hanon-1024x768.png"
+    ],
+    "idleVideo": "The screenshot suite captured a transient native spinner; subsequent in-app browser inspection confirmed a settled poster and no browser error logs."
+  },
+  "sourceSha256": {
+    "scripts/site/build-site.mjs": "114ea34981591a53bd1699da4c251d688ae82527d476d2b73bdefeddf917ee1a",
+    "tests/site-media.browser.test.js": "c284ce7f1209c47aceb73ef7b45024cea5f4074a8d506ed6289b9d777394b1bb",
+    "site/index.html": "0c718f29541af0eac892d0f1744986f0ce5fe05a2038c8703b382b4a4056fa84",
+    "site/en/index.html": "e41e008476d7bf9edf30c221991630264b44e6393290c19884c651debd1d93df",
+    "site/ca/index.html": "a4b11adb14d76990088d109feaf3ffff3693fc0d8a6bfa935c60e9ec944ca61c"
+  }
+}

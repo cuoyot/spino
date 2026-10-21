@@ -48,7 +48,7 @@ header.top{display:flex;align-items:center;justify-content:space-between;padding
 .hero{display:grid;grid-template-columns:1.1fr .9fr;column-gap:40px;row-gap:0;align-items:center;padding:40px 0 56px}
 .hero h1{grid-column:1;grid-row:1;font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 16px;letter-spacing:-.02em}
 .hero h1 span{color:var(--accent)}.hero p.lead{color:var(--muted);font-size:19px;margin:0 0 28px}
-.cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:650;border-radius:14px;padding:14px 22px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:#2563eb;color:#fff;text-decoration:none;font-weight:650;border-radius:14px;padding:14px 22px}.cta:hover{background:#1d4ed8}.cta:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 #downloads{display:grid;gap:16px}#downloads h3{margin-top:0}.download-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}.download-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px}
 #downloads h2{font-size:22px;margin:0}.download-note{color:var(--muted);margin:0}.faq{max-width:800px}.faq article{padding:20px 0;border-top:1px solid var(--line);scroll-margin-top:24px}.faq h3{font-size:20px;line-height:1.4;margin:0 0 10px}.faq p{margin:0;color:var(--muted)}
 .cta-note{display:block;color:var(--muted);font-size:14px;margin-top:10px}
@@ -97,7 +97,7 @@ ${downloads(t)}<p><a href="#catalogue">${t.lang==='es'?'Explorar el catálogo':t
 <img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=2026-10-19-stable61-site-04" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
 ${catalogueSection(t)}
-<section id="hanon" class="hanon-demo" aria-labelledby="hanon-title"><h2 id="hanon-title">${t.hanon.title}</h2><p>${t.hanon.description}</p><figure><video controls playsinline preload="metadata" width="1920" height="804" poster="${t.root}media/hanon-warmups-2026-10-20.jpg" aria-label="${t.hanon.label}" aria-describedby="hanon-caption"><source src="${t.root}media/hanon-warmups-2026-10-20.mp4" type="video/mp4"><a href="${t.root}media/hanon-warmups-2026-10-20.mp4">${t.hanon.fallback}</a></video><figcaption id="hanon-caption"><span>${t.hanon.caption}</span><a href="${t.root}media/hanon-warmups-2026-10-20-credits.txt">${t.hanon.credits}</a></figcaption></figure></section>
+<section id="hanon" class="hanon-demo" aria-labelledby="hanon-title"><h2 id="hanon-title">${t.hanon.title}</h2><p>${t.hanon.description}</p><figure><video controls playsinline preload="none" width="1920" height="804" poster="${t.root}media/hanon-warmups-2026-10-20.jpg" aria-label="${t.hanon.label}" aria-describedby="hanon-caption"><source src="${t.root}media/hanon-warmups-2026-10-20.mp4" type="video/mp4"><a href="${t.root}media/hanon-warmups-2026-10-20.mp4">${t.hanon.fallback}</a></video><figcaption id="hanon-caption"><span>${t.hanon.caption}</span><a href="${t.root}media/hanon-warmups-2026-10-20-credits.txt">${t.hanon.credits}</a></figcaption></figure></section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 <section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
 <img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=2026-10-19-stable61-site-04" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
