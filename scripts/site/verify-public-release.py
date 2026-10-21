@@ -14,6 +14,7 @@ import urllib.parse
 version, commit = sys.argv[1:3]
 retained_range_only = '--retained-large-range-only' in sys.argv[3:]
 provider_path = next((arg.split('=', 1)[1] for arg in sys.argv[3:] if arg.startswith('--provider-evidence=')), None)
+direct_path = next((arg.split('=', 1)[1] for arg in sys.argv[3:] if arg.startswith('--direct-deployment-evidence=')), None)
 root = pathlib.Path(__file__).resolve().parents[2]
 origin = 'https://spinoapp.com/'
 manifest_path = f'downloads/spino-{version}-checksums.json'
@@ -32,23 +33,31 @@ def fetch(url, max_seconds=30):
                 raise
             time.sleep(2)
 
-previous_status = None
-for attempt in range(40):
-    checks = json.loads(pathlib.Path(provider_path).read_text()) if provider_path else json.loads(fetch(f'https://api.github.com/repos/cuoyot/spino/commits/{commit}/check-runs'))
-    deployment = next((c for c in checks.get('check_runs', []) if c['name'] == 'Workers Builds: spino'), None)
-    if provider_path:
-        assert deployment and deployment.get('head_sha') == commit, 'Saved authenticated provider evidence must bind this exact full SHA'
-        assert deployment['status'] == 'completed' and deployment['conclusion'] == 'success', 'Saved provider evidence must prove a completed successful build'
-    status = (deployment.get('status'), deployment.get('conclusion')) if deployment else ('waiting', None)
-    if status != previous_status:
-        print('Cloudflare deployment:', status, flush=True)
-        previous_status = status
-    if deployment and deployment['status'] == 'completed':
-        assert deployment['conclusion'] == 'success', deployment.get('output')
-        break
-    time.sleep(10)
+if direct_path:
+    direct = json.loads(pathlib.Path(direct_path).read_text())
+    assert direct['commit'] == commit and direct['exitCode'] == 0
+    log = pathlib.Path(direct['log']).read_bytes()
+    assert sha(log) == direct['logSHA256']
+    assert ('Current Version ID: ' + direct['versionId']) in log.decode()
+    deployment = {'name': 'Wrangler direct deployment', 'status': 'completed', 'conclusion': 'success', 'details_url': direct['detailsURL']}
 else:
-    raise RuntimeError('Deployment did not complete within this verification run.')
+    previous_status = None
+    for attempt in range(40):
+        checks = json.loads(pathlib.Path(provider_path).read_text()) if provider_path else json.loads(fetch(f'https://api.github.com/repos/cuoyot/spino/commits/{commit}/check-runs'))
+        deployment = next((c for c in checks.get('check_runs', []) if c['name'] == 'Workers Builds: spino'), None)
+        if provider_path:
+            assert deployment and deployment.get('head_sha') == commit, 'Saved authenticated provider evidence must bind this exact full SHA'
+            assert deployment['status'] == 'completed' and deployment['conclusion'] == 'success', 'Saved provider evidence must prove a completed successful build'
+        status = (deployment.get('status'), deployment.get('conclusion')) if deployment else ('waiting', None)
+        if status != previous_status:
+            print('Cloudflare deployment:', status, flush=True)
+            previous_status = status
+        if deployment and deployment['status'] == 'completed':
+            assert deployment['conclusion'] == 'success', deployment.get('output')
+            break
+        time.sleep(10)
+    else:
+        raise RuntimeError('Deployment did not complete within this verification run.')
 
 pages, image_paths = [], set()
 for language, relative in [('es', ''), ('en', 'en/'), ('ca', 'ca/')]:
@@ -139,7 +148,9 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     downloads = list(executor.map(verify_artifact, artifacts.values()))
     images = list(executor.map(verify_image, sorted(image_paths)))
 
-result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': json.loads((root / f'docs/releases/{version}-validation.json').read_text())['nativeEvidence'], 'physicalDeviceAcceptance': False}
+result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Wrangler' if direct_path else 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': json.loads((root / f'docs/releases/{version}-validation.json').read_text())['nativeEvidence'], 'physicalDeviceAcceptance': False}
+if direct_path:
+    result['deployment']['directEvidence'] = {'file': direct_path, 'sha256': sha(pathlib.Path(direct_path).read_bytes()), 'versionId': direct['versionId']}
 if provider_path:
     result['deployment']['authenticatedConnectorEvidence'] = {'file': provider_path, 'sha256': sha(pathlib.Path(provider_path).read_bytes()), 'headSHA': deployment['head_sha']}
 (root / f'docs/releases/{version}-publication.json').write_text(json.dumps(result, indent=2) + '\n')

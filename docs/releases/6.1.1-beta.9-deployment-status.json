@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-21T16:03:11.236280+00:00",
+  "version": "6.1.1-beta.9",
+  "build": 85,
+  "commit": "4b9491ce5d3ec17535428fccf8d36b5c328051b0",
+  "gitPushConfirmed": true,
+  "automaticBuild": "No check run or deployment observed for the release commit",
+  "directDeploymentDirectory": "/private/tmp/spino-beta9-publication-20261021",
+  "directDeploymentDryRun": "passed; 261 static assets",
+  "directDeploymentAuthorization": "Owner authorized publication; OAuth completed for account:read, workers:write, workers_scripts:write and offline_access",
+  "publicReleaseVerified": true,
+  "cloudflareVersionId": "909b883a-dbc7-4e8c-905c-f85e48545ecb",
+  "publicationEvidence": "docs/releases/6.1.1-beta.9-publication.json"
+}

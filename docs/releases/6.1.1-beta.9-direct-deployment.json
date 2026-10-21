@@ -1,0 +1,9 @@
+{
+  "commit": "4b9491ce5d3ec17535428fccf8d36b5c328051b0",
+  "exitCode": 0,
+  "versionId": "909b883a-dbc7-4e8c-905c-f85e48545ecb",
+  "log": "docs/releases/6.1.1-beta.9-wrangler-deploy.log",
+  "logSHA256": "a171de79716d2b6d305f65b74acbe71df249398d025e97d156de9c28fda9fd2f",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+  "scope": "Committed static site and Worker exported with git archive; direct deploy after owner authorization"
+}
