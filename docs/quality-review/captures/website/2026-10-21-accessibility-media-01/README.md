@@ -16,3 +16,7 @@ The video retains its poster, native controls and original reviewed file, but us
 - `verification.json` records the base commit, changed source/build hashes, fixture, layout coverage and public diagnostic results. `git diff --check` passes.
 
 The corrected local website is available at `http://localhost:5187/#downloads`. Public deployment and a new production Lighthouse run remain pending. No APK or AAB was built.
+
+## Publication handoff
+
+The owner authorized publication on 21 October 2026. Commit `af41e1298eca55038d5fc4c9e475fc398838c75a` was pushed to `master` and verified through GitHub. Cloudflare did not register a corresponding build after several minutes; its build history still ended at the previous SEO commit, with builds enabled and available build minutes. This documentation follow-up retries the Git-triggered publication without changing the reviewed website or its hashes. Production verification remains pending.
