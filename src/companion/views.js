@@ -48,10 +48,8 @@ export function shiftCalendar(date, amount, mode) {
 }
 export function calendarMarkup(data, selected, mode) {
   const month = new Intl.DateTimeFormat(getAppLanguage(), { month: 'long', year: 'numeric' }).formatToParts(new Date(selected + 'T12:00:00')).filter(part => part.type === 'month' || part.type === 'year').map(part => part.value).join(' ');
-  const heading = `<div class="cp-row"><h1>${ui("Calendar", "Calendario")}</h1><div class="cp-segment cp-choice-group">${['week', 'month'].map(m => `<button type="button" data-action="calendar-mode" data-id="${m}" aria-pressed="${mode === m}">${m === 'month' ? ui("Month", "Mes") : ui("Week", "Semana")}</button>`).join('')}</div></div>`;
-  if (mode === 'week') return `${heading}
-    <div class="cp-calendar cp-calendar-heading cp-row"><button type="button" data-action="calendar-prev" aria-label="${ui("Previous week", "Semana anterior")}">‹</button><h2>${esc(month)}</h2><button type="button" data-action="calendar-next" aria-label="${ui("Next week", "Semana siguiente")}">›</button></div>
-    <div class="cp-row cp-agenda-toolbar">${button('today',ui("This week", "Esta semana"),'','quiet')}${button('weekly-planner',ui("Plan your week", "Organizar semana"),'','primary')}</div>`;
+  const heading = `<h1>${ui("Calendar", "Calendario")}</h1><div class="cp-row cp-agenda-toolbar"><div class="cp-segment cp-choice-group" role="group" aria-label="${ui('Calendar view','Vista del calendario')}">${['week', 'month'].map(m => `<button type="button" data-action="calendar-mode" data-id="${m}" aria-pressed="${mode === m}">${m === 'month' ? ui("Month", "Mes") : ui("Week", "Semana")}</button>`).join('')}</div>${button('weekly-planner',ui("Plan your week", "Organizar semana"),'','primary')}</div>`;
+  if (mode === 'week') return heading;
   return `${heading}
     <section class="cp-calendar"><div class="cp-row cp-calendar-heading"><button type="button" data-action="calendar-prev" aria-label="${mode === 'month' ? ui('Previous month', 'Mes anterior') : ui('Previous week', 'Semana anterior')}">‹</button><h2>${esc(month)}</h2><button type="button" data-action="calendar-next" aria-label="${mode === 'month' ? ui('Next month', 'Mes siguiente') : ui('Next week', 'Semana siguiente')}">›</button></div>
     <div class="cp-calendar-grid">${ui(['M','T','W','T','F','S','S'], ['L','M','X','J','V','S','D']).map(d => `<span class="cp-weekday" aria-hidden="true">${d}</span>`).join('')}
@@ -62,7 +60,7 @@ export function calendarMarkup(data, selected, mode) {
       const label = ui(`${date}, ${planned} planned, ${done} completed, ${events} events`, `${date}, ${planned} previstas, ${done} realizadas, ${events} eventos`);
       return `<button type="button" data-action="select-day" data-id="${date}" class="cp-day ${date.slice(0,7) !== selected.slice(0,7) ? 'outside' : ''}" aria-pressed="${date === selected}" ${date === localDate() ? 'aria-current="date"' : ''} aria-label="${label}"><b>${+date.slice(8)}</b><span class="cp-day-marks">${planned ? `<i class="planned"></i>` : ''}${done ? `<i class="done"></i>` : ''}${events ? `<i class="event"></i>` : ''}</span></button>`;
     }).join('')}</div><div class="cp-row cp-calendar-footer"><div class="cp-legend"><span><i class="planned"></i>${ui(" Planned", " Prevista")}</span><span><i class="done"></i>${ui(" Completed", " Realizada")}</span><span><i class="event"></i>${ui(" Event", " Evento")}</span></div>${button('today', ui("Today", "Hoy"), '', 'quiet')}</div></section>
-    <div class="cp-row cp-day-heading"><h2>${new Intl.DateTimeFormat(getAppLanguage(), { weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(selected + 'T12:00:00'))}</h2><div class="cp-actions">${button('plan-practice', ui("+ Practice", "+ Práctica"), '', 'primary')}${button('calendar-add', '+', '', 'cp-square')}</div></div><div class="cp-actions">${button('weekly-planner',ui("Plan your week", "Organizar semana"),'','quiet')}</div>`;
+    <div class="cp-row cp-day-heading"><h2>${new Intl.DateTimeFormat(getAppLanguage(), { weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(selected + 'T12:00:00'))}</h2><div class="cp-actions">${button('plan-practice', ui("+ Practice", "+ Práctica"), '', 'primary')}${button('calendar-add', '+', '', 'cp-square')}</div></div>`;
 }
 
 export function weeklyProgressMarkup(data) {

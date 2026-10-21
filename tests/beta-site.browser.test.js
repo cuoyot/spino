@@ -6,21 +6,22 @@ import {createHash} from 'node:crypto';
 import splitDownloads from '../scripts/site/download-parts.mjs';
 
 test('public site distinguishes stable and beta in every language',{timeout:45000},async t=>{
+ const version=JSON.parse(await readFile('package.json','utf8')).version;
+ const manifest=JSON.parse(await readFile(`docs/releases/${version}-artifacts.json`,'utf8')),apk=manifest.artifacts[0].file;
  const {send,evaluate,url,errors}=await openBrowser(t,{rootDirectory:'site'});
  for(const language of ['es','en','ca']){
   await send('Page.navigate',{url:url.replace(/\?.*$/,'')+(language==='es'?'':language+'/')});
   await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(document.querySelector('#downloads')){clearInterval(timer);resolve()}},20)})`);
   const links=await evaluate(`Array.from(document.querySelectorAll('#downloads a')).map(a=>({text:a.textContent,href:a.getAttribute('href')}))`);
   assert.ok(links.some(a=>a.href==='https://play.google.com/store/apps/details?id=com.miguecoll.spino'));
-  for(const file of ['spino-6.1.0-76-android.apk','spino-6.1.0-checksums.json','spino-6.1.1-beta.3-79-android.apk'])assert.ok(links.some(a=>a.href.endsWith(file)));
-  const stable=await evaluate(`document.querySelector('[data-channel=stable]').innerText`);assert.ok(stable.includes('6.1.0 (76)'));assert.ok(await evaluate(`document.querySelector('[data-channel=stable] a[download]').getAttribute('href').endsWith('spino-6.1.0-76-android.apk')`));assert.ok(await evaluate(`document.querySelector('[data-channel=beta] a[download]').getAttribute('href').endsWith('spino-6.1.1-beta.3-79-android.apk')`));
-  const text=await evaluate(`document.querySelector('#downloads').innerText`);assert.ok(text.includes('5.2.3 (35)'));assert.ok(text.includes('6.1.1-beta.3 (79)'));assert.match(text,/Hanon 1–10/);
+  for(const file of ['spino-6.1.0-76-android.apk','spino-6.1.0-checksums.json',apk])assert.ok(links.some(a=>a.href.endsWith(file)));
+  const stable=await evaluate(`document.querySelector('[data-channel=stable]').innerText`);assert.ok(stable.includes('6.1.0 (76)'));assert.ok(await evaluate(`document.querySelector('[data-channel=stable] a[download]').getAttribute('href').endsWith('spino-6.1.0-76-android.apk')`));assert.ok(await evaluate(`document.querySelector('[data-channel=beta] a[download]').getAttribute('href').endsWith(${JSON.stringify(apk)})`));
+  const text=await evaluate(`document.querySelector('#downloads').innerText`);assert.ok(text.includes('5.2.3 (35)'));assert.ok(text.includes(`${version} (${manifest.build})`));assert.match(text,/Hanon 1–10/);
   await send('Emulation.setDeviceMetricsOverride',{width:402,height:874,deviceScaleFactor:1,mobile:true});assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth+1`),false);
-  await mkdir('artifacts/releases/6.1.1-beta.3/site',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/releases/6.1.1-beta.3/site/${language}.png`,Buffer.from(shot.data,'base64'));
+  await mkdir(`artifacts/releases/${version}/site`,{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/releases/${version}/site/${language}.png`,Buffer.from(shot.data,'base64'));
  }
  const stableManifest=JSON.parse(await readFile('site/downloads/spino-6.1.0-checksums.json','utf8'));assert.equal(stableManifest.version,'6.1.0');assert.equal(stableManifest.build,76);
  for(const a of stableManifest.artifacts){const b=await readFile('site/downloads/'+a.file);assert.equal(b.byteLength,a.bytes);assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(a.applicationId,'com.miguecoll.spino');}
- const manifest=JSON.parse(await readFile('docs/releases/6.1.1-beta.3-artifacts.json','utf8'));
  for(const artifact of manifest.artifacts){
   const split=splitDownloads['/downloads/'+artifact.file];
   const bytes=split?Buffer.concat(await Promise.all(split.parts.map(part=>readFile('site'+part.path)))):await readFile('site/downloads/'+artifact.file);

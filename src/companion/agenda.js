@@ -1,3 +1,4 @@
+import { scoreIcon } from './score-controls.js';
 import { savedSessionCardMarkup } from './saved-session-card.js';
 import { progressMetrics } from './progress-metrics.js';
 import { formatProgressDuration } from './progress-duration.js';
@@ -53,15 +54,15 @@ export function calendarSessionsMarkup(entries, works = [], sessionOptions = {})
   const sessions = entries.filter(entry => entry.session);
   return sessions.length ? `<div class="cp-session-strip" tabindex="0" role="group" aria-label="${ui('Saved practices · scroll horizontally', 'Prácticas realizadas · desliza horizontalmente')}">${sessions.map(entry => agendaCard(entry, { works, sessionOptions })).join('')}</div>` : '';
 }
-export function weekAgendaMarkup(data, selected, sessionOptions = {}) {
-  const start = weekOf(selected), current = weekOf(localDate());
-  // Two adjacent weeks show continuity without an unbounded list or a large picker.
-  return `<div class="cp-week-agenda">${[start, addDays(start, 7)].map(week => {
+export function weekAgendaMarkup(data, selected, sessionOptions = {}, weekCount = 2, startDate = weekOf(selected)) {
+  const start = startDate, current = weekOf(localDate());
+  // Render only the requested weeks; scrolling progressively extends the agenda.
+  return `<div class="cp-week-agenda">${Array.from({ length: weekCount }, (_, i) => addDays(start, i * 7)).map((week, i) => {
     const dates = Array.from({ length: 7 }, (_, i) => addDays(week, i));
     const stats = summary(data.sessions.filter(s => s.date >= week && s.date <= dates[6]));
     const planned = data.plans.filter(p => p.date >= week && p.date <= dates[6]).reduce((total, p) => total + p.blocks.reduce((n,b) => n+b.minutes, 0), 0);
     return `<section class="cp-agenda-week ${week === current ? 'current-week' : ''}" data-week-start="${week}">
-      <div class="cp-agenda-week-title"><div class="cp-row"><h2>${weekLabel(week)}</h2>${week === current ? `<span class="cp-tag">${ui("This week", "Esta semana")}</span>` : ''}</div><p class="muted"><b>${stats.minutes} min</b> ${ui('practised', 'practicados')} · ${planned} ${ui('min planned', 'min previstos')}</p></div>
+      <div class="cp-agenda-week-title"><div class="cp-row">${i === 0 ? `<div class="cp-week-date-navigation"><button type="button" class="quiet" data-action="calendar-prev" aria-label="${ui("Previous week", "Semana anterior")}">‹</button><h2><button type="button" class="quiet" data-action="today" aria-label="${ui("This week", "Esta semana")}" title="${ui("This week", "Esta semana")}">${weekLabel(week)}</button></h2><button type="button" class="quiet" data-action="calendar-next" aria-label="${ui("Next week", "Semana siguiente")}">›</button></div>` : `<h2>${weekLabel(week)}</h2>${week === current ? `<span class="cp-tag">${ui("This week", "Esta semana")}</span>` : ""}`}</div><p class="muted"><b>${stats.minutes} min</b> ${ui('practised', 'practicados')} · ${planned} ${ui('min planned', 'min previstos')}</p></div>
       ${dates.map(date => { const entries=agendaEntries(data,date);return `<div class="cp-agenda-day ${date === selected ? 'selected-day' : ''}" data-agenda-date="${date}">
         <time datetime="${date}" ${date === localDate() ? 'aria-current="date"' : ''}><span>${dateLabel(date,{weekday:'short'})}</span><b>${+date.slice(8)}</b></time>
         <div class="cp-day-content">${entries.filter(e=>!e.session).map(e=>agendaCard(e,{movable:true})).join('')}${!entries.length ? `<span class="cp-unplanned">${ui("No practice planned", "Sin práctica prevista")}</span>` : ''}<div class="cp-day-sessions">${calendarSessionsMarkup(entries, data.works, sessionOptions)}<button type="button" data-action="add-on-day" data-id="${date}" class="cp-add-day quiet" aria-label="${ui('Add to', 'Añadir al')} ${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}">${ui("+ Add", "+ Añadir")}</button></div></div>
@@ -70,15 +71,19 @@ export function weekAgendaMarkup(data, selected, sessionOptions = {}) {
 }
 export function practiceMarkup(data, icon) {
   return `<section class="cp-practice-hub"><h1>${ui('Practice', 'Practicar')}</h1><p class="muted">${ui('What would you like to work on?', '¿Qué te apetece trabajar?')}</p>
-    ${data.active ? practiceFocus(data.active, 'active') : ''}
-    <button type="button" class="cp-quick-practice" data-action="quick-practice"><span><strong>${ui('Quick practice','Práctica rápida')}</strong><small>${ui('On screen · no tempo · one hand','En pantalla · sin tempo · una mano')}</small></span><span aria-hidden="true">▶</span></button>
-    <div class="cp-shortcuts">${['reading','technique','repertoire','free'].map(type=>button('prepare',`<span class="cp-icon">${icon(type)}</span>${ACTIVITIES[type]}`,type)).join('')}</div>
+    ${pendingSessionMarkup(data.active)}
+    <div class="cp-shortcuts"><button type="button" class="cp-quick-practice" data-action="quick-practice"><span><strong>${ui('Quick practice','Práctica rápida')}</strong><small>${ui('On screen · no tempo · one hand','En pantalla · sin tempo · una mano')}</small></span><span aria-hidden="true">▶</span></button>
+    ${['reading','technique','repertoire','free'].map(type=>button('prepare',`<span class="cp-icon">${icon(type)}</span>${ACTIVITIES[type]}`,type)).join('')}</div>
     <section class="cp-section"><div class="cp-row"><h2>${ui('Your routines', 'Tus rutinas')}</h2>${button('routines',ui('Manage routines', 'Gestionar rutinas'),'','quiet')}</div>${data.routines.length ? `<div class="cp-practice-routines">${data.routines.map(r=>button('quick-routine',`<span><strong>${esc(r.title)}</strong><small>${r.blocks.reduce((n,b)=>n+b.minutes,0)} min · ${r.blocks.map(b=>ACTIVITIES[b.type]).join(' · ')}</small></span><span aria-hidden="true">▶</span>`,r.id)).join('')}</div>` : `<p class="muted">${ui('Save a sequence of exercises to use it again.', 'Guarda una secuencia de ejercicios para repetirla.')}</p>${button('new-routine',ui('Create routine', 'Crear rutina'))}`}</section>
     ${quickRecordsMarkup(data.sessions)}
   </section>`;
 }
 
-function practiceFocus(session, state) {
+export function pendingSessionMarkup(active) {
+  return active ? practiceFocus(active, 'active') : '';
+}
+
+function practiceFocus(session, state, recording = false) {
   const active = state === 'active';
   const duration = session?.blocks.reduce((n,b)=>n+b.minutes,0);
   return `<article class="cp-today-focus${active ? ' cp-today-resume' : ''}" data-focus-state="${state}">
@@ -86,7 +91,7 @@ function practiceFocus(session, state) {
     <h2>${session ? esc(session.title) : ui('Make room for music', 'Haz sitio a la música')}</h2>
     <p class="muted">${session ? `${active ? `${minutes(session.elapsedMs)} ${ui('min elapsed', 'min transcurridos')}` : `${duration} min`} · ${CONTEXTS[session.context]}` : ui('Choose an activity or one of your routines.', 'Elige una actividad o una de tus rutinas.')}</p>
     ${session && !active ? `<p class="cp-focus-blocks">${session.blocks.map(b=>`${ACTIVITIES[b.type]} ${b.minutes}′`).join(' · ')}</p>` : ''}</div>
-    <div class="cp-focus-actions">${button(active?'resume-session':session?'start-plan':'practice',active?ui('Resume session','Continuar sesión'):session?ui('Start practice','Empezar práctica'):ui('Choose practice','Elegir práctica'),session && !active ? session.id : '','primary')}${session && !active ? button('plan-detail',ui('View plan','Ver plan'),session.id,'quiet') : ''}</div>
+    <div class="cp-focus-actions">${button(active?'resume-session':session?'start-plan':'practice',active?ui('Resume session','Continuar sesión'):session?ui('Start practice','Empezar práctica'):ui('Choose practice','Elegir práctica'),session && !active ? session.id : '','primary')}${session && !active ? button('plan-detail',ui('View plan','Ver plan'),session.id,'quiet') : ''}${recording ? button('record-media',scoreIcon('record')+'<span>'+ui('Record','Grabar')+'</span>','','quiet cp-record-entry') : ''}</div>
   </article>`;
 }
 
@@ -115,7 +120,7 @@ export function todayMarkup(data, icon, today = localDate(), sessionOptions = {}
   return `<div class="cp-today">
     <div class="cp-row cp-today-title"><div><h1>${ui("Today", "Hoy")}</h1><p class="muted">${data.preferences.name ? `${ui('Hello', 'Hola')}, ${esc(data.preferences.name)} · ` : ''}${dateLabel(today,{weekday:'long',day:'numeric',month:'long'})}</p></div></div>
     ${todayWeeklyProgress(data,today)}
-    ${practiceFocus(active || next,active?'active':next?'planned':'empty')}
+    ${practiceFocus(active || next,active?'active':next?'planned':'empty',true)}
     ${remaining.length ? `<section class="cp-section"><h2>${ui('Also today', 'También hoy')}</h2><div class="cp-today-sessions">${remaining.map(e=>agendaCard(e,{detailed:true,works:data.works,sessionOptions})).join('')}</div></section>` : ''}
     <div class="cp-section">
     <section class="cp-card"><div class="cp-row"><h2>${ui("Coming up", "Próximos compromisos")}</h2>${button('new-event',ui("+ Event", "+ Evento"),'','quiet')}</div>${events.length?events.map(e=>`<button type="button" data-action="event-detail" data-id="${esc(e.id)}" class="cp-upcoming-event"><span class="cp-countdown"><b>${daysUntil(e.date,today)}</b><small>${ui("days", "días")}</small></span><span><strong>${esc(e.title)}</strong><small>${esc(dateLabel(e.date))} · ${esc(eventTypeLabel(e.type))}</small></span></button>`).join(''):`<p class="muted">${ui("Add a lesson or audition to keep track of your preparation time.", "Añade una clase o audición y ten presente cuánto queda para prepararla.")}</p>`}</section></div>

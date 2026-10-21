@@ -179,3 +179,9 @@ if(compactHanon){
  compactHanon.notes.es='La app ocupa 44,6 MB y conserva los diez ejercicios nuevos completos de Hanon sin conexión a 720 × 400. Incluye ambas manos o cada mano por separado, velocidad lenta, saltos por nota y Cerrar visible arriba. Las fuentes editables de Blender quedan conservadas para futuras revisiones.';
  compactHanon.notes.ca='L’app ocupa 44,6 MB i conserva els deu exercicis nous complets de Hanon sense connexió a 720 × 400. Inclou totes dues mans o cada mà per separat, velocitat lenta, salts per nota i Tanca visible a dalt. Les fonts editables de Blender es conserven per a futures revisions.';
 }
+
+const beta616=releases.find(r=>r.version==='6.1.1-beta.6');
+if(beta616){
+ const tagged=await readFile(new URL('../../docs/releases/6.1.1-beta.6-release-notes.txt',import.meta.url),'utf8');
+ for(const [lang,locale] of [['en','en-US'],['es','es-ES'],['ca','ca']])beta616.notes[lang]=tagged.split('<'+locale+'>')[1].split('</'+locale+'>')[0].trim();
+}

@@ -1,6 +1,6 @@
 # Plan your practice
 
-Calendar offers Week and Month views. Use the arrows to browse dates and the current-week/day action to return to today. The month heading is compact, for example **October 2026**. Week/Month stays beside the Calendar title on one header row, including narrow phones.
+Calendar offers Week and Month views. Use the arrows to browse dates and the current-week/day action to return to today. Month view has a compact month heading, for example **October 2026**. Week view omits the month heading: each week shows its own date range. Scroll down to keep loading later weeks without changing pages. **Week/Month** and **Plan your week** share one toolbar inside the page, in the same position in both views. In Week, the arrows sit beside the first date range; tap that range to return to the current week. Month keeps its own month arrows and **Today** action. The app header contains the page title and connection indicators.
 
 Saved practices use the same cards as **Progress → Activity → History**, work history and Today: title, date, local score thumbnail or activity icon, activity badges, optional mood with its label, duration and instrument/manual context. Partial practice remains labeled. Select the card to open its results, comments, next step and editing actions. Durations use hours and minutes from one hour upward.
 
@@ -31,3 +31,5 @@ Release follow-up: D-064 is packaged in website Android beta21/build74. Final re
 In **New event** or **Edit event**, choose the hour and minute from the two **Time** lists, using the 24-hour clock. `00:00` is midnight. Choose `--` for the hour to leave the event without a time. A reminder requires a time. Saving and reopening keeps the chosen hour and minute.
 
 This correction is verified in responsive browsers and the Android emulator and included in a local beta22/build75 review APK. It is not yet in the published beta22 download; physical-device acceptance remains open.
+
+The unfinished-session card uses the same design on Today and Practice and is also available on other browsing pages. Calendar omits this card to keep the calendar content higher on screen; the Practice navigation indicator remains visible. It shows the session title, elapsed time, context and **Resume session**. A dot on the Practice navigation icon indicates an unfinished session; it disappears when the session is saved or discarded.

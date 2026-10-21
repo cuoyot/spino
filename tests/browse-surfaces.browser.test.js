@@ -51,8 +51,7 @@ test('Navigation palette covers both themes while preserving practice screens', 
     assert.equal(await evaluate(`document.querySelector('.cp-page').scrollWidth<=document.querySelector('.cp-page').clientWidth+1`),true,`${route}/${width}`);
     if(['calendar','calendar-month','progress'].includes(route))assert.equal(await evaluate(`Array.from(document.querySelectorAll('.cp-choice-group button')).every(e=>e.scrollWidth<=e.clientWidth+1)`),true,`${route}/${width}: clipped choice label`);
     if(route==='practice'){
-     const bounds=await evaluate(`(()=>{const title=document.querySelector('.cp-app-header h1').getBoundingClientRect(),action=document.querySelector('.cp-app-header [data-action=quick-practice]').getBoundingClientRect(),header=document.querySelector('.cp-app-header');return {gap:action.left-title.right,centerOffset:Math.abs((title.top+title.bottom)/2-(action.top+action.bottom)/2),overflow:header.scrollWidth>header.clientWidth+1}})()`);
-     assert.ok(bounds.gap>=4&&bounds.centerOffset<=1&&!bounds.overflow,`${theme}/${width}: ${JSON.stringify(bounds)}`);
+     assert.equal(await evaluate(`!!document.querySelector('.cp-shortcuts [data-action=quick-practice]')&&!document.querySelector('.cp-app-header [data-action=quick-practice]')`),true);
     }
     if(capture){const shot=await send('Page.captureScreenshot',{format:'png'}),bytes=Buffer.from(shot.data,'base64'),path=`${theme}-${route}-${width}x${height}.png`;await writeFile(`${capture}/${path}`,bytes);frames.push({path,theme,route,width,height,sha256:sha256(bytes)});}
    }

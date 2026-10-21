@@ -10,6 +10,8 @@ The first card changes to match your notebook:
 - **Start practice** opens the next planned session's overview. The card shows its context, duration and exercise blocks. **View plan** opens its details, where you can edit, reschedule or delete the appointment.
 - **Choose practice** opens Practice, where you can choose an activity or saved routine.
 
+In the current browser build, **Record** sits beside the practice action in this card, including when a practice is planned or unfinished. It opens the standalone recorder. Multimedia also keeps its Record action within the page.
+
 Only one session can be active at a time. Starting another practice while one is unfinished returns you to the existing session. Continue it, save it or discard it before starting another.
 
 ## Choose an activity or routine
@@ -19,6 +21,8 @@ Open **Practice** in the main navigation whenever you want to choose something t
 - **Sight-reading** and **Technique** support practice without a piano, with a piano, or with a MIDI piano.
 - **Repertoire** and **Free practice** require a piano. They start with **With piano** selected.
 - **Without piano** uses on-screen input. **With piano** provides manual tracking. **MIDI piano** uses your connected instrument where the exercise supports MIDI evaluation.
+
+**Quick practice** appears with the activity types inside Practice. It opens the untimed, single-hand on-screen exercise directly.
 
 New practices start with a suggested duration of 40 minutes. You can change the duration and exercise settings in preparation.
 
@@ -50,8 +54,12 @@ Open an occurrence to edit its date, details or preparation steps independently.
 
 **Library** contains repertoire, scores, the catalogue and routines. Tap your avatar to open **Profile**. The **Progress** navigation tab shows the practice-time chart and saved session history; **More details** opens activity/piece filters and date ranges. Set your optional weekly goal in **Profile → Edit profile**. Saved partial and manually logged sessions count toward practice time; unfinished sessions do not.
 
+When synchronization is configured, a small synchronization symbol sits beside MIDI: muted green-grey for a connected state and red for a notebook or recording-copy problem. It has no filled circle or exclamation badge. Tap it to open Backup & sync; conflicts open their review. The accessible label also distinguishes pause, pending changes and transfers.
+
 The small MIDI indicator shows connection state and flashes when input arrives. Tap it to open instrument settings. Connection and input activity are separate from whether the current exercise evaluates MIDI.
 
 The main destinations use a bottom bar on phones and a side rail on larger or short landscape layouts. Rotating the device rearranges the controls while retaining the same notebook.
 
 The first card, **Your week**, combines saved practice time, your optional weekly goal and the seven-day calendar. Colored daily bars show recorded minutes relative to the busiest day that week; select a day to open its calendar. Choose or resume practice immediately below the card.
+
+The unfinished-session card uses the same design on Today and Practice and is also available on other browsing pages. Calendar omits this card to keep the calendar content higher on screen; the Practice navigation indicator remains visible. It shows the session title, elapsed time, context and **Resume session**. A dot on the Practice navigation icon indicates an unfinished session; it disappears when the session is saved or discarded.

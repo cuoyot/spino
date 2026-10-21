@@ -613,12 +613,9 @@
 #app-shell .cp-app-header h1 {font-size:22px;line-height:1.2;letter-spacing:-.025em;margin:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
 .cp-header-middle {display:flex;align-items:center;gap:20px;min-width:0;}
 .cp-header-title {flex:1;min-width:0;}
-.cp-header-controls {display:flex;align-items:center;gap:8px;flex:none;}
-#app-shell .cp-app-header .cp-profile-nav {display:grid;place-items:center;background:transparent;border:0;padding:0;width:44px;height:44px;}
+#app-shell .cp-app-header .cp-profile-nav {border-radius:50%;overflow:visible;display:grid;place-items:center;background:transparent;border:0;padding:0;width:44px;height:44px;}
 .cp-app-header .cp-avatar {width:44px;height:44px;box-sizing:border-box;color:var(--ink);background:var(--theme-tint);border-color:var(--theme-border);}
 #app-shell .cp-app-header .cp-midi-status {background:var(--theme-panel);border:1px solid var(--line);}
-#app-shell .cp-app-header .cp-quick-practice {width:auto;margin:0;gap:6px;padding:8px 10px;min-height:40px;font-size:13px;white-space:nowrap;background:var(--theme-panel);}
-#app-shell .cp-app-header .cp-segment button {min-height:40px;padding:6px 10px;}
 #app-shell .cp-page-heading:empty {display:none;}
 @media(max-width:599px){#app-shell .cp-app-header h1 {font-size:20px;}#app-shell > .cp-app-header{gap:8px;padding-inline:12px;}}
 @media(min-width:600px) and (min-height:600px){#app-shell {grid-template-columns:180px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);}#app-shell > .cp-page {grid-column:2;grid-row:2;}#app-shell > .cp-nav {grid-column:1;grid-row:2;}}
@@ -675,3 +672,32 @@
 .cp-more-info > summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 4px; }
 .cp-more-info-content { color: var(--theme-muted, #adb9cb); overflow-wrap: anywhere; }
 .cp-more-info-content p { margin: 0 0 8px; }
+
+/* Keep connection controls together without squeezing the page title into a fixed column. */
+#app-shell > .cp-app-header { grid-template-columns:44px minmax(0,1fr) auto; }
+#app-shell .cp-header-status { display:flex; align-items:center; gap:0; }
+#app-shell [data-sync-indicator]:empty { display:none; }
+#app-shell .cp-sync-status { position:relative; display:grid; place-items:center; width:44px; height:44px; padding:12px; border:0; border-radius:50%; color:#617c78; background:transparent; }
+.cp-sync-status svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+#app-shell .cp-sync-status[data-attention=true] { color:#b5473e; background:transparent; }
+#app-shell .cp-sync-status[data-sync-status=paused] { color:var(--theme-muted); }
+.cp-sync-status[data-sync-status=writing] svg { animation:cp-sync-spin 1.5s linear infinite; }
+@keyframes cp-sync-spin { to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { .cp-sync-status[data-sync-status=writing] svg { animation:none; } }
+
+/* Page actions belong with the content they operate on. */
+#app-shell .cp-practice-hub .cp-shortcuts .cp-quick-practice { grid-column:1/-1; flex-direction:row; align-items:center; margin:0; }
+#app-shell .cp-record-entry { display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+.cp-media-page-actions { margin-bottom:16px; }
+#app-shell .cp-agenda-toolbar { display:flex; flex-wrap:nowrap; align-items:center; justify-content:space-between; gap:8px; margin-bottom:16px; }
+#app-shell .cp-agenda-toolbar .cp-choice-group { flex:none; margin:0; }
+#app-shell .cp-agenda-toolbar .cp-choice-group button { flex:0 0 auto; white-space:nowrap; }
+#app-shell .cp-agenda-toolbar button { min-height:44px; }
+#app-shell .cp-agenda-toolbar > [data-action=weekly-planner] { white-space:nowrap; }
+.cp-week-date-navigation { display:flex; align-items:center; gap:4px; min-width:0; }
+#app-shell .cp-week-date-navigation button { min-width:44px; min-height:44px; padding:8px; }
+#app-shell .cp-week-date-navigation h2 { margin:0; }
+#app-shell .cp-week-date-navigation h2 button { font:inherit; color:inherit; }
+@media(max-width:379px) { #app-shell .cp-agenda-toolbar button { padding-inline:9px; font-size:13px; } }
+:root[data-theme=dark] #app-shell .cp-sync-status { color:#8faeaa; }
+:root[data-theme=dark] #app-shell .cp-sync-status[data-attention=true] { color:#e78b81; }

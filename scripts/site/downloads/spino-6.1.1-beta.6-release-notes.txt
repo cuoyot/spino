@@ -1,0 +1,9 @@
+<es-ES>
+Indicador de sincronización más discreto junto a MIDI, con acceso directo a resolver errores. Grabar y Práctica rápida pasan al contenido de sus páginas. Semana/Mes y Organizar semana comparten una fila en ambas vistas del calendario. Se corrige el contorno del perfil y se conservan el cuaderno, las partituras, las grabaciones y el progreso.
+</es-ES>
+<en-US>
+A subtler synchronization indicator beside MIDI opens recovery directly. Record and Quick practice move into their pages. Week/Month and Plan your week share one Calendar toolbar in both views. The Profile outline is repaired. Notebook data, scores, recordings and progress are preserved.
+</en-US>
+<ca>
+Indicador de sincronització més discret al costat de MIDI, amb accés directe per resoldre errors. Grava i Pràctica ràpida passen al contingut de les seves pàgines. Setmana/Mes i Organitza la setmana comparteixen una fila en totes dues vistes del calendari. Es corregeix el contorn del perfil i es conserven el quadern, les partitures, les gravacions i el progrés.
+</ca>

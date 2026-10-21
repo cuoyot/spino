@@ -14,7 +14,7 @@
 .cp-nav .cp-avatar { width: 42px; height: 42px; font-size: 15px; background: linear-gradient(145deg,var(--theme-control, #3c4b61),var(--theme-control, #293444)); border-color: #788ba7; }
 .cp-nav .cp-avatar svg { width: 23px; height: 23px; }
 #app-shell .cp-nav .cp-profile-nav { padding: 6px; justify-content: center; background: transparent; }
-.cp-profile-nav[aria-current=page] .cp-avatar { outline: 2px solid #94baff; outline-offset: 3px; }
+.cp-profile-nav[aria-current=page] .cp-avatar { outline:none; border-color:var(--theme-link, #94baff); box-shadow:inset 0 0 0 1px var(--theme-link, #94baff); }
 .cp-profile { max-width: 680px; margin: 0 auto; }
 .cp-profile-wide { max-width: 840px; }
 .cp-profile svg { width: 24px; height: 24px; flex: none; }
@@ -117,3 +117,7 @@
 .cp-level-card { display: grid; gap: 8px; justify-items: start; }
 .cp-level-card p { margin: 0; color: var(--subtle, var(--theme-muted, #9aa0a6)); font-size: 14px; }
 .cp-level-card p b { color: var(--theme-text, #e8eaed); }
+
+/* Keep the unfinished-session indicator attached to the practice icon in every layout. */
+.cp-practice-nav-icon { position: relative; display: inline-flex; flex: none; }
+.cp-pending-session-dot { position: absolute; top: -3px; right: -5px; width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 2px var(--theme-panel, #1e2127); }

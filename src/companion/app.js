@@ -1,3 +1,4 @@
+import { syncIndicatorMarkup } from './sync-indicator.js';
 import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
@@ -66,7 +67,7 @@ import './dashboard.css';
 import './session-view.css';
 import './warmup-guide.css';
 import { openStore } from './store.js';
-import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
+import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, weekOf, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
 import { TARGETS, targetById } from './curriculum.js';
 import { warmupExercises, warmupChoices, warmupBlockValues, warmupPreferences, warmupSetLabel } from './warmups.js';
 import { warmupGuideMarkup, bindWarmupGuide } from './warmup-guide.js';
@@ -84,7 +85,7 @@ import { createDownloads, catalogChanges } from './downloads.js';
 import { downloadMarkup, updateDownloadProgress } from './download-view.js';
 import { networkStatus } from './platform.js';
 import { click, now as audioNow } from '../audio.js';
-import { todayMarkup, practiceMarkup, weekAgendaMarkup, agendaEntries, agendaCard, calendarSessionsMarkup } from './agenda.js';
+import { pendingSessionMarkup, todayMarkup, practiceMarkup, weekAgendaMarkup, agendaEntries, agendaCard, calendarSessionsMarkup } from './agenda.js';
 import { plannerMarkup, bindPlanner, cancelSeries } from './planner.js';
 import { bindCalendarDrag } from './calendar-drag.js';
 import { icon } from './icons.js';
@@ -130,6 +131,11 @@ export async function bootCompanion(reader) {
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
   let driveConnecting = false, mediaSync = null;
+  function refreshSyncIndicator() {
+    const slot = root.querySelector('[data-sync-indicator]');
+    const markup = syncIndicatorMarkup(cloud?.state, mediaSync?.state);
+    if (slot && slot.innerHTML !== markup) slot.innerHTML = markup;
+  }
   const cloudOptions = () => ({ driveOnly:true,media:mediaSync?.state,mediaWifiOnly:readMediaWifiOnly(data.preferences.wifiOnly), available: cloudAvailable(), driveAvailable: driveNotebookAvailable(), transport: cloudTransport.transport==='drive'?'drive':'provider', linked:!!cloud?.state.name, platform: cloudPlatform(), lang: getAppLanguage() });
   const instrument = createInstrumentController({ changed: () => {
     const panel = document.querySelector('#instrument-panel');
@@ -311,8 +317,10 @@ export async function bootCompanion(reader) {
   const sessionCards = (sessions, workId = null) => savedSessionsMarkup(sessions, data.works, { ...sessionOptions(), workId });
   function home() { return todayMarkup(data, icon, localDate(), sessionOptions()); }
   function practice() { return practiceMarkup(data, icon); }
+  let calendarWeekAnchor = null, calendarWeekCount = 2;
   function calendar() {
-    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate, sessionOptions()) : (() => {
+    if (calendarWeekAnchor !== selectedDate) { calendarWeekAnchor = selectedDate; calendarWeekCount = 2; }
+    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate, sessionOptions(), calendarWeekCount) : (() => {
       const entries = agendaEntries(data, selectedDate);
       return '<div class="cp-agenda">' + (entries.length ? entries.filter(e => !e.session).map(e => agendaCard(e,{movable:true})).join('') + calendarSessionsMarkup(entries, data.works, sessionOptions()) : empty(ui("No plans for this day. Add a practice or log one you have completed.", "Sin planes para este día. Añade una práctica o registra la que ya has realizado."))) + '</div>';
     })();
@@ -841,7 +849,7 @@ export async function bootCompanion(reader) {
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native)+libraryDownloadMarkup(library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
-    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div><div class="cp-header-controls"></div></div><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${data.active&&!['session','home','practice'].includes(view)?`${ui("<div class=\"cp-notice cp-row\"><span>Pending session: ", "<div class=\"cp-notice cp-row\"><span>Sesión pendiente: ")}${esc(data.active.title)}</span>${btn('resume-session',ui("Continue", "Continuar"))}</div>`:''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo)}`;
+    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
       root.querySelectorAll('.cp-nav [aria-current]').forEach(el=>el.removeAttribute('aria-current'));
@@ -852,13 +860,6 @@ export async function bootCompanion(reader) {
     const profile=root.querySelector('.cp-nav .cp-profile-nav');
     if(profile)root.querySelector('.cp-header-profile').append(profile);
     if(heading){heading.title=heading.textContent;root.querySelector('.cp-header-title').append(heading);}
-    const controls=view==='calendar'?root.querySelector('.cp-content .cp-segment'):view==='practice'?root.querySelector('.cp-content .cp-quick-practice'):null;
-    if(controls){
-      if(view==='practice'){controls.setAttribute('title',controls.querySelector('small')?.textContent||'');controls.innerHTML=`<span aria-hidden="true">▶</span><span>${ui('Quick practice','Práctica rápida')}</span>`;}
-      root.querySelector('.cp-header-controls').append(controls);
-    }
-    if(['home','multimedia'].includes(view))root.querySelector('.cp-header-controls').innerHTML=btn('record-media',scoreIcon('record')+'<span>'+ui('Record','Grabar')+'</span>','','primary cp-record-entry');
-    root.querySelector('.cp-header-controls').hidden=!root.querySelector('.cp-header-controls').childElementCount;
     (heading?.closest('.cp-row,.cp-dashboard-heading,.cp-profile-heading') || heading)?.classList.add('cp-page-heading');
     if(materialSelection && ['catalog','library-detail','downloads'].includes(view)) root.querySelector('.cp-content').insertAdjacentHTML('afterbegin',`${ui("<section class=\"cp-notice\"><b>Choose a score</b><p>Your practice is kept. Download a score and choose “Use in this practice”. The practice will use “With piano”.</p>", "<section class=\"cp-notice\"><b>Elige una partitura</b><p>Conservamos tu práctica. Descarga una partitura y pulsa «Usar en esta práctica». Se utilizará el modo «Con piano».</p>")}${btn('return-to-preparation',ui("Back to practice", "Volver a la práctica"),'','quiet')}</section>`);
     if(root.querySelector('.cp-history-card')) historyThumbnails=bindScoreThumbnails(root.querySelector('.cp-content'),store);
@@ -869,6 +870,20 @@ export async function bootCompanion(reader) {
     if(view==='planner')bindPlanner($('#weekly-plan-form'),()=>data,saveWeek);
     if(view==='calendar') {
       const content=root.querySelector('.cp-content');content.dataset.calendar='true';
+      if(calendarMode==='week') {
+        const page=root.querySelector('.cp-page');
+        page.addEventListener('scroll',()=>{
+          if(page.scrollHeight-page.scrollTop-page.clientHeight>500)return;
+          const agenda=content.querySelector('.cp-week-agenda');
+          const nextStart=addDays(weekOf(selectedDate),calendarWeekCount*7);
+          const fragment=document.createElement('template');
+          fragment.innerHTML=weekAgendaMarkup(data,selectedDate,sessionOptions(),2,nextStart);
+          agenda.append(...fragment.content.querySelector('.cp-week-agenda').children);
+          calendarWeekCount+=2;
+          historyThumbnails?.();
+          historyThumbnails=bindScoreThumbnails(content,store);
+        },{passive:true});
+      }
       bindCalendarDrag(content,async(id,date,offset)=>{
         const next=copy(data), plan=next.plans.find(p=>p.id===id);
         if(!plan || plan.status!=='planned' || data.active?.planId===id) throw Error(ui("Only pending practices can be moved. Finish the active practice first.", "Solo puedes mover prácticas pendientes. Termina primero la sesión activa."));
@@ -967,12 +982,12 @@ export async function bootCompanion(reader) {
       apply: async (text, syncBase) => { root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
         data = await store.restore(text, { syncBase }); await reminders(); } finally {root.inert=false;sessionWriting=false;} },
       adopted: () => {cloudAdopted=true;location.reload();},
-      changed: () => { const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
+      changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;render();} } });
     if(driveNotebookAvailable()&&mediaStore){
       mediaSync=createMediaSync({store:mediaStore,connection:connectDriveMedia,
         getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:readMediaWifiOnly(data.preferences.wifiOnly)}:null;},
         eligible:()=>cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
-        network:networkStatus,changed:()=>{const panel=document.querySelector('#cloud-media');if(panel)replaceHelpMarkup(panel,mediaSyncMarkup(mediaSync.state,cloudOptions()));},
+        network:networkStatus,changed:()=>{refreshSyncIndicator();const panel=document.querySelector('#cloud-media');if(panel)replaceHelpMarkup(panel,mediaSyncMarkup(mediaSync.state,cloudOptions()));},
         refreshed:async()=>{mediaRecords=await mediaStore.index();if(['multimedia','work','progress','event','session-detail'].includes(view))render();}});
       mediaStore.onChange(()=>mediaSync.markDirty());
     }
@@ -1346,6 +1361,7 @@ export async function bootCompanion(reader) {
     'use-midi':()=>switchSessionContext('midi'),
     'profile-back':()=>navigateBack(),
     'profile-practice':()=>go('profile-practice'),
+    'sync-settings':()=>{if(cloud?.state.status==='conflict')return actions['cloud-conflicts']();pauseSession();hideReader();go('profile-backup');},
     'profile-backup':()=>go('profile-backup'),
     'profile-reminders':()=>go('profile-reminders'),
     'profile-files':async()=>{fileSearch='';fileLimit=24;go('profile-files');await refreshProfileFiles();},

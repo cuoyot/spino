@@ -196,3 +196,13 @@ Owner requested the weekly widget use hours/minutes like Progress. The total and
 ## 2026-10-17 — Standalone recording (D-057)
 
 Owner requests Record from Home and Multimedia. Implemented as a contextual header button, opening only recording controls and current repertoire selection, with live camera or measured microphone level feedback. Existing practice/weekly/commitment hierarchy remains in place. Shared header parity and Home entry geometry pass in both themes, phone/tablet orientations and 320 px. [Current evidence](captures/multimedia/2026-10-17-standalone-recording-02/verification.json); [recording review](recording.md). No new practice session is created by recording, and the existing notebook remains unchanged. Responsive browser only; owner/native acceptance and packaging remain open.
+
+## Pending session consistency — 2026-10-21
+
+The owner requested one consistent unfinished-session card across Today, Practice and Calendar, with a Practice navigation indicator visible from other destinations. The existing focus card now replaces the generic notice across browsing pages. Source/build and responsive browser checks pass in four layouts, including resume/discard and indicator removal. [Evidence](captures/session/2026-10-21-pending-session-01/README.md) uses only a disposable synthetic notebook. Owner visual and native acceptance remain open; no APK or publication.
+
+## 2026-10-21 — Accepted subtle sync indicator and page action placement
+
+The owner accepted the 19px, unfilled synchronization proposal, without the redundant exclamation badge. Connected/error states retain their accessible labels and 44px touch target. The owner then requested moving Record to Today’s practice focus, Quick practice to the activity choices, and Week/Month beside Plan your week within Calendar. The planner action occupies the same toolbar position in Week and Month; week arrows sit beside the first date range, which returns to the current week when selected. Multimedia keeps Record within its page.
+
+A reported broken Profile ring was caused by the external avatar outline being clipped by the generic header button. Selection now uses one continuous inset border, with a circular button and visible keyboard focus. Source/browser acceptance passes 54 unit checks and four final browser regressions, including 60 light/dark responsive captures at 320×640, 390×844, 844×390, 768×1024 and 1024×768. Earlier UI evidence is reopened for Today, Practice, Calendar, Multimedia, Profile and shared header geometry. [Final browser evidence](captures/navigation/2026-10-21-page-actions-03/README.md). Native/package and publication acceptance are tracked in the beta6 release.

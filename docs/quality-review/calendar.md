@@ -69,3 +69,29 @@ Preview: `node scripts/review/preview-lessons.mjs`, [light](http://127.0.0.1:530
 
 
 2026-10-18 beta21 publication follow-up: source/APK tag `v6.1.0-beta.21` is pushed and Cloudflare deployment succeeds. [Publication record](../releases/6.1.0-beta.21-publication.json) keeps public-domain verification incomplete because spinoapp.com times out, while the immutable GitHub APK download matches the release size/SHA-256. Provider success is separate from custom-domain acceptance.
+
+## 2026-10-19 — Event time input repair
+
+The owner reports that CAL-06's HTML time input focuses segmented placeholders but offers neither a keyboard nor a picker on Android. New/edit event forms now expose separate native hour (00–23) and minute (00–59) selects. An empty hour keeps time optional; `00:00` remains midnight. The existing serialized `HH:MM`, reminder validation, recurrence and stable event identities are retained. The functional objective is accepted; the select layout awaits owner feedback.
+
+[Final responsive-browser evidence](captures/calendar/2026-10-19-event-time-02/verification.json) covers ten frames, both themes, phone/tablet portrait/landscape and 320 px. One focused browser flow, two existing recurrence/lesson browser flows and ten unit checks pass. [Native emulator evidence](captures/calendar/2026-10-19-event-time-native-02/native.json) separately verifies both Android option lists opening from actual taps, selection/saving/reopening of 18:35, midnight, clearing optional time, replacement installation, foreground and original notebook/blob retention. Native run 01 is retained: its hour list opened correctly, but the test's DPAD offset selected 17 rather than the expected 18; run 02 corrects only that test offset.
+
+Local same-version beta22/build75 review APK only; published website/downloads are unchanged. Physical-device and owner visual acceptance remain open. [Synthetic browser preview](http://127.0.0.1:5304/?theme=light) uses isolated disposable storage. No shared dialog, practice scheduling or weekly tutor time control was changed.
+
+## 2026-10-19 — Shared saved-session cards
+
+The owner's shared-design rule supersedes the previous saved-practice circles. Week and Month now render the same card as Progress/work history, with horizontal scrolling for several results, plan timing, the linked-plan/result deduplication rule and separate Add actions. Container queries keep the title and mood readable in narrow day columns. Completed-plan and target-history dialogs and completed-lesson results use the shared card too. [Responsive evidence and verification](captures/repertoire/2026-10-19-work-detail-05/README.md); earlier Calendar baselines remain historical. Owner/native layout acceptance remains open. The separate event-time repair retains its own native/browser evidence.
+
+## Pending session consistency — 2026-10-21
+
+The owner requested one consistent unfinished-session card across Today, Practice and Calendar, with a Practice navigation indicator visible from other destinations. The existing focus card now replaces the generic notice across browsing pages. Source/build and responsive browser checks pass in four layouts, including resume/discard and indicator removal. [Evidence](captures/session/2026-10-21-pending-session-01/README.md) uses only a disposable synthetic notebook. Owner visual and native acceptance remain open; no APK or publication.
+
+2026-10-21 owner follow-up: omit the unfinished-session card from Calendar to avoid pushing its content down. Keep the Practice navigation indicator and the card on Today, Practice and other browsing destinations. Earlier Calendar-card captures remain historical evidence.
+
+2026-10-21 continuous weekly calendar — owner requests scrolling to keep showing weeks and removal of the month title in Week view. The agenda appends two weeks near the bottom, retains loaded weeks during same-date rerenders, preserves selected-day highlighting and shared saved-session cards, and keeps previous/next/This week controls. Month view retains its month title. Build, four agenda unit checks and two browser checks pass with disposable notebooks; responsive evidence: [week-scroll-02](captures/calendar/2026-10-21-week-scroll-02/README.md). Owner visual/native acceptance remains open; no APK/publication.
+
+## 2026-10-21 — Accepted subtle sync indicator and page action placement
+
+The owner accepted the 19px, unfilled synchronization proposal, without the redundant exclamation badge. Connected/error states retain their accessible labels and 44px touch target. The owner then requested moving Record to Today’s practice focus, Quick practice to the activity choices, and Week/Month beside Plan your week within Calendar. The planner action occupies the same toolbar position in Week and Month; week arrows sit beside the first date range, which returns to the current week when selected. Multimedia keeps Record within its page.
+
+A reported broken Profile ring was caused by the external avatar outline being clipped by the generic header button. Selection now uses one continuous inset border, with a circular button and visible keyboard focus. Source/browser acceptance passes 54 unit checks and four final browser regressions, including 60 light/dark responsive captures at 320×640, 390×844, 844×390, 768×1024 and 1024×768. Earlier UI evidence is reopened for Today, Practice, Calendar, Multimedia, Profile and shared header geometry. [Final browser evidence](captures/navigation/2026-10-21-page-actions-03/README.md). Native/package and publication acceptance are tracked in the beta6 release.

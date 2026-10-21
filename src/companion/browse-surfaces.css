@@ -142,20 +142,6 @@
 @media (hover:hover) {
   #app-shell :is(.cp-app-header,.cp-browse-surface) .cp-choice-group button:hover:not([aria-pressed=true],[aria-current=page]) { background: var(--theme-selected); color: var(--theme-text); }
 }
-/* Keep the quick action beside the Practice title on phones too. */
-#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-middle { display: flex; gap: 8px; }
-#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-title { flex: 0 1 auto; }
-#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-title h1 { white-space: nowrap; }
-#app-shell:has(.cp-browse-surface[data-view=practice]) .cp-header-controls { flex: 1; margin: 0; flex-wrap: nowrap; justify-content: flex-end; }
-@media (max-width: 599px) {
-  #app-shell:has(.cp-browse-surface[data-view=practice]) .cp-app-header .cp-quick-practice { font-size: 12px; padding: 7px 8px; white-space: normal; line-height: 1.2; }
-}
-#app-shell .cp-app-header .cp-choice-group button { flex: 1 0 auto; white-space: nowrap; }
-
-/* Keep the Calendar title and view switch in the same header row. */
-#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-middle { display: flex; flex-wrap: nowrap; gap: 8px; }
-#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-title h1 { white-space: nowrap; }
-#app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-header-controls { margin: 0; flex-wrap: nowrap; }
 #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { min-width: 44px; }
 @media (max-width: 379px) {
   #app-shell:has(.cp-browse-surface[data-view=calendar]) .cp-choice-group button { padding-inline: 6px; font-size: 12px; }
