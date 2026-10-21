@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {COPY} from './site-copy.mjs';
+import {catalogueSection} from './catalogue-section.mjs';
 import {releaseDialog} from './release-history.mjs';
 const OUT = 'site';
 const SHOT_SOURCE='docs/quality-review/captures/website/2026-10-19-stable61-site-04';
@@ -27,12 +28,12 @@ const TEST_DOWNLOAD_COPY=Object.fromEntries(Object.entries(COPY).map(([lang,copy
 
 function downloads(t){
  const copy={
-  en:{stable:'Stable',apk:'Android stable APK',betaApk:'Android beta APK',notes:'Release notes',source:'Source code',stableSummary:'Recording, Google Drive, practice time and lessons.',betaSummary:'Compact catalogue with unified PDF/MusicXML search, continuous scrolling, downloaded scores and notation previews. Offline PDF previews and Hanon 1–10 included.'},
-  es:{stable:'Estable',apk:'APK estable de Android',betaApk:'APK beta de Android',notes:'Notas de versión',source:'Código fuente',stableSummary:'Grabaciones, Google Drive, tiempo de práctica y clases.',betaSummary:'Catálogo compacto con búsqueda conjunta de PDF y MusicXML, scroll continuo, partituras descargadas y vista previa. Incluye previews PDF y Hanon 1–10 sin conexión.'},
-  ca:{stable:'Estable',apk:'APK estable d’Android',betaApk:'APK beta d’Android',notes:'Notes de versió',source:'Codi font',stableSummary:'Gravacions, Google Drive, temps de pràctica i classes.',betaSummary:'Catàleg compacte amb cerca conjunta de PDF i MusicXML, desplaçament continu, partitures descarregades i vista prèvia. Inclou previsualitzacions PDF i Hanon 1–10 sense connexió.'}
+  en:{stable:'Stable',apk:'Android stable APK',betaApk:'Android beta APK',notes:'Release notes',source:'Source code',stableSummary:'Recording, Google Drive, practice time and lessons.',betaSummary:'106 identified works in 129 score editions. Search by composer and period, preview and download individually. Albéniz solo piano and offline Hanon 1–10 included.'},
+  es:{stable:'Estable',apk:'APK estable de Android',betaApk:'APK beta de Android',notes:'Notas de versión',source:'Código fuente',stableSummary:'Grabaciones, Google Drive, tiempo de práctica y clases.',betaSummary:'106 obras identificadas en 129 ediciones. Busca por autor y periodo, consulta la vista previa y descarga cada partitura. Incluye piano de Albéniz y Hanon 1–10 sin conexión.'},
+  ca:{stable:'Estable',apk:'APK estable d’Android',betaApk:'APK beta d’Android',notes:'Notes de versió',source:'Codi font',stableSummary:'Gravacions, Google Drive, temps de pràctica i classes.',betaSummary:'106 obres identificades en 129 edicions. Cerca per autor i període, previsualitza i descarrega cada partitura. Inclou piano d’Albéniz i Hanon 1–10 sense connexió.'}
  }[t.lang];
  const card=(channel,title,version,code,summary,apk)=>`<article class="feature" data-channel="${channel}"><h3>${title} · ${version} (${code})</h3><p>${summary}</p><div class="download-actions"><a class="cta" href="${t.root}downloads/spino-${version}-${code}-android.apk" download>${apk}</a><button type="button" class="release-open" data-release-open>${copy.notes}</button></div><div class="download-links"><a href="${t.root}downloads/spino-${version}-checksums.json">SHA-256</a><a href="https://github.com/cuoyot/spino/tree/v${version}">${copy.source}</a>${channel==='stable'?'<a href="https://play.google.com/store/apps/details?id=com.miguecoll.spino">Google Play · 5.2.3 (35)</a>':''}</div></article>`;
- return `<div id="downloads">${card('stable',copy.stable,'6.1.0','76',copy.stableSummary,copy.apk)}${card('beta','Beta','6.1.1-beta.7','83',copy.betaSummary,copy.betaApk)}</div>`;
+ return `<div id="downloads">${card('stable',copy.stable,'6.1.0','76',copy.stableSummary,copy.apk)}${card('beta','Beta','6.1.1-beta.8','84',copy.betaSummary,copy.betaApk)}</div>`;
 }
 
 function languagePicker(lang,root){const names={"es":"Español","en":"English","ca":"Català"};return `<details class="language-picker"><summary aria-label="${names[lang]} — ${lang==='ca'?'Canvia l’idioma':lang==='es'?'Cambiar idioma':'Change language'}" title="${names[lang]}"><span class="flag flag-${lang}" aria-hidden="true"></span></summary><div class="language-options">${['es','en','ca'].filter(l=>l!==lang).map(l=>`<a href="${root}${l==='es'?'':l+'/'}" lang="${l}" hreflang="${l}"><span class="flag flag-${l}" aria-hidden="true"></span>${names[l]}</a>`).join('')}</div></details>`; }
@@ -55,6 +56,7 @@ section{padding:48px 0}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
 .feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
 .feature svg{width:30px;height:30px;color:var(--accent)}.feature h3{margin:12px 0 6px;font-size:19px}.feature p{margin:0;color:var(--muted);font-size:16px}
+.catalogue-intro,.catalogue-credit{max-width:800px;color:var(--muted)}.catalogue-beta{color:var(--accent);font-size:14px;margin:0 0 10px}.catalogue-stats{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin:26px 0}.catalogue-stats div{display:flex;gap:12px;align-items:center}.catalogue-stats strong{font-size:36px;color:var(--accent);line-height:1}.catalogue-stats span{max-width:120px;font-size:15px}.catalogue-stats p{color:var(--muted);font-size:15px}.catalogue-albeniz{border-left:3px solid var(--accent);padding:12px 18px;margin:24px 0}.catalogue-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:900px;margin:30px auto}.catalogue-shots figure{margin:0;min-width:0}.catalogue-shots img{width:100%;border:1px solid var(--line);border-radius:18px}.catalogue-shots figcaption{font-size:14px;color:var(--muted);margin-top:12px}.catalogue-credit{font-size:14px}.catalogue-section .feature h3{margin-top:0}@media(max-width:600px){.catalogue-shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;gap:16px}.catalogue-shots figure{flex:0 0 min(260px,78vw);scroll-snap-align:start}}
 .hanon-demo>p{max-width:760px;color:var(--muted)}.hanon-demo figure{margin:24px 0 0}.hanon-demo video{display:block;width:100%;height:auto;aspect-ratio:1920/804;background:#111a21;border:1px solid var(--line);border-radius:18px}.hanon-demo figcaption{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px;color:var(--muted);font-size:14px}
 .shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
 .shots img{flex:0 0 auto;width:min(240px,62vw);border-radius:20px;border:1px solid var(--line);scroll-snap-align:start}
@@ -91,9 +93,10 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 <section class="hero">
 <h1>SPino<br><span>${t.tagline}</span></h1>
 <div class="hero-copy"><p class="lead">${t.lead}</p>
-${downloads(t)}</div>
+${downloads(t)}<p><a href="#catalogue">${t.lang==='es'?'Explorar el catálogo':t.lang==='ca'?'Explorar el catàleg':'Explore the catalogue'} →</a></p></div>
 <img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=2026-10-19-stable61-site-04" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
+${catalogueSection(t)}
 <section id="hanon" class="hanon-demo" aria-labelledby="hanon-title"><h2 id="hanon-title">${t.hanon.title}</h2><p>${t.hanon.description}</p><figure><video controls playsinline preload="metadata" width="1920" height="804" poster="${t.root}media/hanon-warmups-2026-10-20.jpg" aria-label="${t.hanon.label}" aria-describedby="hanon-caption"><source src="${t.root}media/hanon-warmups-2026-10-20.mp4" type="video/mp4"><a href="${t.root}media/hanon-warmups-2026-10-20.mp4">${t.hanon.fallback}</a></video><figcaption id="hanon-caption"><span>${t.hanon.caption}</span><a href="${t.root}media/hanon-warmups-2026-10-20-credits.txt">${t.hanon.credits}</a></figcaption></figure></section>
 <section id="features"><h2>${t.featuresTitle}</h2><div class="features">${t.features.map(([k, h, p]) => `<article class="feature">${ICONS[k]}<h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 <section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
@@ -117,6 +120,7 @@ for (const t of Object.values(COPY)) {
   await mkdir(join(OUT, 'img', t.lang), { recursive: true }); await mkdir(dir, { recursive: true });
   await writeFile(join(dir, 'index.html'), page(t));
   for (const name of SHOTS) await copyFile(`${SHOT_SOURCE}/${t.lang}/phone/${name}.png`, join(OUT, 'img', t.lang, `${name}.png`));
+  for(const name of ['catalogue','period-author','preview']) await copyFile(`scripts/site/catalogue-images/${t.lang}/${name}.png`,join(OUT,'img',t.lang,`catalogue-${name}-beta8.png`));
   await copyFile(`${SHOT_SOURCE}/${t.lang}/tablet/wide-reading.png`, join(OUT, 'img', t.lang, 'wide-reading.png'));
   await copyFile(`${SHOT_SOURCE}/${t.lang}/phone-landscape/landscape-reading.png`, join(OUT, 'img', t.lang, 'landscape-reading.png'));
 }

@@ -1,0 +1,9 @@
+<es-ES>
+El catálogo reúne 106 obras identificadas en 129 ediciones PDF y MusicXML/MXL. Nuevas partituras de Bach, Satie, Debussy y Albéniz para piano. Busca por autor y periodo, consulta la vista previa y descarga cada partitura antes de añadirla al repertorio. Mejorado el contraste del selector en modo oscuro y retirados los botones generales de descarga y actualización.
+</es-ES>
+<en-US>
+The catalogue now has 106 identified works across 129 PDF and MusicXML/MXL editions. New piano scores by Bach, Satie, Debussy and Albéniz. Search by composer and period, preview a score and download it before adding it to your repertoire. Improved dark-mode selector contrast and removed catalogue-wide download and refresh buttons.
+</en-US>
+<ca>
+El catàleg reuneix 106 obres identificades en 129 edicions PDF i MusicXML/MXL. Noves partitures de Bach, Satie, Debussy i Albéniz per a piano. Cerca per autor i període, consulta la vista prèvia i descarrega cada partitura abans d’afegir-la al repertori. Millorat el contrast del selector en mode fosc i retirats els botons generals de descàrrega i actualització.
+</ca>

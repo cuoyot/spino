@@ -1,0 +1,402 @@
+{
+  "basis": "Conservative grouping by source repository path and catalogue/opus; uncertain five records excluded. Movements/arrangements of sonatas, symphonies and ballets count together. No notebook IDs are changed.",
+  "xml": [
+    {
+      "id": "mt_2b5aa63f192b9992",
+      "title": "Twinkle Twinkle Little Star",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+      "sourcePath": "scores/12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+      "canonicalWorkId": null
+    },
+    {
+      "id": "mt_6dd3113ced2b4316",
+      "title": "Arabesque No. 1 in E Major",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Arabesque_L._66_No._1_in_E_Major.mxl",
+      "sourcePath": "scores/Arabesque_L._66_No._1_in_E_Major.mxl",
+      "canonicalWorkId": "debussy-arabesque-1"
+    },
+    {
+      "id": "mt_d6a3c69b9dd8e2aa",
+      "title": "Ave Maria",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+      "sourcePath": "scores/Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+      "canonicalWorkId": "schubert-d839"
+    },
+    {
+      "id": "mt_eb69b7b3cfc165d7",
+      "title": "Bach Minuet in G Major BWV Anh. 114",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+      "sourcePath": "scores/Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+      "canonicalWorkId": "petzold-minuet-bwv-anh114"
+    },
+    {
+      "id": "mt_8f1ce4ddf090bc85",
+      "title": "Bach Toccata and Fugue in D Minor Piano solo",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+      "sourcePath": "scores/Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+      "canonicalWorkId": null
+    },
+    {
+      "id": "mt_a7a727265ab1f9a0",
+      "title": "Beethoven Symphony No. 5 1st movement Piano solo",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+      "sourcePath": "scores/Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+      "canonicalWorkId": "beethoven-symphony-5"
+    },
+    {
+      "id": "mt_c608f097a400bf4f",
+      "title": "Canon in D",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D.mxl",
+      "sourcePath": "scores/Canon_in_D.mxl",
+      "canonicalWorkId": "pachelbel-canon-d"
+    },
+    {
+      "id": "mt_871d40217e1ab83f",
+      "title": "Canon in D (2)",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D_3.mxl",
+      "sourcePath": "scores/Canon_in_D_3.mxl",
+      "canonicalWorkId": "pachelbel-canon-d"
+    },
+    {
+      "id": "mt_9763f5e895d28a6f",
+      "title": "Canon in D (3)",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D_easy.mxl",
+      "sourcePath": "scores/Canon_in_D_easy.mxl",
+      "canonicalWorkId": "pachelbel-canon-d"
+    },
+    {
+      "id": "mt_c61974e09652bd46",
+      "title": "Ballade I",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+      "sourcePath": "scores/Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+      "canonicalWorkId": "chopin-op23"
+    },
+    {
+      "id": "mt_ecac3bcc3c35d6b7",
+      "title": "Chopin - Nocturne Op. 9 No. 1",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Nocturne_Op._9_No._1.mxl",
+      "sourcePath": "scores/Chopin_-_Nocturne_Op._9_No._1.mxl",
+      "canonicalWorkId": "chopin-op9-1"
+    },
+    {
+      "id": "mt_5ae81354143c8efc",
+      "title": "Nocturne  Op.9  No.2",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+      "sourcePath": "scores/Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+      "canonicalWorkId": "chopin-op9-2"
+    },
+    {
+      "id": "mt_bdc3421ecdf8017a",
+      "title": "Clair de Lune",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Clair_de_Lune__Debussy.mxl",
+      "sourcePath": "scores/Clair_de_Lune__Debussy.mxl",
+      "canonicalWorkId": "debussy-suite-bergamasque-clair-de-lune"
+    },
+    {
+      "id": "mt_a7f27632341f94ce",
+      "title": "Claire de lune",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Clair_de_lune_-_Claude_Debussy.mxl",
+      "sourcePath": "scores/Clair_de_lune_-_Claude_Debussy.mxl",
+      "canonicalWorkId": "debussy-suite-bergamasque-clair-de-lune"
+    },
+    {
+      "id": "mt_2d2aad6bbf07ef77",
+      "title": "DANSE VILLAGEOISE Beethoven",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/DANSE_VILLAGEOISE_Beethoven.mxl",
+      "sourcePath": "scores/DANSE_VILLAGEOISE_Beethoven.mxl",
+      "canonicalWorkId": null
+    },
+    {
+      "id": "mt_102f9e9ccdabd683",
+      "title": "Dance Of the Sugar Plum Fairy",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Dance_of_the_sugar_plum_fairy.mxl",
+      "sourcePath": "scores/Dance_of_the_sugar_plum_fairy.mxl",
+      "canonicalWorkId": "tchaikovsky-nutcracker"
+    },
+    {
+      "id": "mt_dbea2f2d474093af",
+      "title": "Erik Satie - Gymnopedie No.1",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Erik_Satie_-_Gymnopedie_No.1.mxl",
+      "sourcePath": "scores/Erik_Satie_-_Gymnopedie_No.1.mxl",
+      "canonicalWorkId": "satie-gymnopedie-1"
+    },
+    {
+      "id": "mt_ebc9407be233af66",
+      "title": "Flight of the Bumblebee",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Flight_of_the_Bumblebee.mxl",
+      "sourcePath": "scores/Flight_of_the_Bumblebee.mxl",
+      "canonicalWorkId": "rimsky-korsakov-flight-bumblebee"
+    },
+    {
+      "id": "mt_763531eb529fe6fe",
+      "title": "Für Elise in A Minor",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise.mxl",
+      "sourcePath": "scores/Fur_Elise.mxl",
+      "canonicalWorkId": "beethoven-woo59"
+    },
+    {
+      "id": "mt_c7d25565f2923df8",
+      "title": "Fur Elise - Beethoven - for beginner piano",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+      "sourcePath": "scores/Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+      "canonicalWorkId": "beethoven-woo59"
+    },
+    {
+      "id": "mt_b2f70341f289024f",
+      "title": "Fur Elise",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_Easy_Piano.mxl",
+      "sourcePath": "scores/Fur_Elise_Easy_Piano.mxl",
+      "canonicalWorkId": "beethoven-woo59"
+    },
+    {
+      "id": "mt_a51b5700c4168be2",
+      "title": "Für Elise",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_fingered.mxl",
+      "sourcePath": "scores/Fur_Elise_fingered.mxl",
+      "canonicalWorkId": "beethoven-woo59"
+    },
+    {
+      "id": "mt_53bf702ab3e71570",
+      "title": "Gnossienne No. 1",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Gnossienne_No._1.mxl",
+      "sourcePath": "scores/Gnossienne_No._1.mxl",
+      "canonicalWorkId": "satie-gnossienne-1"
+    },
+    {
+      "id": "mt_3b5a7b4db0d58b40",
+      "title": "Greensleeves",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Greensleeves_for_Piano_easy_and_beautiful.mxl",
+      "sourcePath": "scores/Greensleeves_for_Piano_easy_and_beautiful.mxl",
+      "canonicalWorkId": "traditional-greensleeves"
+    },
+    {
+      "id": "mt_86cbc41c3c3f55b6",
+      "title": "Gymnopédie No. 1",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Gymnopdie_No._1__Satie.mxl",
+      "sourcePath": "scores/Gymnopdie_No._1__Satie.mxl",
+      "canonicalWorkId": "satie-gymnopedie-1"
+    },
+    {
+      "id": "mt_cebacdadf1157796",
+      "title": "Happy Birthday To You C Major",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Happy_Birthday_To_You_C_Major.mxl",
+      "sourcePath": "scores/Happy_Birthday_To_You_C_Major.mxl",
+      "canonicalWorkId": "hill-happy-birthday"
+    },
+    {
+      "id": "mt_49fc9582ccdf3512",
+      "title": "Happy Birthday To You",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Happy_Birthday_To_You_Piano.mxl",
+      "sourcePath": "scores/Happy_Birthday_To_You_Piano.mxl",
+      "canonicalWorkId": "hill-happy-birthday"
+    },
+    {
+      "id": "mt_0ff0f9c4d91bb520",
+      "title": "Air",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+      "sourcePath": "scores/J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+      "canonicalWorkId": "bach-bwv1068"
+    },
+    {
+      "id": "mt_5a77e9369d492fcf",
+      "title": "La Campanella",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+      "sourcePath": "scores/La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+      "canonicalWorkId": "liszt-s141-3"
+    },
+    {
+      "id": "mt_803692b76754aee1",
+      "title": "Lacrimosa - Requiem",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Lacrimosa_-_Requiem.mxl",
+      "sourcePath": "scores/Lacrimosa_-_Requiem.mxl",
+      "canonicalWorkId": "mozart-k626"
+    },
+    {
+      "id": "mt_d0012a7c8133d77c",
+      "title": "Liebestraum No. 3 in A♭ Major",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Liebestraum_No._3_in_A_Major.mxl",
+      "sourcePath": "scores/Liebestraum_No._3_in_A_Major.mxl",
+      "canonicalWorkId": "liszt-s541-3"
+    },
+    {
+      "id": "mt_5c87da29c109cb38",
+      "title": "Maple Leaf Rag Scott Joplin",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Maple_Leaf_Rag_Scott_Joplin.mxl",
+      "sourcePath": "scores/Maple_Leaf_Rag_Scott_Joplin.mxl",
+      "canonicalWorkId": "joplin-maple-leaf-rag"
+    },
+    {
+      "id": "mt_1d0932ef47871f28",
+      "title": "Minuet in G Major Bach",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Minuet_in_G_Major_Bach.mxl",
+      "sourcePath": "scores/Minuet_in_G_Major_Bach.mxl",
+      "canonicalWorkId": "petzold-minuet-bwv-anh114"
+    },
+    {
+      "id": "mt_f13723baabd078b0",
+      "title": "Mozart - Piano Sonata No. 16 - Allegro",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+      "sourcePath": "scores/Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+      "canonicalWorkId": "mozart-k545"
+    },
+    {
+      "id": "mt_9283f10baa8897f7",
+      "title": "Nocturne in C sharp Minor",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Nocturne_in_C_sharp_Minor.mxl",
+      "sourcePath": "scores/Nocturne_in_C_sharp_Minor.mxl",
+      "canonicalWorkId": null
+    },
+    {
+      "id": "mt_54d70bdf8f336815",
+      "title": "Nocturne",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+      "sourcePath": "scores/Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+      "canonicalWorkId": "chopin-op9-2"
+    },
+    {
+      "id": "mt_7bfcb2f474f7307d",
+      "title": "Ode to Joy Easy variation",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Ode_to_Joy_Easy_variation.mxl",
+      "sourcePath": "scores/Ode_to_Joy_Easy_variation.mxl",
+      "canonicalWorkId": "beethoven-symphony-9"
+    },
+    {
+      "id": "mt_bfecee6d9393f8a9",
+      "title": "Piano Sonata No. 11 K. 331 3rd Movement Rondo alla Turca",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+      "sourcePath": "scores/Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+      "canonicalWorkId": "mozart-k331"
+    },
+    {
+      "id": "mt_6748c736b5b9f4ac",
+      "title": "Prelude I in C major BWV 846 - Well Tempered Clavier First Book",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+      "sourcePath": "scores/Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+      "canonicalWorkId": "bach-bwv846"
+    },
+    {
+      "id": "mt_667c0afee2cdf6b4",
+      "title": "Prelude No. 2 BWV 847 in C Minor",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prelude_No._2_BWV_847_in_C_Minor.mxl",
+      "sourcePath": "scores/Prelude_No._2_BWV_847_in_C_Minor.mxl",
+      "canonicalWorkId": "bach-bwv847"
+    },
+    {
+      "id": "mt_c7aae28298e82b67",
+      "title": "Prélude in E Minor (2)",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prlude_No._4_in_E_Minor_Op._28_-_Frdric_Chopin.mxl",
+      "sourcePath": "scores/Prlude_No._4_in_E_Minor_Op._28_-_Frdric_Chopin.mxl",
+      "canonicalWorkId": "chopin-op28-4"
+    },
+    {
+      "id": "mt_acc4d9e647e66b16",
+      "title": "Prélude in E Minor",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+      "sourcePath": "scores/Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+      "canonicalWorkId": "chopin-op28-4"
+    },
+    {
+      "id": "mt_c4d9e8b23f064c89",
+      "title": "Song",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+      "sourcePath": "scores/Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+      "canonicalWorkId": "schubert-standchen"
+    },
+    {
+      "id": "mt_d50e5d0ae6a643f7",
+      "title": "Sonata No. 16 1st Movement K. 545",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonata_No._16_1st_Movement_K._545.mxl",
+      "sourcePath": "scores/Sonata_No._16_1st_Movement_K._545.mxl",
+      "canonicalWorkId": "mozart-k545"
+    },
+    {
+      "id": "mt_ce6bcc5ff7c25d1f",
+      "title": "Sonate No. 14 Moonlight 1st Movement",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._14_Moonlight_1st_Movement.mxl",
+      "sourcePath": "scores/Sonate_No._14_Moonlight_1st_Movement.mxl",
+      "canonicalWorkId": "beethoven-op27-2"
+    },
+    {
+      "id": "mt_6c751436973a6b18",
+      "title": "Sonate No. 14 Moonlight 3rd Movement",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._14_Moonlight_3rd_Movement.mxl",
+      "sourcePath": "scores/Sonate_No._14_Moonlight_3rd_Movement.mxl",
+      "canonicalWorkId": "beethoven-op27-2"
+    },
+    {
+      "id": "mt_3c7be06fe96e6cc2",
+      "title": "Sonate No. 8 Pathetique 2nd Movement",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._8_Pathetique_2nd_Movement.mxl",
+      "sourcePath": "scores/Sonate_No._8_Pathetique_2nd_Movement.mxl",
+      "canonicalWorkId": "beethoven-op13"
+    },
+    {
+      "id": "mt_23861e10a1550eaa",
+      "title": "Swan Lake",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Swan_Lake.mxl",
+      "sourcePath": "scores/Swan_Lake.mxl",
+      "canonicalWorkId": "tchaikovsky-swan-lake"
+    },
+    {
+      "id": "mt_0e1f30af3a1085f6",
+      "title": "The Entertainer - Scott Joplin",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/The_Entertainer_-_Scott_Joplin.mxl",
+      "sourcePath": "scores/The_Entertainer_-_Scott_Joplin.mxl",
+      "canonicalWorkId": "joplin-entertainer"
+    },
+    {
+      "id": "mt_1ca2de9510faa91c",
+      "title": "The Entertainer.",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+      "sourcePath": "scores/The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+      "canonicalWorkId": "joplin-entertainer"
+    },
+    {
+      "id": "mt_661920860685b22d",
+      "title": "WA Mozart Marche Turque Turkish March fingered",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/WA_Mozart_Marche_Turque_Turkish_March_fingered.mxl",
+      "sourcePath": "scores/WA_Mozart_Marche_Turque_Turkish_March_fingered.mxl",
+      "canonicalWorkId": "mozart-k331"
+    },
+    {
+      "id": "mt_44218149833c0d0c",
+      "title": "Waltz Opus 64 No. 2 in C Minor",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_Opus_64_No._2_in_C_Minor.mxl",
+      "sourcePath": "scores/Waltz_Opus_64_No._2_in_C_Minor.mxl",
+      "canonicalWorkId": "chopin-op64-2"
+    },
+    {
+      "id": "mt_b07796eeb20f3db5",
+      "title": "Waltz in A MinorChopin",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_in_A_MinorChopin.mxl",
+      "sourcePath": "scores/Waltz_in_A_MinorChopin.mxl",
+      "canonicalWorkId": null
+    },
+    {
+      "id": "mt_77f1dd91d68ff7b7",
+      "title": "Waltz of the Flowers",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_of_the_Flowers.mxl",
+      "sourcePath": "scores/Waltz_of_the_Flowers.mxl",
+      "canonicalWorkId": "tchaikovsky-nutcracker"
+    },
+    {
+      "id": "mt_8810bec7fe9aa2c4",
+      "title": "Moonlight sonata",
+      "source": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/moonlight_sonata_3rd_movement.mxl",
+      "sourcePath": "scores/moonlight_sonata_3rd_movement.mxl",
+      "canonicalWorkId": "beethoven-op27-2"
+    }
+  ],
+  "legacyPdf": {
+    "mutopia-75": "petzold-minuet-bwv-anh114",
+    "mutopia-1612": "bach-minuet-bwv-anh120",
+    "mutopia-202": "burgmuller-op100-1",
+    "mutopia-203": "burgmuller-op100-2",
+    "mutopia-218": "burgmuller-op100-3",
+    "mutopia-219": "burgmuller-op100-4",
+    "mutopia-214": "burgmuller-op100-5",
+    "mutopia-215": "burgmuller-op100-6",
+    "mutopia-40": "bach-bwv-772",
+    "mutopia-354": "schumann-op15-1"
+  }
+}

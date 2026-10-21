@@ -1,0 +1,14 @@
+{
+  "version": "6.1.1-beta.8",
+  "build": 84,
+  "applicationId": "com.miguecoll.spino.beta",
+  "checkedAt": "2026-10-21T13:23:22.982286+00:00",
+  "replacementInstall": true,
+  "existingDataFilesPreservedBeforeLaunch": 138,
+  "indexedDBFilesPreserved": 130,
+  "packagedWebFilesMatched": 409,
+  "offlineHanonVideosUnchanged": 30,
+  "foregroundConfirmed": true,
+  "physicalDeviceAcceptance": false,
+  "privateRecoveryArchives": "output/native-review-backups/2026-10-21-beta8"
+}

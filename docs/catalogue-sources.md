@@ -1,5 +1,37 @@
 # Downloadable practice scores
 
+## Spanish piano priority — Albéniz
+
+Rumores de la Caleta, Recuerdos de viaje Op.71 No.6, now takes the first Spanish acquisition slot. The complete eight-page Mutopia898 edition explicitly identifies Piano solo, with David Surtees's Public Domain dedication. The unchanged PDF/source hashes and all-page visual proof are retained in the acquisition manifest and responsive evidence; the score details show its instrumentation. Tango Op.165 No.2 remains outside the app pending the Hugo Ries editorial-rights identity check. Original piano Granada, Sevilla and Asturias are prioritized in the separate research queue; Asturias aliases must count once.
+
+## Distinct works and period acquisition — 21 October 2026
+
+Catalogue version 7 contains **106 identified compositions across 129 editions**, comprising 55 MusicXML/MXL and 74 PDFs. The conservative identity map merges arrangements and movements of the same work; five unresolved legacy entries remain available but do not increase the identified-work count. There are 33 identified works in the XML baseline and 74 distinct PDF works, with one work shared by both formats (Petzold's minuet). Exact edition IDs, annotations and user repertoire references are preserved.
+
+The latest acquisition adds Bach's 15 three-part sinfonias BWV 787–801 (40 pages), Satie's Gymnopédies 2 and 3 (four pages together), and Debussy's Deuxième Arabesque L.66 No.2 (eight pages). Every PDF and source was downloaded and hashed; every PDF page was rendered and visually inspected. The Bach and Satie editions declare Public Domain; Debussy's edition credits Knute Snortum under CC BY-SA 4.0. Original PDFs remain unchanged and complete first-page preview PNGs retain the edition's credit and license. The historic source of several Bach engravings is declared unknown; this is retained rather than invented.
+
+The catalogue now combines broad period, composer, query, format and local-download filters. Period labels are editorial browsing categories, not difficulty or legal-rights classifications. Existing musical titles and edition credits remain unchanged. Further composer/work research stays outside the app until an exact complete edition is acquired and checked.
+
+[Identity and responsive evidence](quality-review/captures/repertoire/2026-10-21-periods-01/README.md) includes a reproducible work-to-edition count, source acquisition manifests and all-page contact sheets. This batch is local source/browser work, not a published Android release.
+
+## Over-100 acquisition batch — 21 October 2026
+
+Catalogue version 4 adds 19 complete Schumann Op.68 editions: nos.1–14, 16, 18, 25, 26 and 36. The app now contains **110 score editions: 55 MusicXML/MXL and 55 PDF**. Older arrangements remain separate editions rather than a claim of distinct underlying works.
+
+All new PDFs were downloaded, hashed, parsed and rendered in full (29 pages). The source headers and PDF footers identify Philippe Hézaine's engravings and the Mutopia reference. Seventeen editions declare CC BY-SA 2.5; nos.3 and 7 declare CC BY-SA 3.0. Credits and exact license versions remain attached to unchanged PDFs and derived first-page previews. CC BY-SA allows reuse including commercial distribution with attribution and share-alike conditions; these editions are not labeled Public Domain. No difficulty is inferred.
+
+[Acquisition manifest](../research_notes/Public%20domain%20piano%20score%20sources/acquisition-schumann-2026-10-21.json) · [All-page and responsive evidence](quality-review/captures/repertoire/2026-10-21-catalogue-over100-01/README.md) · [CC BY-SA 2.5 terms](https://creativecommons.org/licenses/by-sa/2.5/).
+
+## 21 October 2026 acquisition batch
+
+Catalogue version 3 adds 26 complete editions: Burgmüller Op.100 nos.7–18 and Bach's inventions BWV773–786. The app now lists 91 editions: 55 MusicXML/MXL and 36 PDFs. This is an edition count; older arrangements can refer to the same composition. Original IDs/revisions remain unchanged.
+
+Every new PDF was downloaded, parsed, hashed and rendered in full (49 pages). Source headers and PDF credits agree on edition references. Twenty-three editions declare Public Domain; Bach inventions 6, 9 and 12 use CC BY-SA 3.0 with their typesetter attribution. The app retains those terms with unchanged scores and full-page previews. No commercial publisher rating or inferred difficulty is added. Each entry retains its source URL, editor, historical edition, PDF/source hashes and page count. The institutional anthology candidates remain research-only until individually acquired and validated.
+
+[Acquisition manifest](../research_notes/Public%20domain%20piano%20score%20sources/acquisition-2026-10-21.json) · [All-page and responsive evidence](quality-review/captures/repertoire/2026-10-21-catalogue-expansion-01/README.md).
+
+The earlier ten-edition baseline and evidence are retained below.
+
 The reviewed PDF catalogue in `src/companion/catalog.js` now contains ten editions: the original two entries and eight additions. These are downloadable scores for manual practice, local annotation and session tracking. They are not automatically evaluated sight-reading exercises. Downloading a PDF does not produce a MusicXML analysis or generated excerpts.
 
 Downloads remain opt-in and use the existing foreground queue, network preference and annotation-preserving update behavior. Catalogue version 2 adds entries; all existing IDs and edition revisions remain unchanged. The eight additional files total **504,922 bytes**. No score was installed in the user's notebook as part of this source check.

@@ -1,0 +1,53 @@
+[
+  {
+    "number": 2,
+    "workId": "satie-gymnopedie-2",
+    "url": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_2/gymnopedie_2",
+    "composer": "Erik Satie",
+    "collection": "Trois Gymnopédies",
+    "id": "mutopia-38",
+    "title": "Gymnopédie No. 2",
+    "editor": "Evin Robertson",
+    "editionSource": "Dover Edition",
+    "footer": "Mutopia-2012/12/23-38",
+    "license": "Public Domain",
+    "pages": 2,
+    "bytes": 57989,
+    "sha256": "d0610760586812cc76c404d4735337d72065541498a04bd1598d181e47369e01",
+    "sourceSha256": "54182340c4be942ea2ebbe2fcefd0734bfb29d02bd76672fd3751c8600c27d8c"
+  },
+  {
+    "number": 3,
+    "workId": "satie-gymnopedie-3",
+    "url": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_3/gymnopedie_3",
+    "composer": "Erik Satie",
+    "collection": "Trois Gymnopédies",
+    "id": "mutopia-39",
+    "title": "Gymnopédie No. 3",
+    "editor": "Evin Robertson",
+    "editionSource": "Dover Edition",
+    "footer": "Mutopia-2012/12/23-39",
+    "license": "Public Domain",
+    "pages": 2,
+    "bytes": 58066,
+    "sha256": "999d0242b61bc3f812134d12277c12d47f16d006a58240121db42ae692effc96",
+    "sourceSha256": "d0b774aee7df39627d57b66c1269ec3a10e89f9fe3d271df9f4d5e3c082d9001"
+  },
+  {
+    "number": 2,
+    "workId": "debussy-arabesque-2",
+    "url": "https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_2/debussy_Arabesque_2",
+    "composer": "Claude Debussy",
+    "collection": "Deux Arabesques, L.66",
+    "id": "mutopia-1994",
+    "title": "Deuxième Arabesque",
+    "editor": "Knute Snortum",
+    "editionSource": "Paris: Durand et Schoenewerk, n.d.[1891]. Plates D.S. 4395-96",
+    "footer": "Mutopia-2014/12/14-1994",
+    "license": "Creative Commons Attribution-ShareAlike 4.0",
+    "pages": 8,
+    "bytes": 274691,
+    "sha256": "cd3c122e761b3965bd7e812c6c0929628b7bf4110716d79809d2aa4a8ed0ae4a",
+    "sourceSha256": "81297616c57e3f1314de6b3eda2d607a73f052bbb031398c537ba85b255a399f"
+  }
+]

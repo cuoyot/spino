@@ -1,0 +1,214 @@
+{
+  "checkedAt": "2026-10-21",
+  "method": "Full GET of each score page and linked A4 PDF; %PDF- signature and SHA-256 only; no visual musical completeness audit. No app files modified.",
+  "records": [
+    {
+      "id": 1687,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1687",
+      "pdf": "https://www.mutopiaproject.org/ftp/ChopinFF/O6/Mazurka-Op6-No1/Mazurka-Op6-No1-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/ChopinFF/O6/Mazurka-Op6-No1/Mazurka-Op6-No1.ly",
+      "pdfMagic": true,
+      "bytes": 111599,
+      "sha256": "27bb16a99e38f570d15d34579f68f926b12c406eb21e6c23743dbda6275eda9c",
+      "pageText": " Mazurka: Op.6, No.1, by F. F. Chopin (1810–1849) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Mazurka: Op.6, No.1 by F. F. Chopin (1810–1849) Instrument(s): Piano Style: Romantic Opus: Op. 6, No. 1 Date of composition: 1830 Source: G. Schirmer, 1894 Copyright: Creative Commons Attribution 3.0 Last updated: 2009/Jun/23. View change history Music ID Number: Mutopia-2009/06/23-1687 Typeset using: LilyPond , version 2.12.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files This file was created from a public domain scan of the work. The source is located in the Petrucci Music Library, http://imslp.org/. Maintainer: Ryan Prince rprincerp (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by/3.0/"
+      ]
+    },
+    {
+      "id": 1955,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1955",
+      "pdf": "https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n3/chopin_nocturne_op9_n3-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n3/chopin_nocturne_op9_n3.ly",
+      "pdfMagic": true,
+      "bytes": 340799,
+      "sha256": "27226e96f3f3074962d6392aa97e144cced610cddbdf577ab9c331fde202efbb",
+      "pageText": " Nocturne No. 3, by F. F. Chopin (1810–1849) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Nocturne No. 3 by F. F. Chopin (1810–1849) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: Opus 9, No. 3 Date of composition: 1832 Source: G. Schirmer,1915 Copyright: Creative Commons Attribution-ShareAlike 4.0 Last updated: 2014/May/26. View change history Music ID Number: Mutopia-2014/05/26-1955 Typeset using: LilyPond , version 2.18.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Glen Larsen glenl.glx (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by-sa/4.0/"
+      ]
+    },
+    {
+      "id": 504,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=504",
+      "pdf": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No07/SchumannOp15No07-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No07/SchumannOp15No07.ly",
+      "pdfMagic": true,
+      "bytes": 62934,
+      "sha256": "55f7c9e3c63f3006f50f44eccdfb7b4f74b70cd9c606a62d377138450994a782",
+      "pageText": " Kinderscenen - Traümerei, by R. Schumann (1810–1856) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Kinderscenen - Traümerei by R. Schumann (1810–1856) Instrument(s): Piano Style: Romantic Opus: O 15 N 7 Date of composition: 18th C. Source: Leichte Stucke, 1900 Copyright: Public Domain Last updated: 2005/Dec/27. View change history Music ID Number: Mutopia-2005/12/27-504 Typeset using: LilyPond , version 2.6.4 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Ying-Chun Liu PaulLiu.bbs (at) bbs.cis.nctu.edu.tw http://www.cis.nctu.edu.tw/~is86007/ Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 355,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=355",
+      "pdf": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No02/SchumannOp15No02-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No02/SchumannOp15No02.ly",
+      "pdfMagic": true,
+      "bytes": 78680,
+      "sha256": "878a721a5da5b9e9c61c73b422d99d76209a3acb7d5896e704a4584b3d9dd445",
+      "pageText": " Kinderscenen - Curiose Geschichte, by R. Schumann (1810–1856) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Kinderscenen - Curiose Geschichte by R. Schumann (1810–1856) Instrument(s): Piano Style: Romantic Opus: Op. 15, No. 2 Date of composition: 18th C. Source: Leichte Stucke, 1900 Copyright: Creative Commons Attribution 3.0 Last updated: 2013/Jan/05. View change history Music ID Number: Mutopia-2013/01/05-355 Typeset using: LilyPond , version 2.16.1 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Ying-Chun Liu PaulLiu.bbs (at) bbs.cis.nctu.edu.tw http://www.cis.nctu.edu.tw/~is86007/ Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by/3.0/"
+      ]
+    },
+    {
+      "id": 1744,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1744",
+      "pdf": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O85/LiederOhneWorte_-_Op85_No1/LiederOhneWorte_-_Op85_No1-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O85/LiederOhneWorte_-_Op85_No1/LiederOhneWorte_-_Op85_No1.ly",
+      "pdfMagic": true,
+      "bytes": 95647,
+      "sha256": "751aa73d7878dbbfe7c3efa5b180a04d5d2a5921230c41470b7d695aa13268cf",
+      "pageText": " Lieder ohne Worte, Op.85 No.1, by F. Mendelssohn-Bartholdy (1809–1847) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Lieder ohne Worte, Op.85 No.1 by F. Mendelssohn-Bartholdy (1809–1847) Instrument(s): Piano Style: Romantic Opus: Op. 85, No. 1 Date of composition: Not known Source: Breitkopf & Härtel, 1874-1877 Copyright: Public Domain Last updated: 2010/Feb/28. View change history Music ID Number: Mutopia-2010/02/28-1744 Typeset using: LilyPond , version 2.12.3 Download: LilyPond file MIDI file A4 PDF files Letter PDF files This file was created from a public domain scan of the work. The source is located in the Petrucci Music Library, http://imslp.org/. Maintainer: Ryan Prince rprincerp (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 1741,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1741",
+      "pdf": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O30/LiederOhneWorte_-_Op30_No6/LiederOhneWorte_-_Op30_No6-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O30/LiederOhneWorte_-_Op30_No6/LiederOhneWorte_-_Op30_No6.ly",
+      "pdfMagic": true,
+      "bytes": 85873,
+      "sha256": "973bbf147386c3a2d9f81f8bf6f62ca148c9a6142a2c49ee5cbbb54883617934",
+      "pageText": " Lieder ohne Worte: Venetianisches Gondellied, Op.30 No.6, by F. Mendelssohn-Bartholdy (1809–1847) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Lieder ohne Worte: Venetianisches Gondellied, Op.30 No.6 by F. Mendelssohn-Bartholdy (1809–1847) Instrument(s): Piano Style: Romantic Opus: Op. 30, No. 6 Date of composition: Not known Source: Breitkopf & Härtel, 1874-1877 Copyright: Public Domain Last updated: 2010/Feb/03. View change history Music ID Number: Mutopia-2010/02/03-1741 Typeset using: LilyPond , version 2.12.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files This file was created from a public domain scan of the work. The source is located in the Petrucci Music Library, http://imslp.org/. Maintainer: Ryan Prince rprincerp (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 1194,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1194",
+      "pdf": "https://www.mutopiaproject.org/ftp/SchubertF/D935/SchubertF-D935-1-Impromptu/SchubertF-D935-1-Impromptu-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/SchubertF/D935/SchubertF-D935-1-Impromptu/SchubertF-D935-1-Impromptu.ly",
+      "pdfMagic": true,
+      "bytes": 394455,
+      "sha256": "128a4333e8ed8952919fde56e139812ed1c67a99abdf7e38d29a5e131aa11fb1",
+      "pageText": " Impromptu in f-moll, by F. Schubert (1797–1828) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Impromptu in f-moll by F. Schubert (1797–1828) Instrument(s): Piano Style: Romantic Opus: D.935 (Op. 142, No. 1) Date of composition: 1827 Source: Breitkopf & Härtel, 1888 Copyright: Public Domain Last updated: 2007/Dec/29. View change history Music ID Number: Mutopia-2007/12/29-1194 Typeset using: LilyPond , version 2.11.34 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Ph. Raynaud Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 1551,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1551",
+      "pdf": "https://www.mutopiaproject.org/ftp/SchubertF/D899/SchubertF-D899-2-Impromptu/SchubertF-D899-2-Impromptu-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/SchubertF/D899/SchubertF-D899-2-Impromptu/SchubertF-D899-2-Impromptu.ly",
+      "pdfMagic": true,
+      "bytes": 251468,
+      "sha256": "904ea2c6a241bbf660eba3638d3655d98257fee90a2b9020366214770c8b52d5",
+      "pageText": " Impromptu in Es-dur, by F. Schubert (1797–1828) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Impromptu in Es-dur by F. Schubert (1797–1828) Instrument(s): Piano Style: Romantic Opus: D.899 (Op. 90, No. 2) Date of composition: 1827 Source: Breitkopf & Härtel, 1888 Copyright: Public Domain Last updated: 2008/Sep/28. View change history Music ID Number: Mutopia-2008/09/28-1551 Typeset using: LilyPond , version 2.11.57 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Ph. Raynaud Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 2194,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2194",
+      "pdf": "https://www.mutopiaproject.org/ftp/GriegE/O12/No03_Albumblatt/No03_Albumblatt-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/GriegE/O12/No03_Albumblatt/No03_Albumblatt.ly",
+      "pdfMagic": true,
+      "bytes": 216759,
+      "sha256": "61ce96cdfff4912a94a8ed8305bd92dbd575cbf6df8d2577ed91335bb8f546b4",
+      "pageText": " Albumblatt in E minor, by E. Grieg (1843–1907) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Albumblatt in E minor by E. Grieg (1843–1907) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: Op 12, No 7 Date of composition: 1867 Source: G. Schirmer, Inc. 1902 Copyright: Creative Commons Attribution-ShareAlike 4.0 Last updated: 2017/Oct/15. View change history Music ID Number: Mutopia-2017/10/15-2194 Typeset using: LilyPond , version 2.19.65 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Knute Snortum knute (at) snortum (dot) net Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by-sa/4.0/"
+      ]
+    },
+    {
+      "id": 2014,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2014",
+      "pdf": "https://www.mutopiaproject.org/ftp/GriegE/O54/Troldtog/Troldtog-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/GriegE/O54/Troldtog/Troldtog.ly",
+      "pdfMagic": true,
+      "bytes": 279114,
+      "sha256": "6d7579470564b898bfb7599d97efd0347b96de2c42a437e3bc1b1a6689a9cf32",
+      "pageText": " Troldtog (March of the Dwarfs), by E. Grieg (1843–1907) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Troldtog (March of the Dwarfs) by E. Grieg (1843–1907) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: Op. 54, No. 3 Date of composition: Not known Source: C.F. Peters, n.d.(ca.1891) Copyright: Public Domain Last updated: 2015/Jun/14. View change history Music ID Number: Mutopia-2015/06/14-2014 Typeset using: LilyPond , version 2.18.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Changed a few 'molto cresc.' and one 'dim.' for easier reading. Maintainer: Anonymous beybladepiano (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 1647,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1647",
+      "pdf": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no3/liszt-consolation-no3-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no3/liszt-consolation-no3.ly",
+      "pdfMagic": true,
+      "bytes": 234195,
+      "sha256": "b64cfc43dce292371ee9bab0fafe138a589791b641cf921e956a11f5c1efab78",
+      "pageText": " Consolation, S.172 No.3, by F. Liszt (1811–1886) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Consolation, S.172 No.3 by F. Liszt (1811–1886) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: S.172 Date of composition: Not known Source: Breitkopf & Härtel, 1850 Copyright: Creative Commons Attribution 3.0 Last updated: 2019/Jun/23. View change history Music ID Number: Mutopia-2019/06/23-1647 Typeset using: LilyPond , version 2.18.0 Download: LilyPond file MIDI file A4 PDF files Letter PDF files This file was created from a public domain scan of the work's first edition which is located in the Petrucci Music Library, http://imslp.org/. Maintainer: Ryan Prince rprincerp (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by/3.0/"
+      ]
+    },
+    {
+      "id": 2032,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2032",
+      "pdf": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/01MorningPrayer/01MorningPrayer-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/01MorningPrayer/01MorningPrayer.ly",
+      "pdfMagic": true,
+      "bytes": 182348,
+      "sha256": "4001cb8625c891213fff128e543d3af8559daea75caa94dae8d142f01ded09c7",
+      "pageText": " Morning Prayer, by P. I. Tchaikovsky (1840–1893) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Morning Prayer by P. I. Tchaikovsky (1840–1893) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: Op. 39, No. 1 Date of composition: 1878 Source: Schirmer, 1904 Copyright: Public Domain Last updated: 2015/Jul/09. View change history Music ID Number: Mutopia-2015/07/09-2032 Typeset using: LilyPond , version 2.18.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files with finger notation Maintainer: Rem Zolotykh remchi (at) gmail.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 1806,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1806",
+      "pdf": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/05MarchOfTheWoodenSoldiers/05MarchOfTheWoodenSoldiers-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/05MarchOfTheWoodenSoldiers/05MarchOfTheWoodenSoldiers.ly",
+      "pdfMagic": true,
+      "bytes": 309711,
+      "sha256": "4e408cc23ec5888f5558811f20ad005a1053fefdca750db9abd901f5bc390b73",
+      "pageText": " March of the Wooden Soldiers, by P. I. Tchaikovsky (1840–1893) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search March of the Wooden Soldiers by P. I. Tchaikovsky (1840–1893) SVG music preview image not supported on your browser Instrument(s): Piano Style: March Opus: Op. 39, No. 5 Date of composition: Not known Source: Schirmer, 1904 Copyright: Public Domain Last updated: 2015/Jan/17. View change history Music ID Number: Mutopia-2015/01/17-1806 Typeset using: LilyPond , version 2.18.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Anonymous Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 2080,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2080",
+      "pdf": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong.ly",
+      "pdfMagic": true,
+      "bytes": 163813,
+      "sha256": "e051dabc69b63bf9e665ac8579273a5f2583768ea4c453de8ea138d55fae5c7e",
+      "pageText": " Old French Song, by P. I. Tchaikovsky (1840–1893) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Old French Song by P. I. Tchaikovsky (1840–1893) SVG music preview image not supported on your browser Instrument(s): Piano Style: Classical Opus: Op. 39, No. 16 Date of composition: 1878 Source: Schirmer, 1904 Copyright: Public Domain Last updated: 2015/Nov/27. View change history Music ID Number: Mutopia-2015/11/27-2080 Typeset using: LilyPond , version 2.18.2 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: David McNamara Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 2164,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2164",
+      "pdf": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-10/waltz-op39-10-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-10/waltz-op39-10.ly",
+      "pdfMagic": true,
+      "bytes": 182768,
+      "sha256": "fcb04795e08072c1ac63daea1041b980af7be571e618cbf9b59e9bb826233e22",
+      "pageText": " Waltz No. 10, by J. Brahms (1833–1897) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Waltz No. 10 by J. Brahms (1833–1897) SVG music preview image not supported on your browser Instrument(s): Piano Style: Romantic Opus: Op. 39 Date of composition: 19th C Source: Winterthur & Leipzig: J. Rieter-Biedermann c.1866 Copyright: Public Domain Last updated: 2017/Jan/22. View change history Music ID Number: Mutopia-2017/01/22-2164 Typeset using: LilyPond , version 2.19.49 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: John Mamoun Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    },
+    {
+      "id": 794,
+      "page": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=794",
+      "pdf": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-15/waltz-op39-15-a4.pdf",
+      "lilypond": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-15/waltz-op39-15.ly",
+      "pdfMagic": true,
+      "bytes": 62264,
+      "sha256": "6201700f28c51d9388857fd77acc6b4894535b3753f68628f5492928b08b52d9",
+      "pageText": " Waltz No. 15, by J. Brahms (1833–1897) Toggle navigation Home Browse Search Licensing Contribute In-Progress Contact Advanced Search Waltz No. 15 by J. Brahms (1833–1897) Instrument(s): Piano Style: Romantic Opus: Op. 39 Date of composition: 19th C Source: Ed. R. Joseffy Copyright: Public Domain Last updated: 2006/Jul/30. View change history Music ID Number: Mutopia-2006/07/30-794 Typeset using: LilyPond , version 2.8.5 Download: LilyPond file MIDI file A4 PDF files Letter PDF files Maintainer: Brian D. Rude brianrude (at) hotmail.com http://brianrude.com Disclaimer: The Mutopia Project is run by volunteers, and the material within it is provided \"as-is\". NO WARRANTY of any kind is made, including fitness for any particular purpose. No claim is made as to the accuracy or the factual, editorial or musical correctness of any of the material provided here. ",
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/publicdomain/"
+      ]
+    }
+  ]
+}

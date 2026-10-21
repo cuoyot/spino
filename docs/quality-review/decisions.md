@@ -1,5 +1,9 @@
 # Review decisions and consistency checks
 
+## 2026-10-21 — Acquire new playable catalogue editions
+
+The owner authorizes inclusion of additional works. Added 26 independently downloadable PDF editions with exact edition permission, hashes, complete-page rendering and bundled previews: Burgmüller Op.100 nos.7–18 and Bach BWV773–786. Existing IDs/revisions and notebooks remain unchanged. No invented difficulty or metadata-only candidate enters the app. Source/browser implementation is verified; native packaging and publication remain separate. [Evidence](captures/repertoire/2026-10-21-catalogue-expansion-01/README.md).
+
 ## D-068 — Readable Hanon scores and clear measure boundaries (2026-10-20)
 
 The owner's photograph identifies excessive density and notes touching or crossing bar lines. The correction is authorized; the resulting layout awaits visual feedback. Generated Hanon pages now fit one to four measures per system according to available width, rhythm and notation size. At the reviewed default eighth-note size this gives one measure on a portrait phone, two on a portrait tablet and three on a landscape tablet. Notes use half a rhythmic slot at each measure edge instead of a fixed offset that could exceed the final slot. The clock shares the same linear grid. Continuous scroll uses Hanon's actual note duration rather than unrelated reading-exercise figures.

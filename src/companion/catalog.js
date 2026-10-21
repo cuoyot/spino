@@ -1,8 +1,9 @@
-// Small, reviewed PDF collection. Score viewing/manual tracking only; no inferred difficulty.
+// Reviewed PDF collection. Score viewing/manual tracking only; no inferred difficulty.
 // Edition evidence and source links are retained in exported attachments.
 import { getAppLanguage } from './locale.js';
 import { catalanCopy } from './locale-ca.js';
-export const CATALOG_VERSION = 2;
+import { CATALOGUE_ADDITIONS } from './catalogue-additions.js';
+export const CATALOG_VERSION = 7;
 export const CATALOG = [
   {
     id: 'mutopia-75', title: 'Minueto en Sol mayor · BWV Anh. 114', composer: 'Christian Petzold (atribución indicada en la edición)',
@@ -112,6 +113,7 @@ export const CATALOG = [
     licenseLabel: 'Public Domain · edition dedicated by the typesetter', licenseUrl: 'https://www.mutopiaproject.org/legal.html', reviewed: '2026-09-30',
     downloadEvidence: { checked: '2026-09-30', bytes: 42286, sha256: '55f58753bc8309128bee008fe90c9d2499db79079cd1b4a4d3ae08b6603e7e9d' },
   },
+  ...CATALOGUE_ADDITIONS,
 ].map(item => ({ revision: '1', ...item }));
 
 // Only app-authored practice guidance is translated. Edition credits, source
@@ -150,9 +152,10 @@ const GUIDANCE = {
 };
 
 export function catalogPresentation(item, lang = getAppLanguage()) {
+  const generic = item.canonicalWorkId ? { keyLabel: 'Tonalidad sin clasificar', reason: 'Consulta la vista previa y elige un pasaje corto para practicar.', passage: 'Primera frase. Elige un tempo cómodo y anota los pasajes que quieras repasar.' } : {};
   if (lang === 'ca') {
     const guidance = { keyLabel: item.keyLabel, reason: item.reason, passage: item.passage, ...GUIDANCE[item.id]?.en };
     return { ...item, ...catalanCopy(guidance) };
   }
-  return { ...item, ...GUIDANCE[item.id]?.[lang === 'es' ? 'es' : 'en'] };
+  return { ...item, ...(lang === 'es' ? generic : {}), ...GUIDANCE[item.id]?.[lang === 'es' ? 'es' : 'en'] };
 }

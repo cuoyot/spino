@@ -1,0 +1,53 @@
+{
+  "version": "6.1.1-beta.8",
+  "build": 84,
+  "date": "2026-10-21",
+  "channel": "beta",
+  "stable": {
+    "version": "6.1.0",
+    "build": 76
+  },
+  "googlePlay": {
+    "version": "5.2.3",
+    "build": 35
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.1-beta.8-84-android.apk",
+      "bytes": 53779424,
+      "sha256": "67b46d2092276a004dab6f560cf10a4367652547ef7eb72cdd70780889020491",
+      "platform": "Android beta",
+      "applicationId": "com.miguecoll.spino.beta",
+      "version": "6.1.1-beta.8",
+      "build": 84
+    },
+    {
+      "file": "spino-6.1.1-beta.8-84-android.aab",
+      "bytes": 47973214,
+      "sha256": "170ccf5488a007a08c011ac60d6c507a18e100aeca08f28a4e9e34ff58408a99",
+      "platform": "Android App Bundle",
+      "applicationId": "com.miguecoll.spino",
+      "version": "6.1.1-beta.8",
+      "build": 84
+    },
+    {
+      "file": "spino-6.1.1-beta.8-play-console-handoff.zip",
+      "bytes": 47773164,
+      "sha256": "7ee95dff70e30a765899c6c329ea6261d2cddcac2fec1bc520c70c7e02cd632c",
+      "platform": "Play Console handoff"
+    },
+    {
+      "file": "spino-6.0.0-beta.9-48-ios-simulator.zip",
+      "bytes": 17949806,
+      "sha256": "91586417418eeefb4c659727bdcfca44575ed5dff5826cb79b12d685003036ab",
+      "platform": "iOS Simulator for Mac/Xcode",
+      "version": "6.0.0-beta.9",
+      "build": 48,
+      "unchanged": true
+    }
+  ],
+  "source": {
+    "tag": "v6.1.1-beta.8",
+    "url": "https://github.com/cuoyot/spino/tree/v6.1.1-beta.8"
+  }
+}

@@ -1,5 +1,7 @@
 # Manage your repertoire
 
+The bundled catalogue currently contains 129 score editions: 55 MusicXML/MXL and 74 PDF. It includes all 15 Bach two-part inventions and 15 three-part sinfonias and Burgmüller Op.100 studies 1–18, plus 19 pieces from Schumann’s Album für die Jugend Op.68. Albéniz’s original solo-piano Rumores de la Caleta, Op.71 No.6, is also included. Each edition offers an individual download and a preview; PDF previews show the first page. Different editions or arrangements can represent the same underlying composition. The results show a separate count of identified works; the current conservative count is 106, excluding five unresolved original entries. Open More filters to combine a broad musical period with composer, search, format and download state. Satie is grouped under Early modernism; Debussy under Impressionism. These categories do not imply an edition license or difficulty.
+
 The **My repertoire**, **Catalogue** and **Multimedia** tabs remain visible below the app header as you scroll. Scrolled content stays covered by the navigation band.
 
 Open a piece from **Library → Repertoire** to see its study stage, music-stand membership, musical target, next passage/goal and target tempo. Existing notes and printed tempo remain visible when present.

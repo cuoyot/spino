@@ -1,4 +1,4 @@
-:root { --theme-bg:#14161a; --theme-panel:#1e2127; --theme-raised:#2c3038; --theme-text:#e8eaed; --theme-muted:#9aa0a6; --theme-line:#353941; --theme-border:#414650; --theme-control:#1a202b; --theme-accent:#4f8cff; --theme-link:#9cbfff; --theme-hint:#aeb7c4; --theme-tint:#293344; --theme-selected:#354c70; }
+:root { color-scheme:dark; --theme-bg:#14161a; --theme-panel:#1e2127; --theme-raised:#2c3038; --theme-text:#e8eaed; --theme-muted:#9aa0a6; --theme-line:#353941; --theme-border:#414650; --theme-control:#1a202b; --theme-accent:#4f8cff; --theme-link:#9cbfff; --theme-hint:#aeb7c4; --theme-tint:#293344; --theme-selected:#354c70; }
 :root[data-theme=light] { color-scheme:light; --theme-bg:#f3f5fa; --theme-panel:#ffffff; --theme-raised:#e8edf5; --theme-text:#1e293b; --theme-muted:#526075; --theme-line:#c7d1df; --theme-border:#a8b8cc; --theme-control:#ffffff; --theme-accent:#2563eb; --theme-link:#174da6; --theme-hint:#526075; --theme-tint:#e8f0ff; --theme-selected:#d2e3ff; }
 :root[data-theme=light] #app-shell, :root[data-theme=light] dialog { color-scheme:light; }
 :root[data-theme=light] button:where(:not(.primary):not(#start)), :root[data-theme=light] select, :root[data-theme=light] input, :root[data-theme=light] textarea { color:var(--theme-text); }
@@ -29,3 +29,7 @@
 :root[data-theme=light] .wg-set button[aria-current=step]:not(.primary) { color:#fff; }
 :root[data-theme=light] #app-shell .cp-library-tabs [aria-pressed=true] { color:var(--theme-bg); }
 :root[data-theme=light] .pdf-viewer button:is(.pdf-split-done, .pdf-split [data-pdf=split][aria-pressed=true]) { color:#fff; }
+
+/* Native select popups need an explicit palette as well as the closed control. */
+:is(#app-shell, #cp-dialog) select option,
+:is(#app-shell, #cp-dialog) select optgroup { color:var(--theme-text); background-color:var(--theme-control); }

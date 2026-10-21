@@ -1,0 +1,22 @@
+[
+  {
+    "number": 6,
+    "workId": "albeniz-rumores-caleta-op71-6",
+    "url": "https://www.mutopiaproject.org/ftp/AlbenizIMF/O71/Rumores_de_la-caleta/Rumores_de_la-caleta",
+    "composer": "Isaac Albéniz",
+    "collection": "Recuerdos de viaje, Op. 71",
+    "id": "mutopia-898",
+    "title": "Rumores de la Caleta",
+    "editor": "David Surtees",
+    "editionSource": "Union Musical Española",
+    "footer": "Mutopia-2006/12/29-898",
+    "license": "Public Domain",
+    "pages": 8,
+    "bytes": 153976,
+    "sha256": "6b8eac839458eddb4e1dd463be2b518a48b8f725798fc31cd974a7ade0e16328",
+    "sourceSha256": "43881448fd59b1f6dfe29e595e786d4a9ebbc3ce9920e697808170518b9e8190",
+    "instrumentation": "Piano solo",
+    "sourceURL": "https://www.mutopiaproject.org/ftp/AlbenizIMF/O71/Rumores_de_la-caleta/Rumores_de_la-caleta.ly",
+    "licenseURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=898"
+  }
+]

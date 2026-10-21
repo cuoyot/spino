@@ -211,8 +211,8 @@
         "CAL-05",
         "CAL-07"
       ],
-      "verifiedAgainst": "repertoire/2026-10-19-work-detail-05; library scrolling: repertoire/2026-10-19-sticky-tabs-02; score-only catalogue: repertoire/2026-10-21-score-only-01; compact catalogue and previews: repertoire/2026-10-21-catalogue-rows-01",
-      "coverage": "Source/browser work-action hierarchy, score/recording rows, management menu and shared session summaries verified in both themes, four orientations and narrow 320 px. Build, 20 unit and seven browser checks pass; notebook/score assets retained. Owner/native visual acceptance remains open."
+      "verifiedAgainst": "repertoire/2026-10-19-work-detail-05; library scrolling: repertoire/2026-10-19-sticky-tabs-02; score-only catalogue: repertoire/2026-10-21-score-only-01; compact catalogue and previews: repertoire/2026-10-21-catalogue-rows-01; distinct works and periods: repertoire/2026-10-21-periods-01; beta8 native package: releases/2026-10-21-beta618",
+      "coverage": "Source/browser work-action hierarchy, score/recording rows, management menu and shared session summaries verified in both themes, four orientations and narrow 320 px. Build, 20 unit and seven browser checks pass; notebook/score assets retained. Owner/native visual acceptance remains open. Beta8/build84 includes 106 identified works across 129 editions, combined period/composer search, individual downloads, source instrumentation and first-page previews. Six synthetic app browser regressions and 335 unit checks pass; replacement installation preserves 130 IndexedDB files and all 30 Hanon videos. Physical-device acceptance remains separate."
     }
   ],
   "plannedChapters": [

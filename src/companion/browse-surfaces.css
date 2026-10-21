@@ -229,7 +229,6 @@
 #app-shell .cp-catalogue-icon:hover { background: var(--theme-selected); }
 #app-shell .cp-catalogue-more, #app-shell .cp-catalogue-empty { text-align: center; padding: 20px 0; }
 #app-shell .cp-catalogue-end { text-align: center; color: var(--theme-muted); font-size: 12px; margin: 20px 0; }
-#app-shell .cp-catalogue-tools { margin-top: 24px; font-size: 13px; color: var(--theme-muted); }
 @media (min-width: 700px) {
   #app-shell .cp-catalogue-row { padding-block: 10px; }
   #app-shell .cp-catalogue-piece h2 { font-size: 16px; }

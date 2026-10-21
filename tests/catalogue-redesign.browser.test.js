@@ -8,7 +8,7 @@ import { processScore } from '../src/companion/library-pipeline.js';
 import { mxlFixture } from './musicxml-fixture.js';
 import { bytesToBase64 } from '../src/companion/musicxml-document.js';
 
-const folder='docs/quality-review/captures/repertoire/2026-10-21-catalogue-rows-01';
+const folder=process.env.CATALOGUE_CAPTURE || 'docs/quality-review/captures/repertoire/2026-10-21-periods-01';
 test('compact unified catalogue: continuous scroll, global search, downloaded scores and repertoire lifecycle', {timeout:120000}, async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
@@ -44,14 +44,20 @@ test('compact unified catalogue: continuous scroll, global search, downloaded sc
   await evaluate(`document.querySelector('.cp-page').scrollTop=100000`);
   await wait(`document.querySelectorAll('.cp-catalogue-row').length>=48`);
   await evaluate(`document.querySelector('.cp-page').scrollTop=100000`);
-  await wait(`document.querySelectorAll('.cp-catalogue-row').length===65`);
+  await wait(`document.querySelectorAll('.cp-catalogue-row').length>=72`);
+  await evaluate(`document.querySelector('.cp-page').scrollTop=100000`);
+  await wait(`document.querySelectorAll('.cp-catalogue-row').length>=96`);
+  await evaluate(`document.querySelector('.cp-page').scrollTop=100000`);
+  await wait(`document.querySelectorAll('.cp-catalogue-row').length>=120`);
+  await evaluate(`document.querySelector('.cp-page').scrollTop=100000`);
+  await wait(`document.querySelectorAll('.cp-catalogue-row').length===129`);
   assert.equal(await evaluate(`document.querySelector('[data-action=library-more]')`),null);
   const scroll=await evaluate(`document.querySelector('.cp-page').scrollTop`);
   await evaluate(`document.querySelector('[data-action=library-detail]').click()`);await wait(`document.querySelector('[data-action=catalog]')`);await click('catalog');
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-catalogue-row').length`),65);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-catalogue-row').length`),129);
   assert.equal(await evaluate(`Math.abs(document.querySelector('.cp-page').scrollTop-${scroll})<3`),true);
   await evaluate(`const input=document.querySelector('#catalogue-query');input.focus();input.value='Bach';input.dispatchEvent(new Event('input',{bubbles:true}))`);
-  await wait(`document.querySelector('#library-results').textContent!=='65 partituras'`);
+  await wait(`!document.querySelector('#library-results').textContent.startsWith('129 ')`);
   assert.ok(await evaluate(`document.querySelectorAll('[data-pdf-id]').length>0&&document.querySelectorAll('[data-piece-id]').length>0`));
   assert.equal(await evaluate(`document.activeElement.id`),'catalogue-query');
   await click('library-downloaded');assert.equal(await evaluate(`document.querySelectorAll('.cp-catalogue-row').length`),0);
@@ -63,7 +69,7 @@ test('compact unified catalogue: continuous scroll, global search, downloaded sc
   assert.equal(state.works.filter(w=>w.libraryId===record.piece_id).length,1);
   assert.deepEqual(state.sessions,fixture.data.sessions);
   assert.deepEqual(errors,[]);
-  await writeFile(folder+'/verification.json',JSON.stringify({kind:'responsive browser',syntheticNotebook:true,viewports:4,totalScores:65,initialRows:24,continuousRows:65,globalSearch:true,downloadedFilter:true,repertoireAfterDownload:true,historyPreserved:true,errors},null,2));
+  await writeFile(folder+'/verification.json',JSON.stringify({kind:'responsive browser',syntheticNotebook:true,viewports:4,totalScores:129,initialRows:24,continuousRows:129,globalSearch:true,downloadedFilter:true,repertoireAfterDownload:true,historyPreserved:true,errors},null,2));
 });
 
 test('download actions expose repertoire only after PDF and XML acquisition completes', {timeout:60000}, async t=>{

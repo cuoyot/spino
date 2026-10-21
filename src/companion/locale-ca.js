@@ -1,5 +1,18 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+identified work|obra identificada
+score|partitura
+Period|Període
+All periods|Tots els períodes
+Baroque|Barroc
+Classical|Classicisme
+Romantic|Romanticisme
+Impressionism|Impressionisme
+Early modernism|Primer modernisme
+Unclassified|Sense classificar
+identified works|obres identificades
+Read the score preview and choose a short passage to practise.|Consulta la vista prèvia de la partitura i tria un passatge curt per practicar.
+Opening phrase. Choose a comfortable tempo and annotate the passages you want to revisit.|Primera frase. Tria un tempo còmode i anota els passatges que vulguis repassar.
 Could not load the score preview.|No s’ha pogut carregar la vista prèvia de la partitura.
 Preview score|Vista prèvia de la partitura
 Score preview|Vista prèvia de la partitura

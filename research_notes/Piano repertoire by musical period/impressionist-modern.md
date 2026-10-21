@@ -1,0 +1,87 @@
+# Impressionist and early modern piano repertoire candidates
+
+Research date: 2026-10-21. This is an acquisition backlog, not a list of additions already shipped. Existing Arabesques, Clair de lune, Gymnopédies and Gnossienne No.1 were excluded as requested. The coordinator must still compare all candidates with the current work identities, including translated titles and arrangements.
+
+## Which composers and exact works offer useful next acquisitions?
+
+### Takeaway
+The 18 candidates below span eight composers. Ten have exact score assets opened by the research browser (eight PDFs, because one contains three distinct preludes); one further Debussy score has indexed PDF text and the others have identified edition/file records. None has a new local hash or completed app import in this subtask. The coordinator reports that Gymnopédies Nos.2–3 and Deuxième Arabesque have now been added locally; they remain excluded here.
+
+### Cited Findings
+
+Suggested browse groups are editorial proposals, not exclusive historical classifications: “French impressionism and its surroundings” for Debussy/Ravel; “Early modern French piano” for Satie/Boulanger; “Late Romantic French piano” for Fauré; “Spanish late Romantic and national schools” for Albéniz/Granados; “Ragtime” for Joplin. Satie should not simply be labelled an Impressionist. The sources themselves demonstrate why a single period label is insufficient: Mutopia labels Debussy Romantic and Satie Modern, while the Granados encyclopedia describes both Romantic and nationalist characteristics. [Debussy](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2207), [Satie](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2130), [Granados](https://enc.piano.or.jp/en/persons/68).
+
+All 18 selected versions are for piano solo; the ensemble alternatives found on the same repository pages are not substitutes.
+
+| # | Composer; distinct work identity | Exact edition / score asset and reuse evidence | Acquisition status |
+|---|---|---|---|
+| 1 | Claude Debussy: Danseuses de Delphes, Préludes I, CD125/L117 No.1 | Javier Ruiz-Alma engraving, Mutopia-2017/11/06-2207, based on Durand 1910; CC BY-SA 4.0. [Edition record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2207); [shared PDF](https://www.mutopiaproject.org/ftp/DebussyC/L117/debussy-L117-prels/debussy-L117-prels-a4.pdf). | PDF opened and parsed, 13 pages overall; this piece starts printed p.3. Needs exact extraction and preserved attribution. |
+| 2 | Debussy: Voiles, Préludes I, CD125/L117 No.2 | Same Ruiz-Alma edition and license. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2207); [shared PDF](https://www.mutopiaproject.org/ftp/DebussyC/L117/debussy-L117-prels/debussy-L117-prels-a4.pdf). | PDF opened; starts printed p.5. |
+| 3 | Debussy: Le vent dans la plaine, Préludes I, CD125/L117 No.3 | Same Ruiz-Alma edition and license. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2207); [shared PDF](https://www.mutopiaproject.org/ftp/DebussyC/L117/debussy-L117-prels/debussy-L117-prels-a4.pdf). | PDF opened; starts printed p.9. |
+| 4 | Debussy: Les sons et les parfums tournent dans l’air du soir, Préludes I, CD125/L117 No.4 | Knute Snortum engraving, Mutopia-2015/03/25-2002; Durand 1910 source; CC BY-SA 4.0. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2002); [PDF](https://www.mutopiaproject.org/ftp/DebussyC/L117/L117-prel-4/L117-prel-4-a4.pdf). | Search index parsed actual PDF text including title and attribution; download/hash/render still pending. |
+| 5 | Maurice Ravel: Sonatine, M.40, complete three-movement work | Paris: A. Durand, 1905, plate D.&F.6624; institutional record says public domain. [Sibley record](https://urresearch.rochester.edu/institutionalPublicationPublicView.action?institutionalItemVersionId=19375), [persistent handle](https://hdl.handle.net/1802/19808), [exact PDF](https://urresearch.rochester.edu/fileDownloadForInstitutionalItem.action?itemFileId=65564&itemId=19735), [repository license](https://urresearch.rochester.edu/viewItemRepositoryLicense.action?version=1&versionedLicenseId=2). | Exact PDF opened, 15 pages. Repository PD claim is not worldwide territorial clearance. Count as one complete work, not three new works. |
+| 6 | Erik Satie: Gnossienne No.2 (1890; no opus supplied) | Frédéric Duperray engraving, Mutopia-2016/08/17-2130; source Paris: Rouart, Lerolle & Cie., 1913, plates R.L.9884–9886; CC BY-SA 4.0. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2130); [PDF](https://www.mutopiaproject.org/ftp/SatieE/Gnossienne/no_2/no_2-a4.pdf). | Exact PDF opened, 2 pages. |
+| 7 | Satie: Gnossienne No.3 (1890) | Same editor/source/license, Mutopia-2016/08/17-2131. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2131); [PDF](https://www.mutopiaproject.org/ftp/SatieE/Gnossienne/no_3/no_3-a4.pdf). | Exact PDF opened, 2 pages. |
+| 8 | Satie: Celle qui parle trop, Chapitres tournés en tous sens No.1 (1913) | Knute Snortum engraving, Mutopia-2015/06/23-2025; Paris: E. Demets 1913, plate E.1113 D.; CC BY-SA 4.0. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2025); [PDF](https://www.mutopiaproject.org/ftp/SatieE/Chapitres/Celle/Celle-a4.pdf). | Exact PDF opened, 3 pages. Keep the collection relationship rather than counting the whole collection again. |
+| 9 | Isaac Albéniz: Rumores de la Caleta, Recuerdos de viaje Op.71 No.6 | David Surtees engraving, Mutopia-2006/12/29-898; Unión Musical Española source; public-domain dedication. Mutopia gives Op.71, not the individual number, so verify No.6 against the title page before import. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=898); [PDF](https://www.mutopiaproject.org/ftp/AlbenizIMF/O71/Rumores_de_la-caleta/Rumores_de_la-caleta-a4.pdf). | Exact PDF opened, 8 pages; engraving rights explicit, historical source year absent. |
+| 10 | Scott Joplin: Bethena, A Concert Waltz (1905; no opus) | Magnus Lewis-Smith engraving, Mutopia-2015/03/25-463; record identifies original manuscript; public-domain dedication. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=463); [PDF](https://www.mutopiaproject.org/ftp/JoplinS/bethena/bethena-a4.pdf). | Exact PDF opened, 6 pages. |
+| 11 | Joplin: Solace, A Mexican Serenade (1909; no opus) | Magnus Lewis-Smith engraving, Mutopia-2015/01/25-482; original manuscript 1909 source; public-domain dedication. [Record](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=482); [PDF](https://www.mutopiaproject.org/ftp/JoplinS/solace/solace-a4.pdf). Historical alternative: [Library of Congress 1909 Seminary Music record](https://www.loc.gov/resource/music.musihas-200033276/). | Mutopia PDF opened, 4 pages. LOC item request returned 403; do not imply LOC file checked. |
+| 12 | Lili Boulanger: D’un vieux jardin, Trois morceaux No.1, ILB8 | Mark Pearse typesetting, MuseScore 2019, CC0 1.0; exact PDF IMSLP #849040 and MXL #849041. [Edition/file records](https://imslp.org/wiki/3_Morceaux_(Boulanger,_Lili)); [MXL permlink](https://imslp.org/wiki/File:PMLP32360-Dun_vieux_jardin_-_Lili_Boulanger.mxl). | Metadata located, binary not fetched; permlink hit bot check. Modern editor’s explicit dedication is useful but underlying composition/edition provenance still requires verification. |
+| 13 | Boulanger: D’un jardin clair, Trois morceaux No.2, ILB8 | Mark Pearse typesetting, MuseScore 2019, CC BY 4.0; exact PDF #849038 and MXL #849039. [Edition/file records](https://imslp.org/wiki/3_Morceaux_(Boulanger,_Lili)); [editor’s source](https://musescore.com/user/788211/scores/5766195); [MXL permlink](https://imslp.org/wiki/File:PMLP32360-Dun_Jardin_Clair_-_Lili_Boulanger.mxl). | Metadata and original editor page located; no parsed binary. Crucially, do not confuse orchestral arrangement #849150 with solo piano #849038. |
+| 14 | Boulanger: Cortège, Trois morceaux No.3, ILB8 | Mark Pearse typesetting, MuseScore 2019, CC0 1.0; exact PDF #849042 and MXL #849043. [Edition/file records](https://imslp.org/wiki/3_Morceaux_(Boulanger,_Lili)); [MXL permlink](https://imslp.org/wiki/File:PMLP32360-Cortge_for_piano_-_Lili_Boulanger.mxl). | Metadata located, binary not fetched. Piano solo version required; do not silently substitute violin/flute and piano. |
+| 15 | Enrique Granados: Danzas españolas No.4, Villanesca (often Op.37; DLR I:2 collection) | Historical acquisition lead: Barcelona Juan Bta. Pujol & Cª., c.1892, plates P.19 C.(a–c), Vol.II Nos.4–6, UME reprint after1914; Sibley-mirrored PDF IMSLP #262615. [Edition record](https://imslp.org/wiki/12_Danzas_espa%C3%B1olas_(Granados,_Enrique)). Primary institutional collection confirmation: [Cervantes/Fundación Albéniz UME catalog record](https://www.cervantesvirtual.com/obra/danzas-espanolas-1144101/), [SGAE Vol.II](https://archivo.sgae.es/heritageobject/danzas-espanolas--vol-ii--e-granados/). | Candidate only. No exact institutional binary or item-level reuse license checked. The Cervantes page is metadata, not a downloadable score. |
+| 16 | Granados: Danzas españolas No.5, Andaluza | Same historical Vol.II acquisition lead and rights gap. [Edition record](https://imslp.org/wiki/12_Danzas_espa%C3%B1olas_(Granados,_Enrique)); [primary institutional catalog](https://www.cervantesvirtual.com/obra/danzas-espanolas-1144101/). | Candidate only; retain dance number to resolve title variants and unreliable opus labels. |
+| 17 | Gabriel Fauré: Romance sans paroles Op.17 No.1, Andante quasi allegretto | Historical acquisition lead: Paris J. Hamelle, c.1878, plates J.1695–1697 H.; first-edition solo-piano set, PDF IMSLP #09675, MIT archive provenance, listed PD. [Edition record](https://imslp.org/wiki/3_Romances_sans_paroles,_Op.17_(Faur%C3%A9,_Gabriel)). Primary research-institute confirmation that the solo-piano set is distinct from other versions: [IReMus volume description](https://www.iremus.cnrs.fr/node/1324). | Candidate only: exact historical binary and primary item-level reuse claim pending. Do not reuse the modern IReMus critical edition merely because its description is public. |
+| 18 | Fauré: Romance sans paroles Op.17 No.3, Andante moderato | Same Hamelle first-edition set; alternatively New York: University Society 1910, 2-page solo piece, PDF IMSLP #00548. [Edition record](https://imslp.org/wiki/3_Romances_sans_paroles,_Op.17_(Faur%C3%A9,_Gabriel)); [IReMus primary description](https://www.iremus.cnrs.fr/node/1324). | Candidate only; no exact institutional binary checked. LOC search result was a Salabert theater-orchestra arrangement, excluded. |
+
+### Inferences
+- Suggested first acquisition batch: Satie Nos.2–3 + Celle qui parle trop; Albéniz Rumores; Joplin Bethena and Solace; four Debussy preludes. These ten distinct works have unusually explicit engraving provenance. The order prioritizes identifiable editions, not difficulty.
+- Boulanger offers three particularly useful XML candidates, but they are not yet acquisition-ready: resolve binary access, check notation fidelity and retain exact editor/license metadata.
+- Granados/Fauré/Ravel diversify composer coverage, but are the next verification queue, not guaranteed cleared additions.
+
+### Gaps
+- Actual completeness, measure content, readability, hashes, download behavior and app previews remain to be verified locally for every candidate.
+- Existing catalog deduplication has not been performed by this subtask; e.g. Joplin works may already have another edition or translated title.
+- Albéniz source publication year and its Op.71 No.6 identity need title-page/catalog confirmation before committing metadata.
+- Granados title/opus practice differs between later publications; number within the 12 dances is the essential key. Historical first-edition dates are approximate in records; do not invent a precise year.
+
+## What rights evidence is sufficient for an unrestricted public app?
+
+### Takeaway
+An explicit license on the exact new engraving is stronger than a generic public-domain assertion about a composer. It still cannot license rights in an underlying composition that remain protected in a destination territory.
+
+### Cited Findings
+- Mutopia allows redistribution and modification and explains its score licenses. For CC BY-SA engravings, preserve named contributor attribution, source/license links, revision identity and an indication of changes; derivative scores/previews must respect applicable share-alike terms. [Mutopia licensing](https://www.mutopiaproject.org/legal.html), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+- The exact Sibley Sonatine record asserts public-domain status, but the linked repository deposit agreement must not be mistaken for a worldwide license from every underlying rightsholder. [Item](https://hdl.handle.net/1802/19808), [repository license](https://urresearch.rochester.edu/viewItemRepositoryLicense.action?version=1&versionedLicenseId=2).
+- Spain retains the older duration regime for authors who died before 7 December1987; the BOE’s intellectual-property code explicitly explains the 80-year post-mortem transitional term. [Current consolidated statute](https://www.boe.es/eli/es/rdlg/1996/04/12/1/con), [BOE intellectual-property code](https://www.boe.es/biblioteca_juridica/codigos/pdf/087_Codigo_de_Propiedad_Intelectual_.pdf).
+- French legislation contains wartime extension provisions; therefore French music needs a territorial check rather than a blanket “70 years since death” rule. [Code de la propriété intellectuelle L123-9](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006278951/2018-08-28). This note does not calculate the applicable extension/jurisprudence for each work.
+- Some Boulanger files are modern scholarly editions or 1979 reprints with copyright claims; the explicitly licensed Mark Pearse versions are different assets, not blanket permission to use every file on the page. [File-level records](https://imslp.org/wiki/3_Morceaux_(Boulanger,_Lili)).
+- The Fundación Albéniz/Cervantes page advertises open catalog data, not score reuse. The Alicia de Larrocha archive’s modern Henle2019 Granados record permits copying for study/research, which does not establish unrestricted app redistribution. [Cervantes catalog](https://www.cervantesvirtual.com/obra/danzas-espanolas-1144101/), [Henle2019 record and restrictions](https://fondo.aliciadelarrocha.com/en/recurs/1392).
+
+### Inferences
+- Do not mark any candidate “worldwide cleared” from this research alone. For each imported asset, document composition territory, edition/editor, file provenance, commercial redistribution terms, required credits and any changes.
+- No NC asset is proposed. No paid Henle scan or proprietary difficulty data is proposed. The compatible CC licenses apply to individual score assets; do not assume they require relicensing unrelated app source code.
+
+### Gaps
+- French wartime extension calculations, potential exceptions and exact worldwide availability were not adjudicated here. Ravel in particular stays pending rather than being approved solely because he died1937.
+- Gallica scans surfaced for Boulanger manuscripts but their digitization reuse terms were not checked here; avoid copying those files as a shortcut around the licensed typesetting.
+
+## What concrete checks should precede an import?
+
+### Takeaway
+Create one canonical work identity and attach editions to it. The following checks are proposed implementation gates; they are not claims that any candidate has passed them.
+
+### Cited Findings
+- The advertised “Debussy Préludes, Book1” download contains only Nos.1–3: its actual 13-page PDF table of contents lists Danseuses, Voiles and Le vent. Do not advertise12 works from this file. [Exact PDF and TOC](https://www.mutopiaproject.org/ftp/DebussyC/L117/debussy-L117-prels/debussy-L117-prels-a4.pdf).
+- Boulanger repository entries distinguish three compositions, solo-piano scores, MusicXML files, ensemble arrangements, audio and modern editions. License attribution is grouped per edition, not per composer. [Score/file listing](https://imslp.org/wiki/3_Morceaux_(Boulanger,_Lili)).
+- The Ravel institutional file is15 pages; the work is a complete sonatine rather than15 independent pieces. [Sibley item](https://hdl.handle.net/1802/19808).
+
+### Inferences
+1. Reconcile composer, canonical title, thematic catalog/opus and number, instrumentation and collection relationship with the existing local catalog before counting an addition.
+2. Fetch the exact PDF/XML, record final URL, byte length and SHA-256; validate format and full content. Metadata-only/bot-check HTML is a failed fetch.
+3. Render first and last pages plus representative middle pages; for extracted pieces record page boundaries and preserve attribution/license.
+4. Confirm asset-specific rights and geography, then generate preview and only publish the verified record. Keep research and unresolved candidates outside the app.
+5. Count distinct compositions separately from editions, translations and arrangements. Do not split movements merely to increase the work count.
+
+### Gaps
+- This subtask changed no app files, fetched no local score binaries, assigned no difficulty ratings and published no candidate. PDF parsing above refers to the web tool’s opened score payloads, not signed local validation evidence.

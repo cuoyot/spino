@@ -17,7 +17,7 @@ test('catalogue tabs preserve a planned draft and add a downloaded PDF without s
   await action('calendar');await action('add-on-day');await action('plan-practice');
   await evaluate(`document.querySelector('[name="minutes-0"]').value='17';document.querySelector('[name="bpm-0"]').value='90'`);
   await action('choose-catalogue');await wait(`document.querySelector('#library-search')`);
-  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^65 /);
+  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^129 /);
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=library-practice]').length`),0,'unacquired cards offer downloading, not a disabled practice action');
   assert.equal(await evaluate(`!!document.querySelector('[data-action=select-catalogue-pdf]')`),false);
   assert.equal(await evaluate(`!!document.querySelector('[data-action=library-research]')`),false);
@@ -27,14 +27,15 @@ test('catalogue tabs preserve a planned draft and add a downloaded PDF without s
   assert.equal(await evaluate(`document.querySelector('[name="minutes-0"]').value`),'17');
   assert.equal(await evaluate(`document.querySelector('[name="bpm-0"]').value`),'90');
   await action('choose-catalogue');await action('library-pdfs');
-  assert.equal(await evaluate(`document.querySelectorAll('[data-action=download-piece]').length`),CATALOG.length-1);
+  assert.equal(await evaluate(`document.querySelectorAll('[data-action=download-piece]').length`),24);
+  await action('library-downloaded');
   await action('select-catalogue-pdf');await wait(`document.querySelector('#prepare-form')`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-block').length`),2);
   assert.equal(await evaluate(`document.querySelector('[name=context]').value`),'piano');
   assert.equal(await evaluate(`[...document.querySelectorAll('[name^=minutes-]')].reduce((sum,field)=>sum+Number(field.value),0)`),17,'adding a score preserves the selected total duration');
   assert.equal(await evaluate(`document.querySelector('[name="bpm-0"]').value`),'90');
   const workId=await evaluate(`document.querySelector('[name="workId-1"]').value`);assert.ok(workId);
-  await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="1"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);await action('library-pdfs');await action('select-catalogue-pdf');await wait(`document.querySelector('#prepare-form')`);
+  await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="1"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);await action('library-pdfs');await action('library-downloaded');await action('select-catalogue-pdf');await wait(`document.querySelector('#prepare-form')`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-block').length`),2);
   assert.equal(await evaluate(`document.querySelector('[name="workId-1"]').value`),workId);
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('#cp-dialog[open] form')`);

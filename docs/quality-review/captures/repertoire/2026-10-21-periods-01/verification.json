@@ -1,0 +1,13 @@
+{
+  "kind": "responsive browser",
+  "syntheticNotebook": true,
+  "viewports": 4,
+  "totalScores": 129,
+  "initialRows": 24,
+  "continuousRows": 129,
+  "globalSearch": true,
+  "downloadedFilter": true,
+  "repertoireAfterDownload": true,
+  "historyPreserved": true,
+  "errors": []
+}

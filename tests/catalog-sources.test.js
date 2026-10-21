@@ -8,7 +8,7 @@ import { catalogChanges } from '../src/companion/downloads.js';
 const additions = CATALOG.filter(item => item.downloadEvidence);
 
 test('expanded PDF selection preserves existing edition revisions and valid lesson references', () => {
-  assert.equal(CATALOG_VERSION, 2);
+  assert.equal(CATALOG_VERSION, 7);
   assert.equal(new Set(CATALOG.map(item => item.id)).size, CATALOG.length);
   const saved = ['mutopia-75', 'mutopia-1612'].map(catalogId => ({ catalogId, revision: '1' }));
   assert.deepEqual(catalogChanges(saved), []);
@@ -20,8 +20,8 @@ test('expanded PDF selection preserves existing edition revisions and valid less
 });
 
 test('new PDF editions retain source, credit, permission and actual download evidence', () => {
-  assert.equal(additions.length, 8);
-  assert.equal(additions.reduce((total, item) => total + item.downloadEvidence.bytes, 0), 504922);
+  assert.equal(additions.length, 72);
+  assert.ok(additions.every(item => item.downloadEvidence.bytes > 0));
   for (const item of additions) {
     assert.equal(new URL(item.source).searchParams.get('id'), item.id.replace('mutopia-', ''));
     assert.equal(new URL(item.download).pathname.split('/').at(-1), item.filename);

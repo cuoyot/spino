@@ -1,0 +1,50 @@
+[
+  {
+    "theme": "dark",
+    "options": [
+      {
+        "text": "Todos los formatos",
+        "color": "rgb(232, 234, 237)",
+        "background": "rgb(26, 32, 43)",
+        "scheme": "dark"
+      },
+      {
+        "text": "MusicXML",
+        "color": "rgb(232, 234, 237)",
+        "background": "rgb(26, 32, 43)",
+        "scheme": "dark"
+      },
+      {
+        "text": "PDF",
+        "color": "rgb(232, 234, 237)",
+        "background": "rgb(26, 32, 43)",
+        "scheme": "dark"
+      }
+    ],
+    "maintenance": 0
+  },
+  {
+    "theme": "light",
+    "options": [
+      {
+        "text": "Todos los formatos",
+        "color": "rgb(30, 41, 59)",
+        "background": "rgb(255, 255, 255)",
+        "scheme": "light"
+      },
+      {
+        "text": "MusicXML",
+        "color": "rgb(30, 41, 59)",
+        "background": "rgb(255, 255, 255)",
+        "scheme": "light"
+      },
+      {
+        "text": "PDF",
+        "color": "rgb(30, 41, 59)",
+        "background": "rgb(255, 255, 255)",
+        "scheme": "light"
+      }
+    ],
+    "maintenance": 0
+  }
+]

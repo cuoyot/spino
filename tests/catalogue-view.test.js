@@ -11,8 +11,8 @@ const library = await importLibrary({ read: path => readFile(`Exercises_Library/
 const xml = catalogueRecords(library).find(record => record.assets.length);
 test('one catalogue searches both formats, sorts titles and excludes research', () => {
   const items = catalogueItems(library);
-  assert.equal(items.length,65);
-  assert.equal(items.filter(item=>item.format==='pdf').length,10);
+  assert.equal(items.length,129);
+  assert.equal(items.filter(item=>item.format==='pdf').length,74);
   const bach = catalogueItems(library,{}, {query:'Bach'});
   assert.ok(bach.some(item=>item.format==='pdf'));
   assert.ok(bach.some(item=>item.format==='musicxml'));
@@ -63,4 +63,32 @@ test('every PDF has a bundled first-page preview with exact edition and licence 
     assert.equal(bytes.readUInt32BE(0),0x89504e47);
     if(item.downloadEvidence)assert.equal(preview.pdfSha256,item.downloadEvidence.sha256);
   }
+});
+
+test('composition count merges editions and movements and excludes unresolved identities', async () => {
+  const {catalogueWorkCount,catalogueWorkId}=await import('../src/companion/catalogue-identity.js');
+  const items=catalogueItems(library);
+  assert.equal(catalogueWorkCount(items),106);
+  assert.equal(items.filter(item=>!catalogueWorkId(item)).length,5);
+  const elise=items.filter(item=>/elise/i.test(item.title));
+  assert.equal(elise.length,4);assert.equal(catalogueWorkCount(elise),1);
+  const minuet=items.filter(item=>catalogueWorkId(item)==='petzold-minuet-bwv-anh114');
+  assert.equal(minuet.length,3);assert.equal(catalogueWorkCount(minuet),1);
+  const moonlight=items.filter(item=>/moonlight/i.test(item.title));
+  assert.equal(moonlight.length,3);assert.equal(catalogueWorkCount(moonlight),1);
+  assert.match(catalogueMarkup(library),/106 identified works/);
+});
+
+test('period and composer filters combine without reclassifying source credits', () => {
+  const classical=catalogueItems(library,{}, {period:'classical'});
+  assert.ok(classical.some(item=>item.composer==='Ludwig van Beethoven'));
+  assert.ok(classical.some(item=>item.composer==='Wolfgang Amadeus Mozart'));
+  const mozart=catalogueItems(library,{}, {period:'classical',composer:'Wolfgang Amadeus Mozart'});
+  assert.ok(mozart.length>0);assert.ok(mozart.every(item=>item.composer==='Wolfgang Amadeus Mozart'));
+  assert.ok(catalogueItems(library,{}, {period:'impressionist'}).every(item=>item.composer==='Claude Debussy'));
+  assert.equal(catalogueItems(library,{}, {period:'impressionist',composer:'Erik Satie'}).length,0);
+  assert.ok(catalogueItems(library,{}, {period:'modern',composer:'Erik Satie'}).length>=4);
+  const albeniz=catalogueItems(library,{}, {period:'romantic',composer:'Isaac Albéniz'});
+  assert.equal(albeniz.length,1);assert.equal(albeniz[0].record.instrumentation,'Piano solo');
+  assert.equal(albeniz[0].record.downloadEvidence.pages,8);
 });

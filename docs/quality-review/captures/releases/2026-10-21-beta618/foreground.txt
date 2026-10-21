@@ -1,0 +1,2 @@
+topResumedActivity=ActivityRecord{ee80ebf u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t142}
+ResumedActivity: ActivityRecord{ee80ebf u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t142}

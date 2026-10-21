@@ -1,0 +1,5 @@
+# Beta8 catalogue website
+
+21 October 2026. Dedicated catalogue section in Spanish, English and Catalan. It states the verified 106 identified works /129 edition count, 55 XML/MXL and74 PDF split, previews, period/composer search, individual acquisition, offline availability and original solo-piano Albéniz example. New screenshot assets show actual beta8 browser UI using isolated synthetic notebooks; source images are under app/ and public derivatives under scripts/site/catalogue-images/. The existing stable gallery remains labeled stable.
+
+Three app-capture browser tests and three website regressions pass. Site catalogue captures cover phone/tablet portrait/landscape in all three languages, with no document overflow and all nine localized screenshots loading. Signed APK/AAB/ZIP metadata and exact byte hashes are verified locally. The native replacement-install proof is under releases/2026-10-21-beta618; native installed app data was not used for website images. Public deployment verification is recorded separately in the beta8 publication manifest.
