@@ -12,6 +12,7 @@ import tempfile
 import urllib.parse
 
 version, commit = sys.argv[1:3]
+provider_path = next((arg.split('=', 1)[1] for arg in sys.argv[3:] if arg.startswith('--provider-evidence=')), None)
 root = pathlib.Path(__file__).resolve().parents[2]
 origin = 'https://spinoapp.com/'
 manifest_path = f'downloads/spino-{version}-checksums.json'
@@ -19,12 +20,24 @@ manifest = json.loads((root / 'site' / manifest_path).read_text())
 sha = lambda data: hashlib.sha256(data).hexdigest()
 
 def fetch(url, max_seconds=30):
-    return subprocess.run(['curl', '-fsSL', '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', str(max_seconds), url], check=True, capture_output=True).stdout
+    # A retry must replace a partial download, never append it to captured stdout.
+    for attempt in range(3):
+        try:
+            with tempfile.NamedTemporaryFile() as download:
+                subprocess.run(['curl', '-fsSL', '--connect-timeout', '10', '--max-time', str(max_seconds), '-o', download.name, url], check=True, capture_output=True)
+                return pathlib.Path(download.name).read_bytes()
+        except subprocess.CalledProcessError:
+            if attempt == 2:
+                raise
+            time.sleep(2)
 
 previous_status = None
 for attempt in range(40):
-    checks = json.loads(fetch(f'https://api.github.com/repos/cuoyot/spino/commits/{commit}/check-runs'))
+    checks = json.loads(pathlib.Path(provider_path).read_text()) if provider_path else json.loads(fetch(f'https://api.github.com/repos/cuoyot/spino/commits/{commit}/check-runs'))
     deployment = next((c for c in checks.get('check_runs', []) if c['name'] == 'Workers Builds: spino'), None)
+    if provider_path:
+        assert deployment and deployment.get('head_sha') == commit, 'Saved authenticated provider evidence must bind this exact full SHA'
+        assert deployment['status'] == 'completed' and deployment['conclusion'] == 'success', 'Saved provider evidence must prove a completed successful build'
     status = (deployment.get('status'), deployment.get('conclusion')) if deployment else ('waiting', None)
     if status != previous_status:
         print('Cloudflare deployment:', status, flush=True)
@@ -99,5 +112,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     images = list(executor.map(verify_image, sorted(image_paths)))
 
 result = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'version': version, 'build': manifest['build'], 'websiteCommit': commit, 'tag': 'v' + version, 'languagePages': pages, 'manifestSHA256': sha(actual_manifest), 'downloads': downloads, 'websiteImages': images, 'languagePagesWithoutCacheQueryVerified': True, 'deployment': {'provider': 'Cloudflare Workers Builds', 'check': deployment['name'], 'status': deployment['status'], 'conclusion': deployment['conclusion'], 'detailsURL': deployment['details_url']}, 'nativeEvidence': json.loads((root / f'docs/releases/{version}-validation.json').read_text())['nativeEvidence'], 'physicalDeviceAcceptance': False}
+if provider_path:
+    result['deployment']['authenticatedConnectorEvidence'] = {'file': provider_path, 'sha256': sha(pathlib.Path(provider_path).read_bytes()), 'headSHA': deployment['head_sha']}
 (root / f'docs/releases/{version}-publication.json').write_text(json.dumps(result, indent=2) + '\n')
 print(f'Public verification passes: {len(pages)} language pages, manifest, {len(downloads)} downloads and {len(images)} images.', flush=True)

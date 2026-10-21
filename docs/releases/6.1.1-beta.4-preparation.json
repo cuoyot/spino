@@ -1,7 +1,7 @@
 {
   "version": "6.1.1-beta.4",
   "build": 80,
-  "status": "expanded_apk_validated_publication_pending",
+  "status": "expanded_beta_validated_published_and_publicly_verified",
   "requestedDeliverables": [
     "APK",
     "website"
@@ -9,10 +9,9 @@
   "newAABRequired": false,
   "acceptedPilot": "Hanon No. 1 inside the app",
   "preservedPilotArtifacts": "artifacts/hanon-no1-app-review-2026-10-20/",
-  "remaining": [
-    "Selective release commit and website publication",
-    "Real public localized page, APK hash and range verification"
-  ],
+  "remaining": [],
   "continuation": "output/app-hanon-2-10-2026-10-20/CONTINUATION.md",
-  "websiteStatus": "beta3_build79_remains_published"
+  "websiteStatus": "6.1.1-beta.4_build80_publicly_verified",
+  "verifiedAt": "2026-10-21T06:02:56.706825+00:00",
+  "publicationEvidence": "docs/releases/6.1.1-beta.4-publication.json"
 }

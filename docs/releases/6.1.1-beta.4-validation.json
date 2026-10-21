@@ -18,8 +18,9 @@
     "fail": 0
   },
   "siteChecks": {
-    "pass": 3,
-    "fail": 0
+    "pass": 4,
+    "fail": 0,
+    "includes": "498MB/24partstreamhash and completepartnativepipe assertion"
   },
   "androidBuild": "assembleDebug and testDebugUnitTest passed; existing beta signing certificate verified",
   "packagedWebFilesMatch": 6510,
@@ -45,8 +46,9 @@
     "packagedWebFilesByteMatched": 6510,
     "newAABBuilt": false
   },
-  "websitePublication": "pending real public verification",
+  "websitePublication": "verified: fullSHA provider success,3localizedpages,5downloads,34images,exact498MBAPKsha256/bytes/3HTTP206ranges and cinematicfilm",
   "stableWebsiteUnchanged": "6.1.0 (76)",
   "googlePlayUnchanged": "5.2.3 (35)",
-  "cleanup": "Separate recoverable archive plan; no external files moved."
+  "cleanup": "Separate recoverable archive plan; no external files moved.",
+  "publicationEvidence": "6.1.1-beta.4-publication.json"
 }

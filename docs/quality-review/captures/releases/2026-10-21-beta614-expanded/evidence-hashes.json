@@ -15,6 +15,10 @@
     "bytes": 447019,
     "sha256": "7bae25c2cd935da3fd41b5ca734f568aaa573301a22e7f6584fb68fff81ca625"
   },
+  "public-verification.log": {
+    "bytes": 131,
+    "sha256": "4539142671629a9c7c4031b5f3e40e7c042e4afd63ba466ed3b0ab396405aaeb"
+  },
   "hanon-6-both-735-android.png": {
     "bytes": 454200,
     "sha256": "30688ac6fbf36b5cfcb37d58bd8142a187e006595b844501e57ce25c99c6e588"
@@ -59,6 +63,10 @@
     "bytes": 444359,
     "sha256": "b85fffe6afca79cfe0a138c4080ef95b33cbb84d6dc14ad69c180788c9f5c647"
   },
+  "public-film-verification.json": {
+    "bytes": 260,
+    "sha256": "7324634f35c081f4c626cfbd728742038aa1c1ee0422e85f821c2f1945dcbd4b"
+  },
   "download-native-pipe-tests.log": {
     "bytes": 1103,
     "sha256": "839e2b7e87618d129c457e6ac9d5f6f37b5d3eb38fa98da74905fa9e683fef67"
@@ -68,8 +76,8 @@
     "sha256": "167aa24c71e940458faf4b856799fa04fb2c55d03ad2bddd1c9e6789b0608439"
   },
   "README.md": {
-    "bytes": 2607,
-    "sha256": "7d961afa43f1a3815899d1482e9ae288e96c317d2223373d04b8f73c0dee129e"
+    "bytes": 2980,
+    "sha256": "0d8b1bc852637b984f7ec1337c306874c0f50e2647ffe7dba88f2b6a50d00192"
   },
   "hanon-1-both-735-android.png": {
     "bytes": 491667,
@@ -82,6 +90,10 @@
   "hanon-4-both-735-android.png": {
     "bytes": 442738,
     "sha256": "f80cfb036eda56514d2d685545b316a767608a42ae296d3ec8cdde547f0f0eec"
+  },
+  "provider-build-success.json": {
+    "bytes": 4415,
+    "sha256": "17a1e12c56ac6262e3503d5d79855e7c383551e0d7c494627641da37da11a4ba"
   },
   "native-handoff.json": {
     "bytes": 19349,
