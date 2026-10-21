@@ -44,6 +44,50 @@ Use `https://<project>.pages.dev/privacy/` as the Play Console privacy policy UR
 `https://<project>.pages.dev/` as the website. After UI changes: regenerate the screenshots, run
 `node scripts/site/build-site.mjs`, commit and push.
 
+### Search and answer-engine metadata
+
+`scripts/site/seo.mjs` is the source of truth for the production origin (`https://spinoapp.com`),
+canonical URLs, language alternates, JSON-LD, `robots.txt` and `sitemap.xml`. The sitemap contains
+the three SPino landing pages, three Arcade pages and the two privacy pages. Spanish is the
+`x-default` destination for each translated group. Do not add downloads, fragments, preview hosts
+or a build-time `lastmod` to the sitemap.
+
+The English, Spanish and Catalan product descriptions and FAQ answers live in `site-copy.mjs`.
+The visible FAQ and `FAQPage` JSON-LD use the same content. `WebSite`, `WebPage` and
+`SoftwareApplication` describe the actual app; stable download metadata shares `STABLE_RELEASE`
+with the visible download card. Keep Google Play, stable and beta versions distinct. Do not invent
+ratings or reviews to satisfy rich-result validators.
+
+Public crawling is allowed, including search and answer-engine crawlers. Downloads receive
+`X-Robots-Tag: noindex` from both static headers and the download Worker; do not disallow their
+crawl in robots.txt because crawlers must be able to read this header. Images and demonstration
+video remain crawlable. Cloudflare may prepend managed content-signal text to robots.txt, so
+verify the served file and any account-level bot controls after deployment.
+
+Regenerate and validate:
+
+```sh
+node scripts/site/build-site.mjs
+node --test tests/site.test.js tests/site-seo.test.js tests/site-download.test.js
+BROWSER_PATH="/path/to/chromium" node --test tests/site.browser.test.js tests/site-seo.browser.test.js tests/site-release-notes.browser.test.js
+```
+
+The browser suite requires Node with global WebSocket support; Node 20 can use
+`--experimental-websocket`. Set `SPINO_SITE_SEO_EVIDENCE` to a **new** dated directory to save
+responsive browser captures without replacing previous evidence.
+
+After publication, confirm HTTP 200 for the eight sitemap destinations, correct content types for
+robots.txt and sitemap.xml, matching canonical/hreflang URLs, JSON-LD in the returned HTML, and
+a real 404 for missing pages. Submit `https://spinoapp.com/sitemap.xml` in the verified Google
+Search Console and Bing Webmaster Tools properties when access is available. Deployment alone
+does not submit the sitemap to those accounts or prove indexing.
+
+References: [Google AI search guidance](https://developers.google.com/search/docs/appearance/ai-features),
+[localized pages](https://developers.google.com/search/docs/specialty/international/localized-versions),
+[SoftwareApplication](https://schema.org/SoftwareApplication), and [FAQPage](https://schema.org/FAQPage).
+There is no special schema required for AI search. FAQ markup here documents real answers;
+it does not promise a Google FAQ rich result or an AI citation.
+
 ## 3. Create the upload key (once)
 
 Run it yourself in a terminal; it asks for a password that only you should know:

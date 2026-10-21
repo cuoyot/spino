@@ -9,12 +9,12 @@ const parts={'/part-a':payload.slice(0,5),'/part-b':payload.slice(5,12),'/part-c
 const assets={fetch:async request=>new Response(parts[new URL(request.url).pathname]||'static',{status:parts[new URL(request.url).pathname]?200:404})};
 const response=(headers={},method='GET')=>downloadResponse(new Request('https://example.com'+file,{headers,method}),assets,manifest);
 test('large downloads stream the exact artifact and resume across static-part boundaries',async()=>{
- const full=await response();assert.equal(full.status,200);assert.equal(full.headers.get('content-length'),'16');assert.equal(await full.text(),'0123456789abcdef');
+ const full=await response();assert.equal(full.status,200);assert.equal(full.headers.get('content-length'),'16');assert.equal(full.headers.get('x-robots-tag'),'noindex');assert.equal(await full.text(),'0123456789abcdef');
  for(const [range,expected]of [['bytes=3-13','3456789abcd'],['bytes=12-','cdef'],['bytes=-5','bcdef'],['bytes=0-0','0']]){
   const r=await response({Range:range});assert.equal(r.status,206);assert.equal(r.headers.get('content-length'),String(expected.length));assert.equal(await r.text(),expected);
  }
  const head=await response({},'HEAD');assert.equal(await head.text(),'');assert.equal(head.headers.get('content-length'),'16');
- const unchanged=await response({'If-None-Match':'"original-sha"'});assert.equal(unchanged.status,304);
+ const unchanged=await response({'If-None-Match':'"original-sha"'});assert.equal(unchanged.status,304);assert.equal(unchanged.headers.get('x-robots-tag'),'noindex');
  const modified=await response({Range:'bytes=3-13','If-Range':'"older"'});assert.equal(modified.status,200);assert.equal(await modified.text(),'0123456789abcdef');
  for(const range of ['bytes=20-','bytes=8-2','bytes=-0','bytes=1-2,4-5'])assert.equal((await response({Range:range})).status,416);
  assert.equal((await response({},'POST')).status,405);
@@ -29,6 +29,7 @@ test('the published Hanon video plays inline with byte ranges matching its exact
  const respond=headers=>downloadResponse(new Request('https://example.com'+path,{headers}),videoAssets);
  for(const [range,start,end] of [['bytes=0-1',0,1],['bytes=1048576-1048639',1048576,1048639],['bytes=-128',video.byteLength-128,video.byteLength-1]]){
   const r=await respond({Range:range});assert.equal(r.status,206);
+  assert.equal(r.headers.get('x-robots-tag'),null);
   assert.equal(r.headers.get('content-type'),'video/mp4');assert.match(r.headers.get('content-disposition'),/^inline;/);
   assert.equal(r.headers.get('accept-ranges'),'bytes');assert.equal(r.headers.get('content-range'),`bytes ${start}-${end}/${video.byteLength}`);
   assert.deepEqual(new Uint8Array(await r.arrayBuffer()),new Uint8Array(video.subarray(start,end+1)));

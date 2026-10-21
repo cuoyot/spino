@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {COPY} from './site-copy.mjs';
 import {catalogueSection} from './catalogue-section.mjs';
 import {releaseDialog} from './release-history.mjs';
+import {metadata, structuredData, faqSection, localizedPath, enhanceStaticPage, sitemap, ROBOTS, STABLE_RELEASE} from './seo.mjs';
 const OUT = 'site';
 const SHOT_SOURCE='docs/quality-review/captures/website/2026-10-19-stable61-site-04';
 const SHOTS = ['01-today','02-routine','03-repertoire','04-quick-practice','05-quick-result','06-progress','07-multimedia','08-time-details','09-calendar'];
@@ -33,7 +34,7 @@ function downloads(t){
   ca:{stable:'Estable',apk:'APK estable d’Android',betaApk:'APK beta d’Android',notes:'Notes de versió',source:'Codi font',stableSummary:'Gravacions, Google Drive, temps de pràctica i classes.',betaSummary:'106 obres identificades en 129 edicions. Cerca per autor i període, previsualitza i descarrega cada partitura. Inclou piano d’Albéniz i Hanon 1–10 sense connexió.'}
  }[t.lang];
  const card=(channel,title,version,code,summary,apk)=>`<article class="feature" data-channel="${channel}"><h3>${title} · ${version} (${code})</h3><p>${summary}</p><div class="download-actions"><a class="cta" href="${t.root}downloads/spino-${version}-${code}-android.apk" download>${apk}</a><button type="button" class="release-open" data-release-open>${copy.notes}</button></div><div class="download-links"><a href="${t.root}downloads/spino-${version}-checksums.json">SHA-256</a><a href="https://github.com/cuoyot/spino/tree/v${version}">${copy.source}</a>${channel==='stable'?'<a href="https://play.google.com/store/apps/details?id=com.miguecoll.spino">Google Play · 5.2.3 (35)</a>':''}</div></article>`;
- return `<div id="downloads">${card('stable',copy.stable,'6.1.0','76',copy.stableSummary,copy.apk)}${card('beta','Beta','6.1.1-beta.8','84',copy.betaSummary,copy.betaApk)}</div>`;
+ return `<div id="downloads"><h2>${t.downloadsTitle}</h2><p class="download-note">${t.ctaNote}</p>${card('stable',copy.stable,STABLE_RELEASE.version,STABLE_RELEASE.code,copy.stableSummary,copy.apk)}${card('beta','Beta','6.1.1-beta.8','84',copy.betaSummary,copy.betaApk)}</div>`;
 }
 
 function languagePicker(lang,root){const names={"es":"Español","en":"English","ca":"Català"};return `<details class="language-picker"><summary aria-label="${names[lang]} — ${lang==='ca'?'Canvia l’idioma':lang==='es'?'Cambiar idioma':'Change language'}" title="${names[lang]}"><span class="flag flag-${lang}" aria-hidden="true"></span></summary><div class="language-options">${['es','en','ca'].filter(l=>l!==lang).map(l=>`<a href="${root}${l==='es'?'':l+'/'}" lang="${l}" hreflang="${l}"><span class="flag flag-${l}" aria-hidden="true"></span>${names[l]}</a>`).join('')}</div></details>`; }
@@ -49,6 +50,7 @@ header.top{display:flex;align-items:center;justify-content:space-between;padding
 .hero h1 span{color:var(--accent)}.hero p.lead{color:var(--muted);font-size:19px;margin:0 0 28px}
 .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:650;border-radius:14px;padding:14px 22px}
 #downloads{display:grid;gap:16px}#downloads h3{margin-top:0}.download-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}.download-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px}
+#downloads h2{font-size:22px;margin:0}.download-note{color:var(--muted);margin:0}.faq{max-width:800px}.faq article{padding:20px 0;border-top:1px solid var(--line);scroll-margin-top:24px}.faq h3{font-size:20px;line-height:1.4;margin:0 0 10px}.faq p{margin:0;color:var(--muted)}
 .cta-note{display:block;color:var(--muted);font-size:14px;margin-top:10px}
 .hero-copy{grid-column:1;grid-row:2;min-width:0}.hero .phone{grid-column:2;grid-row:1 / span 2;justify-self:center;width:min(300px,80vw);border-radius:28px;border:6px solid #2a2e36;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 h2{font-size:clamp(26px,4vw,36px);margin:0 0 24px;letter-spacing:-.01em}
@@ -78,12 +80,10 @@ function page(t) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${t.title}</title>
 <meta name="description" content="${t.description}">
-<meta property="og:title" content="${t.title}">
-<meta property="og:description" content="${t.description}">
-<meta property="og:image" content="${t.root}img/feature.png">
+${metadata({path:localizedPath(t.lang),lang:t.lang,title:t.title,description:t.description,translationBase:'/'})}
+${structuredData(t)}
 <link rel="icon" href="${t.root}img/icon.png">
 <link rel="apple-touch-icon" href="${t.root}img/icon.png">
-${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t.root}${lang==='es'?'':lang+'/'}">`).join('')}
 <style>${STYLE}</style>
 </head>
 <body>
@@ -93,7 +93,7 @@ ${["es","en","ca"].map(lang=>`<link rel="alternate" hreflang="${lang}" href="${t
 <section class="hero">
 <h1>SPino<br><span>${t.tagline}</span></h1>
 <div class="hero-copy"><p class="lead">${t.lead}</p>
-${downloads(t)}<p><a href="#catalogue">${t.lang==='es'?'Explorar el catálogo':t.lang==='ca'?'Explorar el catàleg':'Explore the catalogue'} →</a></p></div>
+${downloads(t)}<p><a href="#catalogue">${t.lang==='es'?'Explorar el catálogo':t.lang==='ca'?'Explorar el catàleg':'Explore the catalogue'} →</a> · <a href="#faq">${t.faqTitle}</a></p></div>
 <img class="phone" src="${t.root}img/${t.lang}/01-today.png?v=2026-10-19-stable61-site-04" alt="${t.shotAlt[0]}" width="1080" height="1920">
 </section>
 ${catalogueSection(t)}
@@ -102,9 +102,10 @@ ${catalogueSection(t)}
 <section><h2>${t.shotsTitle}</h2><p class="shots-note">${t.shotsNote}</p><div class="shots">${SHOTS.map(shot).join('')}</div>
 <img class="wide" src="${t.root}img/${t.lang}/wide-reading.png?v=2026-10-19-stable61-site-04" alt="${t.wideAlt}" width="2560" height="1600" loading="lazy">
 <figure style="margin:24px 0 0"><img class="wide" src="${t.root}img/${t.lang}/landscape-reading.png?v=2026-10-19-stable61-site-04" alt="${t.landscapeAlt}" width="844" height="390" loading="lazy"><figcaption>${t.landscapeAlt}</figcaption></figure></section>
+${faqSection(t)}
 <section><div class="privacy">${ICONS.lock}<div><h2>${t.privacyTitle}</h2><p>${t.privacy}</p><a href="${t.root}privacy/">${t.privacyLink}</a></div></div></section>
 <section id="arcade"><div class="feature"><h2>Spino Arcade · ${t.lang==='ca'?'Laboratori de joc':t.lang==='en'?'Play lab':'Laboratorio de juego'}</h2><p>${t.lang==='ca'?'Un joc musical nascut de Spino: Smart Piano Notebook. Llegeix notes en moviment, segueix el ritme i encadena ratxes, amb instruments amb mostres i progressió gradual.':t.lang==='en'?'A musical game born from Spino: Smart Piano Notebook. Read moving notes, keep the rhythm and build streaks, with sampled instruments and gentle progression.':'Un juego musical nacido de Spino: Smart Piano Notebook. Lee notas en movimiento, sigue el ritmo y encadena rachas, con instrumentos con muestras y progresión gradual.'}</p><p><a href="${t.root+'arcade/'+(t.lang==='es'?'':t.lang+'/')}">${t.lang==='ca'?'Descobreix Spino Arcade 1.0':t.lang==='en'?'Discover Spino Arcade 1.0':'Descubre Spino Arcade 1.0'} →</a></p></div></section></main>
-<footer><span>© ${new Date().getFullYear()} ${t.footer}</span><span><a href="${t.root}privacy/">${t.privacyLink}</a></span></footer>
+<footer><span>© ${new Date().getFullYear()} ${t.footer}</span><span><a href="mailto:support@spinoapp.com">${t.contact}</a> · <a href="${t.root}privacy/">${t.privacyLink}</a></span></footer>
 </div>
 ${releaseDialog(t.lang)}
 </body>
@@ -131,19 +132,36 @@ const policy = (await readFile('docs/play-store/privacy-policy.html', 'utf8'))
   .replace('<main>', '<main>\n<p><a href="../">← SPino</a></p>')
   .replace('<head>', '<head>\n<link rel="icon" href="../img/icon.png">');
 await mkdir(join(OUT, 'privacy'), { recursive: true });
-await writeFile(join(OUT, 'privacy', 'index.html'), policy);
+await writeFile(join(OUT, 'privacy', 'index.html'), enhanceStaticPage(policy, {path:'/privacy/',lang:'en'}));
 await writeFile(join(OUT, '_headers'), `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
 /img/*
   Cache-Control: public, max-age=604800
+/downloads/*
+  X-Robots-Tag: noindex
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600
 `);
 await writeFile(join(OUT, '_headers'), (await readFile(join(OUT, '_headers'), 'utf8')) + "\n/downloads/*.apk\n  Content-Type: application/vnd.android.package-archive\n  Content-Disposition: attachment\n  Cache-Control: public, max-age=300\n");
-await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SPino</title><body style="margin:0;background:#14161a;color:#e8eaed;font:17px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center"><div><p>Página no encontrada · Page not found</p><p><a style="color:#4f8cff" href="/">SPino</a></p></div></body></html>\n`);
+await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Page not found | SPino</title><body style="margin:0;background:#14161a;color:#e8eaed;font:17px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center"><div><h1>Page not found</h1><p lang="es">Página no encontrada</p><p><a style="color:#4f8cff" href="/">SPino</a></p></div></body></html>\n`);
 await writeFile(join(OUT, '_headers'), (await readFile(join(OUT, '_headers'), 'utf8')) + "\n/downloads/*.zip\n  Content-Type: application/zip\n  Content-Disposition: attachment\n  Cache-Control: public, max-age=300\n");
 await cp('scripts/site/downloads' , join(OUT, 'downloads'), { recursive: true });
 await cp('scripts/site/arcade', join(OUT, 'arcade'), { recursive: true });
+for (const lang of ['es','en','ca']) {
+  const path = localizedPath(lang, '/arcade/'), file = join(OUT, path, 'index.html');
+  const html = await readFile(file, 'utf8');
+  await writeFile(file, enhanceStaticPage(html, {path,lang,translationBase:'/arcade/',image:`/arcade/img/feature-${lang}.png`}));
+}
+const arcadePrivacy = join(OUT, 'arcade/privacy/index.html');
+await writeFile(arcadePrivacy, enhanceStaticPage(await readFile(arcadePrivacy, 'utf8'), {path:'/arcade/privacy/',lang:'en'}));
+await writeFile(join(OUT, 'robots.txt'), ROBOTS);
+await writeFile(join(OUT, 'sitemap.xml'), sitemap());
 await cp('scripts/site/media', join(OUT, 'media'), { recursive: true });
 console.log('site/ built');
 

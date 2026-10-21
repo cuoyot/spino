@@ -22,6 +22,7 @@ export async function downloadResponse(request, assets, manifest = servedAssets)
     'Cache-Control':'public, max-age=300', 'Accept-Ranges':'bytes', ETag:etag,
     'X-Content-Type-Options':'nosniff',
   });
+  if (url.pathname.startsWith('/downloads/')) headers.set('X-Robots-Tag', 'noindex');
   if (request.headers.get('If-None-Match')?.split(',').map(s=>s.trim()).includes(etag)) return new Response(null,{status:304,headers});
   const rangeHeader = request.headers.get('Range'), ifRange = request.headers.get('If-Range');
   const useRange = rangeHeader && (!ifRange || ifRange === etag);

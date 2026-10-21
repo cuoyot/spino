@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-21",
+  "kind": "Responsive browser review; not native-device acceptance",
+  "baseCommit": "df3c997a940151ae338ed12ff435be306810b31a",
+  "build": "node scripts/site/build-site.mjs",
+  "fixtures": "Existing synthetic website screenshots only; no personal notebook accessed",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      1280,
+      900
+    ]
+  ],
+  "languages": [
+    "es",
+    "en",
+    "ca"
+  ],
+  "screens": [
+    "hero",
+    "faq"
+  ],
+  "checks": {
+    "unitTestsPassed": 8,
+    "browserTestsPassed": 3,
+    "javascriptDisabledContent": true,
+    "visibleFaqMatchesJsonLd": true,
+    "oneH1PerPage": true,
+    "headingHierarchy": true,
+    "noHorizontalOverflow": true,
+    "allImagesDecode": true,
+    "releaseDialogRegression": true
+  },
+  "sources": {
+    "scripts/site/build-site.mjs": "0cce75cce07169c5fc2390305fdc7a83438f86b603ad8eb0c8f011434bd44f6d",
+    "scripts/site/seo.mjs": "ffec99b01461ff5acbcce6b01414c75a34b02285c83d54da50b93f85cb4c0dfd",
+    "scripts/site/site-copy.mjs": "d0147519b0b771b13a45931864d110a0fce1f6f839957a11b80b5b3f3b1e63ba",
+    "scripts/site/download-worker.mjs": "694a890a1e432fda71c603b7f5aa439afd26d96412732af9def3d5057bd27c93",
+    "site/index.html": "39ca1ef7693686906c7068a6691bc0cbd645d1f8941062562c213e087bc548ca",
+    "site/en/index.html": "fa8e769ddc44bdc94c7f73a6fc8e19e148943a04ebb5f7149b226714a1296e01",
+    "site/ca/index.html": "05f81964bc7eb6511b5027a297c933992e02bb140c1f8f5ec71dcb878204340c",
+    "site/robots.txt": "fa8e65f451ebaa77597d54199fb8ca3a2078cdcb86595605f8dc100cf4b15f87",
+    "site/sitemap.xml": "49b801b342ab6f32ab15889358dfa5d9f938fa76bb7435e0ea48c4b1542cdad8"
+  },
+  "captures": [
+    "ca-faq-1024x768.png",
+    "ca-faq-1280x900.png",
+    "ca-faq-390x844.png",
+    "ca-faq-768x1024.png",
+    "ca-faq-844x390.png",
+    "ca-hero-1024x768.png",
+    "ca-hero-1280x900.png",
+    "ca-hero-390x844.png",
+    "ca-hero-768x1024.png",
+    "ca-hero-844x390.png",
+    "en-faq-1024x768.png",
+    "en-faq-1280x900.png",
+    "en-faq-390x844.png",
+    "en-faq-768x1024.png",
+    "en-faq-844x390.png",
+    "en-hero-1024x768.png",
+    "en-hero-1280x900.png",
+    "en-hero-390x844.png",
+    "en-hero-768x1024.png",
+    "en-hero-844x390.png",
+    "es-faq-1024x768.png",
+    "es-faq-1280x900.png",
+    "es-faq-390x844.png",
+    "es-faq-768x1024.png",
+    "es-faq-844x390.png",
+    "es-hero-1024x768.png",
+    "es-hero-1280x900.png",
+    "es-hero-390x844.png",
+    "es-hero-768x1024.png",
+    "es-hero-844x390.png"
+  ],
+  "productionBefore": {
+    "sitemapStatus": 404,
+    "homeCanonical": false,
+    "homeJsonLd": false,
+    "homeBeta": "6.1.1-beta.7"
+  },
+  "publication": "pending"
+}

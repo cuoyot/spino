@@ -2,13 +2,13 @@ export const COPY = {
   "en": {
     "lang": "en",
     "root": "../",
-    "title": "SPino: Smart Piano Notebook",
-    "description": "Plan piano practice, annotate scores, record your repertoire and explore practice-time trends. With a piano, MIDI keyboard or just your phone.",
-    "tagline": "Your piano notebook",
-    "lead": "Make room for music. Build a routine, keep your scores at hand and see your practice grow. At the piano or on the go, SPino keeps your next step simple.",
+    "title": "SPino: Free Piano Practice App for Android",
+    "description": "Free piano practice app for Android: plan routines, annotate PDF and MusicXML scores, practise sight-reading with MIDI and track your progress. No ads.",
+    "tagline": "Your piano practice app",
+    "lead": "SPino is a free piano practice notebook for Android. Plan routines, keep PDF and MusicXML scores with annotations, practise sight-reading and track your progress. Use an acoustic piano, a compatible MIDI keyboard or the on-screen keyboard.",
     "cta": "Explore the app",
     "ctaNote": "Android · free · no ads",
-    "featuresTitle": "A place for every kind of practice",
+    "featuresTitle": "Tools for your piano practice",
     "hanon": {
       "title": "Warm up with Hanon",
       "description": "Watch both hands prepare, play and move across the keyboard, with piano and views from different angles.",
@@ -103,18 +103,50 @@ export const COPY = {
       "Download SPino 5.2.7 Test APK",
       "Android test build · code 39 · Annotated score printing and A4 MusicXML. Not a Play Store release.",
       "Download Arcade Test APK"
+    ],
+    "downloadsTitle": "Download SPino for Android",
+    "faqTitle": "Frequently asked questions about SPino",
+    "faq": [
+      [
+        "Is SPino free?",
+        "Yes. SPino is free, has no ads and does not require a SPino account. Its original application code is open source under the GNU GPL version 3 or later."
+      ],
+      [
+        "Can I practise piano with SPino offline?",
+        "Yes. You can use your locally saved notebook and scores, practise and play local recordings offline. Downloading catalogue scores and synchronizing with Google Drive require an internet connection."
+      ],
+      [
+        "Do I need a digital piano or MIDI keyboard?",
+        "No. You can practise on an acoustic piano and track your sessions manually, or use the on-screen keyboard. A compatible USB or Bluetooth MIDI keyboard can check supported note responses, including chords."
+      ],
+      [
+        "Can I import and annotate sheet music?",
+        "Yes. SPino imports PDF and MusicXML scores. You can annotate PDFs, add fingering linked to MusicXML notes, save score framing and print your scores."
+      ],
+      [
+        "How does SPino help me organize piano practice?",
+        "Create routines with timed blocks, schedule practice and lessons in the calendar, and review saved sessions, piece histories and weekly goals. Sight-reading, technique exercises, Hanon warm-ups and a metronome support your practice."
+      ],
+      [
+        "Can I synchronize my notebook between devices?",
+        "Android 6.1 can synchronize a notebook and copy saved recordings through your own Google Drive account. Use the same Google account and select the existing notebook on each device. Portable JSON backups include scores and annotations but exclude audio and video files."
+      ],
+      [
+        "Which Android download should I choose?",
+        "Choose the stable APK for the stable version shown on this page. The beta APK provides features being tested. The Google Play link is labeled with its own version, which may differ from the direct downloads."
+      ]
     ]
   },
   "es": {
     "lang": "es",
     "root": "./",
-    "title": "SPino: tu cuaderno de piano",
-    "description": "Organiza tu práctica, anota partituras, graba tu repertorio y consulta tendencias del tiempo de práctica. Con piano, MIDI o solo con el móvil.",
-    "tagline": "Tu cuaderno de piano",
-    "lead": "Haz espacio para la música. Crea una rutina, ten tus partituras a mano y observa cómo crece tu práctica. Al piano o fuera de casa, SPino te ayuda a dar el siguiente paso.",
+    "title": "SPino: app gratis para practicar piano en Android",
+    "description": "App gratis de práctica de piano para Android: organiza rutinas, anota partituras PDF y MusicXML, practica lectura con MIDI y sigue tu progreso. Sin anuncios.",
+    "tagline": "Tu app para practicar piano",
+    "lead": "SPino es un cuaderno gratuito de práctica de piano para Android. Organiza rutinas, guarda partituras PDF y MusicXML con anotaciones, practica lectura y sigue tu progreso. Usa un piano acústico, un teclado MIDI compatible o el teclado en pantalla.",
     "cta": "Descubre la app",
     "ctaNote": "Android · gratis · sin anuncios",
-    "featuresTitle": "Un espacio para cada forma de practicar",
+    "featuresTitle": "Herramientas para tu práctica de piano",
     "hanon": {
       "title": "Calienta con Hanon",
       "description": "Observa cómo ambas manos se preparan, tocan y se desplazan por el teclado, con piano y vistas desde distintos ángulos.",
@@ -209,18 +241,50 @@ export const COPY = {
       "Descargar SPino 5.2.7 Test APK",
       "Prueba para Android · código 39 · impresión con anotaciones y MusicXML en A4. No es una publicación en Play Store.",
       "Descargar Arcade Test APK"
+    ],
+    "downloadsTitle": "Descarga SPino para Android",
+    "faqTitle": "Preguntas frecuentes sobre SPino",
+    "faq": [
+      [
+        "¿SPino es gratis?",
+        "Sí. SPino es gratis, no tiene anuncios y no requiere una cuenta de SPino. El código original de la aplicación es abierto, bajo la licencia GNU GPL versión 3 o posterior."
+      ],
+      [
+        "¿Puedo practicar piano con SPino sin conexión?",
+        "Sí. Puedes usar tu cuaderno y las partituras guardadas en el dispositivo, practicar y reproducir grabaciones locales sin conexión. Descargar partituras del catálogo y sincronizar con Google Drive requiere internet."
+      ],
+      [
+        "¿Necesito un piano digital o un teclado MIDI?",
+        "No. Puedes practicar con un piano acústico y registrar las sesiones manualmente, o usar el teclado en pantalla. Un teclado MIDI compatible por USB o Bluetooth permite comprobar respuestas de notas compatibles, incluidos acordes."
+      ],
+      [
+        "¿Puedo importar y anotar partituras?",
+        "Sí. SPino importa partituras PDF y MusicXML. Puedes anotar PDF, añadir digitación vinculada a notas MusicXML, guardar encuadres e imprimir tus partituras."
+      ],
+      [
+        "¿Cómo me ayuda SPino a organizar la práctica de piano?",
+        "Crea rutinas con bloques de duración definida, planifica prácticas y clases en el calendario y consulta sesiones guardadas, historiales de obras y objetivos semanales. La lectura, los ejercicios de técnica, los calentamientos Hanon y el metrónomo acompañan la práctica."
+      ],
+      [
+        "¿Puedo sincronizar mi cuaderno entre dispositivos?",
+        "Android 6.1 puede sincronizar el cuaderno y copiar grabaciones guardadas mediante tu cuenta de Google Drive. Usa la misma cuenta de Google y selecciona el cuaderno existente en cada dispositivo. Las copias JSON incluyen partituras y anotaciones, pero excluyen los archivos de audio y vídeo."
+      ],
+      [
+        "¿Qué descarga de Android debo elegir?",
+        "Elige el APK estable para usar la versión estable indicada en esta página. El APK beta ofrece funciones en pruebas. El enlace de Google Play indica su propia versión, que puede ser diferente de las descargas directas."
+      ]
     ]
   },
   "ca": {
     "lang": "ca",
     "root": "../",
-    "title": "SPino: el teu quadern de piano",
-    "description": "Organitza la pràctica, anota partitures, grava el repertori i consulta tendències del temps de pràctica. Amb piano, MIDI o només amb el mòbil.",
-    "tagline": "El teu quadern de piano",
-    "lead": "Fes lloc a la música. Crea una rutina, tingues les partitures a mà i observa com creix la teva pràctica. Al piano o fora de casa, SPino t’ajuda a fer el pas següent.",
+    "title": "SPino: app gratuïta per practicar piano a Android",
+    "description": "App gratuïta de pràctica de piano per a Android: organitza rutines, anota partitures PDF i MusicXML, practica lectura amb MIDI i segueix el progrés. Sense anuncis.",
+    "tagline": "La teva app per practicar piano",
+    "lead": "SPino és un quadern gratuït de pràctica de piano per a Android. Organitza rutines, desa partitures PDF i MusicXML amb anotacions, practica lectura i segueix el progrés. Fes servir un piano acústic, un teclat MIDI compatible o el teclat en pantalla.",
     "cta": "Descobreix l’app",
     "ctaNote": "Android · gratuït · sense anuncis",
-    "featuresTitle": "Un espai per a cada manera de practicar",
+    "featuresTitle": "Eines per a la teva pràctica de piano",
     "hanon": {
       "title": "Escalfa amb Hanon",
       "description": "Observa com totes dues mans es preparen, toquen i es desplacen pel teclat, amb piano i vistes des de diferents angles.",
@@ -315,6 +379,38 @@ export const COPY = {
       "Descarrega SPino 5.2.7 Test APK",
       "Prova per a Android · codi 39 · impressió amb anotacions i MusicXML en A4. No és una publicació a Play Store.",
       "Descarrega Arcade Test APK"
+    ],
+    "downloadsTitle": "Descarrega SPino per a Android",
+    "faqTitle": "Preguntes freqüents sobre SPino",
+    "faq": [
+      [
+        "SPino és gratuït?",
+        "Sí. SPino és gratuït, no té anuncis i no requereix un compte de SPino. El codi original de l’aplicació és obert, sota la llicència GNU GPL versió 3 o posterior."
+      ],
+      [
+        "Puc practicar piano amb SPino sense connexió?",
+        "Sí. Pots utilitzar el quadern i les partitures desades al dispositiu, practicar i reproduir gravacions locals sense connexió. Descarregar partitures del catàleg i sincronitzar amb Google Drive requereix internet."
+      ],
+      [
+        "Necessito un piano digital o un teclat MIDI?",
+        "No. Pots practicar amb un piano acústic i registrar les sessions manualment, o utilitzar el teclat en pantalla. Un teclat MIDI compatible per USB o Bluetooth permet comprovar respostes de notes compatibles, inclosos acords."
+      ],
+      [
+        "Puc importar i anotar partitures?",
+        "Sí. SPino importa partitures PDF i MusicXML. Pots anotar PDF, afegir digitació vinculada a notes MusicXML, desar enquadraments i imprimir les partitures."
+      ],
+      [
+        "Com m’ajuda SPino a organitzar la pràctica de piano?",
+        "Crea rutines amb blocs de durada definida, planifica pràctiques i classes al calendari i consulta sessions desades, historials d’obres i objectius setmanals. La lectura, els exercicis de tècnica, els escalfaments Hanon i el metrònom acompanyen la pràctica."
+      ],
+      [
+        "Puc sincronitzar el quadern entre dispositius?",
+        "Android 6.1 pot sincronitzar el quadern i copiar gravacions desades mitjançant el teu compte de Google Drive. Utilitza el mateix compte de Google i selecciona el quadern existent a cada dispositiu. Les còpies JSON inclouen partitures i anotacions, però exclouen els fitxers d’àudio i vídeo."
+      ],
+      [
+        "Quina descàrrega d’Android he de triar?",
+        "Tria l’APK estable per utilitzar la versió estable indicada en aquesta pàgina. L’APK beta ofereix funcions en proves. L’enllaç de Google Play indica la seva pròpia versió, que pot ser diferent de les descàrregues directes."
+      ]
     ]
   }
 };

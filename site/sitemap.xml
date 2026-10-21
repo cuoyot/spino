@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://spinoapp.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
+  </url>
+  <url><loc>https://spinoapp.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
+  </url>
+  <url><loc>https://spinoapp.com/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
+  </url>
+  <url><loc>https://spinoapp.com/arcade/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/arcade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/arcade/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/arcade/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/arcade/"/>
+  </url>
+  <url><loc>https://spinoapp.com/arcade/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/arcade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/arcade/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/arcade/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/arcade/"/>
+  </url>
+  <url><loc>https://spinoapp.com/arcade/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/arcade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/arcade/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/arcade/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/arcade/"/>
+  </url>
+  <url><loc>https://spinoapp.com/privacy/</loc>
+  </url>
+  <url><loc>https://spinoapp.com/arcade/privacy/</loc>
+  </url>
+</urlset>

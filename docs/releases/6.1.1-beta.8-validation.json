@@ -72,7 +72,7 @@
   "siteBrowserChecks": 3,
   "localizedCatalogueCaptureChecks": 3,
   "siteUnitChecks": 4,
-  "publication": "pending public deployment verification",
+  "publication": "verified; see 6.1.1-beta.8-publication.json",
   "sameProductionUploadCertificate": true,
   "productionUploadCertificateSHA256": "D2:76:04:F0:72:5C:30:40:B3:A4:76:61:7E:1E:7B:C4:C6:D3:1D:7A:AB:C3:6A:65:E8:A2:D5:CB:65:FC:7D:E7"
 }
