@@ -69,7 +69,7 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="0"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);
   await wait(`document.querySelector('#library-search')`);
   await evaluate(`document.querySelector('#library-search [name=query]').value=${JSON.stringify(id)};document.querySelector('#library-search').requestSubmit()`);
-  assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').textContent`),'Usar en esta práctica');
+  assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').getAttribute('aria-label')`),'Usar en esta práctica');
   await action('library-practice',id);await wait(`document.querySelector('#prepare-form')`);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-block').length`),1);
   await evaluate(`document.querySelector('#prepare-form').requestSubmit()`); await wait(`document.querySelector('.xml-score svg') && document.querySelector('.xml-status').textContent.startsWith('Partitura escrita')`);

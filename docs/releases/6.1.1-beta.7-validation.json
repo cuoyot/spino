@@ -36,7 +36,7 @@
     "skipped": 1
   },
   "scopedUnitChecks": 19,
-  "browserRegressions": 4,
+  "browserRegressions": 5,
   "browserEvidence": "repertoire/2026-10-21-catalogue-rows-01",
   "androidUnitSuites": [
     {
@@ -58,10 +58,19 @@
       "errors": "0"
     }
   ],
-  "publication": "pending",
+  "publication": "verified: exact-commit Cloudflare success, three localized pages, seven complete public artifact hashes and 34 images",
   "newScoresAddedFromResearch": 0,
   "siteUnitChecks": 4,
   "siteBrowserChecks": 2,
   "aabSignatureVerified": true,
-  "androidUnitChecks": 7
+  "androidUnitChecks": 7,
+  "nativeEvidence": "docs/quality-review/captures/releases/2026-10-21-beta617/native-handoff.json",
+  "legacyLibraryBrowserRegression": {
+    "status": "passed",
+    "runtime": "Node 24.19.0 (project requires Node >=22)",
+    "durationMs": 4104,
+    "optionalRealAcquisitionCheck": "skipped; real-source preview independently verified",
+    "previousTimeout": "Unsupported Node 20 experimental WebSocket runtime; resolved with supported runtime"
+  },
+  "combinedTaggedNotesPublicSHA256": "724481b3c8bd61d83d1be0f2b0370ccca103d85b8d8433896c8bb67151158d5d"
 }

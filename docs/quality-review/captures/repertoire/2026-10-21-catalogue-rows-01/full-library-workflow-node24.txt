@@ -1,0 +1,10 @@
+✔ catalogue starts with obtainable scores and opens downloaded piano music without review gates (4103.794542ms)
+﹣ a genuine acquired piano candidate opens for personal practice while rights stay unreviewed (0.637791ms) # Run node scripts/verify-repertoire.mjs --download for the optional real-score check.
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 4271.939625
