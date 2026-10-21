@@ -52,3 +52,6 @@
   .wg-figure { grid-template-columns: 1fr; }
   .wg-figure > span { padding: 0; }
 }
+
+.ha-stage video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+.ha-stage video[hidden] { display: none; }

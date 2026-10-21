@@ -48,9 +48,18 @@ function localOCRFiles() {
   }
 }
 
+// Retain historical authoring baselines in public, but ship only the active bank.
+function compactHanonDelivery() {
+  return { name: 'compact-hanon-delivery', apply: 'build', closeBundle() {
+    const bank = JSON.parse(readFileSync(new URL('./public/warmups/hanon-video-v1/index.json', import.meta.url), 'utf8'));
+    if (!bank.complete || bank.exercises.length !== 10) throw new Error('Complete Hanon video bank required');
+    for (const version of [1, 2, 3]) rmSync(new URL(`./dist/warmups/hanon-frames-v${version}/`, import.meta.url), { recursive: true, force: true });
+  } };
+}
+
 export default defineConfig({
   base: './',
-  plugins: [{ name: 'local-pdf-resources', buildStart: localPDFFiles }, { name: 'local-ocr-resources', buildStart: localOCRFiles }, { name: 'local-repertoire', buildStart: localRepertoireFiles }],
+  plugins: [compactHanonDelivery(), { name: 'local-pdf-resources', buildStart: localPDFFiles }, { name: 'local-ocr-resources', buildStart: localOCRFiles }, { name: 'local-repertoire', buildStart: localRepertoireFiles }],
   build: { outDir: 'dist', chunkSizeWarningLimit: 4000, rollupOptions: { input: { app:'index.html' } } },
   // the Android project churns on every APK build; watching it reloads the page and can crash the watcher
   server: { watch: { ignored: ['**/android/**', '**/dist/**', '**/*.apk'] } },

@@ -172,3 +172,10 @@ if(beta614){
  beta614.notes.es="Nuevas animaciones completas de manos para Hanon 1–10, con ascenso y descenso, manos juntas o por separado, teclas móviles y colores para cada mano. Incluyen preparación, recogida y apertura de los dedos, reproducción lenta y avance nota a nota. Los diálogos con desplazamiento mantienen Cerrar visible arriba. Se conservan el cuaderno y su progreso.";
  beta614.notes.ca="Noves animacions completes de mans per a Hanon 1–10, amb ascens i descens, mans juntes o separades, tecles mòbils i colors per a cada mà. Inclouen preparació, recollida i obertura dels dits, reproducció lenta i avanç nota a nota. Els diàlegs amb desplaçament mantenen Tanca visible a dalt. Es conserven el quadern i el progrés.";
 }
+
+const compactHanon=releases.find(r=>r.version==='6.1.1-beta.5');
+if(compactHanon){
+ compactHanon.notes.en='The app is now 44.6 MB, retaining all ten complete new Hanon exercises offline at 720 × 400. Includes both or separate hands, slow playback, note stepping and persistent top Close controls. Original editable Blender sources are preserved for future revisions.';
+ compactHanon.notes.es='La app ocupa 44,6 MB y conserva los diez ejercicios nuevos completos de Hanon sin conexión a 720 × 400. Incluye ambas manos o cada mano por separado, velocidad lenta, saltos por nota y Cerrar visible arriba. Las fuentes editables de Blender quedan conservadas para futuras revisiones.';
+ compactHanon.notes.ca='L’app ocupa 44,6 MB i conserva els deu exercicis nous complets de Hanon sense connexió a 720 × 400. Inclou totes dues mans o cada mà per separat, velocitat lenta, salts per nota i Tanca visible a dalt. Les fonts editables de Blender es conserven per a futures revisions.';
+}

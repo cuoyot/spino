@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "reviewer": "Codex",
+  "scope": "Responsive phone/tablet portrait and actual installed Android OS/video surfaces; not physical-device acceptance",
+  "images": {
+    "native-hanon-7-both-735-android.png": "aa6bdd44c141ef4a5608764df42b689c64bef6b4c64195e38c47d31618f03a21",
+    "native-hanon-10-both-735-video.png": "89f16bd9974e10d04b73c2e012875417d1050b0ed8af101c1de369c34daa982b",
+    "native-hanon-10-both-735-android.png": "8460b776d23053f32512661dfa71fee95a6c04214032ab156ff01d40569a6f27",
+    "browser-hanon-7-both-tablet-portrait.png": "a55c68b0b2336c759870e7b796494c91da68e246bbf875d418c92c7397eb135d",
+    "browser-hanon-1-both-phone-portrait.png": "9d3de157f6d0b069f933695af6a33e5c25950a79e1c89115fe19b9b6a953a9f9",
+    "browser-hanon-10-both-phone-portrait.png": "9eb5353225dde705e4dc4375ac482ffd62271046cfe3e646434a9689c206a2eb",
+    "browser-hanon-1-both-tablet-portrait.png": "1bfd13a879a44b3cfc9bd8cb2fc3f88d70f881a76628ee6a1aac02bba4ca92b8",
+    "native-hanon-1-both-735-video.png": "692740401e19d2710686076d7a1a5717cce356007180c20b7978db0ba1a73fc7",
+    "browser-hanon-10-both-tablet-portrait.png": "0d71742525c26b423ecfd548054fd4ce3aea581a805fe74a03d840aa57ad6e98",
+    "browser-hanon-7-both-phone-portrait.png": "4d976366636379fde9b5d187314dfd1780ff766697ea7521cac5346eced09741",
+    "native-hanon-4-both-735-video.png": "beae9c033b57ae4c83ecea7fcdda4b1aefb3b2945b092da7da6afff3661fa8ff",
+    "browser-hanon-4-both-phone-portrait.png": "e8bc78ccd83c03e7c0d6661d7a4de360f62ca7580da9db15fa2f2972f1d50acb",
+    "browser-hanon-4-both-tablet-portrait.png": "67c297f6e1b19e597a96e26fb1a050a935fbf3becba6e37b1b25e15881b1dd4d",
+    "native-hanon-1-both-735-android.png": "79b97f0456c6cc89d790f0e81bd069ddf869e00662a226d8648b66f73c04ea8d",
+    "native-hanon-4-both-735-android.png": "b7c9add3182e043bdaeec1229d5642a9dde31f86ac0803a2d1520a020d354b79",
+    "native-hanon-7-both-735-video.png": "4c9222439f5ff15f9b614c4b725012f5d43c5259b243e410c67753fce66378f2"
+  },
+  "checks": [
+    "Fixed keyboard, felt seam and key colors retained",
+    "Both hands and solo modes use the new complete Blender movements",
+    "Finger silhouettes and key boundaries remain clear at in-app size",
+    "Top Close remains visible",
+    "No blank native video surface"
+  ],
+  "privatePhotosIncluded": false
+}

@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "archiveRoot": "/Volumes/2TB-MIGUE/SPino/hanon-2026-10-20/archive-2026-10-21",
+  "inventorySha256": "348970bf2d02cd8479456fbc42f0128652d4c017f54c0d2a55d19cdeb728501b",
+  "inventoryFile": "inventory.json",
+  "exercises": [
+    {
+      "number": 1,
+      "editableProject": {
+        "path": "output/blender/hanon-hands-2026-10-20/keyboard-standard-v2/orientation-repair-02/candidate-08/hanon-piano-candidate-08.blend",
+        "sha256": "e624a12b1f0da93b30f047d4e54b7746a4285d4d3d930a0dffa43d18c5d4fd4b"
+      },
+      "motionFiles": {},
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-1.json"
+    },
+    {
+      "number": 2,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/native/hanon-02-film-08.blend",
+        "sha256": "a2d92d2b6ec6451f384549f32fd43fa9e739926d645db0a88c8eacccaa7812db"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/input-left.json",
+          "sha256": "29f731e35226e79cfc527dab18962e8069323f2ddedef5f2237e518f5a424095"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/left-solutions.npz",
+          "sha256": "34008022703588d05af31fcd590e1f20155767ba7662bd20043edf188dbdf00b"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/left-full-scan.json",
+          "sha256": "c49c5f2d9007a852ab624b8aded92cd0f38e2b77d920cf144e6d0834741ef666"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/input-right.json",
+          "sha256": "53909185cac028f5dd2fee6df1e08dfd351cd9630c7b704b1231359b6d1d4796"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/right-solutions.npz",
+          "sha256": "ed9e4d7fafbc53338158a2b6c0aa3c8ff2f1238f634ed78e62e6fa96e3e450e1"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-02/hanon-02/validated/right-full-scan.json",
+          "sha256": "2b068ae356e781b883001ff78e08402b65bf8fbd45c102ba9cebe5188e2a1989"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-2.json"
+    },
+    {
+      "number": 3,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/native/hanon-03-film-08.blend",
+        "sha256": "5735d15b10d87351440bf052890f2d1b28226b00f522884f67c028b626efe22e"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/input-left.json",
+          "sha256": "64caa8968227b2b3066e7fe7a1badf2e10b98aeba098179fd8e85f2a8e7e9d03"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/left-solutions.npz",
+          "sha256": "d65bbad3e7977b9d190a3163c72790e571b3c34c35c12326bb967cef07a61f58"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/left-full-scan.json",
+          "sha256": "7cf8b1d3e31c4a8efd5c4582abbb326b1c5fa3b46031083bdab72facffaa8dc4"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/input-right.json",
+          "sha256": "29f3b586fa169dc79581f85d2a3b9c59eeb3f56e4a6735bea9c067af9c2a0013"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/right-solutions.npz",
+          "sha256": "76e7928ba741c95785b7d83a81cae18c79757a76a5d6863fcc80e06a19958231"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-03/validated/right-full-scan.json",
+          "sha256": "30b83468c79c773b6c82899b232f0ab9e0d500a7cbaadb2d7bb3ee611daaecbd"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-3.json"
+    },
+    {
+      "number": 4,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/native/hanon-04-film-08.blend",
+        "sha256": "869959326d26c7adc22c53934457df3a7534bdd8d61700fc99320a6a8a45d5fa"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/input-left.json",
+          "sha256": "921beb757964c6371e011ea6c0b1fd946f326aed32acc2350a239029e0bd2c1f"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/left-solutions.npz",
+          "sha256": "6b9121c8dc0618827bea38fcda0d35b219a1581cb5a72f7b8299b0330e8ae239"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/left-full-scan.json",
+          "sha256": "4724e3de523236d9c24d6ea74c9d56d0e5eeb8d075707364bd650364f9ad1cd3"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/input-right.json",
+          "sha256": "141574d3e84ff7ecaa628b954e37051cfeea2e4930fb38910a114c72d7b99c21"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/right-solutions.npz",
+          "sha256": "40f3c6a67cc35d5b1b8f53dc5cba40bf9e595ddedd16fa0231679ae0530618a9"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-04/validated/right-full-scan.json",
+          "sha256": "c9a4260043aebe726c8bfb69c4151185beb5f4a54700f09025739909c01ebcdb"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-4.json"
+    },
+    {
+      "number": 5,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/native/hanon-05-film-08.blend",
+        "sha256": "bfb24f6e70e810c7f0b1689d86908fb108225360fbf614d41856829f3df39008"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/input-left.json",
+          "sha256": "49d1ef9ce4d58932c4e11348668c6f691fdcdfc40eebeab1312feda022bb1eae"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/left-solutions.npz",
+          "sha256": "69829eb995bf11b1782f09f68dfbbca0aeb366d95922e183a663080f75fc80bf"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/left-full-scan.json",
+          "sha256": "4de125599d4e293b134e0b5f128c5ece6dd83af2360118ed4785e9562ff0c12b"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/input-right.json",
+          "sha256": "4a62aa2f21f14ac754671e13eb10f5fb69aa392ba5164f2c2b676dfa474f9176"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/right-solutions.npz",
+          "sha256": "d5ac9b69d4c1a436f89a6e0761173891ffdf24fce9a8da715c0599ef820dcfd7"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-05/validated/right-full-scan.json",
+          "sha256": "d87902468bce4a506dcd9b237bd92675435656ba0e64f81e36caf981c2be62b7"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-5.json"
+    },
+    {
+      "number": 6,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/native/hanon-06-film-08.blend",
+        "sha256": "afba821973de948a4552e26568663d059e267da4686c925f2637259f2251aabd"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/input-left.json",
+          "sha256": "ac5ec61cbfa48e012c4305bdecd7dfaf40e57aa0c4921dc31114be8a045b57d3"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/left-solutions.npz",
+          "sha256": "0c82f8d5dccc6b2fd8a17792208dacaac0f1b0dbb4d3284a771797f3e13f5dac"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/left-full-scan.json",
+          "sha256": "2cd7b05002f004cc4ae675cb6dda6d75335c5423e3058a77961cd6744df57dbb"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/input-right.json",
+          "sha256": "1b8e6f21d67513182b677bba6e30229be04ecde2ca261f986360b97272da69f4"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/right-solutions.npz",
+          "sha256": "4c79d46859fbcd49bff861e1da9672bad01685ab243faadc00e7937838109a47"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-06/validated/right-full-scan.json",
+          "sha256": "e7612ac5f2721c0b5414ef7d6246e110bcc6c9c9a1b37181dc02924f861e1e8b"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-6.json"
+    },
+    {
+      "number": 7,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/native/hanon-07-film-08.blend",
+        "sha256": "56ba1f190acdd51e6e29fa8673eef061ce19986adb16565cae4682e6886db36a"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/input-left.json",
+          "sha256": "c8f9be6f5d8fc6165cd77e1c48263df4830da6d1a9f5fae4baa76a6de82542fe"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/left-solutions.npz",
+          "sha256": "a5fb374b4114e12d236b2db30b83bf3431214ab0e4802a111f09e09a68c6c239"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/left-full-scan.json",
+          "sha256": "389268f1a63993cb480ae398a01fcaf2cbb4e1da0482632ac8c727d8d3ab6578"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/input-right.json",
+          "sha256": "1b564e0dabeac99e4e0c6d4c383a99dc31244ddf42301204354b7fcde9068075"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/right-solutions.npz",
+          "sha256": "2de81879c2008cbd034f94c9199a6149c5e9bbb0023c83556d84ec483131f1a7"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-07/validated/right-full-scan.json",
+          "sha256": "5bdaa2587d680b04cc16edeea5e50eeb526bd02e06842bb9f05973cb7c33fec0"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-7.json"
+    },
+    {
+      "number": 8,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/native/hanon-08-film-08.blend",
+        "sha256": "c714a6b03a195705efb3f27e1e4f0b7d1281e8f3667b4104eb992156ab9a44bc"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/input-left.json",
+          "sha256": "7a5cc38c9fbd2b0ca71723b6a3c2f04a024aa1c8e63e16a0ef4e9b7678708b76"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/left-solutions.npz",
+          "sha256": "c51f5a77f3a74999c27ed87cd25235dce95b13fec1f61aeef2b7e20683785287"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/left-full-scan.json",
+          "sha256": "515d7134864108fe12937071f34855dbf2828486376852c39ae230f619148872"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/input-right.json",
+          "sha256": "1b9e155124e00ad9ae623c2350060711c677927a652f2ec4a3ad025b656ebce0"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/right-solutions.npz",
+          "sha256": "738b1be917c9c54919797ebcb8c77913c85eee02fa88846a34f8f6286c863ed9"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-08/validated/right-full-scan.json",
+          "sha256": "860a28046e3e013a5766b133dc6beabbca827c7973e20edfac013efb66e486f7"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-8.json"
+    },
+    {
+      "number": 9,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/native/hanon-09-film-08.blend",
+        "sha256": "a1bb2b8816ca405f2f7530b6ec4aac81ac38965c65b3b2d5690082e29f3e5392"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/input-left.json",
+          "sha256": "4e86c1bbc082694e26535fbc8b2de858967b882268fd6be974c0c2085d0411e8"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/left-solutions.npz",
+          "sha256": "bf9ef3550b7e081a2af900a0ba814c81635785e20c090e267f41bf57d4933d9c"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/left-full-scan.json",
+          "sha256": "a431d6d28dca986c886f24466ed494df28ed74456717253ea5377a34fb788ded"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/input-right.json",
+          "sha256": "d36f780d28bb9e59c9783666bc438ac7e3e75708437ab353c1548d78dcb11474"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/right-solutions.npz",
+          "sha256": "40fd506b8927a50481c0ce6f27ea8727985b8e6d78e96507c22d0b1ab55b436a"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-09/validated/right-full-scan.json",
+          "sha256": "bf03b675c469777c8d004f0b38127e2fc9eba410fb6e0ef4cef1d77c60cca1f7"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-9.json"
+    },
+    {
+      "number": 10,
+      "editableProject": {
+        "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/native/hanon-10-film-08.blend",
+        "sha256": "4b1c530bb5a88164b70ee73c32d5645852b34129d966c7c1440753e7f7911359"
+      },
+      "motionFiles": {
+        "left-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/input-left.json",
+          "sha256": "0e2d2fce33c4950c69c5c15356aa8a240f34b285f16b05803e300c71cdbf72a8"
+        },
+        "left-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/left-solutions.npz",
+          "sha256": "0fb2a056f7a749b755ed9f680f00cecd45ff1f9ade57df078928d67095f376f1"
+        },
+        "left-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/left-full-scan.json",
+          "sha256": "8a368b3bf6f522bb791da420c597dfcce0390bbacb018f5d8dbeabeca11db33e"
+        },
+        "right-input.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/input-right.json",
+          "sha256": "3502dfef52e5ed9dd930d04d113ca0288f900bf3170ddd02b8b87704d6f0a13b"
+        },
+        "right-solutions.npz": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/right-solutions.npz",
+          "sha256": "68939e7c56ca09c8eedd9c98e179a30bd6158bd06466476dc6a06c3427834bf5"
+        },
+        "right-scan.json": {
+          "path": "output/app-hanon-2-10-2026-10-20/full-native-pairs-03/hanon-10/validated/right-full-scan.json",
+          "sha256": "01670afb4b90d06bc88eaca170a06d2dff881527acccf01b1f382d83bf3a4bdb"
+        }
+      },
+      "canonicalScore": "public/warmups/hanon-frames-v1/exercises/hanon-10.json"
+    }
+  ],
+  "authorRoot": "output/blender/hanon-hands-2026-10-20/keyboard-standard-v2",
+  "handAssets": [
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/LICENSE.md",
+      "sha256": "0ef0c87e8ffdd0681f332dc3b39f284dee2166d1f853fabc3853884fe81a6f30"
+    },
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/approved-manifest.json",
+      "sha256": "e701cf5524b7990ab7289126f7526ec6f546c686bf748b7bc2a9eeac1c46df69"
+    },
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/approved-states.json",
+      "sha256": "7f71037cfbc323144701315e1a64b9762746dfe29592e3f60194653d7ca10d70"
+    },
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/left.glb",
+      "sha256": "bc67783144944ea1cda54d9247885825ea5fb9d4651469fe7d00be517a5c2b87"
+    },
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/motion-source-index.json",
+      "sha256": "0fd6ead5e8f535037b1925e613069af3cb05d8f06e569a2e85100067a7e9baee"
+    },
+    {
+      "path": "output/blender/hanon-hands-2026-10-20/assets/right.glb",
+      "sha256": "291790c14f7f88a7f9bd35330c47392ed8e8d395ae6728f4bb7089f1bc1f2b96"
+    }
+  ],
+  "retainedStudies": {
+    "nailsHelper": "output/blender/hanon-hands-2026-10-20/keyboard-standard-v2/add_attached_nails.py",
+    "materialAndSkinStudies": "output/blender/hanon-hands-2026-10-20/keyboard-standard-v2",
+    "cinematicCamerasAndAudio": "output/video/hanon-cinematic-2026-10-20"
+  },
+  "copyOnlyRepositorySupport": "repository-snapshot/scripts/hanon",
+  "privatePhotosAndNotebooksIncluded": false,
+  "note": "All ten complete editable projects and original studies remain recoverable. New revisions require new audits and a new bank."
+}

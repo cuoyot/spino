@@ -23,3 +23,19 @@ android/keystore.properties
 
 # Private native review recovery archives may contain local notebook data.
 /output/native-review-backups/
+
+# Hanon authoring archive: exact originals are recoverable on the external disk.
+# Compatibility symlinks also match these paths; runtime banks stay tracked.
+/output/app-hanon-2-10-2026-10-20
+/output/app-no1-2026-10-20
+/output/blender/hanon-hands-2026-10-20
+/output/video/hanon-cinematic-2026-10-20
+/output/review/hanon-*
+/output/review/scan-hanon-*
+/output/review/run-hanon-*
+/output/hanon-cleanup-2026-10-21
+/output/hanon-complete-review-2026-10-21
+/output/hanon-revisions
+/output/hanon-recovered-workspace
+/scripts/hanon/__pycache__/
+/output/hanon-size-2026-10-21

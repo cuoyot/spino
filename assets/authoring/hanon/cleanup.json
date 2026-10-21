@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-21",
+  "passed": true,
+  "archiveRoot": "/Volumes/2TB-MIGUE/SPino/hanon-2026-10-20/archive-2026-10-21",
+  "filesArchived": 12391,
+  "bytesArchived": 3738470310,
+  "originalPathsRetainedAsIgnoredAliases": true,
+  "privatePhotosAndNotebooksUntouched": true,
+  "evidence": {
+    "inventory.json": {
+      "path": "output/hanon-cleanup-2026-10-21/inventory.json",
+      "sha256": "348970bf2d02cd8479456fbc42f0128652d4c017f54c0d2a55d19cdeb728501b"
+    },
+    "retirement.json": {
+      "path": "output/hanon-cleanup-2026-10-21/retirement.json",
+      "sha256": "11124f47beb800ad8f7479cb5290a4d0d1f3dff4527cc669bcaf43b2ff3df386"
+    },
+    "reproduction-proof.json": {
+      "path": "output/hanon-cleanup-2026-10-21/reproduction-proof.json",
+      "sha256": "1a374c767175c815a37ba5ad80b3ae6cc312cbb8fa52be49f42944bb5c498d6a"
+    },
+    "editable-sources-02.json": {
+      "path": "output/hanon-cleanup-2026-10-21/editable-sources-02.json",
+      "sha256": "6ea3a7a18a96ae7087c1d59cc28f1ab30fd00dfa00af771944f404467def66a4"
+    },
+    "runtime-post-cleanup-integrity.json": {
+      "path": "output/hanon-cleanup-2026-10-21/runtime-post-cleanup-integrity.json",
+      "sha256": "d2eeacef22413e4ffcfa30d7484540022304c282dc47e7c973b7a76307048230"
+    }
+  },
+  "sizeOptimization": {
+    "requested": true,
+    "targetApkBytes": 50000000,
+    "currentReleaseUnchanged": true,
+    "prototypePath": "output/hanon-size-2026-10-21",
+    "preserveCompleteNewBlenderSources": true,
+    "excludeSupersededRuntimeBanksFromFutureBuild": true
+  }
+}

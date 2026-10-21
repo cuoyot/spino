@@ -1,3 +1,32 @@
+## Current 720 × 400 video delivery (21 October 2026)
+
+The owner selected 720 × 400 and an APK target below50 MB. Complete approved
+No.1 v2 and Nos.2–10 v3 native frame timelines are transcoded without altering
+motion or canonical note/fingering data. Thirty independent modes remain offline.
+
+```sh
+python3 scripts/hanon/export_video_bank.py \
+  --destination public/warmups/hanon-video-v1 \
+  --work output/hanon-size-2026-10-21/full-export-01
+python3 scripts/hanon/audit_video_bank.py \
+  --output output/hanon-size-2026-10-21/codec-audit-01
+```
+
+The destination must be new. The exporter records source image and timeline
+SHA256, ffprobe verifies1440 frames/24fps/720×400, and the image audit compares
+90 decoded frames with the approved source images. H.264 CRF30/yuv420p, one-second
+keyframes and fast-start metadata support offline playback and bounded seeking.
+Quality metrics are diagnostic; responsive visual and installed Android reviews
+are separate required gates. The canonical frame table still controls note
+stepping, guide fingers, release state and slow playback.
+
+Vite excludes superseded `hanon-frames-v1/v2/v3` banks from dist only after the
+complete new index exists; it never removes authoring baselines from public.
+Editable full Blender sources, all original authoring evidence and recovery tools
+are indexed at `assets/authoring/hanon/`. See that README for verified external
+recovery and safe new revision creation. The sections below retain the original
+static-bank authoring contracts and historical pilot details.
+
 # Approved Hanon No. 1 static export
 
 These scripts export the approved Blender No. 1 take as offline WebP frames. They do not modify the Blender project or provide a runtime 3D engine. The app selects this asset set only for No. 1; the existing v1 assets for all exercises remain available for rollback.

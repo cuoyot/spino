@@ -1,0 +1,13 @@
+{
+  "archive": "/Volumes/2TB-MIGUE/SPino/hanon-2026-10-20/archive-2026-10-21/720-delivery-2026-10-21",
+  "manifestSha256": "680acac8b5e4fe8a6a4feb2e77a48b2b749d72c65c8f8d1436a58b57d548a64f",
+  "bytes": 65981611,
+  "files": 77,
+  "resolution": [
+    720,
+    400
+  ],
+  "completeExerciseHandModes": 30,
+  "originalEditableSources": "archive.json",
+  "copyVerified": true
+}

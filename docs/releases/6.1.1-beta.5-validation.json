@@ -1,0 +1,100 @@
+{
+  "version": "6.1.1-beta.5",
+  "build": 81,
+  "date": "2026-10-21",
+  "newAABBuilt": false,
+  "apk": {
+    "version": "6.1.1-beta.5",
+    "versionCode": 81,
+    "bytes": 44576469,
+    "sha256": "a2c59bc368ba4b9d8545d4a90601e701703e3ba792afb0b01ae667913ca444bd",
+    "packagedWebFilesMatched": 333,
+    "oldAnimationBanksPackaged": false,
+    "completeVideoModes": 30,
+    "passed": true
+  },
+  "bank": {
+    "version": 1,
+    "revision": "2026-10-21-complete-blender-hanon-video-720",
+    "width": 720,
+    "height": 400,
+    "fps": 24,
+    "codec": "H.264",
+    "pixelFormat": "yuv420p",
+    "crf": 30,
+    "keyframeInterval": 24,
+    "exercises": [
+      {
+        "id": "hanon-1",
+        "file": "exercises/hanon-1.json"
+      },
+      {
+        "id": "hanon-2",
+        "file": "exercises/hanon-2.json"
+      },
+      {
+        "id": "hanon-3",
+        "file": "exercises/hanon-3.json"
+      },
+      {
+        "id": "hanon-4",
+        "file": "exercises/hanon-4.json"
+      },
+      {
+        "id": "hanon-5",
+        "file": "exercises/hanon-5.json"
+      },
+      {
+        "id": "hanon-6",
+        "file": "exercises/hanon-6.json"
+      },
+      {
+        "id": "hanon-7",
+        "file": "exercises/hanon-7.json"
+      },
+      {
+        "id": "hanon-8",
+        "file": "exercises/hanon-8.json"
+      },
+      {
+        "id": "hanon-9",
+        "file": "exercises/hanon-9.json"
+      },
+      {
+        "id": "hanon-10",
+        "file": "exercises/hanon-10.json"
+      }
+    ],
+    "videoBytes": 19968806,
+    "complete": true
+  },
+  "focusedChecks": {
+    "pass": 18
+  },
+  "unitChecks": {
+    "pass": 326,
+    "skip": 1,
+    "fail": 0
+  },
+  "siteChecks": {
+    "downloadTests": 3,
+    "localizedResponsiveFrames": 15,
+    "passed": true
+  },
+  "nativeModeCount": 30,
+  "canonicalNativeNoteSeeks": 3390,
+  "normalNativeFullTracks": [
+    1,
+    7,
+    10
+  ],
+  "pressedNotesPerFullTrack": 113,
+  "playbackBoundMilliseconds": 120000,
+  "deliberateBrowserUiStallMilliseconds": 1200,
+  "originalLogicalStoresUnchanged": true,
+  "applicationStorageCleared": false,
+  "nativeEvidence": "docs/quality-review/captures/warmups/2026-10-21-video-720/native-verification.json",
+  "browserEvidence": "docs/quality-review/captures/warmups/2026-10-21-video-720/browser-verification.json",
+  "physicalDeviceAcceptance": false,
+  "websitePublication": "pending actual provider/full-APK/hash/range/localized-page verification"
+}

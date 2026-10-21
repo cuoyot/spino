@@ -1,0 +1,9 @@
+<es-ES>
+Las diez animaciones nuevas de Hanon conservan el recorrido completo y los modos de ambas manos o cada mano por separado. Vídeos a 720 × 400 reducen el tamaño de la app, con todos los ejercicios disponibles sin conexión. Se mantienen la velocidad lenta, los saltos por nota y el cierre visible en la parte superior. Conserva cuadernos y progreso.
+</es-ES>
+<en-US>
+The ten new Hanon animations retain complete exercises and both-hand or separate-hand modes. 720 × 400 videos reduce the app size while keeping every exercise available offline. Slow playback, note stepping and the visible top Close control remain. Notebooks and progress are preserved.
+</en-US>
+<ca>
+Les deu animacions noves de Hanon conserven els exercicis complets i els modes de totes dues mans o cada mà per separat. Els vídeos a 720 × 400 redueixen la mida de l'app i mantenen tots els exercicis disponibles sense connexió. Es conserven la velocitat lenta, els salts per nota i el tancament visible a la part superior. Conserva quaderns i progrés.
+</ca>

@@ -149,3 +149,18 @@ test('complete native Nos. 2–10 bank preserves score coverage, independent han
   assert.ok((await readFile(new URL(index.keyboard, root))).length > 0);
   assert.match(await readFile(new URL('LICENSE.txt', root), 'utf8'), /MIT|Permission is hereby granted/);
 });
+
+test('720 video delivery preserves all ten complete canonical timelines and independent modes', async () => {
+  const root = new URL('../public/warmups/hanon-video-v1/', import.meta.url);
+  const index = JSON.parse(await readFile(new URL('index.json', root), 'utf8'));
+  assert.deepEqual([index.width, index.height, index.fps, index.complete], [720, 400, 24, true]);
+  assert.equal(index.exercises.length, 10); let bytes = 0;
+  for (const exercise of HANON) {
+    const data = JSON.parse(await readFile(new URL(`exercises/${exercise.id}.json`, root), 'utf8'));
+    const bank = exercise.id === 'hanon-1' ? 'v2' : 'v3';
+    const original = JSON.parse(await readFile(new URL(`../public/warmups/hanon-frames-${bank}/exercises/${exercise.id}.json`, import.meta.url), 'utf8'));
+    assert.deepEqual(data.events, original.events); assert.deepEqual(data.frames, original.frames.map(f => f.slice(0, 2))); assert.deepEqual(data.nativeFrames, original.nativeFrames);
+    for (const hand of ['both', 'left', 'right']) { const video = data.videos[hand]; assert.match(video.file, new RegExp(`${exercise.id}-${hand}\\.mp4$`)); assert.equal((await readFile(new URL(video.file, root))).length, video.bytes); bytes += video.bytes; }
+  }
+  assert.equal(bytes, index.videoBytes); assert.ok(bytes < 27_000_000, 'Keep complete offline demonstrations within the 50 MB APK target');
+});

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "revision": "2026-10-21-complete-blender-hanon-video-720",
+  "width": 720,
+  "height": 400,
+  "fps": 24,
+  "codec": "H.264",
+  "pixelFormat": "yuv420p",
+  "crf": 30,
+  "keyframeInterval": 24,
+  "exercises": [
+    {
+      "id": "hanon-1",
+      "file": "exercises/hanon-1.json"
+    },
+    {
+      "id": "hanon-2",
+      "file": "exercises/hanon-2.json"
+    },
+    {
+      "id": "hanon-3",
+      "file": "exercises/hanon-3.json"
+    },
+    {
+      "id": "hanon-4",
+      "file": "exercises/hanon-4.json"
+    },
+    {
+      "id": "hanon-5",
+      "file": "exercises/hanon-5.json"
+    },
+    {
+      "id": "hanon-6",
+      "file": "exercises/hanon-6.json"
+    },
+    {
+      "id": "hanon-7",
+      "file": "exercises/hanon-7.json"
+    },
+    {
+      "id": "hanon-8",
+      "file": "exercises/hanon-8.json"
+    },
+    {
+      "id": "hanon-9",
+      "file": "exercises/hanon-9.json"
+    },
+    {
+      "id": "hanon-10",
+      "file": "exercises/hanon-10.json"
+    }
+  ],
+  "videoBytes": 19968806,
+  "complete": true
+}

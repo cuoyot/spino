@@ -35,7 +35,20 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
     if (!path.startsWith(root + '/') && !path.startsWith(root + '\\')) { res.writeHead(403).end(); return; }
     try {
       const data = await readFile(path);
-      res.setHeader('Content-Type', { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.wasm': 'application/wasm', '.css': 'text/css' }[extname(path)] || 'application/octet-stream');
+      res.setHeader('Content-Type', { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.wasm': 'application/wasm', '.css': 'text/css', '.mp4': 'video/mp4' }[extname(path)] || 'application/octet-stream');
+      // Mirror production media serving: Chromium requires byte ranges for
+      // reliable video seeking before the entire file has been downloaded.
+      if (extname(path) === '.mp4') {
+        res.setHeader('Accept-Ranges', 'bytes');
+        const range = /^bytes=(\d+)-(\d*)$/.exec(req.headers.range || '');
+        if (range) {
+          const start = Number(range[1]), end = Math.min(data.length - 1, range[2] ? Number(range[2]) : data.length - 1);
+          if (start > end || start >= data.length) { res.writeHead(416, { 'Content-Range': `bytes */${data.length}` }).end(); return; }
+          res.writeHead(206, { 'Content-Range': `bytes ${start}-${end}/${data.length}`, 'Content-Length': end - start + 1 });
+          res.end(data.subarray(start, end + 1)); return;
+        }
+      }
+      res.setHeader('Content-Length', data.length);
       res.end(data);
     } catch { res.writeHead(404).end(); }
   });
