@@ -1,5 +1,5 @@
 // Static website, byte-range video playback and signed downloads above 25 MiB.
-// Regenerate site/ with `node scripts/site/build-site.mjs`; see docs/play-store/README.md.
+// Regenerate site/ with `node scripts/site/build-site.mjs`; deploy via docs/website-deployment.md.
 {
   "name": "spino",
   "main": "scripts/site/download-worker.mjs",

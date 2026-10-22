@@ -1,0 +1,55 @@
+{
+  "verifiedAt": "2026-10-22T07:17:54.554033+00:00",
+  "websiteCommit": "f1a3cd21b9ef3dc1a1f065069c9e4e39a8ed4e33",
+  "cloudflareVersionId": "4b2b5af8-23f2-4d5f-9f53-7c2fa863e646",
+  "deploymentEvidence": "docs/releases/6.1.1-direct-deployment.json",
+  "sessionCheck": "Existing Wrangler OAuth session successfully listed deployments; no login or additional consent was required.",
+  "currentVersionConfirmedByWrangler": true,
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "bytes": 96337,
+      "sha256": "794ce4d34879f248fa634afeae879ba94bfd437a7f3d37a4deb9d3017f3b3b30",
+      "matchesCommit": true,
+      "downloadContrastFix": true,
+      "videoPreloadNone": true
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "bytes": 99098,
+      "sha256": "6264e318ab0a5a2974a6f34d38bc3b8546b48235a474b46fd7766794305e0967",
+      "matchesCommit": true,
+      "downloadContrastFix": true,
+      "videoPreloadNone": true
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "bytes": 96358,
+      "sha256": "619d27d02385eebc478deb182efafdce1df079a5f2a7f15104c6419809000053",
+      "matchesCommit": true,
+      "downloadContrastFix": true,
+      "videoPreloadNone": true
+    }
+  ],
+  "videoRange": {
+    "url": "https://spinoapp.com/media/hanon-warmups-2026-10-20.mp4",
+    "status": 206,
+    "range": "bytes 0-1/22190578",
+    "bytesReturned": 2
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "url": "https://spinoapp.com/",
+    "fetchTime": "2026-10-22T07:14:40.964Z",
+    "scores": {
+      "accessibility": 1,
+      "best-practices": 1
+    },
+    "colorContrast": 1,
+    "errorsInConsole": 1
+  },
+  "scope": "Read-only production verification. No deployment performed; the newer published stable release already contains both fixes."
+}

@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-21T14:45:08.339514+00:00",
+  "sourceCommit": "af41e1298eca55038d5fc4c9e475fc398838c75a",
+  "retryCommit": "51dc4adddc33f91baf46e5bdf9075937f288279c",
+  "githubPushes": "Both confirmed",
+  "cloudflareBuildHistory": "No build for either commit; latest visible build is 221ad264-7aca-42e5-99a7-7aecffd96268 (previous SEO commit b845091).",
+  "cloudflareConfiguration": {
+    "buildsEnabled": true,
+    "productionBranch": "master",
+    "includePaths": "*",
+    "buildMinutesUsed": 189,
+    "buildMinutesAvailable": 3000
+  },
+  "publicPages": "Still previous version at last verification.",
+  "directDeployment": {
+    "bundle": "/private/tmp/spino-website-publish-20261021",
+    "contents": "Only committed site assets, Worker modules and wrangler.jsonc exported with git archive.",
+    "assets": 250,
+    "dryRunPassed": true,
+    "reviewedPageHashesMatch": true,
+    "authentication": "Wrangler has no configured session; awaiting owner approval for account:read and workers:write OAuth access."
+  }
+}

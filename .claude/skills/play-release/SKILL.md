@@ -50,7 +50,10 @@ Arguments (optional): bump type `patch` (default) | `minor` | `major` | `x.y.z`,
    npm run build && node scripts/store/capture-play-screenshots.mjs es en
    node scripts/site/build-site.mjs
    ```
-   Look at a few regenerated screenshots before accepting them. The site redeploys on push to `master`.
+   Look at a few regenerated screenshots before accepting them. When website publication is authorized,
+   follow `docs/website-deployment.md`: reuse the authorized Wrangler session, deploy the exact reviewed
+   commit and verify the public result. A push to `master` alone does not confirm publication. Do not ask
+   again for the same Wrangler authorization during a requested website deployment.
 
 7. **Build the bundle** (PowerShell, sandbox disabled — Gradle needs it):
    ```

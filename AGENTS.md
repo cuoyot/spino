@@ -22,3 +22,7 @@ The user's current instructions and previously authorized actions govern the sco
 Whenever a new Android APK is built for review, install it on the existing emulator, launch the app and confirm that its activity is in the foreground. Preserve the emulator's notebook and other user data; use replacement installation rather than clearing application storage.
 
 For changes that can be reviewed faithfully in the browser, open the current browser build for immediate feedback. State clearly whether the presented result is a responsive browser review or native-emulator evidence.
+
+## Website deployment
+
+Follow `docs/website-deployment.md` for every requested website publication. Wrangler is authorized for the existing SPino account and Worker; reuse its stored session and do not request the same permission again. Deploy the exact reviewed commit from an isolated export, preserve concurrent work, and verify the current Cloudflare version and public content. A Git push alone does not prove publication. If a newer deployment already includes the changes, verify it instead of overwriting it.

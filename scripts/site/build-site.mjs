@@ -1,4 +1,4 @@
-// Builds the public website in site/ (published as is by Cloudflare Pages): landing page in Spanish (/) and
+// Builds the public website in site/ (served by the Cloudflare Worker): landing page in Spanish (/) and
 // English (/en/), Catalan (/ca/) and the bilingual privacy policy (/privacy/).
 import { mkdir, readFile, writeFile, copyFile, cp } from 'node:fs/promises';
 import { join } from 'node:path';
