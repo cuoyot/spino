@@ -1,4 +1,5 @@
 import {Capacitor,registerPlugin} from '@capacitor/core';
+import {exportRecording} from './media-bookends.js';
 import {ui} from './locale.js';
 const MediaShare=registerPlugin('MediaShare');
 const CHUNK=256*1024;
@@ -21,19 +22,31 @@ export async function shareNativeRecording(file,plugin,{title,dialogTitle}) {
     return await plugin.share({token,title,dialogTitle});
   }catch(error){await plugin.abort({token}).catch(()=>{});throw error;}
 }
+async function prepareRecording(record,options){
+  if(record.kind!=='video')return record;
+  const controller=new AbortController(),dialog=document.createElement('dialog');
+  const label=document.createElement('p'),progress=document.createElement('progress'),cancel=document.createElement('button');
+  label.textContent=ui('Preparing video… Keep SPino open.','Preparando vídeo… Mantén SPino abierto.');progress.max=100;progress.value=0;
+  cancel.textContent=ui('Cancel','Cancelar');cancel.type='button';cancel.onclick=()=>controller.abort();
+  dialog.append(label,progress,cancel);dialog.addEventListener('cancel',event=>{event.preventDefault();controller.abort();});
+  const background=()=>{if(document.hidden)controller.abort();};document.addEventListener('visibilitychange',background);
+  document.body.append(dialog);dialog.showModal();
+  try{return await exportRecording(record,{...options,signal:controller.signal,onProgress:value=>{progress.value=value;options.onProgress?.(value);}});}
+  finally{document.removeEventListener('visibilitychange',background);dialog.close();dialog.remove();}
+}
 let sharing=false;
-export async function shareRecording(record) {
+export async function shareRecording(record,options={}) {
   if(sharing)return 'busy';
   sharing=true;
   try {
-    const file=recordingFile(record);
+    const file=recordingFile(await prepareRecording(record,options));
     if(Capacitor.getPlatform()==='android'){
       if(!Capacitor.isPluginAvailable('MediaShare'))throw Error('Native recording sharing unavailable');
       const result=await shareNativeRecording(file,MediaShare,{title:record.title||record.workTitle||'SPino',dialogTitle:ui('Share recording','Compartir grabación')});
       return result.cancelled?'cancelled':'shared';
     }
-    if(navigator.share&&navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:record.title||'SPino'});return 'shared';}
+    if(navigator.share&&navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:record.title||'SPino'});return 'shared';}catch(error){if(error.name!=='NotAllowedError')throw error;}}
     const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=file.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);return 'downloaded';
-  }catch(error){if(error.name==='AbortError'||error.code==='CANCELLED')return 'cancelled';throw error;}
+  }catch(error){if(error.name==='AbortError'||error.code==='CANCELLED')return 'cancelled';console.warn('Recording export failed',error);throw error;}
   finally{sharing=false;}
 }

@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "audio",
+    "source": "tests/fixtures/media/two-minute-stream.webm",
+    "sourceSHA256": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+    "path": "/data/user/0/com.miguecoll.spino.beta/cache/spino-trim/f8692ac2-83a0-42d5-b31e-7eda719e42e8.mp4",
+    "bytes": 416131,
+    "mimeType": "audio/mp4",
+    "duration": 0.948,
+    "width": 0,
+    "height": 0
+  },
+  {
+    "kind": "video",
+    "source": "tests/fixtures/media/bookends-portrait.webm",
+    "sourceSHA256": "3d6411239d50e4ea3b05e863a6614202532d5f29980a5cd82f7a4c07ddca3ec5",
+    "path": "/data/user/0/com.miguecoll.spino.beta/cache/spino-trim/d33ebe0b-87f3-4846-aeda-23694439d21b.mp4",
+    "bytes": 810235,
+    "mimeType": "video/mp4",
+    "duration": 6,
+    "width": 360,
+    "height": 640
+  }
+]

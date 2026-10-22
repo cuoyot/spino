@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {openBrowser} from './browser.js';
+import {driveNotebookBootstrap} from '../scripts/review/drive-notebook-fixture.mjs';
+const until=expression=>`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(${expression}){clearInterval(t);resolve();}else if(++n>1600){clearInterval(t);reject(Error('Timeout'));}},25);})`;
+test('video sharing adds portrait cards and fades without changing the saved take',{timeout:90000},async t=>{
+ const take={id:'synthetic-bookends',workId:'synthetic-work',title:'Take title',workTitle:'Hanon · Ejercicio n.º 1',createdAt:'2026-10-22T12:00:00Z',durationMs:3000,kind:'video',draft:false,base64:(await readFile('tests/fixtures/media/bookends-portrait.webm')).toString('base64')};
+ const {send,evaluate,url}=await openBrowser(t,{companion:true});
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:driveNotebookBootstrap({localMedia:take})+`;delete window.CapacitorCustomPlatform;delete window.androidBridge;console.warn=(...args)=>{if(args[0]==='Recording export failed')window.exportError=args.map(v=>v?.stack||String(v)).join(' ')};Object.defineProperty(navigator,'canShare',{value:()=>true});Object.defineProperty(navigator,'share',{value:async()=>{throw new DOMException('Expired gesture','NotAllowedError')}});const originalURL=URL.createObjectURL;URL.createObjectURL=function(blob){if(blob instanceof File)window.sharedVideo=blob;return originalURL.call(URL,blob);};HTMLAnchorElement.prototype.click=function(){};`});
+ await send('Page.navigate',{url});await evaluate(until("document.querySelector('.cp-nav [data-action=piano]')"));
+ const click=selector=>send('Runtime.evaluate',{expression:`document.querySelector(${JSON.stringify(selector)}).click()`,userGesture:true,awaitPromise:true});
+ await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelector('[data-action=media-share]')"));
+ await click('[data-action=media-share]');await evaluate(until('window.sharedVideo||window.exportError'));
+ assert.equal(await evaluate('window.exportError||null'),null);
+ const result=await evaluate(`(async()=>{const video=document.createElement('video');video.src=URL.createObjectURL(sharedVideo);await new Promise((r,j)=>{video.onloadeddata=r;video.onerror=j;});const c=document.createElement('canvas');c.width=video.videoWidth;c.height=video.videoHeight;const ctx=c.getContext('2d');const pixels=[];for(const time of [0.1,1,3.1,3.6,5.9,6.6,7.9]){await new Promise(r=>{video.onseeked=r;video.currentTime=time;});ctx.drawImage(video,0,0);pixels.push([...ctx.getImageData(5,5,1,1).data]);}return {duration:video.duration,width:video.videoWidth,height:video.videoHeight,pixels,bytes:sharedVideo.size};})()`);
+ assert.ok(Math.abs(result.duration-8)<.25,JSON.stringify(result));assert.deepEqual([result.width,result.height],[360,640]);assert.ok(result.pixels[3][0]>200);assert.ok(result.pixels[2][0]<result.pixels[3][0]*.7);assert.ok(result.pixels[4][0]<result.pixels[3][0]*.7);
+ const saved=await evaluate(`new Promise(r=>{const q=indexedDB.open('spino-local-media');q.onsuccess=()=>{const db=q.result,g=db.transaction('recordings').objectStore('recordings').get('synthetic-bookends');g.onsuccess=()=>{r({size:g.result.blob.size,duration:g.result.durationMs});db.close();};};})`);assert.equal(saved.duration,3000);assert.equal(saved.size,Buffer.from(take.base64,'base64').length);
+ await mkdir('output/review/bookends-browser',{recursive:true});await writeFile('output/review/bookends-browser/verification.json',JSON.stringify(result,null,2));
+ await evaluate('window.sharedVideoCopy=window.sharedVideo');
+ const encoded=await evaluate(`new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.readAsDataURL(sharedVideo);})`);await writeFile('output/review/bookends-browser/export.webm',Buffer.from(encoded,'base64'));
+ await evaluate('window.sharedVideo=null');await click('[data-action=media-share]');await evaluate(until("document.querySelector('dialog[open] progress')"));await click('dialog[open] progress + button');await evaluate(until("!document.querySelector('dialog[open] progress')"));assert.equal(await evaluate('window.sharedVideo'),null);
+});

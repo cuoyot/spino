@@ -10,7 +10,7 @@ export function trimmedRecording(record,blob,range,title){
   const {cloud,installation,...original}=record;
   return {...original,mediaTakeId:crypto.randomUUID(),title,blob,durationMs:range.durationMs,draft:false,trimmedFrom:record.id};
 }
-export async function trimNativeRecording(record,range,{signal,onProgress=()=>{}},plugin=native,read=async path=>{
+export async function trimNativeRecording(record,range,{signal,onProgress=()=>{},bookends},plugin=native,read=async path=>{
   const response=await fetch(Capacitor.convertFileSrc(path));if(!response.ok)throw Error('Could not read the trimmed recording.');return response.blob();
 }){
   let token,poll;
@@ -25,7 +25,7 @@ export async function trimNativeRecording(record,range,{signal,onProgress=()=>{}
       await plugin.writeChunk({token,offset,base64:btoa(binary)});onProgress(Math.floor((offset+bytes.length)/record.blob.size*10));
     }
     cancelled();poll=setInterval(()=>{void plugin.progress({token}).then(r=>onProgress(10+Math.floor((r.percent||0)*.85))).catch(()=>{});},400);
-    const result=await plugin.trim({token,startMs:range.startMs,endMs:range.endMs});cancelled();
+    const result=await plugin.trim({token,startMs:range.startMs,endMs:range.endMs,...(bookends?{bookends:true,title:bookends.title,date:bookends.date}:{})});cancelled();
     const blob=new Blob([await read(result.path)],{type:result.mimeType});cancelled();
     if(blob.size!==result.bytes||blob.size>LIMIT||!blob.size)throw Error('Could not verify the trimmed recording.');
     onProgress(100);return blob;

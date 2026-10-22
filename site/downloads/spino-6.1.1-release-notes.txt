@@ -1,0 +1,9 @@
+<es-ES>
+Versión estable: grabación de prácticas en audio y vídeo, con recorte de inicio y final. Al compartir vídeos se añaden portadas con el logo, spinoapp.com, la obra y la fecha, y transiciones suaves. Catálogo revisado y ampliado. Mejoras en la sincronización con Google Drive. Repertorio integrado en las clases presenciales.
+</es-ES>
+<en-US>
+Stable release: record practice in audio and video, with start and end trimming. Shared videos include opening and closing cards with the logo, spinoapp.com, piece and date, with smooth transitions. Revised and expanded catalogue. Improved Google Drive synchronization. Repertoire integrated into in-person lessons.
+</en-US>
+<ca>
+Versió estable: gravació de pràctiques en àudio i vídeo, amb retall de l’inici i el final. Els vídeos compartits inclouen portades amb el logo, spinoapp.com, l’obra i la data, i transicions suaus. Catàleg revisat i ampliat. Millores en la sincronització amb Google Drive. Repertori integrat a les classes presencials.
+</ca>

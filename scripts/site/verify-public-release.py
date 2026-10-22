@@ -70,7 +70,7 @@ for language, relative in [('es', ''), ('en', 'en/'), ('ca', 'ca/')]:
         time.sleep(5)
     assert body == expected, f'Public page mismatch: {url}'
     html = body.decode()
-    assert version in html and '6.1.0 (76)' in html
+    assert version in html and f"{manifest.get('stable', {}).get('version', version)} ({manifest.get('stable', {}).get('build', manifest['build'])})" in html
     pages.append({'language': language, 'url': url, 'bytes': len(body), 'sha256': sha(body)})
     for reference in re.findall(r'<img[^>]+src="([^"]+)"', html):
         parsed = urllib.parse.urlparse(urllib.parse.urljoin(url, reference))

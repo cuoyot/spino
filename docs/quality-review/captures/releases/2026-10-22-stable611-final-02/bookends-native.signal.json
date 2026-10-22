@@ -1,0 +1,16 @@
+{
+  "source": "docs/quality-review/captures/releases/2026-10-22-stable611-final-02/bookends-native.mp4",
+  "bodyDuration": 1.0,
+  "frameBrightness": [
+    49.0,
+    122.0,
+    221.0,
+    98.0,
+    23.0
+  ],
+  "audioRMS": [
+    0.0,
+    0.12451651287872452,
+    0.0
+  ]
+}

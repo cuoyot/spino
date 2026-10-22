@@ -1,7 +1,7 @@
 // Shared public URLs keep HTML metadata, language alternates and the sitemap aligned.
 export const ORIGIN = 'https://spinoapp.com';
 export const LANGUAGES = ['es', 'en', 'ca'];
-export const STABLE_RELEASE = { version: '6.1.0', code: '76' };
+export const STABLE_RELEASE = { version: '6.1.1', code: '86' };
 export const localizedPath = (lang, base = '/') => base + (lang === 'es' ? '' : `${lang}/`);
 export const absoluteUrl = path => new URL(path, ORIGIN).href;
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);

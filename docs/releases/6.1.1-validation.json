@@ -1,0 +1,61 @@
+{
+  "version": "6.1.1",
+  "build": 86,
+  "artifacts": [
+    {
+      "file": "spino-6.1.1-86-android.aab",
+      "bytes": 50842009,
+      "sha256": "829e982792a9cf72e0b0e9259fa3b3c1f92f9142a5e8f31234726c13b6e05700",
+      "version": "6.1.1",
+      "build": 86,
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.1-86-android.apk",
+      "bytes": 53079697,
+      "sha256": "7d9ef3fcbdaa176285c3e7a70e165eef6503e4e388a7497c86c1fdc355f6b0ca",
+      "version": "6.1.1",
+      "build": 86,
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.1-86-beta-android.apk",
+      "bytes": 58249194,
+      "sha256": "004ae452a7e2d0a0cdd964cce8a40ff5d626856564901313fdb3f0b4a502c61a",
+      "version": "6.1.1",
+      "build": 86,
+      "applicationId": "com.miguecoll.spino.beta"
+    },
+    {
+      "file": "spino-6.1.1-play-console-handoff.zip",
+      "bytes": 50619766,
+      "sha256": "c24ccca18af88bc774a51c3b2c1438b3488dbff09453561eee7d547f31683001"
+    },
+    {
+      "file": "spino-6.1.1-release-notes.txt",
+      "bytes": 1023,
+      "sha256": "82618bc35c51bdb412c40207c2eece1b092bd13782c349630ddaf5b9850d94f6"
+    }
+  ],
+  "packagedWebFilesMatched": {
+    "spino-6.1.1-86-android.aab": 413,
+    "spino-6.1.1-86-android.apk": 413,
+    "spino-6.1.1-86-beta-android.apk": 413
+  },
+  "unitTests": {
+    "passed": 352,
+    "skipped": 1
+  },
+  "browserTests": 4,
+  "siteBrowserTests": 4,
+  "androidUnitTests": 7,
+  "nativeEvidence": "docs/quality-review/captures/releases/2026-10-22-stable611-final-02/native.json",
+  "nativeSignalEvidence": "docs/quality-review/captures/releases/2026-10-22-stable611-final-02/bookends-native.signal.json",
+  "originalIndexedDBFilesUnchanged": 135,
+  "productionCertificateSHA256": "d27604f0725c3040b3a476617e1e7bc4c6d31d7aabc36a65e8a2d5cb65fc7de7",
+  "betaCertificateSHA256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52",
+  "aabSignatureVerified": true,
+  "physicalDeviceAcceptance": false,
+  "googlePlaySubmitted": false,
+  "finalFocusedTests": 15
+}

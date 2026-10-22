@@ -871,6 +871,7 @@ My settings|La meva configuració
 Export|Exportar
 Share|Compartir
 Share recording|Comparteix la gravació
+Preparing video… Keep SPino open.|Preparant el vídeo… Mantén SPino obert.
 Recording downloaded.|Gravació descarregada.
 Could not share. Your recording is still saved.|No s’ha pogut compartir. La gravació continua desada.
 Copied to clipboard|Copiat al porta-retalls

@@ -12,7 +12,7 @@ test('localized catalogue website section explains the released catalogue across
   assert.match(await evaluate(`document.querySelector('#catalogue').textContent`),/129/);
   assert.match(await evaluate(`document.querySelector('#catalogue').textContent`),/Rumores de la Caleta/);
   assert.equal(await evaluate(`document.querySelectorAll('#catalogue .catalogue-shots img').length`),3);
-  assert.ok(await evaluate(`document.querySelector('#catalogue a[download]').href.endsWith('spino-6.1.1-beta.9-85-android.apk')`));
+  assert.ok(await evaluate(`document.querySelector('#catalogue a[download]').href.endsWith('spino-6.1.1-86-android.apk')`));
   for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
    await evaluate(`document.querySelector('#catalogue').scrollIntoView()`);

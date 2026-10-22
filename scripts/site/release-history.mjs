@@ -203,3 +203,9 @@ if(beta619){
  const tagged=await readFile(new URL('../../docs/releases/6.1.1-beta.9-release-notes.txt',import.meta.url),'utf8');
  for(const [lang,locale] of [['en','en-US'],['es','es-ES'],['ca','ca']])beta619.notes[lang]=tagged.split('<'+locale+'>')[1].split('</'+locale+'>')[0].trim();
 }
+
+const stable611=releases.find(r=>r.version==='6.1.1');
+if(stable611){
+ const tagged=await readFile(new URL('../../docs/releases/6.1.1-release-notes.txt',import.meta.url),'utf8');
+ for(const [lang,locale] of [['en','en-US'],['es','es-ES'],['ca','ca']])stable611.notes[lang]=tagged.split('<'+locale+'>')[1].split('</'+locale+'>')[0].trim();
+}
