@@ -285,3 +285,10 @@ test('returning to the app resumes exhausted transient retries but retains pause
  shared.beforeRead=()=>{reads++;throw Object.assign(Error('Permission revoked'),{code:'PERMISSION_REQUIRED'});};await a.engine.sync();const attempts=reads;await a.engine.resumeChecks();assert.equal(reads,attempts);assert.equal(a.engine.state.errorCode,'PERMISSION_REQUIRED');
  a.engine.continueLocal();shared.beforeRead=null;await a.engine.resumeChecks();assert.equal(a.engine.state.status,'paused');assert.equal(a.engine.state.enabled,false);
 });
+
+test('showing an exact Drive QR does not adopt incoming data or trigger a reload',async t=>{
+ const d=device(t,{},book([{id:'a'}]));await d.engine.createShared();
+ d.adapter.info={fileId:'exact-drive-file'};
+ d.adapter.readLinked=async()=>{throw Error('Showing a QR must not fetch or apply incoming history');};
+ const link=await d.engine.deviceLink();assert.equal(link.fileId,'exact-drive-file');assert.ok(link.code.includes('exact-drive-file'));
+});

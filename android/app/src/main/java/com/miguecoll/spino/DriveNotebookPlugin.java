@@ -58,10 +58,19 @@ public class DriveNotebookPlugin extends Plugin {
     @Override public void load(){
         authorization=bridge.registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(),result->{
             PluginCall call=pending;if(call==null)return;
-            if(result.getResultCode()!=Activity.RESULT_OK||result.getData()==null){pending=null;call.reject("Google Drive connection cancelled.","CANCELLED");return;}
-            try{finishConnect(call,Identity.getAuthorizationClient(getActivity()).getAuthorizationResultFromIntent(result.getData()));}
-            catch(Exception error){pending=null;call.reject("Google authorization could not complete. Try connecting again.","AUTHORIZATION");}
+            // Even RESULT_CANCELED can carry Google's diagnostic status. Parse it before
+            // reporting an incomplete flow; Android's result alone does not prove user cancellation.
+            try{
+                if(result.getData()==null){rejectAuthorization(call,"RESULT",result.getResultCode(),null);return;}
+                AuthorizationResult granted=Identity.getAuthorizationClient(getActivity()).getAuthorizationResultFromIntent(result.getData());
+                if(result.getResultCode()!=Activity.RESULT_OK){rejectAuthorization(call,"RESULT",result.getResultCode(),null);return;}
+                finishConnect(call,granted);
+            }catch(Exception error){rejectAuthorization(call,"RESULT",result.getResultCode(),error);}
         });
+    }
+    private void rejectAuthorization(PluginCall call,String stage,Integer activityResult,Exception error){
+        pending=null;
+        call.reject(DriveAuthorizationDiagnostic.message(stage,activityResult,error,getContext().getPackageName()),"AUTHORIZATION");
     }
     private JSObject account(){return new JSObject().put("id",preferences().getString("id","")).put("email",preferences().getString("email","")).put("name",preferences().getString("name",""));}
     @PluginMethod public void status(PluginCall call){call.resolve(new JSObject().put("account",account()));}
@@ -76,11 +85,11 @@ public class DriveNotebookPlugin extends Plugin {
         if(pending!=null){call.reject("A Google connection is already pending.","BUSY");return;}
         pending=call;
         getActivity().runOnUiThread(()->Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(true))
-            .addOnSuccessListener(result->{if(result.hasResolution())authorization.launch(new IntentSenderRequest.Builder(result.getPendingIntent().getIntentSender()).build());else finishConnect(call,result);})
-            .addOnFailureListener(error->{pending=null;call.reject("Google authorization failed. Reconnect your Google account.","AUTHORIZATION");}));
+            .addOnSuccessListener(result->{try{if(result.hasResolution())authorization.launch(new IntentSenderRequest.Builder(result.getPendingIntent().getIntentSender()).build());else finishConnect(call,result);}catch(Exception error){rejectAuthorization(call,"LAUNCH",null,error);}})
+            .addOnFailureListener(error->rejectAuthorization(call,"REQUEST",null,error)));
     }
     private void finishConnect(PluginCall call,AuthorizationResult result){
-        if(!DriveMediaPlugin.hasDrivePermission(result)){pending=null;call.reject("Google Drive permission was not granted.","PERMISSION_REQUIRED");return;}
+        if(!DriveMediaPlugin.hasDrivePermission(result)){pending=null;call.reject(DriveAuthorizationDiagnostic.message("PERMISSION",null,null,getContext().getPackageName()),"PERMISSION_REQUIRED");return;}
         final String token=result.getAccessToken();
         worker.execute(()->{try{
             JSObject response=fetch("/drive/v3/about?fields=user(permissionId,displayName,emailAddress)","GET",token,null,null,null);

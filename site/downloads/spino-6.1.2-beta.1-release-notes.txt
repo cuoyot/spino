@@ -1,0 +1,9 @@
+<es-ES>
+Renombra tu cuaderno de Drive y compara el contenido de cuadernos con el mismo nombre. El QR identifica el archivo concreto. Mejora la recuperación del historial al conectar o sincronizar manualmente. Las copias locales indican beta o estable, versión y fecha para distinguirlas en un mismo dispositivo.
+</es-ES>
+<en-US>
+Rename your Drive notebook and compare notebooks with the same name. QR codes identify the exact file. Improves history recovery when connecting or syncing manually. Local backups include beta or stable, version and date so copies from apps on the same device are easy to distinguish.
+</en-US>
+<ca>
+Canvia el nom del quadern de Drive i compara quaderns amb el mateix nom. El QR identifica el fitxer concret. Millora la recuperació de l’historial en connectar o sincronitzar manualment. Les còpies locals indiquen beta o estable, versió i data per distingir-les en un mateix dispositiu.
+</ca>

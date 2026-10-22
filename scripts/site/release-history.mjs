@@ -209,3 +209,9 @@ if(stable611){
  const tagged=await readFile(new URL('../../docs/releases/6.1.1-release-notes.txt',import.meta.url),'utf8');
  for(const [lang,locale] of [['en','en-US'],['es','es-ES'],['ca','ca']])stable611.notes[lang]=tagged.split('<'+locale+'>')[1].split('</'+locale+'>')[0].trim();
 }
+
+const recoveryBeta=releases.find(r=>r.version==='6.1.2-beta.1');
+if(recoveryBeta){
+ recoveryBeta.notes.es='Renombra el cuaderno conectado a Drive sin cambiar su identidad. Compara cuadernos con el mismo nombre por sesiones, práctica semanal, última práctica, obras y objetivo. El QR identifica el archivo concreto. Al conectar o sincronizar manualmente se comprueba el historial completo de cambios disponibles. Las copias JSON locales indican beta o estable, versión y fecha; los archivos de audio y vídeo se copian por separado.';
+ recoveryBeta.notes.ca='Canvia el nom del quadern connectat a Drive sense canviar-ne la identitat. Compara quaderns amb el mateix nom per sessions, pràctica setmanal, darrera pràctica, obres i objectiu. El QR identifica el fitxer concret. En connectar o sincronitzar manualment es comprova tot l’historial de canvis disponibles. Les còpies JSON locals indiquen beta o estable, versió i data; els fitxers d’àudio i vídeo es copien per separat.';
+}

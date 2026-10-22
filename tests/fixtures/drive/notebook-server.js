@@ -52,7 +52,7 @@ export function syntheticNotebookDrive(){
      if(state.beforePatch){const hook=state.beforePatch;state.beforePatch=null;hook(file);}
      if(options.etag&&options.etag!==etag(file))return response(412);
      if(u.pathname.startsWith('/upload/'))file.text=options.text;
-     else {const changes=JSON.parse(options.text);if(changes.properties)for(const p of changes.properties)if(p.visibility==='PRIVATE')file.appProperties[p.key]=p.value;}
+     else {const changes=JSON.parse(options.text);if(changes.title)file.name=changes.title;if(changes.properties)for(const p of changes.properties)if(p.visibility==='PRIVATE')file.appProperties[p.key]=p.value;}
      file.revision++;state.touch(file);
      if(state.dropMediaResponse&&u.pathname.startsWith('/upload/')){state.dropMediaResponse=false;throw Object.assign(Error('Synthetic lost upload response'),{code:'PROVIDER_ERROR'});}
      return response(200,{id:file.id},etag(file));

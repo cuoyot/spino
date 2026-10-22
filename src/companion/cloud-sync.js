@@ -49,7 +49,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (!state.enabled) return;
     const local = content(original);
     state.operation = 'read';
-    remoteFile ??= await adapter.readLinked();
+    remoteFile ??= await adapter.readLinked({fullScan:!automatic});
     if (!state.enabled) return;
     state.operation = 'validate';
     const remoteId = JSON.parse(remoteFile.text).cloudBackup?.sharedNotebookId;
@@ -176,7 +176,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       try {
         const local = content(await snapshot());
         if (!join) state = { ...state, notebookId: adapter.transport === 'drive' ? (state.notebookId || adapter.pendingNotebookId?.() || crypto.randomUUID()) : crypto.randomUUID() };
-        const result = join ? await adapter.pickBackup({ link: true, ...(link ? { expectedNotebookId: link.id } : {}) }) : await adapter.create({ text: encode(local), name: 'SPino-shared.json', mode: 'sync' });
+        const result = join ? await adapter.pickBackup({ link: true, ...(link ? { expectedNotebookId: link.id, ...(link.fileId?{expectedFileId:link.fileId}:{}) } : {}) }) : await adapter.create({ text: encode(local), name: 'SPino-shared.json', mode: 'sync' });
         if (result.joined) join = true;
         if (result.cancelled || (join && !result.text)) { state = previous; return; }
         if (join && link && JSON.parse(result.text).cloudBackup?.sharedNotebookId !== link.id) throw new Error('The selected file does not match the notebook QR. Your current connection was kept.');
@@ -297,11 +297,22 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       state.retryable = false; state.retryCount = 0; state.resolution = null;
       publish();
     },
+    async rename(name) {
+      if(task||independent.busy)throw new Error('Wait for synchronization.');
+      if(state.mode!=='sync'||adapter.transport!=='drive'||!state.name)throw new Error('Connect a Drive notebook first.');
+      clearTimeout(timer);timer=null;
+      task=(async()=>{const result=await adapter.rename(name);state.name=result.name;publish();})();
+      try{await task;}finally{task=null;schedule();}
+    },
     async deviceLink() {
       if (state.mode !== 'sync' || !state.name || !state.enabled) throw new Error('Connect and enable shared notebook synchronization first.');
-      await sync();
+      // A Drive QR shares an immutable identity. Reading incoming history here can
+      // reload the app and dismiss the QR before the other device can scan it.
+      if(adapter.info?.fileId){if(task)throw new Error('Wait for synchronization.');}
+      else await sync();
       if (state.status !== 'saved') throw new Error('Finish practice and resolve sync problems before showing the notebook QR.');
-      return { id: state.notebookId, name: state.name, code: encodeDeviceLink({ id: state.notebookId, name: state.name }) };
+      const link={id:state.notebookId,name:state.name,...(adapter.info?.fileId?{fileId:adapter.info.fileId}:{})};
+      return {...link,code:encodeDeviceLink(link)};
     },
     resolve: preference => {
       if (!['local','remote'].includes(preference)) throw new Error('Choose local or cloud changes.');

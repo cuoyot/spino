@@ -43,12 +43,15 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   register(catalog.files);
   client={...root,scope,accountId:connected.id,objects,catalog,graph:null};return client;
  }
- async function refresh(c){
+ async function refresh(c,{fullScan=false}={}){
   let token=c.catalog.token,changed=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));
+  // A cursor alone cannot establish that this device discovered all existing commits.
+  // Explicit recovery and first connection inventory the immutable notebook objects.
+  let inventory=fullScan?(await listFiles(`trashed = false and appProperties has { key='rootId' and value='${c.rootId}' } and appProperties has { key='notebookId' and value='${c.notebookId}' } and (appProperties has { key='spinoType' and value='${COMMIT_MARKER}' } or appProperties has { key='spinoType' and value='${OBJECT_MARKER}' })`)).map(file=>({fileId:file.id,file})):[];
   do{
    const r=parse(await api(`/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=${encodeURIComponent(token)}&fields=${encodeURIComponent('nextPageToken,newStartPageToken,changes(fileId,removed,file('+objectFields+'))')}`));
    if(!Array.isArray(r.changes))throw atomicFailure('Invalid Drive changes response.');
-   for(const change of r.changes){
+   for(const change of [...inventory,...r.changes]){
     const previous=files.get(change.fileId),f=change.file;
     if(previous&&(change.removed||f?.trashed)){throw atomicFailure('A synchronized notebook object was removed from Drive. Your local notebook is kept.','FILE_UNAVAILABLE');}
     if(f?.appProperties?.rootId===c.rootId&&f.appProperties.notebookId===c.notebookId&&[COMMIT_MARKER,OBJECT_MARKER].includes(f.appProperties.spinoType)){
@@ -58,6 +61,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
      c.objects.register(f);files.set(f.id,f);
     }
    }
+   inventory=[];
    const next=r.nextPageToken||r.newStartPageToken;if(typeof next!=='string'||next===token&&r.nextPageToken)throw atomicFailure('Invalid Drive changes cursor.');token=next;if(!r.nextPageToken)break;
   }while(true);
   // Persist discovery only. Missing dependencies still block graph reconstruction and local application.
@@ -66,8 +70,8 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   if(changed||token!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token});
   c.catalog=catalog;return changed;
  }
- async function graph(c,{refreshFeed=true}={}){
-  if(refreshFeed)await refresh(c);
+ async function graph(c,{refreshFeed=true,fullScan=false}={}){
+  if(refreshFeed)await refresh(c,{fullScan});
   if(c.graph)return c.graph;
   report('receiving');
   const commits=new Map(),pending=[...new Set([...(c.initialHeads||[]),...c.catalog.files.filter(f=>f.appProperties.spinoType===COMMIT_MARKER).map(f=>f.appProperties.hash)])];
@@ -100,8 +104,8 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   // The commit is visible only after every referenced object has been verified.
   await refresh(c);return graph(c,{refreshFeed:false});
  }
- async function read(c){
-  const materialized=await graph(c);if(c.lastGraph===materialized&&c.lastRead)return c.lastRead;
+ async function read(c,options){
+  const materialized=await graph(c,options);if(c.lastGraph===materialized&&c.lastRead)return c.lastRead;
   report('scores');
   const result=materialized,backup=await recordsNotebook(result.records,c.objects.get);
   backup.cloudBackup={sharedNotebookId:c.notebookId,atomicHeads:result.heads};
@@ -160,7 +164,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   transport:'drive',
   onProgress:callback=>{progressListener=callback;},
   cancelPending:()=>requests.cancel(),
-  get info(){return {transport:'drive',account:state().account||null,incremental:true,syncFormat:state().link?.format||'previous',progress};},
+  get info(){return {transport:'drive',account:state().account||null,fileId:state().link?.id,incremental:true,syncFormat:state().link?.format||'previous',progress};},
   pendingNotebookId:()=>state().pending?.notebookId,
   async connect(){const connected=await native.connect();if(state().link&&state().link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');save({...state(),account:connected});return connected;},
   async status(){const result=await native.status(),linkState=state().link;return {linked:!!linkState,name:linkState?.name||'',mode:'sync',setupPending:!!state().setupPending,account:result.account,transport:'drive',recoveryAvailable:true};},
@@ -169,10 +173,25 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
    for(const pending of files.filter(f=>f.appProperties.spinoType===ROOT_MARKER&&f.appProperties.ready!=='1')){const value=await descriptor(pending.id);try{await read(await open(value.root));await activate(value.root,value.file);roots.push(value.file);origins.add(value.root.rootId);}catch(error){if(error.code!=='INCOMPLETE')throw error;}}
    const unique=new Map();for(const file of [...roots,...files.filter(f=>f.appProperties.spinoType===oldMarker&&!origins.has(f.id))]){if(!validNotebookId(file.appProperties.notebookId))continue;const key=file.appProperties.rootId||file.id;if(!unique.has(key)||file.id<unique.get(key).id)unique.set(key,file);}return [...unique.values()];
   },
+  describe:id=>serialized(async()=>{
+   const file=await metadata(id);let text;
+   if(file.appProperties?.spinoType===ROOT_MARKER){const value=await descriptor(id);text=(await read(await open(value.root),{fullScan:true})).text;}
+   else{const old=await oldSnapshot(id);if(old.redirect){const value=await descriptor(old.redirect);text=(await read(await open(value.root),{fullScan:true})).text;}else text=old.text;}
+   const backup=validate(text),sessions=backup.data.sessions||[];
+   return {sessions:sessions.map(s=>({id:s.id,date:s.date,elapsedMs:s.elapsedMs||0})),works:backup.data.works?.length||0,weeklyMinutes:backup.data.preferences?.weeklyMinutes||0};
+  }),
+  rename:name=>serialized(async()=>{
+   name=String(name).trim();if(!name||name.length>200||/[\x00-\x1f]/.test(name))throw atomicFailure('Enter a notebook name between 1 and 200 characters.');
+   await current();const linked=state().link;
+   const before=await metadata(linked.id);if(before.appProperties?.rootId!==linked.rootId||before.appProperties?.notebookId!==linked.notebookId)throw atomicFailure('The notebook identity does not match.');
+   await api(`/drive/v2/files/${linked.id}?fields=id,title`,{method:'PUT',text:JSON.stringify({title:name})});
+   const after=await metadata(linked.id);if(after.name!==name)throw atomicFailure('The new notebook name could not be verified. Retry renaming.','PROVIDER_ERROR');
+   save({...state(),link:{...state().link,name}});return {name};
+  }),
   choose(id){if(!validDriveId(id))throw atomicFailure('Invalid notebook ID.');selected=id;},
-  pickBackup:options=>serialized(async()=>{if(!selected)throw atomicFailure('Select your Google Drive notebook first.');const file=await metadata(selected);if(options?.expectedNotebookId&&file.appProperties?.notebookId!==options.expectedNotebookId)throw atomicFailure('The selected notebook identity does not match.');const value=file.appProperties.spinoType===ROOT_MARKER?await descriptor(selected):await migrate(selected);await activate(value.root,value.file);await link(value.root,value.file);selected=null;const r=await read(await open(value.root));return {text:r.text,name:value.file.name};}),
+  pickBackup:options=>serialized(async()=>{if(!selected)throw atomicFailure('Select your Google Drive notebook first.');if(options?.expectedFileId&&selected!==options.expectedFileId)throw atomicFailure('The selected Drive file does not match the notebook QR.');const file=await metadata(selected);if(options?.expectedNotebookId&&file.appProperties?.notebookId!==options.expectedNotebookId)throw atomicFailure('The selected notebook identity does not match.');const value=file.appProperties.spinoType===ROOT_MARKER?await descriptor(selected):await migrate(selected);await activate(value.root,value.file);await link(value.root,value.file);selected=null;const r=await read(await open(value.root),{fullScan:true});return {text:r.text,name:value.file.name};}),
   create:({text,name='SPino notebook.json'})=>serialized(async()=>{const value=await createRoot(text,name);await link(value.root,value.file);return {name:value.file.name};}),
-  readLinked:()=>serialized(async()=>read(await current())),
+  readLinked:options=>serialized(async()=>read(await current(),options)),
   write:({text,expectedHash})=>serialized(async()=>{const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');const backup=validate(text);if(JSON.parse(text).cloudBackup?.sharedNotebookId!==c.notebookId)throw atomicFailure('Notebook identity cannot change during synchronization.');await recovery.saveRecovery({text:before.text});const records=await notebookRecords(backup,c.objects.put);await publish(c,records,{force:before.conflictKeys,base:before});return {providerAccepted:true};}),
   resolveRemote:({local,merged,preference,expectedHash})=>serialized(async()=>{const c=await current(),before=await read(c);if(before.hash!==expectedHash)throw atomicFailure('The synchronized conflict changed. Review the latest changes.','CONFLICT');const wanted=await notebookRecords(validate(merged),c.objects.put),localRecords=await notebookRecords(validate(local),c.objects.put);for(const key of before.conflictKeys){
    if(preference!=='local'){if(Object.hasOwn(before.records,key))wanted[key]=before.records[key];else delete wanted[key];continue;}

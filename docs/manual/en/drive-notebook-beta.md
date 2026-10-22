@@ -88,3 +88,15 @@ Old conflicts concerning only the shared current-practice slot can clear after a
 
 
 Beta22/build75 packages the behavior above. Update both devices before testing a pending phone practice alongside completed tablet history. Synthetic browser checks and native installation/retention pass; actual Google authorization and owner-device acceptance remain pending. See `docs/releases/6.1.0-beta.22-validation.json`.
+
+## Notebook recovery and duplicate names (6.1.2-beta.1)
+
+Open Backup & sync → Manage → Rename Drive notebook to rename the connected Drive descriptor. The file and notebook identities, sessions, scores, annotations and recordings are retained. Give the original tablet's notebook a distinctive name before reconnecting another installation. Other connected devices may retain the old display name until reconnected; renaming is not a new notebook or a merge operation.
+
+When more than one notebook is offered, the chooser compares saved session count, practice this week, latest practice date, work count, weekly goal and sessions absent from the other available copies. The file reference distinguishes equal names. These are summaries, not a claim that equal counts mean identical content. No option is preselected when there are multiple matches. Failed content checks remain visibly unavailable; they are not shown as empty notebooks.
+
+New QR codes identify the exact Drive file as well as the logical notebook. Updated readers filter by both. Older stable readers retain their earlier behavior; select the distinctive renamed notebook explicitly. Showing a connected Drive QR does not start a data refresh that could reload and dismiss the dialog. First connection and Sync now inventory existing changes in addition to polling the changes feed.
+
+Save a local copy is available in Manage and through Export file. Export from the installation that contains the wanted practices. Beta and stable have separate native storage even on one device; each exports only its own notebook. Filenames include channel, version and a timestamp. JSON includes history, scores and annotations, but not audio/video binaries. Restoring replaces the notebook in the app where Restore is used and disconnects that app's synchronization; it does not replace the other installed channel's notebook. Export both notebooks before a manual restore if both contain wanted local changes.
+
+Verification uses disposable synthetic notebooks in browser portrait/landscape layouts and protocol tests. The owner's real duplicate Drive files and unsupported recording metadata remain uninspected; no remote file is deleted or automatically combined by the comparison screen.

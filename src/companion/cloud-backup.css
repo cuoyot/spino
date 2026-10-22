@@ -92,3 +92,6 @@
 .cp-media-sync-issues{padding-inline-start:1.25rem;overflow-wrap:anywhere}
 .cp-media-sync-issues li+li{margin-top:1rem}
 .cp-media-sync-issues p{margin-top:.25rem}
+
+/* Keep comparison facts compact inside the selectable notebook cards. */
+.cp-drive-choice small strong{display:inline;color:var(--theme-text)}

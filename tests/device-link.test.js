@@ -13,3 +13,9 @@ test('linking separates joining from sharing and escapes notebook names',async()
  assert.ok(!deviceLinkConfirmMarkup({...link,name:'<script>x</script>'},'en').includes('<script>'));
  const qr=await deviceLinkQRMarkup(link,'en');assert.match(qr,/data:image\/png;base64/);assert.match(qr,/SPINO-NOTEBOOK:1:/);assert.match(qr,/device-link-copy/);
 });
+
+test('Drive QR retains the exact file while accepting earlier notebook-only codes',()=>{
+ const exact={...link,fileId:'drive-file_A-123'};
+ assert.deepEqual(parseDeviceLink(encodeDeviceLink(exact)),exact);
+ assert.throws(()=>encodeDeviceLink({...link,fileId:'../wrong'}));
+});

@@ -17,7 +17,7 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createIncremen
     pendingNotebookId:()=>current().pendingNotebookId?.(),
     status:()=>current().status(),create:options=>current().create(options),pickBackup:options=>current().pickBackup(options),
     onProgress:callback=>drive.onProgress?.(callback),cancelPending:()=>current().cancelPending?.(),
-    readLinked:()=>current().readLinked(),write:options=>current().write(options),
+    readLinked:options=>current().readLinked(options),rename:name=>current().rename(name),write:options=>current().write(options),
     resolveRemote:options=>current().resolveRemote?.(options),
     saveRecovery:options=>legacy.saveRecovery(options),readRecovery:()=>legacy.readRecovery(),
     acknowledgeSetup:()=>current().acknowledgeSetup?.(),disconnect:()=>current().disconnect(),

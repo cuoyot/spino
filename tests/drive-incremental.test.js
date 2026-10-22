@@ -259,3 +259,47 @@ test('legacy current-practice conflicts cannot block completed history or erase 
  const b=engine(phone,phoneLocal,phoneLocal.data.active);await b.e.init();await b.e.sync();assert.equal(b.e.state.status,'saved');assert.deepEqual(b.get().data.active,phoneLocal.data.active);assert.ok(b.get().data.sessions.some(s=>s.id===saved.id));assert.deepEqual(b.get().assets,oldBase.assets);assert.equal((await phone.adapter.readLinked()).conflicts.length,0);
  assert.deepEqual((await load(tablet.adapter)).data.active,null,'New shared snapshots do not share the current-session slot');
 });
+
+test('joining and explicit refresh discover saved history absent from the changes feed',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
+ const before=await a.adapter.readLinked(),next=JSON.parse(before.text);next.data.works[0].notes='Recent tablet practice notes';
+ const active=beginSession({title:'Tablet weekly practice',context:'piano',blocks:[block('repertoire',{workId:'synthetic-work'})]});active.elapsedMs=active.blockElapsedMs=7620000;const saved=saveSession(next.data,active,{notes:'Preserve this weekly practice',mood:4});
+ await a.adapter.write({text:JSON.stringify(next),expectedHash:before.hash});
+ const b=device(server),request=b.options.native.request;
+ b.options.native.request=async options=>{
+  const response=await request(options);
+  if(options.path.startsWith('/drive/v3/changes?')){const data=JSON.parse(response.text);data.changes=[];return {...response,text:JSON.stringify(data)};}
+  return response;
+ };
+ b.adapter.choose(roots(server)[0].id);await b.adapter.pickBackup();
+ assert.equal((await load(b.adapter)).data.works[0].notes,'Recent tablet practice notes');
+ assert.deepEqual((await load(b.adapter)).data.sessions.find(s=>s.id===saved.id),saved);
+ const latest=await a.adapter.readLinked(),updated=JSON.parse(latest.text);updated.data.works[0].notes='Another saved tablet change';
+ await a.adapter.write({text:JSON.stringify(updated),expectedHash:latest.hash});
+ const count=commits(server).length;
+ const refreshed=JSON.parse((await b.adapter.readLinked({fullScan:true})).text);
+ assert.equal(refreshed.data.works[0].notes,'Another saved tablet change');
+ assert.deepEqual(refreshed.assets,next.assets);assert.equal(commits(server).length,count);
+ assert.equal(refreshed.data.sessions.filter(s=>s.id===saved.id).length,1);
+ const originalRequest=b.options.native.request;
+ b.options.native.request=async options=>{if(options.path.startsWith('/drive/v3/files?'))return {status:503,text:''};return originalRequest(options);};
+ await assert.rejects(b.adapter.readLinked({fullScan:true}),{code:'PROVIDER_ERROR'});
+ assert.equal((await load(b.adapter)).data.sessions.filter(s=>s.id===saved.id).length,1);
+});
+
+test('rename changes only the selected descriptor and previews never connect or mutate notebooks',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server),before=await a.adapter.readLinked();
+ const original=a.settings().link,objects=[...server.files.values()].map(f=>[f.id,f.text]),commitCount=commits(server).length;
+ await a.adapter.rename('Tablet practice — October');
+ assert.equal(server.files.get(original.id).name,'Tablet practice — October');
+ assert.equal(a.settings().link.id,original.id);assert.equal(a.adapter.info.fileId,original.id);
+ assert.deepEqual([...server.files.values()].map(f=>[f.id,f.text]),objects);
+ assert.equal((await a.adapter.readLinked()).text,before.text);assert.equal(commits(server).length,commitCount);
+ const disconnected=device(server),state=disconnected.settings(),count=server.files.size;
+ const summary=await disconnected.adapter.describe(original.id);
+ assert.equal(summary.sessions.length,JSON.parse(before.text).data.sessions.length);
+ assert.deepEqual(disconnected.settings(),state);assert.equal(server.files.size,count);
+ b.adapter.choose(original.id);await assert.rejects(b.adapter.pickBackup({expectedNotebookId:original.notebookId,expectedFileId:'wrong-file'}));
+ assert.equal(b.settings().link.id,original.id);
+ server.offline=true;await assert.rejects(a.adapter.rename('Unavailable rename'));assert.equal(a.settings().link.name,'Tablet practice — October');
+});

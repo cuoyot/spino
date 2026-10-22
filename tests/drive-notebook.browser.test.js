@@ -1,3 +1,4 @@
+import {beginSession,block,saveSession} from '../src/companion/model.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
@@ -90,4 +91,29 @@ test('canceling notebook selection still offers account disconnect with no prior
  await click('drive-disconnect');
  assert.equal(await evaluate(`document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`),false);
  assert.equal(await evaluate(`__driveFixture.files.size`),0);assert.deepEqual(errors,[]);
+});
+
+test('duplicate notebook comparison, exact QR, rename and channel-specific local export',{timeout:90000},async t=>{
+ const original=cloudRecoveryFixture();original.data.preferences.weeklyMinutes=240;
+ const active=beginSession({title:'Tablet practice',context:'piano',blocks:[block('repertoire',{workId:'synthetic-work'})]});active.elapsedMs=active.blockElapsedMs=7620000;saveSession(original.data,active,{notes:'Synthetic weekly practice',mood:4});
+ const {send,evaluate,wait,click,errors}=await setup(t,{remote:original});
+ await evaluate(`(()=>{const first=__driveFixture.files.get('synthetic-existing-drive');const copy=structuredClone(first);copy.id='synthetic-other-drive';copy.name=first.name;const snapshot=JSON.parse(copy.text);snapshot.data.sessions=[];snapshot.data.preferences.weeklyMinutes=90;copy.text=JSON.stringify(snapshot);__driveFixture.files.set(copy.id,copy);})()`);
+ await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);
+ assert.equal(await evaluate(`document.querySelectorAll('[data-drive-picker] input[name=notebook]').length`),2);
+ assert.equal(await evaluate(`!!document.querySelector('[data-drive-picker] input:checked')`),false);
+ assert.match(await evaluate(`document.querySelector('[data-drive-picker]').textContent`),/Sesiones guardadas/);
+ const folder=process.env.SPINO_DRIVE_RECOVERY_EVIDENCE;
+ if(folder){await mkdir(folder,{recursive:true});for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth+1`),false);const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(folder+'/compare-'+layout+'.png',Buffer.from(shot.data,'base64'));}}
+ await evaluate(`document.querySelector('input[value="synthetic-existing-drive"]').checked=true;document.querySelector('[data-drive-picker]').requestSubmit()`);
+ await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved],#cloud-backup[data-cloud-status=conflict]')`);
+ if(await evaluate(`!!document.querySelector('#cloud-backup[data-cloud-status=conflict]')`)){await evaluate(`window.__beforeRecoveryAdoption=true`);await click('cloud-conflicts');await click('cloud-resolve-remote');let reloaded=false;for(let n=0;n<200;n++){try{if(await evaluate(`!window.__beforeRecoveryAdoption&&!!document.querySelector('.cp-profile-nav')`)){reloaded=true;break;}}catch(error){if(!/navigated|context/i.test(error.message))throw error;}await new Promise(r=>setTimeout(r,30));}assert.equal(reloaded,true);await click('settings');await click('profile-backup');await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);}
+ const before=await evaluate(`JSON.parse(localStorage.getItem('spino.drive-notebook.device.v1')).link`);
+ await click('cloud-manage');await click('drive-rename');await evaluate(`document.querySelector('[data-drive-rename] input').value='Tablet October practice';document.querySelector('[data-drive-rename]').requestSubmit()`);
+ await wait(`document.querySelector('[data-cloud-dialog=manage]')?.textContent.includes('Tablet October practice')`);
+ const after=await evaluate(`JSON.parse(localStorage.getItem('spino.drive-notebook.device.v1')).link`);
+ assert.equal(after.id,before.id);assert.equal(after.notebookId,before.notebookId);assert.equal(after.name,'Tablet October practice');
+ await click('close-dialog');await click('cloud-manage');await click('device-link-show');await wait(`document.querySelector('#device-link-code')`);
+ const encoded=await evaluate(`document.querySelector('#device-link-code').value`),decoded=JSON.parse(decodeURIComponent(encoded.slice(17)));assert.equal(decoded.fileId,after.id);
+ await click('close-dialog');await click('cloud-manage');await click('export-backup');assert.match(await evaluate(`document.querySelector('#cp-dialog').textContent`),/Beta y estable guardan cuadernos separados/);
+ assert.deepEqual(errors,[]);
 });
