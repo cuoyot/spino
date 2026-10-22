@@ -57,5 +57,6 @@
   "aabSignatureVerified": true,
   "physicalDeviceAcceptance": false,
   "googlePlaySubmitted": false,
-  "finalFocusedTests": 15
+  "finalFocusedTests": 15,
+  "publication": "Verified on spinoapp.com; see 6.1.1-publication.json"
 }

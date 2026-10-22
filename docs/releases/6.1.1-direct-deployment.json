@@ -1,0 +1,9 @@
+{
+  "commit": "f1a3cd21b9ef3dc1a1f065069c9e4e39a8ed4e33",
+  "exitCode": 0,
+  "versionId": "4b2b5af8-23f2-4d5f-9f53-7c2fa863e646",
+  "log": "docs/releases/6.1.1-wrangler-deploy.log",
+  "logSHA256": "c510bc8a3088605451235e687c389d45e61c9ff184c61ce5c8a69ed8b267bf3d",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "authorization": "Owner requested stable website publication in this conversation."
+}

@@ -1,0 +1,41 @@
+
+ ⛅️ wrangler 4.151.3
+────────────────────
+🌀 Building list of assets...
+✨ Read 275 files from the assets directory /Users/migue/Source/spino/site
+🌀 Starting asset upload...
+🌀 Found 17 new or modified static assets to upload. Proceeding with upload...
++ /downloads/spino-6.1.1-release-notes.txt
++ /ca/index.html
++ /downloads/parts/spino-6.1.1-86-android.aab.002.bin
++ /downloads/parts/spino-6.1.1-86-android.aab.000.bin
++ /downloads/spino-6.1.1-checksums.json
++ /en/index.html
++ /downloads/parts/spino-6.1.1-86-android.apk.002.bin
++ /downloads/parts/spino-6.1.1-86-android.aab.001.bin
++ /index.html
++ /downloads/parts/spino-6.1.1-play-console-handoff.zip.002.bin
++ /downloads/parts/spino-6.1.1-86-beta-android.apk.002.bin
++ /downloads/parts/spino-6.1.1-86-android.apk.000.bin
++ /downloads/parts/spino-6.1.1-86-android.apk.001.bin
++ /downloads/parts/spino-6.1.1-86-beta-android.apk.000.bin
++ /downloads/parts/spino-6.1.1-86-beta-android.apk.001.bin
++ /downloads/parts/spino-6.1.1-play-console-handoff.zip.000.bin
++ /downloads/parts/spino-6.1.1-play-console-handoff.zip.001.bin
+Uploaded 4 of 17 assets
+Uploaded 8 of 17 assets
+Uploaded 11 of 17 assets
+Uploaded 14 of 17 assets
+Uploaded 17 of 17 assets
+✨ Success! Uploaded 17 files (242 already uploaded) (21.00 sec)
+
+Total Upload: 22.93 KiB / gzip: 6.53 KiB
+Worker Startup Time: 1 ms
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (42.92 sec)
+Deployed spino triggers (2.02 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: 4b2b5af8-23f2-4d5f-9f53-7c2fa863e646
