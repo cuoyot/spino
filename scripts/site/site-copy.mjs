@@ -133,7 +133,7 @@ export const COPY = {
       ],
       [
         "Which Android download should I choose?",
-        "Choose the stable APK for the stable version shown on this page. The beta APK provides features being tested. The Google Play link is labeled with its own version, which may differ from the direct downloads."
+        "Install the stable version from Google Play. Download the beta APK to try features being tested."
       ]
     ]
   },
@@ -271,7 +271,7 @@ export const COPY = {
       ],
       [
         "¿Qué descarga de Android debo elegir?",
-        "Elige el APK estable para usar la versión estable indicada en esta página. El APK beta ofrece funciones en pruebas. El enlace de Google Play indica su propia versión, que puede ser diferente de las descargas directas."
+        "Instala la versión estable desde Google Play. Descarga el APK beta para probar las funciones en desarrollo."
       ]
     ]
   },
@@ -409,7 +409,7 @@ export const COPY = {
       ],
       [
         "Quina descàrrega d’Android he de triar?",
-        "Tria l’APK estable per utilitzar la versió estable indicada en aquesta pàgina. L’APK beta ofereix funcions en proves. L’enllaç de Google Play indica la seva pròpia versió, que pot ser diferent de les descàrregues directes."
+        "Instal·la la versió estable des de Google Play. Descarrega l’APK beta per provar les funcions en desenvolupament."
       ]
     ]
   }

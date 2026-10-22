@@ -4,9 +4,9 @@
     "build": 86
   },
   "googlePlay": {
-    "version": "5.2.3",
-    "build": 35,
-    "status": "unchanged_until_console_rollout"
+    "version": "6.1.1",
+    "build": 86,
+    "status": "published"
   },
   "beta": {
     "version": "6.1.1",
