@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-22",
+  "kind": "responsive-browser-synthetic",
+  "unitTests": 36,
+  "driveBrowserTests": 6,
+  "finalTargetedBrowserTests": 1,
+  "productionBuild": "passed",
+  "frames": [
+    "dark-phone-landscape.png",
+    "dark-phone-portrait.png",
+    "dark-tablet-landscape.png",
+    "dark-tablet-portrait.png",
+    "light-phone-landscape.png",
+    "light-phone-portrait.png",
+    "light-tablet-landscape.png",
+    "light-tablet-portrait.png"
+  ],
+  "sourceSHA256": {
+    "src/companion/drive-sync-view.js": "716cf9862041dfe175a28e193d0076db3a88a805319e085973d9770fc687712e",
+    "src/companion/cloud-backup.css": "74f6342891ee4e43e47f1ab250affd78fcb4a57374c840ae1ed1e8e31f48ce48",
+    "src/companion/app.js": "e2ffc71f9c068e0d7603a6be028853e73cf3e7d040bd83a6545e4f0283a0212c",
+    "tests/drive-notebook.browser.test.js": "a860b964ec0eba508c60e57e7f9ad85fea8a90154c418ecb7d21ca4a7b6bb0d5"
+  },
+  "nativeAcceptance": false,
+  "ownerVisualAcceptance": false,
+  "published": false
+}

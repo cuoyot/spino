@@ -1,0 +1,49 @@
+{
+  "version": "6.1.2-beta.2",
+  "versionCode": 88,
+  "unitTests": 36,
+  "driveBrowserTests": 6,
+  "websiteUnitTests": 8,
+  "websiteBrowserTests": 2,
+  "androidUnitTests": 10,
+  "packagedWebFiles": 413,
+  "nativeEvidence": {
+    "device": "emulator-5554",
+    "replacementInstall": "Success",
+    "package": "com.miguecoll.spino.beta",
+    "versionCode": 88,
+    "versionName": "6.1.2-beta.2",
+    "preservedIndexedDBFiles": 135,
+    "foreground": "topResumedActivity=ActivityRecord{9718749 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t156}",
+    "betaCertificateSHA256": "cfc1baceaa652ed12bf0519a6308b105666432ecc1f5e625fcf7f625a722ce52"
+  },
+  "physicalDeviceAcceptance": false,
+  "artifacts": [
+    {
+      "file": "spino-6.1.2-beta.2-88-android.aab",
+      "bytes": 50845373,
+      "sha256": "1d4041cfd5cecea7eda1309418afc26d32c67d0b2ff7387ad2199e1a49923d32",
+      "version": "6.1.2-beta.2",
+      "build": 88,
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.2-beta.2-88-beta-android.apk",
+      "bytes": 57393254,
+      "sha256": "694796befc81e51b38e8f34243f568df565be1bbb30cca6b871d2751d044539b",
+      "version": "6.1.2-beta.2",
+      "build": 88,
+      "applicationId": "com.miguecoll.spino.beta"
+    },
+    {
+      "file": "spino-6.1.2-beta.2-play-console-handoff.zip",
+      "bytes": 50622290,
+      "sha256": "41a14a2ac09ebd6741a80352d49194f654f8e0d93099cb4f7123f46ddbb82d55"
+    },
+    {
+      "file": "spino-6.1.2-beta.2-release-notes.txt",
+      "bytes": 864,
+      "sha256": "24b9de2011e2530786b0df8818b8f161f9466cb2dbba6a0a9acb58ba7c0b97cf"
+    }
+  ]
+}

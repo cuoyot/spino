@@ -29,7 +29,7 @@ test('Drive setup, legacy migration, reconnect, offline continuation and local J
  assert.equal(await evaluate(`[...__driveFixture.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2').length`),1);
  assert.equal(await evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('assets').objectStore('assets').get('synthetic-pdf');r.onsuccess=()=>{db.close();resolve(r.result.annotations.marks[0].id);};};})`),'synthetic-mark');
  assert.equal(await evaluate(`document.querySelector('#cloud-backup').textContent.includes('synthetic-owner@example.invalid')`),true);
- await capture('connected');await click('cloud-manage');assert.equal(await evaluate(`document.querySelector('[data-cloud-dialog=manage]').textContent.includes('Sincronización incremental')`),true);await capture('incremental-manage');await click('close-dialog');
+ await capture('connected');await click('cloud-manage');assert.equal(await evaluate(`document.querySelector('.cp-drive-manage [role=switch]').getAttribute('aria-checked')`),'true');assert.equal(await evaluate(`document.querySelector('.cp-drive-manage-repair').open`),false);await capture('manage');await click('close-dialog');
  assert.equal(await evaluate(`!!document.querySelector('[data-action=cloud-create-shared],[data-action=cloud-join-shared],[data-action=cloud-connect],[data-action=cloud-relink]')`),false);
  const pollingStart=await evaluate(`__driveFixture.requests.length`);
  const stable=await evaluate(`(()=>{const p=document.querySelector('#cloud-backup');window.__stableCloud=p;return {height:p.getBoundingClientRect().height,buttons:[...p.querySelectorAll('button')].map(b=>b.dataset.action)};})()`);
@@ -115,5 +115,30 @@ test('duplicate notebook comparison, exact QR, rename and channel-specific local
  await click('close-dialog');await click('cloud-manage');await click('device-link-show');await wait(`document.querySelector('#device-link-code')`);
  const encoded=await evaluate(`document.querySelector('#device-link-code').value`),decoded=JSON.parse(decodeURIComponent(encoded.slice(17)));assert.equal(decoded.fileId,after.id);
  await click('close-dialog');await click('cloud-manage');await click('export-backup');assert.match(await evaluate(`document.querySelector('#cp-dialog').textContent`),/Beta y estable guardan cuadernos separados/);
+ assert.deepEqual(errors,[]);
+});
+
+test('Manage keeps routine controls readable and recovery separate without leaving on pause',{timeout:60000},async t=>{
+ const {send,evaluate,wait,click,errors}=await setup(t,{legacy:true});
+ await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);
+ await evaluate(`document.querySelector('[data-drive-picker]').requestSubmit()`);
+ await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);await click('cloud-manage');
+ const folder=process.env.SPINO_DRIVE_MANAGE_EVIDENCE;
+ if(folder){await mkdir(folder,{recursive:true});for(const theme of ['light','dark'])for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
+  await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);
+  await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+  assert.equal(await evaluate(`document.querySelector('#cp-dialog').scrollWidth>document.querySelector('#cp-dialog').clientWidth+1`),false);
+  const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(folder+'/'+theme+'-'+layout+'.png',Buffer.from(shot.data,'base64'));
+ }}
+ await evaluate(`document.querySelector('.cp-drive-manage [role=switch]').focus()`);
+ await send('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32});await send('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32});
+ await wait(`document.querySelector('.cp-drive-manage [role=switch][aria-checked=false]')`);
+ assert.equal(await evaluate(`document.activeElement===document.querySelector('.cp-drive-manage [role=switch]')`),true);
+ await click('cloud-toggle');await wait(`document.querySelector('.cp-drive-manage [role=switch][aria-checked=true]')`);
+ await evaluate(`document.querySelector('.cp-drive-manage-repair summary').click()`);
+ assert.equal(await evaluate(`document.querySelector('.cp-drive-manage-repair').open`),true);
+ assert.equal(await evaluate(`document.querySelector('[data-action=cloud-recovery]').getBoundingClientRect().height>=44`),true);
+ await click('cloud-disconnect');assert.equal(await evaluate(`!!document.querySelector('#cp-confirm')`),true);
+ assert.equal(await evaluate(`[...__driveFixture.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2').length`),1);
  assert.deepEqual(errors,[]);
 });

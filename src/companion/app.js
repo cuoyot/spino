@@ -1476,7 +1476,7 @@ export async function bootCompanion(reader) {
     'cloud-join-shared':()=>openDriveNotebooks(),
     'cloud-resolve-local':()=>{dialog.close();return cloud?.resolve('local');},
     'cloud-resolve-remote':()=>{dialog.close();return cloud?.resolve('remote');},
-    'cloud-toggle':async value=>{dialog.close();if(value!=='true'){mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();}await cloud?.setEnabled(value==='true');mediaSync?.markDirty();},
+    'cloud-toggle':async value=>{const managing=dialog.open&&!!dialog.querySelector('.cp-drive-manage');dialog.close();if(value!=='true'){mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();}await cloud?.setEnabled(value==='true');mediaSync?.markDirty();if(managing){actions['cloud-manage']();dialog.querySelector('[data-action=cloud-toggle]')?.focus({preventScroll:true});}},
     'media-sync':async()=>{if(!cloud?.state.enabled)throw Error(ui('Resume synchronization first.','Reanuda primero la sincronización.'));await cloud.retry();await mediaSync?.sync();},
     'media-mobile-data':async value=>{
       mediaSync?.pause();

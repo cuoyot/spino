@@ -1,0 +1,9 @@
+<es-ES>
+Gestionar sincronización ahora organiza el cuaderno y la cuenta, el interruptor automático, el QR y la copia local. Las opciones de recuperación quedan agrupadas. Pausar o reanudar mantiene la ventana abierta. Incluye las mejoras anteriores de recuperación del historial de Drive.
+</es-ES>
+<en-US>
+Manage synchronization now groups the notebook and account, automatic switch, QR and local backup. Recovery options have their own section. Pausing or resuming keeps the window open. Includes the previous Drive history recovery improvements.
+</en-US>
+<ca>
+Gestiona la sincronització ara organitza el quadern i el compte, l’interruptor automàtic, el QR i la còpia local. Les opcions de recuperació queden agrupades. Posar en pausa o reprendre manté la finestra oberta. Inclou les millores anteriors de recuperació de l’historial de Drive.
+</ca>
