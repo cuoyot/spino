@@ -2012,6 +2012,15 @@ function companionPause() {
   syncStartButton(); readerEvent('pause');
 }
 const reader = {
+  refreshSavedState() {
+    // Synchronization already persisted these values; refresh caches without a page reload.
+    const replace = (target, value) => { for (const key of Object.keys(target)) delete target[key]; Object.assign(target, value); };
+    replace(settings, load('sr.settings', DEFAULTS));
+    replace(progress, load('sr.progress', { done: {}, results: {}, forTemplate: null }));
+    replace(stats, load('sr.stats', { notes: {} }));
+    customs.splice(0, customs.length, ...load('sr.templates', { list: [] }).list);
+    setNaming(settings.naming); setUserZoom(settings.zoom);
+  },
   setLanguage(language) {
     settings.lang = language; save('sr.settings', settings); syncQuick();
     $('#practice-return').textContent = '←';

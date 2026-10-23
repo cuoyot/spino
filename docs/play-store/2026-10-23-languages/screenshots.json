@@ -1,0 +1,77 @@
+{
+  "status": "prepared-not-published",
+  "evidence": "responsive browser; synthetic notebooks",
+  "captureManifest": "docs/quality-review/captures/website/2026-10-23-de-hu-04/capture.json",
+  "locales": {
+    "en-US": {
+      "appLanguage": "en",
+      "phone": [
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/01-today.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/02-routine.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/03-repertoire.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/04-quick-practice.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/05-quick-result.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/06-progress.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/07-multimedia.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/08-time-details.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/en/phone/09-calendar.png"
+      ]
+    },
+    "es-ES": {
+      "appLanguage": "es",
+      "phone": [
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/01-today.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/02-routine.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/03-repertoire.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/04-quick-practice.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/05-quick-result.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/06-progress.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/07-multimedia.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/08-time-details.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/es/phone/09-calendar.png"
+      ]
+    },
+    "ca": {
+      "appLanguage": "ca",
+      "phone": [
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/01-today.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/02-routine.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/03-repertoire.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/04-quick-practice.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/05-quick-result.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/06-progress.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/07-multimedia.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/08-time-details.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/ca/phone/09-calendar.png"
+      ]
+    },
+    "de-DE": {
+      "appLanguage": "de",
+      "phone": [
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/01-today.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/02-routine.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/03-repertoire.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/04-quick-practice.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/05-quick-result.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/06-progress.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/07-multimedia.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/08-time-details.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/de/phone/09-calendar.png"
+      ]
+    },
+    "hu-HU": {
+      "appLanguage": "hu",
+      "phone": [
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/01-today.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/02-routine.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/03-repertoire.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/04-quick-practice.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/05-quick-result.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/06-progress.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/07-multimedia.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/08-time-details.png",
+        "docs/quality-review/captures/website/2026-10-23-de-hu-04/hu/phone/09-calendar.png"
+      ]
+    }
+  }
+}

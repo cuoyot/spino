@@ -1,3 +1,4 @@
+import { localize } from './locale.js';
 import { getAppLanguage } from './locale.js';
 
 const copy = {
@@ -8,7 +9,7 @@ const copy = {
 
 export function syncIndicatorMarkup(state = {}, media = {}, lang = getAppLanguage()) {
   if (!state.name) return '';
-  const t = copy[lang] || copy.en;
+  const t = copy[lang] || localize(copy.en,copy.es,lang);
   const problem = ['error', 'conflict'].includes(state.status) || !!state.error;
   const mediaProblem = media.status === 'error' || media.status === 'offline' || !!media.error;
   const status = problem ? (state.status === 'conflict' ? 'conflict' : 'error') : mediaProblem ? 'media' : !state.enabled ? 'paused' : state.status === 'writing' || ['checking', 'copying'].includes(media.status) ? 'writing' : ['pending', 'waiting'].includes(state.status) ? state.status : 'saved';

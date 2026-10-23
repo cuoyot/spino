@@ -76,7 +76,7 @@ public class DriveMediaPlugin extends Plugin {
     @PluginMethod public void request(PluginCall call){
         worker.execute(()->{HttpURLConnection c=null;try{
             String access=access(call),method=call.getString("method","GET");
-            if(!method.matches("GET|POST|PUT"))throw new IOException("Unsupported Drive method.");
+            if(!method.matches("GET|POST|PUT|PATCH"))throw new IOException("Unsupported Drive method.");
             c=connection(call.getString("url"),method,access);
             JSObject headers=call.getObject("headers",new JSObject());Iterator<String> names=headers.keys();
             while(names.hasNext()){String name=names.next();if(!name.matches("(?i)Content-Type|Content-Range|X-Upload-Content-Type|X-Upload-Content-Length|Range"))throw new IOException("Unsupported Drive header.");c.setRequestProperty(name,headers.getString(name));}

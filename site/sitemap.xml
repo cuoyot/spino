@@ -4,18 +4,40 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
     <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://spinoapp.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://spinoapp.com/hu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
   </url>
   <url><loc>https://spinoapp.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
     <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://spinoapp.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://spinoapp.com/hu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
   </url>
   <url><loc>https://spinoapp.com/ca/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
     <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://spinoapp.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://spinoapp.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
+  </url>
+  <url><loc>https://spinoapp.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://spinoapp.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://spinoapp.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
+  </url>
+  <url><loc>https://spinoapp.com/hu/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://spinoapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spinoapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://spinoapp.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://spinoapp.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://spinoapp.com/hu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spinoapp.com/"/>
   </url>
   <url><loc>https://spinoapp.com/arcade/</loc>

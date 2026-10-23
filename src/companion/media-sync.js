@@ -9,10 +9,11 @@ export function createMediaSync({store, connection, getContext, eligible, change
   const contextKey=c=>c&&c.accountId+'.'+c.notebookId;
   const current=(key)=>eligible()&&contextKey(getContext())===key&&!controller?.signal.aborted;
   const schedule=(ms=delay)=>{if(!stopped&&!timer)timer=setTimeout(()=>{timer=null;void sync();},ms);};
-  async function sync(){
+  async function sync(repairFileId){
     if(stopped)return;
     if(task)return task;
     const context=getContext();if(!context||!eligible()){schedule();return;}
+    const repairIssues=state.issues;
     controller=new AbortController();const signal=controller.signal,key=contextKey(context);
     task=(async()=>{
       let client,completed=0;
@@ -39,9 +40,22 @@ export function createMediaSync({store, connection, getContext, eligible, change
         const policy=await network();if(!policy.online||context.wifiOnly&&(!policy.wifi||policy.metered)){publish({status:policy.online?'wifi':'offline'});return;}
         publish({status:'checking',completed:0,total:0,percent:0,error:'',issues:[]});
         client=await connection(context);if(!current(key))return;
+        if(repairFileId){
+          const issue=repairIssues.find(i=>i.fileId===repairFileId&&i.localId);
+          const record=issue&&await store.get(issue.localId);
+          if(!record||record.draft||takeId(record)!==issue.takeId||record.cloud&&(record.cloud.accountId!==context.accountId||record.cloud.notebookId!==context.notebookId))throw Error('The local recording is unavailable.');
+          if(!current(key))return;
+          await client.repairFormat({fileId:repairFileId,takeId:takeId(record),workId:record.workId,blob:record.blob,signal});
+          if(!current(key))return;
+        }
         const byTake=new Map();for(const f of await client.list({onInvalid:(file,error)=>recordIssue(file,error,true)})){const previous=byTake.get(f.appProperties.takeId);if(previous&&(recordingChecksum(previous)!==recordingChecksum(f)||previous.appProperties.workId!==f.appProperties.workId))recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);if(!previous)byTake.set(f.appProperties.takeId,f);}
         if(!current(key))return;
         const local=await store.index(),works=new Map(context.works.map(w=>[w.id,w]));
+        for(const issue of issues)if(issue.message==='The Drive recording format is not supported. Local files are kept.'){
+          issue.formatProblem=true;
+          const row=local.find(r=>takeId(r)===issue.takeId&&!r.draft&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId));
+          if(row)issue.localId=row.id;
+        }
         for(const r of local)if(r.cloud?.accountId===context.accountId&&r.cloud?.notebookId===context.notebookId&&blockedFiles.has(r.cloud.fileId))blockedTakes.add(takeId(r));
         const remote=[...byTake.values()].filter(f=>!blockedTakes.has(f.appProperties.takeId));
         const uploads=local.filter(r=>!blockedTakes.has(takeId(r))&&!r.draft&&(r.workId===''||works.has(r.workId))&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId)&&!remote.some(f=>f.appProperties.takeId===takeId(r)));
@@ -81,9 +95,9 @@ export function createMediaSync({store, connection, getContext, eligible, change
           const r=local.find(r=>takeId(r)===f.appProperties.takeId);if(r&&!blockedTakes.has(takeId(r))&&(!r.cloud||r.cloud.pending)&&!r.draft&&(r.workId===''||works.has(r.workId)))await attempt(r,async()=>{const record=await store.get(r.id);if(record&&await mediaHash(record.blob)!==recordingChecksum(f))throw integrity('Recording identity conflict. Local recordings were kept.');if(record&&current(key))await store.attachCloud(r.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:f.id,sha256:recordingChecksum(f)},takeId(r));});
         }
         if(current(key))publish(issues.length?{status:'error',completed,total,issues,error:'Some recording copies need attention. Local files are kept.',percent:0}:{status:'saved',completed,total,issues:[],error:'',percent:100,lastCheckedAt:new Date().toISOString()});
-      }catch(error){if(current(key))publish({status:'error',issues,error:error.message||String(error)});}
+      }catch(error){if(current(key))publish({status:'error',issues:repairFileId&&!issues.length?repairIssues:issues,error:error.message||String(error)});}
       finally{try{if(completed&&current(key))await refreshed();}finally{task=null;controller=null;schedule();}}
     })();return task;
   }
-  return {get state(){return {...state};},get busy(){return !!task;},sync,markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
+  return {get state(){return {...state};},get busy(){return !!task;},sync,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
 }

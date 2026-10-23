@@ -106,7 +106,22 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     const blob=new Blob(chunks,{type:file.mimeType});if(await mediaHash(blob)!==recordingChecksum(file))throw fail('Downloaded recording checksum differs.','INTEGRITY');return {blob};
   }
   async function download(fileId){if(!id(fileId))throw fail('Invalid recording ID.','INVALID_MEDIA');return downloadContent(await metadata(fileId));}
-  return {upload,list,download};
+  async function repairFormat({fileId,takeId,workId,blob,signal}) {
+    if(!id(fileId)||!(blob instanceof Blob)||!mime(blob.type))throw fail('Invalid local recording.','INVALID_MEDIA');
+    const check=()=>{if(signal?.aborted)throw fail('Transfer paused. Its progress is retained.','ABORTED');};
+    check();
+    const response=expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`));
+    // Only the MIME label may change; all identity and integrity checks still apply.
+    const file=validateRemote({...response.json,mimeType:mediaType(blob.type)},notebookId);
+    if(file.appProperties.takeId!==takeId||file.appProperties.workId!==workId||Number(file.size)!==blob.size||await hashBlob(blob)!==recordingChecksum(file))throw fail('Recording identity conflict.','IDENTITY_CONFLICT');
+    const downloaded=await downloadContent(file);
+    try{if(!downloaded.verified&&await mediaHash(downloaded.blob)!==recordingChecksum(file))throw fail('Downloaded recording checksum differs.','INTEGRITY');}
+    finally{await downloaded.cleanup?.();}
+    check();
+    expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`,{method:'PATCH',json:{mimeType:file.mimeType}}));
+    return metadata(fileId);
+  }
+  return {upload,list,download,repairFormat};
 }
 function confirmed(response,size){
   const range=response.headers?.range;if(!range)return 0;

@@ -1,3 +1,4 @@
+import { extraCopy } from './companion/locale-extra.js';
 // Interface translations. Placeholders: {n} note, {k} key name, {ok}/{total} counts, {name} device.
 import { catalanCopy } from './companion/locale-ca.js';
 
@@ -9,6 +10,7 @@ export const LANGUAGES = {
   pt: 'Português',
   fr: 'Français',
   de: 'Deutsch',
+  hu: 'Magyar',
   ru: 'Русский',
   ja: '日本語',
 };
@@ -1223,6 +1225,8 @@ const STRINGS = {
 };
 
 STRINGS.ca = catalanCopy(STRINGS.en);
+STRINGS.de = { ...extraCopy(STRINGS.en, 'de'), ...STRINGS.de };
+STRINGS.hu = extraCopy(STRINGS.en, 'hu');
 let lang = 'en';
 
 export function languageForLocale(locale = '') {

@@ -1,3 +1,4 @@
+import { localize } from './locale.js';
 import { getAppLanguage } from './locale.js';
 import './walkthrough.css';
 const KEY='spino.walkthrough.v1';
@@ -12,11 +13,11 @@ export const tourSteps=[
 export function createWalkthrough({navigate,restore,storage=globalThis.localStorage}) {
  let index=0,original=null;
  const dialog=document.createElement('dialog');dialog.id='cp-walkthrough';dialog.setAttribute('aria-labelledby','cp-tour-title');document.body.append(dialog);
- const label=(en,es,ca)=>({en,es,ca}[getAppLanguage()]||en);
+ const label=(en,es,ca)=>({en,es,ca}[getAppLanguage()]||localize(en,es));
  const position=()=>{const r=document.querySelector('#app-shell h1')?.getBoundingClientRect();const target=dialog.querySelector('.cp-tour-highlight');if(r&&target)Object.assign(target.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});};
  const finish=()=>{try{storage.setItem(KEY,'done');}catch{}dialog.close();restore(original);original=null;};
  const render=()=>{
-  const step=tourSteps[index],copy=step[getAppLanguage()]||step.en;navigate(step.view);
+  const step=tourSteps[index],copy=step[getAppLanguage()]||localize(step.en,step.es);navigate(step.view);
   dialog.innerHTML=`<div class="cp-tour-highlight" aria-hidden="true"></div><section class="cp-tour-card"><div class="cp-tour-head"><small>${index+1} / ${tourSteps.length}</small><button type="button" data-tour="skip">${label('Close','Cerrar','Tancar')}</button></div><h2 id="cp-tour-title" tabindex="-1" autofocus>${copy[0]}</h2><p>${copy[1]}</p><div class="cp-actions"><button data-tour="skip">${label('Skip','Saltar','Ometre')}</button><button data-tour="back" ${index===0?'disabled':''}>${label('Back','Atrás','Enrere')}</button><button class="primary" data-tour="next">${index===tourSteps.length-1?label('Finish','Terminar','Acabar'):label('Next','Siguiente','Següent')}</button></div></section>`;
   if(!dialog.open)dialog.showModal();dialog.querySelector('h2').focus({preventScroll:true});requestAnimationFrame(position);
  };

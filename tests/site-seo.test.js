@@ -11,7 +11,7 @@ test('sitemap lists every public page with reciprocal canonical language alterna
   const document = new DOMParser({ onError: level => { throw Error(`Invalid sitemap: ${level}`); } }).parseFromString(xml, 'application/xml');
   assert.equal(document.documentElement.namespaceURI, 'http://www.sitemaps.org/schemas/sitemap/0.9');
   const entries = [...document.getElementsByTagName('url')];
-  const paths = ['/', '/en/', '/ca/', '/arcade/', '/arcade/en/', '/arcade/ca/', '/privacy/', '/arcade/privacy/'];
+  const paths = ['/', '/en/', '/ca/', '/de/', '/hu/', '/arcade/', '/arcade/en/', '/arcade/ca/', '/privacy/', '/arcade/privacy/'];
   assert.deepEqual(entries.map(entry => new URL(entry.getElementsByTagName('loc')[0].textContent).pathname), paths);
   for (const entry of entries) {
     const url = entry.getElementsByTagName('loc')[0].textContent;
@@ -22,11 +22,11 @@ test('sitemap lists every public page with reciprocal canonical language alterna
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
     assert.doesNotMatch(html, /content="noindex/);
     const alternates = [...entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')];
-    assert.equal(alternates.length, path.includes('privacy') ? 0 : 4);
+    assert.equal(alternates.length, path.includes('privacy') ? 0 : path.startsWith('/arcade/') ? 4 : 6);
     const base = path.startsWith('/arcade/') ? '/arcade/' : '/';
     for (const alternate of alternates) {
       const lang = alternate.getAttribute('hreflang');
-      assert.ok(['es','en','ca','x-default'].includes(lang));
+      assert.ok((base==='/arcade/'?['es','en','ca','x-default']:['es','en','ca','de','hu','x-default']).includes(lang));
       const href = alternate.getAttribute('href');
       assert.equal(href, origin + base + (['es','x-default'].includes(lang) ? '' : lang + '/'));
       assert.ok(html.includes(`<link rel="alternate" hreflang="${lang}" href="${href}">`));

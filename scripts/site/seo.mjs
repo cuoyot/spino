@@ -1,22 +1,24 @@
 // Shared public URLs keep HTML metadata, language alternates and the sitemap aligned.
 export const ORIGIN = 'https://spinoapp.com';
-export const LANGUAGES = ['es', 'en', 'ca'];
-export const STABLE_RELEASE = { version: '6.1.1', code: '86' };
+export const LANGUAGES = ['es', 'en', 'ca', 'de', 'hu'];
+const ARCADE_LANGUAGES = ['es','en','ca'];
+export const STABLE_RELEASE = { version: '6.1.3', code: '91' };
 export const localizedPath = (lang, base = '/') => base + (lang === 'es' ? '' : `${lang}/`);
 export const absoluteUrl = path => new URL(path, ORIGIN).href;
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 export const jsonLd = value => `<script type="application/ld+json">${JSON.stringify(value).replace(/</g, '\\u003c')}</script>`;
 
 export function metadata({ path, lang, title, description, image = '/img/feature.png', translationBase }) {
-  const url = absoluteUrl(path), locales = { es: 'es_ES', en: 'en_US', ca: 'ca_ES' };
+  const languages = translationBase === '/arcade/' ? ARCADE_LANGUAGES : LANGUAGES;
+  const url = absoluteUrl(path), locales = { es: 'es_ES', en: 'en_US', ca: 'ca_ES', de: 'de_DE', hu: 'hu_HU' };
   return `<link rel="canonical" href="${url}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-${translationBase === undefined ? '' : [...LANGUAGES, 'x-default'].map(language => `<link rel="alternate" hreflang="${language}" href="${absoluteUrl(localizedPath(language === 'x-default' ? 'es' : language, translationBase))}">`).join('\n')}
+${translationBase === undefined ? '' : [...languages, 'x-default'].map(language => `<link rel="alternate" hreflang="${language}" href="${absoluteUrl(localizedPath(language === 'x-default' ? 'es' : language, translationBase))}">`).join('\n')}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SPino">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="${locales[lang]}">
-${translationBase === undefined ? '' : LANGUAGES.filter(language => language !== lang).map(language => `<meta property="og:locale:alternate" content="${locales[language]}">`).join('\n')}
+${translationBase === undefined ? '' : languages.filter(language => language !== lang).map(language => `<meta property="og:locale:alternate" content="${locales[language]}">`).join('\n')}
 <meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:image" content="${absoluteUrl(image)}">
@@ -67,12 +69,12 @@ export function enhanceStaticPage(html, options) {
 
 export function sitemap() {
   const groups = ['/', '/arcade/'];
-  const entries = groups.flatMap(base => LANGUAGES.map(lang => ({ path: localizedPath(lang, base), base })));
+  const entries = groups.flatMap(base => (base === '/arcade/' ? ARCADE_LANGUAGES : LANGUAGES).map(lang => ({ path: localizedPath(lang, base), base })));
   entries.push({ path: '/privacy/' }, { path: '/arcade/privacy/' });
   // No build-time lastmod: rebuilding assets alone does not change a page's content.
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${entries.map(({ path, base }) => `  <url><loc>${absoluteUrl(path)}</loc>${base === undefined ? '' : [...LANGUAGES, 'x-default'].map(lang => `\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${absoluteUrl(localizedPath(lang === 'x-default' ? 'es' : lang, base))}"/>`).join('')}\n  </url>`).join('\n')}
+${entries.map(({ path, base }) => `  <url><loc>${absoluteUrl(path)}</loc>${base === undefined ? '' : [...(base === '/arcade/' ? ARCADE_LANGUAGES : LANGUAGES), 'x-default'].map(lang => `\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${absoluteUrl(localizedPath(lang === 'x-default' ? 'es' : lang, base))}"/>`).join('')}\n  </url>`).join('\n')}
 </urlset>\n`;
 }
 

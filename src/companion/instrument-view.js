@@ -1,5 +1,4 @@
 import * as deviceMidi from '../midi.js';
-import { catalanCopy } from './locale-ca.js';
 import { localize } from './locale.js';
 import { midiIndicatorMarkup } from '../midi-indicator.js';
 import { readPedals, savePedals, DEFAULT_PEDALS, PEDAL_NAMES } from './pedals.js';
@@ -149,7 +148,7 @@ const keyboard = '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect 
 const bluetooth = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg>';
 
 export function instrumentMarkup(state, { lang = 'en' } = {}) {
-  const t = lang === 'ca' ? catalanCopy(labels.en) : labels[lang] || labels.en, esc = escapeHTML;
+  const t = localize(labels.en, labels.es, lang), esc = escapeHTML;
   const disabled = state.connecting || state.scanning;
   const deviceRow = (device, saved) => {
     const connected = state.devices.includes(device.connectedName || device.name);

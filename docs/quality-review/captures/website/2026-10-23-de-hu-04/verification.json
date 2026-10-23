@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-23",
+  "status": "responsive-browser-verified; pending release",
+  "locales": [
+    "en",
+    "es",
+    "ca",
+    "de",
+    "hu"
+  ],
+  "checks": {
+    "unitAndSiteTests": 52,
+    "browserTests": 2,
+    "productionBuild": "passed",
+    "websiteBuild": "passed",
+    "taggedReleaseNotes": "five locales, each under 500 characters",
+    "screenshotManifest": "all paths exist"
+  },
+  "screenshots": {
+    "app": 80,
+    "profileAndAbout": 10,
+    "website": 8
+  },
+  "nativeDeviceAcceptance": false,
+  "published": false,
+  "personalNotebookUsed": false
+}

@@ -25,7 +25,7 @@ export async function connectDriveMedia({notebookId,accountId,wifiOnly=true}){
     try{const response=await fetch(Capacitor.convertFileSrc(downloaded.path));if(!response.ok)throw Error('Could not open the downloaded recording.');const blob=new Blob([await response.blob()],{type:options.mimeType});if(blob.size!==options.bytes||downloaded.sha256!==options.sha256)throw Error('Downloaded recording failed verification.');return {blob,verified:true,cleanup:()=>native.release({sha256:options.sha256})};}
     catch(error){await native.release({sha256:options.sha256}).catch(()=>{});throw error;}
   }});
-  return {...client,upload:async options=>{try{return await client.upload(options);}finally{const sha256=staged.get(options.blob);if(sha256)await native.release({sha256}).catch(()=>{});}}};
+  return {...client,repairFormat:async options=>{try{return await client.repairFormat(options);}finally{const sha256=staged.get(options.blob);if(sha256)await native.release({sha256}).catch(()=>{});}},upload:async options=>{try{return await client.upload(options);}finally{const sha256=staged.get(options.blob);if(sha256)await native.release({sha256}).catch(()=>{});}}};
 }
 
 export const pauseDriveMedia=()=>native.pause();

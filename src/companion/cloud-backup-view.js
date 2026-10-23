@@ -1,5 +1,5 @@
 import { getAppLanguage, localizeMessage } from './locale.js';
-import { catalanCopy } from './locale-ca.js';
+import { localize } from './locale.js';
 import { escapeHTML as esc } from './views.js';
 import { needsCloudRelink } from './cloud-errors.js';
 import {driveSyncMarkup,driveManageMarkup} from './drive-sync-view.js';
@@ -80,7 +80,7 @@ const messages = {
   },
 };
 
-const copy = options => (options?.lang || getAppLanguage()) === 'ca' ? catalanCopy(messages.en) : messages[options?.lang || getAppLanguage()] || messages.en;
+const copy = options => localize(messages.en, messages.es, options?.lang || getAppLanguage());
 const symbols = {
   cloud: '<path d="M7 18a4 4 0 0 1-.8-7.9 6 6 0 0 1 11.6-1.8A5 5 0 0 1 18 18"/><path d="M12 13v8m-3-3 3 3 3-3"/>',
   devices: '<rect x="3" y="4" width="12" height="12" rx="2"/><path d="M7 20h5m-2-4v4"/><rect x="15" y="10" width="6" height="11" rx="1.5"/>',
@@ -105,7 +105,7 @@ const errorMarkup = (state, options) => {
   const labels = lang === 'es'
     ? { snapshot: 'Lectura del cuaderno local', read: 'Lectura del archivo en la nube', validate: 'Validación del archivo', baseline: 'Guardado o lectura de la base local', merge: 'Combinación de cambios', write: 'Escritura del archivo en la nube', recovery: 'Guardado de la copia de recuperación', apply: 'Aplicación de cambios recibidos' }
     : { snapshot: 'Reading the local notebook', read: 'Reading the cloud file', validate: 'Validating the file', baseline: 'Saving or reading the local baseline', merge: 'Combining changes', write: 'Writing the cloud file', recovery: 'Saving the recovery copy', apply: 'Applying incoming changes' };
-  return `<div class="cp-cloud-problem" role="alert">${labels[state.operation] ? `<strong>${esc(labels[state.operation])}</strong>` : ''}<p class="cp-cloud-technical">${esc(localizeMessage(state.error, lang))}</p>${state.retryable ? `<p>${esc(lang === 'es' ? 'Se reintentará automáticamente con SPino abierto.' : 'Will retry automatically while SPino is open.')}</p>` : ''}</div>`;
+  return `<div class="cp-cloud-problem" role="alert">${labels[state.operation] ? `<strong>${esc(localize(labels[state.operation],labels[state.operation],lang))}</strong>` : ''}<p class="cp-cloud-technical">${esc(localizeMessage(state.error, lang))}</p>${state.retryable ? `<p>${esc(localize('Will retry automatically while SPino is open.','Se reintentará automáticamente con SPino abierto.',lang))}</p>` : ''}</div>`;
 };
 
 export function cloudBackupMarkup(state, options = {}) {

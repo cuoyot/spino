@@ -1,0 +1,15 @@
+<es-ES>
+SPino incorpora alemán y húngaro en la app y la web. Nuevas capturas en todos los idiomas y textos actualizados para las versiones estables.
+</es-ES>
+<en-US>
+SPino adds German and Hungarian in the app and website. Refreshed screenshots in every language and updated wording for stable releases.
+</en-US>
+<ca>
+SPino incorpora alemany i hongarès a l’app i al web. Captures renovades en tots els idiomes i textos actualitzats per a les versions estables.
+</ca>
+<de-DE>
+SPino ist jetzt auch auf Deutsch und Ungarisch verfügbar, in der App und auf der Website. Neue Bildschirmbilder in allen Sprachen und überarbeitete Texte für stabile Versionen.
+</de-DE>
+<hu-HU>
+A SPino alkalmazás és weboldal már magyarul és németül is elérhető. Friss képernyőképek minden nyelven és a stabil kiadásokhoz igazított szövegek.
+</hu-HU>

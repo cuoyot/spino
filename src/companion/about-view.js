@@ -1,19 +1,8 @@
-import release619 from '../../docs/releases/6.1.1-beta.9-release-notes.txt?raw';
+import release613 from '../../docs/releases/6.1.3-release-notes.txt?raw';
+import release611 from '../../docs/releases/6.1.1-release-notes.txt?raw';
 import { APP_VERSION } from './app-version.js';
 import { localize } from './locale.js';
 import release610 from '../../docs/releases/6.1.0.md?raw';
-import release610beta22 from '../../docs/releases/6.1.0-beta.22.md?raw';
-import release610beta21 from '../../docs/releases/6.1.0-beta.21.md?raw';
-import release610beta20 from '../../docs/releases/6.1.0-beta.20.md?raw';
-import release610beta19 from '../../docs/releases/6.1.0-beta.19.md?raw';
-import release610beta15 from '../../docs/releases/6.1.0-beta.15.md?raw';
-import release610beta1 from '../../docs/releases/6.1.0-beta.1.md?raw';
-import release610beta12 from '../../docs/releases/6.1.0-beta.12.md?raw';
-import release610beta11 from '../../docs/releases/6.1.0-beta.11.md?raw';
-import release610beta10 from '../../docs/releases/6.1.0-beta.10.md?raw';
-import release610beta9 from '../../docs/releases/6.1.0-beta.9.md?raw';
-import release610beta8 from '../../docs/releases/6.1.0-beta.8.md?raw';
-import release610beta7 from '../../docs/releases/6.1.0-beta.7.md?raw';
 import release524 from '../../docs/play-store/release-5.2.4.md?raw';
 import release525 from '../../docs/play-store/release-5.2.5.md?raw';
 import release526 from '../../docs/play-store/release-5.2.6.md?raw';
@@ -32,20 +21,9 @@ const listingNotes = language => listing.split(`<!-- field:${language}:notes -->
 export function aboutMarkup(lang = 'en') {
   const es = lang === 'es', word = (en, spanish) => localize(en, spanish, lang);
   const history = [
-    ['6.1.1-beta.9', release619.split('<'+({es:'es-ES',ca:'ca'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
+    ['6.1.3', release613.split('<'+({es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
+    ['6.1.1', release611.split('<'+({es:'es-ES',ca:'ca'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
     ['6.1.0', section(release610, '## Release notes')],
-    ['6.1.0-beta.22', section(release610beta22, '## Release notes')],
-    ['6.1.0-beta.21', section(release610beta21, '## Release notes')],
-    ['6.1.0-beta.20', section(release610beta20, '## Release notes')],
-    ['6.1.0-beta.19', section(release610beta19, '## Release notes')],
-    ['6.1.0-beta.15', section(release610beta15, '## Release notes')],
-    ['6.1.0-beta.12', section(release610beta12, '## Release notes')],
-    ['6.1.0-beta.11', section(release610beta11, '## Release notes')],
-    ['6.1.0-beta.10', section(release610beta10, '## Release notes')],
-    ['6.1.0-beta.9', section(release610beta9, '## Release notes')],
-    ['6.1.0-beta.8', section(release610beta8, '## Release notes')],
-    ['6.1.0-beta.7', section(release610beta7, '## Release notes')],
-    ['6.1.0-beta.1', section(release610beta1, '## Release notes')],
     ['5.2.7', section(release527, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],
     ['5.2.6', section(release526, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],
     ['5.2.5', section(release525, lang === 'ca' ? '## Release notes (Catalan)' : es ? '## Release notes (Spanish)' : '## Release notes (English)')],

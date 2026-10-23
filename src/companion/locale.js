@@ -1,11 +1,12 @@
+import { extraCopy } from './locale-extra.js';
 import { MESSAGE_PAIRS, MESSAGE_PATTERNS } from './locale-messages.js';
 import { catalan, catalanCopy } from './locale-ca.js';
 
 // One runtime language for the notebook, score viewers and managed practice.
-export const APP_LANGUAGES = { en: 'English', es: 'Español', ca: 'Català' };
+export const APP_LANGUAGES = { en: 'English', es: 'Español', ca: 'Català', de: 'Deutsch', hu: 'Magyar' };
 let language = 'en';
 export const getAppLanguage = () => language;
-export const localize = (english, spanish, locale = language) => locale === 'ca' ? catalanCopy(english) : locale === 'es' ? spanish : english;
+export const localize = (english, spanish, locale = language) => locale === 'ca' ? catalanCopy(english) : locale === 'es' ? spanish : extraCopy(english, locale);
 export const ui = (english, spanish) => localize(english, spanish);
 export function setAppLanguage(value) {
   language = Object.hasOwn(APP_LANGUAGES, value) ? value : 'en';
@@ -38,7 +39,7 @@ export function localizeMessage(message, locale = language) {
     const match = value.match(pattern);
     if (match) {
       const translated = translate(match, locale === 'ca' ? 'en' : locale, nested => localizeMessage(nested, locale));
-      return locale === 'ca' ? catalan(translated) : translated;
+      return locale === 'ca' ? catalan(translated) : extraCopy(translated, locale);
     }
   }
   return value;

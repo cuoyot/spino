@@ -1,0 +1,1979 @@
+Today|Heute|Ma
+Practice|Üben|Gyakorlás
+Progress|Fortschritt|Haladás
+Library|Bibliothek|Könyvtár
+Profile|Profil|Profil
+Calendar|Kalender|Naptár
+Repertoire|Repertoire|Repertoár
+Language|Sprache|Nyelv
+Settings|Einstellungen|Beállítások
+Save|Speichern|Mentés
+Cancel|Abbrechen|Mégse
+Close|Schließen|Bezárás
+Back|Zurück|Vissza
+Continue|Weiter|Folytatás
+Done|Fertig|Kész
+Delete|Löschen|Törlés
+Edit|Bearbeiten|Szerkesztés
+Add|Hinzufügen|Hozzáadás
+Confirm|Bestätigen|Megerősítés
+Name|Name|Név
+Title|Titel|Cím
+Date|Datum|Dátum
+Time|Uhrzeit|Időpont
+Notes|Notizen|Jegyzetek
+Minutes|Minuten|Perc
+Duration|Dauer|Időtartam
+Activity|Aktivität|Tevékenység
+Composer|Komponist|Zeneszerző
+Tags|Schlagwörter|Címkék
+Stage|Lernstand|Tanulási szakasz
+Unknown|Unbekannt|Ismeretlen
+Score|Noten|Kotta
+Scores|Noten|Kották
+score|Partitur|kotta
+scores|Partituren|kották
+Piece|Stück|Darab
+Pieces|Stücke|Darabok
+Work|Werk|Mű
+Works|Werke|Művek
+Routine|Routine|Gyakorlási terv
+Routines|Routinen|Gyakorlási tervek
+Session|Übungseinheit|Gyakorlás
+Sessions|Übungseinheiten|Gyakorlások
+sessions|Einheiten|gyakorlás
+Lesson|Unterricht|Óra
+Audition|Vorspiel|Meghallgatás
+Event|Termin|Esemény
+Planned|Geplant|Tervezett
+Completed|Abgeschlossen|Befejezett
+Learning|In Arbeit|Tanulás alatt
+Ready|Bereit|Kész
+Paused|Pausiert|Szüneteltetve
+Saved|Gespeichert|Mentve
+Start|Starten|Indítás
+Stop|Stoppen|Leállítás
+Resume|Fortsetzen|Folytatás
+Finish|Beenden|Befejezés
+Retry|Erneut versuchen|Újrapróbálkozás
+Remove|Entfernen|Eltávolítás
+Search|Suchen|Keresés
+Reset|Zurücksetzen|Visszaállítás
+Select|Auswählen|Kiválasztás
+Open|Öffnen|Megnyitás
+Download|Herunterladen|Letöltés
+Share|Teilen|Megosztás
+Print|Drucken|Nyomtatás
+Record|Aufnehmen|Felvétel
+Recording|Aufnahme|Felvétel
+Recordings|Aufnahmen|Felvételek
+recordings|Aufnahmen|felvételek
+Audio|Audio|Hang
+Video|Video|Videó
+All|Alle|Összes
+None|Keine|Nincs
+On|Ein|Be
+Off|Aus|Ki
+Enabled|Aktiviert|Bekapcsolva
+Disabled|Deaktiviert|Kikapcsolva
+Connected|Verbunden|Csatlakoztatva
+Not connected|Nicht verbunden|Nincs csatlakoztatva
+Connect|Verbinden|Csatlakozás
+Disconnect|Trennen|Leválasztás
+Connecting…|Verbindung wird hergestellt…|Csatlakozás…
+Loading…|Wird geladen…|Betöltés…
+Saving…|Wird gespeichert…|Mentés…
+Checking…|Wird geprüft…|Ellenőrzés…
+Synchronizing…|Synchronisierung läuft…|Szinkronizálás…
++ Add|+ Hinzufügen|+ Hozzáadás
++ Add block|+ Abschnitt hinzufügen|+ Szakasz hozzáadása
++ Add work|+ Werk hinzufügen|+ Mű hozzáadása
++ Catalogue|+ Katalog|+ Katalógus
++ Create routine|+ Routine erstellen|+ Terv létrehozása
++ Event|+ Termin|+ Esemény
++ New practice|+ Neue Übung|+ Új gyakorlás
++ Piece|+ Stück|+ Darab
++ Practice|+ Übung|+ Gyakorlás
++ Routine|+ Routine|+ Terv
++ tutor lesson|+ Unterricht|+ Tanári óra
++ 2 ledger lines|+ 2 Hilfslinien|+ 2 pótvonal
++ 3 ledger lines|+ 3 Hilfslinien|+ 3 pótvonal
+1 conflicting value|1 widersprüchlicher Wert|1 ütköző érték
+1 month|1 Monat|1 hónap
+1 year|1 Jahr|1 év
+3 months|3 Monate|3 hónap
+6 months|6 Monate|6 hónap
+7 days|7 Tage|7 nap
+1 · Beginner — quarter notes, focused range|1 · Einstieg — Viertelnoten, kleiner Tonumfang|1 · Kezdő — negyedek, szűk hangterjedelem
+2 · Basic — half and quarter notes, standard range|2 · Grundlagen — halbe und Viertelnoten, normaler Tonumfang|2 · Alap — fél- és negyedhangok, normál hangterjedelem
+3 · Intermediate — up to eighth notes, standard range|3 · Mittelstufe — bis Achtelnoten, normaler Tonumfang|3 · Középhaladó — nyolcadokig, normál hangterjedelem
+4 · Advanced — dotted rhythms, wide range|4 · Fortgeschritten — punktierte Rhythmen, großer Tonumfang|4 · Haladó — pontozott ritmusok, nagy hangterjedelem
+1. Place|1. Aufsetzen|1. Elhelyezés
+2. Play the figure|2. Figur spielen|2. A motívum lejátszása
+3. Gather|3. Hand sammeln|3. A kéz összezárása
+4. Shift and reopen|4. Versetzen und öffnen|4. Áthelyezés és nyitás
+A look inside SPino|Ein Blick in SPino|Pillantás a SPino alkalmazásba
+A minor · includes accidentals|a-Moll · mit Versetzungszeichen|a-moll · módosítójelekkel
+A quick musical challenge|Eine kurze musikalische Herausforderung|Rövid zenei kihívás
+A routine can contain up to 20 blocks.|Eine Routine kann bis zu 20 Abschnitte enthalten.|Egy terv legfeljebb 20 szakaszt tartalmazhat.
+A selected piece is no longer available.|Ein ausgewähltes Stück ist nicht mehr verfügbar.|Egy kiválasztott darab már nem érhető el.
+A session is pending. Save it or continue before starting another.|Eine Übungseinheit ist offen. Speichere sie oder setze sie fort, bevor du eine neue beginnst.|Van egy befejezetlen gyakorlás. Mentsd vagy folytasd, mielőtt újat kezdesz.
+About SPino|Über SPino|A SPino névjegye
+Accidentals|Versetzungszeichen|Módosítójelek
+Accuracy|Genauigkeit|Pontosság
+Add PDF|PDF hinzufügen|PDF hozzáadása
+Add a block|Abschnitt hinzufügen|Szakasz hozzáadása
+Add block|Abschnitt hinzufügen|Szakasz hozzáadása
+Add a piece or import its PDF.|Füge ein Stück hinzu oder importiere seine PDF.|Adj hozzá egy darabot, vagy importáld a PDF-kottáját.
+Add a piece to start following its progress.|Füge ein Stück hinzu, um deinen Fortschritt zu verfolgen.|Adj hozzá egy darabot a haladás követéséhez.
+Add or download the score again.|Füge die Noten erneut hinzu oder lade sie nochmals herunter.|Add hozzá vagy töltsd le újra a kottát.
+Add pieces to your repertoire from Library to choose them here.|Füge in der Bibliothek Stücke zum Repertoire hinzu, um sie hier auszuwählen.|A Könyvtárban adj darabokat a repertoárodhoz, hogy itt kiválaszthasd őket.
+Add to|Hinzufügen zu|Hozzáadás ehhez
+Add work|Werk hinzufügen|Mű hozzáadása
+Additional options|Weitere Optionen|További lehetőségek
+Adjust picture|Bild anpassen|Kép igazítása
+All dates|Alle Daten|Minden dátum
+All pieces|Alle Stücke|Minden darab
+All practice|Gesamte Übung|Minden gyakorlás
+All stages|Alle Lernstände|Minden szakasz
+All tags|Alle Schlagwörter|Minden címke
+All works|Alle Werke|Minden mű
+Allow MIDI or Bluetooth access to connect.|Erlaube den Zugriff auf MIDI oder Bluetooth.|Engedélyezd a MIDI- vagy Bluetooth-hozzáférést a csatlakozáshoz.
+Allow mobile data for recordings|Mobile Daten für Aufnahmen erlauben|Mobiladat használata felvételekhez
+Also today|Außerdem heute|Még ma
+Alternate by phrase|Phrasenweise abwechseln|Váltás frázisonként
+Always first · exercises chosen when practising|Immer zuerst · Übungen beim Üben auswählen|Mindig elsőként · gyakorlatválasztás gyakorláskor
+Analyze selection|Auswahl analysieren|Kijelölés elemzése
+Android · free · no ads|Android · kostenlos · ohne Werbung|Android · ingyenes · reklámmentes
+Annotate|Anmerkungen|Jegyzetelés
+Annotation tools|Werkzeuge für Anmerkungen|Jegyzetelőeszközök
+Annotations saved on this device.|Anmerkungen auf diesem Gerät gespeichert.|A jegyzetek ezen az eszközön vannak mentve.
+Answer|Antwort|Válasz
+Answer with|Antworten mit|Válaszadás ezzel
+App link copied.|App-Link kopiert.|Az alkalmazás hivatkozása másolva.
+App tour|App-Rundgang|Alkalmazásbemutató
+Appearance|Darstellung|Megjelenés
+Apply a routine|Routine anwenden|Terv alkalmazása
+Apply block|Abschnitt übernehmen|Szakasz alkalmazása
+Archived learning block|Archivierter Lernabschnitt|Archivált tanulási szakasz
+Arrow|Pfeil|Nyíl
+Ascending|Aufwärts|Emelkedő
+Descending|Abwärts|Ereszkedő
+Associate recordings|Aufnahmen zuordnen|Felvételek társítása
+Attach locally|Lokal hinzufügen|Helyi csatolás
+Audio + visual|Audio + visuell|Hang + kép
+Audio and video copies|Audio- und Videokopien|Hang- és videómásolatok
+Audio level unavailable|Audiopegel nicht verfügbar|A hangszint nem érhető el
+Audio only|Nur Audio|Csak hang
+Automatic copies. Restore manually when needed.|Automatische Kopien. Bei Bedarf manuell wiederherstellen.|Automatikus másolatok. Szükség esetén kézzel állíthatók vissza.
+Automatic synchronization|Automatische Synchronisierung|Automatikus szinkronizálás
+Automatic updates|Automatische Aktualisierung|Automatikus frissítések
+Automatic updates paused|Automatische Aktualisierung pausiert|Automatikus frissítések szüneteltetve
+Available in the Android or iOS app|In der Android- oder iOS-App verfügbar|Az Android- vagy iOS-alkalmazásban érhető el
+Available on this device|Auf diesem Gerät verfügbar|Ezen az eszközön elérhető
+Average time (last 20)|Durchschnittszeit (letzte 20)|Átlagidő (utolsó 20)
+BEST|BESTWERT|REKORD
+BPM · Aids:|BPM · Hilfen:|BPM · Segítségek:
+Back to practice|Zurück zur Übung|Vissza a gyakorláshoz
+Back to session|Zurück zur Einheit|Vissza a gyakorláshoz
+Back up and connect your notebook|Übungsheft sichern und verbinden|A gyakorlónapló mentése és összekapcsolása
+Back up now|Jetzt sichern|Biztonsági mentés most
+Backup & sync|Sicherung & Synchronisierung|Mentés és szinkronizálás
+Backup for this device|Sicherung für dieses Gerät|Az eszköz biztonsági mentése
+Backup format|Sicherungsformat|Mentési formátum
+Backup saved with repertoire, scores and annotations.|Sicherung mit Repertoire, Noten und Anmerkungen gespeichert.|A repertoár, a kották és a jegyzetek biztonsági mentése elkészült.
+Based on {name}|Basierend auf {name}|Alapja: {name}
+Bass|Bass|Basszus
+Bass clef|Bassschlüssel|Basszuskulcs
+Beat|Schlag|Ütés
+Beats per bar|Schläge pro Takt|Ütések ütemenként
+Best with a MIDI keyboard|Am besten mit MIDI-Keyboard|MIDI-billentyűzettel ajánlott
+Between devices|Zwischen Geräten|Eszközök között
+Block {value0}|Abschnitt {value0}|{value0}. szakasz
+Block {value0} of {value1}|Abschnitt {value0} von {value1}|{value0}. szakasz / {value1}
+Blocks|Abschnitte|Szakaszok
+Blocks completed|Abgeschlossene Abschnitte|Befejezett szakaszok
+Blue|Blau|Kék
+Bluetooth LE is unavailable|Bluetooth LE ist nicht verfügbar|A Bluetooth LE nem érhető el
+Bluetooth is off|Bluetooth ist ausgeschaltet|A Bluetooth ki van kapcsolva
+Bluetooth permission denied|Bluetooth-Berechtigung verweigert|A Bluetooth-engedély megtagadva
+Bluetooth scan is only available in the Android app|Bluetooth-Suche ist nur in der Android-App verfügbar|Bluetooth-keresés csak az Android-alkalmazásban érhető el
+Both hands|Beide Hände|Mindkét kéz
+Both hands at once|Beide Hände gleichzeitig|Mindkét kéz egyszerre
+Both at once (best with a MIDI keyboard)|Beide gleichzeitig (am besten mit MIDI-Keyboard)|Mindkettő egyszerre (MIDI-billentyűzettel ajánlott)
+Both hands is available with piano or MIDI.|Beide Hände sind mit Klavier oder MIDI verfügbar.|Mindkét kéz zongorával vagy MIDI-vel használható.
+Both hands on the grand staff; phrases alternate between hands.|Beide Hände im Klaviersystem; Phrasen wechseln zwischen den Händen.|Mindkét kéz a zongorarendszeren; a frázisok váltakoznak a kezek között.
+Both hands together, one octave apart|Beide Hände zusammen, eine Oktave auseinander|Mindkét kéz együtt, egy oktáv távolságra
+Both hands: choose piano or MIDI|Beide Hände: Klavier oder MIDI wählen|Mindkét kéz: válassz zongorát vagy MIDI-t
+Brightness|Helligkeit|Fényerő
+Brightness stays at your chosen value for this take.|Die Helligkeit bleibt für diese Aufnahme auf dem gewählten Wert.|A fényerő ezen a felvételen a beállított értéken marad.
+Build a comparable baseline|Vergleichsbasis aufbauen|Összehasonlítási alap létrehozása
+Build a sequence to practise again.|Erstelle einen Ablauf zum wiederholten Üben.|Állíts össze egy újra használható gyakorlási sorrendet.
+Built with open-source tools. Thank you to their authors and contributors.|Mit Open-Source-Werkzeugen entwickelt. Vielen Dank an alle Mitwirkenden.|Nyílt forráskódú eszközökkel készült. Köszönjük a szerzők és közreműködők munkáját.
+Calendar view|Kalenderansicht|Naptárnézet
+Camera|Kamera|Kamera
+Camera controls|Kamerasteuerung|Kameravezérlők
+Camera settings|Kameraeinstellungen|Kamerabeállítások
+Cancel recurring appointments|Wiederkehrende Termine absagen|Ismétlődő események törlése
+Cancel this and future appointments|Diesen und zukünftige Termine absagen|Ez és a jövőbeli események törlése
+Cannot read this PDF. Check that the file is not damaged.|PDF nicht lesbar. Prüfe, ob die Datei beschädigt ist.|A PDF nem olvasható. Ellenőrizd, hogy a fájl sértetlen-e.
+Catalogue|Katalog|Katalógus
+Catalogue edition not found.|Katalogausgabe nicht gefunden.|A katalóguskiadás nem található.
+Change|Ändern|Módosítás
+Change animation|Animation wechseln|Animáció váltása
+Change level|Stufe ändern|Szint módosítása
+Change piece|Stück wechseln|Darab váltása
+Change profile picture|Profilbild ändern|Profilkép módosítása
+Changes apply to this appointment only.|Änderungen gelten nur für diesen Termin.|A módosítások csak erre az eseményre vonatkoznak.
+Changes from another device may take a little time to appear.|Änderungen anderer Geräte können etwas später erscheinen.|A másik eszköz módosításai kis késéssel jelenhetnek meg.
+Changes need review|Änderungen prüfen|Módosítások ellenőrzése szükséges
+Changes pending|Änderungen ausstehend|Függő módosítások
+Changes stay on this device until you resume synchronization.|Änderungen bleiben bis zur Fortsetzung der Synchronisierung auf diesem Gerät.|A módosítások a szinkronizálás folytatásáig ezen az eszközön maradnak.
+Check the context and duration.|Prüfe Übungsart und Dauer.|Ellenőrizd a módot és az időtartamot.
+Checking Google Drive…|Google Drive wird geprüft…|Google Drive ellenőrzése…
+Checking recording copies…|Aufnahmekopien werden geprüft…|Felvételmásolatok ellenőrzése…
+Checking score…|Noten werden geprüft…|Kotta ellenőrzése…
+Choose a PDF, MusicXML or MXL file.|Wähle eine PDF-, MusicXML- oder MXL-Datei.|Válassz PDF-, MusicXML- vagy MXL-fájlt.
+Choose a duration between 1 and 600 whole minutes.|Wähle eine Dauer von 1 bis 600 ganzen Minuten.|Válassz 1 és 600 egész perc közötti időtartamot.
+Choose a finger, then tap the note. Use two fingers to zoom or pan.|Wähle einen Finger und tippe auf die Note. Mit zwei Fingern zoomen oder verschieben.|Válassz ujjat, majd érintsd meg a hangjegyet. Két ujjal nagyíthatsz vagy mozgathatsz.
+Choose a notebook|Übungsheft wählen|Gyakorlónapló kiválasztása
+Choose a passage and a clear goal for your next practice.|Wähle eine Passage und ein klares Ziel für deine nächste Übung.|Válassz részletet és egyértelmű célt a következő gyakorláshoz.
+Choose a passage and a concrete goal.|Wähle eine Passage und ein konkretes Ziel.|Válassz részletet és konkrét célt.
+Choose a pianist level.|Wähle deine Klavierstufe.|Válassz zongoratudásszintet.
+Choose a piece|Stück wählen|Darab kiválasztása
+Choose a piece when practising|Stück beim Üben wählen|Darabválasztás gyakorláskor
+Choose a rating between 1 and 5.|Wähle eine Bewertung von 1 bis 5.|Válassz 1 és 5 közötti értékelést.
+Choose a repertoire work.|Wähle ein Werk aus dem Repertoire.|Válassz művet a repertoárból.
+Choose a routine, a quick challenge or a practice mode.|Wähle eine Routine, eine kurze Herausforderung oder einen Übungsmodus.|Válassz tervet, rövid kihívást vagy gyakorlási módot.
+Choose a score|Noten wählen|Kotta kiválasztása
+Choose a score smaller than 25 MB.|Wähle Noten unter 25 MB.|Válassz 25 MB-nál kisebb kottát.
+Choose a supported language.|Wähle eine verfügbare Sprache.|Válassz elérhető nyelvet.
+Choose a valid week.|Wähle eine gültige Woche.|Válassz érvényes hetet.
+Choose a warm-up exercise.|Wähle eine Aufwärmübung.|Válassz bemelegítő gyakorlatot.
+Choose an activity and a context.|Wähle Aktivität und Übungsmodus.|Válassz tevékenységet és gyakorlási módot.
+Choose an activity or one of your routines.|Wähle eine Aktivität oder eine deiner Routinen.|Válassz tevékenységet vagy saját tervet.
+Choose an available activity.|Wähle eine verfügbare Aktivität.|Válassz elérhető tevékenységet.
+Choose an available piece.|Wähle ein verfügbares Stück.|Válassz elérhető darabot.
+Choose an end date on or after the first event.|Das Enddatum darf nicht vor dem ersten Termin liegen.|A záródátum nem előzheti meg az első eseményt.
+Choose an image file.|Wähle eine Bilddatei.|Válassz képfájlt.
+Choose and convert a copy|Kopie wählen und umwandeln|Másolat kiválasztása és átalakítása
+Choose at least one available day or a lesson.|Wähle mindestens einen verfügbaren Tag oder eine Unterrichtsstunde.|Válassz legalább egy szabad napot vagy tanórát.
+Choose between 1 and 52 weeks.|Wähle zwischen 1 und 52 Wochen.|Válassz 1 és 52 hét között.
+Choose date|Datum wählen|Dátum kiválasztása
+Choose from gallery|Aus Galerie wählen|Kiválasztás a galériából
+Choose practice|Übung wählen|Gyakorlás kiválasztása
+Choose practice days.|Wähle Übungstage.|Válassz gyakorlási napokat.
+Choose reminders when planning a practice or an event.|Wähle Erinnerungen beim Planen einer Übung oder eines Termins.|Gyakorlás vagy esemény tervezésekor állíts be emlékeztetőt.
+Choose the lesson day and time.|Wähle Tag und Uhrzeit des Unterrichts.|Válaszd ki az óra napját és időpontját.
+Choose valid block settings.|Wähle gültige Abschnittseinstellungen.|Válassz érvényes szakaszbeállításokat.
+Choose when practising|Beim Üben wählen|Kiválasztás gyakorláskor
+Choose {provider} in the file picker.|Wähle {provider} in der Dateiauswahl.|Válaszd ezt a fájlválasztóban: {provider}.
+Circle|Kreis|Kör
+Clear filters|Filter löschen|Szűrők törlése
+Clear dates|Datumsfilter löschen|Dátumszűrő törlése
+Clear page|Seite leeren|Oldal törlése
+Clef|Notenschlüssel|Kulcs
+Close release notes|Versionshinweise schließen|Kiadási megjegyzések bezárása
+Close score|Noten schließen|Kotta bezárása
+Close the open dialog to receive changes.|Schließe den Dialog, um Änderungen zu empfangen.|A módosítások fogadásához zárd be a párbeszédablakot.
+Close the score to receive changes.|Schließe die Noten, um Änderungen zu empfangen.|A módosítások fogadásához zárd be a kottát.
+Cloud|Cloud|Felhő
+Cloud connection is available in the installed app.|Die Cloud-Verbindung ist in der installierten App verfügbar.|A felhőkapcsolat a telepített alkalmazásban érhető el.
+Collection|Sammlung|Gyűjtemény
+Color|Farbe|Szín
+Combine composer and period|Komponist und Epoche kombinieren|Zeneszerző és korszak együttes szűrése
+Combining changes…|Änderungen werden zusammengeführt…|Módosítások egyesítése…
+Coming up|Demnächst|Következő események
+Comments and annotations|Kommentare und Anmerkungen|Megjegyzések és jegyzetek
+Comments and notes|Kommentare und Notizen|Megjegyzések és jegyzetek
+Compared with your current goal: {value0} min/week.|Im Vergleich zu deinem aktuellen Ziel: {value0} Min./Woche.|A jelenlegi célodhoz képest: {value0} perc/hét.
+Compatible copy · JSON format 1|Kompatible Kopie · JSON-Format 1|Kompatibilis másolat · JSON 1. formátum
+Complete lesson|Unterricht abschließen|Óra befejezése
+Completed blocks cannot be edited.|Abgeschlossene Abschnitte können nicht bearbeitet werden.|A befejezett szakaszok nem szerkeszthetők.
+Completed lesson|Abgeschlossener Unterricht|Befejezett óra
+Completed practice history will be kept.|Der bisherige Übungsverlauf bleibt erhalten.|A befejezett gyakorlások előzményei megmaradnak.
+Confirm the format compatibility warning.|Bestätige den Hinweis zur Formatkompatibilität.|Erősítsd meg a formátumkompatibilitási figyelmeztetést.
+Conflicting record|Widersprüchlicher Eintrag|Ütköző bejegyzés
+Connect Google Drive|Google Drive verbinden|Google Drive csatlakoztatása
+Connect Google Drive to continue syncing|Google Drive zum Weitersynchronisieren verbinden|Csatlakoztasd a Google Drive-ot a szinkronizálás folytatásához
+Connect MIDI or continue with manual tracking.|Verbinde MIDI oder fahre mit manueller Erfassung fort.|Csatlakoztass MIDI-t, vagy folytasd kézi követéssel.
+Connect a MIDI keyboard|MIDI-Keyboard verbinden|MIDI-billentyűzet csatlakoztatása
+Connect another device|Weiteres Gerät verbinden|Másik eszköz csatlakoztatása
+Connect another instrument|Weiteres Instrument verbinden|Másik hangszer csatlakoztatása
+Connect backup|Sicherung verbinden|Mentés csatlakoztatása
+Connect instrument|Instrument verbinden|Hangszer csatlakoztatása
+Connect selected notebook|Ausgewähltes Übungsheft verbinden|Kiválasztott gyakorlónapló csatlakoztatása
+Connect the cable. SPino detects your piano automatically.|Schließe das Kabel an. SPino erkennt dein Klavier automatisch.|Csatlakoztasd a kábelt. A SPino automatikusan felismeri a zongorádat.
+Connect this notebook to Google Drive|Dieses Übungsheft mit Google Drive verbinden|A gyakorlónapló csatlakoztatása a Google Drive-hoz
+Connect with Google|Mit Google verbinden|Csatlakozás Google-fiókkal
+Connect your piano|Verbinde dein Klavier|Csatlakoztasd a zongorádat
+Connect {name}|{name} verbinden|Csatlakozás: {name}
+Connected instruments|Verbundene Instrumente|Csatlakoztatott hangszerek
+Connected notebook|Verbundenes Übungsheft|Csatlakoztatott gyakorlónapló
+Connected to Google Drive|Mit Google Drive verbunden|Csatlakoztatva a Google Drive-hoz
+Connecting to Google Drive…|Verbindung mit Google Drive wird hergestellt…|Csatlakozás a Google Drive-hoz…
+Connection code|Verbindungscode|Csatlakozási kód
+Connection code copied.|Verbindungscode kopiert.|Csatlakozási kód másolva.
+Connection details|Verbindungsdetails|Kapcsolat részletei
+Connection failed. Try again.|Verbindung fehlgeschlagen. Versuche es erneut.|A csatlakozás sikertelen. Próbáld újra.
+Connection needs attention|Verbindung erfordert Aufmerksamkeit|A kapcsolat beavatkozást igényel
+Consecutive weeks. This week stays open until Sunday.|Aufeinanderfolgende Wochen. Diese Woche zählt bis Sonntag.|Egymást követő hetek. Ez a hét vasárnapig nyitva marad.
+Contact|Kontakt|Kapcsolat
+Contents could not be checked. Retry before choosing.|Inhalt konnte nicht geprüft werden. Versuche es vor der Auswahl erneut.|A tartalom ellenőrzése sikertelen. Kiválasztás előtt próbáld újra.
+Continue exercise|Übung fortsetzen|Gyakorlat folytatása
+Continue later|Später fortsetzen|Folytatás később
+Continue locally|Lokal fortfahren|Folytatás helyben
+Continue or finish your pending session first.|Setze zuerst die offene Einheit fort oder schließe sie ab.|Előbb folytasd vagy fejezd be a függő gyakorlást.
+Continue practice|Üben fortsetzen|Gyakorlás folytatása
+Continuous scroll|Fortlaufendes Scrollen|Folyamatos görgetés
+Continuous scrolling|Fortlaufendes Scrollen|Folyamatos görgetés
+Convert a backup|Sicherung umwandeln|Mentés átalakítása
+Copied to clipboard|In Zwischenablage kopiert|Vágólapra másolva
+Copies audio and video over Wi-Fi or mobile data on this device.|Kopiert Audio und Video auf diesem Gerät über WLAN oder mobile Daten.|Hangot és videót másol ezen az eszközön Wi-Fi-n vagy mobilhálózaton.
+Copies completed|Kopien abgeschlossen|Másolás befejezve
+Copy connection code|Verbindungscode kopieren|Csatlakozási kód másolása
+Copy recordings now|Aufnahmen jetzt kopieren|Felvételek másolása most
+Copy this link to share SPino.|Kopiere diesen Link, um SPino zu teilen.|A SPino megosztásához másold ezt a hivatkozást.
+Copying recording|Aufnahme wird kopiert|Felvétel másolása
+Correct|Richtig|Helyes
+Wrong|Falsch|Hibás
+Correct copy|Kopie korrigieren|Másolat javítása
+Correct. Continue when ready.|Richtig. Fahre fort, wenn du bereit bist.|Helyes. Folytasd, ha készen állsz.
+Correct. Now put the idea into practice.|Richtig. Setze die Idee nun um.|Helyes. Most próbáld ki a gyakorlatban.
+Count in…|Einzählen…|Beszámolás…
+Create routine|Routine erstellen|Terv létrehozása
+Credits|Mitwirkende|Köszönetnyilvánítás
+Current key: {k}|Aktuelle Tonart: {k}|Jelenlegi hangnem: {k}
+Current practice|Aktuelle Übung|Jelenlegi gyakorlás
+Current version|Aktuelle Version|Jelenlegi verzió
+Current weekly goal|Aktuelles Wochenziel|Jelenlegi heti cél
+Customise the current one|Aktuelle Vorlage anpassen|Jelenlegi sablon testreszabása
+Daily practice|Tägliches Üben|Napi gyakorlás
+Dark theme|Dunkles Design|Sötét téma
+Data on this device|Daten auf diesem Gerät|Adatok ezen az eszközön
+Date range|Zeitraum|Időszak
+Decision|Entscheidung|Döntés
+Delete PDF and annotations|PDF und Anmerkungen löschen|PDF és jegyzetek törlése
+Delete event|Termin löschen|Esemény törlése
+Delete file|Datei löschen|Fájl törlése
+Delete planned practice|Geplante Übung löschen|Tervezett gyakorlás törlése
+Delete routine|Routine löschen|Terv törlése
+Delete saved session|Gespeicherte Einheit löschen|Mentett gyakorlás törlése
+Delete session|Einheit löschen|Gyakorlás törlése
+Delete template|Vorlage löschen|Sablon törlése
+Delete this local recording?|Diese lokale Aufnahme löschen?|Törlöd ezt a helyi felvételt?
+Delete this saved routine? Completed sessions and planned practices will be kept.|Diese Routine löschen? Abgeschlossene und geplante Übungen bleiben erhalten.|Törlöd ezt a tervet? A befejezett és tervezett gyakorlások megmaradnak.
+Delete work|Werk löschen|Mű törlése
+Demonstration position|Position im Beispiel|Bemutató pozíciója
+Details differ|Angaben unterscheiden sich|A részletek eltérnek
+Device settings could not be saved.|Geräteeinstellungen konnten nicht gespeichert werden.|Az eszközbeállítások mentése sikertelen.
+Digital zoom|Digitalzoom|Digitális zoom
+Digital zoom crops the image and reduces detail.|Digitalzoom beschneidet das Bild und verringert Details.|A digitális zoom kivágja a képet, így csökkenti a részletességet.
+Discard|Verwerfen|Elvetés
+Discard changes?|Änderungen verwerfen?|Elveted a módosításokat?
+Discard session|Einheit verwerfen|Gyakorlás elvetése
+Disconnect Google account|Google-Konto trennen|Google-fiók leválasztása
+Disconnect backup|Sicherung trennen|Mentés leválasztása
+Disconnect the current notebook before choosing another one.|Trenne das aktuelle Übungsheft, bevor du ein anderes wählst.|Másik napló kiválasztása előtt válaszd le a jelenlegit.
+Disconnect this device|Dieses Gerät trennen|Az eszköz leválasztása
+Disconnect this notebook before connecting another one.|Trenne dieses Übungsheft, bevor du ein anderes verbindest.|Másik napló csatlakoztatása előtt válaszd le ezt.
+Does not repeat|Keine Wiederholung|Nem ismétlődik
+Done editing|Bearbeitung fertig|Szerkesztés kész
+Dorian|Dorisch|Dór
+Dotted|Punktiert|Pontozott
+Download SPino for Android|SPino für Android herunterladen|SPino letöltése Androidra
+Download added. View its progress in Downloads.|Download hinzugefügt. Den Fortschritt findest du unter Downloads.|Letöltés hozzáadva. Állapotát a Letöltések alatt követheted.
+Download its score in Library first|Zuerst die Noten in der Bibliothek herunterladen|Előbb töltsd le a kottát a Könyvtárban
+Download once and practise offline|Einmal herunterladen, offline üben|Egyszeri letöltés, offline gyakorlás
+Download progress|Downloadfortschritt|Letöltés állapota
+Download score|Noten herunterladen|Kotta letöltése
+Download settings|Downloadeinstellungen|Letöltési beállítások
+Download the PDF before selecting it.|Lade die PDF vor der Auswahl herunter.|Kiválasztás előtt töltsd le a PDF-et.
+Download the score before adding it to your repertoire.|Lade die Noten herunter, bevor du sie zum Repertoire hinzufügst.|Töltsd le a kottát, mielőtt a repertoárodhoz adod.
+Downloads|Downloads|Letöltések
+Downloads use any available internet connection.|Downloads nutzen jede verfügbare Internetverbindung.|A letöltések bármely elérhető internetkapcsolatot használják.
+Drag to another day|Auf einen anderen Tag ziehen|Húzd másik napra
+Drag to position your face. Pinch or use the slider to zoom.|Ziehe dein Gesicht in Position. Zoome mit zwei Fingern oder dem Regler.|Húzással igazítsd az arcodat. Két ujjal vagy a csúszkával nagyíthatsz.
+Drive file|Drive-Datei|Drive-fájl
+Drop to remove|Zum Entfernen ablegen|Eltávolítás az elengedéssel
+Duration (min)|Dauer (Min.)|Időtartam (perc)
+Duration (minutes)|Dauer (Minuten)|Időtartam (perc)
+E.g. bars 1–16, section B, coda|Z. B. Takte 1–16, Teil B, Coda|Pl. 1–16. ütem, B rész, kóda
+Early|Zu früh|Korai
+Late|Zu spät|Késői
+Edit block|Abschnitt bearbeiten|Szakasz szerkesztése
+Edit completed lesson|Abgeschlossenen Unterricht bearbeiten|Befejezett óra szerkesztése
+Edit completed practice|Abgeschlossene Übung bearbeiten|Befejezett gyakorlás szerkesztése
+Edit event|Termin bearbeiten|Esemény szerkesztése
+Edit feedback|Rückmeldung bearbeiten|Visszajelzés szerkesztése
+Edit planned practice|Geplante Übung bearbeiten|Tervezett gyakorlás szerkesztése
+Edit practice|Übung bearbeiten|Gyakorlás szerkesztése
+Edit profile|Profil bearbeiten|Profil szerkesztése
+Edit routine|Routine bearbeiten|Terv szerkesztése
+Edit score|Noten bearbeiten|Kotta szerkesztése
+Edit the event to link your works.|Bearbeite den Termin, um Werke zu verknüpfen.|Művek társításához szerkeszd az eseményt.
+Edit title|Titel bearbeiten|Cím szerkesztése
+Edit work|Werk bearbeiten|Mű szerkesztése
+Eighth|Achtel|Nyolcad
+Eighth notes|Achtelnoten|Nyolcadok
+Empty|Leer|Üres
+Enable reminders|Erinnerungen aktivieren|Emlékeztetők bekapcsolása
+End|Ende|Vég
+End date (optional)|Enddatum (optional)|Záródátum (opcionális)
+End of the score|Ende der Noten|Kotta vége
+Enter a connection code|Verbindungscode eingeben|Csatlakozási kód megadása
+Enter a routine name.|Gib einen Namen für die Routine ein.|Adj nevet a tervnek.
+Enter a time for the notification.|Gib eine Uhrzeit für die Benachrichtigung ein.|Adj meg időpontot az értesítéshez.
+Enter a time for the reminder.|Gib eine Uhrzeit für die Erinnerung ein.|Adj meg időpontot az emlékeztetőhöz.
+Enter a title for the work.|Gib einen Werktitel ein.|Adj címet a műnek.
+Enter a valid block duration.|Gib eine gültige Abschnittsdauer ein.|Adj meg érvényes szakaszhosszt.
+Enter a valid date and a duration between 1 and 720 minutes.|Gib ein gültiges Datum und eine Dauer von 1 bis 720 Minuten ein.|Adj meg érvényes dátumot és 1–720 perc közötti időtartamot.
+Erase|Radieren|Radírozás
+Erase notebook|Übungsheft löschen|Gyakorlónapló törlése
+Erase the notebook|Übungsheft löschen|Gyakorlónapló törlése
+Erase · Options|Radieren · Optionen|Radírozás · Beállítások
+Event or audition|Termin oder Vorspiel|Esemény vagy meghallgatás
+Every day|Täglich|Naponta
+Every month|Monatlich|Havonta
+Every two weeks|Alle zwei Wochen|Kéthetente
+Every week|Wöchentlich|Hetente
+Every week for {value0} weeks|Wöchentlich, {value0} Wochen lang|Hetente, {value0} héten át
+Every year|Jährlich|Évente
+Exercise|Übung|Gyakorlat
+Exercise pages|Übungsseiten|Gyakorlat oldalai
+Exercise {value0} of {value1}|Übung {value0} von {value1}|{value0}. gyakorlat / {value1}
+Exercises|Übungen|Gyakorlatok
+Exercises in this warm-up|Übungen dieses Aufwärmprogramms|A bemelegítés gyakorlatai
+Existing notebook · use this on the second device|Vorhandenes Übungsheft · auf dem zweiten Gerät verwenden|Meglévő napló · ezt használd a második eszközön
+Expand|Erweitern|Kibontás
+Explore the app|App entdecken|Fedezd fel az alkalmazást
+Explore the main screens|Hauptansichten kennenlernen|A fő képernyők bemutatása
+Export|Exportieren|Exportálás
+Export a backup|Sicherung exportieren|Biztonsági mentés exportálása
+Export file|Datei exportieren|Fájl exportálása
+Extra accidentals (♯ ♭ ♮)|Zusätzliche Versetzungszeichen (♯ ♭ ♮)|További módosítójelek (♯ ♭ ♮)
+Failed: {name}|Fehlgeschlagen: {name}|Sikertelen: {name}
+Faster|Schneller|Gyorsabban
+Slower|Langsamer|Lassabban
+Favorite tempos|Lieblingstempi|Kedvenc tempók
+Feedback|Rückmeldung|Visszajelzés
+Filter by piece|Nach Stück filtern|Szűrés darab szerint
+Filters|Filter|Szűrők
+Filters count only time recorded for matching blocks.|Filter zählen nur die Zeit passender Abschnitte.|A szűrők csak az egyező szakaszok rögzített idejét számolják.
+Final C|Abschließendes C|Záró C
+Find my notebook in Google Drive|Mein Übungsheft in Google Drive suchen|Gyakorlónapló keresése a Google Drive-on
+Find scores|Noten suchen|Kották keresése
+Find your next piece|Finde dein nächstes Stück|Találd meg a következő darabodat
+Find your notebook in Google Drive|Übungsheft in Google Drive suchen|Gyakorlónapló keresése a Google Drive-on
+Find your pulse|Finde deinen Puls|Találd meg a lüktetést
+Finger|Finger|Ujj
+Finger {value0}|Finger {value0}|{value0}. ujj
+Finger {value0} · Options|Finger {value0} · Optionen|{value0}. ujj · Beállítások
+Fingering|Fingersatz|Ujjrend
+Fingers|Finger|Ujjak
+Finish a quick practice to set your first record.|Beende eine Schnellübung für deinen ersten Rekord.|Fejezz be egy gyors gyakorlást az első rekordodhoz.
+Finish and save your pending practice to receive changes.|Beende und speichere die offene Übung, um Änderungen zu empfangen.|A módosítások fogadásához fejezd be és mentsd a függő gyakorlást.
+Finish and see score|Beenden und Ergebnis ansehen|Befejezés és eredmény
+Finish editing and stay paused|Bearbeitung beenden und pausiert bleiben|Szerkesztés befejezése, szünet megtartása
+Finish editing to receive changes.|Beende die Bearbeitung, um Änderungen zu empfangen.|A módosítások fogadásához fejezd be a szerkesztést.
+Finish or pause practice|Übung beenden oder pausieren|Gyakorlás befejezése vagy szüneteltetése
+Finish practice|Übung beenden|Gyakorlás befejezése
+Finish session|Einheit beenden|Gyakorlás befejezése
+Finish the current recording first.|Beende zuerst die aktuelle Aufnahme.|Előbb fejezd be a jelenlegi felvételt.
+Finish the recording before restoring a notebook.|Beende die Aufnahme vor der Wiederherstellung eines Übungshefts.|A napló visszaállítása előtt fejezd be a felvételt.
+Finish the recording first.|Beende zuerst die Aufnahme.|Előbb fejezd be a felvételt.
+Finish the session or add another block.|Beende die Einheit oder füge einen weiteren Abschnitt hinzu.|Fejezd be a gyakorlást, vagy adj hozzá újabb szakaszt.
+Finish this practice?|Diese Übung beenden?|Befejezed ezt a gyakorlást?
+Finish to save your score, or keep your place and continue later.|Beende zum Speichern des Ergebnisses oder setze später an dieser Stelle fort.|Fejezd be az eredmény mentéséhez, vagy folytasd később innen.
+Finish without saving|Ohne Speichern beenden|Befejezés mentés nélkül
+First notes|Erste Noten|Első hangok
+First page of the score|Erste Notenseite|A kotta első oldala
+First page · PDF|Erste Seite · PDF|Első oldal · PDF
+First reading|Erstes Lesen|Első olvasás
+First score!|Erstes Ergebnis!|Első eredmény!
+Fit whole page|Ganze Seite einpassen|Teljes oldal illesztése
+Fixed (five fingers, no leaps)|Fest (fünf Finger, keine Sprünge)|Rögzített (öt ujj, ugrás nélkül)
+Fixed page|Feste Seite|Rögzített oldal
+Fixed sheet (tablet)|Festes Notenblatt (Tablet)|Rögzített kottalap (táblagép)
+Focus moved · press Start to play from here.|Startpunkt versetzt · drücke Start, um hier zu beginnen.|Kezdőpont áthelyezve · az Indítással innen játszhatsz.
+Focus or passage|Schwerpunkt oder Passage|Cél vagy részlet
+Focused|Klein|Szűk
+Follow|Folgen|Követés
+Follow the written fingering|Dem notierten Fingersatz folgen|Kövesd az írott ujjrendet
+Follow with MIDI|Mit MIDI folgen|Követés MIDI-vel
+For example, bars 1–8|Zum Beispiel Takte 1–8|Például az 1–8. ütem
+For example, daily practice|Zum Beispiel tägliches Üben|Például napi gyakorlás
+For example: practise slowly|Zum Beispiel: langsam üben|Például: lassú gyakorlás
+Forget saved instrument|Gespeichertes Instrument entfernen|Mentett hangszer elfelejtése
+Format 2 requires a compatible version of SPino. Conversion keeps the original file.|Format 2 benötigt eine kompatible SPino-Version. Die Originaldatei bleibt bei der Umwandlung erhalten.|A 2. formátum kompatibilis SPino-verziót igényel. Az átalakítás megőrzi az eredeti fájlt.
+Frame|Ausschnitt|Kivágás
+Frame saved · {value0}.|Ausschnitt gespeichert · {value0}.|Kivágás mentve · {value0}.
+Framing|Seitenausschnitt|Oldalkivágás
+Free|Frei|Szabad
+Free practice|Freies Üben|Szabad gyakorlás
+Free practice with a timer and manual tracking.|Freies Üben mit Zeitmesser und manueller Erfassung.|Szabad gyakorlás időmérővel és kézi követéssel.
+Free recording|Freie Aufnahme|Szabad felvétel
+Frequently asked questions about SPino|Häufige Fragen zu SPino|Gyakori kérdések a SPino alkalmazásról
+Monday|Montag|Hétfő
+Tuesday|Dienstag|Kedd
+Wednesday|Mittwoch|Szerda
+Thursday|Donnerstag|Csütörtök
+Friday|Freitag|Péntek
+Saturday|Samstag|Szombat
+Sunday|Sonntag|Vasárnap
+From C.-L. Hanon, The Virtuoso Pianist (1873).|Aus C.-L. Hanon, The Virtuoso Pianist (1873).|C.-L. Hanon: The Virtuoso Pianist (1873) művéből.
+Full archived notes|Vollständige archivierte Hinweise|Teljes archivált megjegyzések
+Full screen|Vollbild|Teljes képernyő
+G and F major|G-Dur und F-Dur|G-dúr és F-dúr
+G major|G-Dur|G-dúr
+Gather, shift and reopen|Sammeln, versetzen und öffnen|Összezárás, áthelyezés és nyitás
+General|Allgemein|Általános
+Get it on Google Play|Bei Google Play herunterladen|Letöltés a Google Play-ről
+Goal streak|Zielserie|Célsorozat
+Google account|Google-Konto|Google-fiók
+Grand staff|Klaviersystem|Zongorarendszer
+Grand staff (tablet only)|Klaviersystem (nur Tablet)|Zongorarendszer (csak táblagépen)
+Grand staff, one whole note per bar.|Klaviersystem, eine ganze Note pro Takt.|Zongorarendszer, ütemenként egy egész hang.
+Green|Grün|Zöld
+Guide|Anleitung|Útmutató
+Half|Halbe|Fél
+Half & quarter notes|Halbe und Viertelnoten|Fél- és negyedhangok
+Halves and wholes|Halbe und ganze Noten|Fél- és egészhangok
+Hand movement demonstration|Beispiel der Handbewegung|Kézmozgás bemutatása
+Hand position|Handposition|Kéztartás
+Hands|Hände|Kezek
+Hands to follow|Zu verfolgende Hände|Követett kezek
+Hands, reading range and tempo|Hände, Tonumfang und Tempo|Kezek, hangterjedelem és tempó
+Hanon 1–10 warm-up demonstration with piano|Hanon 1–10: Aufwärmbeispiel mit Klavier|Hanon 1–10: bemelegítés bemutatása zongorával
+Hanon No. {value0}|Hanon Nr. {value0}|Hanon {value0}.
+Hanon movement in four snapshots|Hanon-Bewegung in vier Bildern|Hanon-mozgás négy pillanatképben
+Hello|Hallo|Szia
+Highlight|Markieren|Kiemelés
+History|Verlauf|Előzmények
+History, plans, scores and annotations.|Verlauf, Pläne, Noten und Anmerkungen.|Előzmények, tervek, kották és jegyzetek.
+Hold a block to move it or drop it in the bin.|Halte einen Abschnitt, um ihn zu verschieben oder in den Papierkorb zu ziehen.|Tartsd nyomva a szakaszt az áthelyezéshez vagy a kukába húzáshoz.
+Hold to move · tap for options|Halten zum Verschieben · Tippen für Optionen|Mozgatáshoz tartsd nyomva · beállításokhoz érintsd meg
+Hour|Stunde|Óra
+How did it feel?|Wie hat es sich angefühlt?|Milyen volt?
+How it works|So funktioniert es|Így működik
+How points work|So werden Punkte berechnet|Pontszámítás
+How to play|Spielanleitung|Játékmenet
+How to play this warm-up|So spielst du diese Aufwärmübung|A bemelegítés menete
+I have a tutor lesson|Ich habe Klavierunterricht|Van tanári órám
+I understand that older versions cannot open the format 2 copy.|Ich verstehe, dass ältere Versionen die Kopie im Format 2 nicht öffnen können.|Tudomásul veszem, hogy régebbi verziók nem tudják megnyitni a 2. formátumú másolatot.
+If the day does not exist in a month, the event falls on its last day.|Fehlt der Tag in einem Monat, fällt der Termin auf dessen letzten Tag.|Ha a nap nem létezik az adott hónapban, az esemény a hónap utolsó napjára kerül.
+Import|Importieren|Importálás
+Import PDF|PDF importieren|PDF importálása
+Import a PDF or download a score from the catalogue.|Importiere eine PDF oder lade Noten aus dem Katalog herunter.|Importálj PDF-et, vagy tölts le kottát a katalógusból.
+Import a template|Vorlage importieren|Sablon importálása
+Imported: {name}|Importiert: {name}|Importálva: {name}
+In|In|Ennyi múlva:
+In time|Im Takt|Időben
+Include Hanon warm-up|Hanon-Aufwärmen einfügen|Hanon-bemelegítés hozzáadása
+Includes scores, annotations and practice history.|Enthält Noten, Anmerkungen und Übungsverlauf.|Kottákat, jegyzeteket és gyakorlási előzményeket tartalmaz.
+Incoming changes wait until practice and editing finish.|Eingehende Änderungen warten bis zum Ende von Übung und Bearbeitung.|A beérkező módosítások megvárják a gyakorlás és szerkesztés végét.
+Incremental synchronization|Inkrementelle Synchronisierung|Növekményes szinkronizálás
+Ink|Stift|Toll
+Input disconnected|Eingang getrennt|Bemenet leválasztva
+Instrument|Instrument|Hangszer
+It's {n}|Es ist {n}|Ez {n}
+Keep at least one remaining block, or finish the session.|Behalte mindestens einen verbleibenden Abschnitt oder beende die Einheit.|Tarts meg legalább egy hátralévő szakaszt, vagy fejezd be a gyakorlást.
+Keep one block|Einen Abschnitt behalten|Egy szakasz megtartása
+Keep practising|Weiterüben|Gyakorlás folytatása
+Keep the fingers curved and let each playing finger settle into its key.|Halte die Finger rund und lasse jeden spielenden Finger in seine Taste sinken.|Tartsd ívelten az ujjaidat, és hagyd, hogy a játszó ujj a billentyűre ereszkedjen.
+Keep the fingers curved and lift each one clearly.|Halte die Finger rund und hebe jeden deutlich an.|Tartsd ívelten az ujjaidat, és külön-külön emeld fel őket.
+Keep timing in the background|Zeit im Hintergrund weiterlaufen lassen|Időmérés folytatása a háttérben
+Keep your notebook with you|Dein Übungsheft immer dabei|Legyen nálad a gyakorlónaplód
+Keep your piano nearby with Bluetooth MIDI enabled.|Halte dein Klavier in der Nähe und aktiviere Bluetooth MIDI.|Tartsd közel a zongorát, bekapcsolt Bluetooth MIDI-vel.
+Keep your repertoire, import scores and explore the catalogue.|Verwalte dein Repertoire, importiere Noten und entdecke den Katalog.|Kezeld a repertoárodat, importálj kottát, és böngéssz a katalógusban.
+Keep your rhythm|Bleib im Rhythmus|Tartsd a ritmusod
+Keeps the local notebook, recordings and Google Drive copies.|Behält das lokale Übungsheft, Aufnahmen und Google-Drive-Kopien.|Megőrzi a helyi naplót, felvételeket és Google Drive-másolatokat.
+Keeps the routine blocks.|Behält die Abschnitte der Routine.|Megtartja a terv szakaszait.
+Keeps your local notebook and Drive files.|Behält dein lokales Übungsheft und die Drive-Dateien.|Megőrzi a helyi naplót és a Drive-fájlokat.
+Key|Tonart|Hangnem
+Key and metre|Tonart und Taktart|Hangnem és ütemmutató
+Key or mode|Tonart oder Modus|Hangnem vagy módusz
+Keyboard size|Tastaturgröße|Billentyűzet mérete
+Keys|Tasten|Billentyűk
+Labels|Beschriftungen|Feliratok
+Last 4 weeks|Letzte 4 Wochen|Utolsó 4 hét
+Last checked|Zuletzt geprüft|Utoljára ellenőrizve
+Last export|Letzter Export|Utolsó exportálás
+Last file update|Letzte Dateiaktualisierung|Utolsó fájlfrissítés
+Last notebook change synchronized|Letzte synchronisierte Änderung|Utolsó szinkronizált módosítás
+Last pedal signal|Letztes Pedalsignal|Utolsó pedáljel
+Last practice:|Letzte Übung:|Utolsó gyakorlás:
+Last received note: {value0}.|Zuletzt empfangene Note: {value0}.|Utolsó beérkező hang: {value0}.
+Latest practice|Letzte Übung|Legutóbbi gyakorlás
+Learn|Lernen|Tanulás
+Leave empty to repeat without an end date.|Für eine Wiederholung ohne Enddatum leer lassen.|Hagyd üresen, ha záródátum nélkül ismétlődjön.
+Left|Links|Bal
+Left hand|Linke Hand|Bal kéz
+Right|Rechts|Jobb
+Right hand|Rechte Hand|Jobb kéz
+Lesson already planned|Unterricht bereits geplant|Az óra már be van tervezve
+Lesson day|Unterrichtstag|Óra napja
+Lesson on a past date|Unterricht in der Vergangenheit|Múltbeli óra
+Lesson with a tutor|Unterricht mit Lehrkraft|Tanári óra
+Level|Stufe|Szint
+Level {n}|Stufe {n}|{n}. szint
+Level {n} passed!|Stufe {n} bestanden!|{n}. szint teljesítve!
+Level {n} ✓|Stufe {n} ✓|{n}. szint ✓
+Levels|Stufen|Szintek
+Levels are fixed: change anything and a personal copy is created for you to edit.|Stufen sind festgelegt. Jede Änderung erstellt eine bearbeitbare persönliche Kopie.|A szintek rögzítettek. Módosításkor szerkeszthető személyes másolat készül.
+Light theme|Helles Design|Világos téma
+Light, dark or match your device|Hell, dunkel oder wie dein Gerät|Világos, sötét vagy az eszköz szerint
+Lights|Lichtsignale|Fényjelzések
+Line|Zeile|Sor
+Line done: {ok}/{total} on time|Zeile fertig: {ok}/{total} im Takt|Sor kész: {ok}/{total} időben
+Line thickness|Linienstärke|Vonalvastagság
+Link audio or video demonstrations to this lesson.|Verknüpfe Audio- oder Videobeispiele mit diesem Unterricht.|Társíts hang- vagy videóbemutatókat ehhez az órához.
+Linked repertoire|Verknüpftes Repertoire|Kapcsolódó repertoár
+List pieces in your notes or add them to your repertoire.|Notiere Stücke oder füge sie zum Repertoire hinzu.|Sorold fel a darabokat a jegyzeteidben, vagy add őket a repertoárhoz.
+Listening…|Warte auf Signal…|Jelre várakozás…
+Load more recordings|Weitere Aufnahmen laden|További felvételek betöltése
+Loading bundled repertoire catalogue…|Mitgelieferter Katalog wird geladen…|Beépített repertoárkatalógus betöltése…
+Loading demonstration…|Beispiel wird geladen…|Bemutató betöltése…
+Loading preview…|Vorschau wird geladen…|Előnézet betöltése…
+Loading scores…|Noten werden geladen…|Kották betöltése…
+Loading score…|Noten werden geladen…|Kotta betöltése…
+Local|Lokal|Helyi
+Local MusicXML, MXL or reference PDF|Lokale MusicXML-, MXL- oder Referenz-PDF-Datei|Helyi MusicXML-, MXL- vagy referencia-PDF
+Local annotations · the original PDF is preserved.|Lokale Anmerkungen · die Original-PDF bleibt erhalten.|Helyi jegyzetek · az eredeti PDF megmarad.
+Local copy|Lokale Kopie|Helyi másolat
+Local data, scores and recordings will be deleted. Exported backups will not be deleted.|Lokale Daten, Noten und Aufnahmen werden gelöscht. Exportierte Sicherungen bleiben erhalten.|A helyi adatok, kották és felvételek törlődnek. Az exportált mentések megmaradnak.
+Local files are kept. Retrying preserves completed copies.|Lokale Dateien bleiben erhalten. Erneute Versuche behalten fertige Kopien.|A helyi fájlok megmaradnak. Az újrapróbálkozás megtartja a kész másolatokat.
+Local recording storage is unavailable. Reopen the app and try again.|Lokaler Aufnahmespeicher nicht verfügbar. Öffne die App erneut und versuche es noch einmal.|A helyi felvételtár nem érhető el. Nyisd meg újra az alkalmazást, és próbáld újra.
+Lock exposure|Belichtung sperren|Expozíció rögzítése
+Lock exposure to stop the camera adjusting to changes in light.|Sperre die Belichtung, damit die Kamera nicht auf Lichtänderungen reagiert.|Rögzítsd az expozíciót, hogy a kamera ne igazodjon a fényváltozásokhoz.
+Log completed practice|Abgeschlossene Übung erfassen|Befejezett gyakorlás rögzítése
+Look before downloading|Vor dem Download ansehen|Nézd meg letöltés előtt
+MIDI activity|MIDI-Aktivität|MIDI-aktivitás
+MIDI connected|MIDI verbunden|MIDI csatlakoztatva
+MIDI connected:|MIDI verbunden:|MIDI csatlakoztatva:
+MIDI disconnected|MIDI getrennt|MIDI leválasztva
+MIDI disconnected. Evaluation has been paused.|MIDI getrennt. Die Auswertung wurde pausiert.|A MIDI levált. Az értékelés szünetel.
+MIDI disconnected. No open input port.|MIDI getrennt. Kein Eingangsport geöffnet.|A MIDI levált. Nincs nyitott bemeneti port.
+MIDI follow|MIDI-Verfolgung|MIDI-követés
+MIDI input selected.|MIDI-Eingang ausgewählt.|MIDI-bemenet kiválasztva.
+MIDI instrument|MIDI-Instrument|MIDI-hangszer
+MIDI instrument · notes are evaluated automatically.|MIDI-Instrument · Noten werden automatisch ausgewertet.|MIDI-hangszer · a hangokat automatikusan értékeljük.
+MIDI is unavailable on this device.|MIDI ist auf diesem Gerät nicht verfügbar.|Ezen az eszközön nem érhető el MIDI.
+MIDI keyboard|MIDI-Keyboard|MIDI-billentyűzet
+MIDI keyboard disconnected: hands alternate again.|MIDI-Keyboard getrennt: Hände wechseln wieder ab.|A MIDI-billentyűzet levált: a kezek ismét váltakoznak.
+MIDI needed|MIDI erforderlich|MIDI szükséges
+MIDI piano|MIDI-Klavier|MIDI-zongora
+Main navigation|Hauptnavigation|Fő navigáció
+Major|Dur|Dúr
+Major and minor|Dur und Moll|Dúr és moll
+Make room for music|Platz für Musik schaffen|Adj teret a zenének
+Make space for lessons and practice|Platz für Unterricht und Üben|Hely az óráknak és a gyakorlásnak
+Manage|Verwalten|Kezelés
+Manage connection|Verbindung verwalten|Kapcsolat kezelése
+Manage local data|Lokale Daten verwalten|Helyi adatok kezelése
+Manage routines|Routinen verwalten|Tervek kezelése
+Manual entry|Manueller Eintrag|Kézi bevitel
+Manual entry · no automatic evaluation.|Manueller Eintrag · keine automatische Auswertung.|Kézi bevitel · automatikus értékelés nélkül.
+Manual tracking · no accuracy score|Manuelle Erfassung · keine Genauigkeitswertung|Kézi követés · pontossági értékelés nélkül
+Mark each step when you feel ready.|Markiere jeden Schritt, sobald du bereit bist.|Jelöld az egyes lépéseket, ha készen állsz.
+Match device|Wie Gerät|Eszköz szerint
+Match device theme|Gerätedesign übernehmen|Eszköz témájának követése
+Max. accidentals in the key signature|Max. Vorzeichen der Tonart|Előjegyzések maximális száma
+May move between phrases|Wechsel zwischen Phrasen möglich|Frázisok között változhat
+Measures|Takte|Ütemek
+Melodies (harmony)|Melodien (Harmonie)|Dallamok (harmónia)
+Melody and bass together on the grand staff. Best with MIDI.|Melodie und Bass zusammen im Klaviersystem. Am besten mit MIDI.|Dallam és basszus együtt a zongorarendszeren. MIDI-vel ajánlott.
+Metronome|Metronom|Metronóm
+Metronome during line|Metronom während der Zeile|Metronóm a sor alatt
+Metronome running|Metronom läuft|A metronóm működik
+Metronome stopped|Metronom gestoppt|A metronóm leállt
+Metronome volume|Metronomlautstärke|Metronóm hangereje
+Microphone level|Mikrofonpegel|Mikrofonszint
+Minimize|Minimieren|Kis méret
+Minor|Moll|Moll
+Minor keys|Molltonarten|Moll hangnemek
+Minute|Minute|Perc
+Minutes for block|Minuten für Abschnitt|Szakasz ideje percben
+Minutes practised each day|Täglich geübte Minuten|Naponta gyakorolt percek
+Missed {n}|{n} verpasst|Kihagyva: {n}
+Mixer|Mischpult|Keverő
+Mode|Modus|Mód
+Month|Monat|Hónap
+Week|Woche|Hét
+More details|Weitere Details|További részletek
+More options|Weitere Optionen|További lehetőségek
+More settings|Weitere Einstellungen|További beállítások
+Move controls|Bedienelemente verschieben|Vezérlők mozgatása
+Move controls. Double-tap to expand.|Bedienelemente verschieben. Doppeltippen zum Erweitern.|Vezérlők mozgatása. Dupla érintés a kibontáshoz.
+Move controls. Double-tap to minimize.|Bedienelemente verschieben. Doppeltippen zum Minimieren.|Vezérlők mozgatása. Dupla érintés a kicsinyítéshez.
+Move down|Nach unten|Lejjebb
+Move keyboard|Tastatur verschieben|Billentyűzet mozgatása
+Move or remove block|Abschnitt verschieben oder entfernen|Szakasz mozgatása vagy eltávolítása
+Move practice: drag to a day, or use left and right arrow keys|Übung verschieben: auf einen Tag ziehen oder Pfeiltasten links/rechts verwenden|Gyakorlás mozgatása: húzd egy napra, vagy használd a bal és jobb nyílbillentyűket
+Move the block within the remaining session.|Verschiebe den Abschnitt innerhalb der restlichen Einheit.|Mozgasd a szakaszt a hátralévő gyakorláson belül.
+Move this connection to Google Drive|Diese Verbindung zu Google Drive übertragen|Kapcsolat áthelyezése a Google Drive-ra
+Move up|Nach oben|Feljebb
+Moved to the rest of your repertoire.|In dein übriges Repertoire verschoben.|Áthelyezve a repertoár többi darabjához.
+Multimedia|Multimedia|Multimédia
+Music and model credits|Musik- und Modellnachweise|Zenei és modellforrások
+Music stand|Notenpult|Kottatartó
+MusicXML practice|MusicXML-Übung|MusicXML-gyakorlás
+MusicXML review preview|MusicXML-Prüfvorschau|MusicXML ellenőrzési előnézet
+MusicXML · manual tracking, or follow along with a MIDI keyboard.|MusicXML · manuell erfassen oder mit MIDI-Keyboard folgen.|MusicXML · kézi követés vagy MIDI-billentyűzetes kísérés.
+Mute|Stummschalten|Némítás
+My notebook|Mein Übungsheft|Gyakorlónaplóm
+My repertoire|Mein Repertoire|Repertoárom
+My settings|Meine Einstellungen|Saját beállításaim
+My templates|Meine Vorlagen|Sablonjaim
+Nearby instruments|Instrumente in der Nähe|Közeli hangszerek
+Need 6 comparable blocks to compare two groups of 3.|6 vergleichbare Abschnitte sind für zwei Dreiergruppen nötig.|Két hármas csoport összehasonlításához 6 összevethető szakasz szükséges.
+Needs attention|Aufmerksamkeit erforderlich|Beavatkozást igényel
+New block|Neuer Abschnitt|Új szakasz
+New event|Neuer Termin|Új esemény
+New key|Neue Tonart|Új hangnem
+New personal best!|Neuer persönlicher Rekord!|Új egyéni rekord!
+New practices start from this level|Neue Übungen beginnen auf dieser Stufe|Az új gyakorlások erről a szintről indulnak
+New record!|Neuer Rekord!|Új rekord!
+Next|Weiter|Következő
+Next block|Nächster Abschnitt|Következő szakasz
+Next block →|Nächster Abschnitt →|Következő szakasz →
+Next level|Nächste Stufe|Következő szint
+Next month|Nächster Monat|Következő hónap
+Next note|Nächste Note|Következő hang
+Next page|Nächste Seite|Következő oldal
+Next step|Nächster Schritt|Következő lépés
+Next week|Nächste Woche|Következő hét
+Next ›|Weiter ›|Következő ›
+No|Nein|Nem
+No Google account connected|Kein Google-Konto verbunden|Nincs csatlakoztatott Google-fiók
+No MIDI|Kein MIDI|Nincs MIDI
+No MIDI input was opened.|Kein MIDI-Eingang geöffnet.|Nem nyílt meg MIDI-bemenet.
+No SPino notebooks found in this account.|Keine SPino-Übungshefte in diesem Konto gefunden.|Ebben a fiókban nincs SPino-gyakorlónapló.
+No annotations.|Keine Anmerkungen.|Nincsenek jegyzetek.
+No downloadable score is available.|Keine herunterladbaren Noten verfügbar.|Nincs letölthető kotta.
+No end date|Kein Enddatum|Nincs záródátum
+No file update yet|Noch keine Dateiaktualisierung|Még nincs fájlfrissítés
+No instrument connected|Kein Instrument verbunden|Nincs csatlakoztatott hangszer
+No instruments found. Check that your piano is discoverable.|Keine Instrumente gefunden. Prüfe, ob dein Klavier sichtbar ist.|Nem található hangszer. Ellenőrizd, hogy a zongora felfedezhető-e.
+No linked work|Kein verknüpftes Werk|Nincs társított mű
+No local recordings|Keine lokalen Aufnahmen|Nincsenek helyi felvételek
+No matching pieces in your repertoire.|Keine passenden Stücke im Repertoire.|Nincs megfelelő darab a repertoárban.
+No matching scores|Keine passenden Noten|Nincs megfelelő kotta
+No matching works. Change the filters or add a work.|Keine passenden Werke. Ändere die Filter oder füge ein Werk hinzu.|Nincs megfelelő mű. Módosítsd a szűrőket, vagy adj hozzá egy művet.
+No media was captured. Try again.|Keine Aufnahme erfasst. Versuche es erneut.|Nem készült felvétel. Próbáld újra.
+No pending transfers.|Keine ausstehenden Übertragungen.|Nincs függő átvitel.
+No piece|Kein Stück|Nincs darab
+No piece assigned|Kein Stück zugeordnet|Nincs hozzárendelt darab
+No pieces on your stand yet.|Noch keine Stücke auf deinem Notenpult.|Még nincs darab a kottatartón.
+No practice in the previous period|Keine Übung im vorherigen Zeitraum|Nem volt gyakorlás az előző időszakban
+No practice planned|Keine Übung geplant|Nincs tervezett gyakorlás
+No recordings match these filters|Keine Aufnahmen passen zu diesen Filtern|Nincs a szűrőknek megfelelő felvétel
+No recordings this month|Keine Aufnahmen in diesem Monat|Ebben a hónapban nincs felvétel
+No recordings this week|Keine Aufnahmen in dieser Woche|Ezen a héten nincs felvétel
+No saved practice in this period.|Keine gespeicherte Übung in diesem Zeitraum.|Ebben az időszakban nincs mentett gyakorlás.
+No saved practice yet.|Noch keine gespeicherte Übung.|Még nincs mentett gyakorlás.
+No saved scores yet|Noch keine gespeicherten Noten|Még nincs mentett kotta
+No synchronized changes yet|Noch keine synchronisierten Änderungen|Még nincs szinkronizált módosítás
+No tempo|Ohne Tempo|Tempó nélkül
+No tempo · complete the line|Ohne Tempo · Zeile abschließen|Tempó nélkül · fejezd be a sort
+No weekly goal|Kein Wochenziel|Nincs heti cél
+No written measures are available to preview.|Keine notierten Takte für die Vorschau verfügbar.|Nincs megjeleníthető leírt ütem.
+None (MIDI only)|Keine (nur MIDI)|Nincs (csak MIDI)
+None connected. Plug in a USB keyboard or scan for Bluetooth.|Nichts verbunden. Schließe ein USB-Keyboard an oder suche per Bluetooth.|Nincs csatlakoztatva. Csatlakoztass USB-billentyűzetet, vagy keress Bluetooth-on.
+Normal|Normal|Normál
+Not now|Nicht jetzt|Most nem
+Not passed yet — you can still practise it|Noch nicht bestanden — Üben ist trotzdem möglich|Még nincs teljesítve — továbbra is gyakorolhatod
+Not recorded|Nicht erfasst|Nincs rögzítve
+Note names|Notennamen|Hangnevek
+Note names (travel)|Notennamen (unterwegs)|Hangnevek (útközben)
+Note values|Notenwerte|Hangértékek
+Notebook|Übungsheft|Gyakorlónapló
+Notebook name|Name des Übungshefts|Gyakorlónapló neve
+Notebook, scores and recordings|Übungsheft, Noten und Aufnahmen|Gyakorlónapló, kották és felvételek
+Notes received via MIDI|Per MIDI empfangene Noten|MIDI-n érkező hangok
+Now|Jetzt|Most
+Number / text size|Zahlen- / Textgröße|Szám- és szövegméret
+Ochre|Ocker|Okker
+Offline PDF and annotations · manual tracking.|Offline-PDF und Anmerkungen · manuelle Erfassung.|Offline PDF és jegyzetek · kézi követés.
+Offline · local recordings remain available|Offline · lokale Aufnahmen bleiben verfügbar|Offline · a helyi felvételek elérhetők
+On screen|Am Bildschirm|Képernyőn
+On screen · no tempo · one hand|Am Bildschirm · ohne Tempo · eine Hand|Képernyőn · tempó nélkül · egy kéz
+On the music stand|Auf dem Notenpult|A kottatartón
+On the music stand.|Auf dem Notenpult.|A kottatartón.
+On the music stand: I am practising it now|Auf dem Notenpult: übe ich gerade|A kottatartón: most ezt gyakorlom
+On the staff|Im Notensystem|A vonalrendszeren
+On this device|Auf diesem Gerät|Ezen az eszközön
+On this device only|Nur auf diesem Gerät|Csak ezen az eszközön
+On your stand|Auf deinem Notenpult|A kottatartódon
+On-screen input|Bildschirmeingabe|Képernyős bevitel
+On-screen keyboard|Bildschirmtastatur|Képernyős billentyűzet
+On-screen responses|Antworten am Bildschirm|Képernyős válaszok
+One saved practice keeps a week in your rhythm. This week stays open until Sunday.|Eine gespeicherte Übung hält die Wochenserie aufrecht. Diese Woche zählt bis Sonntag.|Egy mentett gyakorlás fenntartja a heti sorozatot. Ez a hét vasárnapig nyitva marad.
+One-device backup|Sicherung für ein Gerät|Egyeszközös mentés
+Only overlapping edits need a choice. Other changes are kept from both devices.|Nur überlappende Änderungen erfordern eine Entscheidung. Andere Änderungen beider Geräte bleiben erhalten.|Csak az ütköző módosításoknál kell választani. A többi változás mindkét eszközről megmarad.
+Only pending practices can be edited.|Nur ausstehende Übungen sind bearbeitbar.|Csak a függő gyakorlások szerkeszthetők.
+Only pending practices can be edited. Finish the active practice first.|Nur ausstehende Übungen sind bearbeitbar. Beende zuerst die aktive Übung.|Csak a függő gyakorlások szerkeszthetők. Előbb fejezd be az aktív gyakorlást.
+Only pending practices can be moved. Finish the active practice first.|Nur ausstehende Übungen sind verschiebbar. Beende zuerst die aktive Übung.|Csak a függő gyakorlások mozgathatók. Előbb fejezd be az aktív gyakorlást.
+Only this pending session will be deleted. Saved practices will be kept.|Nur diese offene Einheit wird gelöscht. Gespeicherte Übungen bleiben erhalten.|Csak ez a függő gyakorlás törlődik. A mentett gyakorlások megmaradnak.
+Open Backup & sync|Sicherung & Synchronisierung öffnen|Mentés és szinkronizálás megnyitása
+Open MusicXML score|MusicXML-Noten öffnen|MusicXML-kotta megnyitása
+Open and annotate PDF|PDF öffnen und kommentieren|PDF megnyitása és jegyzetelése
+Open catalogue|Katalog öffnen|Katalógus megnyitása
+Open free practice|Freies Üben öffnen|Szabad gyakorlás megnyitása
+Open score|Noten öffnen|Kotta megnyitása
+Open synchronization settings|Synchronisierungseinstellungen öffnen|Szinkronizálási beállítások megnyitása
+Open the catalogue from practice preparation first.|Öffne den Katalog zuerst aus der Übungsvorbereitung.|Előbb a gyakorlás előkészítéséből nyisd meg a katalógust.
+Open the installed app to select your cloud file.|Öffne die installierte App zur Auswahl deiner Cloud-Datei.|A felhőfájl kiválasztásához nyisd meg a telepített alkalmazást.
+Opening|Anfang|Kezdet
+Opening excerpt · MusicXML|Anfangsausschnitt · MusicXML|Kezdőrészlet · MusicXML
+Opening measures of the score|Erste Takte der Noten|A kotta kezdő ütemei
+Opening score…|Noten werden geöffnet…|Kotta megnyitása…
+Opening your notebook…|Übungsheft wird geöffnet…|Gyakorlónapló megnyitása…
+Optional|Optional|Opcionális
+Options|Optionen|Beállítások
+Orbit|Umlauf|Körbejárás
+Organize your practice|Organisiere dein Üben|Szervezd meg a gyakorlást
+Organized copy · JSON format 2|Strukturierte Kopie · JSON-Format 2|Rendezett másolat · JSON 2. formátum
+Original plan|Ursprünglicher Plan|Eredeti terv
+Other connection options|Weitere Verbindungsmöglichkeiten|További kapcsolódási lehetőségek
+Other pieces|Andere Stücke|Más darabok
+PDF score|PDF-Noten|PDF-kotta
+PDF score attached. The file and its annotations will be preserved.|PDF-Noten angehängt. Datei und Anmerkungen bleiben erhalten.|PDF-kotta csatolva. A fájl és jegyzetei megmaradnak.
+PDF score preview before downloading|PDF-Notenvorschau vor dem Download|PDF-kotta előnézete letöltés előtt
+PDF up to 20 MB. Title, composer and tempo are detected on this device.|PDF bis 20 MB. Titel, Komponist und Tempo werden auf diesem Gerät erkannt.|Legfeljebb 20 MB-os PDF. A cím, szerző és tempó felismerése az eszközön történik.
+POINTS|PUNKTE|PONTOK
+Page|Seite|Oldal
+Page parts saved.|Seitenteile gespeichert.|Oldalrészek mentve.
+Page-turn pedals|Pedale zum Umblättern|Lapozópedálok
+Pan|Verschieben|Mozgatás
+Part|Teil|Rész
+Part of the piece you worked on|Geübter Abschnitt des Stücks|A darab gyakorolt részlete
+Partial|Teilweise|Részleges
+Passage or goal|Passage oder Ziel|Részlet vagy cél
+Passed|Bestanden|Teljesítve
+Past 12 weeks|Letzte 12 Wochen|Utolsó 12 hét
+Past date|Vergangenes Datum|Múltbeli dátum
+Past event|Vergangener Termin|Múltbeli esemény
+Paste an exported template here or pick a .json file.|Füge hier eine exportierte Vorlage ein oder wähle eine .json-Datei.|Illeszd ide az exportált sablont, vagy válassz .json-fájlt.
+Pause|Pausieren|Szünet
+Pause all|Alle pausieren|Összes szüneteltetése
+Pause downloads before deleting a file.|Pausiere Downloads vor dem Löschen einer Datei.|Fájl törlése előtt szüneteltesd a letöltéseket.
+Pause downloads before erasing the notebook.|Pausiere Downloads vor dem Löschen des Übungshefts.|A napló törlése előtt szüneteltesd a letöltéseket.
+Pause practice|Übung pausieren|Gyakorlás szüneteltetése
+Pause recording|Aufnahme pausieren|Felvétel szüneteltetése
+Pause synchronization|Synchronisierung pausieren|Szinkronizálás szüneteltetése
+Pause transfers before exporting or converting a backup.|Pausiere Übertragungen vor dem Export oder der Umwandlung einer Sicherung.|Mentés exportálása vagy átalakítása előtt szüneteltesd az átvitelt.
+Pause transfers before restoring a backup.|Pausiere Übertragungen vor der Wiederherstellung einer Sicherung.|Mentés visszaállítása előtt szüneteltesd az átvitelt.
+Paused · press Continue to play this page.|Pausiert · drücke Weiter, um diese Seite zu spielen.|Szünet · a Folytatással játszhatod ezt az oldalt.
+Pen|Stift|Toll
+Pending save|Speichern ausstehend|Mentésre vár
+Period|Epoche|Korszak
+Personal copy created: {name}|Persönliche Kopie erstellt: {name}|Személyes másolat létrehozva: {name}
+Pianist level|Klavierstufe|Zongoratudásszint
+Piano|Klavier|Zongora
+Piano keys|Klaviertasten|Zongorabillentyűk
+Piano mode|Klaviermodus|Zongoramód
+Piano practice|Klavierübung|Zongoragyakorlás
+Picture framing. Drag or use the arrow keys to move it.|Bildausschnitt. Ziehe oder nutze die Pfeiltasten zum Verschieben.|Képkivágás. Húzással vagy a nyílbillentyűkkel mozgathatod.
+Picture removed.|Bild entfernt.|Kép eltávolítva.
+Piece chosen when you practise|Stückauswahl beim Üben|Darabválasztás gyakorláskor
+Pieces practised and next step|Geübte Stücke und nächster Schritt|Gyakorolt darabok és következő lépés
+Pinch to resize the keys. Slide with two fingers to reach other notes.|Mit zwei Fingern Tastengröße ändern oder zu anderen Noten verschieben.|Két ujjal méretezheted a billentyűket, és elérheted a többi hangot.
+Place|Aufsetzen|Elhelyezés
+Place your hands|Hände aufsetzen|Helyezd el a kezed
+Plan practice|Übung planen|Gyakorlás tervezése
+Plan practices and events. Add reminders when you choose a time.|Plane Übungen und Termine. Füge bei der Uhrzeitwahl Erinnerungen hinzu.|Tervezz gyakorlásokat és eseményeket. Időpontválasztáskor emlékeztetőt is hozzáadhatsz.
+Plan saved, but the reminder could not be scheduled.|Plan gespeichert, aber die Erinnerung konnte nicht eingerichtet werden.|Terv mentve, de az emlékeztető beállítása sikertelen.
+Plan saved; reminders are disabled.|Plan gespeichert; Erinnerungen sind deaktiviert.|Terv mentve; az emlékeztetők ki vannak kapcsolva.
+Plan your week|Plane deine Woche|Tervezd meg a heted
+Planned for today|Für heute geplant|Mára tervezve
+Play|Abspielen|Lejátszás
+Play a few lines to see your weakest notes.|Spiele einige Zeilen, um deine schwierigsten Noten zu sehen.|Játssz néhány sort, hogy lásd, mely hangok okoznak nehézséget.
+Play a note to check the signal.|Spiele eine Note, um das Signal zu prüfen.|Játssz egy hangot a jel ellenőrzéséhez.
+Play again|Erneut spielen|Újrajátszás
+Play in time (metronome)|Im Takt spielen (Metronom)|Játék ütemre (metronóm)
+Play line|Zeile spielen|Sor lejátszása
+Play the 8-note figure|Spiele die Figur mit 8 Noten|Játszd el a 8 hangos motívumot
+Play the Hanon video|Hanon-Video abspielen|Hanon-videó lejátszása
+Play through the whole piece|Ganzes Stück durchspielen|Játszd végig a darabot
+Portrait shows more of the score.|Hochformat zeigt mehr von den Noten.|Álló helyzetben több látszik a kottából.
+Practice activities|Übungsaktivitäten|Gyakorlási tevékenységek
+Practice already planned|Übung bereits geplant|A gyakorlás már tervezve van
+Practice complete|Übung abgeschlossen|Gyakorlás befejezve
+Practice days|Übungstage|Gyakorlási napok
+Practice history|Übungsverlauf|Gyakorlási előzmények
+Practice history, scores and annotations.|Übungsverlauf, Noten und Anmerkungen.|Gyakorlási előzmények, kották és jegyzetek.
+Practice linked to this plan|Mit diesem Plan verknüpfte Übung|Ehhez a tervhez kapcsolódó gyakorlás
+Practice moved. Only this appointment changed.|Übung verschoben. Nur dieser Termin wurde geändert.|Gyakorlás áthelyezve. Csak ez az esemény változott.
+Practice piano with SPino.|Übe Klavier mit SPino.|Gyakorolj zongorázni a SPino alkalmazással.
+Practice preferences|Übungseinstellungen|Gyakorlási beállítások
+Practice reading or technique to track your musical goals.|Übe Notenlesen oder Technik, um deine musikalischen Ziele zu verfolgen.|Gyakorolj kottaolvasást vagy technikát a zenei céljaid követéséhez.
+Practice results|Übungsergebnisse|Gyakorlási eredmények
+Practice score|Übungsnoten|Gyakorlókotta
+Practice session|Übungseinheit|Gyakorlás
+Practice settings|Übungseinstellungen|Gyakorlási beállítások
+Practice streak|Übungsserie|Gyakorlási sorozat
+Practice this week|Üben diese Woche|E heti gyakorlás
+Practice time|Übungszeit|Gyakorlási idő
+Practice time (minutes)|Übungszeit (Minuten)|Gyakorlási idő (perc)
+Practice time cannot exceed 720 minutes.|Die Übungszeit darf 720 Minuten nicht überschreiten.|A gyakorlási idő legfeljebb 720 perc lehet.
+Practice type|Übungsart|Gyakorlás típusa
+Practiced works|Geübte Werke|Gyakorolt művek
+Practise in your own way|Übe auf deine Weise|Gyakorolj a saját módodon
+Practise reading or technique to start comparing results.|Übe Notenlesen oder Technik, um Ergebnisse zu vergleichen.|Gyakorolj kottaolvasást vagy technikát az eredmények összehasonlításához.
+Practised|Geübt|Gyakorolva
+Practised this week|Diese Woche geübt|Ezen a héten gyakorolva
+Practising|In Übung|Gyakorlás alatt
+Practising now|Übe ich gerade|Most gyakorlom
+Prefer the cloud for conflicts|Bei Konflikten Cloud bevorzugen|Ütközésnél a felhő előnyben
+Prefer this device for conflicts|Bei Konflikten dieses Gerät bevorzugen|Ütközésnél ez az eszköz előnyben
+Preferences|Einstellungen|Beállítások
+Preferences saved.|Einstellungen gespeichert.|Beállítások mentve.
+Preparation and repertoire|Vorbereitung und Repertoire|Felkészülés és repertoár
+Preparation steps|Vorbereitungsschritte|Felkészülési lépések
+Prepare a sequence and use it again.|Bereite einen Ablauf vor und verwende ihn erneut.|Állíts össze egy újra használható sorrendet.
+Prepare another session|Weitere Einheit vorbereiten|Másik gyakorlás előkészítése
+Prepare session|Einheit vorbereiten|Gyakorlás előkészítése
+Prepare your practice|Bereite deine Übung vor|Készítsd elő a gyakorlásodat
+Preparing local OCR…|Lokale Texterkennung wird vorbereitet…|Helyi szövegfelismerés előkészítése…
+Preparing recording…|Aufnahme wird vorbereitet…|Felvétel előkészítése…
+Preparing scores…|Noten werden vorbereitet…|Kották előkészítése…
+Preparing video… Keep SPino open.|Video wird vorbereitet… Lass SPino geöffnet.|Videó előkészítése… Hagyd nyitva a SPino alkalmazást.
+Presentation|Darstellung|Megjelenítés
+Press the pedal now…|Betätige jetzt das Pedal…|Most nyomd le a pedált…
+Preview before downloading|Vorschau vor dem Download|Előnézet letöltés előtt
+Preview excerpt|Ausschnitt ansehen|Részlet előnézete
+Preview selection|Auswahl ansehen|Kijelölés előnézete
+Previous|Zurück|Előző
+Previous best|Bisheriger Bestwert|Korábbi rekord
+Previous month|Vorheriger Monat|Előző hónap
+Previous page|Vorherige Seite|Előző oldal
+Previous practice is kept.|Bisherige Übungen bleiben erhalten.|A korábbi gyakorlás megmarad.
+Previous week|Vorherige Woche|Előző hét
+Print score|Noten drucken|Kotta nyomtatása
+Printed tempo:|Gedruckte Tempoangabe:|Nyomtatott tempó:
+Privacy policy|Datenschutzerklärung|Adatvédelmi tájékoztató
+Profile picture|Profilbild|Profilkép
+Profile picture updated.|Profilbild aktualisiert.|Profilkép frissítve.
+Profile saved.|Profil gespeichert.|Profil mentve.
+Progress sections|Fortschrittsbereiche|Haladási területek
+Put on the stand|Aufs Notenpult legen|Kottatartóra helyezés
+Quarter|Viertel|Negyed
+Quarter notes|Viertelnoten|Negyedek
+Quarters & halves|Viertel und Halbe|Negyedek és felek
+Quick practice|Schnellübung|Gyors gyakorlás
+Quick practice records|Schnellübungsrekorde|Gyors gyakorlás rekordjai
+Quick practice result|Schnellübungsergebnis|Gyors gyakorlás eredménye
+Random|Zufällig|Véletlenszerű
+Random notes (review)|Zufällige Noten (Wiederholung)|Véletlen hangok (ismétlés)
+Range|Tonumfang|Hangterjedelem
+Range updated · press Continue when ready|Tonumfang aktualisiert · drücke Weiter, wenn du bereit bist|Hangterjedelem frissítve · ha készen állsz, nyomj Folytatást
+Rate app|App bewerten|Alkalmazás értékelése
+Rating|Bewertung|Értékelés
+Re-centre keyboard|Tastatur zentrieren|Billentyűzet középre igazítása
+Read|Lesen|Olvasás
+Read at your own pace|Lies in deinem Tempo|Olvass a saját tempódban
+Reading light|Notenhelligkeit|Kotta fényereje
+Reading range|Tonumfang beim Lesen|Olvasási hangterjedelem
+Reading title and composer…|Titel und Komponist werden gelesen…|Cím és zeneszerző felismerése…
+Ready for a MIDI practice.|Bereit für eine MIDI-Übung.|Készen áll a MIDI-gyakorlásra.
+Receiving notebook changes|Änderungen am Übungsheft werden empfangen|Naplómódosítások fogadása
+Recognizing header… {value0} %|Kopfzeile wird erkannt… {value0} %|Fejléc felismerése… {value0} %
+Reconnect Google Drive|Google Drive erneut verbinden|Google Drive újracsatlakoztatása
+Reconnect on launch|Beim Start erneut verbinden|Újracsatlakozás indításkor
+Reconnect the same Google account|Dasselbe Google-Konto erneut verbinden|Ugyanazon Google-fiók újracsatlakoztatása
+Record audio|Audio aufnehmen|Hangfelvétel
+Record practice|Übung aufnehmen|Gyakorlás felvétele
+Record teacher|Lehrkraft aufnehmen|Tanár felvétele
+Record video|Video aufnehmen|Videófelvétel
+Record your progress|Halte deinen Fortschritt fest|Rögzítsd a fejlődésedet
+Recorded practice time|Erfasste Übungszeit|Rögzített gyakorlási idő
+Recording copies are checked automatically while SPino is open.|Aufnahmekopien werden bei geöffneter App automatisch geprüft.|A felvételmásolatokat a nyitott SPino automatikusan ellenőrzi.
+Recording copies are up to date|Aufnahmekopien sind aktuell|A felvételmásolatok naprakészek
+Recording downloaded.|Aufnahme heruntergeladen.|Felvétel letöltve.
+Recording filters|Aufnahmefilter|Felvételszűrők
+Recording is not supported on this device.|Aufnahmen werden auf diesem Gerät nicht unterstützt.|Ez az eszköz nem támogatja a felvételt.
+Recording saved on this device.|Aufnahme auf diesem Gerät gespeichert.|Felvétel mentve ezen az eszközön.
+Recording stopped when the app went into the background.|Die Aufnahme wurde beim Wechsel in den Hintergrund beendet.|A felvétel leállt, amikor az alkalmazás háttérbe került.
+Recording synchronization needs attention|Aufnahmesynchronisierung erfordert Aufmerksamkeit|A felvételek szinkronizálása beavatkozást igényel
+Recording unavailable on this device|Aufnahme auf diesem Gerät nicht verfügbar|A felvétel ezen az eszközön nem érhető el
+Recording was interrupted. Review the captured part.|Aufnahme unterbrochen. Prüfe den aufgenommenen Teil.|A felvétel megszakadt. Ellenőrizd a rögzített részt.
+Recordings needing attention|Zu prüfende Aufnahmen|Figyelmet igénylő felvételek
+Recovery options|Wiederherstellungsoptionen|Helyreállítási lehetőségek
+Red|Rot|Piros
+Redo|Wiederholen|Újra
+Reference PDFs must be smaller than 20 MB.|Referenz-PDFs müssen kleiner als 20 MB sein.|A referencia-PDF legfeljebb 20 MB lehet.
+Relaxed|Locker|Megengedő
+Release notes|Versionshinweise|Kiadási megjegyzések
+Reminder 15 minutes before|Erinnerung 15 Minuten vorher|Emlékeztető 15 perccel előtte
+Reminders|Erinnerungen|Emlékeztetők
+Remove PDF|PDF entfernen|PDF eltávolítása
+Remove block|Abschnitt entfernen|Szakasz eltávolítása
+Remove favorite|Favorit entfernen|Kedvenc eltávolítása
+Remove fingering|Fingersatz entfernen|Ujjrend eltávolítása
+Remove part {value0}|Teil {value0} entfernen|{value0}. rész eltávolítása
+Remove picture|Bild entfernen|Kép eltávolítása
+Remove the parts of this page|Teile dieser Seite entfernen|Az oldal részeinek eltávolítása
+Removed|Entfernt|Eltávolítva
+Rename|Umbenennen|Átnevezés
+Rename Drive notebook|Drive-Übungsheft umbenennen|Drive-napló átnevezése
+Renew access to the same Google account.|Erneuere den Zugriff auf dasselbe Google-Konto.|Újítsd meg a hozzáférést ugyanahhoz a Google-fiókhoz.
+Repeat|Wiederholen|Ismétlés
+Repertoire piece|Repertoirestück|Repertoárdarab
+Replay|Erneut abspielen|Újrajátszás
+Reschedule|Neu planen|Átütemezés
+Reschedule practice|Übung verschieben|Gyakorlás átütemezése
+Reset frame|Ausschnitt zurücksetzen|Kivágás visszaállítása
+Reset level progress|Stufenfortschritt zurücksetzen|Szinthaladás visszaállítása
+Reset stats|Statistik zurücksetzen|Statisztikák visszaállítása
+Resize endpoint {value0}|Endpunkt {value0} verschieben|{value0}. végpont méretezése
+Resolve a problem|Problem lösen|Probléma megoldása
+Response accuracy: previous 3 vs latest 3 blocks.|Antwortgenauigkeit: vorherige 3 gegen letzte 3 Abschnitte.|Válaszpontosság: előző 3 és legutóbbi 3 szakasz.
+Rest of your repertoire|Übriges Repertoire|A repertoár többi darabja
+Restore|Wiederherstellen|Visszaállítás
+Restore file|Datei wiederherstellen|Fájl visszaállítása
+Restore local recovery copy|Lokale Wiederherstellungskopie laden|Helyi helyreállítási másolat visszaállítása
+Restore this backup|Diese Sicherung wiederherstellen|E mentés visszaállítása
+Restore when you choose|Wiederherstellen, wenn du möchtest|Visszaállítás, amikor szeretnéd
+Restore work|Werk wiederherstellen|Mű visszaállítása
+Resume practice|Übung fortsetzen|Gyakorlás folytatása
+Resume recording|Aufnahme fortsetzen|Felvétel folytatása
+Resume session|Einheit fortsetzen|Gyakorlás folytatása
+Resume synchronization first.|Setze zuerst die Synchronisierung fort.|Előbb folytasd a szinkronizálást.
+Resume synchronization to show this notebook’s QR.|Setze die Synchronisierung fort, um den QR-Code dieses Übungshefts zu zeigen.|A napló QR-kódjához folytasd a szinkronizálást.
+Retry recording copies|Aufnahmekopien erneut versuchen|Felvételmásolás újrapróbálása
+Retry saving|Speichern erneut versuchen|Mentés újrapróbálása
+Return|Zurück|Vissza
+Return to session|Zurück zur Einheit|Vissza a gyakorláshoz
+Review and save|Prüfen und speichern|Ellenőrzés és mentés
+Review changes|Änderungen prüfen|Módosítások ellenőrzése
+Review date and save|Datum prüfen und speichern|Dátum ellenőrzése és mentés
+Review history|Verlauf ansehen|Előzmények megtekintése
+Review notes|Notizen ansehen|Jegyzetek áttekintése
+Review piece and history|Stück und Verlauf ansehen|Darab és előzmények megtekintése
+Review the copy saved before the last incoming sync.|Prüfe die Kopie vor der letzten eingehenden Synchronisierung.|Ellenőrizd a legutóbbi beérkező szinkronizálás előtti másolatot.
+Review the recovery copy before restoring it.|Prüfe die Wiederherstellungskopie vor dem Laden.|Visszaállítás előtt ellenőrizd a helyreállítási másolatot.
+Review your practice time, weekly goals and saved reflections.|Sieh dir Übungszeit, Wochenziele und gespeicherte Rückblicke an.|Tekintsd át a gyakorlási időt, a heti célokat és a mentett tapasztalatokat.
+Rhythm|Rhythmus|Ritmus
+Rhythm level|Rhythmusstufe|Ritmusszint
+Rotate image 90°|Bild um 90° drehen|Kép elforgatása 90°-kal
+Rotating set of Hanon Nos. 1–10|Wechselnde Folge der Hanon-Übungen 1–10|Váltakozó Hanon-gyakorlatsor 1–10
+Routine deleted.|Routine gelöscht.|Terv törölve.
+Routine name|Routinename|Terv neve
+Routine saved.|Routine gespeichert.|Terv mentve.
+Routines that fit your day|Routinen für deinen Alltag|A napodhoz illő tervek
+SCORE|ERGEBNIS|EREDMÉNY
+Same file, every device|Dieselbe Datei auf allen Geräten|Ugyanaz a fájl minden eszközön
+Save a local copy|Lokale Kopie speichern|Helyi másolat mentése
+Save a recording first.|Speichere zuerst eine Aufnahme.|Előbb ments egy felvételt.
+Save a sequence of exercises to use it again.|Speichere eine Übungsfolge zur Wiederverwendung.|Ments egy gyakorlatsort, hogy újra használhasd.
+Save and schedule|Speichern und planen|Mentés és ütemezés
+Save changes|Änderungen speichern|Módosítások mentése
+Save current tempo as a favorite|Aktuelles Tempo als Favorit speichern|Jelenlegi tempó mentése kedvencként
+Save frame|Ausschnitt speichern|Kivágás mentése
+Save name|Namen speichern|Név mentése
+Save review|Prüfung speichern|Ellenőrzés mentése
+Save routine|Routine speichern|Terv mentése
+Save text|Text speichern|Szöveg mentése
+Save title|Titel speichern|Cím mentése
+Save trim|Zuschnitt speichern|Vágás mentése
+Save week|Woche speichern|Hét mentése
+Save weekly series|Wochenserie speichern|Heti sorozat mentése
+Save what you practiced|Geübtes speichern|A gyakorlás mentése
+Save your exercises as a routine.|Speichere deine Übungen als Routine.|Mentsd a gyakorlataidat tervként.
+Save your warm-up, reading or repertoire blocks as a reusable routine.|Speichere Aufwärm-, Lese- oder Repertoireabschnitte als wiederverwendbare Routine.|Mentsd a bemelegítési, olvasási és repertoárszakaszokat újra használható tervként.
+Saved Bluetooth instruments|Gespeicherte Bluetooth-Instrumente|Mentett Bluetooth-hangszerek
+Saved locally · up to 15 minutes or 250 MB per take.|Lokal gespeichert · bis 15 Minuten oder 250 MB pro Aufnahme.|Helyben mentve · felvételenként legfeljebb 15 perc vagy 250 MB.
+Saved practices · scroll horizontally|Gespeicherte Übungen · horizontal scrollen|Mentett gyakorlások · vízszintes görgetés
+Saved scores|Gespeicherte Noten|Mentett kották
+Saved sessions|Gespeicherte Einheiten|Mentett gyakorlások
+Saved to your file provider|Beim Dateianbieter gespeichert|Mentve a fájlszolgáltatónál
+Saving|Wird gespeichert|Mentés
+Saving annotations…|Anmerkungen werden gespeichert…|Jegyzetek mentése…
+Saving frame…|Ausschnitt wird gespeichert…|Kivágás mentése…
+Saving replaces this recording with the selected segment.|Speichern ersetzt diese Aufnahme durch den ausgewählten Abschnitt.|A mentés ezt a felvételt a kiválasztott részlettel helyettesíti.
+Scale|Tonleiter|Skála
+Scale or mode|Tonleiter oder Modus|Skála vagy módusz
+Scales and broken thirds in this key, up and down.|Tonleitern und gebrochene Terzen in dieser Tonart, auf- und abwärts.|Skálák és tört tercek ebben a hangnemben, felfelé és lefelé.
+Scales and modes practiced|Geübte Tonleitern und Modi|Gyakorolt skálák és móduszok
+Scales, modes and pieces|Tonleitern, Modi und Stücke|Skálák, móduszok és darabok
+Scan a notebook QR|Übungsheft-QR scannen|Napló QR-kódjának beolvasása
+Scan a notebook QR or select its cloud file|Übungsheft-QR scannen oder Cloud-Datei wählen|Olvasd be a napló QR-kódját, vagy válaszd ki a felhőfájlt
+Scan for Bluetooth MIDI|Nach Bluetooth MIDI suchen|Bluetooth MIDI keresése
+Scan it from the device you want to connect.|Scanne ihn mit dem Gerät, das du verbinden möchtest.|Olvasd be a csatlakoztatni kívánt eszközről.
+Scanning…|Suche läuft…|Keresés…
+Schedule|Planen|Ütemezés
+Schedule practice|Übung planen|Gyakorlás ütemezése
+Schedule rehearsal|Probe planen|Próba ütemezése
+Score added to your practice. Existing blocks have been kept.|Noten zur Übung hinzugefügt. Vorhandene Abschnitte bleiben erhalten.|Kotta hozzáadva a gyakorláshoz. A meglévő szakaszok megmaradtak.
+Score and annotations|Noten und Anmerkungen|Kotta és jegyzetek
+Score and recordings|Noten und Aufnahmen|Kotta és felvételek
+Score controls|Notensteuerung|Kottavezérlők
+Score preview|Notenvorschau|Kottaelőnézet
+Score size|Notengröße|Kottaméret
+Score. Use arrow keys or page edges to turn pages.|Noten. Mit Pfeiltasten oder Seitenrändern umblättern.|Kotta. Lapozz a nyílbillentyűkkel vagy az oldalszélekkel.
+Scores and annotations|Noten und Anmerkungen|Kották és jegyzetek
+Scores worked on|Bearbeitete Noten|Gyakorolt kották
+Scores, repertoire and routines|Noten, Repertoire und Routinen|Kották, repertoár és tervek
+Screen|Bildschirm|Képernyő
+Scrolling|Scrollen|Görgetés
+Search again|Erneut suchen|Új keresés
+Search scores|Noten suchen|Kották keresése
+Search the full catalogue|Gesamten Katalog durchsuchen|Keresés a teljes katalógusban
+Search the music, across formats|Musik über alle Formate hinweg suchen|Zene keresése minden formátumban
+Search the whole catalogue|Gesamten Katalog durchsuchen|Keresés a teljes katalógusban
+Search title or composer|Titel oder Komponist suchen|Cím vagy zeneszerző keresése
+Search title or composer…|Titel oder Komponist suchen…|Cím vagy zeneszerző keresése…
+Search your repertoire|Repertoire durchsuchen|Keresés a repertoárban
+Searching nearby…|Suche in der Nähe…|Keresés a közelben…
+Seconds|Sekunden|Másodperc
+See your practice grow|Sieh deinen Fortschritt|Kövesd a fejlődésedet
+Select an existing cloud file|Vorhandene Cloud-Datei wählen|Meglévő felhőfájl kiválasztása
+Select and connect|Auswählen und verbinden|Kiválasztás és csatlakozás
+Select at least one part.|Wähle mindestens eine Stimme.|Válassz legalább egy szólamot.
+Select piano parts|Klavierstimmen wählen|Zongoraszólamok kiválasztása
+Select the cloud file from the installed app.|Wähle die Cloud-Datei in der installierten App.|A telepített alkalmazásból válaszd ki a felhőfájlt.
+Select the sync file again|Synchronisierungsdatei erneut wählen|Szinkronfájl újbóli kiválasztása
+Select the sync file you already use with SPino.|Wähle die bereits mit SPino verwendete Synchronisierungsdatei.|Válaszd a SPino alkalmazással már használt szinkronfájlt.
+Select this notebook|Dieses Übungsheft wählen|E napló kiválasztása
+Selected|Ausgewählt|Kiválasztva
+Selected duration|Ausgewählte Dauer|Kiválasztott időtartam
+Selected parts|Ausgewählte Stimmen|Kiválasztott szólamok
+Send and receive saved changes while SPino is open.|Gespeicherte Änderungen bei geöffnetem SPino senden und empfangen.|Mentett módosítások küldése és fogadása, amíg a SPino nyitva van.
+Sending notebook changes…|Änderungen am Übungsheft werden gesendet…|Naplómódosítások küldése…
+Session feedback|Rückmeldung zur Einheit|Gyakorlási visszajelzés
+Session name|Name der Einheit|Gyakorlás neve
+Session saved to continue later.|Einheit zum späteren Fortsetzen gespeichert.|Gyakorlás mentve későbbi folytatáshoz.
+Sessions absent from the other copies|In anderen Kopien fehlende Einheiten|A többi másolatból hiányzó gyakorlások
+Sessions for this work|Einheiten für dieses Werk|E mű gyakorlásai
+Set|Festlegen|Beállítás
+Set a weekly goal in Profile whenever you like.|Lege jederzeit im Profil ein Wochenziel fest.|Bármikor beállíthatsz heti célt a Profilban.
+Set up cloud sync|Cloud-Synchronisierung einrichten|Felhőszinkronizálás beállítása
+Share SPino|SPino teilen|SPino megosztása
+Share app|App teilen|Alkalmazás megosztása
+Share recording|Aufnahme teilen|Felvétel megosztása
+Show month|Monat anzeigen|Hónap megjelenítése
+Show more|Mehr anzeigen|Több megjelenítése
+Show my notebook QR|Übungsheft-QR anzeigen|Naplóm QR-kódjának megjelenítése
+Show scale|Tonleiter anzeigen|Skála megjelenítése
+Show the note name after 2 misses|Notennamen nach 2 Fehlern anzeigen|Hangnév megjelenítése 2 hiba után
+Show this notebook’s QR code.|QR-Code dieses Übungshefts anzeigen.|E napló QR-kódjának megjelenítése.
+Show week|Woche anzeigen|Hét megjelenítése
+Sight-reading|Vom Blatt spielen|Lapról olvasás
+Signal|Signal|Jel
+Silk waves|Seidenwellen|Selyemhullámok
+Simple practice|Einfache Übung|Egyszerű gyakorlás
+Simulate the performance|Auftritt simulieren|Előadás szimulálása
+Sixteenth|Sechzehntel|Tizenhatod
+Sixteenth notes|Sechzehntelnoten|Tizenhatodok
+Size limit reached. Review and save your take.|Größenlimit erreicht. Prüfe und speichere die Aufnahme.|Elérted a méretkorlátot. Ellenőrizd és mentsd a felvételt.
+Skip|Überspringen|Kihagyás
+Skip detection|Erkennung überspringen|Felismerés kihagyása
+Slow|Langsam|Lassú
+Slow and even first: speed up only when every note sounds the same.|Zuerst langsam und gleichmäßig: erst schneller werden, wenn alle Noten gleichmäßig klingen.|Először lassan és egyenletesen: csak akkor gyorsíts, ha minden hang egyformán szól.
+Soft|Sanft|Lágy
+Soft hand placement for the Hanon warm-up|Sanftes Aufsetzen der Hände für Hanon|Lágy kézelhelyezés a Hanon-bemelegítéshez
+Sound|Klang|Hang
+Sound detected|Klang erkannt|Hang észlelve
+Sound for on-screen input|Klang bei Bildschirmeingabe|Hang képernyős bevitelkor
+Source code|Quellcode|Forráskód
+Speed|Geschwindigkeit|Sebesség
+Speed bonus|Geschwindigkeitsbonus|Gyorsasági bónusz
+Split page|Seite aufteilen|Oldal felosztása
+Stable|Stabil|Stabil
+Stand|Notenpult|Kottatartó
+Standard|Standard|Normál
+Start exercise|Übung starten|Gyakorlat indítása
+Start metronome|Metronom starten|Metronóm indítása
+Start on this device|Auf diesem Gerät starten|Indítás ezen az eszközön
+Start piano and MIDI sessions with a Hanon warm-up|Klavier- und MIDI-Einheiten mit Hanon beginnen|Kezdd a zongorás és MIDI-gyakorlást Hanon-bemelegítéssel
+Start practice|Übung starten|Gyakorlás indítása
+Start recording|Aufnahme starten|Felvétel indítása
+Start session →|Einheit starten →|Gyakorlás indítása →
+Start warm-up|Aufwärmen starten|Bemelegítés indítása
+Starting hand position on the Hanon keyboard|Ausgangsposition der Hände auf der Hanon-Tastatur|Kezdő kéztartás a Hanon-billentyűzeten
+Starts in 15 minutes.|Beginnt in 15 Minuten.|15 perc múlva kezdődik.
+Status|Status|Állapot
+Staves|Notensysteme|Kottasorok
+Stop and review|Stoppen und prüfen|Leállítás és ellenőrzés
+Stop metronome|Metronom stoppen|Metronóm leállítása
+Stop on mistakes until the right note is played|Bei Fehlern bis zur richtigen Note anhalten|Megállás hibánál a helyes hang lejátszásáig
+Stop recording and review|Aufnahme stoppen und prüfen|Felvétel leállítása és ellenőrzése
+Stopped: it's {n}|Angehalten: Es ist {n}|Megállítva: ez {n}
+Stopped: play the right note|Angehalten: Spiele die richtige Note|Megállítva: játszd a helyes hangot
+Streak|Serie|Sorozat
+Streak sessions|Einheiten der Serie|A sorozat gyakorlásai
+Strict|Streng|Szigorú
+Strong|Stark|Erős
+Study|Erarbeiten|Tanulás
+Study details|Lerndetails|Tanulási részletek
+Subdivision|Unterteilung|Felosztás
+Suggested minutes for|Vorgeschlagene Minuten für|Javasolt percek ehhez:
+Sung note name|Gesungener Notenname|Énekelt hangnév
+Swipe to change|Wischen zum Wechseln|Váltás húzással
+Switch video format|Videoformat wechseln|Videóformátum váltása
+Sync file|Synchronisierungsdatei|Szinkronfájl
+Sync now|Jetzt synchronisieren|Szinkronizálás most
+Synchronization conflicts: review changes|Synchronisierungskonflikte: Änderungen prüfen|Szinkronütközések: ellenőrizd a módosításokat
+Synchronization connected|Synchronisierung verbunden|Szinkronizálás csatlakoztatva
+Synchronization needs attention|Synchronisierung erfordert Aufmerksamkeit|A szinkronizálás beavatkozást igényel
+Synchronization paused|Synchronisierung pausiert|Szinkronizálás szüneteltetve
+Synchronization pending|Synchronisierung ausstehend|Függő szinkronizálás
+Synchronization waiting|Synchronisierung wartet|Szinkronizálás várakozik
+Synchronized with Google Drive|Mit Google Drive synchronisiert|Szinkronizálva a Google Drive-val
+Tag|Schlagwort|Címke
+Take off the stand|Vom Notenpult nehmen|Levétel a kottatartóról
+Tap a stand icon in your collection to put a piece here.|Tippe in deiner Sammlung auf das Notenpult-Symbol, um hier ein Stück abzulegen.|A gyűjteményben érintsd meg a kottatartó ikont egy darab idehelyezéséhez.
+Tap tempo|Tempo tippen|Tempó koppintással
+Target tempo:|Zieltempo:|Céltempó:
+Target tempo|Zieltempo|Céltempó
+Teacher recordings|Aufnahmen der Lehrkraft|Tanári felvételek
+Technical details|Technische Details|Technikai részletek
+Technique|Technik|Technika
+Template name|Vorlagenname|Sablon neve
+Tempo|Tempo|Tempó
+Tempo (BPM)|Tempo (BPM)|Tempó (BPM)
+Tempo · BPM|Tempo · BPM|Tempó · BPM
+Text|Text|Szöveg
+Text on the score|Text auf den Noten|Szöveg a kottán
+That is not a valid template.|Das ist keine gültige Vorlage.|Ez nem érvényes sablon.
+The backup is invalid or uses an unsupported version. No data has been replaced.|Die Sicherung ist ungültig oder ihre Version wird nicht unterstützt. Es wurden keine Daten ersetzt.|A mentés érvénytelen vagy nem támogatott verziójú. Nem cseréltünk le adatot.
+The check took too long. Select the PDF again.|Die Prüfung dauerte zu lange. Wähle die PDF erneut.|Az ellenőrzés túl sokáig tartott. Válaszd ki újra a PDF-et.
+The connection on this device will stop. Files saved in the cloud will be kept.|Die Verbindung auf diesem Gerät wird beendet. Cloud-Dateien bleiben erhalten.|A kapcsolat ezen az eszközön megszűnik. A felhőben mentett fájlok megmaradnak.
+The microphone or camera disconnected.|Mikrofon oder Kamera wurde getrennt.|A mikrofon vagy kamera levált.
+The notebook appointment limit would be exceeded. Choose fewer weeks.|Das Terminlimit würde überschritten. Wähle weniger Wochen.|Túllépnéd a napló eseménykorlátját. Válassz kevesebb hetet.
+The reference PDF is no longer stored locally.|Die Referenz-PDF ist nicht mehr lokal gespeichert.|A referencia-PDF már nincs helyben tárolva.
+The renderer did not produce a score.|Es konnten keine Noten dargestellt werden.|Nem sikerült megjeleníteni a kottát.
+The session cannot contain more than 30 blocks.|Die Einheit darf höchstens 30 Abschnitte enthalten.|A gyakorlás legfeljebb 30 szakaszt tartalmazhat.
+The time you have spent stays with the current piece.|Die bisherige Zeit bleibt beim aktuellen Stück.|Az eddigi idő az aktuális darabhoz tartozik.
+Then the next exercise|Danach die nächste Übung|Ezután a következő gyakorlat
+Theory question|Theoriefrage|Elméleti kérdés
+This PDF is password protected. Import an unprotected copy.|Diese PDF ist passwortgeschützt. Importiere eine ungeschützte Kopie.|Ez a PDF jelszóval védett. Importálj védelem nélküli másolatot.
+This activity needs a piano. Choose reading or technique without a piano.|Diese Aktivität benötigt ein Klavier. Ohne Klavier wähle Notenlesen oder Technik.|Ehhez zongora kell. Zongora nélkül válassz kottaolvasást vagy technikát.
+This block|Dieser Abschnitt|Ez a szakasz
+This block no longer exists.|Dieser Abschnitt existiert nicht mehr.|Ez a szakasz már nem létezik.
+This device|Dieses Gerät|Ez az eszköz
+This edition is not ready for practice.|Diese Ausgabe ist noch nicht zum Üben bereit.|Ez a kiadás még nem áll készen a gyakorlásra.
+This image could not be opened.|Dieses Bild konnte nicht geöffnet werden.|Ezt a képet nem sikerült megnyitni.
+This lesson changed. Reopen the editor.|Dieser Unterricht wurde geändert. Öffne den Editor erneut.|Ez az óra megváltozott. Nyisd meg újra a szerkesztőt.
+This lesson is no longer available.|Dieser Unterricht ist nicht mehr verfügbar.|Ez az óra már nem érhető el.
+This planned practice is no longer available.|Diese geplante Übung ist nicht mehr verfügbar.|Ez a tervezett gyakorlás már nem érhető el.
+This practice changed. Reopen the editor.|Diese Übung wurde geändert. Öffne den Editor erneut.|Ez a gyakorlás megváltozott. Nyisd meg újra a szerkesztőt.
+This practice does not evaluate MIDI. Select MIDI piano.|Diese Übung wertet MIDI nicht aus. Wähle MIDI-Klavier.|Ez a gyakorlás nem értékeli a MIDI-t. Válaszd a MIDI-zongorát.
+This recording is not available on this device.|Diese Aufnahme ist auf diesem Gerät nicht verfügbar.|Ez a felvétel ezen az eszközön nem érhető el.
+This routine is no longer available. Choose another practice.|Diese Routine ist nicht mehr verfügbar. Wähle eine andere Übung.|Ez a terv már nem érhető el. Válassz másik gyakorlást.
+This score is not ready to practise.|Diese Noten sind noch nicht zum Üben bereit.|Ez a kotta még nem áll készen a gyakorlásra.
+This session has already been saved.|Diese Einheit wurde bereits gespeichert.|Ez a gyakorlás már mentve van.
+This session has no remaining blocks to edit.|Diese Einheit hat keine verbleibenden bearbeitbaren Abschnitte.|Ebben a gyakorlásban nincs hátralévő szerkeszthető szakasz.
+This session no longer exists.|Diese Einheit existiert nicht mehr.|Ez a gyakorlás már nem létezik.
+This week|Diese Woche|Ez a hét
+This week only|Nur diese Woche|Csak ezen a héten
+This work no longer exists.|Dieses Werk existiert nicht mehr.|Ez a mű már nem létezik.
+Time at the piano|Zeit am Klavier|Zongoránál töltött idő
+Time limit reached. Review and save your take.|Zeitlimit erreicht. Prüfe und speichere deine Aufnahme.|Elérted az időkorlátot. Ellenőrizd és mentsd a felvételt.
+Time signature|Taktart|Ütemmutató
+Timer options|Zeitmesser-Optionen|Időmérő beállításai
+Timing|Zeitmodus|Időzítés
+Timing tolerance|Timing-Toleranz|Időzítési tűrés
+Title or composer|Titel oder Komponist|Cím vagy zeneszerző
+To correct this copy, open SPino on the device with the original recording.|Öffne zum Korrigieren dieser Kopie SPino auf dem Gerät mit der Originalaufnahme.|A másolat javításához nyisd meg a SPino alkalmazást az eredeti felvételt tároló eszközön.
+To view a whole page, try portrait orientation.|Nutze Hochformat, um eine ganze Seite zu sehen.|A teljes oldalhoz próbáld az álló tájolást.
+Tools for your piano practice|Werkzeuge für dein Klavierüben|Eszközök a zongoragyakorláshoz
+Total duration|Gesamtdauer|Teljes időtartam
+Total practice duration in minutes|Gesamte Übungsdauer in Minuten|Teljes gyakorlási idő percben
+Total practice time|Gesamte Übungszeit|Összes gyakorlási idő
+Transfer a copy|Kopie übertragen|Másolat átvitele
+Transfers|Übertragungen|Átvitelek
+Trash|Papierkorb|Kuka
+Treble|Violin|Violin
+Trim|Zuschneiden|Vágás
+Trim cancelled.|Zuschnitt abgebrochen.|Vágás megszakítva.
+Trimming recording…|Aufnahme wird zugeschnitten…|Felvétel vágása…
+Triplets|Triolen|Triolák
+Try again|Erneut versuchen|Próbáld újra
+Try again: count the degrees from the tonic.|Versuche es erneut: Zähle die Stufen vom Grundton aus.|Próbáld újra: számold a fokokat az alaphangtól.
+Try landscape for a wider staff.|Nutze Querformat für ein breiteres Notensystem.|Szélesebb kottasorhoz próbáld a fekvő tájolást.
+Try portrait for a whole page.|Nutze Hochformat für eine ganze Seite.|Teljes oldalhoz próbáld az álló tájolást.
+Turn on Bluetooth to find your piano.|Aktiviere Bluetooth, um dein Klavier zu finden.|Kapcsold be a Bluetooth-t a zongora kereséséhez.
+Turn score pages with your piano pedals.|Blättere mit den Klavierpedalen um.|Lapozz a zongora pedáljaival.
+Two hands|Zwei Hände|Két kéz
+Type|Typ|Típus
+Unavailable piece|Stück nicht verfügbar|Nem elérhető darab
+Underline|Unterstreichen|Aláhúzás
+Undo|Rückgängig|Visszavonás
+Unfinished session|Unbeendete Einheit|Befejezetlen gyakorlás
+Unknown composer|Unbekannter Komponist|Ismeretlen zeneszerző
+Unknown session change.|Unbekannte Änderung der Einheit.|Ismeretlen gyakorlásmódosítás.
+Unlock exposure|Belichtung freigeben|Expozíció feloldása
+Unmetered Wi-Fi only|Nur ungetaktetes WLAN|Csak korlátlan Wi-Fi
+Unnamed part|Unbenannte Stimme|Névtelen szólam
+Until|Bis|Eddig
+Untitled recording|Unbenannte Aufnahme|Névtelen felvétel
+Up to eighth notes|Bis Achtelnoten|Nyolcadokig
+Update failed|Aktualisierung fehlgeschlagen|Frissítés sikertelen
+Update {value0} scores|{value0} Noten aktualisieren|{value0} kotta frissítése
+Updates during a break|Aktualisierung in der Pause|Frissítések szünetben
+Updating file…|Datei wird aktualisiert…|Fájl frissítése…
+Use MIDI|MIDI verwenden|MIDI használata
+Use Record to capture freely or choose a repertoire piece.|Nutze Aufnehmen für freie Aufnahmen oder wähle ein Repertoirestück.|A Felvétellel szabadon rögzíthetsz, vagy válassz repertoárdarabot.
+Use a file provider|Dateianbieter verwenden|Fájlszolgáltató használata
+Use a saved routine or prepare a new practice.|Nutze eine gespeicherte Routine oder bereite eine neue Übung vor.|Használj mentett tervet, vagy készíts elő új gyakorlást.
+Use between 1 and 30 blocks.|Verwende 1 bis 30 Abschnitte.|Használj 1–30 szakaszt.
+Use current position|Aktuelle Position verwenden|Jelenlegi pozíció használata
+Use default pedals|Standardpedale verwenden|Alapértelmezett pedálok használata
+Use manual tracking|Manuell erfassen|Kézi követés használata
+Use picture|Bild verwenden|Kép használata
+Use suggestions|Vorschläge übernehmen|Javaslatok használata
+Use this notebook in Google Drive|Dieses Übungsheft in Google Drive verwenden|E napló használata a Google Drive-on
+Use up to 20 tags, each no longer than 40 characters.|Nutze bis zu 20 Schlagwörter mit jeweils höchstens 40 Zeichen.|Legfeljebb 20 címke használható, egyenként legfeljebb 40 karakterrel.
+Usual practice mode|Üblicher Übungsmodus|Szokásos gyakorlási mód
+View|Ansehen|Megtekintés
+View calendar|Kalender ansehen|Naptár megtekintése
+View chart values|Diagrammwerte ansehen|Diagramértékek megtekintése
+View downloaded|Heruntergeladene ansehen|Letöltöttek megtekintése
+View in catalogue|Im Katalog ansehen|Megtekintés a katalógusban
+View in the library|In der Bibliothek ansehen|Megtekintés a Könyvtárban
+View lesson|Unterricht ansehen|Óra megtekintése
+View piece|Stück ansehen|Darab megtekintése
+View plan|Plan ansehen|Terv megtekintése
+View progress|Fortschritt ansehen|Haladás megtekintése
+View repertoire|Repertoire ansehen|Repertoár megtekintése
+View routines|Routinen ansehen|Tervek megtekintése
+View session|Einheit ansehen|Gyakorlás megtekintése
+View source and terms|Quelle und Bedingungen ansehen|Forrás és feltételek megtekintése
+Visual only|Nur visuell|Csak vizuális
+Voice|Stimme|Énekhang
+Volume|Lautstärke|Hangerő
+Wait for me|Auf mich warten|Várj rám
+Wait for the PDF to be checked or remove it.|Warte auf die PDF-Prüfung oder entferne die Datei.|Várd meg a PDF ellenőrzését, vagy távolítsd el.
+Wait for the PDF to be checked.|Warte auf die PDF-Prüfung.|Várd meg a PDF ellenőrzését.
+Wait for the current backup to finish.|Warte, bis die aktuelle Sicherung fertig ist.|Várd meg a folyamatban lévő mentés végét.
+Wait for the current connection operation.|Warte auf den laufenden Verbindungsvorgang.|Várd meg a folyamatban lévő kapcsolódási műveletet.
+Wait or timed|Warten oder im Takt|Várakozás vagy időzítés
+Waiting for an unmetered Wi-Fi connection|Warte auf ungetaktetes WLAN|Várakozás korlátlan Wi-Fi-re
+Waiting for microphone/camera permission…|Warte auf Mikrofon-/Kameraberechtigung…|Várakozás mikrofon-/kameraengedélyre…
+Waiting to receive changes|Warte auf Änderungen|Várakozás módosításokra
+Warm up before you play|Wärme dich vor dem Spielen auf|Melegíts be játék előtt
+Warm up with Hanon|Aufwärmen mit Hanon|Bemelegítés Hanonnal
+Warm-up|Aufwärmen|Bemelegítés
+Warm-up minutes|Aufwärmminuten|Bemelegítés percei
+Warm-up · {k}|Aufwärmen · {k}|Bemelegítés · {k}
+Weakest notes|Schwierigste Noten|Leggyengébb hangok
+Week of|Woche vom|Hét kezdete:
+Weekly goal|Wochenziel|Heti cél
+Weekly practice · current week in progress|Wöchentliches Üben · aktuelle Woche läuft|Heti gyakorlás · a jelenlegi hét folyamatban
+Weekly series through|Wöchentliche Serie bis|Heti sorozat eddig:
+Weekly streak|Wochenserie|Heti sorozat
+Weekly through|Wöchentlich bis|Hetente eddig:
+What is degree {value0} of {value1}?|Wie lautet die Stufe {value0} von {value1}?|Mi a(z) {value1} {value0}. foka?
+What went well, difficult passages…|Was gut lief, schwierige Passagen…|Mi ment jól, nehéz részletek…
+What would you like to work on?|Woran möchtest du arbeiten?|Min szeretnél dolgozni?
+Where will you practise?|Wie wirst du üben?|Hogyan fogsz gyakorolni?
+Where?|Wo?|Hol?
+Which piece will you practise?|Welches Stück wirst du üben?|Melyik darabot gyakorlod?
+While SPino is open. Incoming changes wait until practice and editing finish.|Bei geöffnetem SPino. Eingehende Änderungen warten bis zum Ende von Übung und Bearbeitung.|Amíg a SPino nyitva van. A módosítások megvárják a gyakorlás és szerkesztés végét.
+Whole|Ganze|Egész
+Wide|Weit|Széles
+Widen the keyboard range for this scale.|Erweitere den Tastaturumfang für diese Tonleiter.|Bővítsd a billentyűzet hangterjedelmét ehhez a skálához.
+With MIDI|Mit MIDI|MIDI-vel
+With eighth notes|Mit Achtelnoten|Nyolcadokkal
+With piano|Mit Klavier|Zongorával
+With piano · manual tracking. Notes are not evaluated automatically.|Mit Klavier · manuelle Erfassung. Noten werden nicht automatisch ausgewertet.|Zongorával · kézi követés. A hangokat nem értékeljük automatikusan.
+With tempo|Mit Tempo|Tempóval
+Without a piano, choose reading or technique.|Ohne Klavier wähle Notenlesen oder Technik.|Zongora nélkül válassz kottaolvasást vagy technikát.
+Without piano|Ohne Klavier|Zongora nélkül
+Work (optional)|Werk (optional)|Mű (opcionális)
+Work added to your repertoire.|Werk zum Repertoire hinzugefügt.|Mű hozzáadva a repertoárhoz.
+Work restored.|Werk wiederhergestellt.|Mű visszaállítva.
+Work through passages|Passagen erarbeiten|Részletek kidolgozása
+Worked score|Geübte Noten|Gyakorolt kotta
+Working locally. Resume synchronization from Backup & sync.|Lokaler Betrieb. Setze die Synchronisierung unter Sicherung & Synchronisierung fort.|Helyi működés. Folytasd a szinkronizálást a Mentés és szinkronizálás menüben.
+Works and their history will be kept.|Werke und ihr Verlauf bleiben erhalten.|A művek és előzményeik megmaradnak.
+Works you are preparing|Werke in Vorbereitung|Előkészületben lévő művek
+Written score · manual practice · no automatic note evaluation|Notentext · manuelles Üben · keine automatische Notenauswertung|Írott kotta · kézi gyakorlás · automatikus hangértékelés nélkül
+Written score · manual tracking, or “Follow” to play along with a MIDI keyboard|Notentext · manuelle Erfassung oder „Folgen“ mit MIDI-Keyboard|Írott kotta · kézi követés vagy „Követés” MIDI-billentyűzettel
+Year to date|Seit Jahresbeginn|Év elejétől
+Yes|Ja|Igen
+You can adjust these for each practice.|Du kannst dies für jede Übung anpassen.|Ezeket minden gyakorláshoz módosíthatod.
+You can change it during the block; each piece keeps its own time.|Du kannst es im Abschnitt wechseln; jedes Stück behält seine eigene Zeit.|Szakasz közben is válthatsz; minden darab megtartja a saját idejét.
+You can decide in your next practice.|Du kannst bei der nächsten Übung entscheiden.|A következő gyakorláskor dönthetsz.
+You can include up to 20 blocks in a routine.|Eine Routine kann bis zu 20 Abschnitte enthalten.|Egy terv legfeljebb 20 szakaszt tartalmazhat.
+You can link works after adding them to your repertoire.|Du kannst Werke nach dem Hinzufügen zum Repertoire verknüpfen.|A műveket a repertoárhoz adás után társíthatod.
+Your cloud provider handles uploads|Dein Cloud-Anbieter übernimmt die Uploads|A feltöltést a felhőszolgáltatód kezeli
+Your existing data is safe. Close and reopen the app.|Deine vorhandenen Daten sind sicher. Schließe die App und öffne sie erneut.|Meglévő adataid biztonságban vannak. Zárd be, majd nyisd meg újra az alkalmazást.
+Your history, repertoire and scores are stored on this device.|Verlauf, Repertoire und Noten werden auf diesem Gerät gespeichert.|Előzményeid, repertoárod és kottáid ezen az eszközön vannak tárolva.
+Your level|Deine Stufe|Szinted
+Your level: {n}. You have passed every level.|Deine Stufe: {n}. Du hast alle Stufen bestanden.|Szinted: {n}. Minden szintet teljesítettél.
+Your local notebook and cloud file are kept.|Dein lokales Übungsheft und die Cloud-Datei bleiben erhalten.|A helyi naplód és a felhőfájl megmarad.
+Your name|Dein Name|Neved
+Your next challenge|Deine nächste Herausforderung|Következő kihívásod
+Your next piece starts here|Dein nächstes Stück beginnt hier|Itt kezdődik a következő darabod
+Your next practice and your weekly activity are here.|Hier findest du deine nächste Übung und deine Wochenaktivität.|Itt találod a következő gyakorlásodat és a heti tevékenységedet.
+Your next practice is a chance to beat this score.|Bei der nächsten Übung kannst du diesen Wert übertreffen.|A következő gyakorláson megdöntheted ezt az eredményt.
+Your notebook in the cloud|Dein Übungsheft in der Cloud|Gyakorlónaplód a felhőben
+Your notebook, your choice|Dein Übungsheft, deine Entscheidung|A te naplód, a te döntésed
+Your piano practice app|Deine App zum Klavierüben|Zongoragyakorló alkalmazásod
+Your practice, ready to begin|Deine Übung, startbereit|Gyakorlásod készen áll
+Your routines|Deine Routinen|Terveid
+Your saved practices will appear here. Start with a few minutes at your own pace.|Deine gespeicherten Übungen erscheinen hier. Beginne mit wenigen Minuten in deinem Tempo.|Itt jelennek meg a mentett gyakorlásaid. Kezdj néhány perccel a saját tempódban.
+Your saved routines stay unchanged.|Deine gespeicherten Routinen bleiben unverändert.|Mentett terveid változatlanok maradnak.
+Your scores, close at hand|Deine Noten griffbereit|Kottáid kéznél
+Your session|Deine Einheit|Gyakorlásod
+Your session was recovered in pause. Time with the app closed was not counted.|Deine Einheit wurde pausiert wiederhergestellt. Zeit bei geschlossener App wurde nicht gezählt.|A gyakorlás szüneteltetve helyreállt. A bezárt alkalmazás idejét nem számoltuk.
+Your time at the piano|Deine Zeit am Klavier|Zongoránál töltött időd
+Your week|Deine Woche|Heted
+Zoom|Zoom|Nagyítás
+Zoom (%)|Zoom (%)|Nagyítás (%)
+Zoom and pan, then save this orientation.|Zoome und verschiebe, dann speichere diese Ausrichtung.|Nagyíts és mozgasd, majd mentsd ezt a tájolást.
+Zoom in|Vergrößern|Nagyítás
+Zoom out|Verkleinern|Kicsinyítés
+Zoom percentage|Zoom in Prozent|Nagyítás százalékban
+activities|Aktivitäten|tevékenység
+appointments from|Termine ab|esemény ettől:
+block|Abschnitt|szakasz
+blocks|Abschnitte|szakasz
+blocks ·|Abschnitte ·|szakasz ·
+completed|abgeschlossen|befejezve
+correct ·|richtig ·|helyes ·
+day|Tag|nap
+days|Tage|nap
+degree|Stufe|fok
+errors|Fehler|hiba
+for this exercise|für diese Übung|ehhez a gyakorlathoz
+goal|Ziel|cél
+harmonic minor|harmonisch Moll|harmonikus moll
+identified works|identifizierte Werke|azonosított mű
+major|Dur|dúr
+measured blocks|gemessene Abschnitte|mért szakasz
+min elapsed|Min. vergangen|eltelt perc
+min per day|Min. pro Tag|perc naponta
+min planned|Min. geplant|tervezett perc
+min to go|Min. übrig|hátralévő perc
+min/week|Min./Woche|perc/hét
+minutes|Minuten|perc
+natural minor|natürlich Moll|természetes moll
+next challenge: {name}|nächste Herausforderung: {name}|következő kihívás: {name}
+of practice|Übung|gyakorlás
+of practice ·|Übung ·|gyakorlás ·
+optional|optional|opcionális
+percentage points|Prozentpunkte|százalékpont
+planned min ·|geplante Min. ·|tervezett perc ·
+points|Punkte|pont
+points so far|Punkte bisher|eddigi pont
+practices|Übungen|gyakorlás
+practices and|Übungen und|gyakorlás és
+practised|geübt|gyakorolva
+recorded for this piece|für dieses Stück erfasst|ehhez a darabhoz rögzítve
+recurring|wiederkehrend|ismétlődő
+score editions|Notenausgaben|kottakiadás
+scores on this device|Noten auf diesem Gerät|kotta ezen az eszközön
+session|Einheit|gyakorlás
+sort|sortieren|rendezés
+suggested|vorgeschlagen|javasolt
+suggested min|vorgeschlagene Min.|javasolt perc
+through|bis|eddig:
+tutor classes added|Unterrichtsstunden hinzugefügt|tanári óra hozzáadva
+tutor lessons|Unterrichtsstunden|tanári óra
+vs. previous period|gegenüber vorherigem Zeitraum|az előző időszakhoz képest
+weeks|Wochen|hét
+weeks meeting your goal|Wochen mit erreichtem Ziel|célodat teljesítő hét
+weeks practising|Wochen mit Übung|gyakorlással töltött hét
+with guide|mit Hilfe|segítséggel
+without guide|ohne Hilfe|segítség nélkül
+{count} conflicting values|{count} widersprüchliche Werte|{count} ütköző érték
+{count} independent practices will be kept|{count} unabhängige Übungen bleiben erhalten|{count} önálló gyakorlás megmarad
+{k} major|{k}-Dur|{k}-dúr
+{k} minor|{k}-Moll|{k}-moll
+{name} · custom|{name} · angepasst|{name} · egyéni
+{value0} correct · {value1} wrong|{value0} richtig · {value1} falsch|{value0} helyes · {value1} hibás
+{value0} inserted · {value1} updated · {value2} unchanged|{value0} eingefügt · {value1} aktualisiert · {value2} unverändert|{value0} beszúrva · {value1} frissítve · {value2} változatlan
+{value0} of {value1} minutes|{value0} von {value1} Minuten|{value0} / {value1} perc
+{value0}, {value1} planned, {value2} completed, {value3} events|{value0}, {value1} geplant, {value2} abgeschlossen, {value3} Termine|{value0}, {value1} tervezett, {value2} befejezett, {value3} esemény
+· No tempo|· Ohne Tempo|· Tempó nélkül
+· Partial|· Teilweise|· Részleges
+· entered manually|· manuell erfasst|· kézzel rögzítve
+· note names|· Notennamen|· hangnevek
+· on-screen keyboard|· Bildschirmtastatur|· képernyős billentyűzet
+· {value0} import errors|· {value0} Importfehler|· {value0} importálási hiba
+‹ Keep practicing|‹ Weiterüben|‹ Gyakorlás folytatása
+‹ Previous|‹ Zurück|‹ Előző
+‹ Progress|‹ Fortschritt|‹ Haladás
+→ Move the hand to a new position|→ Hand in eine neue Position bewegen|→ Mozgasd a kezed új helyzetbe
+↔ Two fingers to move · pinch to resize|↔ Zwei Finger zum Verschieben · zusammenziehen zum Skalieren|↔ Mozgatás két ujjal · méretezés csippentéssel
+⏱ Timed|⏱ Im Takt|⏱ Időzített
+⏸ Wait|⏸ Warten|⏸ Várakozás
+■ Stop|■ Stopp|■ Leállítás
+▶ Start|▶ Start|▶ Indítás
+✓ Goal reached|✓ Ziel erreicht|✓ Cél teljesítve
+✗ Try again|✗ Erneut versuchen|✗ Próbáld újra
+𝄞 Treble|𝄞 Violin|𝄞 Violin
+𝄞𝄢 Both|𝄞𝄢 Beide|𝄞𝄢 Mindkettő
+𝄢 Bass|𝄢 Bass|𝄢 Basszus
+Could not apply this camera setting. Try again.|Kameraeinstellung konnte nicht übernommen werden. Versuche es erneut.|A kamerabeállítás alkalmazása sikertelen. Próbáld újra.
+Could not complete the action. Please try again.|Aktion konnte nicht abgeschlossen werden. Versuche es erneut.|A művelet nem fejeződött be. Próbáld újra.
+Could not copy recordings. Local files are kept.|Aufnahmen konnten nicht kopiert werden. Lokale Dateien bleiben erhalten.|A felvételek másolása sikertelen. A helyi fájlok megmaradnak.
+Could not delete the recording.|Aufnahme konnte nicht gelöscht werden.|A felvétel törlése sikertelen.
+Could not detect the details. You can enter them and save the PDF.|Angaben konnten nicht erkannt werden. Du kannst sie eingeben und die PDF speichern.|Az adatok felismerése sikertelen. Kézzel megadhatod őket és mentheted a PDF-et.
+Could not display the score|Noten konnten nicht angezeigt werden|A kotta nem jeleníthető meg
+Could not display this page. Reopen the score.|Seite konnte nicht angezeigt werden. Öffne die Noten erneut.|Az oldal nem jeleníthető meg. Nyisd meg újra a kottát.
+Could not load the demonstration. Try again.|Beispiel konnte nicht geladen werden. Versuche es erneut.|A bemutató betöltése sikertelen. Próbáld újra.
+Could not load the score preview.|Notenvorschau konnte nicht geladen werden.|A kottaelőnézet betöltése sikertelen.
+Could not open MIDI input:|MIDI-Eingang konnte nicht geöffnet werden:|A MIDI-bemenet nem nyitható meg:
+Could not open the app rating.|App-Bewertung konnte nicht geöffnet werden.|Az alkalmazás értékelése nem nyitható meg.
+Could not open the notebook|Übungsheft konnte nicht geöffnet werden|A gyakorlónapló nem nyitható meg
+Could not open the recording.|Aufnahme konnte nicht geöffnet werden.|A felvétel nem nyitható meg.
+Could not open this camera. Choose another camera or try again.|Kamera konnte nicht geöffnet werden. Wähle eine andere oder versuche es erneut.|Ez a kamera nem nyitható meg. Válassz másikat, vagy próbáld újra.
+Could not preview the recording.|Aufnahmevorschau nicht möglich.|A felvétel előnézete nem érhető el.
+Could not print. Try again.|Drucken fehlgeschlagen. Versuche es erneut.|Nyomtatás sikertelen. Próbáld újra.
+Could not reconnect MIDI. Hold the icon to open MIDI settings.|MIDI-Verbindung fehlgeschlagen. Halte das Symbol für die MIDI-Einstellungen.|MIDI-újracsatlakozás sikertelen. Tartsd nyomva az ikont a MIDI-beállításokhoz.
+Could not save annotations.|Anmerkungen konnten nicht gespeichert werden.|A jegyzetek mentése sikertelen.
+Could not save changes.|Änderungen konnten nicht gespeichert werden.|A módosítások mentése sikertelen.
+Could not save the frame. Try again.|Ausschnitt konnte nicht gespeichert werden. Versuche es erneut.|A kivágás mentése sikertelen. Próbáld újra.
+Could not save the page parts. Try again.|Seitenteile konnten nicht gespeichert werden. Versuche es erneut.|Az oldalrészek mentése sikertelen. Próbáld újra.
+Could not save the trim. The original recording is kept.|Zuschnitt konnte nicht gespeichert werden. Die Originalaufnahme bleibt erhalten.|A vágás mentése sikertelen. Az eredeti felvétel megmarad.
+Could not save the work. Free up space and try again.|Werk konnte nicht gespeichert werden. Schaffe Speicherplatz und versuche es erneut.|A mű mentése sikertelen. Szabadíts fel tárhelyet, és próbáld újra.
+Could not save. Free up space and export a backup before closing.|Speichern fehlgeschlagen. Schaffe Speicherplatz und exportiere vor dem Schließen eine Sicherung.|Mentés sikertelen. Szabadíts fel tárhelyet, és bezárás előtt exportálj mentést.
+Could not save. Free up space and select Save before leaving.|Speichern fehlgeschlagen. Schaffe Speicherplatz und wähle vor dem Verlassen Speichern.|Mentés sikertelen. Szabadíts fel tárhelyet, és kilépés előtt válaszd a Mentést.
+Could not save. Free up storage and try again. Your take is still available here.|Speichern fehlgeschlagen. Schaffe Speicherplatz und versuche es erneut. Die Aufnahme ist hier noch verfügbar.|Mentés sikertelen. Szabadíts fel tárhelyet, és próbáld újra. A felvétel itt még elérhető.
+Could not search for instruments. Try again.|Instrumentensuche fehlgeschlagen. Versuche es erneut.|A hangszerkeresés sikertelen. Próbáld újra.
+Could not share the app.|App konnte nicht geteilt werden.|Az alkalmazás megosztása sikertelen.
+Could not share. Your recording is still saved.|Teilen fehlgeschlagen. Deine Aufnahme bleibt gespeichert.|Megosztás sikertelen. A felvételed mentve maradt.
+Could not start backup:|Sicherung konnte nicht gestartet werden:|A mentés nem indítható:
+Could not start recording. Check the microphone/camera and try again.|Aufnahme konnte nicht gestartet werden. Prüfe Mikrofon/Kamera und versuche es erneut.|A felvétel nem indítható. Ellenőrizd a mikrofont/kamerát, és próbáld újra.
+Could not store this take. Free space and try Save again before closing.|Aufnahme konnte nicht gespeichert werden. Schaffe Speicherplatz und speichere vor dem Schließen erneut.|A felvétel mentése sikertelen. Szabadíts fel helyet, és bezárás előtt próbáld újra a mentést.
+Create a Drive copy of this device’s notebook. Existing files are kept.|Erstelle eine Drive-Kopie des Übungshefts dieses Geräts. Vorhandene Dateien bleiben erhalten.|Készíts Drive-másolatot az eszköz naplójáról. A meglévő fájlok megmaradnak.
+Create a file to keep your devices in sync.|Erstelle eine Datei, um deine Geräte zu synchronisieren.|Hozz létre fájlt az eszközeid szinkronban tartásához.
+Detection could not finish. You can enter the details and save the PDF.|Erkennung konnte nicht beendet werden. Gib die Angaben ein und speichere die PDF.|A felismerés nem fejeződött be. Megadhatod az adatokat és mentheted a PDF-et.
+Detection skipped. You can enter the details and save the PDF.|Erkennung übersprungen. Gib die Angaben ein und speichere die PDF.|Felismerés kihagyva. Megadhatod az adatokat és mentheted a PDF-et.
+Disconnect the current notebook in Backup & sync before connecting another one.|Trenne das aktuelle Übungsheft unter Sicherung & Synchronisierung, bevor du ein anderes verbindest.|Másik napló csatlakoztatása előtt válaszd le a jelenlegit a Mentés és szinkronizálás alatt.
+Downloads run while the app is open. Scores remain available offline after downloading.|Downloads laufen bei geöffneter App. Heruntergeladene Noten bleiben offline verfügbar.|A letöltés nyitott alkalmazásnál fut. A letöltött kották offline is elérhetők.
+Drag over the score to mark each part, such as one or two bars. Tap × to remove a part.|Ziehe über die Noten, um Teile wie ein oder zwei Takte zu markieren. Tippe × zum Entfernen.|Húzással jelöld a kotta részeit, például egy-két ütemet. A × eltávolítja a részt.
+Each session block must have a unique ID.|Jeder Abschnitt benötigt eine eindeutige ID.|Minden szakasznak egyedi azonosító kell.
+Earlier application version. Detailed release notes were not archived.|Frühere App-Version. Detaillierte Versionshinweise wurden nicht archiviert.|Korábbi alkalmazásverzió. Részletes kiadási megjegyzések nem maradtak fenn.
+Excerpt not found.|Ausschnitt nicht gefunden.|A részlet nem található.
+If your browser cannot identify Wi-Fi, turn this off to download.|Kann dein Browser WLAN nicht erkennen, deaktiviere dies zum Herunterladen.|Ha a böngésző nem ismeri fel a Wi-Fi-t, kapcsold ezt ki a letöltéshez.
+In landscape, split pages are shown part by part, filled with white to fit the screen.|Im Querformat werden geteilte Seiten abschnittsweise mit weißem Rand an den Bildschirm angepasst.|Fekvő helyzetben a felosztott oldalak részenként, fehér kitöltéssel igazodnak a képernyőhöz.
+Keyboard guide: light up the next key (blue on white keys, red on black)|Tastaturhilfe: nächste Taste hervorheben (blau auf weißen, rot auf schwarzen Tasten)|Billentyűzetsegéd: következő billentyű kiemelése (fehéren kék, feketén piros)
+Left little finger on the C below middle C. Keep the wrist relaxed.|Linker kleiner Finger auf das C unter dem mittleren C. Handgelenk locker lassen.|Bal kisujj a középső C alatti C-n. A csukló maradjon laza.
+Right thumb on middle C. Keep the wrist relaxed.|Rechter Daumen auf das mittlere C. Handgelenk locker lassen.|Jobb hüvelykujj a középső C-n. A csukló maradjon laza.
+Microphone/camera permission was denied. Allow access in device settings and try again.|Mikrofon-/Kamerazugriff verweigert. Erlaube den Zugriff in den Geräteeinstellungen und versuche es erneut.|Mikrofon-/kameraengedély megtagadva. Engedélyezd a hozzáférést az eszközbeállításokban, és próbáld újra.
+No details were recognized clearly enough. You can enter them and save the PDF.|Keine Angaben wurden sicher erkannt. Gib sie ein und speichere die PDF.|Nem sikerült biztosan felismerni az adatokat. Megadhatod őket és mentheted a PDF-et.
+No pedal signal received yet. Press a pedal to check that your piano sends it.|Noch kein Pedalsignal. Betätige ein Pedal, um die Übertragung zu prüfen.|Még nem érkezett pedáljel. Nyomj le egy pedált az átvitel ellenőrzéséhez.
+No plans for this day. Add a practice or log one you have completed.|Keine Pläne für diesen Tag. Plane eine Übung oder erfasse eine abgeschlossene.|Erre a napra nincs terv. Adj hozzá gyakorlást, vagy rögzíts egy befejezettet.
+On a phone the two staves do not fit: hands alternate on a single staff instead.|Auf dem Handy passen zwei Systeme nicht: Die Hände wechseln auf einem System ab.|Telefonon nem fér el két kottasor: a kezek egy soron váltakoznak.
+On a tablet, try portrait orientation to see more systems of the score.|Nutze am Tablet Hochformat, um mehr Notensysteme zu sehen.|Táblagépen próbáld az álló tájolást, hogy több kottasort láss.
+Plan saved. Reminders with the app closed require the Android or iOS app.|Plan gespeichert. Erinnerungen bei geschlossener App benötigen die Android- oder iOS-App.|Terv mentve. Bezárt alkalmazásnál az emlékeztetőhöz az Android- vagy iOS-alkalmazás kell.
+Preserve earlier block results before changing the session context.|Bewahre bisherige Abschnittsergebnisse vor dem Wechsel des Übungsmodus.|Őrizd meg a korábbi szakaszeredményeket a gyakorlási mód váltása előtt.
+Relax both wrists. Start one octave apart with the same open hand shape.|Entspanne beide Handgelenke. Beginne im Oktavabstand mit gleicher offener Handform.|Lazítsd el mindkét csuklót. Kezdj egy oktáv távolságra, azonos nyitott kéztartással.
+The fixed sheet needs a tablet-sized screen; on a phone the score scrolls.|Das feste Notenblatt benötigt einen Tablet-Bildschirm; am Handy scrollen die Noten.|A rögzített kottalaphoz táblagépméretű képernyő kell; telefonon a kotta görgethető.
+The local score hash has changed. Revalidate it before viewing.|Die Prüfsumme der lokalen Noten hat sich geändert. Prüfe sie vor dem Anzeigen erneut.|A helyi kotta ellenőrzőösszege megváltozott. Megtekintés előtt ellenőrizd újra.
+The local score is missing. Download or attach it before selecting it.|Lokale Noten fehlen. Lade sie vor der Auswahl herunter oder füge sie hinzu.|A helyi kotta hiányzik. Kiválasztás előtt töltsd le vagy csatold.
+The new block needs a unique ID.|Der neue Abschnitt benötigt eine eindeutige ID.|Az új szakasznak egyedi azonosító kell.
+The selected score needs validation, analysis or piano-part selection.|Die gewählten Noten benötigen Prüfung, Analyse oder Klavierstimmenauswahl.|A kiválasztott kotta ellenőrzést, elemzést vagy zongoraszólam-választást igényel.
+This score needs validation, analysis or piano-part selection before practice.|Diese Noten benötigen vor dem Üben Prüfung, Analyse oder Klavierstimmenauswahl.|A kotta gyakorlás előtt ellenőrzést, elemzést vagy zongoraszólam-választást igényel.
+This work already has a score. Import the PDF as another work to keep its annotations.|Dieses Werk hat bereits Noten. Importiere die PDF als anderes Werk, um die Anmerkungen zu behalten.|Ennek a műnek már van kottája. A jegyzetek megőrzéséhez importáld a PDF-et másik műként.
+This work is in trash. Its score, annotations, history and existing plans are preserved.|Dieses Werk ist im Papierkorb. Noten, Anmerkungen, Verlauf und Pläne bleiben erhalten.|Ez a mű a kukában van. Kottája, jegyzetei, előzményei és tervei megmaradnak.
+This camera does not expose an exposure lock; automatic exposure may still change.|Diese Kamera bietet keine Belichtungssperre; die Belichtung kann sich weiterhin ändern.|Ez a kamera nem kínál expozíciórögzítést; az automatikus expozíció változhat.
+. Editing changes this appointment only.|. Die Bearbeitung betrifft nur diesen Termin.|. A szerkesztés csak ezt az eseményt módosítja.
+. Rescheduling changes this appointment only.|. Die Verschiebung betrifft nur diesen Termin.|. Az átütemezés csak ezt az eseményt módosítja.
+? Completed practice, earlier appointments and the active session are kept.|? Abgeschlossene Übungen, frühere Termine und die aktive Einheit bleiben erhalten.|? A befejezett gyakorlások, korábbi események és az aktív gyakorlás megmaradnak.
+A one-device backup does not import changes automatically. Restoration is always manual.|Eine Sicherung für ein Gerät importiert Änderungen nicht automatisch. Die Wiederherstellung erfolgt manuell.|Az egyeszközös mentés nem importál automatikusan módosításokat. A visszaállítás mindig kézi.
+A postponed block is missing from the session.|Ein verschobener Abschnitt fehlt in der Einheit.|Egy elhalasztott szakasz hiányzik a gyakorlásból.
+A practice can contain up to 20 blocks. Replace a repertoire block instead.|Eine Übung kann bis zu 20 Abschnitte enthalten. Ersetze stattdessen einen Repertoireabschnitt.|Egy gyakorlás legfeljebb 20 szakaszt tartalmazhat. Cserélj le egy repertoárszakaszt.
+Add a lesson or audition to keep track of your preparation time.|Füge Unterricht oder ein Vorspiel hinzu, um die Vorbereitungszeit zu verfolgen.|Adj hozzá órát vagy meghallgatást a felkészülési idő követéséhez.
+Add the block within the remaining session.|Füge den Abschnitt zur verbleibenden Einheit hinzu.|Add a szakaszt a hátralévő gyakorláshoz.
+After an octave, follow the descending pattern back to C.|Folge nach einer Oktave dem absteigenden Muster zurück zum C.|Egy oktáv után kövesd az ereszkedő mintát vissza a C-ig.
+After the last exercise the set starts again from the first one.|Nach der letzten Übung beginnt die Folge wieder von vorn.|Az utolsó gyakorlat után a sorozat elölről kezdődik.
+Back on C, Hanon No. {value0} follows without a break.|Zurück auf C folgt Hanon Nr. {value0} ohne Pause.|A C-re visszaérve szünet nélkül következik a(z) {value0}. Hanon-gyakorlat.
+Both choices keep these practices. Only the conflicting values below are affected.|Beide Optionen behalten diese Übungen. Nur die folgenden Konfliktwerte sind betroffen.|Mindkét választás megtartja a gyakorlásokat. Csak az alábbi ütköző értékek változnak.
+Choose practice days and a tutor class, for one week or a weekly series.|Wähle Übungstage und Unterricht für eine Woche oder eine Wochenserie.|Válassz gyakorlási napokat és tanári órát egy hétre vagy heti sorozatként.
+Compare the contents before selecting a notebook. Nothing is connected until you confirm.|Vergleiche den Inhalt vor der Auswahl. Erst deine Bestätigung stellt die Verbindung her.|Kiválasztás előtt hasonlítsd össze a tartalmat. A kapcsolat csak megerősítéskor jön létre.
+Hanon hand movement on a fixed keyboard. Blue keys: left hand. Orange keys: right hand.|Hanon-Handbewegung auf fester Tastatur. Blau: linke Hand. Orange: rechte Hand.|Hanon-kézmozgás rögzített billentyűzeten. Kék: bal kéz. Narancs: jobb kéz.
+Upcoming reminders are scheduled first. Later reminders refresh when you open the app.|Nahe Erinnerungen werden zuerst geplant. Spätere werden beim Öffnen der App aktualisiert.|Először a közeli emlékeztetők készülnek el. A későbbiek az alkalmazás megnyitásakor frissülnek.
+Use position, not lateral strain, to open the hand.|Öffne die Hand durch Positionierung statt seitlicher Spannung.|A kéz nyitásához helyezkedj, ne oldalirányban feszíts.
+Verifies the local recording and corrects its format in Drive. Recording files are kept.|Prüft die lokale Aufnahme und korrigiert ihr Drive-Format. Aufnahmedateien bleiben erhalten.|Ellenőrzi a helyi felvételt és javítja a formátumát a Drive-on. A felvételfájlok megmaradnak.
+With MIDI on a phone, turn to landscape to see more of the staff.|Drehe das Handy bei MIDI ins Querformat, um mehr vom Notensystem zu sehen.|Telefonon MIDI használatakor fordítsd fekvő helyzetbe, hogy több kottát láss.
+Two-hand sight-reading on a tablet|Vom-Blatt-Spiel mit beiden Händen am Tablet|Kétkezes lapról olvasás táblagépen
+Today with the next practice and current weekly activity|Heute mit nächster Übung und aktueller Wochenaktivität|Ma nézet a következő gyakorlással és a heti tevékenységgel
+Routine builder with editable blocks and durations|Routineneditor mit Abschnitten und Zeitangaben|Tervszerkesztő módosítható szakaszokkal és időtartamokkal
+Repertoire with the music stand, search and piece history|Repertoire mit Notenpult, Suche und Werkverlauf|Repertoár kottatartóval, kereséssel és műelőzményekkel
+Quick practice with score, points and on-screen keyboard|Schnellübung mit Noten, Punkten und Bildschirmtastatur|Gyors gyakorlás kottával, pontokkal és képernyős billentyűzettel
+Quick-practice result with accuracy and speed bonus|Schnellübungsergebnis mit Genauigkeit und Tempobonus|Gyors gyakorlás eredménye pontossággal és gyorsasági bónusszal
+Progress with the 12-week practice-time chart|Fortschritt mit Übungszeitdiagramm über 12 Wochen|Haladás 12 hetes gyakorlási idődiagrammal
+Multimedia library with recordings linked to a repertoire piece|Multimediabibliothek mit einem Stück zugeordneten Aufnahmen|Multimédiakönyvtár repertoárdarabhoz társított felvételekkel
+Practice-time details with combined activity and piece filters|Übungszeitdetails mit Aktivitäts- und Stückfiltern|Gyakorlási idő részletei tevékenység- és darabszűrőkkel
+Calendar with daily practice and scheduled events|Kalender mit täglichen Übungen und Terminen|Naptár napi gyakorlással és tervezett eseményekkel
+Sight-reading in landscape with the on-screen keyboard and practice controls|Vom-Blatt-Spiel im Querformat mit Bildschirmtastatur und Steuerung|Lapról olvasás fekvő nézetben, képernyős billentyűzettel és vezérlőkkel
+Catalogue included in stable 6.1.1|Katalog in der stabilen Version 6.1.1 enthalten|A stabil 6.1.1 részeként elérhető katalógus
+Classical period and Mozart filters in the catalogue|Klassik- und Mozart-Filter im Katalog|Klasszicizmus- és Mozart-szűrők a katalógusban
+SPino catalogue with 129 scores and 106 identified works|SPino-Katalog mit 129 Notenausgaben und 106 identifizierten Werken|SPino-katalógus 129 kottával és 106 azonosított művel
+Android beta APK|Android-Beta-APK|Android béta APK
+Current beta and previous versions. Historical notes retain their original language.|Aktuelle Beta und frühere Versionen. Historische Hinweise bleiben in ihrer Originalsprache.|Jelenlegi béta és korábbi verziók. A történeti megjegyzések eredeti nyelvükön maradnak.
+100 per correct note + up to 100 for speed; −50 per error. Scores accumulate throughout the practice.|100 pro richtiger Note, bis zu 100 für Tempo; −50 pro Fehler. Punkte summieren sich während der Übung.|Helyes hangonként 100 pont, gyorsaságért legfeljebb 100; hibánként −50. A pontok a gyakorlás során összeadódnak.
+100 per correct note, up to 100 extra for speed, −50 per error. Points accumulate throughout the practice.|100 pro richtiger Note, bis zu 100 zusätzlich für Tempo, −50 pro Fehler. Punkte summieren sich während der Übung.|Helyes hangonként 100 pont, gyorsaságért legfeljebb 100 extra, hibánként −50. A pontok a gyakorlás során összeadódnak.
+After the eighth note, bring the fingers closer and advance the hand slightly toward the back of the keys.|Führe nach der achten Note die Finger zusammen und bewege die Hand leicht zum hinteren Tastenbereich.|A nyolcadik hang után közelítsd az ujjakat, és told a kezet kissé a billentyűk hátulja felé.
+Archived notes in their original language. Local changes not yet packaged are not a new release.|Archivierte Hinweise in Originalsprache. Noch nicht verpackte lokale Änderungen sind keine neue Veröffentlichung.|Archivált megjegyzések eredeti nyelven. A még nem csomagolt helyi módosítások nem új kiadások.
+Changes apply to this appointment only. Your saved routine and other recurring dates stay unchanged.|Änderungen gelten nur für diesen Termin. Gespeicherte Routine und andere Wiederholungen bleiben unverändert.|A módosítás csak erre az eseményre vonatkozik. A mentett terv és a többi ismétlődő időpont változatlan.
+Changes are saved automatically across all screens. Incoming changes are applied after practice and editing finish; downloads must be idle.|Änderungen werden auf allen Ansichten automatisch gespeichert. Empfangene Änderungen werden nach Übung und Bearbeitung übernommen; Downloads müssen ruhen.|A módosítások minden képernyőn automatikusan mentődnek. A beérkező változások a gyakorlás és szerkesztés után alkalmazódnak; a letöltéseknek állniuk kell.
+Choose your theme and preferences, manage backups and notifications, and replay this tour. Connect your instrument with the MIDI button.|Wähle Design und Einstellungen, verwalte Sicherungen und Erinnerungen und starte diesen Rundgang erneut. Verbinde dein Instrument über die MIDI-Taste.|Válassz témát és beállításokat, kezeld a mentéseket és értesítéseket, vagy nézd újra ezt a bemutatót. A MIDI gombbal csatlakoztasd a hangszert.
+Compare response accuracy at the same tempo, hand, level, rhythm, input and guide settings. This does not assess expression or overall musical mastery.|Vergleiche Antwortgenauigkeit bei gleichem Tempo, gleicher Hand, Stufe, Rhythmus-, Eingabe- und Hilfseinstellung. Ausdruck oder musikalische Gesamtbeherrschung werden nicht bewertet.|Azonos tempóval, kézzel, szinttel, ritmussal, bevitellel és segítséggel hasonlítsd össze a pontosságot. Ez nem értékeli a kifejezőerőt vagy a teljes zenei tudást.
+Delete this session and its feedback from history and progress totals? Any linked practice plan will become pending again. Works, scores and annotations will be kept.|Diese Einheit samt Rückmeldung aus Verlauf und Gesamtwerten löschen? Ein verknüpfter Übungsplan wird wieder offen. Werke, Noten und Anmerkungen bleiben erhalten.|Törlöd ezt a gyakorlást és visszajelzését az előzményekből és összesítésekből? A kapcsolódó terv újra függő lesz. A művek, kották és jegyzetek megmaradnak.
+Deleting a local recording keeps its Drive copy and stops downloading it again on this device.|Beim Löschen einer lokalen Aufnahme bleibt die Drive-Kopie erhalten; sie wird auf diesem Gerät nicht erneut geladen.|Helyi felvétel törlésekor a Drive-másolat megmarad, és nem töltődik le újra erre az eszközre.
+Dorian has a minor third and a major sixth. Hear {value0} as the tonal centre and identify {value1}, its sixth degree.|Dorisch hat eine kleine Terz und große Sexte. Höre {value0} als Zentrum und erkenne {value1} als sechste Stufe.|A dórnak kis terce és nagy szextje van. Halld a(z) {value0} hangot központként, és azonosítsd a(z) {value1} hatodik fokot.
+Exports the notebook from this app installation. Audio and video files are copied separately.|Exportiert das Übungsheft dieser App-Installation. Audio- und Videodateien werden separat kopiert.|Ezen alkalmazástelepítés naplóját exportálja. A hang- és videófájlok külön másolódnak.
+First SPino notebook candidate: planning, practice history, repertoire and local scores. Detailed release notes were not archived.|Erste SPino-Übungsheftversion: Planung, Übungsverlauf, Repertoire und lokale Noten. Detaillierte Hinweise wurden nicht archiviert.|Az első SPino-napló: tervezés, gyakorlási előzmények, repertoár és helyi kották. Részletes kiadási megjegyzések nem maradtak fenn.
+For repertoire or free practice, choose With piano or MIDI piano. Without piano, practice reading or technique.|Wähle für Repertoire oder freies Üben Mit Klavier oder MIDI-Klavier. Ohne Klavier übe Notenlesen oder Technik.|Repertoárhoz vagy szabad gyakorláshoz válaszd a Zongorával vagy MIDI-zongora módot. Zongora nélkül kottaolvasást vagy technikát gyakorolj.
+Harmonic minor raises the seventh degree of natural minor. Here it is {value0}; resolve to {value1}.|Harmonisch Moll erhöht die siebte Stufe von natürlich Moll. Hier ist sie {value0}; löse nach {value1} auf.|A harmonikus moll megemeli a természetes moll hetedik fokát. Itt ez {value0}; oldd fel erre: {value1}.
+History, plans, scores, annotations and shared practice preferences. Audio and video copies are included.|Verlauf, Pläne, Noten, Anmerkungen und gemeinsame Übungseinstellungen. Audio- und Videokopien sind enthalten.|Előzmények, tervek, kották, jegyzetek és közös gyakorlási beállítások. Hang- és videómásolatokkal együtt.
+Let released fingers gather and prepare the next position while the playing finger stays on its key. Gradually reopen the spaces between fingers 1–2 and 5–4. Let the wrist follow, moving slightly toward the back of the keys when the thumb needs room.|Sammle die freien Finger für die nächste Position, während der spielende Finger auf seiner Taste bleibt. Öffne allmählich die Abstände 1–2 und 5–4. Das Handgelenk folgt leicht nach hinten, wenn der Daumen Platz braucht.|A szabad ujjak záródjanak a következő helyzethez, miközben a játszó ujj a billentyűn marad. Fokozatosan nyisd az 1–2. és 5–4. ujjak közét. A csukló kövesse a mozgást kissé hátrafelé, ha a hüvelykujjnak hely kell.
+Move this work to trash? Its PDF, annotations, practice history and existing plans will be kept. You can restore it from Repertoire → Collection → Trash.|Dieses Werk in den Papierkorb verschieben? PDF, Anmerkungen, Verlauf und Pläne bleiben erhalten. Wiederherstellung unter Repertoire → Sammlung → Papierkorb.|Kukába helyezed ezt a művet? A PDF, jegyzetek, előzmények és tervek megmaradnak. Visszaállíthatod a Repertoár → Gyűjtemény → Kuka alatt.
+Natural minor uses the same seven notes ascending and descending. Recognise the minor third and return to the tonic.|Natürlich Moll verwendet auf- und abwärts dieselben sieben Töne. Erkenne die kleine Terz und kehre zum Grundton zurück.|A természetes moll felfelé és lefelé ugyanazt a hét hangot használja. Ismerd fel a kis tercet, és térj vissza az alaphangra.
+No MIDI keyboard connected: you can still read both hands and play each chord note by note on the screen keyboard.|Kein MIDI-Keyboard verbunden: Du kannst trotzdem beide Hände lesen und Akkorde Ton für Ton am Bildschirm spielen.|Nincs MIDI-billentyűzet: továbbra is olvashatod mindkét kezet, és hangonként játszhatod az akkordokat a képernyőn.
+On the first device, put your notebook in Drive. On the second, choose the existing notebook below using this same Google account.|Übertrage auf dem ersten Gerät dein Übungsheft zu Drive. Wähle auf dem zweiten mit demselben Google-Konto unten das vorhandene Heft.|Az első eszközön helyezd a naplót a Drive-ra. A másodikon ugyanazzal a Google-fiókkal válaszd ki alább a meglévő naplót.
+On the other device, connect the same Google account and choose this notebook in Google Drive. The QR identifies your notebook and grants no account access.|Verbinde auf dem anderen Gerät dasselbe Google-Konto und wähle dieses Übungsheft in Drive. Der QR-Code identifiziert das Heft und gewährt keinen Kontozugriff.|A másik eszközön csatlakoztasd ugyanazt a Google-fiókot, és válaszd ezt a naplót a Drive-on. A QR azonosítja a naplót, de nem ad fiókhozzáférést.
+On the other device, open Profile → Connect another device → Scan a notebook QR. Wait for your provider to finish uploading before connecting.|Öffne auf dem anderen Gerät Profil → Weiteres Gerät verbinden → Übungsheft-QR scannen. Warte vor dem Verbinden auf das Ende des Uploads.|A másik eszközön nyisd meg: Profil → Másik eszköz csatlakoztatása → Napló QR-kódjának beolvasása. Csatlakozás előtt várd meg a feltöltés végét.
+Only changed records and missing score pieces transfer. Complete JSON files remain available as backups.|Nur geänderte Einträge und fehlende Notenteile werden übertragen. Vollständige JSON-Dateien bleiben als Sicherung verfügbar.|Csak a módosult bejegyzések és hiányzó kottarészek kerülnek átvitelre. A teljes JSON-fájlok mentésként megmaradnak.
+Recordings are copied between devices through this Google account. Local copies play offline. JSON notebook exports do not contain audio/video files.|Aufnahmen werden über dieses Google-Konto zwischen Geräten kopiert. Lokale Kopien spielen offline. JSON-Exporte enthalten keine Audio-/Videodateien.|A felvételek ezzel a Google-fiókkal másolódnak az eszközök között. A helyi másolatok offline lejátszhatók. A JSON-export nem tartalmaz hang- vagy videófájlt.
+Renames this connected notebook in Drive. History, scores, recordings and other copies are kept.|Benennt dieses verbundene Übungsheft in Drive um. Verlauf, Noten, Aufnahmen und andere Kopien bleiben erhalten.|Átnevezi a csatlakoztatott naplót a Drive-on. Az előzmények, kották, felvételek és más másolatok megmaradnak.
+Repeat a short reading or technique exercise with the same settings. Automatically measured responses will appear here; manually recorded time remains in Activity.|Wiederhole eine kurze Lese- oder Technikübung mit denselben Einstellungen. Automatisch gemessene Antworten erscheinen hier; manuell erfasste Zeit bleibt unter Aktivität.|Ismételj rövid olvasási vagy technikai gyakorlatot azonos beállításokkal. Az automatikusan mért válaszok itt jelennek meg; a kézi idő a Tevékenység alatt marad.
+Repertoire, practice history, scores, annotations and score views are included in one portable file.|Repertoire, Übungsverlauf, Noten, Anmerkungen und Ansichten sind in einer portablen Datei enthalten.|A repertoár, előzmények, kották, jegyzetek és kottanézetek egy hordozható fájlban szerepelnek.
+Right thumb on middle C and left little finger on the C one octave lower. Keep both wrists relaxed.|Rechter Daumen auf dem mittleren C, linker kleiner Finger auf dem C eine Oktave tiefer. Beide Handgelenke locker lassen.|Jobb hüvelykujj a középső C-n, bal kisujj egy oktávval lejjebb a C-n. Mindkét csukló maradjon laza.
+Saved confirms a file write, not completion of the cloud upload. Allow Drive or iCloud to finish uploading before switching devices.|Gespeichert bestätigt das Schreiben der Datei, nicht den Cloud-Upload. Warte vor dem Gerätewechsel, bis Drive oder iCloud fertig ist.|A Mentve a fájlírást jelzi, nem a felhőfeltöltés végét. Eszközváltás előtt várd meg a Drive vagy iCloud feltöltését.
+Saved edits upload shortly afterwards. Checks for other-device changes run every 30 seconds while SPino is open.|Gespeicherte Änderungen werden kurz danach hochgeladen. Bei geöffnetem SPino werden alle 30 Sekunden Änderungen anderer Geräte geprüft.|A mentett módosítások rövidesen feltöltődnek. A nyitott SPino 30 másodpercenként ellenőrzi a többi eszköz változásait.
+Select the same sync file in the same cloud account on each device. Independent edits are combined.|Wähle auf jedem Gerät dieselbe Synchronisierungsdatei im selben Cloud-Konto. Unabhängige Änderungen werden zusammengeführt.|Minden eszközön ugyanazt a szinkronfájlt válaszd ugyanabban a felhőfiókban. A független módosítások egyesülnek.
+Sets the default rhythm level and reading range of new practices. You can still change them in each session.|Legt Rhythmusstufe und Tonumfang neuer Übungen fest. Du kannst sie in jeder Einheit ändern.|Beállítja az új gyakorlások alapértelmezett ritmusszintjét és hangterjedelmét. Minden gyakorlásban módosíthatod őket.
+Shift one white key and reopen higher on the keys, so thumb and little finger approach more perpendicularly.|Versetze um eine weiße Taste und öffne weiter hinten, damit Daumen und kleiner Finger senkrechter ansetzen.|Lépj egy fehér billentyűvel tovább, és nyisd a kezet beljebb, hogy a hüvelyk- és kisujj merőlegesebben érkezzen.
+Start and finish on {value0}. The major scale follows whole, whole, half, whole, whole, whole, half steps.|Beginne und ende auf {value0}. Dur folgt Ganzton, Ganzton, Halbton, Ganzton, Ganzton, Ganzton, Halbton.|Kezdj és zárj ezen: {value0}. A dúr lépései: egész, egész, fél, egész, egész, egész, fél.
+The file and marks on its pages will be deleted. The work, notes and sessions will be kept. Export a backup to keep the annotations.|Datei und Markierungen werden gelöscht. Werk, Notizen und Einheiten bleiben erhalten. Exportiere eine Sicherung, um Anmerkungen zu behalten.|A fájl és az oldalak jelölései törlődnek. A mű, jegyzetek és gyakorlások megmaradnak. A kottajegyzetek megőrzéséhez exportálj mentést.
+The first beat is accented. Starting the metronome starts practice timing; stopping it leaves timing running. Pausing practice stops both.|Der erste Schlag ist betont. Metronomstart beginnt die Übungszeit; beim Stoppen läuft die Zeit weiter. Übung pausieren stoppt beides.|Az első ütés hangsúlyos. A metronóm indítja az időmérést; leállítása nem állítja meg az időt. A gyakorlás szüneteltetése mindkettőt megállítja.
+The previous file connection is paused. Connect Google Drive to continue syncing. Your local notebook and old file are kept.|Die frühere Dateiverbindung ist pausiert. Verbinde Google Drive zum Weitersynchronisieren. Lokales Übungsheft und alte Datei bleiben erhalten.|A korábbi fájlkapcsolat szünetel. A folytatáshoz csatlakoztasd a Google Drive-ot. A helyi napló és a régi fájl megmarad.
+The selected cloud file is unavailable. Open your file provider, check your account, then select the same sync file again.|Cloud-Datei nicht verfügbar. Öffne deinen Dateianbieter, prüfe das Konto und wähle dieselbe Datei erneut.|A felhőfájl nem érhető el. Nyisd meg a fájlszolgáltatót, ellenőrizd a fiókot, majd válaszd ki újra ugyanazt a szinkronfájlt.
+This notebook was not found. Use the same Google account and move it to Drive on the original device first.|Übungsheft nicht gefunden. Nutze dasselbe Google-Konto und übertrage es zuerst auf dem ursprünglichen Gerät zu Drive.|A napló nem található. Használd ugyanazt a Google-fiókot, és az eredeti eszközön előbb helyezd a Drive-ra.
+Your cloud provider asks you to select the file once on the new device. The QR identifies the notebook; it does not contain a password or grant access to your cloud account.|Dein Cloud-Anbieter verlangt einmal die Dateiauswahl auf dem neuen Gerät. Der QR-Code identifiziert das Heft; er enthält kein Passwort und gewährt keinen Cloud-Zugriff.|A felhőszolgáltató egyszer kéri a fájl kiválasztását az új eszközön. A QR a naplót azonosítja; nem tartalmaz jelszót, és nem ad felhőhozzáférést.
+Your current stage and next step for each piece. Stages are your own assessment; practice time does not measure mastery.|Dein aktueller Lernstand und nächster Schritt je Stück. Lernstände sind deine Einschätzung; Übungszeit misst keine Beherrschung.|Az aktuális szakaszod és következő lépésed darabonként. A szakasz saját értékelés; a gyakorlási idő nem méri a tudásszintet.
+Your level: {n}. Next challenge: {next} ({p}%). Practise any unlocked level or template you like; only the challenge counts towards your level.|Deine Stufe: {n}. Nächste Herausforderung: {next} ({p} %). Übe beliebige freigeschaltete Stufen oder Vorlagen; nur die Herausforderung zählt für deine Stufe.|Szinted: {n}. Következő kihívás: {next} ({p}%). Bármely feloldott szintet vagy sablont gyakorolhatod; a szintedbe csak a kihívás számít.
+Your notebook is always saved on this device. You can practice offline and export or restore a local JSON copy.|Dein Übungsheft wird immer auf diesem Gerät gespeichert. Du kannst offline üben und lokale JSON-Kopien exportieren oder wiederherstellen.|A napló mindig ezen az eszközön mentődik. Offline gyakorolhatsz, és helyi JSON-másolatot exportálhatsz vagy állíthatsz vissza.
+past or occupied dates skipped. Edit each appointment separately or cancel future occurrences together.|Vergangene oder belegte Termine übersprungen. Bearbeite Termine einzeln oder sage zukünftige gemeinsam ab.|A múltbeli vagy foglalt időpontokat kihagytuk. Az események külön szerkeszthetők, a jövőbeliek együtt törölhetők.
+{value0}{value1} annotated scores ({value2} marks). {value3} sessions, {value4} works, {value5} plans and {value6} scores. This will replace the notebook in this app installation. Export a backup first if you want to keep it. Automatic backup will be disconnected; existing cloud files will remain.|{value0}{value1} kommentierte Noten ({value2} Markierungen). {value3} Einheiten, {value4} Werke, {value5} Pläne und {value6} Noten. Das Übungsheft dieser Installation wird ersetzt. Exportiere zuerst eine Sicherung, um es zu behalten. Automatische Sicherung wird getrennt; Cloud-Dateien bleiben erhalten.|{value0}{value1} jegyzetelt kotta ({value2} jelölés). {value3} gyakorlás, {value4} mű, {value5} terv és {value6} kotta. Ez lecseréli a telepítés naplóját. Megőrzéséhez előbb exportálj mentést. Az automatikus mentés leválik; a felhőfájlok megmaradnak.
+Baroque, lesson, recital|Barock, Unterricht, Vorspiel|Barokk, óra, előadás
+Printed tempo marking|Gedruckte Tempoangabe|Nyomtatott tempójelzés
+Passage / next goal|Passage / nächstes Ziel|Részlet / következő cél
+Time (optional)|Uhrzeit (optional)|Időpont (opcionális)
+Add to repertoire|Zum Repertoire hinzufügen|Hozzáadás a repertoárhoz
+All composers|Alle Komponisten|Minden zeneszerző
+All formats|Alle Formate|Minden formátum
+All periods|Alle Epochen|Minden korszak
+All scores|Alle Noten|Minden kotta
+Attach a score|Noten hinzufügen|Kotta csatolása
+Attach another local edition|Weitere lokale Ausgabe hinzufügen|Másik helyi kiadás csatolása
+Available offline|Offline verfügbar|Offline elérhető
+Available to download|Zum Download verfügbar|Letölthető
+Catalogue record not found.|Katalogeintrag nicht gefunden.|A katalógusbejegyzés nem található.
+Catalogue views|Katalogansichten|Katalógusnézetek
+Composer unverified|Komponist unbestätigt|Nem ellenőrzött zeneszerző
+Download failed|Download fehlgeschlagen|Letöltés sikertelen
+Download failed · see details to retry|Download fehlgeschlagen · Details zum Wiederholen öffnen|Letöltés sikertelen · újrapróbáláshoz nyisd meg a részleteket
+Download queued|Download eingereiht|Letöltés sorba állítva
+Downloaded|Heruntergeladen|Letöltve
+Downloading|Wird heruntergeladen|Letöltés
+Downloading…|Wird heruntergeladen…|Letöltés…
+End of results|Ende der Ergebnisse|Találatok vége
+Filtered by musical goal|Nach musikalischem Ziel gefiltert|Zenei cél szerint szűrve
+Format|Format|Formátum
+In your repertoire|In deinem Repertoire|A repertoárodban
+Include OpenScore accompaniment|OpenScore-Begleitungen einschließen|OpenScore-kíséretek bevonása
+Manual practice · no automatic scoring|Manuelles Üben · keine automatische Wertung|Kézi gyakorlás · automatikus pontozás nélkül
+More filters|Weitere Filter|További szűrők
+MusicXML / MXL transfers|MusicXML-/MXL-Übertragungen|MusicXML-/MXL-átvitelek
+No MusicXML downloads requested.|Keine MusicXML-Downloads angefordert.|Nincs kért MusicXML-letöltés.
+No score file is attached.|Keine Notendatei angehängt.|Nincs csatolt kottafájl.
+No scores match your search.|Keine Noten passen zur Suche.|Nincs a keresésnek megfelelő kotta.
+Open PDF|PDF öffnen|PDF megnyitása
+Preparing score…|Noten werden vorbereitet…|Kotta előkészítése…
+Preview score|Notenvorschau|Kottaelőnézet
+Queued|In Warteschlange|Sorban áll
+Reference PDF attached. Musical analysis is separate.|Referenz-PDF angehängt. Musikalische Analyse erfolgt separat.|Referencia-PDF csatolva. A zenei elemzés külön történik.
+Retry / resume|Wiederholen / fortsetzen|Újrapróbálás / folytatás
+Retry analysis|Analyse erneut versuchen|Elemzés újrapróbálása
+Retry download|Download erneut versuchen|Letöltés újrapróbálása
+Review selection|Auswahl prüfen|Kijelölés ellenőrzése
+Score analysis failed|Notenanalyse fehlgeschlagen|Kottaelemzés sikertelen
+Score catalogue|Notenkatalog|Kottakatalógus
+Score download progress|Notendownload-Fortschritt|Kottaletöltés állapota
+Score preparation pending|Notenvorbereitung ausstehend|Kotta-előkészítés függőben
+Score status|Notenstatus|Kotta állapota
+Search all scores|Alle Noten durchsuchen|Keresés minden kottában
+Search the catalogue|Katalog durchsuchen|Keresés a katalógusban
+Search titles, composers…|Titel, Komponisten suchen…|Címek, zeneszerzők keresése…
+Select the piano parts in details|Klavierstimmen in den Details wählen|Zongoraszólamok kiválasztása a részleteknél
+Selected material marked unsuitable|Ausgewähltes Material als ungeeignet markiert|A kijelölt anyag nem megfelelőként jelölve
+Show more scores|Weitere Noten anzeigen|További kották megjelenítése
+Some sources could not be loaded. Try refreshing the catalogue.|Einige Quellen konnten nicht geladen werden. Aktualisiere den Katalog.|Néhány forrás nem töltődött be. Próbáld frissíteni a katalógust.
+Sources, rights and credits|Quellen, Rechte und Nachweise|Források, jogok és közreműködők
+Status unavailable|Status nicht verfügbar|Állapot nem érhető el
+Use in this practice|In dieser Übung verwenden|Használat ebben a gyakorlásban
+View download|Download ansehen|Letöltés megtekintése
+View transfer|Übertragung ansehen|Átvitel megtekintése
+Waiting for Wi-Fi|Warte auf WLAN|Várakozás Wi-Fi-re
+Waiting for Wi-Fi · change networks in Downloads|Warte auf WLAN · Netzwerk unter Downloads ändern|Várakozás Wi-Fi-re · hálózatváltás a Letöltések alatt
+Your downloaded scores will appear here.|Deine heruntergeladenen Noten erscheinen hier.|Itt jelennek meg a letöltött kottáid.
+Acquire the exact edition before reviewing its rights.|Beschaffe die genaue Ausgabe vor der Rechteprüfung.|A jogok ellenőrzése előtt szerezd be a pontos kiadást.
+Approve these boundaries|Diese Grenzen bestätigen|Határok jóváhagyása
+Approved for the listed jurisdictions|Für die aufgeführten Länder freigegeben|A felsorolt országokra jóváhagyva
+Attach an edition to this catalogue ID|Ausgabe dieser Katalog-ID zuordnen|Kiadás csatolása ehhez a katalógusazonosítóhoz
+Blocked / review incomplete|Gesperrt / Prüfung unvollständig|Blokkolva / hiányos ellenőrzés
+Complete score analysis and part selection before reviewing suitability.|Schließe Notenanalyse und Stimmenauswahl vor der Eignungsprüfung ab.|Az alkalmasság ellenőrzése előtt fejezd be a kottaelemzést és szólamválasztást.
+Composition and edition rights|Kompositions- und Ausgaberechte|Mű- és kiadási jogok
+Composition evidence (URL or citation)|Kompositionsnachweis (URL oder Quellenangabe)|A mű forrásigazolása (URL vagy hivatkozás)
+Credits / editor / transcriber|Nachweise / Herausgeber / Bearbeiter|Közreműködők / szerkesztő / átíró
+Edition / transcription evidence (URL or citation)|Ausgabe-/Transkriptionsnachweis (URL oder Quelle)|Kiadás / átírás igazolása (URL vagy hivatkozás)
+Edition title / editor|Ausgabetitel / Herausgeber|Kiadás címe / szerkesztő
+Independent metrics and boundary context|Unabhängige Messwerte und Grenzkontext|Független mérőszámok és határkörnyezet
+Jurisdictions (comma-separated ISO country codes)|Länder (kommagetrennte ISO-Ländercodes)|Országok (vesszővel elválasztott ISO-kódok)
+License or public-domain determination|Lizenz oder Gemeinfreiheitsprüfung|Licenc vagy közkincs-megállapítás
+List explicit two-letter country codes.|Gib zweistellige Ländercodes an.|Adj meg kétbetűs országkódokat.
+Piano suitability review|Klaviereignung prüfen|Zongorás alkalmasság ellenőrzése
+Preview this excerpt successfully before approving its boundaries.|Prüfe die Vorschau dieses Ausschnitts, bevor du seine Grenzen bestätigst.|A határok jóváhagyása előtt ellenőrizd sikeresen a részlet előnézetét.
+Reject these boundaries|Diese Grenzen ablehnen|Határok elutasítása
+Review instrumentation and intended piano use against the score preview.|Prüfe Besetzung und vorgesehene Klaviernutzung anhand der Notenvorschau.|Ellenőrizd a hangszerelést és a tervezett zongorahasználatot a kottaelőnézet alapján.
+Review written measures [{value0}, {value1})|Notierte Takte [{value0}, {value1}) prüfen|Leírt ütemek ellenőrzése: [{value0}, {value1})
+Reviewed hand assignments (optional)|Geprüfte Handzuordnung (optional)|Ellenőrzött kézkiosztás (opcionális)
+Reviewer|Prüfer|Ellenőrző
+Source evidence (URL or citation)|Quellennachweis (URL oder Quellenangabe)|Forrásigazolás (URL vagy hivatkozás)
+Suitable piano material|Geeignetes Klaviermaterial|Megfelelő zongoraanyag
+Unsuitable|Ungeeignet|Nem megfelelő
+These boundaries cross a tie or unresolved tuplet. Choose a different excerpt.|Diese Grenzen kreuzen einen Haltebogen oder ein ungeklärtes Tuplet. Wähle einen anderen Ausschnitt.|A határok átkötést vagy feloldatlan szabálytalan ritmuscsoportot metszenek. Válassz másik részletet.
+Validate a score and select its piano parts before previewing.|Prüfe die Noten und wähle Klavierstimmen vor der Vorschau.|Előnézet előtt ellenőrizd a kottát, és válaszd ki a zongoraszólamokat.
+Validate a score before selecting parts.|Prüfe die Noten vor der Stimmenauswahl.|Szólamválasztás előtt ellenőrizd a kottát.
+C major reading with on-screen answers.|Notenlesen in C-Dur mit Bildschirmantworten.|C-dúr kottaolvasás képernyős válaszokkal.
+Chromatic notes and ledger lines at 66 bpm.|Chromatische Noten und Hilfslinien bei 66 BPM.|Kromatikus hangok és pótvonalak 66 BPM-mel.
+First phrase: recognize F sharp and keep the pulse in 3/4. Hands separately.|Erste Phrase: Fis erkennen und den 3/4-Puls halten. Hände getrennt.|Első frázis: ismerd fel a Fiszt, és tartsd a 3/4-es lüktetést. Külön kezekkel.
+Longer note values in the treble clef.|Längere Notenwerte im Violinschlüssel.|Hosszabb hangértékek violinkulcsban.
+Metronome at 50 bpm, relaxed timing.|Metronom bei 50 BPM, lockere Toleranz.|Metronóm 50 BPM-mel, megengedő időzítés.
+Minor keys, dotted notes, 3/4 at 60 bpm.|Molltonarten, punktierte Noten, 3/4 bei 60 BPM.|Moll hangnemek, pontozott hangok, 3/4, 60 BPM.
+One sharp or flat, halves and quarters, 3/4.|Ein Kreuz oder Be, Halbe und Viertel, 3/4.|Egy kereszt vagy bé, fél- és negyedhangok, 3/4.
+Sixteenths in 2/4, up to four accidentals.|Sechzehntel in 2/4, bis zu vier Vorzeichen.|Tizenhatodok 2/4-ben, legfeljebb négy előjegyzéssel.
+The same, one octave down in the bass clef.|Dasselbe eine Oktave tiefer im Bassschlüssel.|Ugyanez egy oktávval lejjebb, basszuskulcsban.
+Treble clef, C major, quarter notes only.|Violinschlüssel, C-Dur, nur Viertelnoten.|Violinkulcs, C-dúr, csak negyedek.
+Up to two accidentals, eighths at 60 bpm.|Bis zwei Vorzeichen, Achtel bei 60 BPM.|Legfeljebb két előjegyzés, nyolcadok 60 BPM-mel.
+1 · First steps (RH quarters · LH whole notes)|1 · Erste Schritte (rechts Viertel · links Ganze)|1 · Első lépések (jobb negyed · bal egész)
+2 · Basic (RH halves and quarters · LH whole and half notes)|2 · Grundlagen (rechts Halbe und Viertel · links Ganze und Halbe)|2 · Alap (jobb fél és negyed · bal egész és fél)
+3 · Intermediate (RH up to eighths · LH quarter-note arpeggios)|3 · Mittelstufe (rechts bis Achtel · links Viertel-Arpeggien)|3 · Középhaladó (jobb nyolcadokig · bal negyed arpeggiók)
+4 · Advanced (RH dotted rhythms · LH Alberti in eighths)|4 · Fortgeschritten (rechts punktiert · links Alberti in Achteln)|4 · Haladó (jobb pontozott ritmus · bal Alberti nyolcadokban)
+{value0} exercises, one after another, each one octave up and back. First:|{value0} Übungen nacheinander, je eine Oktave aufwärts und zurück. Zuerst:|{value0} gyakorlat egymás után, mindegyik egy oktáv fel és vissza. Először:
+{value0} suggestions: {value1}. Check the details and beat unit before saving.{value2}|{value0} Vorschläge: {value1}. Prüfe Angaben und Schlageinheit vor dem Speichern.{value2}|{value0} javaslat: {value1}. Mentés előtt ellenőrizd az adatokat és az ütés egységét.{value2}
+{value0} {value1} · PDF saved only when you select Save.|{value0} {value1} · PDF wird erst beim Speichern gesichert.|{value0} {value1} · A PDF csak a Mentés választásakor mentődik.
+The Drive recording is unavailable. Local files are kept.|Drive-Aufnahme nicht verfügbar. Lokale Dateien bleiben erhalten.|A Drive-felvétel nem érhető el. A helyi fájlok megmaradnak.
+The Drive recording belongs to a different notebook. Local files are kept.|Die Drive-Aufnahme gehört zu einem anderen Übungsheft. Lokale Dateien bleiben erhalten.|A Drive-felvétel másik naplóhoz tartozik. A helyi fájlok megmaradnak.
+The Drive recording has no valid recording identity. Local files are kept.|Die Drive-Aufnahme hat keine gültige Kennung. Lokale Dateien bleiben erhalten.|A Drive-felvétel azonosítója érvénytelen. A helyi fájlok megmaradnak.
+The Drive recording has an invalid piece association. Local files are kept.|Die Werkzuordnung der Drive-Aufnahme ist ungültig. Lokale Dateien bleiben erhalten.|A Drive-felvétel műtársítása érvénytelen. A helyi fájlok megmaradnak.
+The Drive recording has no valid checksum. Local files are kept.|Die Drive-Aufnahme hat keine gültige Prüfsumme. Lokale Dateien bleiben erhalten.|A Drive-felvétel ellenőrzőösszege érvénytelen. A helyi fájlok megmaradnak.
+The Drive recording format is not supported. Local files are kept.|Das Drive-Aufnahmeformat wird nicht unterstützt. Lokale Dateien bleiben erhalten.|A Drive-felvétel formátuma nem támogatott. A helyi fájlok megmaradnak.
+The Drive recording is empty or exceeds 250 MB. Local files are kept.|Die Drive-Aufnahme ist leer oder größer als 250 MB. Lokale Dateien bleiben erhalten.|A Drive-felvétel üres vagy nagyobb 250 MB-nál. A helyi fájlok megmaradnak.
+The Drive recording checksum does not match. Local files are kept.|Die Prüfsumme der Drive-Aufnahme stimmt nicht. Lokale Dateien bleiben erhalten.|A Drive-felvétel ellenőrzőösszege eltér. A helyi fájlok megmaradnak.
+Some recording copies need attention. Local files are kept.|Einige Aufnahmekopien müssen geprüft werden. Lokale Dateien bleiben erhalten.|Néhány felvételmásolat figyelmet igényel. A helyi fájlok megmaradnak.
+Recording identity conflict. Local recordings were kept.|Konflikt der Aufnahmekennung. Lokale Aufnahmen wurden behalten.|Felvételazonosító-ütközés. A helyi felvételek megmaradtak.
+Invalid recording metadata or notebook identity.|Ungültige Aufnahmemetadaten oder Übungsheftkennung.|Érvénytelen felvételadatok vagy naplóazonosító.
+Google Drive did not respond in time. Pending changes are kept. Retry synchronization.|Google Drive antwortete nicht rechtzeitig. Ausstehende Änderungen bleiben erhalten. Synchronisiere erneut.|A Google Drive nem válaszolt időben. A függő módosítások megmaradnak. Próbáld újra a szinkronizálást.
+Synchronization paused. Pending changes are kept.|Synchronisierung pausiert. Ausstehende Änderungen bleiben erhalten.|Szinkronizálás szüneteltetve. A függő módosítások megmaradnak.
+Google Drive is unavailable. Your notebook is saved locally; reconnect or retry later.|Google Drive ist nicht verfügbar. Dein Übungsheft ist lokal gespeichert; verbinde erneut oder versuche es später.|A Google Drive nem érhető el. A napló helyben mentve van; csatlakozz újra, vagy próbáld később.
+The Drive notebook transfer timed out. Pending changes are kept for retry.|Die Drive-Übertragung dauerte zu lange. Ausstehende Änderungen bleiben für einen neuen Versuch erhalten.|A Drive-napló átvitele túllépte az időkorlátot. A függő módosítások újrapróbálásra megmaradnak.
+The Drive server could not be reached. Check the connection and retry.|Drive-Server nicht erreichbar. Prüfe die Verbindung und versuche es erneut.|A Drive-szerver nem érhető el. Ellenőrizd a kapcsolatot, és próbáld újra.
+Some notebook changes have not arrived yet. Retry synchronization.|Einige Änderungen sind noch nicht angekommen. Synchronisiere erneut.|Néhány naplómódosítás még nem érkezett meg. Próbáld újra a szinkronizálást.
+Some notebook objects have not arrived yet. Retry synchronization.|Einige Übungsheftobjekte sind noch nicht angekommen. Synchronisiere erneut.|Néhány naplóelem még nem érkezett meg. Próbáld újra a szinkronizálást.
+The incremental notebook is incomplete. Retry synchronization.|Das inkrementelle Übungsheft ist unvollständig. Synchronisiere erneut.|A növekményes napló hiányos. Próbáld újra a szinkronizálást.
+An incremental notebook object failed its integrity check.|Ein inkrementelles Objekt hat die Integritätsprüfung nicht bestanden.|Egy növekményes naplóelem sértetlenségi ellenőrzése sikertelen.
+The previous notebook cannot be migrated safely. Your local copy is kept.|Das frühere Übungsheft kann nicht sicher übertragen werden. Deine lokale Kopie bleibt erhalten.|A korábbi napló nem vihető át biztonságosan. A helyi másolat megmarad.
+The previous notebook identity does not match.|Die frühere Übungsheftkennung stimmt nicht überein.|A korábbi napló azonosítója nem egyezik.
+The previous notebook is changing. Finish synchronization on the other device and retry.|Das frühere Heft ändert sich. Beende die Synchronisierung am anderen Gerät und versuche es erneut.|A korábbi napló változik. Fejezd be a szinkronizálást a másik eszközön, és próbáld újra.
+The previous connection must finish migration first.|Die frühere Verbindung muss zuerst die Übertragung abschließen.|A korábbi kapcsolat átvitelét előbb be kell fejezni.
+The incremental notebook did not verify. Your local copy is kept.|Das inkrementelle Heft konnte nicht bestätigt werden. Deine lokale Kopie bleibt erhalten.|A növekményes napló ellenőrzése sikertelen. A helyi másolat megmarad.
+A synchronized notebook object was removed from Drive. Your local notebook is kept.|Ein synchronisiertes Objekt wurde aus Drive entfernt. Dein lokales Übungsheft bleibt erhalten.|Egy szinkronizált naplóelemet töröltek a Drive-ról. A helyi napló megmarad.
+An immutable notebook object was replaced. Your local notebook is kept.|Ein unveränderliches Objekt wurde ersetzt. Dein lokales Übungsheft bleibt erhalten.|Egy változtathatatlan naplóelemet lecseréltek. A helyi napló megmarad.
+A notebook object is unavailable. Your local notebook is kept.|Ein Übungsheftobjekt ist nicht verfügbar. Dein lokales Heft bleibt erhalten.|Egy naplóelem nem érhető el. A helyi napló megmarad.
+The synchronized conflict changed. Review the latest changes.|Der synchronisierte Konflikt hat sich geändert. Prüfe die neuesten Änderungen.|A szinkronizált ütközés megváltozott. Ellenőrizd a legújabb módosításokat.
+Could not save pending Drive changes.|Ausstehende Drive-Änderungen konnten nicht gespeichert werden.|A függő Drive-módosítások mentése sikertelen.
+Could not retain a pending Drive identity.|Ausstehende Drive-Kennung konnte nicht behalten werden.|A függő Drive-azonosító megőrzése sikertelen.
+The Drive notebook changed. Reading the latest changes before retrying.|Drive-Übungsheft geändert. Neueste Änderungen werden vor dem Wiederholen gelesen.|A Drive-napló megváltozott. Újrapróbálás előtt a legújabb módosítások betöltődnek.
+The Drive notebook changed during download. Retry connecting. Your local notebook is kept.|Drive-Übungsheft während des Downloads geändert. Verbinde erneut. Dein lokales Heft bleibt erhalten.|A Drive-napló letöltés közben megváltozott. Csatlakozz újra. A helyi napló megmarad.
+The Drive notebook kept changing during download. Retry connecting. Your local notebook is kept.|Drive-Übungsheft änderte sich weiter beim Download. Verbinde erneut. Dein lokales Heft bleibt erhalten.|A Drive-napló letöltés közben folyamatosan változott. Csatlakozz újra. A helyi napló megmarad.
+Drive rejected the notebook upload because its revision changed. Retry connecting. Your local notebook is kept.|Drive lehnte den Upload wegen geänderter Revision ab. Verbinde erneut. Dein lokales Heft bleibt erhalten.|A Drive elutasította a feltöltést a verzió változása miatt. Csatlakozz újra. A helyi napló megmarad.
+Drive could not finalize the notebook connection because its revision changed. Retry connecting. Your local notebook is kept.|Drive konnte die Verbindung wegen geänderter Revision nicht abschließen. Verbinde erneut. Dein lokales Heft bleibt erhalten.|A Drive nem tudta befejezni a kapcsolatot a verzió változása miatt. Csatlakozz újra. A helyi napló megmarad.
+Score located; download and validation are pending.|Noten gefunden; Download und Prüfung ausstehend.|Kotta megtalálva; letöltés és ellenőrzés függőben.
+No score edition has been located.|Keine Notenausgabe gefunden.|Nem található kottakiadás.
+Analysis or piano-part selection is pending.|Analyse oder Klavierstimmenauswahl ausstehend.|Elemzés vagy zongoraszólam-választás függőben.
+The selected material was reviewed as unsuitable.|Das ausgewählte Material wurde als ungeeignet bewertet.|A kiválasztott anyagot nem megfelelőnek minősítették.
+Piano suitability review is pending.|Klaviereignungsprüfung ausstehend.|Zongorás alkalmassági ellenőrzés függőben.
+Edition distribution is blocked by its rights review.|Die Rechteprüfung sperrt die Verbreitung dieser Ausgabe.|A jogi ellenőrzés blokkolja a kiadás terjesztését.
+Composition and edition rights review is pending.|Prüfung der Kompositions- und Ausgaberechte ausstehend.|A mű- és kiadási jogok ellenőrzése függőben.
+Score rendering needs verification.|Notendarstellung muss geprüft werden.|A kottamegjelenítés ellenőrzést igényel.
+Download and validate the score first.|Lade die Noten zuerst herunter und prüfe sie.|Előbb töltsd le és ellenőrizd a kottát.
+No local score edition is available.|Keine lokale Notenausgabe verfügbar.|Nincs helyi kottakiadás.
+Score analysis and piano-part selection are needed.|Notenanalyse und Klavierstimmenauswahl erforderlich.|Kottaelemzés és zongoraszólam-választás szükséges.
+Select and identify the piano parts before practicing.|Wähle und identifiziere vor dem Üben die Klavierstimmen.|Gyakorlás előtt válaszd ki és azonosítsd a zongoraszólamokat.
+The local score identity or SHA-256 does not match.|Kennung oder SHA-256 der lokalen Noten stimmt nicht.|A helyi kotta azonosítója vagy SHA-256 értéke eltér.
+Score analysis exceeded two minutes. Try a smaller, reviewed edition.|Notenanalyse dauerte über zwei Minuten. Versuche eine kleinere geprüfte Ausgabe.|A kottaelemzés két percnél tovább tartott. Próbálj kisebb, ellenőrzött kiadást.
+The score analysis worker failed.|Notenanalyseprozess fehlgeschlagen.|A kottaelemző folyamat sikertelen.
+Download a score before analyzing it.|Lade Noten vor der Analyse herunter.|Elemzés előtt tölts le egy kottát.
+The selected source is disabled or its score URL is unavailable.|Die Quelle ist deaktiviert oder ihre Noten-URL nicht verfügbar.|A forrás le van tiltva, vagy a kotta URL-je nem érhető el.
+Waiting for verified unmetered Wi-Fi. You can allow other networks in Downloads.|Warte auf bestätigtes ungetaktetes WLAN. Andere Netze kannst du unter Downloads erlauben.|Várakozás ellenőrzött korlátlan Wi-Fi-re. Más hálózatokat a Letöltések alatt engedélyezhetsz.
+Offline. Retry when connected.|Offline. Versuche es mit Verbindung erneut.|Offline. Próbáld újra, ha csatlakoztál.
+The downloaded score does not match the declared SHA-256.|Die geladenen Noten stimmen nicht mit dem angegebenen SHA-256 überein.|A letöltött kotta nem egyezik a megadott SHA-256 értékkel.
+The score exceeds the 25 MB acquisition limit.|Die Noten überschreiten das Downloadlimit von 25 MB.|A kotta túllépi a 25 MB-os letöltési korlátot.
+The score exceeds 25 MB.|Die Noten sind größer als 25 MB.|A kotta nagyobb 25 MB-nál.
+Download paused.|Download pausiert.|Letöltés szüneteltetve.
+Transfer interrupted or timed out.|Übertragung unterbrochen oder Zeitlimit überschritten.|Az átvitel megszakadt vagy túllépte az időkorlátot.
+This score transfer is already running.|Diese Notenübertragung läuft bereits.|Ez a kottaátvitel már folyamatban van.
+The source did not return a valid PDF.|Die Quelle lieferte keine gültige PDF.|A forrás nem adott érvényes PDF-et.
+This piece is no longer in the bundled catalogue.|Dieses Stück ist nicht mehr im mitgelieferten Katalog.|Ez a darab már nincs a beépített katalógusban.
+Offline. Try again when connected.|Offline. Versuche es mit Verbindung erneut.|Offline. Próbáld újra, ha csatlakoztál.
+The browser cannot verify Wi-Fi. Use Android or allow any network.|Der Browser kann WLAN nicht prüfen. Nutze Android oder erlaube alle Netze.|A böngésző nem tudja ellenőrizni a Wi-Fi-t. Használj Androidot, vagy engedélyezz minden hálózatot.
+The download will continue on unmetered Wi-Fi.|Der Download wird in ungetaktetem WLAN fortgesetzt.|A letöltés korlátlan Wi-Fi-n folytatódik.
+You can restart the download from the beginning.|Du kannst den Download von vorn starten.|Újrakezdheted a letöltést az elejéről.
+The connection changed. Waiting for Wi-Fi.|Verbindung geändert. Warte auf WLAN.|A kapcsolat megváltozott. Várakozás Wi-Fi-re.
+The shared notebook exceeds the 60 MB backup limit.|Das gemeinsame Übungsheft überschreitet das 60-MB-Sicherungslimit.|A megosztott napló túllépi a 60 MB-os mentési korlátot.
+Wait for the current backup operation.|Warte auf den laufenden Sicherungsvorgang.|Várd meg a folyamatban lévő mentési műveletet.
+Finish practice and close editors and downloads before connecting a shared notebook.|Beende die Übung und schließe Editoren und Downloads vor dem Verbinden eines gemeinsamen Hefts.|Megosztott napló csatlakoztatása előtt fejezd be a gyakorlást, és zárd be a szerkesztőket és letöltéseket.
+Wait for synchronization.|Warte auf die Synchronisierung.|Várd meg a szinkronizálást.
+Both devices changed the same data. Choose which conflicting values to keep. Independent changes will be kept from both devices.|Beide Geräte haben dieselben Daten geändert. Wähle die zu behaltenden Konfliktwerte. Unabhängige Änderungen beider Geräte bleiben erhalten.|Mindkét eszköz ugyanazt az adatot módosította. Válaszd ki a megtartandó ütköző értékeket. A független módosítások mindkét eszközről megmaradnak.
+Cannot open the file.|Datei kann nicht geöffnet werden.|A fájl nem nyitható meg.
+The file exceeds the permitted size.|Die Datei überschreitet die erlaubte Größe.|A fájl túllépi a megengedett méretet.
+Backup content is missing.|Sicherungsinhalt fehlt.|Hiányzik a mentés tartalma.
+Cannot write to this destination.|Schreiben an dieses Ziel nicht möglich.|Erre a célhelyre nem lehet írni.
+Invalid PDF.|Ungültige PDF.|Érvénytelen PDF.
+Could not open the score.|Noten konnten nicht geöffnet werden.|A kotta nem nyitható meg.
+The download is already in progress.|Der Download läuft bereits.|A letöltés már folyamatban van.
+Unsupported download source.|Downloadquelle nicht unterstützt.|Nem támogatott letöltési forrás.
+The source is unavailable. Try again later.|Quelle nicht verfügbar. Versuche es später.|A forrás nem érhető el. Próbáld később.
+The PDF exceeds 20 MB.|Die PDF ist größer als 20 MB.|A PDF nagyobb 20 MB-nál.
+The source did not return a PDF.|Die Quelle lieferte keine PDF.|A forrás nem adott PDF-et.
+Could not schedule reminders.|Erinnerungen konnten nicht geplant werden.|Az emlékeztetők ütemezése sikertelen.
+The backup exceeds 60 MB.|Die Sicherung ist größer als 60 MB.|A mentés nagyobb 60 MB-nál.
+The provider cannot open this backup.|Der Anbieter kann diese Sicherung nicht öffnen.|A szolgáltató nem tudja megnyitni ezt a mentést.
+The provider does not allow writing this backup.|Der Anbieter erlaubt das Schreiben dieser Sicherung nicht.|A szolgáltató nem engedi írni ezt a mentést.
+Choose a backup destination first.|Wähle zuerst ein Sicherungsziel.|Előbb válassz mentési célhelyet.
+A file picker is already open.|Eine Dateiauswahl ist bereits geöffnet.|Már nyitva van egy fájlválasztó.
+This provider did not grant read/write access. Choose another destination.|Der Anbieter gewährte keinen Lese-/Schreibzugriff. Wähle ein anderes Ziel.|A szolgáltató nem adott olvasási/írási jogot. Válassz másik célhelyet.
+This provider must grant persistent read/write access for synchronization.|Der Anbieter muss dauerhaften Lese-/Schreibzugriff für die Synchronisierung gewähren.|A szolgáltatónak tartós olvasási/írási jogot kell adnia a szinkronizáláshoz.
+No readable local recovery copy is available.|Keine lesbare lokale Wiederherstellungskopie verfügbar.|Nincs olvasható helyi helyreállítási másolat.
+Backup content is missing or exceeds 60 MB.|Sicherungsinhalt fehlt oder überschreitet 60 MB.|A mentés tartalma hiányzik vagy nagyobb 60 MB-nál.
+Choose a backup or shared notebook file on this device.|Wähle auf diesem Gerät eine Sicherungs- oder gemeinsame Übungsheftdatei.|Válassz mentést vagy megosztott naplófájlt ezen az eszközön.
+The provider did not return a readable backup.|Der Anbieter lieferte keine lesbare Sicherung.|A szolgáltató nem adott olvasható mentést.
+No file picker presenter is available.|Keine Dateiauswahl verfügbar.|Nem érhető el fájlválasztó.
+The provider did not return the complete exported backup.|Der Anbieter lieferte die exportierte Sicherung nicht vollständig.|A szolgáltató nem adta vissza a teljes exportált mentést.
+This backup is not UTF-8 JSON.|Diese Sicherung ist kein UTF-8-JSON.|Ez a mentés nem UTF-8 JSON.
+MIDI is not supported on this device|MIDI wird auf diesem Gerät nicht unterstützt|Ez az eszköz nem támogatja a MIDI-t
+Bluetooth MIDI unavailable|Bluetooth MIDI nicht verfügbar|Bluetooth MIDI nem érhető el
+No MIDI input was opened|Kein MIDI-Eingang geöffnet|Nem nyílt meg MIDI-bemenet
+The PDF must be smaller than 20 MB.|Die PDF muss kleiner als 20 MB sein.|A PDF-nek 20 MB-nál kisebbnek kell lennie.
+This file is not a valid PDF.|Diese Datei ist keine gültige PDF.|Ez a fájl nem érvényes PDF.
+The score annotations are invalid or exceed the limit.|Notenanmerkungen sind ungültig oder überschreiten das Limit.|A kottajegyzetek érvénytelenek vagy túllépik a korlátot.
+The score framing is invalid.|Der Notenausschnitt ist ungültig.|A kottakivágás érvénytelen.
+The backup exceeds the 60 MB limit.|Die Sicherung überschreitet das Limit von 60 MB.|A mentés túllépi a 60 MB-os korlátot.
+The source could not provide the file.|Die Quelle konnte die Datei nicht bereitstellen.|A forrás nem tudta biztosítani a fájlt.
+The data could not be saved.|Die Daten konnten nicht gespeichert werden.|Az adatokat nem sikerült menteni.
+No internet connection.|Keine Internetverbindung.|Nincs internetkapcsolat.
+Offline.|Offline.|Offline.
+Failed to fetch|Verbindung zur Quelle fehlgeschlagen|A forrás lekérése sikertelen
+No enabled MusicXML/MXL acquisition URL exists for this record.|Kein aktivierter MusicXML-/MXL-Downloadlink für diesen Eintrag.|Ehhez a bejegyzéshez nincs aktív MusicXML-/MXL-letöltési cím.
+Empty or oversized XML score.|Leere oder zu große XML-Noten.|Üres vagy túl nagy XML-kotta.
+External references, entities and active XML content are not supported.|Externe Verweise, Entitäten und aktive XML-Inhalte werden nicht unterstützt.|Külső hivatkozások, entitások és aktív XML-tartalom nem támogatottak.
+Custom or external XML declarations are not supported.|Eigene oder externe XML-Deklarationen werden nicht unterstützt.|Egyéni vagy külső XML-deklarációk nem támogatottak.
+The XML document has no root element.|Das XML-Dokument hat kein Wurzelelement.|Az XML-dokumentumnak nincs gyökéreleme.
+Too many entries in the MXL archive.|Zu viele Einträge im MXL-Archiv.|Túl sok bejegyzés az MXL-archívumban.
+MXL decompression limit exceeded.|MXL-Entpacklimit überschritten.|MXL-kicsomagolási korlát túllépve.
+Truncated MXL archive.|Abgeschnittenes MXL-Archiv.|Csonka MXL-archívum.
+MXL archive directory does not match its entries.|MXL-Verzeichnis stimmt nicht mit den Einträgen überein.|Az MXL-könyvtár nem egyezik a bejegyzésekkel.
+MXL archive is incomplete.|MXL-Archiv unvollständig.|Hiányos MXL-archívum.
+Unsupported or oversized MXL archive directory.|Nicht unterstütztes oder zu großes MXL-Verzeichnis.|Nem támogatott vagy túl nagy MXL-könyvtár.
+Invalid MXL archive directory.|Ungültiges MXL-Verzeichnis.|Érvénytelen MXL-könyvtár.
+Encrypted or unsupported MXL compression.|Verschlüsselte oder nicht unterstützte MXL-Komprimierung.|Titkosított vagy nem támogatott MXL-tömörítés.
+Invalid MXL archive directory length.|Ungültige Länge des MXL-Verzeichnisses.|Érvénytelen MXL-könyvtárhossz.
+The response is not an MXL ZIP archive.|Die Antwort ist kein MXL-ZIP-Archiv.|A válasz nem MXL ZIP-archívum.
+MXL is missing META-INF/container.xml.|Im MXL fehlt META-INF/container.xml.|Az MXL-ből hiányzik a META-INF/container.xml.
+Invalid MXL container.|Ungültiger MXL-Container.|Érvénytelen MXL-konténer.
+MXL has no MusicXML rootfile.|MXL hat keine MusicXML-Hauptdatei.|Az MXL-nek nincs MusicXML-gyökérfájlja.
+The declared MXL rootfile is missing.|Die angegebene MXL-Hauptdatei fehlt.|A megadott MXL-gyökérfájl hiányzik.
+Timewise MusicXML requires a reviewed partwise conversion.|Timewise-MusicXML benötigt eine geprüfte Partwise-Konvertierung.|A timewise MusicXML ellenőrzött partwise-átalakítást igényel.
+The response is not a partwise MusicXML score.|Die Antwort ist keine Partwise-MusicXML-Partitur.|A válasz nem partwise MusicXML-kotta.
+MusicXML has no part list or music.|MusicXML enthält keine Stimmenliste oder Musik.|A MusicXML nem tartalmaz szólamlistát vagy zenét.
+The score exceeds the note limit.|Die Noten überschreiten das Notenlimit.|A kotta túllépi a hangjegykorlátot.
+The score exceeds the measure limit.|Die Noten überschreiten das Taktlimit.|A kotta túllépi az ütemkorlátot.
+Only partwise scores can be analyzed.|Nur Partwise-Partituren können analysiert werden.|Csak partwise-kották elemezhetők.
+Missing or duplicate score part ID.|Fehlende oder doppelte Stimmen-ID.|Hiányzó vagy ismétlődő szólamazonosító.
+Invalid meter denominator.|Ungültiger Nenner der Taktart.|Érvénytelen ütemmutató-nevező.
+Invalid staff number.|Ungültige Notensystemnummer.|Érvénytelen kottasorszám.
+Chord without a preceding note in the same voice.|Akkord ohne vorherige Note in derselben Stimme.|Akkord előző hang nélkül ugyanabban a szólamban.
+Invalid written pitch.|Ungültige notierte Tonhöhe.|Érvénytelen leírt hangmagasság.
+The score contains no parts.|Die Noten enthalten keine Stimmen.|A kotta nem tartalmaz szólamokat.
+Select at least one distinct score part.|Wähle mindestens eine eigene Stimme.|Válassz legalább egy különálló szólamot.
+Selected parts have unaligned measure counts; review alignment before analysis.|Die Stimmen haben unterschiedliche Taktzahlen; prüfe die Ausrichtung vor der Analyse.|A kiválasztott szólamok ütemszáma eltér; elemzés előtt ellenőrizd az illesztést.
+Excerpt boundaries are outside the validated written score.|Ausschnittsgrenzen liegen außerhalb der geprüften Noten.|A részlet határai az ellenőrzött kottán kívül vannak.
+Hand assignment must identify an existing part/voice stream.|Die Handzuordnung muss eine vorhandene Stimme identifizieren.|A kézkiosztásnak létező szólamot kell azonosítania.
+Invalid written-order excerpt boundaries.|Ungültige Ausschnittsgrenzen in Notationsreihenfolge.|Érvénytelen részlethatárok az írott sorrendben.
+Cannot extract unknown measure boundaries.|Unbekannte Taktgrenzen können nicht extrahiert werden.|Ismeretlen ütemhatárok nem emelhetők ki.
+The parent analysis does not belong to this score edition.|Die Ausgangsanalyse gehört nicht zu dieser Notenausgabe.|Az eredeti elemzés nem ehhez a kottakiadáshoz tartozik.
+Excerpt metrics were recalculated from extracted notation; input_sha256 identifies the original parent asset.|Ausschnittswerte wurden aus der Notation neu berechnet; input_sha256 identifiziert die Originaldatei.|A részlet mérőszámait az emelt kottából újraszámoltuk; az input_sha256 az eredeti forrásfájlt azonosítja.
+Senza misura or unsupported meter: meter-dependent indicators remain unknown.|Senza misura oder nicht unterstützte Taktart: taktbezogene Werte bleiben unbekannt.|Senza misura vagy nem támogatott ütemmutató: az ütemfüggő mutatók ismeretlenek maradnak.
+Measure styles are preserved; repeat expansion and hidden repeated material are not analyzed.|Taktstile bleiben erhalten; Wiederholungen und verborgenes Wiederholungsmaterial werden nicht entfaltet oder analysiert.|Az ütemstílusok megmaradnak; az ismétlések kibontását és a rejtett ismételt anyagot nem elemezzük.
+Unsupported transposition: sounding ranges remain unknown.|Nicht unterstützte Transposition: klingende Umfänge bleiben unbekannt.|Nem támogatott transzpozíció: a hangzó tartományok ismeretlenek maradnak.
+Unpitched or unsupported note: pitch-dependent metrics remain unknown.|Tonhöhenlose oder nicht unterstützte Note: tonhöhenbezogene Werte bleiben unbekannt.|Hangmagasság nélküli vagy nem támogatott hang: a hangmagasságfüggő mérőszámok ismeretlenek maradnak.
+Empty measure without duration: duration-dependent metrics remain unknown.|Leerer Takt ohne Dauer: zeitbezogene Werte bleiben unbekannt.|Üres ütem időtartam nélkül: az időfüggő mérőszámok ismeretlenek maradnak.
+Hands are unassigned; staff and clef are not hand assignments.|Hände sind nicht zugeordnet; System und Schlüssel bestimmen keine Hand.|A kezek nincsenek kiosztva; a kottasor és kulcs nem határozza meg a kezet.
+Missing/nontraditional signature or unsupported pitch: chromatic accidental metrics remain unknown.|Fehlende oder unübliche Vorzeichnung oder nicht unterstützte Tonhöhe: chromatische Werte bleiben unbekannt.|Hiányzó vagy nem hagyományos előjegyzés, illetve nem támogatott hangmagasság: a kromatikus mérőszámok ismeretlenek maradnak.
+Melodic leaps use adjacent monophonic onsets only; chord voice-leading is not inferred.|Melodiesprünge nutzen nur benachbarte einstimmige Einsätze; Akkordstimmführung wird nicht abgeleitet.|A dallamugrások csak szomszédos egyszólamú belépéseket használnak; akkord-szólamvezetést nem következtetünk.
+Written-order features exclude cue notes, count chord pitches separately and exclude grace/tied-continuation notes from attack density. Repeats are not unfolded.|Die Analyse folgt der Notation ohne Stichnoten, zählt Akkordtöne einzeln und lässt Vorschläge sowie gebundene Fortsetzungen bei der Anschlagsdichte aus. Wiederholungen werden nicht entfaltet.|Az írott sorrend elemzése kihagyja a jelzőhangokat, külön számolja az akkordhangokat, és a belépéssűrűségből kizárja a díszítő- és átkötött folytatóhangokat. Az ismétléseket nem bontja ki.
+Estimated tonality, syncopation, hand independence and calibrated difficulty are not implemented; those metrics remain null.|Geschätzte Tonalität, Synkopen, Handunabhängigkeit und kalibrierter Schwierigkeitsgrad sind nicht implementiert; diese Werte bleiben null.|Becsült tonalitás, szinkópa, kézfüggetlenség és kalibrált nehézség nincs megvalósítva; ezek értéke null marad.
+This MusicXML source URL is not approved for acquisition.|Diese MusicXML-Quell-URL ist nicht zum Download freigegeben.|Ez a MusicXML-forráscím nincs jóváhagyva letöltésre.
+This score source is not approved for acquisition.|Diese Notenquelle ist nicht zum Download freigegeben.|Ez a kottaforrás nincs jóváhagyva letöltésre.
+Invalid partial score size.|Ungültige Teilnotengröße.|Érvénytelen részleges kottaméret.
+Unexpected score redirect.|Unerwartete Notenweiterleitung.|Váratlan kottaátirányítás.
+Invalid partial response; restart the download.|Ungültige Teilantwort; starte den Download neu.|Érvénytelen részleges válasz; indítsd újra a letöltést.
+The source returned an oversized file or a non-score response.|Die Quelle lieferte eine zu große Datei oder keine Noten.|A forrás túl nagy fájlt vagy nem kottát adott.
+Incomplete score response.|Unvollständige Notenantwort.|Hiányos kottaválasz.
+Unsupported library version or base language.|Nicht unterstützte Bibliotheksversion oder Basissprache.|Nem támogatott könyvtárverzió vagy alapnyelv.
+Manifest SHA-256 mismatch.|SHA-256 des Manifests stimmt nicht.|A jegyzék SHA-256 értéke eltér.
+Manifest identity, group or count mismatch.|Manifestkennung, Gruppe oder Anzahl stimmt nicht.|A jegyzék azonosítója, csoportja vagy darabszáma eltér.
+No verified key-to-ordinal edition mapping. Existing progress is preserved.|Keine geprüfte Zuordnung der Ausgaben. Vorhandener Fortschritt bleibt erhalten.|Nincs ellenőrzött kiadás-hozzárendelés. A meglévő haladás megmarad.
+Invalid personal testing preference.|Ungültige persönliche Bibliothekseinstellung.|Érvénytelen személyes könyvtárbeállítás.
+Invalid repertoire library backup.|Ungültige Repertoirebibliothek-Sicherung.|Érvénytelen repertoárkönyvtár-mentés.
+Invalid manifest identity in backup.|Ungültige Manifestkennung in der Sicherung.|Érvénytelen jegyzékazonosító a mentésben.
+Duplicate catalogue ID in backup.|Doppelte Katalog-ID in der Sicherung.|Ismétlődő katalógusazonosító a mentésben.
+Invalid library download state.|Ungültiger Bibliotheksdownloadstatus.|Érvénytelen könyvtárletöltési állapot.
+The backup exceeds the 60 MB restore limit. Export and manage your attachments before enabling automatic backup.|Die Sicherung überschreitet das 60-MB-Limit. Exportiere und verwalte Anhänge vor dem Aktivieren automatischer Sicherung.|A mentés túllépi a 60 MB-os visszaállítási korlátot. Automatikus mentés előtt exportáld és kezeld a mellékleteket.
+Pause practice, close the score and finish any downloads before choosing a backup destination.|Pausiere die Übung, schließe Noten und beende Downloads vor der Wahl eines Sicherungsziels.|Mentési cél választása előtt szüneteltesd a gyakorlást, zárd be a kottát, és fejezd be a letöltéseket.
+The provider did not return the complete written backup. The last good local recovery copy is retained.|Der Anbieter lieferte die geschriebene Sicherung nicht vollständig. Die letzte gültige lokale Kopie bleibt erhalten.|A szolgáltató nem adta vissza a teljes kiírt mentést. Az utolsó érvényes helyi helyreállítási másolat megmarad.
+This backup changed outside this device. Restore it manually or create a separate backup file; it has not been overwritten.|Diese Sicherung wurde außerhalb des Geräts geändert. Stelle sie manuell wieder her oder erstelle eine neue Datei; sie wurde nicht überschrieben.|Ez a mentés másik eszközön változott. Állítsd vissza kézzel, vagy készíts külön mentést; nem írtuk felül.
+The provider did not return the complete written backup. The local recovery copy is retained.|Der Anbieter lieferte die geschriebene Sicherung nicht vollständig. Die lokale Wiederherstellungskopie bleibt erhalten.|A szolgáltató nem adta vissza a teljes kiírt mentést. A helyi helyreállítási másolat megmarad.
+This file changed outside this device. Restore manually or create a separate backup; it has not been overwritten.|Diese Datei wurde außerhalb des Geräts geändert. Stelle sie manuell wieder her oder erstelle eine separate Sicherung; sie wurde nicht überschrieben.|Ez a fájl másik eszközön változott. Állítsd vissza kézzel, vagy készíts külön mentést; nem írtuk felül.
+Baroque|Barock|Barokk
+Classical|Klassik|Klasszicizmus
+Romantic|Romantik|Romantika
+Impressionism|Impressionismus|Impresszionizmus
+Early modernism|Frühe Moderne|Korai modernizmus
+Unclassified|Nicht eingeordnet|Besorolatlan
+identified work|identifiziertes Werk|azonosított mű
+Credits and release notes|Mitwirkende und Versionshinweise|Közreműködők és kiadási megjegyzések
+Will retry automatically while SPino is open.|Wird bei geöffnetem SPino automatisch erneut versucht.|A nyitott SPino automatikusan újrapróbálja.
+Reading the local notebook|Lokales Übungsheft wird gelesen|Helyi napló olvasása
+Reading the cloud file|Cloud-Datei wird gelesen|Felhőfájl olvasása
+Validating the file|Datei wird geprüft|Fájl ellenőrzése
+Saving or reading the local baseline|Lokale Ausgangsdaten speichern oder lesen|Helyi alapállapot mentése vagy olvasása
+Combining changes|Änderungen zusammenführen|Módosítások egyesítése
+Writing the cloud file|Cloud-Datei schreiben|Felhőfájl írása
+Saving the recovery copy|Wiederherstellungskopie speichern|Helyreállítási másolat mentése
+Applying incoming changes|Empfangene Änderungen übernehmen|Beérkező módosítások alkalmazása
+From Bach and Mozart to Chopin, Satie, Debussy and Albéniz. Browse the catalogue included in the app and choose which scores to save on your device.|Von Bach und Mozart bis Chopin, Satie, Debussy und Albéniz. Entdecke den App-Katalog und wähle die Noten, die du auf deinem Gerät speichern möchtest.|Bachtól és Mozarttól Chopinig, Satie-ig, Debussyig és Albénizig. Böngéssz az alkalmazás katalógusában, és válaszd ki az eszközödre mentendő kottákat.
+Combine title, composer and period: Baroque, Classical, Romantic, Impressionism and early modernism. Browse continuously or see only downloaded scores.|Kombiniere Titel, Komponist und Epoche: Barock, Klassik, Romantik, Impressionismus und frühe Moderne. Scrolle durch den Katalog oder zeige nur Downloads.|Kombináld a címet, zeneszerzőt és korszakot: barokk, klasszicizmus, romantika, impresszionizmus és korai modernizmus. Görgess folyamatosan, vagy nézd csak a letöltötteket.
+See the first PDF page or the opening MusicXML measures. Previews do not add a piece to your repertoire.|Sieh die erste PDF-Seite oder die ersten MusicXML-Takte. Eine Vorschau fügt das Stück nicht zum Repertoire hinzu.|Nézd meg az első PDF-oldalt vagy a MusicXML kezdő ütemeit. Az előnézet nem adja a darabot a repertoárodhoz.
+Download each score individually, then open it and add it to your repertoire. PDFs support reading and annotations; MusicXML/MXL provides compatible interactive notation.|Lade Noten einzeln herunter, öffne sie und füge sie zum Repertoire hinzu. PDFs unterstützen Lesen und Anmerkungen; MusicXML/MXL bietet kompatible interaktive Notation.|Töltsd le egyenként a kottákat, majd nyisd meg és add őket a repertoárhoz. A PDF olvasást és jegyzetelést, a MusicXML/MXL kompatibilis interaktív kottát kínál.
+New PDF editions retain their documented source, attribution and license. Versions of the same composition count as editions, not new works.|Neue PDF-Ausgaben behalten dokumentierte Quellen, Urheberangaben und Lizenzen. Fassungen derselben Komposition zählen als Ausgaben, nicht als neue Werke.|Az új PDF-kiadások megőrzik a dokumentált forrást, szerzőséget és licencet. Ugyanazon mű változatai kiadásnak, nem új műnek számítanak.
+Spanish piano: Isaac Albéniz’s Rumores de la Caleta, Op. 71 No. 6, is included in its original solo-piano version.|Spanische Klaviermusik: Isaac Albéniz’ Rumores de la Caleta, Op. 71 Nr. 6, ist in der Originalfassung für Soloklavier enthalten.|Spanyol zongorazene: Isaac Albéniz Rumores de la Caleta, Op. 71 No. 6 műve eredeti szólózongora-változatban szerepel.
+Practice recording and trimming, video title cards, revised catalogue, improved Google Drive sync and repertoire in in-person lessons.|Übungen aufnehmen und zuschneiden, Videotitel, überarbeiteter Katalog, verbesserte Drive-Synchronisierung und Repertoire im Präsenzunterricht.|Gyakorlásfelvétel és vágás, videóborítók, átdolgozott katalógus, jobb Drive-szinkronizálás és repertoár a személyes órákon.
+A clearer Manage screen with notebook identity, automatic synchronization, QR and local backup. Recovery actions are grouped separately.|Übersichtliche Verwaltung mit Übungsheftkennung, automatischer Synchronisierung, QR und lokaler Sicherung. Wiederherstellung ist separat gruppiert.|Áttekinthető Kezelés képernyő naplóazonosítással, automatikus szinkronizálással, QR-rel és helyi mentéssel. A helyreállítás külön csoportban szerepel.
+Edit {name}|{name} bearbeiten|{name} szerkesztése
+Move or remove {name}|{name} verschieben oder entfernen|{name} mozgatása vagy eltávolítása
+Duration for {name}|Dauer für {name}|{name} időtartama
+Suggested minutes for {name}|Vorgeschlagene Minuten für {name}|Javasolt percek: {name}
+The Drive notebook request failed ({value0}). Your local notebook is kept.|Drive-Anfrage fehlgeschlagen ({value0}). Dein lokales Übungsheft bleibt erhalten.|A Drive-napló kérése sikertelen ({value0}). A helyi napló megmarad.
+Drive could not complete a notebook request ({value0}). Your local notebook is kept.|Drive konnte die Anfrage nicht abschließen ({value0}). Dein lokales Übungsheft bleibt erhalten.|A Drive nem tudta befejezni a naplókérést ({value0}). A helyi napló megmarad.

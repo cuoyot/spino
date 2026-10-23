@@ -1,0 +1,45 @@
+{
+  "version": "6.1.3",
+  "versionCode": 91,
+  "unitTests": {
+    "passed": 365,
+    "failed": 0,
+    "skipped": 1
+  },
+  "releaseBrowserTests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteBrowserTests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "packagedWebFiles": 413,
+  "signatures": {
+    "aab": "verified",
+    "apk": "verified"
+  },
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 135,
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+    "languages": {
+      "german": true,
+      "hungarian": true,
+      "readerLanguage": true,
+      "persistence": true,
+      "stableCopy": true
+    },
+    "originalStoresUnchanged": true,
+    "retainedBlobFiles": 130,
+    "evidence": "output/releases/6.1.3/native-locales-03/native.json",
+    "screenshotLimitation": "System UI showed an emulator ANR over some OS screenshots; WebView assertions and original-data retention checks passed. This is not physical-device acceptance."
+  },
+  "fullSuite": "Not green: historical beta-site assertions refer to 6.1.0; legacy browse-surfaces, compact-help and companion routes need test maintenance. The broad concurrent browser run was stopped after a hang. The requested removal of beta copy required updating one export assertion; its final release test passes.",
+  "physicalDeviceAcceptance": false,
+  "publication": "prepared"
+}

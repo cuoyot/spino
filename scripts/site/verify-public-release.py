@@ -60,7 +60,7 @@ else:
         raise RuntimeError('Deployment did not complete within this verification run.')
 
 pages, image_paths = [], set()
-for language, relative in [('es', ''), ('en', 'en/'), ('ca', 'ca/')]:
+for language, relative in [('es', ''), ('en', 'en/'), ('ca', 'ca/'), ('de', 'de/'), ('hu', 'hu/')]:
     url = origin + relative
     expected = (root / 'site' / relative / 'index.html').read_bytes()
     for attempt in range(6):

@@ -1,3 +1,4 @@
+import {newLanguageCopy} from './site-copy-extra.mjs';
 export const COPY = {
   "en": {
     "lang": "en",
@@ -414,3 +415,13 @@ export const COPY = {
     ]
   }
 };
+
+Object.assign(COPY, newLanguageCopy(COPY.en));
+
+// These images describe current source; public version numbers change only at release.
+COPY.en.shotsNote = 'Responsive browser previews of the current app source, using synthetic notebooks and demo audio. These are not native-device acceptance captures. Published versions are listed under Downloads.';
+COPY.es.shotsNote = 'Capturas de navegador adaptable del código actual, con cuadernos sintéticos y audio de demostración. No son pruebas de aceptación en dispositivos nativos. Las versiones publicadas figuran en Descargas.';
+COPY.ca.shotsNote = 'Captures de navegador adaptable del codi actual, amb quaderns sintètics i àudio de demostració. No són proves d’acceptació en dispositius natius. Les versions publicades figuren a Descàrregues.';
+COPY.en.features.at(-1)[2] = COPY.en.features.at(-1)[2].replace('English, Spanish or Catalan','English, Spanish, Catalan, German or Hungarian');
+COPY.es.features.at(-1)[2] = COPY.es.features.at(-1)[2].replace('español, inglés o catalán','español, inglés, catalán, alemán o húngaro');
+COPY.ca.features.at(-1)[2] = COPY.ca.features.at(-1)[2].replace('català, castellà o anglès','català, castellà, anglès, alemany o hongarès');

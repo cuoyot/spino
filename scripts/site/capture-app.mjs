@@ -16,10 +16,10 @@ await mkdir(folder, { recursive: true });
 try {
   const { send, evaluate, url, errors } = await openBrowser({ after: fn => cleanup.push(fn) }, { companion: true });
   const wait = condition => evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${condition}){clearInterval(timer);resolve();}else if(++n>500){clearInterval(timer);reject(Error('Website capture timeout: '+${JSON.stringify(condition)}));}},20);})`);
-  for (const language of ['en', 'es', 'ca']) {
+  for (const language of ['en', 'es', 'ca', 'de', 'hu']) {
     await send('Emulation.setDeviceMetricsOverride', { width: 432, height: 768, deviceScaleFactor: 2.5, mobile: true });
     await send('Page.navigate', { url }); await wait(`document.querySelector('.cp-today')`);
-    const fixture = storeNotebook(language === 'ca' ? 'es' : language);
+    const fixture = storeNotebook(['de','hu'].includes(language)?'en':language === 'ca' ? 'es' : language);
     fixture.preferences.language = language;
     fixture.preferences.weeklyMinutes = 90;
     fixture.preferences.theme = 'light';
@@ -27,6 +27,11 @@ try {
     // Keep the reusable sequence and its add/total/save controls visible in one phone frame.
     fixture.routines[0].blocks = fixture.routines[0].blocks.filter(b => b.type !== 'technique');
     for (const row of [...fixture.plans, ...fixture.events, ...fixture.sessions]) row.date = addDays(row.date, 18);
+    if (['de','hu'].includes(language)) {
+      const labels=language==='de'?['Meine 40-Minuten-Routine','Lesen ohne Klavier','Lesen und Repertoire','Klavierunterricht','Herbstvorspiel','Klavierübung','Gleichmäßiger Puls. Lagenwechsel wiederholen.','Takte 1–8']:['40 perces tervem','Olvasás zongora nélkül','Olvasás és repertoár','Zongoraóra','Őszi meghallgatás','Zongoragyakorlás','Egyenletesebb lüktetés. Fekvésváltás ismétlése.','1–8. ütem'];
+      fixture.routines[0].title=labels[0]; fixture.routines[1].title=labels[1];
+      fixture.plans.forEach(p=>p.title=labels[2]);fixture.events.forEach(e=>e.title=e.type==='Clase'?labels[3]:labels[4]);fixture.sessions.forEach(s=>{s.title=labels[5];s.notes=labels[6]});fixture.works[0].passage=labels[7];
+    }
     if (language === 'ca') {
       fixture.routines[0].title = 'La meva rutina de 40 minuts';
       fixture.routines[1].title = 'Lectura sense piano';
@@ -41,7 +46,7 @@ try {
       active.id='website-history-'+week;active.date=date;active.elapsedMs=active.blockElapsedMs=(24+(11-week)*3+week%3*8)*60000;saveSession(fixture,active,{},stamp);
     }
     const prior = beginSession(quickPractice(fixture.preferences));
-    prior.title = language === 'ca' ? 'Pràctica ràpida' : language === 'es' ? 'Práctica rápida' : 'Quick practice';
+    prior.title = language==='de'?'Schnellübung':language==='hu'?'Gyors gyakorlás':language === 'ca' ? 'Pràctica ràpida' : language === 'es' ? 'Práctica rápida' : 'Quick practice';
     prior.quickScore = addQuickAnswer(emptyQuickScore(), true, 3000);
     saveSession(fixture, prior);
     await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(fixture)},'current');tx.oncomplete=()=>{db.close();resolve();};};})`);
@@ -58,9 +63,22 @@ try {
       console.log(path);
     };
     await capture('01-today');
+    await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click()`);
+    await wait(`document.querySelector('[data-action=catalog]')`);
+    await evaluate(`document.querySelector('[data-action=catalog]').click()`);
+    await wait(`document.querySelector('[data-view=catalog]')`);
+    await capture('catalogue-catalogue');
+    await evaluate(`(()=>{const f=document.querySelector('#library-search');f.elements.period.value='classical';f.elements.composer.value='Wolfgang Amadeus Mozart';f.requestSubmit();document.querySelector('.cp-catalogue-filters').open=true})()`);
+    await capture('catalogue-period-author');
+    await evaluate(`(()=>{const f=document.querySelector('#library-search');f.elements.period.value='';f.elements.composer.value='';f.elements.query.value='mutopia-898';f.requestSubmit();document.querySelector('[data-action=catalogue-preview]').click()})()`);
+    await wait(`document.querySelector('[data-catalogue-preview] img')?.naturalWidth>0`);
+    await capture('catalogue-preview');
+    await evaluate(`document.querySelector('[data-action=close-dialog]').click()`);
+
     await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action=routines]').click();document.querySelector('[data-action=edit-routine][data-id="store-routine"]').click()`);
     await wait(`document.querySelector('.cp-routine-builder')`); await capture('02-routine');
     await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click()`);
+    await evaluate(`document.querySelector('.cp-library-navigation [data-action=repertoire]').click()`);
     await wait(`document.querySelector('[data-view=piano],[data-view=repertoire]')`); await capture('03-repertoire');
     await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click();document.querySelector('[data-action=quick-practice]').click()`);
     await wait(`document.querySelector('#app-shell').hidden`);
@@ -88,7 +106,7 @@ try {
     await evaluate(`new Promise(resolve=>setTimeout(resolve,4500))`);
     await capture('wide-reading', 'tablet');
     await send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:true});await evaluate(`new Promise(resolve=>setTimeout(resolve,350))`);await capture('landscape-reading','phone-landscape');
-    if (language === 'ca') {
+    {
       for (const device of [{ id: 'phone-landscape', width: 844, height: 390 }, { id: 'tablet-portrait', width: 768, height: 1024 }]) {
         await send('Emulation.setDeviceMetricsOverride', { width: device.width, height: device.height, deviceScaleFactor: 1, mobile: true });
         await evaluate(`new Promise(resolve=>setTimeout(resolve,350))`);
@@ -97,7 +115,7 @@ try {
     }
   }
   assert.deepEqual(errors, []);
-  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: new Date().toISOString(), version:JSON.parse(await readFile('package.json','utf8')).version, sourceStage:'Current working tree; source hashes identify changes after the published package', surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes:Object.fromEntries(await Promise.all(['src/keyboard-material.css','src/style.css','src/companion/locale-ca.js'].map(async path=>[path,createHash('sha256').update(await readFile(path)).digest('hex')]))), frames }, null, 2));
+  await writeFile(join(folder, 'capture.json'), JSON.stringify({ date: new Date().toISOString(), version:JSON.parse(await readFile('package.json','utf8')).version, sourceStage:'Current working tree; source hashes identify changes after the published package', surface: 'Responsive browser, not native-device acceptance', fixture: 'Disposable synthetic notebook and generated audio tones; no personal data or microphone capture', sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), buildIndexSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'), sourceHashes:Object.fromEntries(await Promise.all(['src/keyboard-material.css','src/style.css','src/companion/locale.js','src/companion/locale-de.json','src/companion/locale-hu.json'].map(async path=>[path,createHash('sha256').update(await readFile(path)).digest('hex')]))), frames }, null, 2));
 } catch (error) {
   console.error(error);
   throw error;

@@ -1,3 +1,4 @@
+import { localize } from './locale.js';
 import { reminderEvents } from './event-recurrence.js';
 const MAX_PENDING = 64;
 const owned = notification => notification.extra?.spinoReminder === true;
@@ -16,7 +17,7 @@ export function reminderNotifications(data, language, now = Date.now()) {
     while (used.has(id)) id = id % 2147483646 + 1;
     used.add(id);
     return { id, title: record.title,
-      body: language === 'es' ? 'Empieza en 15 minutos.' : language === 'ca' ? 'Comença d’aquí a 15 minuts.' : 'Starts in 15 minutes.',
+      body: localize('Starts in 15 minutes.', 'Empieza en 15 minutos.', language),
       schedule: { at: new Date(new Date(`${record.date}T${record.time}:00`).getTime() - 15 * 60000) },
       extra: { spinoReminder: true, recordId: record.id, recordType: type } };
   }).filter(notification => Number.isFinite(notification.schedule.at.getTime()) && notification.schedule.at.getTime() > now)

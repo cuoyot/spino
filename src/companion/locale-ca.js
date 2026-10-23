@@ -1,5 +1,8 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Exports the notebook from this app installation. Audio and video files are copied separately.|Exporta el quadern d’aquesta instal·lació. Els fitxers d’àudio i vídeo es copien per separat.
+Format 2 requires a compatible version of SPino. Conversion keeps the original file.|El format 2 requereix una versió compatible de SPino. La conversió conserva el fitxer original.
+
 Saving replaces this recording with the selected segment.|En desar, aquesta gravació se substitueix pel fragment seleccionat.
 Save trim|Desa el retall
 Could not save the trim. The original recording is kept.|No s’ha pogut desar el retall. Es conserva la gravació original.
