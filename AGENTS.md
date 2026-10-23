@@ -42,3 +42,7 @@ Provide the tagged release notes as a standalone text file and include that same
 Follow `docs/website-deployment.md` for every requested website publication. Wrangler is authorized for the existing SPino account and Worker; reuse its stored session and do not request the same permission again. Deploy the exact reviewed commit from an isolated export, preserve concurrent work, and verify the current Cloudflare version and public content. A Git push alone does not prove publication. If a newer deployment already includes the changes, verify it instead of overwriting it.
 
 For release operations, use the Codex in-app browser. Do not use the owner’s Chrome browser.
+
+## Standing release authorization
+
+When the owner asks for a release, that request authorizes the routine release commit, version tag, push, Play Console upload/submission/rollout and coordinated website deployment. Do not request a separate confirmation for those steps. Verify acceptance in Play Console directly. This standing preference was explicitly confirmed on 23 October 2026. Use the Codex in-app browser for release operations. Preserve unrelated work and verify the exact published revision.

@@ -13,11 +13,15 @@ Arguments (optional): bump type `patch` (default) | `minor` | `major` | `x.y.z`,
 
 ## Rules
 
-* Never create, read, print or commit the upload key, `android/keystore.properties`, `*.jks`, `*.aab` or APKs.
+* Never expose or commit the upload key, `android/keystore.properties`, `*.jks` or signing passwords.
+  Use the configured signing tools to build and verify AAB/APK artifacts without printing secrets.
   If `android/keystore.properties` is missing, stop and tell the user to run
   `powershell -ExecutionPolicy Bypass -File scripts\create-upload-key.ps1` themselves (it asks for a password).
-* Never upload to Play Console or press *Roll out* / *Send for review* on the user's behalf: give the steps and
-  let the user do it. Ask before any commit, tag or push.
+* An owner request to release authorizes preparation, commit, version tag, push, Play Console upload,
+  *Send for review* / rollout and the coordinated website deployment. Do not request a separate
+  confirmation for these routine release steps. This standing authorization was explicitly confirmed
+  on 23 October 2026. Use the Codex in-app browser for release operations, never the owner’s Chrome.
+  Preserve unrelated work, verify packages and provider results, and distinguish submission from approval.
 * The repo is LF; edit files without normalising line endings (see AGENTS.md and memory notes).
 * Preserve uncommitted work from other agents (Codex). Do not stash or reset.
 
@@ -62,7 +66,7 @@ Arguments (optional): bump type `patch` (default) | `minor` | `major` | `x.y.z`,
    Output: `SPino-<versionName>-<versionCode>.aab` in the repo root (~17 MB). Confirm the file exists and its
    size. Send it to the user with SendUserFile (`display: attach`).
 
-8. **Upload instructions** for the user (Play Console → SPino):
+8. **Upload and submit** through the Codex in-app browser (Play Console → SPino):
    * *Test and release → Testing → Internal testing* (or *Closed testing* / *Production*) → **Create new
      release** → upload the `.aab`.
    * Release name: `<versionName> (<versionCode>)`.
@@ -80,6 +84,9 @@ Arguments (optional): bump type `patch` (default) | `minor` | `major` | `x.y.z`,
    * **Next → Save → Roll out** (production: start with a staged rollout, e.g. 20 %). Personal accounts need
      the 12-tester / 14-day closed test before the first production release.
 
-9. **Wrap up**: offer to commit the version bump, notes and any screenshots/site changes
-   (`Release <versionName> (<versionCode>)`) and, once the user confirms the upload was accepted, tag it
-   `play/<versionCode>` and push. Do not do either without a yes.
+9. **Wrap up**: commit the reviewed version bump, notes and screenshots/site changes
+   (`Release <versionName> (<versionCode>)`). Verify that Play Console accepted the bundle and
+   submission, then create the established release tag and push. The release request supplies
+   authorization; do not ask the owner to repeat a confirmation already shown by Console.
+   Deploy and verify the exact reviewed website commit using `docs/website-deployment.md`.
+   Report whether Google approval remains pending and provide the signed AAB and tagged notes.

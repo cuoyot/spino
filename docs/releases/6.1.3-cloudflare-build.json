@@ -1,0 +1,14 @@
+{
+  "check_runs": [
+    {
+      "id": 120362050582,
+      "name": "Workers Builds: spino",
+      "head_sha": "eaa0b9cb7fc9f73d8f5092c690654a592906e6f6",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-23T10:16:45Z",
+      "completed_at": "2026-10-23T10:16:45Z",
+      "details_url": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/builds/a5613b04-65b8-4e10-a295-3e1e2196acf7"
+    }
+  ]
+}
