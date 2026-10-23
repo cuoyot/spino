@@ -84,7 +84,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
             if(!(blob instanceof Blob)||blob.size!==Number(file.size)||!result.verified&&await mediaHash(blob)!==recordingChecksum(file))throw integrity('Downloaded recording failed verification. Local recordings were kept.');
             const durationMs=Number(p.durationMs),createdAt=p.createdAt;
             if(!Number.isFinite(durationMs)||durationMs<0||!Number.isFinite(Date.parse(createdAt)))throw integrity('Invalid recording dates or duration.');
-            await store.importRemote({id:p.takeId,workId:p.workId,workTitle:works.get(p.workId)?.title||'',title:file.name,createdAt,durationMs,kind:file.mimeType.startsWith('video/')?'video':'audio',draft:false,blob,cloud:{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:p.sha256}},key);
+            await store.importRemote({id:p.takeId,workId:p.workId,workTitle:works.get(p.workId)?.title||'',title:file.name,createdAt,durationMs,kind:file.mimeType==='audio/midi'?'midi':file.mimeType.startsWith('video/')?'video':'audio',draft:false,blob,cloud:{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:p.sha256}},key);
           }finally{await result.cleanup?.();}
           },true);
           if(copied&&current(key))publish({completed:++completed,percent:0});

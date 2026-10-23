@@ -42,6 +42,34 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await evaluate(`__sr.midi.simulateDevices(['Test piano']);__sr.midi.simulateNote(60)`);
   assert.ok(await evaluate(`!!document.querySelector('.pdf-widget [data-midi-indicator][data-active=true][data-connected=true]')`));
 
+  await t.test('MIDI feedback minimizes without blocking score reading or interrupting capture', async () => {
+    const before=await read('assets',assetId),folder='artifacts/review/midi-score/'+Date.now();await mkdir(folder,{recursive:true});
+    await control('record');await wait(`document.querySelector('[data-media=midi]')`);
+    await evaluate(`document.querySelector('[data-media=midi]').click();__sr.midi.simulateNote(60);__sr.midi.simulateControl(64,127)`);
+    assert.equal(await evaluate(`document.querySelector('#cp-media-capture').hidden`),false);
+    assert.equal(await evaluate(`document.querySelector('#cp-media-capture').classList.contains('is-minimized')`),true);
+    const frames=[];
+    for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
+      await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await ready();
+      for(const state of ['minimized','expanded']){
+        if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
+        const bounds=await evaluate(`(()=>{const panel=document.querySelector('#cp-media-capture'),r=panel.getBoundingClientRect(),paper=document.querySelector('.pdf-paper').getBoundingClientRect();return {width:r.width,height:r.height,right:r.right,bottom:r.bottom,paperWidth:paper.width,blocked:document.elementFromPoint(paper.left+paper.width/2,Math.max(60,paper.top+60))?.closest('#cp-media-capture')!==null}})()`);
+        assert.ok(bounds.right<=width+1&&bounds.bottom<=height+1);if(state==='minimized')assert.ok(bounds.height<90);
+        if(state==='expanded')assert.equal(await evaluate(`document.querySelector('[data-midi-key="60"]').classList.contains('is-active')`),true);
+        const file=state+'-'+width+'x'+height+'.png';await writeFile(folder+'/'+file,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));frames.push({file,width,height,bounds});
+        if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
+      }
+    }
+    await control('next');await ready();await control('prev');await ready();
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').dataset.recording`),'true');
+    await evaluate(`__sr.midi.simulateNote(60,false);__sr.midi.simulateControl(64,0);document.querySelector('[data-media=minimize]').click()`);
+    assert.equal(await evaluate(`document.querySelectorAll('[data-midi-key].is-active').length`),0);
+    await control('record');await wait(`document.querySelector('[data-media=save]')&&!document.querySelector('[data-media=save]').disabled`);
+    await evaluate(`document.querySelector('[data-media=delete]').click()`);await wait(`document.querySelector('#cp-media-capture').hidden`);
+    assert.deepEqual((await read('assets',assetId)).annotations,before.annotations);
+    await writeFile(folder+'/verification.json',JSON.stringify({kind:'Responsive browser, disposable PDF and synthetic MIDI; not native acceptance',frames},null,2));
+    await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await ready();
+  });
   await t.test('floating Record starts compact capture and stops into review over the running PDF', async () => {
     await evaluate(`document.querySelector('[data-pdf=record]').click()`);
     await wait(`document.querySelector('.pdf-viewer #cp-media-capture [data-media=audio]')`);

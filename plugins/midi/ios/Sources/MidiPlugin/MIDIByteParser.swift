@@ -24,9 +24,9 @@ struct MIDIByteParser {
             guard length > 0 else { status = 0; continue }
             data.append(byte)
             guard data.count == length else { continue }
-            if kind == 0x90 { events.append(MIDIInputEvent(name: data[1] == 0 ? "noteOff" : "noteOn", values: ["note": Int(data[0]), "velocity": Int(data[1])])) }
-            else if kind == 0x80 { events.append(MIDIInputEvent(name: "noteOff", values: ["note": Int(data[0]), "velocity": Int(data[1])])) }
-            else if kind == 0xB0 { events.append(MIDIInputEvent(name: "controlChange", values: ["controller": Int(data[0]), "value": Int(data[1])])) }
+            if kind == 0x90 { events.append(MIDIInputEvent(name: data[1] == 0 ? "noteOff" : "noteOn", values: ["channel": Int(status & 15), "note": Int(data[0]), "velocity": Int(data[1])])) }
+            else if kind == 0x80 { events.append(MIDIInputEvent(name: "noteOff", values: ["channel": Int(status & 15), "note": Int(data[0]), "velocity": Int(data[1])])) }
+            else if kind == 0xB0 { events.append(MIDIInputEvent(name: "controlChange", values: ["channel": Int(status & 15), "controller": Int(data[0]), "value": Int(data[1])])) }
             data.removeAll()
             if status >= 0xF0 { status = 0 }
         }

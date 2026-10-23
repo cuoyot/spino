@@ -5,6 +5,8 @@ const Native = registerPlugin('Midi');
 const listeners = { note: [], noteOff: [], control: [], devices: [], ble: [] };
 let devices = [], initialization = null, webAccess = null, simulated = false;
 let subscriptions = [];
+const controls = new Map();
+export const controllerState = () => [...controls.values()];
 export const connectedDevices = () => [...devices];
 
 export const isNative = Capacitor.isPluginAvailable('Midi');
@@ -17,7 +19,8 @@ export function on(event, cb) {
 }
 
 function emit(event, data) {
-  if (event === 'devices') devices = [...data];
+  if (event === 'devices') { if(JSON.stringify(devices)!==JSON.stringify(data))controls.clear(); devices = [...data]; }
+  if (event === 'control') controls.set((data.channel||0)+':'+data.controller,{...data});
   listeners[event].forEach((cb) => cb(data));
 }
 
@@ -40,9 +43,9 @@ async function bindWebInputs() {
     if (input.state === 'disconnected') { input.onmidimessage = null; return; }
     input.onmidimessage = m => {
       const [status, note, vel] = m.data, type = status & 0xf0;
-      if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel });
-      else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note });
-      else if (type === 0xb0) emit('control', { controller: note, value: vel });
+      if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel, channel: status & 15 });
+      else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note, channel: status & 15 });
+      else if (type === 0xb0) emit('control', { controller: note, value: vel, channel: status & 15 });
     };
     try { if (input.connection !== 'open') await input.open(); if (input.state !== 'disconnected') names.push(input.name || 'MIDI input'); }
     catch { input.onmidimessage = null; }
@@ -51,9 +54,9 @@ async function bindWebInputs() {
 }
 async function initialize() {
   if (isNative) {
-    subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity })));
-    subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note })));
-    subscriptions.push(await Native.addListener('controlChange', (e) => emit('control', { controller: e.controller, value: e.value })));
+    subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity, channel: e.channel || 0 })));
+    subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note, channel: e.channel || 0 })));
+    subscriptions.push(await Native.addListener('controlChange', (e) => emit('control', { controller: e.controller, value: e.value, channel: e.channel || 0 })));
     subscriptions.push(await Native.addListener('devicesChanged', (e) => emit('devices', e.devices)));
     subscriptions.push(await Native.addListener('bleDevice', (e) => emit('ble', e)));
     const { devices } = await Native.openAll();

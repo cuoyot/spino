@@ -285,16 +285,19 @@ public class MidiPlugin extends Plugin {
                     count = 0;
                     if (type == 0x90 && data[1] > 0) {
                         JSObject ev = new JSObject();
+                        ev.put("channel", status & 15);
                         ev.put("note", data[0]);
                         ev.put("velocity", data[1]);
                         notifyListeners("noteOn", ev);
                     } else if (type == 0x80 || (type == 0x90 && data[1] == 0)) {
                         JSObject ev = new JSObject();
+                        ev.put("channel", status & 15);
                         ev.put("note", data[0]);
                         notifyListeners("noteOff", ev);
                     } else if (type == 0xB0) {
                         // Control changes carry the pedals (64 sustain, 66 sostenuto, 67 soft).
                         JSObject ev = new JSObject();
+                        ev.put("channel", status & 15);
                         ev.put("controller", data[0]);
                         ev.put("value", data[1]);
                         notifyListeners("controlChange", ev);

@@ -10,7 +10,7 @@ const id = value => typeof value === 'string' && /^[\w-]{1,160}$/.test(value);
 const checksum = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
 // MediaRecorder and HTTP servers may serialize codec parameters differently.
 // Keep the supported containers bounded, including quoted codec lists (RFC 6381).
-const mime = value => typeof value === 'string' && /^(audio|video)\/(webm|mp4|wav|ogg)(?:[ \t]*;[ \t]*[\w-]+=(?:[\w.,-]+|"[\w., -]+"))*[ \t]*$/i.test(value);
+const mime = value => value === 'audio/midi' || typeof value === 'string' && /^(audio|video)\/(webm|mp4|wav|ogg)(?:[ \t]*;[ \t]*[\w-]+=(?:[\w.,-]+|"[\w., -]+"))*[ \t]*$/i.test(value);
 const mediaType = value => value.split(';',1)[0].trim().toLowerCase();
 export const mediaHash = async blob => [...new Uint8Array(await crypto.subtle.digest('SHA-256', await blob.arrayBuffer()))].map(v=>v.toString(16).padStart(2,'0')).join('');
 export function driveURL(value) {

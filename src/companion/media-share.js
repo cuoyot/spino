@@ -5,7 +5,7 @@ const MediaShare=registerPlugin('MediaShare');
 const CHUNK=256*1024;
 export function recordingFile(record) {
   const type=record.blob.type.split(';')[0].toLowerCase();
-  const extension=({'audio/mp4':'m4a','video/mp4':'mp4','audio/wav':'wav','audio/x-wav':'wav','audio/ogg':'ogg','video/ogg':'ogv','audio/mpeg':'mp3','audio/webm':'webm','video/webm':'webm'})[type];
+  const extension=({'audio/midi':'mid','audio/mp4':'m4a','video/mp4':'mp4','audio/wav':'wav','audio/x-wav':'wav','audio/ogg':'ogg','video/ogg':'ogv','audio/mpeg':'mp3','audio/webm':'webm','video/webm':'webm'})[type];
   if(!extension||!record.blob.size)throw Error('Invalid recording');
   const title=(record.title||record.workTitle||'SPino').replace(/[\\/:*?"<>|\u0000-\u001f]/g,'-').replace(/[. ]+$/,'').trim().slice(0,120)||'SPino';
   const date=/^\d{4}-\d{2}-\d{2}/.exec(record.createdAt||'')?.[0];

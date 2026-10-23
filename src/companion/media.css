@@ -176,3 +176,33 @@
 #cp-media-capture .cp-media-trim output { font-variant-numeric:tabular-nums; }
 #cp-media-capture .cp-media-trim progress { width:100%; }
 #cp-media-capture .cp-media-trim .cp-actions { display:flex; flex-wrap:wrap; gap:8px; }
+
+.cp-midi-player { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:16px 0; }
+.cp-midi-player input[type=range] { flex:1; min-width:100px; }
+.cp-midi-player p { flex-basis:100%; margin:0; }
+.cp-media-kind-midi,.cp-media-filter-midi,.cp-media-day-midi { color:var(--accent); }
+.cp-media-choose-actions { flex-wrap:wrap; }
+
+/* MIDI feedback stays small and updates only when input arrives. */
+.cp-midi-feedback { display:flex; align-items:center; gap:8px; margin:8px 0; pointer-events:none; }
+.cp-midi-feedback svg { display:block; height:36px; flex:1; min-width:0; }
+.cp-midi-feedback rect { fill:#e8edf5; }
+.cp-midi-feedback rect.is-black { fill:#293344; }
+.cp-midi-feedback rect.is-active { fill:var(--theme-link,#8ab4ff); opacity:var(--midi-strength,1); }
+.cp-midi-feedback [data-midi-pedal] { font-size:11px; opacity:.4; }
+.cp-midi-feedback [data-midi-pedal].is-active { color:var(--theme-link,#8ab4ff); opacity:1; }
+#cp-media-capture.is-midi-recording { padding:8px 12px; }
+#cp-media-capture.is-midi-recording header { position:static; padding:0; font-size:13px; }
+#cp-media-capture.is-midi-recording .cp-midi-note-count { font-size:12px; margin:4px 0; }
+#cp-media-capture.is-midi-recording.is-minimized .cp-midi-feedback,
+#cp-media-capture.is-midi-recording.is-minimized .cp-midi-note-count { display:none; }
+#cp-media-capture.is-midi-recording.is-minimized { gap:6px; }
+#cp-media-capture.is-midi-recording.is-minimized button { padding:6px 8px; font-size:12px; }
+#cp-media-capture.is-midi-recording:not(.is-minimized) { display:grid; grid-template-columns:1fr auto; gap:4px 8px; width:min(320px,calc(100vw - 24px)); }
+#cp-media-capture.is-midi-recording:not(.is-minimized) header { grid-column:2; grid-row:1; }
+#cp-media-capture.is-midi-recording header b,
+#cp-media-capture.is-midi-recording .cp-midi-note-count { display:none; }
+#cp-media-capture.is-midi-recording:not(.is-minimized) .cp-recording-status { grid-column:1; grid-row:1; align-self:center; margin:0; font-size:13px; }
+#cp-media-capture.is-midi-recording .cp-midi-feedback { grid-column:1/-1; margin:0; }
+#cp-media-capture.is-midi-recording:not(.is-minimized) .cp-media-capture-actions { grid-column:1/-1; justify-content:flex-end; }
+.pdf-viewer #cp-media-capture.is-midi-recording { bottom:calc(90px + env(safe-area-inset-bottom)); }

@@ -116,7 +116,7 @@ public class DriveMediaPlugin extends Plugin {
         worker.execute(()->{HttpURLConnection c=null;try{
             String access=access(call),id=call.getString("fileId",""),digest=call.getString("sha256","");long expected=integer(call,"bytes");
             if(!id.matches("[\\w-]{1,160}")||!digest.matches("[a-f0-9]{64}")||expected<1||expected>LIMIT)throw new IOException("Invalid recording download.");
-            String type=call.getString("mimeType","");String extension=type.startsWith("video/mp4")||type.startsWith("audio/mp4")?"mp4":type.startsWith("audio/wav")?"wav":type.startsWith("audio/ogg")?"ogg":"webm";
+            String type=call.getString("mimeType","");String extension=type.equals("audio/midi")?"mid":type.startsWith("video/mp4")||type.startsWith("audio/mp4")?"mp4":type.startsWith("audio/wav")?"wav":type.startsWith("audio/ogg")?"ogg":"webm";
             File complete=file(digest+"."+extension),part=file(digest+".part");
             if(!(complete.exists()&&complete.length()==expected&&hash(complete).equals(digest))){
                 long offset=part.length();if(offset>expected)throw new IOException("Invalid partial download.");
