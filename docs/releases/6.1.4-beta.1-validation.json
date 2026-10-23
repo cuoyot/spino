@@ -1,0 +1,37 @@
+{
+  "version": "6.1.4-beta.1",
+  "versionCode": 92,
+  "sourceCommit": "211c6372",
+  "unitTests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "notificationBrowserTest": "passed before packaging, with synthetic native bridge",
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "packagedWebFiles": 413,
+  "signatures": {
+    "aab": "verified",
+    "apk": "verified"
+  },
+  "native": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 138,
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity"
+  },
+  "closedAppNotificationDelivery": "pending physical-device acceptance",
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "playConsole": {
+    "status": "Changes in review; automated checks pending",
+    "track": "open testing",
+    "rollout": "100%",
+    "resumeTrack": true,
+    "unrelatedUnsubmittedListingChanges": 10,
+    "evidence": "output/releases/6.1.4-beta.1/play-console-submitted.png"
+  }
+}

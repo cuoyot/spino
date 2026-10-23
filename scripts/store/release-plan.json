@@ -4,14 +4,12 @@
     "build": 91
   },
   "googlePlay": {
-    "version": "6.1.2",
-    "build": 90,
-    "status": "published",
-    "pendingVersion": "6.1.3",
-    "pendingBuild": 91
+    "version": "6.1.3",
+    "build": 91,
+    "status": "published"
   },
   "beta": {
-    "version": "6.1.2-beta.2",
-    "build": 88
+    "version": "6.1.4-beta.1",
+    "build": 92
   }
 }

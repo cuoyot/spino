@@ -1,0 +1,15 @@
+<es-ES>
+Activa las notificaciones desde Perfil para recibir avisos de tus prácticas y eventos. Las sugerencias opcionales te animan a volver al piano, completar el objetivo semanal y mantener tu racha. Máximo una sugerencia al día, con prioridad para los avisos planificados.
+</es-ES>
+<en-US>
+Enable notifications in Profile for planned practices and events. Optional suggestions encourage you to return to the piano, meet your weekly goal and keep your streak. At most one suggestion per day, with planned reminders taking priority.
+</en-US>
+<ca>
+Activa les notificacions des de Perfil per rebre avisos de pràctiques i esdeveniments. Els suggeriments opcionals t’animen a tornar al piano, completar l’objectiu setmanal i mantenir la ratxa. Com a màxim un suggeriment al dia; els avisos planificats tenen prioritat.
+</ca>
+<de-DE>
+Aktiviere Benachrichtigungen im Profil für geplante Übungen und Termine. Optionale Vorschläge motivieren dich, wieder Klavier zu spielen, dein Wochenziel zu erreichen und deine Serie fortzusetzen. Höchstens ein Vorschlag pro Tag; geplante Erinnerungen haben Vorrang.
+</de-DE>
+<hu-HU>
+Kapcsold be az értesítéseket a Profilban a tervezett gyakorlásokhoz és eseményekhez. Az opcionális javaslatok segítenek visszatérni a zongorához, elérni a heti célt és folytatni a sorozatot. Naponta legfeljebb egy javaslat; a tervezett emlékeztetők elsőbbséget élveznek.
+</hu-HU>
