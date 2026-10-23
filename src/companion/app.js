@@ -486,7 +486,7 @@ export async function bootCompanion(reader) {
         if(!current || current.status!=='planned' || data.active?.planId===existing.id) throw Error(ui("Only pending practices can be edited. Finish the active practice first.", "Solo puedes editar prácticas pendientes. Termina primero la sesión activa."));
         Object.assign(current,value);
       } else next.plans.push(value);
-      await store.save(next); data=next; await reminders(f.has('reminder')); selectedDate=value.date; dialog.close();go('calendar');
+      await store.save(next); data=next; await reminders(); selectedDate=value.date; dialog.close();go('calendar');if(f.has('reminder'))offerNotifications();
     });
   }
   function workForm(existing=null, initialFile=null) {
@@ -533,7 +533,7 @@ export async function bootCompanion(reader) {
       if(!existing && frequency) value.recurrence={id:value.id,frequency,until:until||null,rule:true,excluded:[]};
       const previous=data.events;data.events=saveEventOccurrence(data.events,value);
       try { await persist(); } catch(error) { data.events=previous;throw error; }
-      await reminders(f.has('reminder'));dialog.close();go('event',!existing && frequency ? `${value.id}@${value.date}` : value.id);
+      await reminders();dialog.close();go('event',!existing && frequency ? `${value.id}@${value.date}` : value.id);if(f.has('reminder'))offerNotifications();
     });
     bindEventTime(dialog.querySelector('#event-form'));
     if(!existing) {
@@ -578,11 +578,19 @@ export async function bootCompanion(reader) {
       const work=data.works.find(w=>w.id===b.workId);if(work)b.target=work.target;
       const s=beginSession({title:String(f.get('title')),context:'piano',blocks:[b]});s.date=f.get('date');s.elapsedMs=b.minutes*60000;s.blockElapsedMs=s.elapsedMs;
       const saved=saveSession(data,s,{...readFeedback(f),workIds:[...new Set([...f.getAll('workIds'),b.workId].filter(Boolean))]});saved.manual=true;
-      await persist();dialog.close();go('session-detail',saved.id);
+      await persist();await reminders();dialog.close();go('session-detail',saved.id);
     });
   }
+  async function enableNotifications() {
+    const next=copy(data);next.preferences.notificationsEnabled=true;
+    await store.save(next);data=next;await reminders(true);render();
+  }
+  function offerNotifications() {
+    if(reminderState?.enabled)return;
+    confirm(ui('Enable notifications','Habilitar notificaciones'),ui('Your appointment is saved. Enable notifications to receive its reminder on this device?','La cita está guardada. ¿Habilitar las notificaciones para recibir su aviso en este dispositivo?'),enableNotifications);
+  }
   async function reminders(request=false) {
-    try { reminderState=await syncReminders(data,request); if(request&&!reminderState.enabled)toast(remindersAvailable?ui("Plan saved; reminders are disabled.", "El plan se ha guardado; los avisos están desactivados."):ui("Plan saved. Reminders with the app closed require the Android or iOS app.", "Plan guardado. Los avisos con la app cerrada necesitan la app Android o iOS.")); }
+    try { reminderState=await syncReminders(data,request); if(request&&!reminderState.enabled)toast(remindersAvailable?ui("Notifications are disabled. Allow them in your device settings and try again.", "Las notificaciones están desactivadas. Permítelas en los ajustes del dispositivo y vuelve a intentarlo."):ui("Plan saved. Reminders with the app closed require the Android or iOS app.", "Plan guardado. Los avisos con la app cerrada necesitan la app Android o iOS.")); }
     catch { toast(ui("Plan saved, but the reminder could not be scheduled.", "El plan está guardado, pero no se ha podido programar el aviso.")); }
   }
 
@@ -604,7 +612,7 @@ export async function bootCompanion(reader) {
       const next=copy(data);next.active=beginSession(planned);next.active.runningSince=Date.now();
       if(source.blocks.some(b=>b.quickPractice)){next.active.quickScore=emptyQuickScore();next.active.quickBest=quickRecords(data.sessions)[0]?.quickScore.points||0;}
       if(source.routinePolicy)next.active.autoMidi=true;
-      await store.save(next);data=next;readerMounted=false;readerBase=null;quiz=null;go('session');
+      await store.save(next);data=next;await reminders();readerMounted=false;readerBase=null;quiz=null;go('session');
       if (currentBlock()?.type === 'repertoire' && workHasScore(resource(currentBlock().workId))) await openScorePractice();
       await afterStart?.();
     } finally { startingPractice = false; }
@@ -633,6 +641,7 @@ export async function bootCompanion(reader) {
       if (next.active?.id !== data.active.id || previousBlock?.id !== nextBlock?.id || previousBlock?.workId !== nextBlock?.workId) mediaCapture?.stop();
       resetBlockRuntime();
       data = next;
+      await reminders();
       saveError = '';
       root.hidden = false;
       return true;
@@ -812,7 +821,7 @@ export async function bootCompanion(reader) {
       if(data.sessions.find(s=>s.id===id)!==original)throw Error(ui('This practice changed. Reopen the editor.','Esta práctica ha cambiado. Abre de nuevo el editor.'));
       const edited=results.map((r,i)=>({...r,elapsedMs:Number(f.get('saved-minutes-'+i))*60000+Math.round(Number(f.get('saved-seconds-'+i))*1000),block:{...r.block,passage:String(f.get('saved-passage-'+i)),...(r.block.type==='repertoire'?{workId:String(f.get('saved-work-'+i))}:{})}}));
       const next=copy(data);next.sessions[next.sessions.findIndex(s=>s.id===id)]=updateSavedPractice(original,edited,data.works);
-      await store.save(next);data=next;dialog.close();render();
+      await store.save(next);data=next;await reminders();dialog.close();render();
     });
     dialog.querySelector('#saved-block-add').addEventListener('click',()=>{
       if(results.length>=30)return;
@@ -844,7 +853,7 @@ export async function bootCompanion(reader) {
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
-    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage()),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
+    const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
@@ -1027,7 +1036,7 @@ export async function bootCompanion(reader) {
       canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
-      apply: async (text, syncBase) => { adoptedScroll=root.querySelector('.cp-page')?.scrollTop||0;root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
+      apply: async (text, syncBase) => { adoptedScroll=root.querySelector('.cp-page')?.scrollTop||0;root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly','notificationsEnabled','practiceSuggestions'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
         data = await store.restore(text, { syncBase }); library=await store.library();reader.refreshSavedState?.();setAppLanguage(data.preferences.language);reader.setLanguage?.(getAppLanguage());await refreshProfileFiles();await reminders(); } finally {root.inert=false;sessionWriting=false;} },
       adopted: () => {render();root.querySelector('.cp-page')?.scrollTo(0,adoptedScroll);mediaSync?.markDirty();},
       changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;const scroll=root.querySelector('.cp-page')?.scrollTop||0;render();root.querySelector('.cp-page')?.scrollTo(0,scroll);} } });
@@ -1407,7 +1416,7 @@ export async function bootCompanion(reader) {
     'session-add-block':addSessionBlock,
     'session-block-edit':editSessionBlock,
     'leave-session':()=>{pauseSession();hideReader();go('home');toast(ui("Session saved to continue later.", "Sesión guardada para continuar después."));},
-    'discard-session':()=>{pauseSession();confirm(ui("Discard session", "Descartar sesión"),ui("Only this pending session will be deleted. Saved practices will be kept.", "Se eliminará únicamente esta sesión pendiente. Las prácticas ya guardadas se conservan."),async()=>{const next=copy(data);next.active=null;await store.save(next);data=next;resetBlockRuntime();root.hidden=false;go('home');});},
+    'discard-session':()=>{pauseSession();confirm(ui("Discard session", "Descartar sesión"),ui("Only this pending session will be deleted. Saved practices will be kept.", "Se eliminará únicamente esta sesión pendiente. Las prácticas ya guardadas se conservan."),async()=>{const next=copy(data);next.active=null;await store.save(next);data=next;await reminders();resetBlockRuntime();root.hidden=false;go('home');});},
     'continue-piano':()=>switchSessionContext('piano'),
     'delete-session':id=>confirm(ui("Delete saved session", "Eliminar sesión guardada"), ui("Delete this session and its feedback from history and progress totals? Any linked practice plan will become pending again. Works, scores and annotations will be kept.", "¿Eliminar esta sesión y su valoración del historial y del progreso? La práctica planificada asociada volverá a estar pendiente. Se conservarán las obras, partituras y anotaciones."), async()=>{const next=copy(data);deleteSession(next,id);await store.save(next);data=next;await reminders();go('progress');}),
     'session-detail':id=>{dialog.close();go('session-detail',id);},
@@ -1453,7 +1462,8 @@ export async function bootCompanion(reader) {
     'session-change-work':()=>showDialog(ui("Change piece", "Cambiar obra"),`${workPickerMarkup(data,currentBlock()?.workId,workPlayable)}<p class="muted">${ui("The time you have spent stays with the current piece.", "El tiempo que llevas se queda con la obra actual.")}</p><div class="cp-actions">${btn('close-dialog',ui("Cancel", "Cancelar"))}</div>`),
     'instrument-pedal':id=>instrument.learnPedal(id),'instrument-pedal-reset':()=>instrument.resetPedals(),
     'instrument-autoconnect':()=>instrument.setAutoConnect(!instrument.state.autoConnect),
-    'notification-permission':async()=>{await reminders(true);render();},
+    'notification-permission':async()=>{if(!reminderState?.enabled){await enableNotifications();return;}const next=copy(data);next.preferences.notificationsEnabled=false;await store.save(next);data=next;await reminders();render();},
+    'practice-suggestions':async()=>{if(!reminderState?.enabled)return;const next=copy(data);next.preferences.notificationsEnabled=true;next.preferences.practiceSuggestions=!next.preferences.practiceSuggestions;await store.save(next);data=next;await reminders();render();},
     'export-backup':()=>backupExportOptions(false),
     'convert-backup':()=>backupExportOptions(true),
     'import-backup':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const text=await importFile();if(text)reviewBackupRestore(text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
@@ -1550,7 +1560,7 @@ export async function bootCompanion(reader) {
   window.addEventListener('piano:devices',()=>{if(!root.hidden&&view==='session')render();});
   window.addEventListener('online',()=>{if(cloud?.state.enabled&&cloud.state.status!=='conflict')cloud.resumeChecks().catch(error=>toast(error.message));downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
   setInterval(()=>{if(!document.hidden){if(data.downloadJobs.some(j=>j.status==='waiting-wifi'))downloads.pump().catch(()=>{});if(Object.values(library.executions).some(e=>e.job?.status==='waiting-wifi'))libraryDownloads.pump().catch(()=>{});}},10000);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {void cloud?.resumeChecks().catch(error=>toast(error.message));mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {void reminders();void cloud?.resumeChecks().catch(error=>toast(error.message));mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
   let sessionResize;
   window.addEventListener('resize', () => {
     if(view==='prepare')requestAnimationFrame(revealStandSelection);

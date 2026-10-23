@@ -1,6 +1,5 @@
-import { reminderEvents } from './event-recurrence.js';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { createReminderScheduler } from './reminders.js';
+import { createReminderScheduler, reminderNotifications } from './reminders.js';
 import { effectiveWifiOnly } from './network-policy.js';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { CloudBackup, cloudAvailable } from './cloud-backup.js';
@@ -100,6 +99,7 @@ export async function fileBase64(file) {
 export async function syncReminders(data, requestPermission = false) {
   if (Capacitor.getPlatform() === 'ios' && remindersAvailable) return syncIOSReminders(data, requestPermission, getAppLanguage());
   if (!native) return { enabled: false, browser: true };
-  const items = [...data.plans.filter(p => p.status === 'planned'), ...reminderEvents(data.events)].filter(x => x.reminder && x.time).map(x => ({ id: x.id, title: x.title, language: getAppLanguage(), at: new Date(`${x.date}T${x.time}:00`).getTime() - 15 * 60000 })).filter(x => x.at > Date.now());
-  return Native.reminders({ items, requestPermission });
+  const items = reminderNotifications(data, getAppLanguage()).map(n => ({id: `${n.extra.recordType}:${n.extra.recordId}`, title:n.title, body:n.body, language:getAppLanguage(), at:n.schedule.at.getTime()}));
+  const state = await Native.reminders({ items, requestPermission: requestPermission && data.preferences.notificationsEnabled !== false });
+  return {...state, enabled: state.enabled && data.preferences.notificationsEnabled !== false};
 }

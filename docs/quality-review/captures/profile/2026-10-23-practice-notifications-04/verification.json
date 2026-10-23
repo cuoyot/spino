@@ -1,0 +1,27 @@
+{
+  "kind": "responsive browser with synthetic native notification bridge; not native-device acceptance",
+  "fixture": "Disposable empty notebook; no personal data",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "buildIndexSha256": "b0da2a639e339894aec808d8978fe101b0efba26187608af329a93a25fc6c721",
+  "permissionRequested": true,
+  "cancellation": true,
+  "reloadPersistence": true,
+  "errors": []
+}

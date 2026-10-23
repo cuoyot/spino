@@ -13,6 +13,7 @@ public class ReminderReceiver extends BroadcastReceiver {
     private static PendingIntent alarmIntent(Context context, JSONObject item) {
         Intent intent = new Intent(context, ReminderReceiver.class).setAction("piano.REMINDER").setData(Uri.parse("piano://reminder/" + Uri.encode(item.optString("id"))));
         intent.putExtra("title", item.optString("title"));
+        intent.putExtra("body", item.optString("body"));
         intent.putExtra("language", "es".equals(item.optString("language")) ? "es" : "en");
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
@@ -42,7 +43,7 @@ public class ReminderReceiver extends BroadcastReceiver {
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return;
         Intent open = new Intent(context, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent content = PendingIntent.getActivity(context, 0, open, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        Notification notification = new NotificationCompat.Builder(context, "practice").setSmallIcon(R.drawable.ic_practice_notification).setContentTitle(intent.getStringExtra("title")).setContentText(spanish ? "Empieza en unos 15 minutos. Tu cuaderno está preparado." : "Starts in about 15 minutes. Your notebook is ready.").setContentIntent(content).setAutoCancel(true).build();
+        Notification notification = new NotificationCompat.Builder(context, "practice").setSmallIcon(R.drawable.ic_practice_notification).setContentTitle(intent.getStringExtra("title")).setContentText(intent.getStringExtra("body") != null && !intent.getStringExtra("body").isEmpty() ? intent.getStringExtra("body") : spanish ? "Empieza en unos 15 minutos. Tu cuaderno está preparado." : "Starts in about 15 minutes. Your notebook is ready.").setContentIntent(content).setAutoCancel(true).build();
         try { manager.notify(intent.getDataString(), 1, notification); } catch (SecurityException ignored) {}
     }
 }

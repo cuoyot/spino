@@ -1,5 +1,18 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Notifications|Notificacions
+Enable notifications|Habilita les notificacions
+Suggest practising|Suggereix practicar
+Enable notifications first.|Habilita primer les notificacions.
+Allow notifications in your device settings, then try again.|Permet les notificacions als ajustos del dispositiu i torna-ho a provar.
+Notifications are disabled. Allow them in your device settings and try again.|Les notificacions estan desactivades. Permet-les als ajustos del dispositiu i torna-ho a provar.
+Your appointment is saved. Enable notifications to receive its reminder on this device?|La cita està desada. Vols habilitar les notificacions per rebre’n l’avís en aquest dispositiu?
+Gentle reminders after a day away, near your weekly goal deadline or to keep your weekly streak. At most one a day, at 18:00. Planned reminders take priority.|Avisos amables després de més d’un dia sense practicar, en acostar-se el cap de setmana o per mantenir la ratxa setmanal. Com a màxim un al dia, a les 18:00. Els avisos planificats tenen prioritat.
+A little practice before Sunday will keep your weekly streak going.|Una mica de pràctica abans de diumenge mantindrà la teva ratxa setmanal.
+There is still time for your weekly goal. Shall we practise a little?|Encara hi ha temps per al teu objectiu setmanal. Practiquem una mica?
+A few minutes at the piano can be a good start. Shall we practise?|Uns minuts al piano poden ser un bon començament. Practiquem?
+Your piano is waiting|El teu piano t’espera
+
 Exports the notebook from this app installation. Audio and video files are copied separately.|Exporta el quadern d’aquesta instal·lació. Els fitxers d’àudio i vídeo es copien per separat.
 Format 2 requires a compatible version of SPino. Conversion keeps the original file.|El format 2 requereix una versió compatible de SPino. La conversió conserva el fitxer original.
 

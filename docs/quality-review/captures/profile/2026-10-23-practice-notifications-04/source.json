@@ -1,0 +1,13 @@
+{
+  "baseCommit": "b137b99613b07f8cfb51ec2d033a8b8d3cb501b8",
+  "workingTree": "Uncommitted feature changes; unrelated pre-existing work preserved",
+  "sha256": {
+    "src/companion/reminders.js": "6dea40728a1217077e9629274bb59798feef3952af00adcd9b2381d51d997002",
+    "src/companion/profile-view.js": "26e181bbbedf1368f7e208ddefa3e364920aa47c9ba2f10c42498320ade5ac3f",
+    "src/companion/profile.css": "6aeb596127de78d2f3bd40a2c9652358c8dc80e2120163f0cc918537f8ce3e6f",
+    "src/companion/app.js": "1d8e0db05b68a16c24f13b5683d31664c76fd8ae56cb67bdf3bbde3dc6fc5eea",
+    "src/companion/platform.js": "feb97c8c39382b8f6703ce2e5bb454171347f2584fde9b6a128bbc31a90aeaf9",
+    "src/companion/model.js": "f81adb2b1fe3022f2f73b4e3f1cdedabc63bc319bc090bd5579b70ec4a31b43f",
+    "android/app/src/main/java/com/miguecoll/spino/ReminderReceiver.java": "35651820639277c26c2431e1f75bb9264c9bec39478ff3bb8e14cff9b308cebd"
+  }
+}

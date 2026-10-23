@@ -121,3 +121,9 @@
 /* Keep the unfinished-session indicator attached to the practice icon in every layout. */
 .cp-practice-nav-icon { position: relative; display: inline-flex; flex: none; }
 .cp-pending-session-dot { position: absolute; top: -3px; right: -5px; width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 2px var(--theme-panel, #1e2127); }
+
+/* Notification controls retain the same layout in their enabled and disabled states. */
+.cp-reminders .cp-preference-card + .cp-preference-card { margin-top: 16px; }
+.cp-reminder-switch { display:flex; align-items:center; gap:12px; text-align:start; }
+.cp-reminder-switch::before { content:''; flex:none; width:32px; height:20px; border-radius:20px; background:radial-gradient(circle at 10px 10px, currentColor 6px, transparent 7px), var(--line); }
+.cp-reminder-switch[aria-checked="true"]::before { background:radial-gradient(circle at 22px 10px, currentColor 6px, transparent 7px), #46678d; }

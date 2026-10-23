@@ -29,7 +29,7 @@ export function addDays(date, count) { const d = new Date(date + 'T12:00:00'); d
 export function weekOf(date) { const d = new Date(date + 'T12:00:00'); return addDays(date, -((d.getDay() + 6) % 7)); }
 export function daysUntil(date, from = localDate()) { return Math.round((Date.parse(date + 'T12:00:00Z') - Date.parse(from + 'T12:00:00Z')) / 86400000); }
 export function emptyData() {
-  return { schemaVersion: VERSION, preferences: { name: '', context: 'mobile', weeklyMinutes: 90, wifiOnly: true, theme: 'system' }, works: [], downloads: [], downloadJobs: [], routines: [], plans: [], events: [], sessions: [], active: null, lastBackup: null };
+  return { schemaVersion: VERSION, preferences: { name: '', context: 'mobile', weeklyMinutes: 90, notificationsEnabled: false, practiceSuggestions: false, wifiOnly: true, theme: 'system' }, works: [], downloads: [], downloadJobs: [], routines: [], plans: [], events: [], sessions: [], active: null, lastBackup: null };
 }
 export function block(type = 'reading', values = {}) {
   return { id: uid(), type, minutes: 5, bpm: 60, timing: 'timed', target: 'C-major', hand: 'right', input: 'piano', figures: '1', passage: '', workId: '', ...values };
@@ -149,6 +149,7 @@ export function validateData(input) {
   if (input?.preferences?.level !== undefined && !(Number.isInteger(input.preferences.level) && input.preferences.level >= 1 && input.preferences.level <= 4)) fail();
   if (input?.preferences?.photo != null && (!str(input.preferences.photo, 400000) || !/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(input.preferences.photo))) fail();
   if (!obj(input) || input.schemaVersion !== VERSION || !obj(input.preferences) || !Object.hasOwn(CONTEXTS,input.preferences.context) || !str(input.preferences.name, 80) || !number(input.preferences.weeklyMinutes) || input.preferences.weeklyMinutes>3000) fail();
+  for (const key of ['notificationsEnabled', 'practiceSuggestions']) if (input.preferences[key] !== undefined && typeof input.preferences[key] !== 'boolean') fail();
   for (const key of ["works", 'routines', 'plans', 'events', "sessions"]) {
     const list = input[key];
     if (!Array.isArray(list) || list.length > 20000 || list.some(v => !obj(v) || !str(v.id, 100) || !v.id) || new Set(list.map(v => v.id)).size !== list.length) fail();

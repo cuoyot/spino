@@ -49,3 +49,48 @@ test('editing then deleting an appointment updates its notification without chan
   assert.equal(pending.size,2);assert.equal(pending.get(original.id).title,'Updated title');assert.equal(pending.get(original.id).schedule.at.getTime(),new Date('2030-01-02T12:45:00').getTime());assert.equal(d.events[0].id,'event');
   d.events=[];await sync(d,false,'en');assert.equal(pending.size,1);assert.equal(pending.has(original.id),false);
 });
+
+test('practice suggestions are opt-in, bounded, daytime and suppressed during active practice', () => {
+  const d={plans:[],events:[],sessions:[{date:'2030-01-01',elapsedMs:60000}],preferences:{notificationsEnabled:true,practiceSuggestions:true,weeklyMinutes:90}};
+  const clock=new Date('2030-01-03T09:00:00').getTime();
+  const items=reminderNotifications(d,'en',clock);
+  assert.equal(items.length,7);assert.equal(new Set(items.map(n=>n.extra.recordId)).size,7);
+  assert.ok(items.every(n=>n.schedule.at.getHours()===18));
+  assert.deepEqual(reminderNotifications({...d,preferences:{...d.preferences,practiceSuggestions:false}},'en',clock),[]);
+  assert.deepEqual(reminderNotifications({...d,preferences:{...d.preferences,notificationsEnabled:false}},'en',clock),[]);
+  const activeItems=reminderNotifications({...d,active:{id:'active',date:'2030-01-03',runningSince:clock}},'en',clock);
+  assert.ok(activeItems.length>0, 'an abandoned session must retain future invitations');
+  assert.ok(activeItems.every(n=>n.extra.recordId!=='2030-01-03'));
+});
+
+test('suggestions respect local practice dates, weekly goal and weekly streak priority', () => {
+  const clock=new Date('2030-01-04T09:00:00').getTime(); // Friday
+  const d={plans:[],events:[],sessions:[{date:'2029-12-28',elapsedMs:90*60000}],preferences:{notificationsEnabled:true,practiceSuggestions:true,weeklyMinutes:90}};
+  assert.equal(reminderNotifications(d,'en',clock)[0].extra.reason,'streak');
+  d.sessions.push({date:'2030-01-01',elapsedMs:60000});
+  assert.equal(reminderNotifications(d,'en',clock)[0].extra.reason,'goal');
+  d.sessions.push({date:'2030-01-04',elapsedMs:90*60000});
+  const items=reminderNotifications(d,'en',clock);
+  assert.ok(items.every(n=>n.extra.recordId!=='2030-01-04'));
+  assert.ok(items.every(n=>n.extra.reason!=='goal'||n.extra.recordId>='2030-01-07'));
+  const thursday=new Date('2030-01-03T09:00:00').getTime();
+  d.sessions=[{date:'2030-01-02',elapsedMs:60000}];
+  assert.ok(reminderNotifications(d,'en',thursday).every(n=>n.extra.recordId!=='2030-01-03'));
+});
+
+test('appointments win over suggestions on the same day and completed lessons are excluded', () => {
+  const clock=new Date('2030-01-04T09:00:00').getTime();
+  const d={plans:[],events:[{...event('lesson'),date:'2030-01-04'}],sessions:[],preferences:{notificationsEnabled:true,practiceSuggestions:true,weeklyMinutes:90}};
+  const items=reminderNotifications(d,'es',clock);
+  assert.equal(items.filter(n=>n.schedule.at.getDate()===4).length,1);
+  assert.equal(items[0].extra.recordType,'event');
+  d.sessions=[{date:'2030-01-04',elapsedMs:60000,lessonEventId:'lesson'}];
+  assert.ok(reminderNotifications(d,'es',clock).every(n=>n.schedule.at.getDate()!==4));
+});
+
+test('turning notifications off cancels owned notifications without asking permission', async () => {
+  let cancelled;
+  const sync=createReminderScheduler({getPending:async()=>({notifications:[{id:1,extra:{spinoReminder:true}},{id:2}]}),cancel:async value=>{cancelled=value.notifications;}});
+  assert.equal((await sync({...data(),preferences:{notificationsEnabled:false}},false,'en')).enabled,false);
+  assert.deepEqual(cancelled,[{id:1}]);
+});
