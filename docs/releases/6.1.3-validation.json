@@ -41,5 +41,5 @@
   },
   "fullSuite": "Not green: historical beta-site assertions refer to 6.1.0; legacy browse-surfaces, compact-help and companion routes need test maintenance. The broad concurrent browser run was stopped after a hang. The requested removal of beta copy required updating one export assertion; its final release test passes.",
   "physicalDeviceAcceptance": false,
-  "publication": "prepared"
+  "publication": "Submitted to Google Play production at 100%, with all five localized listings; Console confirms Changes in review. Automatic checks and approval pending."
 }

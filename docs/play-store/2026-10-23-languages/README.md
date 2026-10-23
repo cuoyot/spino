@@ -19,3 +19,7 @@ The final run is `docs/quality-review/captures/website/2026-10-23-de-hu-04/`. It
 5. Use the Codex in-app browser for release/Play Console operations, never the owner's Chrome browser.
 
 This checklist is a handoff for a future release, not a scheduled or unattended publication.
+
+## Release execution
+
+The owner subsequently requested publication. The changes are packaged in [6.1.3 (91)](../../releases/6.1.3.md), submitted to Google Play with all five phone screenshot sets and new German/Hungarian listings. See the release record for verification and publication status.
