@@ -220,3 +220,6 @@ if(recoveryBeta){
 
 const manageBeta=releases.find(r=>r.version==='6.1.2-beta.2');
 if(manageBeta)Object.assign(manageBeta.notes,{"es": "Gestionar sincronización ahora organiza el cuaderno y la cuenta, el interruptor automático, el QR y la copia local. Las opciones de recuperación quedan agrupadas. Pausar o reanudar mantiene la ventana abierta. Incluye las mejoras anteriores de recuperación del historial de Drive.", "ca": "Gestiona la sincronització ara organitza el quadern i el compte, l’interruptor automàtic, el QR i la còpia local. Les opcions de recuperació queden agrupades. Posar en pausa o reprendre manté la finestra oberta. Inclou les millores anteriors de recuperació de l’historial de Drive."});
+
+const midiBeta=releases.find(r=>r.version==='6.1.4-beta.2');
+if(midiBeta){const tagged=await readFile(new URL('../../docs/releases/6.1.4-beta.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,locale] of [['en','en-US'],['es','es-ES'],['ca','ca'],['de','de-DE'],['hu','hu-HU']])midiBeta.notes[lang]=tagged.split('<'+locale+'>')[1].split('</'+locale+'>')[0].trim();}

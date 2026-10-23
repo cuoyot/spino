@@ -1,0 +1,19 @@
+<es-ES>
+Graba MIDI mientras lees la partitura. Visualización compacta de teclas y pedal, minimizable sin interrumpir la toma. Reproduce con sonido de piano y exporta archivos .mid para otros programas. Incluye guardado local y copias sincronizadas.
+</es-ES>
+
+<en-US>
+Record MIDI while reading your score. Compact key and pedal feedback minimizes without interrupting capture. Play recordings with piano sound and export .mid files for other programs. Includes local storage and synchronized copies.
+</en-US>
+
+<ca>
+Grava MIDI mentre llegeixes la partitura. Visualització compacta de tecles i pedal, minimitzable sense interrompre la presa. Reprodueix amb so de piano i exporta fitxers .mid per a altres programes. Inclou desament local i còpies sincronitzades.
+</ca>
+
+<de-DE>
+Nimm MIDI auf, während du die Noten liest. Die kompakte Tasten- und Pedalanzeige lässt sich ohne Aufnahmeunterbrechung minimieren. Höre Aufnahmen mit Klavierklang und exportiere .mid-Dateien für andere Programme. Mit lokaler Speicherung und synchronisierten Kopien.
+</de-DE>
+
+<hu-HU>
+Rögzíts MIDI-t kottaolvasás közben. A billentyűk és a pedál kompakt kijelzése a felvétel megszakítása nélkül összecsukható. Hallgasd vissza zongorahangon, és exportálj .mid fájlokat más programokhoz. Helyi tárolással és szinkronizált másolatokkal.
+</hu-HU>

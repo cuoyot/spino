@@ -1,0 +1,32 @@
+{
+  "version": "6.1.4-beta.2",
+  "versionCode": 93,
+  "sourceCommit": "b64713c2dfa9558effa4a01f6f8ceaba6d32ce18",
+  "focusedTests": {
+    "passed": 29,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "packagedWebFiles": 679,
+  "signatures": {
+    "aab": "verified",
+    "apk": "verified"
+  },
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 252,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{fa10d08 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t160}"
+    ],
+    "loadedScreenshot": "output/releases/6.1.4-beta.2/emulator-loaded.png"
+  },
+  "physicalMidiAcceptance": "pending",
+  "playConsole": "Not submitted; owner requested APK and website publication."
+}
