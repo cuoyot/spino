@@ -1,0 +1,19 @@
+<es-ES>
+La conexión con Google Drive muestra actividad, el paso actual y el tiempo de espera. Al comparar cuadernos indica el avance y avisa si Drive tarda más. Cerrar la ventana evita que vuelva a abrirse sola. Mantiene las funciones de sincronización y copias de la beta anterior.
+</es-ES>
+
+<en-US>
+Google Drive connection now shows activity, the current step and elapsed time. Notebook comparison shows progress and explains longer waits. Closing the window prevents it from reopening automatically. Includes the previous beta’s synchronization and backup features.
+</en-US>
+
+<ca>
+La connexió amb Google Drive mostra activitat, el pas actual i el temps d’espera. La comparació de quaderns indica el progrés i avisa si Drive triga més. Tancar la finestra evita que es torni a obrir sola. Manté les funcions de sincronització i còpies de la beta anterior.
+</ca>
+
+<de-DE>
+Die Google-Drive-Verbindung zeigt Aktivität, den aktuellen Schritt und die Wartezeit. Beim Vergleichen von Notizbüchern werden Fortschritt und längere Wartezeiten angezeigt. Geschlossene Fenster öffnen sich nicht erneut. Enthält die Synchronisierungs- und Sicherungsfunktionen der vorherigen Beta.
+</de-DE>
+
+<hu-HU>
+A Google Drive-kapcsolat jelzi az aktivitást, az aktuális lépést és az eltelt időt. A füzetek összehasonlításakor látható az előrehaladás és a hosszabb várakozás oka. A bezárt ablak nem nyílik meg újra. Tartalmazza az előző béta szinkronizálási és mentési funkcióit.
+</hu-HU>
