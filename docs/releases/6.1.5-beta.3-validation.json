@@ -1,0 +1,12 @@
+{
+  "version": "6.1.5-beta.3",
+  "versionCode": 102,
+  "focusedUnitTests": 128,
+  "websiteTests": 8,
+  "androidBuildAndTests": "passed",
+  "browserRecovery": "passed: history, PDF cache, audio ZIP, retained archive, separate restore",
+  "browserActualConnection": "passed: legacy confirmation, existing remote without merge",
+  "nativeInstall": "Replacement install and package query timed out; no wipe. Foreground unverified.",
+  "personalDriveModified": false,
+  "physicalGoogleTwoDevice5G": "pending"
+}

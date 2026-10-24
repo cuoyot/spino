@@ -164,7 +164,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   const requireDisconnected = () => {
     if ((state.mode === 'sync' ? state : independent.state).name) throw new Error('Disconnect the current notebook before connecting another one.');
   };
-  async function connectShared(join, link = null) {
+  async function connectShared(join, link = null, keepLocal = true) {
     requireDisconnected();
     if (task || independent.busy) throw new Error('Wait for the current backup operation.');
     if (!eligible()) throw new Error('Finish practice and close editors and downloads before connecting a shared notebook.');
@@ -186,7 +186,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         state = { notebookId, mode: 'sync', name: result.name, enabled: false, status: 'paused', error: '', conflicts: [],lastWrittenAt:new Date().toISOString() };
         publish();
         await saveBase(null);
-        if (join) content(result.text);
+        if (join) {const remote=content(result.text);if(!keepLocal){if(!canApply()||stableJSON(content(await snapshot()))!==stableJSON(local))throw new Error('Local data changed while connecting. Review the connection again.');await adapter.saveRecovery({text:encode(local)});applying=true;try{await apply(encode(remote),remote);}finally{applying=false;}await saveBase(remote);}}
         if (!join) await saveBase(local);
         state.enabled = true;
         state.status = 'writing'; publish();
@@ -266,7 +266,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       return task;
     },
     createShared: () => connectShared(false),
-    joinShared: code => connectShared(true, code ? parseDeviceLink(code) : null),
+    joinShared: (code,{keepLocal=true}={}) => connectShared(true, code ? parseDeviceLink(code) : null,keepLocal),
     async relink() {
       if (state.mode !== 'sync' || !state.notebookId) throw new Error('Connect a shared notebook first.');
       if (task || independent.busy) throw new Error('Wait for synchronization.');

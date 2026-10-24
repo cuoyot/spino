@@ -13,3 +13,7 @@ Beta limits: automatic checks run with the application open; archives are limite
 A broad test attempt passed 376 tests, skipped three and encountered 148 browser-listener sandbox failures, five missing sparse site fixtures, and one unrelated timezone-sensitive lesson reminder assertion. Focused feature tests and rebuilt-site tests are the release gates; do not claim the full suite passed.
 
 Connection feedback follow-up: the notebook picker now shows animated activity, real connect/list/compare phases, comparison count and elapsed seconds. After ten seconds it explains that Drive/network/notebook size can extend the wait. Closing the dialog suppresses late picker/error reopening and skips subsequent comparison requests, without claiming cancellation of the active native request. Fourteen existing Drive/recovery tests pass; a synthetic browser preview validates copy and layout. Actual phone latency remains unmeasured. Source-only fix, not included in the published beta APK.
+
+## Beta.3 follow-up
+
+Fast metadata reads and deferred PDF hydration, bounded parallel native requests, retry/elapsed feedback, local recovery before opening a remote notebook without merging, explicit legacy conversion confirmation and guarded device reset are implemented in beta.3 (102). See captures/profile/2026-10-24-sync-fast-beta3/README.md for synthetic validation and acceptance limits. Conversion is no longer implicit: the exact selected old file requires confirmation that every device has updated and synchronized. The owner's stable file remains untouched.

@@ -1,6 +1,6 @@
 {
   "name": "spino",
-  "version": "6.1.5-beta.2",
+  "version": "6.1.5-beta.3",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "GPL-3.0-or-later",
-  "description": "SPino: Smart Piano Notebook \u2014 a local piano practice companion with planning, lessons and practice history",
+  "description": "SPino: Smart Piano Notebook — a local piano practice companion with planning, lessons and practice history",
   "dependencies": {
     "@breezystack/lamejs": "1.2.7",
     "@capacitor/android": "^8.5.2",

@@ -8,11 +8,12 @@ const safe=id=>typeof id==='string'&&/^[\w-]{1,180}$/.test(id);
 export async function backupFingerprint(text,records){
  const b=JSON.parse(text);delete b.exportedAt;delete b.cloudBackup;delete b.data.lastBackup;
  // Device-only activity and download settings do not create a new daily snapshot.
+ for(const asset of b.assets||[])if(asset.remoteContent)delete asset.base64;
  b.data.active=null;for(const k of ['theme','wifiOnly'])delete b.data.preferences?.[k];
  return backupHash(stableJSON({notebook:b,media:records.filter(r=>!r.draft).map(r=>({id:r.mediaTakeId||r.id,title:r.title,workId:r.workId,createdAt:r.createdAt,sha256:r.cloud?.sha256||r.sha256})).sort((a,b)=>a.id.localeCompare(b.id))}));
 }
 export async function createCompleteBackup({text,records,load,onProgress=()=>{}}){
- const source=inspectBackup(text).backup,available=new Set(records.filter(r=>!r.draft).map(r=>r.id));for(const event of source.data.events||[])for(const id of event.recordingIds||[])if(!available.has(id))throw Error('Some linked recordings are unavailable. The complete backup was not created.');const files={'notebook.json':strToU8(text)},manifest={format:'spino-complete-backup',version:1,createdAt:new Date().toISOString(),notebookHash:await backupHash(text),recordings:[]};
+ const source=inspectBackup(text).backup;if(source.assets.some(a=>a.base64===undefined))throw Error('Download all scores before creating a complete backup.');const available=new Set(records.filter(r=>!r.draft).map(r=>r.id));for(const event of source.data.events||[])for(const id of event.recordingIds||[])if(!available.has(id))throw Error('Some linked recordings are unavailable. The complete backup was not created.');const files={'notebook.json':strToU8(text)},manifest={format:'spino-complete-backup',version:1,createdAt:new Date().toISOString(),notebookHash:await backupHash(text),recordings:[]};
  let total=files['notebook.json'].length,done=0;
  for(const row of records.filter(r=>!r.draft)){
   if(!safe(row.id)||!safe(row.mediaTakeId||row.id))throw Error('Invalid recording identity.');
@@ -34,7 +35,7 @@ export async function inspectCompleteBackup(blob){
  if(!files['manifest.json']||!files['notebook.json'])throw Error('The backup is incomplete.');
  const manifest=JSON.parse(strFromU8(files['manifest.json'])),text=strFromU8(files['notebook.json']);
  if(manifest.format!=='spino-complete-backup'||manifest.version!==1||!Array.isArray(manifest.recordings)||manifest.recordings.length>10000)throw Error('Unsupported complete backup.');
- const inspection=inspectBackup(text);if(await backupHash(text)!==manifest.notebookHash)throw Error('Notebook checksum mismatch.');
+ const inspection=inspectBackup(text);if(inspection.backup.assets.some(a=>a.base64===undefined))throw Error('The complete backup contains unavailable scores.');if(await backupHash(text)!==manifest.notebookHash)throw Error('Notebook checksum mismatch.');
  const seen=new Set(),records=[];
  for(const row of manifest.recordings){if(!safe(row.id)||row.path!=='media/'+row.id||seen.has(row.id)||!files[row.path]||files[row.path].length!==row.bytes||! /^(audio|video)\//.test(row.mimeType))throw Error('Invalid or missing backup recording.');seen.add(row.id);const media=new Blob([files[row.path]],{type:row.mimeType});if(await mediaHash(media)!==row.sha256)throw Error('Recording checksum mismatch.');records.push({...row,blob:media,remoteOnly:false,cloud:undefined});}
  for(const event of inspection.backup.data.events||[])for(const id of event.recordingIds||[])if(!seen.has(id))throw Error('A linked recording is missing from the backup.');

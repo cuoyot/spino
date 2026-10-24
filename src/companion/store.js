@@ -31,9 +31,10 @@ export async function openStore(name='cuaderno-piano') {
         const entry = cursor.result;
         if (!entry) { resolve(items); return; }
         const asset = entry.value, encoded = asset.base64 || '';
+        const remoteOnly=asset.base64===undefined&&!!asset.remoteContent;
         items.push({ id: asset.id, name: asset.name || '', pieceId: asset.pieceId,
-          format: asset.format || (asset.type === 'application/pdf' ? 'pdf' : 'musicxml'),
-          bytes: Math.max(0, Math.floor(encoded.length * 3 / 4) - (encoded.endsWith('==') ? 2 : encoded.endsWith('=') ? 1 : 0)) });
+          format: asset.format || (asset.type === 'application/pdf' ? 'pdf' : 'musicxml'),remoteOnly,
+          bytes: remoteOnly?Math.floor(asset.remoteContent.length*3/4):Math.max(0, Math.floor(encoded.length * 3 / 4) - (encoded.endsWith('==') ? 2 : encoded.endsWith('=') ? 1 : 0)) });
         entry.continue();
       };
     }),
@@ -76,6 +77,7 @@ export async function openStore(name='cuaderno-piano') {
     },
     async restore(text, { syncBase } = {}) {
       const backup = validateBackup(text);
+      for(const asset of backup.assets){if(asset.base64===undefined&&asset.remoteContent){const previous=await read('assets',asset.id);if(previous?.base64&&JSON.stringify(previous.remoteContent)===JSON.stringify(asset.remoteContent))asset.base64=previous.base64;}}
       const previous=Object.fromEntries(LEGACY_KEYS.map(k=>[k,localStorage.getItem(k)]));
       try {
         for (const key of LEGACY_KEYS) {

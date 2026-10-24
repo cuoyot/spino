@@ -5,7 +5,7 @@ import {createIncrementalNotebookAdapter} from './drive-incremental.js';
 export const driveNotebookAvailable=()=>Capacitor.getPlatform()==='android'&&Capacitor.isPluginAvailable('DriveNotebook');
 const key='spino.drive-notebook.device.v1',selectionKey='spino.notebook-transport.device.v1';
 const settings={read:()=>{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}},save:value=>localStorage.setItem(key,JSON.stringify(value))};
-export function createNotebookTransport({legacy=CloudBackup,drive=createIncrementalNotebookAdapter({native:registerPlugin('DriveNotebook'),recovery:legacy,settings}),storage=localStorage}={}){
+export function createNotebookTransport({legacy=CloudBackup,drive=createIncrementalNotebookAdapter({native:registerPlugin('DriveNotebook'),recovery:legacy,settings,fastReads:true,preserveLegacy:true}),storage=localStorage}={}){
   const current=()=>storage.getItem(selectionKey)==='drive'?drive:legacy;
   return {
     drive,
@@ -29,6 +29,7 @@ export function createNotebookTransport({legacy=CloudBackup,drive=createIncremen
 export function driveNotebookContent(backup){
   const value=structuredClone(backup);
   if(value?.data)value.data.active=null;
+  for(const asset of value?.assets||[])if(asset.remoteContent)delete asset.base64;
   if(value?.data?.preferences)for(const key of ['theme','wifiOnly'])delete value.data.preferences[key];
   return value;
 }

@@ -8,9 +8,9 @@ import {createNotebookCloud} from '../src/companion/cloud-sync.js';
 import {createCloudBackup} from '../src/companion/cloud-backup.js';
 import {block,beginSession,saveSession} from '../src/companion/model.js';
 const fixture=()=>cloudRecoveryFixture('en');
-function device(server,{account='synthetic-owner',initial={}}={}){
+function device(server,{account='synthetic-owner',initial={},fastReads=false}={}){
  let settings=structuredClone(initial),recovery=null;const values=new Map(),native=server.native(account);
- const options={native,recovery:{saveRecovery:async({text})=>{recovery=text;},readRecovery:async()=>({text:recovery})},settings:{read:()=>settings,save:v=>{settings=structuredClone(v);}},journal:{clear:async()=>values.clear(),get:async k=>structuredClone(values.get(k)),set:async(k,v)=>{values.set(k,structuredClone(v));}}};
+ const options={native,fastReads,recovery:{saveRecovery:async({text})=>{recovery=text;},readRecovery:async()=>({text:recovery})},settings:{read:()=>settings,save:v=>{settings=structuredClone(v);}},journal:{clear:async()=>values.clear(),get:async k=>structuredClone(values.get(k)),set:async(k,v)=>{values.set(k,structuredClone(v));}}};
  return {adapter:createIncrementalNotebookAdapter(options),restart:()=>createIncrementalNotebookAdapter(options),settings:()=>structuredClone(settings),recovery:()=>recovery,values,options};
 }
 const roots=server=>[...server.files.values()].filter(f=>f.appProperties?.spinoType==='spino-notebook-v2');
@@ -302,4 +302,31 @@ test('rename changes only the selected descriptor and previews never connect or 
  b.adapter.choose(original.id);await assert.rejects(b.adapter.pickBackup({expectedNotebookId:original.notebookId,expectedFileId:'wrong-file'}));
  assert.equal(b.settings().link.id,original.id);
  server.offline=true;await assert.rejects(a.adapter.rename('Unavailable rename'));assert.equal(a.settings().link.name,'Tablet practice — October');
+});
+
+
+test('fast checkpoint joins keep history visible without fetching any score bytes and accept old-client edits',async()=>{
+ const server=syntheticNotebookDrive(),writer=device(server),original=fixture();
+ await writer.adapter.create({text:JSON.stringify(original)});
+ for(let n=0;n<5;n++){const before=await writer.adapter.readLinked(),value=JSON.parse(before.text);value.data.works[0].notes='Edit '+n;await writer.adapter.write({text:JSON.stringify(value),expectedHash:before.hash});}
+ const prepared=await writer.adapter.prepareCheckpoint();assert.equal(prepared.created,true);
+ const reader=device(server,{fastReads:true});reader.adapter.choose(roots(server)[0].id);
+ const start=server.requests.length,result=await reader.adapter.pickBackup({}),backup=JSON.parse(result.text);
+ assert.equal(backup.data.works[0].notes,'Edit 4');assert.equal(backup.assets[0].base64,undefined);assert.ok(backup.assets[0].remoteContent.parts.length);
+ const scoreIds=new Set([...server.files.values()].filter(f=>{try{return JSON.parse(f.text).kind==='score-bytes';}catch{return false;}}).map(f=>f.id));
+ assert.ok(!server.requests.slice(start).some(r=>[...scoreIds].some(id=>r.path.includes('/'+id+'?alt=media'))));
+ const reads=server.requests.slice(start).filter(r=>r.path.includes('alt=media'));assert.ok(reads.length<=2,'Index + one compressed checkpoint: '+reads.length);
+ const score=await reader.adapter.downloadAsset(backup.assets[0].id);assert.equal(score.base64,original.assets[0].base64);
+ // Older client writes an ordinary commit after the checkpoint: it must not be skipped.
+ const before=await writer.adapter.readLinked(),value=JSON.parse(before.text);value.data.works[0].notes='From older client';await writer.adapter.write({text:JSON.stringify(value),expectedHash:before.hash});
+ assert.equal(JSON.parse((await reader.adapter.readLinked()).text).data.works[0].notes,'From older client');
+ const rd=await reader.adapter.readLinked(),edited=JSON.parse(rd.text);edited.data.works[0].bpm=88;await reader.adapter.write({text:JSON.stringify(edited),expectedHash:rd.hash});
+ const oldRead=JSON.parse((await writer.adapter.readLinked()).text);assert.equal(oldRead.data.works[0].bpm,88);assert.equal(oldRead.assets[0].base64,original.assets[0].base64);
+});
+test('protected legacy connection never archives, renames or writes the stable file',async()=>{const server=syntheticNotebookDrive(),d=device(server),old=createDriveNotebookAdapter(d.options);await old.create({text:JSON.stringify(fixture())});const before=[...server.files.values()].map(f=>structuredClone(f)),modern=createIncrementalNotebookAdapter({...d.options,fastReads:true,preserveLegacy:true}),start=server.requests.length;await assert.rejects(modern.readLinked(),{code:'MIGRATION_REQUIRED'});assert.deepEqual([...server.files.values()],before);assert.ok(server.requests.slice(start).every(r=>!r.method||r.method==='GET'));});
+
+test('legacy conversion requires consent for this exact file; modern client follows verified redirect',async()=>{
+ const server=syntheticNotebookDrive(),d=device(server),old=createDriveNotebookAdapter(d.options);await old.create({text:JSON.stringify(fixture())});const legacy=[...server.files.values()].find(f=>f.appProperties?.spinoType==='spino-notebook-v1'),modern=createIncrementalNotebookAdapter({...d.options,fastReads:true,preserveLegacy:true});
+ modern.authorizeMigration('another-file');await assert.rejects(modern.readLinked(),{code:'MIGRATION_REQUIRED'});modern.authorizeMigration(legacy.id);const result=JSON.parse((await modern.readLinked()).text);assert.equal(result.data.works.length,fixture().data.works.length);assert.equal(legacy.appProperties.spinoType,'spino-notebook-archive-v1');
+ const second=createIncrementalNotebookAdapter({...d.options,fastReads:true,preserveLegacy:true});assert.equal(JSON.parse((await second.readLinked()).text).data.works.length,result.data.works.length);
 });

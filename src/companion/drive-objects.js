@@ -18,7 +18,7 @@ export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId
   let value;try{value=JSON.parse(text);}catch{throw atomicFailure('Invalid incremental object data.');}
   if(!saved?.verified)await journal.set(key(hash),{id:locations.get(hash)||saved?.id,text,verified:true});cache.set(hash,value);return value;
  }
- async function put(value,{commit=false}={}){
+ async function put(value,{commit=false,checkpointCount=0}={}){
   const text=stableJSON(value);if(new TextEncoder().encode(text).length>1048576)throw atomicFailure('An incremental object exceeds 1 MB.','LIMIT');
   const hash=await backupHash(text),saved=await journal.get(key(hash));
   if(saved?.verified){if(saved.text!==text)throw atomicFailure('Incremental content identity mismatch.','INTEGRITY');cache.set(hash,value);return hash;}
@@ -29,7 +29,7 @@ export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId
   // After a lost POST response the same allocated ID is verified, never duplicated.
   const existing=await api(`/drive/v3/files/${id}?fields=${objectFields}`,{missing:true});
   if(existing){if(await confirm(JSON.parse(existing.text)))return hash;locations.set(hash,id);await get(hash);return hash;}
-  const metadata={id,name:(commit?'Change ':'Object ')+hash.slice(0,16),mimeType:'application/json',...(folderId?{parents:[folderId]}:{}),appProperties:{spinoType:commit?COMMIT_MARKER:OBJECT_MARKER,rootId,notebookId,hash}};
+  const metadata={id,name:(commit?'Change ':'Object ')+hash.slice(0,16),mimeType:'application/json',...(folderId?{parents:[folderId]}:{}),appProperties:{spinoType:commit?COMMIT_MARKER:OBJECT_MARKER,rootId,notebookId,hash,...(checkpointCount?{checkpointCount:String(checkpointCount)}:{})}};
   const boundary='spino_'+crypto.randomUUID().replaceAll('-','');
   const body=`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${text}\r\n--${boundary}--\r\n`;
   const response=await api('/upload/drive/v3/files?uploadType=multipart&fields='+objectFields,{method:'POST',text:body,contentType:'multipart/related; boundary='+boundary,allowConflict:true});

@@ -100,3 +100,10 @@ New QR codes identify the exact Drive file as well as the logical notebook. Upda
 Save a local copy is available in Manage and through Export file. Export from the installation that contains the wanted practices. Beta and stable have separate native storage even on one device; each exports only its own notebook. Filenames include channel, version and a timestamp. JSON includes history, scores and annotations, but not audio/video binaries. Restoring replaces the notebook in the app where Restore is used and disconnects that app's synchronization; it does not replace the other installed channel's notebook. Export both notebooks before a manual restore if both contain wanted local changes.
 
 Verification uses disposable synthetic notebooks in browser portrait/landscape layouts and protocol tests. The owner's real duplicate Drive files and unsupported recording metadata remain uninspected; no remote file is deleted or automatically combined by the comparison screen.
+
+
+## Beta.3 connection and recovery
+
+History and settings arrive before score downloads. A score marked “In Drive” downloads when opened; the confirmation allows mobile data. Opening an existing notebook offers “Add my data” or “Open without adding them”. The latter first retains a verified complete local ZIP, accessible from Profile. Restoring a complete ZIP opens a separate notebook. Storage management exposes the latest seven changed daily backups, the principal device, and a guarded reset that retains a complete recovery archive before clearing this installation. Daily checks run while Spino is open; complete archives have a 250 MB beta limit.
+
+Converting an old Drive file requires confirming that Spino is updated on every device and all their changes are synchronized. Keep older devices disconnected until updated. Updated devices follow a verified migration redirect. The original file is retained for recovery.

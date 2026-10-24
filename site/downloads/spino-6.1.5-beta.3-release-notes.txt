@@ -1,0 +1,9 @@
+<es-ES>
+Sincronización del historial antes de descargar partituras, con progreso y reintentos. Descarga manual de partituras con wifi o 5G. Conexión más sencilla y copia local recuperable antes de abrir otro cuaderno sin mezclar datos. La conversión exige confirmar que todos los dispositivos están actualizados. Copias ZIP completas: últimas 7, solo el principal y si hay cambios. Beta: app abierta y ZIP hasta 250 MB.
+</es-ES>
+<en-US>
+History synchronizes before score downloads, with progress and retries. Download scores manually over Wi-Fi or mobile data. Simpler connection and a recoverable local copy before opening another notebook without merging. Conversion requires confirmation that every device is updated. Complete ZIP backups: latest 7, only the principal device and only after changes. Beta: app must be open; ZIP limit 250 MB.
+</en-US>
+<ca>
+Sincronització de l’historial abans de baixar partitures, amb progrés i reintents. Baixada manual amb wifi o 5G. Connexió més senzilla i còpia local recuperable abans d’obrir un altre quadern sense barrejar dades. La conversió exigeix confirmar que tots els dispositius estan actualitzats. Còpies ZIP completes: últimes 7, només el principal i si hi ha canvis. Beta: app oberta i ZIP fins a 250 MB.
+</ca>

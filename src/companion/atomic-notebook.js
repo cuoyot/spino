@@ -25,7 +25,8 @@ export async function notebookRecords(backup,putContent){
  for(const [key,item] of Object.entries(value.data.preferences))records['preference/'+encode(key)]=item;
  delete value.data.preferences;
  for(const asset of value.assets){
-  const {base64,...metadata}=asset,parts=[];
+  const {base64,remoteContent,...metadata}=asset,parts=[];
+  if(remoteContent){records['asset/'+encode(asset.id)]={...metadata,content:remoteContent};continue;}
   // Each immutable piece has a bounded request and its own durable retry checkpoint.
   for(let offset=0;offset<base64.length;offset+=524288)parts.push(await putContent({kind:'score-bytes',value:base64.slice(offset,offset+524288)}));
   records['asset/'+encode(asset.id)]={...metadata,content:{parts,length:base64.length}};
@@ -39,7 +40,7 @@ export async function notebookRecords(backup,putContent){
  records.header=value;
  return records;
 }
-export async function recordsNotebook(records,getContent){
+export async function recordsNotebook(records,getContent,{deferred=false}={}){
  if(!records.header)throw atomicFailure('The incremental notebook is incomplete. Retry synchronization.','INCOMPLETE');
  const backup=structuredClone(records.header);backup.assets=[];backup.data.preferences={};
  const grouped={},orders={};
@@ -53,6 +54,7 @@ export async function recordsNotebook(records,getContent){
   if(kind==='asset'){
    const {content,...metadata}=value;
    if(metadata.id!==decode(a)||!content||!Array.isArray(content.parts)||content.parts.length>1000||!content.parts.every(h=>hashPattern.test(h))||!Number.isSafeInteger(content.length)||content.length<0||content.length>34000000)throw atomicFailure('Invalid incremental score reference.');
+   if(deferred){backup.assets.push({...metadata,remoteContent:content});continue;}
    const pieces=[];for(const hash of content.parts){const part=await getContent(hash);if(part.kind!=='score-bytes'||typeof part.value!=='string'||part.value.length>524288)throw atomicFailure('Invalid incremental score content.');pieces.push(part.value);}
    const base64=pieces.join('');if(base64.length!==content.length)throw atomicFailure('The downloaded score is incomplete.','INTEGRITY');backup.assets.push({...metadata,base64});
   }

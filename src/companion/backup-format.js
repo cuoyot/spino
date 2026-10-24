@@ -10,6 +10,7 @@ function readJSON(text) {
 }
 export function inspectBackup(text) {
   const source=readJSON(text);
+  if((source.assets||source.scores||[]).some(a=>a.remoteContent&&a.base64===undefined))throw new Error('This copy contains pending scores. Export a complete backup from the connected device first.');
   if(source?.format==='cuaderno-piano') {
     if(Number.isInteger(source.version)&&source.version>VERSION)throw tooNew();
     return {text,backup:validateBackup(text),containerVersion:1,converted:false};

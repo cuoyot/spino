@@ -1,5 +1,7 @@
 # Release quality review
 
+2026-10-24 beta.3: fast metadata sync, deferred scores, simple connection choices, explicit migration confirmation and guarded local recovery. [Evidence and remaining native/physical acceptance](captures/profile/2026-10-24-sync-fast-beta3/README.md).
+
 2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
 
 2026-10-21 website audit follow-up: download buttons now have 5.17:1 white-text contrast (6.70:1 on hover), and the Hanon video loads on playback instead of preloading metadata. Local Lighthouse accessibility and best-practices scores are both 100, with no contrast or console errors. Eight unit checks and four browser checks pass, including video decoding/seek/resume in all three languages and four responsive layouts. The reported public connection failure was not reproduced: the full movie checksum and byte-range response pass. [Evidence and scope](captures/website/2026-10-21-accessibility-media-01/README.md). Local source/browser only; publication remains pending.

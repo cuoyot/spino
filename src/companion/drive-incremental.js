@@ -1,3 +1,4 @@
+import {packCheckpoint,unpackCheckpoint} from './drive-checkpoint.js';
 import {createDriveRequestGate} from './drive-request.js';
 import {backupHash} from './cloud-backup.js';
 import {validateBackup} from './model.js';
@@ -10,17 +11,24 @@ import {createDriveJournal} from './drive-journal.js';
 const oldMarker='spino-notebook-v1',archivedMarker='spino-notebook-archive-v1';
 const parse=response=>JSON.parse(response.text),equal=(a,b)=>stableJSON(a)===stableJSON(b);
 const bytes=text=>new TextEncoder().encode(text).length;
-export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=150000}){
- let destination=null,selected=null,client=null,progress=null,progressListener=()=>{};
+export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=60000,fastReads=false,preserveLegacy=false}){
+ let migrationConsent=null,destination=null,selected=null,client=null,progress=null,progressListener=()=>{},metrics={requests:0,receivedBytes:0,startedAt:0};
  const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs});
- const report=(stage,completed=0,total=null)=>{progress={stage,completed,total};progressListener();};
+ const report=(stage,completed=0,total=null)=>{progress={stage,completed,total,...metrics,elapsedSeconds:Math.floor((Date.now()-metrics.startedAt)/1000)};progressListener();};
  const state=()=>settings.read()||{},save=next=>settings.save(next);
- const serialized=async fn=>requests.serialized(async()=>{report('checking');try{return await fn();}finally{progress=null;progressListener();}});
+ const serialized=async fn=>requests.serialized(async()=>{metrics={requests:0,receivedBytes:0,startedAt:Date.now()};report('checking');const timer=setInterval(()=>{if(progress)report(progress.stage,progress.completed,progress.total);},1000);try{return await fn();}finally{clearInterval(timer);progress=null;progressListener();}});
  async function account(){const value=(await requests.run(()=>native.status())).account;if(!value?.id)throw atomicFailure('Connect Google Drive. Your notebook is saved locally.','PERMISSION_REQUIRED');return value;}
  async function api(path,{method='GET',text,etag,contentType,missing=false,allowConflict=false}={}){
   const connected=await account(),link=state().link;if(link&&link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');
-  const requestId=crypto.randomUUID();
-  const r=await requests.run(()=>native.request({path,method,text,etag,contentType,accountId:connected.id,requestId}),{requestId});
+  let r;
+  for(let attempt=0;;attempt++){
+   const requestId=crypto.randomUUID();metrics.requests++;
+   try{r=await requests.run(()=>native.request({path,method,text,etag,contentType,accountId:connected.id,requestId}),{requestId});metrics.receivedBytes+=bytes(r.text||'');
+    if(method==='GET'&&[429,500,502,503,504].includes(r.status))throw atomicFailure('Drive is temporarily unavailable.','PROVIDER_ERROR');break;
+   }catch(error){if(method!=='GET'||error.code!=='PROVIDER_ERROR'||attempt>=2)throw error;
+    const previous=progress;report('retrying',attempt+1,2);await requests.run(()=>new Promise(resolve=>setTimeout(resolve,1000*2**attempt)));if(previous)report(previous.stage,previous.completed,previous.total);
+   }
+  }
   if(missing&&r.status===404)return null;
   if(allowConflict&&r.status===409)return r;
   if(r.status===409||r.status===412)throw atomicFailure('The Drive notebook changed. Reading the latest changes before retrying.','CONFLICT');
@@ -74,18 +82,28 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   if(refreshFeed)await refresh(c,{fullScan});
   if(c.graph)return c.graph;
   report('receiving');
+  const raw=new Map();
+  if(fastReads){const checkpoints=c.catalog.files.filter(f=>Number(f.appProperties.checkpointCount)>0).sort((a,b)=>Number(b.appProperties.checkpointCount)-Number(a.appProperties.checkpointCount));
+   if(checkpoints.length){report('checkpoint');try{const cached=await unpackCheckpoint(await c.objects.get(checkpoints[0].appProperties.hash));for(const [key,value] of cached)raw.set(key,value);}catch(error){if(!['INTEGRITY','LIMIT','FILE_UNAVAILABLE','INVALID_NOTEBOOK'].includes(error.code))throw error;report('receiving');}}}
+  const get=async hash=>{if(raw.has(hash))return raw.get(hash);const value=await c.objects.get(hash);raw.set(hash,value);return value;};
   const commits=new Map(),pending=[...new Set([...(c.initialHeads||[]),...c.catalog.files.filter(f=>f.appProperties.spinoType===COMMIT_MARKER).map(f=>f.appProperties.hash)])];
+  if(fastReads){
+   // Existing notebooks have no checkpoint yet. Bound parallel reads, never writes.
+   const prefetch=async hashes=>{const queue=[...new Set(hashes)].filter(h=>!raw.has(h));let index=0,failure=null,completed=0;await Promise.all(Array.from({length:Math.min(4,queue.length)},async()=>{while(index<queue.length&&!failure){const h=queue[index++];try{await get(h);report('receiving',++completed,queue.length);}catch(error){failure??=error;}}}));if(failure)throw failure;};
+   await prefetch(pending);
+   const parts=pending.flatMap(h=>validateCommit(raw.get(h),c.rootId,c.notebookId).parts);await prefetch(parts);
+  }
   for(const hash of pending){
    if(commits.has(hash))continue;
    report('receiving',commits.size,pending.length);
-   const commit=validateCommit(await c.objects.get(hash),c.rootId,c.notebookId),changes=[];
-   for(const part of commit.parts)changes.push(...structuredClone(validateChanges(await c.objects.get(part))));
-   for(const change of changes)if(change.value?.$spinoRecordParts){const refs=change.value.$spinoRecordParts;if(!Array.isArray(refs)||refs.length>1000||!refs.every(h=>hashPattern.test(h)))throw atomicFailure('Invalid large record reference.');const pieces=[];for(const h of refs){const piece=await c.objects.get(h);if(piece.kind!=='large-record-part'||typeof piece.value!=='string')throw atomicFailure('Invalid large record content.');pieces.push(piece.value);}try{change.value=JSON.parse(pieces.join(''));}catch{throw atomicFailure('Invalid large record data.');}}
+   const commit=validateCommit(await get(hash),c.rootId,c.notebookId),changes=[];
+   for(const part of commit.parts)changes.push(...structuredClone(validateChanges(await get(part))));
+   for(const change of changes)if(change.value?.$spinoRecordParts){const refs=change.value.$spinoRecordParts;if(!Array.isArray(refs)||refs.length>1000||!refs.every(h=>hashPattern.test(h)))throw atomicFailure('Invalid large record reference.');const pieces=[];for(const h of refs){const piece=await get(h);if(piece.kind!=='large-record-part'||typeof piece.value!=='string')throw atomicFailure('Invalid large record content.');pieces.push(piece.value);}try{change.value=JSON.parse(pieces.join(''));}catch{throw atomicFailure('Invalid large record data.');}}
    if(new Set(changes.map(v=>v.key)).size!==changes.length)throw atomicFailure('An incremental commit repeats a record.');
    commits.set(hash,{...commit,changes});for(const parent of commit.parents)if(!pending.includes(parent))pending.push(parent);if(pending.length>100000)throw atomicFailure('Too many incremental commits.','LIMIT');
   }
   report('merging');
-  const result=mergeCommitGraph(commits);c.graph=result;return result;
+  const result=mergeCommitGraph(commits);c.graph=result;c.checkpointObjects=raw;return result;
  }
  async function publish(c,records,{force=[],base=null}={}){
   const before=base||await graph(c),changes=recordChanges(before.records,records,force).map(change=>({...change,previous:before.versions[change.key]||[]}));
@@ -107,7 +125,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  async function read(c,options){
   const materialized=await graph(c,options);if(c.lastGraph===materialized&&c.lastRead)return c.lastRead;
   report('scores');
-  const result=materialized,backup=await recordsNotebook(result.records,c.objects.get);
+  const result=materialized,backup=await recordsNotebook(result.records,c.objects.get,{deferred:fastReads});
   backup.cloudBackup={sharedNotebookId:c.notebookId,atomicHeads:result.heads};
   const text=stableJSON(backup);validate(text);const answer={text,hash:await backupHash(text),conflicts:result.conflicts,conflictKeys:result.conflictKeys,conflictDetails:result.conflictDetails,records:result.records,heads:result.heads,versions:result.versions};c.lastGraph=materialized;c.lastRead=answer;return answer;
  }
@@ -150,6 +168,8 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  async function activate(root,file){if(file.appProperties.ready==='1')return;if(root.origin){const previous=await metadata(root.origin);if(previous.appProperties?.spinoType!==archivedMarker||previous.appProperties.atomicRoot!==file.id)throw atomicFailure('The previous connection must finish migration first.','INCOMPLETE');}await api(`/drive/v2/files/${file.id}?fields=id`,{method:'PUT',text:JSON.stringify({properties:Object.entries({...file.appProperties,ready:'1'}).map(([key,value])=>({key,value,visibility:'PRIVATE'}))})});file.appProperties.ready='1';}
  async function migrate(id){
   const old=await oldSnapshot(id);if(old.redirect){const value=await descriptor(old.redirect);await read(await open(value.root));await activate(value.root,value.file);await link(value.root,value.file);return value;}
+  if(preserveLegacy&&migrationConsent!==id)throw atomicFailure('Update Spino on all devices and synchronize their changes before converting this notebook.','MIGRATION_REQUIRED');
+  migrationConsent=null;
   await recovery.saveRecovery({text:old.text});
   const created=await createRoot(old.text,old.name,{origin:id});
   const properties={...old.properties,spinoType:archivedMarker,atomicRoot:created.file.id};
@@ -163,6 +183,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  }
  return {
   transport:'drive',
+  authorizeMigration:id=>{if(!validDriveId(id))throw atomicFailure('Choose a notebook.');migrationConsent=id;},
   storageRequest:(path,options)=>serialized(()=>api(path,options)),
   storageLink:()=>({...state().link}),
   setDestination:value=>{if(value&&(!validDriveId(value.folderId)||typeof value.name!=='string'||!value.name.trim()||value.name.length>200))throw atomicFailure('Choose a folder and file name.');destination=value;},
@@ -204,6 +225,8 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
    const resolved=mergeNotebooks(detail.hasBase?wrap(detail.base):null,wrap(localRecords[key]),wrap(before.records[key]),'local',detail.paths).backup.record;
    if(resolved!==undefined)wanted[key]=resolved;else delete wanted[key];
   }const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);}),
+  prepareCheckpoint:()=>serialized(async()=>{const c=await current();await graph(c);const packed=packCheckpoint(c.checkpointObjects||new Map());if(!packed)return {created:false};const count=[...(c.checkpointObjects||new Map()).values()].filter(v=>v?.format===ATOMIC_FORMAT).length;if(!count)return {created:false};const existing=Math.max(0,...c.catalog.files.map(f=>Number(f.appProperties.checkpointCount)||0));if(existing&&count<existing+20)return {created:true,reused:true,count:existing};report('checkpoint');await c.objects.put(packed,{checkpointCount:count});return {created:true,count};}),
+  downloadAsset:id=>serialized(async()=>{const c=await current(),g=await graph(c),key='asset/'+encodeURIComponent(id);if(!g.records[key])throw atomicFailure('This score is no longer in the notebook.','FILE_UNAVAILABLE');report('scores');return {...(await recordsNotebook({header:g.records.header,[key]:g.records[key]},c.objects.get)).assets[0],remoteContent:g.records[key].content};}),
   async acknowledgeSetup(){save({...state(),setupPending:false});},
   saveRecovery:o=>recovery.saveRecovery(o),readRecovery:()=>recovery.readRecovery(),
   async clearDeviceCache(){if(requests.busy)throw atomicFailure('Wait for synchronization.','BUSY');await journal.clear();client=null;},

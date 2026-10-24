@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class DriveNotebookPlugin extends Plugin {
     private static final String SCOPE="https://www.googleapis.com/auth/drive.file";
     private static final int LIMIT=60000000;
-    private final ExecutorService worker=Executors.newSingleThreadExecutor();
+    private final ExecutorService worker=Executors.newFixedThreadPool(4);
     private final ScheduledExecutorService deadlines=Executors.newSingleThreadScheduledExecutor();
     private final ConcurrentHashMap<String,Request> requests=new ConcurrentHashMap<>();
     private final class Request {
@@ -116,7 +116,7 @@ public class DriveNotebookPlugin extends Plugin {
         HttpURLConnection c=(HttpURLConnection)new URL("https://www.googleapis.com"+path).openConnection();
         try{
             if(request!=null){request.connection=c;if(request.finished.get())throw new IOException("Request cancelled.");}
-            c.setConnectTimeout(20000);c.setReadTimeout(120000);c.setInstanceFollowRedirects(false);c.setUseCaches(false);c.setRequestMethod(method);
+            c.setConnectTimeout(10000);c.setReadTimeout(30000);c.setInstanceFollowRedirects(false);c.setUseCaches(false);c.setRequestMethod(method);
             c.setRequestProperty("Authorization","Bearer "+token);c.setRequestProperty("Accept","application/json");
             if(etag!=null){if(!etag.matches("\"[^\"\\r\\n]+\""))throw new IOException("Invalid Drive revision.");c.setRequestProperty("If-Match",etag);}
             if(text!=null){byte[] body=text.getBytes(StandardCharsets.UTF_8);if(body.length>LIMIT)throw new IOException("The notebook exceeds 60 MB.");c.setRequestProperty("Content-Type",contentType==null?"application/json; charset=UTF-8":contentType);c.setDoOutput(true);c.setFixedLengthStreamingMode(body.length);try(OutputStream out=c.getOutputStream()){out.write(body);}}
@@ -136,8 +136,8 @@ public class DriveNotebookPlugin extends Plugin {
         if(!requestId.matches("[a-zA-Z0-9_-]{1,100}")){call.reject("Invalid Drive request identity.","INVALID_REQUEST");return;}
         Request request=new Request(requestId,call);
         if(requests.putIfAbsent(requestId,request)!=null){call.reject("This Drive request is already pending.","BUSY");return;}
-        request.totalDeadline=deadlines.schedule(()->request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR"),140,TimeUnit.SECONDS);
-        request.authDeadline=deadlines.schedule(()->request.fail("Google Drive did not respond in time. Pending changes are kept. Retry synchronization.","PROVIDER_ERROR"),30,TimeUnit.SECONDS);
+        request.totalDeadline=deadlines.schedule(()->request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR"),50,TimeUnit.SECONDS);
+        request.authDeadline=deadlines.schedule(()->request.fail("Google Drive did not respond in time. Pending changes are kept. Retry synchronization.","PROVIDER_ERROR"),20,TimeUnit.SECONDS);
         // Silent renewal never launches consent from an automatic sync timer.
         getActivity().runOnUiThread(()->{if(request.finished.get())return;Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(false))
             .addOnSuccessListener(result->{

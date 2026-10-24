@@ -236,8 +236,12 @@ export function validateBackup(text) {
   backup.data = validateData(backup.data);
   const ids = new Set();
   for (const a of backup.assets) {
-    if (!obj(a) || !str(a.id, 100) || ids.has(a.id) || !str(a.name, 250) || !str(a.base64, 34000000) || !/^[A-Za-z0-9+/]*={0,2}$/.test(a.base64)) fail();
-    if (a.type === 'application/pdf') { if (!a.base64.startsWith('JVBERi0') || a.base64.length > 28000000) fail(); }
+    if (!obj(a) || !str(a.id, 100) || ids.has(a.id) || !str(a.name, 250)) fail();
+    const remote=a.remoteContent;
+    if(remote&&(!obj(remote)||!Array.isArray(remote.parts)||remote.parts.length>1000||!remote.parts.every(h=>typeof h==='string'&&/^[a-f0-9]{64}$/.test(h))||!Number.isSafeInteger(remote.length)||remote.length<0||remote.length>34000000))fail();
+    if(a.base64!==undefined&&(!str(a.base64,34000000)||!/^[A-Za-z0-9+/]*={0,2}$/.test(a.base64)))fail();
+    if(a.base64===undefined&&!remote)fail();
+    if (a.type === 'application/pdf') { if (a.base64!==undefined&&(!a.base64.startsWith('JVBERi0') || a.base64.length > 28000000)) fail(); }
     else if (!['application/vnd.recordare.musicxml', 'application/vnd.recordare.musicxml+xml'].includes(a.type) || !['mxl', 'musicxml'].includes(a.format) || !str(a.pieceId, 100) || !/^[a-f0-9]{64}$/.test(a.sha256)) fail();
     ids.add(a.id);
     if (a.annotations != null) a.annotations = validateAnnotations(a.annotations);

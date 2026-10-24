@@ -292,3 +292,8 @@ test('showing an exact Drive QR does not adopt incoming data or trigger a reload
  d.adapter.readLinked=async()=>{throw Error('Showing a QR must not fetch or apply incoming history');};
  const link=await d.engine.deviceLink();assert.equal(link.fileId,'exact-drive-file');assert.ok(link.code.includes('exact-drive-file'));
 });
+
+test('opening existing notebook without adding local data preserves recovery and leaves remote unchanged',async t=>{
+ const shared={text:JSON.stringify({...book([{id:'remote',title:'Remote'}]),cloudBackup:{sharedNotebookId:crypto.randomUUID()}})},before=shared.text,a=device(t,shared,book([{id:'local',title:'Local'}]));
+ await a.engine.joinShared(null,{keepLocal:false});assert.equal(a.engine.state.status,'saved',a.engine.state.error);assert.deepEqual(a.get().data.works,[{id:'remote',title:'Remote'}]);assert.deepEqual(JSON.parse(a.recovery()).data.works,[{id:'local',title:'Local'}]);assert.equal(shared.text,before);
+});

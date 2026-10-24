@@ -246,3 +246,6 @@ if(stable614){const tagged=await readFile(new URL('../../docs/releases/6.1.4-rel
 
 const connectionBeta=releases.find(r=>r.version==='6.1.5-beta.2');
 if(connectionBeta){const text=await readFile(new URL('../../docs/releases/6.1.5-beta.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))connectionBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const fastSyncBeta=releases.find(r=>r.version==='6.1.5-beta.3');
+if(fastSyncBeta){const text=await readFile(new URL('../../docs/releases/6.1.5-beta.3-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca'}))fastSyncBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
