@@ -6,7 +6,7 @@ const enc=encodeURIComponent;
 const conflict=()=>Object.assign(Error('Storage settings changed on another device. Reload and try again.'),{code:'CONFLICT'});
 export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeSnapshot=snapshot,mediaStore,mediaClient,network,eligible,changed=()=>{},upload=uploadArchive,now=()=>new Date()}){
  let busy=false,config=null,status='idle',error='',progress=null;
- const api=async(path,options)=>{const r=await drive.storageRequest(path,options);return r.text?JSON.parse(r.text):null;};
+ const api=async(path,options)=>{const r=await drive.storageRequest(path,options);return r?.text?JSON.parse(r.text):null;};
  const link=()=>{const l=drive.storageLink();if(!valid(l.id)||!valid(l.folderId)||!valid(l.notebookId))throw Error('Connect and synchronize your Drive notebook first.');return l;};
  async function list(q,fields='id,name,mimeType,parents,size,sha256Checksum,appProperties,trashed'){
   const files=[];let token='';do{const r=await api('/drive/v3/files?pageSize=100&q='+enc(q)+'&fields='+enc('nextPageToken,files('+fields+')')+(token?'&pageToken='+enc(token):''));files.push(...r.files);token=r.nextPageToken||'';if(files.length>100000)throw Error('Too many files in the storage folder.');}while(token);return files;
@@ -22,7 +22,13 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
    const target=await api(`/drive/v3/files/${folderId}?fields=id,mimeType,trashed,parents`);if(target.trashed||target.mimeType!=='application/vnd.google-apps.folder')throw Error('The selected folder is unavailable.');
    // Retain notebook and object IDs. Existing clients keep the same notebook; no fork is created.
    // Reject moving a folder inside itself or any of its descendants.
-   let parent=target;for(let n=0;folderId!==l.folderId&&parent.parents?.length&&n<100;n++){if(parent.id===l.folderId)throw Error('Select the current folder or a folder outside it.');parent=await api(`/drive/v3/files/${parent.parents[0]}?fields=id,parents`);if(parent.id===l.folderId)throw Error('Select a folder outside the current notebook folder.');}
+   let parent=target;for(let n=0;folderId!==l.folderId&&parent?.parents?.length&&n<100;n++){
+    const parentId=parent.parents[0];if(parentId===l.folderId)throw Error('Select a folder outside the current notebook folder.');
+    // drive.file may expose a selected/created folder without exposing its ancestors,
+    // including My Drive. A missing ancestor is not a missing notebook object.
+    // Drive still validates the move and rejects cycles beyond this visible boundary.
+    parent=await api(`/drive/v3/files/${parentId}?fields=id,parents`,{missing:true});
+   }
    if(folderId!==l.folderId)await putInFolder(l.folderId,folderId);
    const media=await list(`trashed = false and appProperties has { key='notebookId' and value='${l.notebookId}' } and (appProperties has { key='spinoMedia' and value='spino-media-v1' } or appProperties has { key='spinoMedia' and value='spino-media-free-v1' })`);
    const children=await list(`trashed = false and '${folderId}' in parents and mimeType = 'application/vnd.google-apps.folder'`);

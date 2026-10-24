@@ -2,6 +2,7 @@ import {verifyDeviceReset,retainResetArchive,readResetArchive} from './device-re
 import {createDriveStorage} from './drive-storage.js';
 import {createStorageUI} from './storage-ui.js';
 import {createCompleteBackup,inspectCompleteBackup} from './complete-backup.js';
+import {createCompleteBackupExport} from './complete-backup-ui.js';
 import {downloadArchive} from './drive-archive.js';
 import {shareNativeRecording} from './media-share.js';
 import {Capacitor as StorageCapacitor,registerPlugin as storagePlugin} from '@capacitor/core';
@@ -142,7 +143,7 @@ export async function bootCompanion(reader) {
   let startingPractice = false;
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
-  let connectionFeedback=false,driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, completeBackupBusy=false;
+  let connectionFeedback=false,driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, completeZipExportUI=null, completeBackupBusy=false;
   const recoveredNotebook=localStorage.getItem('spino.recovered-notebook');
   function refreshSyncIndicator() {
     const slot = root.querySelector('[data-sync-indicator]');
@@ -409,7 +410,7 @@ export async function bootCompanion(reader) {
     if (view==='profile-files'||view==='settings') render();
   }
   function backupPage() {
-    return '<section class="cp-profile">'+profileHeading(ui("Backup & sync", "Copia y sincronización"),getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+`<section class="cp-card"><h2>${ui('Keep a copy','Guarda una copia')}</h2><div class="cp-actions">${btn('storage-export',ui('Save a copy','Guardar una copia'))}${btn('storage-import',ui('Recover a copy','Recuperar una copia'))}</div></section></section>`;
+    return '<section class="cp-profile">'+profileHeading(ui("Backup & sync", "Copia y sincronización"),getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+`${completeZipExportUI?.markup()||''}<section class="cp-card"><h2>${ui('Keep a copy','Guarda una copia')}</h2><div class="cp-actions">${btn('storage-export',ui('Save a copy','Guardar una copia'))}${btn('storage-import',ui('Recover a copy','Recuperar una copia'))}</div></section></section>`;
   }
   function fileDetail(id) {
     const file=profileFiles?.find(f=>f.id===id);if(!file)return;
@@ -1085,7 +1086,8 @@ export async function bootCompanion(reader) {
     const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
   }
   async function exportCompleteZip(){
-    showDialog(ui('Export complete ZIP','Exportar ZIP completo'),`<form><p>${ui('Includes notebook, scores and all available recordings. Missing files are downloaded from Drive. Mobile data may be used.','Incluye cuaderno, partituras y todas las grabaciones disponibles. Los archivos que falten se descargarán de Drive. Puede usar datos móviles.')}</p><p>${ui('Beta limit: 250 MB per complete archive. An incomplete copy is never marked complete.','Límite de esta beta: 250 MB por archivo completo. Nunca se marca una copia incompleta como completa.')}</p>${formEnd(ui('Prepare ZIP','Preparar ZIP'))}</form>`,async()=>{completeBackupBusy=true;try{const blob=await transferFeedback(ui('Preparing complete backup','Preparando copia completa'),()=>completeZip());await saveZip(blob,'Spino-'+new Date().toISOString().replace(/[:.]/g,'-')+'.zip');dialog.close();}finally{completeBackupBusy=false;}});
+    completeZipExportUI ||= createCompleteBackupExport({showDialog,dialog,formEnd,prepare:completeZip,save:saveZip,setBusy:value=>{completeBackupBusy=value;},changed:()=>{if(view==='profile-backup')render();},notify:toast,progress:()=>storageManager?.state.progress||cloudTransport?.drive?.info.progress});
+    completeZipExportUI.open();
   }
   async function importCompleteZip(){
     const input=document.createElement('input');input.type='file';input.accept='.zip,application/zip';input.hidden=true;document.body.append(input);input.onchange=async()=>{try{if(input.files[0])await reviewCompleteZip(input.files[0]);}catch(e){toast(e.message);}finally{input.remove();}};input.addEventListener('cancel',()=>input.remove(),{once:true});input.click();
@@ -1330,7 +1332,7 @@ export async function bootCompanion(reader) {
   }
   const actions={
     ...(storageUI?.actions||{}),
-    'storage-export':exportCompleteZip,'storage-import':importCompleteZip,
+    'storage-export':exportCompleteZip,'storage-export-new':()=>completeZipExportUI?.startNew(),'storage-import':importCompleteZip,
     'storage-reset':resetThisDevice,
     'drive-create-new':configureNewStorage,
     'storage-restore-local':async()=>{const id=localStorage.getItem('spino.local-before-join'),archive=await readResetArchive(id);if(!archive)throw Error('Recovery copy unavailable.');await reviewCompleteZip(archive.blob);},

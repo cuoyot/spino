@@ -1,3 +1,5 @@
+2026-10-24 follow-up: fix optional Drive ancestor 404 during folder setup and retain visible ZIP preparation/ready/error state after closing progress. Synthetic regression and browser checks pass; physical Drive acceptance remains pending. See [beta.5](../releases/6.1.5-beta.5.md).
+
 # Release quality review
 
 2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; packaged in beta.4 (103). [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).

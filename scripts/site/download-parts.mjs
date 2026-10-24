@@ -1620,5 +1620,85 @@ export default {
       }
     ],
     "contentType": "application/zip"
+  },
+  "/downloads/spino-6.1.5-beta.5-104-beta-android.apk": {
+    "bytes": 77895680,
+    "sha256": "79fc08627983811c3c2581631d6162056eed386fb91d7cec463a1ec325f5c0af",
+    "parts": [
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-beta-android.apk.000.bin",
+        "bytes": 20971520,
+        "sha256": "a567f3fba16b225daaaad95a1b7199a9f60900a309e6f3485956a73c0452e403"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-beta-android.apk.001.bin",
+        "bytes": 20971520,
+        "sha256": "2fcbc84db6231173d0739b43c40eff061f12913bd0bfeebdcbdbda5514dc749d"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-beta-android.apk.002.bin",
+        "bytes": 20971520,
+        "sha256": "652cf2508207876ac0f7a911d7f77c1e259f09f1f171fa52ea695a8bb3680a24"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-beta-android.apk.003.bin",
+        "bytes": 14981120,
+        "sha256": "3e6f09f431ce36adcc80b0cb9c8c3568d526e35330b090eae6283e411ea85aa4"
+      }
+    ]
+  },
+  "/downloads/spino-6.1.5-beta.5-104-android.aab": {
+    "bytes": 64168814,
+    "sha256": "b163763ef162e01ad51bb54149ab4952f9bf45da235064f519030425c95e8b88",
+    "parts": [
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-android.aab.000.bin",
+        "bytes": 20971520,
+        "sha256": "7c3a7ee26f43a5a7b5a455f7df147008a4c325cf1d5e193c67c20763d40711ae"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-android.aab.001.bin",
+        "bytes": 20971520,
+        "sha256": "a609f38ba46a8ea3968174cb380667ee52a01f0569d7ed5feffa49fa8cc95984"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-android.aab.002.bin",
+        "bytes": 20971520,
+        "sha256": "4a5bf9ba2e50e406f9f0ffcbab39c910d4ad99b815106ade4d2ab83b8da74067"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-104-android.aab.003.bin",
+        "bytes": 1254254,
+        "sha256": "e4d90c160389fe63f92c19d3fc60bebf490e4d113c465e7b805f598db8550ea7"
+      }
+    ],
+    "contentType": "application/octet-stream"
+  },
+  "/downloads/spino-6.1.5-beta.5-play-console-handoff.zip": {
+    "bytes": 63884939,
+    "sha256": "65fda6e0fe10bad7dfca5296ec2c32908a55791d662f280b5dc0b7b92f8c7aa4",
+    "parts": [
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-play-console-handoff.zip.000.bin",
+        "bytes": 20971520,
+        "sha256": "673e0b74e0ba59fcff76a8ef796a634a9e29370508d9c70106491ac497772c3e"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-play-console-handoff.zip.001.bin",
+        "bytes": 20971520,
+        "sha256": "5752678318f84b24b35b5955e9d625cc6603eae0dc6d8d35f9a2649af4f9fdaf"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-play-console-handoff.zip.002.bin",
+        "bytes": 20971520,
+        "sha256": "f413a63407bb2a719f0c7c2fc692fa068277e389a429dbcf737d80fa28120b11"
+      },
+      {
+        "path": "/downloads/parts/spino-6.1.5-beta.5-play-console-handoff.zip.003.bin",
+        "bytes": 970379,
+        "sha256": "662460f6404f4b995365b1ff08a67e99772d7328f20beb76198505f91d70499e"
+      }
+    ],
+    "contentType": "application/zip"
   }
 };

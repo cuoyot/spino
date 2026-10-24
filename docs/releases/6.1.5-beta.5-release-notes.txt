@@ -1,0 +1,9 @@
+<es-ES>
+Corrige el error al crear una carpeta de Drive y cambiar el nombre del cuaderno durante la configuración de copias. Conserva el cuaderno y sus identificadores; los reintentos reutilizan las carpetas existentes. Al cerrar el progreso, la copia continúa y permite volver a verlo o elegir dónde guardar el ZIP terminado. Los errores quedan visibles y permiten reintentar.
+</es-ES>
+<en-US>
+Fixes backup setup failing after creating a Drive folder and renaming the notebook. Keeps the notebook and its identifiers; retries reuse existing folders. Closing progress keeps preparation running. Return to view progress or choose where to save the ready ZIP. Errors stay visible with Retry.
+</en-US>
+<ca>
+Corregeix l’error en crear una carpeta de Drive i canviar el nom del quadern durant la configuració de còpies. Conserva el quadern i els identificadors; els reintents reutilitzen les carpetes existents. En tancar el progrés, la còpia continua i permet tornar-hi o triar on desar el ZIP preparat. Els errors queden visibles i permeten reintentar.
+</ca>
