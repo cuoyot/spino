@@ -4,6 +4,7 @@ import {driveRenameMarkup,driveRecoveryCopy} from './drive-recovery-view.js';
 import { syncIndicatorMarkup } from './sync-indicator.js';
 import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
+import {bindEventDates} from './event-date.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
 import {createMediaSync} from './media-sync.js';
@@ -520,8 +521,8 @@ export async function bootCompanion(reader) {
     showDialog(existing?ui('Edit event','Editar evento'):ui('New event','Nuevo evento'),`<form id="event-form">
       <label>${ui('Title','Título')}<input name="title" maxlength="200" value="${esc(e.title)}" required /></label>
       <label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label>
-      <div class="cp-fields"><label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>${eventTimeMarkup(e.time)}</div>
-      ${!existing ? `<label>${ui('Repeat','Repetir')}<select name="frequency">${opts(eventFrequencyOptions(),'')}</select></label><label data-event-until hidden>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
+      <label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>${eventTimeMarkup(e.time)}
+      ${!existing ? `<label>${ui('Repeat','Repetir')}<select name="frequency">${opts(eventFrequencyOptions(),'')}</select></label><div data-event-until hidden><label>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label></div><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
       <label>${ui('Place','Lugar')}<input name="place" maxlength="200" value="${esc(e.place)}" /></label>
       <label>${ui('Notes','Notas')}<textarea name="notes" maxlength="10000">${esc(e.notes)}</textarea></label><p>${ui('Works you are preparing','Obras que estás preparando')}</p>
       ${data.works.filter(w=>!w.trashedAt||e.workIds.includes(w.id)).map(w=>`<label class="check"><input type="checkbox" name="workIds" value="${esc(w.id)}" ${e.workIds.includes(w.id)?'checked':''} />${esc(w.title)}</label>`).join('')||`<p class="muted">${ui('You can link works after adding them to your repertoire.','Puedes vincular obras después de añadirlas al repertorio.')}</p>`}
@@ -536,6 +537,7 @@ export async function bootCompanion(reader) {
       await reminders();dialog.close();go('event',!existing && frequency ? `${value.id}@${value.date}` : value.id);if(f.has('reminder'))offerNotifications();
     });
     bindEventTime(dialog.querySelector('#event-form'));
+    bindEventDates(dialog.querySelector('#event-form'));
     if(!existing) {
       const form=dialog.querySelector('#event-form'),update=()=>{const frequency=form.elements.frequency.value;form.querySelector('[data-event-until]').hidden=!frequency;form.elements.until.disabled=!frequency;form.elements.until.min=form.elements.date.value;form.querySelector('[data-event-monthly]').hidden=!['monthly','yearly'].includes(frequency);};
       form.elements.frequency.addEventListener('change',update);form.elements.date.addEventListener('change',update);update();

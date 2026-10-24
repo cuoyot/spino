@@ -1,0 +1,15 @@
+<es-ES>
+Nuevo selector de calendario al crear y editar eventos. Cambia de mes y elige el día directamente, también para la fecha final de repetición. Conserva las mejoras MIDI y las opciones para compartir MIDI, WAV y MP3.
+</es-ES>
+<en-US>
+New calendar picker when creating and editing events. Browse months and choose a day directly, including the repeat end date. Includes the MIDI improvements and sharing as MIDI, WAV or MP3.
+</en-US>
+<ca>
+Nou selector de calendari en crear i editar esdeveniments. Canvia de mes i tria el dia directament, també per a la data final de repetició. Conserva les millores MIDI i les opcions per compartir MIDI, WAV i MP3.
+</ca>
+<de-DE>
+Neue Kalenderauswahl beim Erstellen und Bearbeiten von Terminen. Monat wechseln und Tag auswählen, auch für das Ende einer Wiederholung. Enthält die MIDI-Verbesserungen und das Teilen als MIDI, WAV oder MP3.
+</de-DE>
+<hu-HU>
+Új naptárválasztó az események létrehozásához és szerkesztéséhez. Váltson hónapot és válasszon napot, az ismétlődés záró dátumához is. Tartalmazza a MIDI-javításokat és a MIDI-, WAV- vagy MP3-megosztást.
+</hu-HU>

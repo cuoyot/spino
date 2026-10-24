@@ -1,6 +1,6 @@
 {
   "name": "spino",
-  "version": "6.1.4-beta.6",
+  "version": "6.1.4-beta.7",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",

@@ -1,0 +1,12 @@
+.cp-event-date { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; min-width:0; font-size:13px; color:var(--theme-muted); }
+.cp-date-toggle { width:100%; text-align:left; }
+.cp-date-calendar { padding:8px; border:1px solid var(--theme-border); border-radius:12px; color:var(--theme-text); }
+.cp-date-calendar[hidden] { display:none; }
+.cp-date-month { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:4px; align-items:center; text-align:center; margin-bottom:8px; }
+.cp-date-month strong { text-transform:capitalize; }
+.cp-date-days { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:2px; text-align:center; }
+#cp-dialog .cp-date-days button { min-width:0; min-height:44px; padding:0; border-color:transparent; }
+.cp-date-days > span { padding:6px 0; font-size:11px; overflow:hidden; }
+#cp-dialog .cp-date-days button[aria-pressed=true] { background:var(--theme-accent,#304ffe); color:#fff; }
+#cp-dialog .cp-date-days button[aria-current=date] { border-color:var(--theme-accent,#304ffe); }
+.cp-date-footer { display:flex; justify-content:space-between; gap:8px; margin-top:8px; }
