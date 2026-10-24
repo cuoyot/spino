@@ -69,7 +69,7 @@ import { appearanceMarkup, profileNavigation, profileMarkup, profileHeading, pra
 import { instrumentMarkup, createInstrumentController } from './instrument-view.js';
 import { createNotebookCloud } from './cloud-sync.js';
 import {createNotebookTransport,driveNotebookAvailable} from './notebook-transport.js';
-import {driveCopy,driveNotebookPickerMarkup} from './drive-notebook-view.js';
+import {driveCopy,driveNotebookPickerMarkup,driveConnectionProgressMarkup} from './drive-notebook-view.js';
 import './app.css';
 import './profile.css';
 import './cloud-backup.css';
@@ -1247,13 +1247,22 @@ export async function bootCompanion(reader) {
     if(!driveNotebookAvailable())throw new Error('Google Drive connection is available in the Android app.');
     if(driveConnecting||cloud?.busy)throw new Error(ui('Wait for the current connection operation.','Espera a que termine la conexión en curso.'));
     const t=driveCopy();driveConnecting=true;
-    showDialog('Google Drive',`<p role="status">${esc(t.connecting)}</p>`);
+    showDialog('Google Drive',driveConnectionProgressMarkup());
+    const progressNode=dialog.querySelector('[data-drive-progress]'),started=Date.now();
+    let phase='connect',current=0,total=0,lastProgressKey='';
+    const visible=()=>dialog.open&&dialog.contains(progressNode);
+    const updateProgress=()=>{if(!visible())return;const seconds=Math.floor((Date.now()-started)/1000),key=`${phase}:${current}:${seconds>=10}`;const markup=driveConnectionProgressMarkup({phase,current,total,seconds,inner:true});if(key!==lastProgressKey){progressNode.innerHTML=markup;lastProgressKey=key;}else{const template=document.createElement('template');template.innerHTML=markup;progressNode.querySelector('[data-drive-elapsed]').textContent=template.content.querySelector('[data-drive-elapsed]').textContent;}};
+    const progressTimer=setInterval(updateProgress,1000);
     try {
       const account=await cloudTransport.drive.connect();
       render();
+      if(!visible())return;
+      phase='list';updateProgress();
       const files=await cloudTransport.drive.list();
+      if(!visible())return;
       const candidates=files.filter(f=>(!expectedId||f.appProperties.notebookId===expectedId)&&(!expectedFileId||f.id===expectedFileId));
-      if(candidates.length>1)for(const file of candidates){try{file.summary=await cloudTransport.drive.describe(file.id);}catch(error){file.previewError=true;}}
+      if(candidates.length>1){phase='compare';total=candidates.length;for(const file of candidates){if(!visible())return;current++;updateProgress();try{file.summary=await cloudTransport.drive.describe(file.id);}catch(error){file.previewError=true;}}}
+      if(!visible())return;
       showDialog('Google Drive',driveNotebookPickerMarkup(account,files,{linked:!!cloud?.state.name,notebookId:cloud?.state.notebookId,expectedId,expectedFileId}),async form=>{
         const selected=String(form.get('notebook'));
         if(selected==='local'){await configureNewStorage();return;}
@@ -1261,8 +1270,8 @@ export async function bootCompanion(reader) {
         if(cloud.state.transport==='drive')pendingDeviceLink=null;
         mediaSync?.markDirty();
       });
-    } catch(error) {showDialog('Google Drive',`<p role="alert">${esc(localizeMessage(error.message))}</p><p>${esc(t.offline)}</p><div class="cp-actions">${btn('drive-connect',t.reconnect)}${btn('close-dialog',t.close)}</div>`);}
-    finally{driveConnecting=false;}
+    } catch(error) {if(visible())showDialog('Google Drive',`<p role="alert">${esc(localizeMessage(error.message))}</p><p>${esc(t.offline)}</p><div class="cp-actions">${btn('drive-connect',t.reconnect)}${btn('close-dialog',t.close)}</div>`);}
+    finally{clearInterval(progressTimer);driveConnecting=false;}
   }
   async function configureNewStorage(){
     if(!storageManager)throw Error('Storage setup is unavailable.');
