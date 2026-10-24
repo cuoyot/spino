@@ -212,7 +212,11 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     placePanel();
     if(standalone&&stage==='choose'){const row=panel.querySelector('[data-media-picker]'),selected=row?.querySelector('[aria-pressed=true]');if(selected){const bounds=row.getBoundingClientRect(),card=selected.getBoundingClientRect();if(card.left<bounds.left)row.scrollLeft-=bounds.left-card.left+3;else if(card.right>bounds.right)row.scrollLeft+=card.right-bounds.right+3;}}
   }
-  async function review() {
+  let reviewPending = null, stopPending = null, resolveStop = null;
+  function review() {
+    return reviewPending ||= reviewTake().finally(() => { reviewPending = null; resolveStop?.(); resolveStop = null; stopPending = null; });
+  }
+  async function reviewTake() {
     if (!recorder && record?.kind!=='midi') return;
     clearInterval(timer); timer = null; releaseTracks();
     record.durationMs = elapsedTime();
@@ -226,12 +230,23 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     finally { busy=false; draw(); panel.querySelector('[data-media=save]')?.focus(); }
   }
   function stop(reason='') {
-    if (stage!=='recording') return;
+    if (stage!=='recording') return stopPending || reviewPending;
     if(record.kind==='midi'&&midiWaiting){clearInterval(timer);timer=null;releaseMidi();midiWaiting=false;midiEvents=[];stage='choose';close();return;}
     stopReason=reason; stage='stopping'; clearInterval(timer); draw();
-    if(record.kind==='midi'){releaseMidi();void review();return;}
+    if(record.kind==='midi'){releaseMidi();return review();}
+    stopPending = new Promise(resolve => { resolveStop = resolve; });
+    const pending = stopPending;
     try { if (recorder.state !== 'inactive') recorder.stop(); } catch { void review(); }
     releaseTracks();
+    return pending;
+  }
+  async function finishPractice() {
+    if (standalone || stage === 'closed') return;
+    await stop();
+    if (reviewPending) await reviewPending;
+    if (stage === 'requesting') { requestId++; releaseTracks(); resumeRequest?.(); stage = 'choose'; }
+    await closeReview();
+    if (stage !== 'closed') throw new Error(ui('Finish saving the recording before ending practice.','Termina de guardar la grabación antes de finalizar la práctica.'));
   }
   async function prepareVideoFrames(attempt) {
     releaseVideoFrames();
@@ -425,6 +440,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     get recording(){return stage==='recording';},
     get requesting(){return stage==='requesting';},
     stop,
+    finishPractice,
     share:shareSaved,
     open(workId,sessionId=null){if(stage!=='closed'||sharePending){panel.hidden=false;report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}const work=getWork(workId);if(!work)return;returnFocus=document.activeElement;standalone=false;standaloneOptions={};record=draftFor(work,sessionId);stage='choose';stopReason='';captureError='';draw();panel.querySelector('button')?.focus();},
     openStandalone(workId='',options={}){if(stage!=='closed'||sharePending){report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}returnFocus=document.querySelector('.cp-page [data-action=record-media]')||document.activeElement;standalone=true;standaloneOptions=options;choosingOther=false;pieceSearch='';const work=getWork(workId);record=draftFor(work);stage='choose';stopReason='';captureError='';minimized=false;openStudio();draw();panel.querySelector('[data-media-work][aria-pressed=true],[data-media-picker]')?.focus();},

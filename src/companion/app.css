@@ -632,11 +632,11 @@
 .cp-practice-piece-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 .cp-practice-piece-heading p { margin: 0; font-weight: 650; }
 .cp-practice-stand { display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; padding: 3px 3px 10px; }
-#app-shell .cp-practice-stand button { position: relative; flex: 0 0 176px; width: 176px; height: 100px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; padding: 12px 26px 12px 12px; white-space: normal; text-align: left; scroll-snap-align: start; }
+#app-shell .cp-practice-stand button, #cp-dialog .cp-event-works .cp-practice-stand button { position: relative; flex: 0 0 176px; width: 176px; height: 100px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; padding: 12px 26px 12px 12px; white-space: normal; text-align: left; scroll-snap-align: start; }
 .cp-practice-stand b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; font-size: 15px; line-height: 1.3; }
 .cp-practice-stand small { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
 .cp-practice-piece-check { position: absolute; top: 8px; right: 9px; visibility: hidden; font-weight: 800; }
-#app-shell .cp-practice-stand button[aria-pressed="true"], #cp-dialog .cp-practice-results button[aria-pressed="true"] { border-color: var(--theme-accent); background: var(--theme-selected); color: var(--theme-text); box-shadow: inset 0 0 0 1px var(--theme-accent); }
+#app-shell .cp-practice-stand button[aria-pressed="true"], #cp-dialog .cp-event-works button[aria-pressed="true"], #cp-dialog .cp-practice-results button[aria-pressed="true"] { border-color: var(--theme-accent); background: var(--theme-selected); color: var(--theme-text); box-shadow: inset 0 0 0 1px var(--theme-accent); }
 .cp-practice-stand [aria-pressed="true"] .cp-practice-piece-check { visibility: visible; }
 #app-shell .cp-practice-selected { margin: 0 0 8px; font-size: 13px; color: var(--theme-link); overflow-wrap: anywhere; }
 .cp-practice-results { display: grid; gap: 8px; max-height: 42dvh; overflow-y: auto; margin: 12px 0; }

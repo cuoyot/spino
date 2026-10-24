@@ -10,3 +10,19 @@
 #cp-dialog .cp-date-days button[aria-pressed=true] { background:var(--theme-accent,#304ffe); color:#fff; }
 #cp-dialog .cp-date-days button[aria-current=date] { border-color:var(--theme-accent,#304ffe); }
 .cp-date-footer { display:flex; justify-content:space-between; gap:8px; margin-top:8px; }
+
+#cp-dialog .cp-date-days button:not([aria-pressed=true]) { background:transparent; }
+.cp-date-calendar { width:min(100%,360px); box-sizing:border-box; align-self:center; }
+.cp-event-details { margin:8px 0 18px; border-top:1px solid var(--theme-border); }
+.cp-event-details > summary { padding:14px 0; cursor:pointer; color:var(--theme-muted); font-size:14px; }
+.cp-event-details[open] > summary { margin-bottom:4px; }
+#event-form .cp-event-time-controls { max-width:190px; }
+
+.cp-event-works { min-width:0; margin-top:14px; }
+.cp-event-work-hint { font-size:12px; margin:0 0 6px; }
+.cp-event-works .cp-practice-results button { position:relative; padding-right:32px; }
+.cp-event-works .cp-practice-results [aria-pressed=true] .cp-practice-piece-check { visibility:visible; }
+
+#cp-dialog .cp-event-works .cp-practice-piece-heading p { margin:0; }
+#cp-dialog .cp-event-work-hint { margin:0 0 6px; }
+#cp-dialog .cp-event-works .cp-practice-stand > p { margin:0; }

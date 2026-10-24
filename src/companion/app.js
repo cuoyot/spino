@@ -5,6 +5,7 @@ import { syncIndicatorMarkup } from './sync-indicator.js';
 import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
 import {bindEventDates} from './event-date.js';
+import {bindEventWorks} from './event-works.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
 import {connectDriveMedia,pauseDriveMedia} from './drive-media-native.js';
 import {createMediaSync} from './media-sync.js';
@@ -520,13 +521,15 @@ export async function bootCompanion(reader) {
     const e=existing||{title:'',type:'Audición',date:selectedDate,time:'',place:'',notes:'',workIds:[],reminder:false,milestones:[]};
     showDialog(existing?ui('Edit event','Editar evento'):ui('New event','Nuevo evento'),`<form id="event-form">
       <label>${ui('Title','Título')}<input name="title" maxlength="200" value="${esc(e.title)}" required /></label>
-      <label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label>
-      <label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>${eventTimeMarkup(e.time)}
+      <label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>
+      <div class="cp-fields cp-event-basics"><label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label>${eventTimeMarkup(e.time)}</div>
       ${!existing ? `<label>${ui('Repeat','Repetir')}<select name="frequency">${opts(eventFrequencyOptions(),'')}</select></label><div data-event-until hidden><label>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label></div><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
+      <label class="check"><input type="checkbox" name="reminder" ${e.reminder?'checked':''} />${ui('Reminder 15 minutes before','Recordatorio 15 minutos antes')}</label>
+      <section class="cp-event-works" data-event-works></section>
+      <details class="cp-event-details"><summary>${ui('Place and notes','Lugar y notas')}</summary>
       <label>${ui('Place','Lugar')}<input name="place" maxlength="200" value="${esc(e.place)}" /></label>
-      <label>${ui('Notes','Notas')}<textarea name="notes" maxlength="10000">${esc(e.notes)}</textarea></label><p>${ui('Works you are preparing','Obras que estás preparando')}</p>
-      ${data.works.filter(w=>!w.trashedAt||e.workIds.includes(w.id)).map(w=>`<label class="check"><input type="checkbox" name="workIds" value="${esc(w.id)}" ${e.workIds.includes(w.id)?'checked':''} />${esc(w.title)}</label>`).join('')||`<p class="muted">${ui('You can link works after adding them to your repertoire.','Puedes vincular obras después de añadirlas al repertorio.')}</p>`}
-      <label class="check"><input type="checkbox" name="reminder" ${e.reminder?'checked':''} />${ui('Reminder 15 minutes before','Recordatorio 15 minutos antes')}</label>${formEnd()}</form>`,async f=>{
+      <label>${ui('Notes','Notas')}<textarea name="notes" maxlength="10000">${esc(e.notes)}</textarea></label>
+      </details>${formEnd()}</form>`,async f=>{
       if(f.has('reminder')&&!f.get('time')) throw new Error(ui('Enter a time for the notification.','Indica una hora para el aviso.'));
       const frequency=String(f.get('frequency')||''),until=String(f.get('until')||'');
       if(!validEventDate(f.get('date')) || (frequency && (!EVENT_FREQUENCIES.includes(frequency) || (until && (!validEventDate(until)||until<f.get('date')))))) throw new Error(ui('Choose an end date on or after the first event.','Elige una fecha de fin igual o posterior al primer evento.'));
@@ -538,6 +541,7 @@ export async function bootCompanion(reader) {
     });
     bindEventTime(dialog.querySelector('#event-form'));
     bindEventDates(dialog.querySelector('#event-form'));
+    bindEventWorks(dialog.querySelector('#event-form'),data.works,e.workIds);
     if(!existing) {
       const form=dialog.querySelector('#event-form'),update=()=>{const frequency=form.elements.frequency.value;form.querySelector('[data-event-until]').hidden=!frequency;form.elements.until.disabled=!frequency;form.elements.until.min=form.elements.date.value;form.querySelector('[data-event-monthly]').hidden=!['monthly','yearly'].includes(frequency);};
       form.elements.frequency.addEventListener('change',update);form.elements.date.addEventListener('change',update);update();
@@ -783,9 +787,9 @@ export async function bootCompanion(reader) {
       if (currentBlock()?.type === 'repertoire' && workHasScore(resource(currentBlock().workId))) await openScorePractice();
     }
   }
-  function endSession() {
+  async function endSession() {
     if(data.active?.lessonPracticeEventId)return returnToLesson();
-    mediaCapture?.stop();
+    await mediaCapture?.finishPractice();
     if(data.active?.quickScore)return quickExitDialog();
     if(!data.active)return;pauseSession();hideReader();go('session');
     const s=data.active;const remaining=s.blockIndex<s.blocks.length-1;
@@ -1137,6 +1141,7 @@ export async function bootCompanion(reader) {
   }
   async function saveLessonPause() {
     if (!data.active?.lessonPracticeEventId) return;
+    await mediaCapture?.finishPractice();
     pauseSession();
     const next = copy(data), id = pauseLessonPractice(next);
     await store.save(next); data = next;
