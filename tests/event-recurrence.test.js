@@ -36,7 +36,7 @@ test('recurrence survives validation and backup round trips and rejects malforme
  for(const change of [{frequency:'invalid'},{until:'2026-02-30'},{until:'2025-01-01'},{excluded:['bad']},{id:'different'}]) {const invalid=structuredClone(data);Object.assign(invalid.events[0].recurrence,change);assert.throws(()=>validateData(invalid));}
 });
 test('agenda and reminders include future occurrences with independent notification IDs',()=>{
- const data=emptyData();data.events=[event()];assert.equal(agendaEntries(data,'2026-02-07')[0].id,'series@2026-02-07');
+ const data=emptyData();data.preferences.notificationsEnabled=true;data.events=[event()];assert.equal(agendaEntries(data,'2026-02-07')[0].id,'series@2026-02-07');
  const notifications=reminderNotifications(data,'en',new Date('2026-02-01T00:00:00').getTime());assert.ok(notifications.length>40);assert.equal(new Set(notifications.map(n=>n.id)).size,notifications.length);assert.equal(notifications[0].extra.recordId,'series@2026-02-07');
 });
 test('upcoming events include series starting years ahead and skip excluded dates',()=>{

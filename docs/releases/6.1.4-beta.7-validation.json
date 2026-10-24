@@ -1,0 +1,31 @@
+{
+  "version": "6.1.4-beta.7",
+  "versionCode": 98,
+  "sourceCommit": "cb553fccae675392e647722d96c40e4d44fd5081",
+  "packagedWebFiles": 683,
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "playConsole": "Not submitted; beta website delivery.",
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 135,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{2aae8bd u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t169}"
+    ]
+  },
+  "signatures": {
+    "apk": "verified",
+    "aab": "verified"
+  },
+  "browserTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "unitAndWebsiteTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "testFixtureCorrection": "Explicitly enable notifications for the existing reminder test, matching the opt-in setting."
+}
