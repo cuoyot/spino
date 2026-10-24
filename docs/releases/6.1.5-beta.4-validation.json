@@ -1,0 +1,29 @@
+{
+  "version": "6.1.5-beta.4",
+  "versionCode": 103,
+  "focusedUnitTests": 53,
+  "websiteTests": 8,
+  "androidBuildAndTests": "passed",
+  "signatures": "APK and AAB verified",
+  "packagedWebFilesMatch": 684,
+  "nativeAcceptance": {
+    "installExitCode": 0,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{e421376 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t173}"
+    ],
+    "version": [
+      "versionCode=103 minSdk=24 targetSdk=36",
+      "versionName=6.1.5-beta.4"
+    ],
+    "activity": [
+      "topResumedActivity=ActivityRecord{868636e u0 com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity t173}",
+      "mCurrentFocus=Window{5bd1669 u0 com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}",
+      "mFocusedApp=ActivityRecord{868636e u0 com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity t173}"
+    ],
+    "window": [],
+    "foregroundVerified": true,
+    "dataPreservation": "Replacement install after restarting same AVD; no wipe requested."
+  },
+  "physicalGoogleTwoDevice5G": "pending",
+  "personalDriveModified": false
+}

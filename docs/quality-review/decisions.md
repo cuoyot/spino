@@ -847,3 +847,6 @@ Difficulty labels remain proposed. Existing algorithm outputs no calibrated grad
 ## 24 October 2026 — Guided backup setup
 
 Owner rejected the beta.3 storage menu and nested configuration entry. Accepted objective: start from the user's task with a visible guided process, minimal choices, prompt progress and clear results. Implemented source proposal: persistent setup card, two steps, automatic optimization, unchanged principal/retention defaults, and separate recovery tools. The owner approved this layout on 24 October 2026 ("perfecto, cambiar"); the implementation is accepted in source. Beta.3 APK/web remain unchanged pending a new packaged release. See captures/profile/2026-10-24-guided-backups/README.md.
+
+
+The owner requested publication of the approved guided backup flow; packaged as 6.1.5-beta.4 (103).

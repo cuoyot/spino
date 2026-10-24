@@ -1070,7 +1070,7 @@ export async function bootCompanion(reader) {
     const deviceName=localStorage.getItem('spino.backup-device.name')||('Android · '+deviceId.slice(0,6));
     storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
       eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{}});
-    storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,refresh:refreshMedia,exportZip:exportCompleteZip,restoreZip:importCompleteZip,
+    storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,refresh:async()=>{await refreshMedia();if(['home','profile-backup'].includes(view))render();},exportZip:exportCompleteZip,restoreZip:importCompleteZip,
       downloadCopy:async file=>reviewCompleteZip(await downloadArchive({accountId:storageManager.link().accountId,file})),cloud,deviceName,connect:()=>openDriveNotebooks(),canNotify:()=>!data.active&&!dialog.open&&!scoreViewer&&!openingScore});
     setInterval(async()=>{if(cloud?.state.transport==='drive'&&cloud.state.enabled&&!cloud.busy&&!mediaSync?.busy&&!storageManager.state.busy&&!completeBackupBusy&&!data.active&&!dialog.open&&!document.hidden){try{await cloudTransport.drive.prepareCheckpoint();}catch{/* Optional accelerator: synchronization keeps its verified original records. */}await storageManager.daily();}},60000);
   }
@@ -1700,7 +1700,7 @@ export async function bootCompanion(reader) {
   if (['catalog','library-detail','downloads'].includes(view)) render();
   mediaSync?.markDirty();
   if (cloud) { try { await cloud.init(); } catch(error) { toast(ui('Could not start backup: ', 'No se ha podido iniciar la copia: ')+localizeMessage(error.message)); } }
-  if(storageUI&&cloud?.state.name&&!dialog.open)await storageUI.notify();
+  if(storageUI&&cloud?.state.name&&!dialog.open){await storageUI.notify();if(['home','profile-backup'].includes(view))render();}
   if(localStorage.getItem('spino.reset-recovery')&&!recoveredNotebook&&!cloud?.state.name)showDialog(ui('Reconnect your notebook','Reconectar tu cuaderno'),`<p>${ui('A verified recovery ZIP is retained on this device.','Se conserva un ZIP de recuperación verificado en este dispositivo.')}</p><div class="cp-actions">${btn('storage-reconnect-reset',ui('Reconnect the same notebook','Reconectar el mismo cuaderno'))}${btn('storage-restore-reset',ui('Restore retained ZIP','Restaurar ZIP conservado'))}</div>`);
   if(recoveredNotebook)showDialog(ui('Recovered notebook','Cuaderno recuperado'),`<p>${ui('This is a separate local recovery. Cloud synchronization is disabled. Your original notebook is intact.','Esta es una recuperación local separada. La sincronización en la nube está desactivada. Tu cuaderno original está intacto.')}</p><div class="cp-actions">${btn('storage-return-original',ui('Return to original notebook','Volver al cuaderno original'))}${btn('close-dialog',ui('Review recovered notebook','Revisar cuaderno recuperado'))}</div>`);
 

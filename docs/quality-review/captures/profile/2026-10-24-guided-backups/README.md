@@ -1,6 +1,6 @@
 # Guided backups — 24 October 2026
 
-Owner rejected beta.3 storage menu as confusing. Accepted objective: visible guided setup, few decisions, immediate progress, clear recovery choices. The owner approved the implemented screens on 24 October 2026 ("perfecto, cambiar"). The guided flow is applied to Spino source; it is not included in the published beta.3 APK.
+Owner rejected beta.3 storage menu as confusing. Accepted objective: visible guided setup, few decisions, immediate progress, clear recovery choices. The owner approved the implemented screens on 24 October 2026 ("perfecto, cambiar"). The guided flow is applied to Spino source; it is packaged in beta.4 (103).
 
 Pending setup has a direct card on Today and Backup & sync and a one-time guided offer independent of the obsolete shown marker. It remains discoverable after Later. Opening storage while unconfigured opens step 1 directly. Step 1 confirms the current folder/name; changing/creating a folder is optional. Step 2 enables changed daily copies, keeps the current principal (defaults to this device) and seven-copy retention, with one optional mobile-data checkbox. The result distinguishes verified backup from Wi-Fi, secondary-device or incomplete-copy states. No remote settings are changed until the last confirmation. Optimization stays automatic. Recovery/reset actions are separated from setup.
 

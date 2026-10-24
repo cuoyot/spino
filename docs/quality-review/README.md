@@ -1,6 +1,6 @@
 # Release quality review
 
-2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; no new APK yet. [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).
+2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; packaged in beta.4 (103). [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).
 
 2026-10-24 beta.3: fast metadata sync, deferred scores, simple connection choices, explicit migration confirmation and guarded local recovery. [Evidence and remaining native/physical acceptance](captures/profile/2026-10-24-sync-fast-beta3/README.md).
 

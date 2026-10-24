@@ -1,0 +1,9 @@
+<es-ES>
+Configura tus copias con un asistente de dos pasos, accesible directamente mientras siga pendiente. Confirma carpeta y nombre, activa las copias y consulta el progreso y el resultado. Se conservan las últimas 7 copias; solo copia el dispositivo principal cuando hay cambios. Recuperación separada de la configuración. Beta: copias con Spino abierto y ZIP hasta 250 MB.
+</es-ES>
+<en-US>
+Set up backups in two guided steps, directly accessible until setup is complete. Confirm the folder and name, activate backups, and see progress and results. Keep the latest 7 copies; only the principal device backs up changes. Recovery tools are separate from setup. Beta: Spino must be open; ZIP limit 250 MB.
+</en-US>
+<ca>
+Configura les còpies amb un assistent de dos passos, accessible directament mentre estigui pendent. Confirma carpeta i nom, activa les còpies i consulta el progrés i el resultat. Es conserven les últimes 7 còpies; només copia el dispositiu principal quan hi ha canvis. Recuperació separada de la configuració. Beta: còpies amb Spino obert i ZIP fins a 250 MB.
+</ca>
