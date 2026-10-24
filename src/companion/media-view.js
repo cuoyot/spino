@@ -325,8 +325,8 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     startingAt=Date.now();midiStarted=performance.now();stage='recording';minimized=!standalone&&scoreButtons().length>0;
     const append=data=>{
       if(stage!=='recording')return;
-      midiFeedback.event(data);if(!minimized)midiFeedback.paint(panel.querySelector('.cp-midi-feedback'));
       midiEvents.push({time:Math.min(900000,performance.now()-midiStarted),data});
+      midiFeedback.event(data);if(!minimized)midiFeedback.paint(panel.querySelector('.cp-midi-feedback'));
       const count=panel.querySelector('[data-midi-count]');if(count&&(data[0]&240)===144)count.textContent=Number(count.textContent)+1;
       if(midiEvents.length>=100000)stop(ui('Size limit reached. Review and save your take.','Límite de tamaño alcanzado. Revisa y guarda la toma.'));
     };

@@ -1,0 +1,19 @@
+<es-ES>
+Corrige la pérdida de notas cortas durante la reproducción MIDI cuando la interfaz se retrasa. Mejora la planificación del piano y conserva los ataques de notas en pasajes rápidos. Las grabaciones existentes no se modifican.
+</es-ES>
+
+<en-US>
+Fixes short notes being skipped during MIDI playback when the interface is delayed. Improves piano scheduling and preserves note attacks in fast passages. Existing recordings are unchanged.
+</en-US>
+
+<ca>
+Corregeix la pèrdua de notes curtes durant la reproducció MIDI quan la interfície es retarda. Millora la planificació del piano i conserva els atacs en passatges ràpids. Les gravacions existents no es modifiquen.
+</ca>
+
+<de-DE>
+Behebt ausgelassene kurze Noten bei der MIDI-Wiedergabe, wenn die Oberfläche verzögert reagiert. Verbesserte Klavierplanung erhält die Anschläge in schnellen Passagen. Vorhandene Aufnahmen bleiben unverändert.
+</de-DE>
+
+<hu-HU>
+Javítja a rövid hangok kihagyását MIDI-lejátszás közben, amikor a felület késik. A zongora ütemezése megőrzi a hangindításokat a gyors részekben. A meglévő felvételek nem változnak.
+</hu-HU>
