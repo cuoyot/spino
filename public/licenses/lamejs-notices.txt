@@ -1,0 +1,19 @@
+MP3 export uses @breezystack/lamejs 1.2.7, an unmodified JavaScript port of LAME by Alex Zhukov and contributors, distributed under LGPL-3.0.
+Library: https://github.com/shijinyu/lamejs
+Original port: https://github.com/zhuker/lamejs
+LAME: https://lame.sourceforge.io/
+SPino source and build instructions: https://github.com/cuoyot/spino
+The dependency is pinned in package-lock.json and can be replaced and rebuilt with the application source.
+
+Can I use LAME in my commercial program?  
+
+Yes, you can, under the restrictions of the LGPL.  The easiest
+way to do this is to:
+
+1. Link to LAME as separate jar (lame.min.js or lame.all.js)
+
+2. Fully acknowledge that you are using LAME, and give a link
+   to our web site, lame.sourceforge.net
+
+3. If you make modifications to LAME, you *must* release these
+   these modifications back to the LAME project, under the LGPL.

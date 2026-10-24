@@ -1,6 +1,7 @@
 import {Capacitor,registerPlugin} from '@capacitor/core';
 import {exportRecording} from './media-bookends.js';
 import {ui} from './locale.js';
+import {exportMidiAudio} from './midi-export.js';
 const MediaShare=registerPlugin('MediaShare');
 const CHUNK=256*1024;
 export function recordingFile(record) {
@@ -22,16 +23,33 @@ export async function shareNativeRecording(file,plugin,{title,dialogTitle}) {
     return await plugin.share({token,title,dialogTitle});
   }catch(error){await plugin.abort({token}).catch(()=>{});throw error;}
 }
+async function chooseMidiFormat() {
+  const dialog=document.createElement('dialog');dialog.className='cp-midi-export-dialog';
+  const heading=document.createElement('h2');heading.textContent=ui('Share recording','Compartir grabación');dialog.append(heading);
+  return await new Promise(resolve=>{
+    const done=value=>{dialog.close();dialog.remove();resolve(value);};
+    for(const [format,label] of [['midi',ui('Original MIDI (.mid)','MIDI original (.mid)')],['wav',ui('Piano audio (.wav)','Audio de piano (.wav)')],['mp3',ui('Piano audio (.mp3)','Audio de piano (.mp3)')],['cancel',ui('Cancel','Cancelar')]]){
+      const button=document.createElement('button');button.type='button';button.dataset.midiExport=format;button.textContent=label;button.onclick=()=>done(format==='cancel'?null:format);dialog.append(button);
+    }
+    dialog.addEventListener('cancel',event=>{event.preventDefault();done(null);});document.body.append(dialog);dialog.showModal();
+  });
+}
 async function prepareRecording(record,options){
-  if(record.kind!=='video')return record;
+  const midi=record.kind==='midi';
+  if(midi&&options.format==='midi'){
+    const header=new Uint8Array(await record.blob.slice(0,4).arrayBuffer());
+    if(String.fromCharCode(...header)!=='MThd')throw Error('Original MIDI data unavailable');
+    return {...record,blob:new Blob([record.blob],{type:'audio/midi'})};
+  }
+  if(record.kind!=='video'&&!midi)return record;
   const controller=new AbortController(),dialog=document.createElement('dialog');
   const label=document.createElement('p'),progress=document.createElement('progress'),cancel=document.createElement('button');
-  label.textContent=ui('Preparing video… Keep SPino open.','Preparando vídeo… Mantén SPino abierto.');progress.max=100;progress.value=0;
+  label.textContent=midi?ui('Preparing piano audio…','Preparando audio de piano…'):ui('Preparing video… Keep SPino open.','Preparando vídeo… Mantén SPino abierto.');progress.max=100;progress.value=0;
   cancel.textContent=ui('Cancel','Cancelar');cancel.type='button';cancel.onclick=()=>controller.abort();
-  dialog.append(label,progress,cancel);dialog.addEventListener('cancel',event=>{event.preventDefault();controller.abort();});
+  if(midi)progress.removeAttribute('value');dialog.append(label,progress,cancel);dialog.addEventListener('cancel',event=>{event.preventDefault();controller.abort();});
   const background=()=>{if(document.hidden)controller.abort();};document.addEventListener('visibilitychange',background);
   document.body.append(dialog);dialog.showModal();
-  try{return await exportRecording(record,{...options,signal:controller.signal,onProgress:value=>{progress.value=value;options.onProgress?.(value);}});}
+  try{if(midi)return {...record,blob:await exportMidiAudio(record.blob,options.format,controller.signal)};return await exportRecording(record,{...options,signal:controller.signal,onProgress:value=>{progress.value=value;options.onProgress?.(value);}});}
   finally{document.removeEventListener('visibilitychange',background);dialog.close();dialog.remove();}
 }
 let sharing=false;
@@ -39,6 +57,7 @@ export async function shareRecording(record,options={}) {
   if(sharing)return 'busy';
   sharing=true;
   try {
+    if(record.kind==='midi'){const format=options.format||await chooseMidiFormat();if(!format)return 'cancelled';if(!['midi','wav','mp3'].includes(format))throw Error('Invalid MIDI export format');options={...options,format};}
     const file=recordingFile(await prepareRecording(record,options));
     if(Capacitor.getPlatform()==='android'){
       if(!Capacitor.isPluginAvailable('MediaShare'))throw Error('Native recording sharing unavailable');

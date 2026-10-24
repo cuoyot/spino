@@ -245,3 +245,6 @@
 #cp-media-capture.is-reviewing header button { border:0; background:transparent; color:var(--theme-link); }
 #cp-media-capture.is-reviewing .cp-media-title { margin:6px 0; }
 #cp-media-capture.is-reviewing .cp-media-viewer-actions { border-top:1px solid var(--theme-border); padding-top:6px; }
+.cp-midi-export-dialog { width:min(360px,calc(100vw - 32px)); padding:20px; border:1px solid var(--theme-border); border-radius:18px; background:var(--theme-panel); color:var(--theme-text); }
+.cp-midi-export-dialog h2 { margin:0 0 16px; font-size:1.15rem; }
+.cp-midi-export-dialog button { display:block; width:100%; margin-top:10px; min-height:48px; }

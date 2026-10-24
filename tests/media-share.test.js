@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {recordingFile,shareNativeRecording} from '../src/companion/media-share.js';
 
 test('sharing keeps original recording bytes, safe musical filenames and audio/video MIME types',async()=>{
-  for(const [type,extension] of [['audio/webm;codecs=opus','webm'],['video/mp4','mp4'],['audio/mp4','m4a']]){
+  for(const [type,extension] of [['audio/midi','mid'],['audio/wav','wav'],['audio/webm;codecs=opus','webm'],['video/mp4','mp4'],['audio/mp4','m4a']]){
     const blob=new Blob(['original recording bytes'],{type}),record={title:'Prélude / étude: 🎹',createdAt:'2026-10-18T12:00:00Z',blob};
     const file=recordingFile(record);assert.equal(file.name,'Prélude - étude- 🎹 · 2026-10-18.'+extension);assert.equal(file.type,type.split(';')[0]);assert.deepEqual(await file.arrayBuffer(),await blob.arrayBuffer());assert.equal(record.title,'Prélude / étude: 🎹');
   }
