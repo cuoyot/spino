@@ -339,6 +339,8 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     clampWidget();
   });
   if (session) enableScoreWidgetMinimize(widget, handle, clampWidget);
+  const widgetResize = new ResizeObserver(clampWidget);
+  widgetResize.observe(widget);
 
   function selectTool(next) {
     if (running()) return;
@@ -499,7 +501,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (textDialog?.open) { textDialog.close(); closing = false; return; }
     if (dirty && !await persistMarks()) { closing = false; return; }
     if (viewSaving && !await viewSaving) { closing = false; return; }
-    closed = true; renderVersion++; clearTimeout(resizeTimer); clearTimeout(zoneTimer); stopPedals(); stopClock(); observer.disconnect(); rendering?.cancel();
+    closed = true; renderVersion++; clearTimeout(resizeTimer); clearTimeout(zoneTimer); stopPedals(); stopClock(); observer.disconnect(); widgetResize.disconnect(); rendering?.cancel();
     await task.destroy().catch(() => {});
     await fullscreen.exit().catch(() => {});
     modal.close(); modal.remove(); previousFocus?.focus(); onClose();

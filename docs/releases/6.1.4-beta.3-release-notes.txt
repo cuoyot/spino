@@ -1,0 +1,19 @@
+<es-ES>
+Grabación integrada en el menú flotante de la partitura: mueve y minimiza todos los controles juntos. Selector de audio, vídeo y MIDI más claro. Reproductor MIDI compacto con iconos de reproducción, pausa y compartir para exportar .mid.
+</es-ES>
+
+<en-US>
+Recording is integrated into the floating score controls: move and minimize them together. Clearer audio, video and MIDI selection. Compact MIDI player with play, pause and share icons for .mid export.
+</en-US>
+
+<ca>
+Gravació integrada als controls flotants de la partitura: mou-los i minimitza’ls junts. Selector d’àudio, vídeo i MIDI més clar. Reproductor MIDI compacte amb icones de reproducció, pausa i compartir per exportar .mid.
+</ca>
+
+<de-DE>
+Aufnahmen sind in die schwebenden Noten-Steuerelemente integriert und lassen sich gemeinsam verschieben und minimieren. Klarere Auswahl für Audio, Video und MIDI. Kompakter MIDI-Player mit Wiedergabe-, Pause- und Teilen-Symbolen für den .mid-Export.
+</de-DE>
+
+<hu-HU>
+A felvétel a kotta lebegő vezérlőibe épült: együtt mozgathatók és összecsukhatók. Áttekinthetőbb hang-, videó- és MIDI-választás. Kompakt MIDI-lejátszó lejátszás, szünet és megosztás ikonokkal a .mid exportálásához.
+</hu-HU>

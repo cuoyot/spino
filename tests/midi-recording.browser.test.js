@@ -11,9 +11,9 @@ test('MIDI capture, piano playback, export, reload and disconnect in a disposabl
  const folder='artifacts/review/midi/2026-10-23-'+Date.now(),frames=[];await mkdir(folder,{recursive:true});
  const capture=async state=>{for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});const file=`${state}-${width}x${height}.png`;await writeFile(folder+'/'+file,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));frames.push({state,width,height,file});assert.equal(await evaluate(`document.querySelector('#cp-media-capture').scrollWidth<=document.querySelector('#cp-media-capture').clientWidth+1`),true);}};
  await send('Page.navigate',{url});await wait(`document.querySelector('.cp-today')`);
- await click('[data-action=record-media]');assert.equal(await evaluate(`!!document.querySelector('[data-media=midi]')`),false);
+ await click('[data-action=record-media]');assert.equal(await evaluate(`document.querySelector('[data-media=midi]').disabled`),true);assert.ok(await evaluate(`document.querySelector('[data-midi-connection-hint]').textContent.includes('connect your keyboard')`));
  await evaluate(`__sr.midi.simulateDevices(['Synthetic MIDI piano']);window.microphoneRequests=0;Object.defineProperty(navigator.mediaDevices,'getUserMedia',{value:()=>{microphoneRequests++;throw Error('MIDI must not request microphone')}});`);
- await wait(`document.querySelector('[data-media=midi]')`);await capture('choose');
+ await wait(`document.querySelector('[data-media=midi]')&&!document.querySelector('[data-media=midi]').disabled`);assert.equal(await evaluate(`!!document.querySelector('[data-midi-connection-hint]')`),false);await capture('choose');
  await click('[data-media=midi]');await evaluate(`__sr.midi.simulateControl(64,127);__sr.midi.simulateNote(60);__sr.midi.simulateNote(64)`);
  assert.equal(await evaluate(`!!document.querySelector('.cp-media-studio[open]')`),false);
  assert.equal(await evaluate(`document.querySelectorAll('.cp-midi-feedback .is-active[data-midi-key]').length`),2);
@@ -24,13 +24,13 @@ test('MIDI capture, piano playback, export, reload and disconnect in a disposabl
  await click('[data-media=stop]');await wait(`document.querySelector('[data-media=save]')&&!document.querySelector('[data-media=save]').disabled`);
  await evaluate(`document.querySelector('#media-title').value='Synthetic MIDI étude'`);await click('[data-media=save]');await wait(`document.querySelector('[data-media=share]')`);assert.equal(await evaluate(`microphoneRequests`),0);
  assert.equal(await evaluate(`!!document.querySelector('[data-media=trim]')`),false);await capture('saved');
- await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').textContent==='Pause'`);assert.equal(await evaluate(`document.querySelector('.cp-midi-player [role=alert]').textContent`),'');await click('.cp-midi-player button');
+ await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').getAttribute('aria-label')==='Pause'`);assert.equal(await evaluate(`document.querySelector('.cp-midi-player [role=alert]').textContent`),'');await click('.cp-midi-player button');
  await evaluate(`window.exported=[];HTMLAnchorElement.prototype.click=function(){exported.push({name:this.download,url:this.href})}`);await click('[data-media=share]');await wait(`exported.length===1`);
  assert.ok((await evaluate(`exported[0].name`)).endsWith('.mid'));
  const bytes=await evaluate(`fetch(exported[0].url).then(r=>r.arrayBuffer()).then(b=>Array.from(new Uint8Array(b)))`);const midi=decodeMidi(new Uint8Array(bytes).buffer);assert.equal(midi.events.filter(e=>(e.data[0]&240)===144).length,2);
  await click('[data-media=close]');await send('Page.reload');await wait(`document.querySelector('.cp-today')`);
  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await wait(`document.querySelector('[data-action=media-play]')`);await click('[data-action=media-filter-type][data-id=midi]');assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),1);
- await click('[data-action=media-play]');await wait(`document.querySelector('.cp-midi-player')`);await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').textContent==='Pause'`);await click('[data-media=close]');
+ await click('[data-action=media-play]');await wait(`document.querySelector('.cp-midi-player')`);await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').getAttribute('aria-label')==='Pause'`);await click('[data-media=close]');
  await click('[data-action=record-media]');await evaluate(`__sr.midi.simulateDevices(['Synthetic piano'])`);await click('[data-media=midi]');await evaluate(`__sr.midi.simulateNote(67);__sr.midi.simulateDevices([])`);await wait(`document.querySelector('[data-media=save]')&&!document.querySelector('[data-media=save]').disabled`);assert.ok(await evaluate(`document.querySelector('#cp-media-capture').textContent.includes('connection changed')`));await click('[data-media=delete]');
  assert.deepEqual(errors,[]);await writeFile(folder+'/verification.json',JSON.stringify({kind:'Responsive browser; synthetic MIDI input; disposable notebook; not native acceptance',frames,exportedMidiBytes:bytes.length,buildSha256:createHash('sha256').update(await readFile('dist/index.html')).digest('hex'),errors},null,2));
 });

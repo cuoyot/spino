@@ -1,5 +1,6 @@
 import {decodeMidi,midiNotes} from './midi-recording.js';
 import {ui} from './locale.js';
+import {scoreIcon} from './score-controls.js';
 const stamp=ms=>`${Math.floor(ms/60000)}:${String(Math.floor(ms/1000)%60).padStart(2,'0')}`;
 export function mountMidiPlayer(host,blob,durationMs=0) {
   let context,disposed=false,playing=false,loading=false,position=0,origin=0,index=0,notes=[],duration=durationMs,timer;
@@ -8,7 +9,7 @@ export function mountMidiPlayer(host,blob,durationMs=0) {
   play.type='button';play.textContent=ui('Play','Reproducir');seek.type='range';seek.min=0;seek.max=duration;seek.value=0;seek.step=100;seek.setAttribute('aria-label',ui('Playback position','Posición de reproducción'));error.setAttribute('role','alert');
   host.append(play,seek,label,error);host.className='cp-midi-player';
   const key=n=>`${Math.max(21,Math.min(108,n.midi))}-${n.velocity<60?40:n.velocity<100?80:120}`;
-  const update=()=>{seek.value=position;label.textContent=stamp(position)+' / '+stamp(duration);play.textContent=playing?ui('Pause','Pausar'):ui('Play','Reproducir');};
+  const update=()=>{seek.value=position;label.textContent=stamp(position)+' / '+stamp(duration);const name=loading?ui('Loading piano…','Cargando piano…'):playing?ui('Pause','Pausar'):ui('Play','Reproducir');play.innerHTML=scoreIcon(playing?'pause':'play');play.setAttribute('aria-label',name);play.title=name;play.setAttribute('aria-busy',String(loading));};
   const silence=()=>{for(const source of voices){try{source.stop();}catch{}}voices.clear();};
   const pause=()=>{if(playing)position=Math.min(duration,(context.currentTime-origin)*1000);playing=false;clearInterval(timer);silence();update();};
   const sound=n=>{
@@ -23,7 +24,7 @@ export function mountMidiPlayer(host,blob,durationMs=0) {
   };
   const tick=()=>{position=Math.min(duration,(context.currentTime-origin)*1000);while(index<notes.length&&notes[index].time<position+120)sound(notes[index++]);update();if(position>=duration){pause();position=0;update();}};
   play.onclick=async()=>{
-    if(playing){pause();return;}if(loading)return;loading=true;play.disabled=true;play.textContent=ui('Loading piano…','Cargando piano…');error.textContent='';
+    if(playing){pause();return;}if(loading)return;loading=true;play.disabled=true;update();error.textContent='';
     try{
       context ||= new (window.AudioContext||window.webkitAudioContext)({sampleRate:32000});await context.resume();
       if(!notes.length){const midi=decodeMidi(await blob.arrayBuffer());notes=midiNotes(midi.events,midi.durationMs);duration=midi.durationMs;seek.max=duration;}
