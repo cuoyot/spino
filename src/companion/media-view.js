@@ -70,7 +70,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
   }
   // Score viewers use modal dialogs. Keep the controls in the active top layer.
   const placePanel = () => {
-    const dialogs = [...document.querySelectorAll('dialog[open]')];
+    const dialogs = [...document.querySelectorAll('dialog[open]:not([data-media-export])')];
     const dialog = dialogs.at(-1);
     const widget = !standalone && dialog?.classList.contains('pdf-viewer') ? dialog.querySelector('.pdf-widget') : null;
     const host = widget || dialog || document.body;

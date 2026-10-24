@@ -24,7 +24,7 @@ export async function shareNativeRecording(file,plugin,{title,dialogTitle}) {
   }catch(error){await plugin.abort({token}).catch(()=>{});throw error;}
 }
 async function chooseMidiFormat() {
-  const dialog=document.createElement('dialog');dialog.className='cp-midi-export-dialog';
+  const dialog=document.createElement('dialog');dialog.className='cp-midi-export-dialog';dialog.dataset.mediaExport='true';
   const heading=document.createElement('h2');heading.textContent=ui('Share recording','Compartir grabación');dialog.append(heading);
   return await new Promise(resolve=>{
     const done=value=>{dialog.close();dialog.remove();resolve(value);};
@@ -42,7 +42,7 @@ async function prepareRecording(record,options){
     return {...record,blob:new Blob([record.blob],{type:'audio/midi'})};
   }
   if(record.kind!=='video'&&!midi)return record;
-  const controller=new AbortController(),dialog=document.createElement('dialog');
+  const controller=new AbortController(),dialog=document.createElement('dialog');dialog.dataset.mediaExport='true';
   const label=document.createElement('p'),progress=document.createElement('progress'),cancel=document.createElement('button');
   label.textContent=midi?ui('Preparing piano audio…','Preparando audio de piano…'):ui('Preparing video… Keep SPino open.','Preparando vídeo… Mantén SPino abierto.');progress.max=100;progress.value=0;
   cancel.textContent=ui('Cancel','Cancelar');cancel.type='button';cancel.onclick=()=>controller.abort();
