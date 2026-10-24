@@ -842,3 +842,8 @@ A reported broken Profile ring was caused by the external avatar outline being c
 Accepted owner objectives: continuous scrolling; title/composer first; compact download controls; combine catalogue search with clear Downloaded access; add to repertoire only after acquiring a score; preview notation before choosing. Implemented proposal combines formats, provides temporary opening previews and offline PDF first-page images, and condenses transfer management. [Evidence](captures/repertoire/2026-10-21-catalogue-rows-01/README.md) records 19 unit and four browser passes, including real-source and read-only preview checks. The row layout remains open for owner visual feedback. Native/release handoff is separate.
 
 Difficulty labels remain proposed. Existing algorithm outputs no calibrated grade. Any future Henle/ABRSM label must cite a source and match the precise work/version; no title-based grades, implicit conversion or inherited grades for arrangements.
+
+
+## 24 October 2026 — Guided backup setup
+
+Owner rejected the beta.3 storage menu and nested configuration entry. Accepted objective: start from the user's task with a visible guided process, minimal choices, prompt progress and clear results. Implemented source proposal: persistent setup card, two steps, automatic optimization, unchanged principal/retention defaults, and separate recovery tools. The new layout is awaiting owner visual review; beta.3 APK/web remain unchanged. See captures/profile/2026-10-24-guided-backups/README.md.

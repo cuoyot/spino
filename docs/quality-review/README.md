@@ -1,5 +1,7 @@
 # Release quality review
 
+2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. Source implementation and browser review are ready; no new APK yet. [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).
+
 2026-10-24 beta.3: fast metadata sync, deferred scores, simple connection choices, explicit migration confirmation and guarded local recovery. [Evidence and remaining native/physical acceptance](captures/profile/2026-10-24-sync-fast-beta3/README.md).
 
 2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
