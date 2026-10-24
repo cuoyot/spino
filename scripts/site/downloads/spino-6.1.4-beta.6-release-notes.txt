@@ -1,0 +1,19 @@
+<en-US>
+MIDI recording preserves original input timestamps. Piano playback is rendered before playing so interface delays cannot shift notes. Dense chords avoid clipping. Recording still starts with the first note. Timing already lost in older recordings cannot be recovered. Choose original MIDI (.mid) or piano audio (.wav / .mp3) when sharing.
+</en-US>
+
+<es-ES>
+La grabación MIDI conserva las marcas de tiempo de entrada. El piano se prepara antes de reproducir para que los retrasos de interfaz no desplacen notas. Los acordes densos evitan saturación. La toma empieza con la primera nota. No se pueden recuperar tiempos ya alterados en grabaciones antiguas. Al compartir, elige MIDI original (.mid) o audio de piano (.wav / .mp3).
+</es-ES>
+
+<ca>
+La gravació MIDI conserva les marques de temps d’entrada. El piano es prepara abans de reproduir perquè els retards de la interfície no desplacin notes. Els acords densos eviten saturació. La presa comença amb la primera nota. No es poden recuperar temps ja alterats en gravacions antigues. En compartir, tria MIDI original (.mid) o àudio de piano (.wav / .mp3).
+</ca>
+
+<de-DE>
+MIDI-Aufnahmen behalten die ursprünglichen Eingangszeitstempel. Der Klavierklang wird vor der Wiedergabe berechnet, damit die Oberfläche keine Noten verschiebt. Dichte Akkorde übersteuern nicht. Aufnahmebeginn mit der ersten Note. Bereits verfälschte Zeitwerte alter Aufnahmen sind nicht rekonstruierbar. Beim Teilen zwischen Original-MIDI (.mid) und Klavier-Audio (.wav / .mp3) wählen.
+</de-DE>
+
+<hu-HU>
+A MIDI-felvétel megőrzi a bemeneti időbélyegeket. A zongorahang lejátszás előtt készül el, így a felület késése nem tolja el a hangokat. A sűrű akkordok nem torzítanak túlvezérlés miatt. A felvétel az első hanggal indul. Régi felvételek hibás időzítése nem állítható helyre. Megosztáskor választható eredeti MIDI (.mid) vagy zongorahang (.wav / .mp3).
+</hu-HU>
