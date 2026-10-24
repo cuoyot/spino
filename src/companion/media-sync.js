@@ -37,9 +37,10 @@ export function createMediaSync({store, connection, getContext, eligible, change
       };
       const integrity=message=>Object.assign(Error(message),{code:'INTEGRITY'});
       try{
-        const policy=await network();if(!policy.online||context.wifiOnly&&(!policy.wifi||policy.metered)){publish({status:policy.online?'wifi':'offline'});return;}
+        const policy=await network();if(!policy.online){publish({status:'offline'});return;}
+        const allowed=!context.wifiOnly||policy.wifi&&!policy.metered;
         publish({status:'checking',completed:0,total:0,percent:0,error:'',issues:[]});
-        client=await connection(context);if(!current(key))return;
+        client=await connection({...context,wifiOnly:false});if(!current(key))return;
         if(repairFileId){
           const issue=repairIssues.find(i=>i.fileId===repairFileId&&i.localId);
           const record=issue&&await store.get(issue.localId);
@@ -58,9 +59,15 @@ export function createMediaSync({store, connection, getContext, eligible, change
         }
         for(const r of local)if(r.cloud?.accountId===context.accountId&&r.cloud?.notebookId===context.notebookId&&blockedFiles.has(r.cloud.fileId))blockedTakes.add(takeId(r));
         const remote=[...byTake.values()].filter(f=>!blockedTakes.has(f.appProperties.takeId));
-        const uploads=local.filter(r=>!blockedTakes.has(takeId(r))&&!r.draft&&(r.workId===''||works.has(r.workId))&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId)&&!remote.some(f=>f.appProperties.takeId===takeId(r)));
+        for(const file of remote){const p=file.appProperties;
+          await store.rememberRemote?.({id:p.takeId,workId:p.workId,workTitle:works.get(p.workId)?.title||'',title:file.name,createdAt:p.createdAt,durationMs:Number(p.durationMs),kind:file.mimeType==='audio/midi'?'midi':file.mimeType.startsWith('video/')?'video':'audio',bytes:Number(file.size),draft:false,cloud:{accountId:context.accountId,notebookId:context.notebookId,fileId:file.id,sha256:recordingChecksum(file)}});
+        }
+        await refreshed();
+        if(!allowed){publish({status:'wifi'});return;}
+        client=await connection(context);if(!current(key))return;
+        const uploads=local.filter(r=>!blockedTakes.has(takeId(r))&&!r.remoteOnly&&!r.draft&&(r.workId===''||works.has(r.workId))&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId)&&!remote.some(f=>f.appProperties.takeId===takeId(r)));
         const downloads=[];
-        for(const f of remote){const p=f.appProperties;if(!(p.workId===''||works.has(p.workId))||await store.ignored(key,p.takeId))continue;const exists=local.find(r=>takeId(r)===p.takeId);if(!exists)downloads.push(f);else if(exists.workId!==p.workId||exists.cloud?.sha256&&exists.cloud.sha256!==p.sha256)recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);}
+        for(const f of remote){const p=f.appProperties;if(!(p.workId===''||works.has(p.workId))||await store.ignored(key,p.takeId))continue;const exists=local.find(r=>takeId(r)===p.takeId);if(!exists||exists.remoteOnly)downloads.push(f);else if(exists.workId!==p.workId||exists.cloud?.sha256&&exists.cloud.sha256!==p.sha256)recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);}
         const total=uploads.length+downloads.length;
         if(total)publish({status:'copying',completed,total,percent:0,error:''});
         for(const row of uploads){
@@ -92,12 +99,24 @@ export function createMediaSync({store, connection, getContext, eligible, change
         // Attach existing copies after a lost response, without rewriting titles edited locally.
         for(const f of remote){
           if(!current(key))return;
-          const r=local.find(r=>takeId(r)===f.appProperties.takeId);if(r&&!blockedTakes.has(takeId(r))&&(!r.cloud||r.cloud.pending)&&!r.draft&&(r.workId===''||works.has(r.workId)))await attempt(r,async()=>{const record=await store.get(r.id);if(record&&await mediaHash(record.blob)!==recordingChecksum(f))throw integrity('Recording identity conflict. Local recordings were kept.');if(record&&current(key))await store.attachCloud(r.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:f.id,sha256:recordingChecksum(f)},takeId(r));});
+          const r=local.find(r=>takeId(r)===f.appProperties.takeId);if(r&&!r.remoteOnly&&!blockedTakes.has(takeId(r))&&(!r.cloud||r.cloud.pending)&&!r.remoteOnly&&!r.draft&&(r.workId===''||works.has(r.workId)))await attempt(r,async()=>{const record=await store.get(r.id);if(record&&await mediaHash(record.blob)!==recordingChecksum(f))throw integrity('Recording identity conflict. Local recordings were kept.');if(record&&current(key))await store.attachCloud(r.id,{accountId:context.accountId,notebookId:context.notebookId,fileId:f.id,sha256:recordingChecksum(f)},takeId(r));});
         }
         if(current(key))publish(issues.length?{status:'error',completed,total,issues,error:'Some recording copies need attention. Local files are kept.',percent:0}:{status:'saved',completed,total,issues:[],error:'',percent:100,lastCheckedAt:new Date().toISOString()});
       }catch(error){if(current(key))publish({status:'error',issues:repairFileId&&!issues.length?repairIssues:issues,error:error.message||String(error)});}
       finally{try{if(completed&&current(key))await refreshed();}finally{task=null;controller=null;schedule();}}
     })();return task;
   }
-  return {get state(){return {...state};},get busy(){return !!task;},sync,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
+  async function download(id){
+    if(task)throw Error('Wait for the current recording transfer.');
+    task=(async()=>{const context=getContext();if(!context)throw Error('Connect the notebook before downloading.');
+    const rows=await store.index(),row=rows.find(r=>r.id===id);
+    if(!row?.cloud?.fileId||row.cloud.accountId!==context.accountId||row.cloud.notebookId!==context.notebookId)throw Error('The recording is not available in this notebook.');
+    const client=await connection({...context,wifiOnly:false}),result=await client.download(row.cloud.fileId);
+    try{if(contextKey(getContext())!==contextKey(context))throw Error('The notebook connection changed.');
+      if(!result.verified&&await mediaHash(result.blob)!==row.cloud.sha256)throw Error('Downloaded recording failed verification.');
+      await store.importRemote({...row,blob:result.blob},contextKey(context),true);await refreshed();
+    }finally{await result.cleanup?.();}
+    })();try{return await task;}finally{task=null;}
+  }
+  return {get state(){return {...state};},get busy(){return !!task;},sync,download,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
 }

@@ -1,0 +1,57 @@
+{
+  "version": "6.1.5-beta.1",
+  "versionCode": 100,
+  "webBuild": "passed",
+  "focusedUnitAndWebsiteTests": 117,
+  "androidTests": [
+    {
+      "suite": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "suite": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "suite": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "suite": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "signedAAB": "verified",
+  "browserExport": "passed",
+  "browserImportPicker": "initial detached-input automation failure; input now attached to DOM; end-to-end selection unverified",
+  "privateDriveImport": {
+    "objects": 356,
+    "commits": 89,
+    "sessions": 29,
+    "works": 5,
+    "events": 4,
+    "assets": 8,
+    "conflicts": 0,
+    "sessionsEventsAssetsPreserved": true
+  },
+  "nativeInstall": "not completed: existing emulator unresponsive before installation; restart blocked by automatic approval review, user response pending",
+  "limitations": [
+    "Automatic daily check while app is open",
+    "Maximum complete ZIP 250 MB",
+    "Physical Google Drive two-device and cellular transfer acceptance pending"
+  ],
+  "nativeEvidence": {
+    "status": "blocked",
+    "reason": "Existing emulator stopped responding before replacement installation; automatic approval review rejected restart pending owner authorization.",
+    "packagedWebFiles": 684,
+    "packagedWebMismatches": 0
+  }
+}

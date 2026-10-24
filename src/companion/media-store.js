@@ -44,20 +44,30 @@ export async function openMediaStore(name = 'spino-local-media') {
         cursor.onsuccess = () => {
           const entry = cursor.result; if (!entry) return resolve();
           const {blob, ...record} = entry.value;
-          if (record.installation === installation && blob instanceof Blob && blob.size) rows.push({...record, bytes:blob.size});
+          if (record.installation === installation && (blob instanceof Blob && blob.size || record.remoteOnly)) rows.push({...record, bytes:blob?.size || record.bytes});
           entry.continue();
         };
       });
       return rows.sort((a,b) => b.createdAt.localeCompare(a.createdAt));
+    },
+    async rememberRemote(record) {
+      const tx=db.transaction('recordings','readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(record.id);
+      q.onsuccess=()=>{if(!q.result||q.result.remoteOnly)records.put({...record,installation,remoteOnly:true});};
+      await committed;
+    },
+    async releaseLocal(id) {
+      const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
+      q.onsuccess=()=>{const r=q.result;if(!r?.cloud?.fileId||r.cloud.pending){tx.abort();return;}const {blob,...meta}=r;records.put({...meta,bytes:blob?.size||r.bytes,remoteOnly:true});tx.objectStore('meta').put(true,'removed.'+r.cloud.accountId+'.'+r.cloud.notebookId+'.'+(r.mediaTakeId||id));};
+      await committed;onChange();
     },
     async attachCloud(id, cloud, expectedTakeId) {
       const tx=db.transaction('recordings','readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);
       q.onsuccess=()=>{try{if(q.result&&(!expectedTakeId||(q.result.mediaTakeId||id)===expectedTakeId))records.put({...q.result,cloud});}catch{tx.abort();}};await committed;
     },
     async ignored(scope, id) {return !!await result(db.transaction('meta').objectStore('meta').get('removed.'+scope+'.'+id));},
-    async importRemote(record, scope) {
+    async importRemote(record, scope, force=false) {
       const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),meta=tx.objectStore('meta');let inserted=false;
-      const ignored=meta.get('removed.'+scope+'.'+record.id);ignored.onsuccess=()=>{if(ignored.result)return;const exists=records.get(record.id);exists.onsuccess=()=>{if(!exists.result){try{records.put({...record,installation});inserted=true;}catch{tx.abort();}}};};await committed;return inserted;
+      const ignored=meta.get('removed.'+scope+'.'+record.id);ignored.onsuccess=()=>{if(ignored.result&&!force)return;const exists=records.get(record.id);exists.onsuccess=()=>{if(!exists.result||exists.result.remoteOnly){try{records.put({...record,remoteOnly:false,installation});inserted=true;}catch{tx.abort();}}};};await committed;return inserted;
     },
     async remove(id) {
       const tx=db.transaction(['recordings','meta'],'readwrite'),committed=done(tx),records=tx.objectStore('recordings'),q=records.get(id);

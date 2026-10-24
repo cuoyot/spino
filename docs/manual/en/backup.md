@@ -29,3 +29,12 @@ If Android can no longer open the selected provider or its permission is lost, c
 These flows are verified with synthetic provider failures in the production browser UI. Android compilation, replacement installation, retained notebook file hashes and foreground launch are verified separately. The reported physical tablet's Drive access still requires device verification.
 
 The beta6 connection flow is verified with synthetic browser providers in four phone/tablet orientations. Native Android DocumentsUI launch and cancellation are verified separately, with no file selected and no grant changed. Real Drive account linking remains subject to physical-device acceptance.
+
+
+## Complete ZIP backups (6.1.5 beta)
+
+In Backup & sync, Export file offers a complete ZIP with scores and recordings or the existing JSON notebook-only export. Complete ZIPs verify each file. Missing linked recordings prevent a complete copy. Remote media can be downloaded manually using mobile data, including 5G.
+
+For a connected Drive notebook, Manage → Synchronization and backups chooses an accessible folder and notebook filename, enables changed daily copies and selects a principal device. Only that device makes automatic copies; only the latest seven complete copies are retained. Change principal from the device that should take over. Existing folder organization preserves notebook identities and connections.
+
+Automatic checks run while Spino is open. The beta supports archives up to 250 MB. Restoring a complete ZIP opens a separate local notebook with cloud sync disabled. Return to the original notebook from Profile or the recovery notice. Keep all devices updated and review your existing configuration when prompted after updating.

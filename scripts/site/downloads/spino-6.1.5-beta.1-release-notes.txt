@@ -1,0 +1,19 @@
+<es-ES>
+Nueva configuración de carpeta y archivo en Drive. Adjuntos visibles aunque no estén descargados, con descarga manual por datos móviles. Copias ZIP completas: últimas 7, solo si hay cambios y desde el dispositivo principal. Permite cambiar el principal y recuperar una copia separada. Al actualizar, revisa tu configuración. Beta: copias automáticas con la app abierta; ZIP hasta 250 MB.
+</es-ES>
+
+<en-US>
+Choose a Drive folder and file name. See attachments before downloading and download manually over mobile data. Complete ZIP backups retain the latest 7, only when changed and only from the principal device. Change principal or restore a separate copy. Review existing settings after updating. Beta: automatic checks run while the app is open; ZIP limit 250 MB.
+</en-US>
+
+<ca>
+Configura carpeta i fitxer a Drive. Adjunts visibles sense baixar, amb descàrrega manual per dades mòbils. Còpies ZIP completes: últimes 7, només amb canvis i des del dispositiu principal. Canvia el principal i restaura una còpia separada. Revisa la configuració després d’actualitzar. Beta: còpies automàtiques amb l’app oberta; ZIP fins a 250 MB.
+</ca>
+
+<de-DE>
+Drive-Ordner und Dateiname wählen. Anhänge vor dem Download sehen und über mobile Daten laden. Vollständige ZIP-Sicherungen: die letzten 7, nur bei Änderungen und nur vom Hauptgerät. Hauptgerät wechseln oder eine separate Kopie wiederherstellen. Einstellungen nach dem Update prüfen. Beta: automatische Prüfungen bei geöffneter App; ZIP-Limit 250 MB.
+</de-DE>
+
+<hu-HU>
+Drive-mappa és fájlnév választása. Mellékletek megjelenítése letöltés nélkül, kézi letöltés mobiladattal. Teljes ZIP-mentések: az utolsó 7, csak változáskor és az elsődleges eszközről. Elsődleges eszköz váltása és külön másolat visszaállítása. Frissítés után ellenőrizze a beállításokat. Béta: automatikus ellenőrzés nyitott alkalmazásnál; ZIP-korlát 250 MB.
+</hu-HU>

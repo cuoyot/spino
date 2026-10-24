@@ -11,7 +11,7 @@ const oldMarker='spino-notebook-v1',archivedMarker='spino-notebook-archive-v1';
 const parse=response=>JSON.parse(response.text),equal=(a,b)=>stableJSON(a)===stableJSON(b);
 const bytes=text=>new TextEncoder().encode(text).length;
 export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=150000}){
- let selected=null,client=null,progress=null,progressListener=()=>{};
+ let destination=null,selected=null,client=null,progress=null,progressListener=()=>{};
  const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs});
  const report=(stage,completed=0,total=null)=>{progress={stage,completed,total};progressListener();};
  const state=()=>settings.read()||{},save=next=>settings.save(next);
@@ -123,7 +123,8 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  async function createRoot(text,name,{origin=null}={}){
   const backup=validate(text),notebookId=JSON.parse(text).cloudBackup?.sharedNotebookId;if(!validNotebookId(notebookId))throw atomicFailure('Invalid notebook identity.');
   const connected=await account();if(!origin)save({...state(),pending:{notebookId,accountId:connected.id}});const id=await allocate('atomic2/'+connected.id+'/create/'+(origin||notebookId)),root={format:ATOMIC_FORMAT,rootId:origin||id,notebookId,...(origin?{origin}:{})};
-  root.folderId=await allocate('atomic2/'+connected.id+'/'+root.rootId+'/folder');
+  if(destination?.name)name=destination.name;
+  root.folderId=destination?.folderId||await allocate('atomic2/'+connected.id+'/'+root.rootId+'/folder');
   const existingFolder=await api(`/drive/v3/files/${root.folderId}?fields=id,mimeType,trashed`,{missing:true});
   if(!existingFolder)await api('/drive/v3/files?fields=id',{method:'POST',allowConflict:true,text:JSON.stringify({id:root.folderId,name:'SPino — '+name.replace(/\.json$/i,'').slice(0,160),mimeType:'application/vnd.google-apps.folder',description:'SPino synchronized notebook objects. Keep this folder intact.'})});
   else if(parse(existingFolder).trashed||parse(existingFolder).mimeType!=='application/vnd.google-apps.folder')throw atomicFailure('The incremental notebook folder is unavailable.','FILE_UNAVAILABLE');
@@ -162,9 +163,12 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
  }
  return {
   transport:'drive',
+  storageRequest:(path,options)=>serialized(()=>api(path,options)),
+  storageLink:()=>({...state().link}),
+  setDestination:value=>{if(value&&(!validDriveId(value.folderId)||typeof value.name!=='string'||!value.name.trim()||value.name.length>200))throw atomicFailure('Choose a folder and file name.');destination=value;},
   onProgress:callback=>{progressListener=callback;},
   cancelPending:()=>requests.cancel(),
-  get info(){return {transport:'drive',account:state().account||null,fileId:state().link?.id,incremental:true,syncFormat:state().link?.format||'previous',progress};},
+  get info(){return {transport:'drive',account:state().account||null,fileId:state().link?.id,folderId:state().link?.folderId,notebookId:state().link?.notebookId,incremental:true,syncFormat:state().link?.format||'previous',progress};},
   pendingNotebookId:()=>state().pending?.notebookId,
   async connect(){const connected=await native.connect();if(state().link&&state().link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');save({...state(),account:connected});return connected;},
   async status(){const result=await native.status(),linkState=state().link;return {linked:!!linkState,name:linkState?.name||'',mode:'sync',setupPending:!!state().setupPending,account:result.account,transport:'drive',recoveryAvailable:true};},

@@ -121,3 +121,13 @@ test('trim revision uploads new bytes while preserving the local record ID and e
  await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);await a.engine.sync();assert.equal(a.engine.state.status,'saved',a.engine.state.error);
  assert.equal(a.store.rows.size,1);assert.equal(a.store.rows.get(old.id).title,old.title);assert.equal(a.store.rows.get(old.id).cloud.sha256,await mediaHash(a.store.rows.get(old.id).blob));assert.equal(server.files.size,2);
 });
+
+test('metered network discovers remote metadata without downloading bytes; explicit download works',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording()]);await a.engine.sync();
+ const store=memoryStore([]);store.rememberRemote=async row=>{if(!store.rows.has(row.id))store.rows.set(row.id,{...row,remoteOnly:true});};
+ store.index=async()=>[...store.rows.values()].map(({blob,...r})=>({...r,bytes:blob?.size||r.bytes}));
+ store.importRemote=async record=>store.rows.set(record.id,{...record,remoteOnly:false});
+ const b=device(t,server,[],{store,network:async()=>({online:true,wifi:false,metered:true})});
+ await b.engine.sync();assert.equal(b.engine.state.status,'wifi');const row=store.rows.get('take-1');assert.equal(row.remoteOnly,true);assert.equal(row.blob,undefined);assert.equal(row.title,recording().title);
+ await b.engine.download('take-1');assert.equal(store.rows.get('take-1').remoteOnly,false);assert.equal(await mediaHash(store.rows.get('take-1').blob),await mediaHash(recording().blob));
+});

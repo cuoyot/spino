@@ -1,3 +1,9 @@
+import {createDriveStorage} from './drive-storage.js';
+import {createStorageUI} from './storage-ui.js';
+import {createCompleteBackup,inspectCompleteBackup} from './complete-backup.js';
+import {downloadArchive} from './drive-archive.js';
+import {shareNativeRecording} from './media-share.js';
+import {Capacitor as StorageCapacitor,registerPlugin as storagePlugin} from '@capacitor/core';
 import {APP_VERSION} from './app-version.js';
 import {backupExportName} from './backup-export-name.js';
 import {driveRenameMarkup,driveRecoveryCopy} from './drive-recovery-view.js';
@@ -112,7 +118,7 @@ export async function bootCompanion(reader) {
   const bootMessage = root.querySelector('.boot-message');
   if (bootMessage) bootMessage.textContent = ui('Opening your notebook…', 'Abriendo tu cuaderno…');
   let store, data;
-  try { store = await openStore(); data = await store.load(); }
+  try { store = await openStore(localStorage.getItem('spino.recovered-notebook')||undefined); data = await store.load(); }
   catch (e) { root.innerHTML = `${ui("<div class=\"cp-page\"><h1>Could not open the notebook</h1><p>", "<div class=\"cp-page\"><h1>No se ha podido abrir el cuaderno</h1><p>")}${esc(localizeMessage(e.message))}${ui("</p><p>Your existing data is safe. Close and reopen the app.</p></div>", "</p><p>Los datos existentes se conservan. Cierra y vuelve a abrir la app.</p></div>")}`; return; }
   // Existing notebooks were displayed in Spanish before a language preference existed.
   data.preferences.language ||= 'es';
@@ -135,7 +141,8 @@ export async function bootCompanion(reader) {
   let startingPractice = false;
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
-  let driveConnecting = false, mediaSync = null;
+  let driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, completeBackupBusy=false;
+  const recoveredNotebook=localStorage.getItem('spino.recovered-notebook');
   function refreshSyncIndicator() {
     const slot = root.querySelector('[data-sync-indicator]');
     const markup = syncIndicatorMarkup(cloud?.state, mediaSync?.state);
@@ -154,10 +161,10 @@ export async function bootCompanion(reader) {
   const mediaCalendar = {month:localDate(),mode:'week',type:'',workId:'',date:'',limit:24};
   let streakMonth=localDate();
   function openStreak() { showDialog(ui('Keep your rhythm','Mantén tu ritmo'),streakDetailMarkup(data,streakMonth)); }
-  try { mediaStore = await openMediaStore(); mediaRecords = await mediaStore.index(); }
+  try { mediaStore = await openMediaStore(recoveredNotebook?recoveredNotebook+'-media':undefined); mediaRecords = await mediaStore.index(); }
   catch (error) { console.warn('Could not open local media storage.',error); }
   function multimedia() { return mediaMarkup(mediaRecords,data.works,mediaCalendar); }
-  async function refreshMedia() { mediaRecords = await mediaStore.index(); if(['multimedia','work','progress','event','session-detail'].includes(view))render(); }
+  async function refreshMedia() { mediaRecords = await mediaStore.index(); if(['multimedia','work','progress','event','session-detail','calendar'].includes(view))render(); }
   function recordWork(id) { if(!mediaCapture)throw Error(ui('Local recording storage is unavailable. Reopen the app and try again.','El almacenamiento local de grabaciones no está disponible. Abre de nuevo la app y vuelve a intentarlo.'));if(mediaCapture.recording){mediaCapture.stop();return;}mediaCapture.open(id,currentBlock()?.workId===id?data.active?.id:null); }
   if(mediaStore)mediaCapture=createMediaCapture({store:mediaStore,changed:refreshMedia,report:message=>toast(message),getWork:id=>data.works.find(w=>w.id===id&&!w.trashedAt),getWorks:()=>data.works.filter(w=>!w.trashedAt)});
   let library = await store.library(), libraryFilters = {}, libraryPage = 0, libraryReady = false, catalogueSearchTimer;
@@ -389,7 +396,7 @@ export async function bootCompanion(reader) {
   const workPlayable = w => !w?.libraryId || manualPracticeState(catalogueRecords(library).find(r => r.piece_id === w.libraryId), executionFor(library, w.libraryId), library).playable;
   const libraryRepertoire = () => new Map(data.works.filter(w=>w.libraryId&&!w.trashedAt).map(w=>[w.libraryId,w.id]));
   function settingsPage() {
-    return profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,driveNotebook:driveNotebookAvailable(),lang:getAppLanguage()});
+    return (recoveredNotebook?`<section class="cp-card"><h2>${ui('Recovered notebook','Cuaderno recuperado')}</h2>${btn('storage-return-original',ui('Return to original notebook','Volver al cuaderno original'))}</section>`:'')+profileMarkup(data,{cloud:cloud?.state,assetCount:profileFiles?.length,reminders:reminderState,native:remindersAvailable,driveNotebook:driveNotebookAvailable(),lang:getAppLanguage()});
   }
   async function refreshProfileFiles() {
     const index = await store.assetIndex();
@@ -549,7 +556,7 @@ export async function bootCompanion(reader) {
   }
   function lessonRecordings(e) {
     const ids=e.recordingIds||[];
-    return `<section class="cp-card"><div class="cp-row"><h2>${ui('Teacher recordings','Grabaciones del profesor')}</h2><div class="cp-actions">${btn('lesson-recordings',ui('Associate recordings','Asociar grabaciones'),e.id)}${mediaCapture?btn('record-lesson',ui('Record teacher','Grabar al profesor'),e.id):''}</div></div>${ids.map(id=>{const r=mediaRecords.find(r=>r.id===id);return `<div class="cp-block"><h3>${esc(r?.title||ui('Recording unavailable on this device','Grabación no disponible en este dispositivo'))}</h3>${r?`<p class="muted">${r.kind==='midi'?'MIDI':r.kind==='video'?ui('Video','Vídeo'):ui('Audio','Audio')} · ${esc(new Date(r.createdAt).toLocaleString(getAppLanguage()))}${r.draft?' · '+ui('Pending save','Pendiente de guardar'):''}</p><div class="cp-actions">${btn('media-play',r.draft?ui('Review and save','Revisar y guardar'):ui('Play','Reproducir'),id)}${r.draft?'':btn('media-share',ui('Share','Compartir'),id)}</div>`:''}</div>`;}).join('')||`<p class="muted">${ui('Link audio or video demonstrations to this lesson.','Asocia demostraciones de audio o vídeo a esta clase.')}</p>`}</section>`;
+    return `<section class="cp-card"><div class="cp-row"><h2>${ui('Teacher recordings','Grabaciones del profesor')}</h2><div class="cp-actions">${btn('lesson-recordings',ui('Associate recordings','Asociar grabaciones'),e.id)}${mediaCapture?btn('record-lesson',ui('Record teacher','Grabar al profesor'),e.id):''}</div></div>${ids.map(id=>{const r=mediaRecords.find(r=>r.id===id);return `<div class="cp-block"><h3>${esc(r?.title||ui('Recording unavailable on this device','Grabación no disponible en este dispositivo'))}</h3>${r?`<p class="muted">${r.kind==='midi'?'MIDI':r.kind==='video'?ui('Video','Vídeo'):ui('Audio','Audio')} · ${esc(new Date(r.createdAt).toLocaleString(getAppLanguage()))}${r.draft?' · '+ui('Pending save','Pendiente de guardar'):''}</p><div class="cp-actions">${btn('media-play',r.remoteOnly?ui('Download','Descargar'):r.draft?ui('Review and save','Revisar y guardar'):ui('Play','Reproducir'),id)}${r.draft||r.remoteOnly?'':btn('media-share',ui('Share','Compartir'),id)}</div>`:''}</div>`;}).join('')||`<p class="muted">${ui('Link audio or video demonstrations to this lesson.','Asocia demostraciones de audio o vídeo a esta clase.')}</p>`}</section>`;
   }
   function lessonForm(id) {
     const e=findEvent(data.events,id);if(e?.type!=='Clase')return;
@@ -858,7 +865,7 @@ export async function bootCompanion(reader) {
     syncScreenAwake();
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
-    const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
+    const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail','calendar'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     if (view === 'free-practice') {
@@ -1036,9 +1043,9 @@ export async function bootCompanion(reader) {
     materialSelection=null;go('prepare');toast(ui("Score added to your practice. Existing blocks have been kept.", "Partitura añadida a tu práctica. Se conservan los bloques existentes."));
   }
   const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
-  if (cloudAvailable()) {
+  if (cloudAvailable()&&!recoveredNotebook) {
     let lastCloudKey='',lastProfileCloud='',adoptedScroll=0;
-    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
+    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !storageManager?.state.busy && !completeBackupBusy && !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
       canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
@@ -1047,15 +1054,44 @@ export async function bootCompanion(reader) {
       adopted: () => {render();root.querySelector('.cp-page')?.scrollTo(0,adoptedScroll);mediaSync?.markDirty();},
       changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;const scroll=root.querySelector('.cp-page')?.scrollTop||0;render();root.querySelector('.cp-page')?.scrollTo(0,scroll);} } });
     if(driveNotebookAvailable()&&mediaStore){
-      mediaSync=createMediaSync({store:mediaStore,connection:connectDriveMedia,
+      mediaSync=createMediaSync({store:mediaStore,connection:async context=>{await storageManager?.refresh();return connectDriveMedia({...context,folderId:storageManager?.state.config?.mediaFolder});},
         getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:readMediaWifiOnly(data.preferences.wifiOnly)}:null;},
-        eligible:()=>cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
+        eligible:()=>!storageManager?.state.busy&&!completeBackupBusy&&cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
         network:networkStatus,changed:()=>{refreshSyncIndicator();const panel=document.querySelector('#cloud-media');if(panel)replaceHelpMarkup(panel,mediaSyncMarkup(mediaSync.state,cloudOptions()));},
-        refreshed:async()=>{mediaRecords=await mediaStore.index();if(['multimedia','work','progress','event','session-detail'].includes(view))render();}});
+        refreshed:async()=>{mediaRecords=await mediaStore.index();if(['multimedia','work','progress','event','session-detail','calendar'].includes(view))render();}});
       mediaStore.onChange(()=>mediaSync.markDirty());
     }
     store.onChange(() => cloud.markDirty());
     CloudBackup.addListener('setupComplete', () => { if (!cloud.busy) cloud.init().catch(error => toast(error.message)); });
+  }
+  if(driveNotebookAvailable()&&mediaStore&&!recoveredNotebook){
+    const deviceKey='spino.backup-device.id',deviceId=localStorage.getItem(deviceKey)||crypto.randomUUID();localStorage.setItem(deviceKey,deviceId);
+    const deviceName=localStorage.getItem('spino.backup-device.name')||('Android · '+deviceId.slice(0,6));
+    storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,snapshot:()=>store.export(data),mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
+      eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{}});
+    storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,refresh:refreshMedia,exportZip:exportCompleteZip,restoreZip:importCompleteZip,
+      downloadCopy:async file=>reviewCompleteZip(await downloadArchive({accountId:storageManager.link().accountId,file})),cloud,deviceName});
+    setInterval(()=>{if(cloud?.state.transport==='drive'&&cloud.state.enabled)void storageManager.daily();},60000);
+  }
+  async function completeZip(){
+    if(mediaCapture?.busy||cloud?.busy||mediaSync?.busy||data.active)throw Error(ui('Finish practice and transfers before creating a complete backup.','Termina la práctica y las transferencias antes de crear una copia completa.'));
+    if(storageManager&&cloud?.state.transport==='drive')return (await storageManager.complete()).blob;
+    return createCompleteBackup({text:await store.export(data),records:await mediaStore.index(),load:row=>mediaStore.get(row.id)});
+  }
+  async function saveZip(blob,name){
+    const file=new File([blob],name,{type:'application/zip'});
+    if(StorageCapacitor.getPlatform()==='android')return shareNativeRecording(file,storagePlugin('MediaShare'),{title:'Spino backup',dialogTitle:ui('Save complete backup','Guardar copia completa')});
+    const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
+  }
+  async function exportCompleteZip(){
+    showDialog(ui('Export complete ZIP','Exportar ZIP completo'),`<form><p>${ui('Includes notebook, scores and all available recordings. Missing files are downloaded from Drive. Mobile data may be used.','Incluye cuaderno, partituras y todas las grabaciones disponibles. Los archivos que falten se descargarán de Drive. Puede usar datos móviles.')}</p><p>${ui('Beta limit: 250 MB per complete archive. An incomplete copy is never marked complete.','Límite de esta beta: 250 MB por archivo completo. Nunca se marca una copia incompleta como completa.')}</p>${formEnd(ui('Prepare ZIP','Preparar ZIP'))}</form>`,async()=>{completeBackupBusy=true;try{const blob=await completeZip();await saveZip(blob,'Spino-'+new Date().toISOString().replace(/[:.]/g,'-')+'.zip');dialog.close();}finally{completeBackupBusy=false;}});
+  }
+  async function importCompleteZip(){
+    const input=document.createElement('input');input.type='file';input.accept='.zip,application/zip';input.hidden=true;document.body.append(input);input.onchange=async()=>{try{if(input.files[0])await reviewCompleteZip(input.files[0]);}catch(e){toast(e.message);}finally{input.remove();}};input.addEventListener('cancel',()=>input.remove(),{once:true});input.click();
+  }
+  async function reviewCompleteZip(blob){
+    const value=await inspectCompleteBackup(blob);
+    showDialog(ui('Restore a separate copy','Restaurar una copia separada'),`<form><p>${value.backup.data.sessions.length} ${ui('sessions','sesiones')} · ${value.records.length} ${ui('verified recordings','grabaciones verificadas')}</p><p>${ui('Your current notebook and recordings will remain intact. The restored copy opens without cloud synchronization. You can return to the original notebook.','Tu cuaderno y grabaciones actuales se conservarán intactos. La copia restaurada se abre sin sincronización en la nube. Podrás volver al cuaderno original.')}</p>${formEnd(ui('Restore separate copy','Restaurar copia separada'))}</form>`,async()=>{const id='spino-recovery-'+crypto.randomUUID(),target=await openStore(id),media=await openMediaStore(id+'-media');await target.restore(value.text);for(const r of value.records)await media.importRemote(r,'restored',true);media.close();localStorage.setItem('spino.recovered-notebook',id);location.reload();});
   }
   function backupExportOptions(converting) {
     showDialog(ui(converting?'Convert a backup':'Export a backup',converting?'Convertir una copia':'Exportar una copia'),`<form><p>SPino · ${esc(APP_VERSION)}</p><p>${ui('Exports the notebook from this app installation. Audio and video files are copied separately.','Exporta el cuaderno de esta instalación. Los archivos de audio y vídeo se copian por separado.')}</p><label>${ui('Backup format','Formato de copia')}<select name="format"><option value="1">${ui('Compatible copy · JSON format 1','Copia compatible · formato JSON 1')}</option><option value="2">${ui('Organized copy · JSON format 2','Copia organizada · formato JSON 2')}</option></select></label>${moreInfo(`<p>${ui('Repertoire, practice history, scores, annotations and score views are included in one portable file.','El repertorio, el historial, las partituras, las anotaciones y sus vistas se incluyen en un único archivo portátil.')}</p><p>${ui('Format 2 requires a compatible version of SPino. Conversion keeps the original file.','El formato 2 requiere una versión compatible de SPino. La conversión conserva el archivo original.')}</p>`)}<label class="check" data-format-warning hidden><input name="compatibility" type="checkbox"/>${ui('I understand that older versions cannot open the format 2 copy.','Entiendo que las versiones anteriores no pueden abrir la copia en formato 2.')}</label>${formEnd(ui(converting?'Choose and convert a copy':'Export',converting?'Elegir y convertir una copia':'Exportar'))}</form>`,async(f)=>{
@@ -1220,13 +1256,18 @@ export async function bootCompanion(reader) {
       if(candidates.length>1)for(const file of candidates){try{file.summary=await cloudTransport.drive.describe(file.id);}catch(error){file.previewError=true;}}
       showDialog('Google Drive',driveNotebookPickerMarkup(account,files,{linked:!!cloud?.state.name,notebookId:cloud?.state.notebookId,expectedId,expectedFileId}),async form=>{
         const selected=String(form.get('notebook'));
-        if(selected==='local')await connectCloudNotebook(()=>cloud.migrateToDrive());
+        if(selected==='local'){await configureNewStorage();return;}
         else{const chosen=files.find(f=>f.id===selected);if(!chosen)throw Error('Choose an available notebook.');if(cloud?.state.name){if(chosen.appProperties.notebookId!==cloud.state.notebookId)throw Error(driveCopy().linked);await connectCloudNotebook(()=>cloud.migrateToDrive({fileId:chosen.id}));}else{cloudTransport.drive.choose(selected);cloudTransport.useDrive();await connectCloudNotebook(()=>cloud.joinShared(pendingDeviceLink?encodeDeviceLink(pendingDeviceLink):null));}}
         if(cloud.state.transport==='drive')pendingDeviceLink=null;
         mediaSync?.markDirty();
       });
     } catch(error) {showDialog('Google Drive',`<p role="alert">${esc(localizeMessage(error.message))}</p><p>${esc(t.offline)}</p><div class="cp-actions">${btn('drive-connect',t.reconnect)}${btn('close-dialog',t.close)}</div>`);}
     finally{driveConnecting=false;}
+  }
+  async function configureNewStorage(){
+    if(!storageManager)throw Error('Storage setup is unavailable.');
+    const folders=await storageManager.folders();
+    showDialog(ui('Choose storage','Elegir almacenamiento'),`<form><label>${ui('Google Drive folder','Carpeta de Google Drive')}<select name="folder"><option value="new">${ui('Create a new folder','Crear una carpeta nueva')}</option>${folders.map(f=>`<option value="${esc(f.id)}">${esc(f.name)} · …${esc(f.id.slice(-6))}</option>`).join('')}</select></label><label>${ui('New folder name','Nombre de carpeta nueva')}<input name="folderName" value="Mi carpeta Spino" maxlength="180"></label><label>${ui('File name','Nombre del archivo')}<input name="fileName" required value="Spino" maxlength="180"></label><p>${ui('The notebook, multimedia and complete copies will stay inside this folder.','El cuaderno, la multimedia y las copias completas quedarán dentro de esta carpeta.')}</p>${formEnd(ui('Connect notebook','Conectar cuaderno'))}</form>`,async f=>{let folderId=String(f.get('folder'));if(folderId==='new')folderId=(await storageManager.createFolder(String(f.get('folderName')))).id;else if(!folders.some(v=>v.id===folderId))throw Error('Choose an available folder.');const name=String(f.get('fileName')).trim().replace(/\.json$/i,'')+'.json';cloudTransport.drive.setDestination({folderId,name});try{await connectCloudNotebook(()=>cloud.migrateToDrive());if(cloud.state.status==='error')return;await storageManager.organize({folderId,name});localStorage.setItem('spino.storage.review.v1','done');await storageUI.overview();}finally{cloudTransport.drive.setDestination(null);}});
   }
   async function connectCloudNotebook(operation) {
     dialog.close();
@@ -1235,6 +1276,9 @@ export async function bootCompanion(reader) {
     if (cloud?.state.status === 'error') showDialog(ui('Manage connection','Gestionar conexión'),cloudManageMarkup(cloud.state,cloudOptions()));
   }
   const actions={
+    ...(storageUI?.actions||{}),
+    'storage-export':exportCompleteZip,'storage-import':importCompleteZip,
+    'storage-return-original':()=>{localStorage.removeItem('spino.recovered-notebook');location.reload();},
     ...libraryUI.actions,
     'library-downloadable':()=>{libraryFilters={state:'located'};libraryPage=0;render();},
     'library-candidates-download':()=>libraryDownloads.enqueueCandidates(),
@@ -1263,7 +1307,8 @@ export async function bootCompanion(reader) {
     'media-filter-type':id=>{if(!['audio','video','midi'].includes(id))return;mediaCalendar.type=mediaCalendar.type===id?'':id;mediaCalendar.limit=24;render();root.querySelector('.cp-media-filters')?.querySelector(`[data-action=media-filter-type][data-id="${id}"]`)?.focus({preventScroll:true});},
     'media-filter-work':()=>showDialog(ui('Filter by piece','Filtrar por obra'),mediaPieceFilterMarkup(mediaRecords,data.works,mediaCalendar.workId)),
     'media-select-work':id=>{mediaCalendar.workId=id;mediaCalendar.limit=24;dialog.close();render();root.querySelector('[data-action=media-filter-work]')?.focus({preventScroll:true});},
-    'media-play':id=>mediaCapture?.play(id),
+    'media-play':async id=>{const row=mediaRecords.find(r=>r.id===id);if(!row?.remoteOnly)return mediaCapture?.play(id);if(!mediaSync)throw Error(ui('Connect the notebook to download this recording.','Conecta el cuaderno para descargar esta grabación.'));showDialog(ui('Download recording','Descargar grabación'),`<form><p>${esc(row.title)} · ${(row.bytes/1048576).toFixed(1)} MB</p><p>${ui('You can download using Wi-Fi or mobile data, including 5G.','Puedes descargar con wifi o datos móviles, incluido 5G.')}</p>${formEnd(ui('Download','Descargar'))}</form>`,async()=>{await mediaSync.download(id);dialog.close();await refreshMedia();await mediaCapture?.play(id);});},
+    'media-release-local':id=>confirm(ui('Remove local download','Quitar descarga local'),ui('The recording stays in Drive and in the calendar. You can download it again.','La grabación sigue en Drive y en el calendario. Puedes descargarla de nuevo.'),async()=>{await mediaStore.releaseLocal(id);await refreshMedia();}),
     'media-share':id=>mediaCapture?.share(id),
     'progress-streak':()=>{streakMonth=localDate();openStreak();},
     'streak-month':id=>{streakMonth=shiftMonth(streakMonth,Number(id));openStreak();dialog.querySelector(`[data-action=streak-month][data-id="${id}"]`)?.focus({preventScroll:true});},
@@ -1471,9 +1516,11 @@ export async function bootCompanion(reader) {
     'instrument-autoconnect':()=>instrument.setAutoConnect(!instrument.state.autoConnect),
     'notification-permission':async()=>{if(!reminderState?.enabled){await enableNotifications();return;}const next=copy(data);next.preferences.notificationsEnabled=false;await store.save(next);data=next;await reminders();render();},
     'practice-suggestions':async()=>{if(!reminderState?.enabled)return;const next=copy(data);next.preferences.notificationsEnabled=true;next.preferences.practiceSuggestions=!next.preferences.practiceSuggestions;await store.save(next);data=next;await reminders();render();},
-    'export-backup':()=>backupExportOptions(false),
+    'export-backup':()=>showDialog(ui('Export backup','Exportar copia'),`<div class="cp-actions">${btn('storage-export',ui('Complete ZIP with recordings','ZIP completo con grabaciones'))}${btn('export-json',ui('Notebook JSON only','Solo cuaderno JSON'))}</div>`),
+    'export-json':()=>backupExportOptions(false),
     'convert-backup':()=>backupExportOptions(true),
-    'import-backup':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const text=await importFile();if(text)reviewBackupRestore(text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
+    'import-backup':()=>showDialog(ui('Restore backup','Restaurar copia'),`<div class="cp-actions">${btn('storage-import',ui('Complete ZIP','ZIP completo'))}${btn('import-json',ui('Notebook JSON','Cuaderno JSON'))}</div>`),
+    'import-json':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before restoring a backup.", "Pausa las transferencias antes de restaurar una copia."));pauseSession();restoringBackup=true;try{const text=await importFile();if(text)reviewBackupRestore(text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
     'device-link':()=>{pendingDeviceLink=null;if(driveNotebookAvailable())return cloud?.state.name?actions['cloud-manage']():openDriveNotebooks();showDialog('Google Drive',cloudSetupMarkup(cloudOptions()));},
     'device-link-show':async()=>{dialog.close();const link=await cloud.deviceLink();showDialog(deviceLinkCopy().show,await deviceLinkQRMarkup(link,undefined,cloudTransport.transport==='drive'));},
     'device-link-scan':()=>{pauseSession();const t=deviceLinkCopy();showDialog(t.title,`<div id="device-link-camera"></div><p role="status">${esc(t.scan)}</p><div class="cp-actions">${btn('device-link-manual',t.manual)}${btn('close-dialog',t.close)}</div>`);const controller=new AbortController();dialogCleanup=()=>controller.abort();const stopHidden=()=>{if(document.hidden){controller.abort();document.removeEventListener('visibilitychange',stopHidden);}};document.addEventListener('visibilitychange',stopHidden);controller.signal.addEventListener('abort',()=>document.removeEventListener('visibilitychange',stopHidden),{once:true});void startNotebookScanner(document.querySelector('#device-link-camera'),{signal:controller.signal,onScan:link=>{pendingDeviceLink=link;showDialog(t.title,deviceLinkConfirmMarkup(link,undefined,driveNotebookAvailable()));},onError:error=>{if(dialog.open)document.querySelector('#cp-form-error').textContent=localizeMessage(error.message);}});},
@@ -1595,4 +1642,7 @@ export async function bootCompanion(reader) {
   if (['catalog','library-detail','downloads'].includes(view)) render();
   mediaSync?.markDirty();
   if (cloud) { try { await cloud.init(); } catch(error) { toast(ui('Could not start backup: ', 'No se ha podido iniciar la copia: ')+localizeMessage(error.message)); } }
+  if(storageUI&&cloud?.state.name&&!dialog.open)storageUI.notify();
+  if(recoveredNotebook)showDialog(ui('Recovered notebook','Cuaderno recuperado'),`<p>${ui('This is a separate local recovery. Cloud synchronization is disabled. Your original notebook is intact.','Esta es una recuperación local separada. La sincronización en la nube está desactivada. Tu cuaderno original está intacto.')}</p><div class="cp-actions">${btn('storage-return-original',ui('Return to original notebook','Volver al cuaderno original'))}${btn('close-dialog',ui('Review recovered notebook','Revisar cuaderno recuperado'))}</div>`);
+
 }

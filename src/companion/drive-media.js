@@ -4,7 +4,7 @@ export const DRIVE_CHUNK = 256 * 1024;
 export const MEDIA_LIMIT = 250 * 1024 * 1024;
 const API = 'https://www.googleapis.com/drive/v3';
 const UPLOAD = 'https://www.googleapis.com/upload/drive/v3/files';
-const fields = 'id,name,mimeType,size,sha256Checksum,appProperties,trashed';
+const fields = 'id,parents,name,mimeType,size,sha256Checksum,appProperties,trashed';
 const fail = (message, code) => Object.assign(new Error(message), {code});
 const id = value => typeof value === 'string' && /^[\w-]{1,160}$/.test(value);
 const checksum = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
@@ -26,13 +26,14 @@ export function validateRemote(file, notebookId) {
   if(!p||p.notebookId!==notebookId)invalid('The Drive recording belongs to a different notebook. Local files are kept.');
   if(!id(p.takeId))invalid('The Drive recording has no valid recording identity. Local files are kept.');
   if(!((p.spinoMedia==='spino-media-v1'&&id(p.workId))||(p.spinoMedia==='spino-media-free-v1'&&p.workId==='')))invalid('The Drive recording has an invalid piece association. Local files are kept.');
+  if(!Number.isFinite(Date.parse(p.createdAt))||!Number.isFinite(Number(p.durationMs))||Number(p.durationMs)<0)invalid('The Drive recording has invalid dates or duration.');
   if(!checksum(p.sha256))invalid('The Drive recording has no valid checksum. Local files are kept.');
   if(!mime(file.mimeType))invalid('The Drive recording format is not supported. Local files are kept.');
   if(!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT)invalid('The Drive recording is empty or exceeds 250 MB. Local files are kept.');
   if(file.sha256Checksum!=null&&file.sha256Checksum!==p.sha256)invalid('The Drive recording checksum does not match. Local files are kept.');
   return {...file,mimeType:mediaType(file.mimeType)};
 }
-export function createDriveMedia({request, state, accountId, notebookId, downloadFile,hashBlob=mediaHash,readChunk=(blob,start,end)=>blob.slice(start,end)}) {
+export function createDriveMedia({request, state, accountId, notebookId, folderId, downloadFile,hashBlob=mediaHash,readChunk=(blob,start,end)=>blob.slice(start,end)}) {
   if(!id(accountId)||!id(notebookId))throw fail('Connect a Drive account and notebook first.','NOT_CONNECTED');
   // The account and notebook are immutable for this client. Reconnection creates a new client.
   const scoped = (url, options={}) => request({...options,url:driveURL(url),accountId});
@@ -62,7 +63,7 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
     const start=async()=>{
       const properties={spinoMedia:workId===''?'spino-media-free-v1':'spino-media-v1',notebookId,takeId,workId,sha256:hash,createdAt,durationMs:String(Math.max(0,Math.round(durationMs)))};
       const type=mediaType(blob.type);
-      const r=expect(await scoped(`${UPLOAD}?uploadType=resumable&fields=${encodeURIComponent(fields)}`,{method:'POST',headers:{'X-Upload-Content-Type':type,'X-Upload-Content-Length':String(blob.size)},json:{id:saved.fileId,name:title,mimeType:type,appProperties:properties}}),[200,201]);
+      const r=expect(await scoped(`${UPLOAD}?uploadType=resumable&fields=${encodeURIComponent(fields)}`,{method:'POST',headers:{'X-Upload-Content-Type':type,'X-Upload-Content-Length':String(blob.size)},json:{id:saved.fileId,name:title,mimeType:type,...(folderId?{parents:[folderId]}:{}),appProperties:properties}}),[200,201]);
       saved.session=driveURL(r.headers?.location);await state.set(key(takeId),saved);
     };
     if(!saved.session)await start();
@@ -87,7 +88,7 @@ export function createDriveMedia({request, state, accountId, notebookId, downloa
       const r=expect(await scoped(`${API}/files?q=${encodeURIComponent(q)}&pageSize=100&fields=${encodeURIComponent(`nextPageToken,files(${fields})`)}${page?'&pageToken='+encodeURIComponent(page):''}`));
       if(!Array.isArray(r.json?.files))throw fail('Invalid Drive recording list.','INVALID_RESPONSE');
       for(const file of r.json.files){
-        try{files.push(validateRemote(file,notebookId));}
+        try{const valid=validateRemote(file,notebookId);if(folderId&&!file.parents?.includes(folderId)){expect(await scoped(`${API}/files/${encodeURIComponent(file.id)}?addParents=${encodeURIComponent(folderId)}${file.parents?.length?'&removeParents='+encodeURIComponent(file.parents.join(',')):''}`,{method:'PATCH',json:{}}));}files.push(valid);}
         catch(error){if(error.code!=='INVALID_MEDIA'||!onInvalid)throw error;onInvalid(file,error);}
       }
       page=r.json.nextPageToken||'';count+=r.json.files.length;

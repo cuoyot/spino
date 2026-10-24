@@ -3,7 +3,7 @@ import {createDriveMedia,DRIVE_CHUNK} from './drive-media.js';
 const native=registerPlugin('DriveMedia');
 export const driveNativeAvailable=()=>Capacitor.getPlatform()==='android'&&Capacitor.isPluginAvailable('DriveMedia');
 const base64 = bytes => {let s='';for(const v of bytes)s+=String.fromCharCode(v);return btoa(s);};
-export async function connectDriveMedia({notebookId,accountId,wifiOnly=true}){
+export async function connectDriveMedia({notebookId,accountId,folderId,wifiOnly=true}){
   await native.useNotebookAccount({accountId,wifiOnly});
   const staged=new WeakMap();
   const hashBlob=async blob=>{
@@ -20,7 +20,7 @@ export async function connectDriveMedia({notebookId,accountId,wifiOnly=true}){
     return response;
   };
   const state={get:async key=>(await native.readState({key})).value||null,set:async(key,value)=>native.writeState({key,value})};
-  const client=createDriveMedia({request,state,accountId,notebookId,hashBlob,readChunk:async(blob,start,end)=>({fileKey:staged.get(blob),offset:start,length:end-start}),downloadFile:async options=>{
+  const client=createDriveMedia({request,state,accountId,notebookId,folderId,hashBlob,readChunk:async(blob,start,end)=>({fileKey:staged.get(blob),offset:start,length:end-start}),downloadFile:async options=>{
     const downloaded=await native.download(options);
     try{const response=await fetch(Capacitor.convertFileSrc(downloaded.path));if(!response.ok)throw Error('Could not open the downloaded recording.');const blob=new Blob([await response.blob()],{type:options.mimeType});if(blob.size!==options.bytes||downloaded.sha256!==options.sha256)throw Error('Downloaded recording failed verification.');return {blob,verified:true,cleanup:()=>native.release({sha256:options.sha256})};}
     catch(error){await native.release({sha256:options.sha256}).catch(()=>{});throw error;}

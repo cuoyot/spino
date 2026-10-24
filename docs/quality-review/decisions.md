@@ -1,5 +1,7 @@
 # Review decisions and consistency checks
 
+2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
+
 ## 2026-10-21 — Acquire new playable catalogue editions
 
 The owner authorizes inclusion of additional works. Added 26 independently downloadable PDF editions with exact edition permission, hashes, complete-page rendering and bundled previews: Burgmüller Op.100 nos.7–18 and Bach BWV773–786. Existing IDs/revisions and notebooks remain unchanged. No invented difficulty or metadata-only candidate enters the app. Source/browser implementation is verified; native packaging and publication remain separate. [Evidence](captures/repertoire/2026-10-21-catalogue-expansion-01/README.md).

@@ -53,8 +53,11 @@ export function driveManageMarkup(state,options={}){
   ${state.error?`<p class="cp-cloud-problem" role="alert">${esc(localizeMessage(state.error,lang))}</p>`:''}
   ${!linked?`${state.name?`<p>${esc(t.old)}</p>`:''}${button('drive-connect',t.connect,'primary')}${state.account?.id?disconnect('drive-disconnect'):''}`:`
   <div class="cp-drive-manage-sync"><div class="cp-cloud-toggle-row"><div><strong id="drive-auto-label">${esc(t.automatic)}</strong><small id="drive-auto-state">${esc(state.enabled?m.on:m.off)}</small></div><button type="button" class="cp-cloud-switch" data-action="cloud-toggle" data-id="${!state.enabled}" role="switch" aria-checked="${!!state.enabled}" aria-labelledby="drive-auto-label" aria-describedby="drive-auto-help"><span aria-hidden="true"></span></button></div><p id="drive-auto-help">${esc(m.automaticHelp)} ${esc(m.delay)}</p>${state.lastCheckedAt?`<p class="cp-drive-manage-checked">${esc(driveLastCheck(state,lang))}</p>`:''}</div>
-  <div class="cp-drive-manage-actions">${row('device-link-show',m.share,m.shareHint)}${row('export-backup',m.export,m.exportHint)}</div>
+  <div class="cp-drive-manage-actions">${row('storage-manage',uiStorageLabel(lang),uiStorageHint(lang))}${row('device-link-show',m.share,m.shareHint)}${row('export-backup',m.export,m.exportHint)}</div>
   <details class="cp-drive-manage-repair"><summary>${esc(m.repair)}</summary><div>${row('drive-reconnect',t.reconnect,m.reconnectHint)}${row('cloud-recovery',t.recovery,m.recoveryHint)}</div></details>
   ${disconnect('cloud-disconnect')}`}
  </div>`;
 }
+
+function uiStorageLabel(lang){return lang==='es'?'Sincronización y copias':lang==='ca'?'Sincronització i còpies':'Synchronization and backups';}
+function uiStorageHint(lang){return lang==='es'?'Revisar carpeta, archivo, principal y últimas 7 copias.':lang==='ca'?'Revisa la carpeta, el fitxer, el principal i les darreres 7 còpies.':'Review folder, file, principal and last 7 backups.';}

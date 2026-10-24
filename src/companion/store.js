@@ -5,8 +5,8 @@ import { LIBRARY_KEY, emptyLibrary } from './library.js';
 const LEGACY_KEYS = ['sr.settings', 'sr.templates', 'sr.progress', 'sr.stats', 'sr.startedL1'];
 const request = req => new Promise((resolve, reject) => { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); });
 const completed = tx => new Promise((resolve, reject) => { tx.oncomplete = resolve; tx.onerror = tx.onabort = () => reject(tx.error || new Error('No se pudieron guardar los datos.')); });
-export async function openStore() {
-  const req = indexedDB.open('cuaderno-piano', VERSION);
+export async function openStore(name='cuaderno-piano') {
+  const req = indexedDB.open(name, VERSION);
   req.onupgradeneeded = () => { req.result.createObjectStore('state'); req.result.createObjectStore('assets', { keyPath: 'id' }); };
   const db = await request(req);
   let queue = Promise.resolve();

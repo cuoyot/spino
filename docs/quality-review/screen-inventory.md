@@ -1,5 +1,7 @@
 # Screen review inventory
 
+2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
+
 2026-10-21 Albéniz priority: Rumores de la Caleta Op.71 No.6 acquired as original solo piano, complete eight-page PDF with exact source/credits and Public Domain dedication. Source instrumentation is visible in details. Local catalogue now has129 editions (55XML,74PDF) and106 identified works; five unresolved identities remain excluded from the work count. [Evidence](captures/repertoire/2026-10-21-periods-01/README.md). Further composer/period candidates remain research-only; no new release.
 
 2026-10-21 distinct-work and period follow-up: conservative identities yield105 identified works across128 score editions (55XML/MXL,73PDF); five uncertain records do not increase the total. Added15 Bach sinfonias, Satie Gymnopédies2/3 and Debussy Arabesque2, all full PDFs with source rights and previews. Combined period/author/search filters and separate work/edition counts implemented. Production build,335 unit tests and six isolated browser regressions pass. [Evidence](captures/repertoire/2026-10-21-periods-01/README.md). Source/browser only; no new packaged/public release.

@@ -116,7 +116,7 @@ public class DriveMediaPlugin extends Plugin {
         worker.execute(()->{HttpURLConnection c=null;try{
             String access=access(call),id=call.getString("fileId",""),digest=call.getString("sha256","");long expected=integer(call,"bytes");
             if(!id.matches("[\\w-]{1,160}")||!digest.matches("[a-f0-9]{64}")||expected<1||expected>LIMIT)throw new IOException("Invalid recording download.");
-            String type=call.getString("mimeType","");String extension=type.equals("audio/midi")?"mid":type.startsWith("video/mp4")||type.startsWith("audio/mp4")?"mp4":type.startsWith("audio/wav")?"wav":type.startsWith("audio/ogg")?"ogg":"webm";
+            String type=call.getString("mimeType","");String extension=type.equals("application/zip")?"zip":type.equals("audio/midi")?"mid":type.startsWith("video/mp4")||type.startsWith("audio/mp4")?"mp4":type.startsWith("audio/wav")?"wav":type.startsWith("audio/ogg")?"ogg":"webm";
             File complete=file(digest+"."+extension),part=file(digest+".part");
             if(!(complete.exists()&&complete.length()==expected&&hash(complete).equals(digest))){
                 long offset=part.length();if(offset>expected)throw new IOException("Invalid partial download.");
@@ -135,7 +135,7 @@ public class DriveMediaPlugin extends Plugin {
     }
     @PluginMethod public void release(PluginCall call){
         worker.execute(()->{try{String digest=call.getString("sha256",""),stage=call.getString("stage","");
-          if(!digest.isEmpty()){if(!digest.matches("[a-f0-9]{64}"))throw new IOException();for(String suffix:new String[]{".source",".webm",".mp4",".wav",".ogg"})file(digest+suffix).delete();}
+          if(!digest.isEmpty()){if(!digest.matches("[a-f0-9]{64}"))throw new IOException();for(String suffix:new String[]{".source",".webm",".mp4",".wav",".ogg",".mid",".zip"})file(digest+suffix).delete();}
           if(!stage.isEmpty()){if(!stage.matches("[a-zA-Z0-9-]{1,80}"))throw new IOException();file(stage+".stage").delete();}call.resolve();
         }catch(Exception error){call.reject("Could not release recording transfer cache.");}});
     }

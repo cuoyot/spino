@@ -45,7 +45,7 @@ public class MediaSharePlugin extends Plugin {
     @PluginMethod public void begin(PluginCall call){worker.execute(()->{
         try{
             long size=integer(call,"size");String mime=call.getString("mimeType",""),name=call.getString("name","");
-            if(size<1||size>LIMIT||!mime.matches("(audio|video)/(webm|mp4|ogg|wav|x-wav|mpeg|midi)")||name.isEmpty()||name.length()>200||name.contains("/")||name.contains("\\")||name.equals(".")||name.equals(".."))throw new IOException("Invalid recording share.");
+            if(size<1||size>LIMIT||!(mime.equals("application/zip")||mime.matches("(audio|video)/(webm|mp4|ogg|wav|x-wav|mpeg|midi)"))||name.isEmpty()||name.length()>200||name.contains("/")||name.contains("\\")||name.equals(".")||name.equals(".."))throw new IOException("Invalid recording share.");
             File root=directory();cleanup(root);if(root.getUsableSpace()<size+8L*1024*1024)throw new IOException("Not enough temporary space to share this recording.");
             if(transfers.size()>=2)throw new IOException("Another recording is being prepared.");
             String token=UUID.randomUUID().toString();File folder=new File(root,token);if(!folder.mkdir())throw new IOException("Share cache unavailable.");
