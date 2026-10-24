@@ -1,0 +1,19 @@
+<en-US>
+MIDI recording waits for your first note, with no leading silence. Pedals do not start a take; cancelling before playing creates no empty recording. Includes the fix for skipped short notes during complex MIDI playback.
+</en-US>
+
+<es-ES>
+La grabación MIDI espera a la primera nota, sin silencio inicial. El pedal no inicia la toma y cancelar antes de tocar no guarda una grabación vacía. Incluye la corrección de notas cortas omitidas al reproducir MIDI complejo.
+</es-ES>
+
+<ca>
+La gravació MIDI espera la primera nota, sense silenci inicial. El pedal no inicia la presa i cancel·lar abans de tocar no desa cap gravació buida. Inclou la correcció de notes curtes omeses en reproduir MIDI complex.
+</ca>
+
+<de-DE>
+MIDI-Aufnahmen beginnen mit der ersten Note, ohne Stille am Anfang. Pedale starten keine Aufnahme; Abbrechen vor dem Spielen erzeugt keine leere Datei. Enthält die Korrektur übersprungener kurzer Noten bei komplexer MIDI-Wiedergabe.
+</de-DE>
+
+<hu-HU>
+A MIDI-felvétel az első hanggal indul, kezdeti csend nélkül. A pedál nem indít felvételt; a játék előtti megszakítás nem ment üres felvételt. A bonyolult MIDI-lejátszásból kimaradó rövid hangok javítását is tartalmazza.
+</hu-HU>
