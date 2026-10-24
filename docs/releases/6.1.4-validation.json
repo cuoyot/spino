@@ -1,0 +1,35 @@
+{
+  "version": "6.1.4",
+  "versionCode": 99,
+  "sourceCommit": "41ac2b749247a9a5f8882b6aaa6e9954162e886a",
+  "packagedWebFiles": 683,
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{7137f12 u0 com.miguecoll.spino/.MainActivity t171}"
+    ]
+  },
+  "betaReviewEvidence": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 135,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{69cba52 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t170}"
+    ]
+  },
+  "signatures": {
+    "apk": "verified",
+    "aab": "verified"
+  },
+  "functionalTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  }
+}
