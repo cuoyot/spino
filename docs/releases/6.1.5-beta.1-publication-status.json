@@ -1,0 +1,13 @@
+{
+  "version": "6.1.5-beta.1",
+  "build": 100,
+  "commit": "63f7d2f642e1bf951949b548738ac1ff1c23fa3f",
+  "cloudflareVersion": "bed58135-e870-4903-8678-f7bf6eec3ddf",
+  "deployment": "confirmed successful and current by Cloudflare",
+  "publicVerification": "incomplete: TCP connection timeouts to both spinoapp.com and spino.cuoyot.workers.dev; no HTTP response; normal DNS and public DNS-resolved routes tried",
+  "githubPush": "not attempted after automatic approval rejection; explicit user approval pending",
+  "emulatorInstall": "not completed: emulator offline; restart rejected by automatic approval review; explicit user approval pending",
+  "localSourceBranch": "codex/spino-sync-backups",
+  "completeTestsPassed": 117,
+  "packagedWebFilesMatch": 684
+}
