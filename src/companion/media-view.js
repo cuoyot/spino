@@ -42,7 +42,7 @@ export function mediaMarkup(records, works, {month = localDate(), mode = 'week',
 export function createMediaCapture({store, changed, report, getWork, getWorks = () => [], share = shareRecording}) {
   const panel = document.createElement('aside'); panel.id = 'cp-media-capture'; panel.hidden = true; panel.setAttribute('aria-label', ui('Recording','Grabación')); document.body.append(panel);
   let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0, captureError = '', resumeRequest = null, editingTitle = false;
-  let sharePending = false, trimEditor = null, midiPlayer = null, midiEvents = [], midiUnsubscribe = [], midiStarted = 0, midiWaiting = false, midiFeedback = null;
+  let sharePending = false, trimEditor = null, midiPlayer = null, midiEvents = [], midiUnsubscribe = [], midiStarted = 0, midiOrigin = 0, midiWaiting = false, midiFeedback = null;
   const releaseMidi=()=>{midiUnsubscribe.forEach(unsubscribe=>unsubscribe());midiUnsubscribe=[];};
   let midiDeviceKey=JSON.stringify(connectedDevices());
   onMidi('devices',devices=>{const next=JSON.stringify(devices),changed=next!==midiDeviceKey;midiDeviceKey=next;if(stage==='choose')draw();else if(changed&&stage==='recording'&&record.kind==='midi')stop(ui('MIDI connection changed. Review the captured take.','La conexión MIDI ha cambiado. Revisa la toma capturada.'));});
@@ -324,21 +324,22 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     record.kind='midi';record.createdAt=new Date().toISOString();midiEvents=controllerState().filter(e=>[64,66,67].includes(e.controller)).map(e=>({time:0,data:[176|(e.channel||0),e.controller,e.value]}));stopReason='';captureError='';pausedMs=0;pausedAt=0;
     for(const event of midiEvents)midiFeedback.event(event.data);
     midiWaiting=true;midiStarted=0;stage='recording';minimized=!standalone&&scoreButtons().length>0;
-    const append=data=>{
+    const append=(data,timestamp)=>{
       if(stage!=='recording')return;
       const receivedAt=performance.now();
+      const eventTime=Number.isFinite(timestamp)?timestamp:receivedAt;
       if(midiWaiting){
         if((data[0]&240)!==144||!data[2]){midiFeedback.event(data);return;}
         // Snapshot pedals when the first note arrives, excluding the armed interval.
         midiEvents=controllerState().filter(e=>[64,66,67].includes(e.controller)).map(e=>({time:0,data:[176|(e.channel||0),e.controller,e.value]}));
-        midiStarted=receivedAt;record.createdAt=new Date().toISOString();midiWaiting=false;draw();
+        midiStarted=receivedAt;midiOrigin=eventTime;record.createdAt=new Date().toISOString();midiWaiting=false;draw();
       }
-      midiEvents.push({time:Math.min(900000,receivedAt-midiStarted),data});
+      midiEvents.push({time:Math.max(0,Math.min(900000,eventTime-midiOrigin)),data});
       midiFeedback.event(data);if(!minimized)midiFeedback.paint(panel.querySelector('.cp-midi-feedback'));
       const count=panel.querySelector('[data-midi-count]');if(count&&(data[0]&240)===144)count.textContent=Number(count.textContent)+1;
       if(midiEvents.length>=100000)stop(ui('Size limit reached. Review and save your take.','Límite de tamaño alcanzado. Revisa y guarda la toma.'));
     };
-    midiUnsubscribe=[onMidi('note',e=>append([144|(e.channel||0),e.midi,e.velocity])),onMidi('noteOff',e=>append([128|(e.channel||0),e.midi,0])),onMidi('control',e=>append([176|(e.channel||0),e.controller,e.value]))];
+    midiUnsubscribe=[onMidi('note',e=>append([144|(e.channel||0),e.midi,e.velocity],e.timestamp)),onMidi('noteOff',e=>append([128|(e.channel||0),e.midi,0],e.timestamp)),onMidi('control',e=>append([176|(e.channel||0),e.controller,e.value],e.timestamp))];
     draw();timer=setInterval(()=>{syncScoreControls();const clock=panel.querySelector('[data-media-clock]');if(clock)clock.textContent=time(elapsedTime());if(elapsedTime()>=900000)stop(ui('Time limit reached. Review and save your take.','Límite de tiempo alcanzado. Revisa y guarda la toma.'));},500);
   }
   async function start(kind) {

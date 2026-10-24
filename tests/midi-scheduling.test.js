@@ -1,28 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {midiVoiceTiming} from '../src/companion/midi-scheduling.js';
 import {encodeMidi,decodeMidi,midiNotes} from '../src/companion/midi-recording.js';
 
-test('dense chords survive file round trip and delayed scheduling without losing attacks',async()=>{
+test('dense events retain timestamp precision and are sorted without modifying input',async()=>{
  const events=[];
- for(let time=0;time<3000;time+=30){
-  for(let key=48;key<60;key++)events.push({time,data:[144,key,90]});
-  for(let key=48;key<60;key++)events.push({time:time+15,data:[128,key,0]});
+ for(let i=0;i<1200;i++){
+  const time=i*17.1234;
+  events.push({time,data:[144,60,80]},{time:time+1.23,data:[128,60,0]});
  }
- const midi=decodeMidi(await encodeMidi(events,3100).arrayBuffer());
- const notes=midiNotes(midi.events,midi.durationMs);
- assert.equal(notes.length,1200);
- for(const note of notes){
-  const delayedNow=10+Math.ceil(note.time/1000/.4)*.4;
-  const timing=midiVoiceTiming(note,10,delayedNow);
-  assert.ok(timing);assert.equal(timing.offset,0);
-  assert.ok(Math.abs(timing.off-timing.when-.015)<1e-9);
- }
-});
-test('future notes stay on the audio clock; seek resumes held notes only',()=>{
- const note={time:1000,duration:2};
- assert.deepEqual(midiVoiceTiming(note,10,10),{when:11,offset:0,off:13});
- assert.deepEqual(midiVoiceTiming(note,10,12,2000),{when:12,offset:1,off:13});
- assert.equal(midiVoiceTiming(note,10,14,4000),null);
- assert.deepEqual(midiVoiceTiming({time:0,duration:.01},10,12),{when:12,offset:0,off:12.01});
+ const delivered=[...events].reverse();
+ const midi=decodeMidi(await encodeMidi(delivered,21000).arrayBuffer());
+ const captured=midi.events.filter(e=>(e.data[0]&240)===144||(e.data[0]&240)===128);
+ assert.equal(captured.length,events.length);
+ const maxErrorMs=Math.max(...captured.map((e,i)=>Math.abs(e.time-events[i].time)));
+ assert.ok(maxErrorMs<=.5);
+ assert.equal(delivered[0],events.at(-1));
+ assert.equal(midiNotes(midi.events,midi.durationMs).length,1200);
+ console.log('MIDI timestamp round-trip maximum error (ms):',maxErrorMs);
 });

@@ -22,7 +22,7 @@ test('MIDI capture, piano playback, export, reload and disconnect in a disposabl
  await click('[data-media=stop]');assert.equal(await evaluate(`document.querySelector('#cp-media-capture').hidden`),true);
  await click('[data-action=record-media]');await click('[data-media=midi]');
  await new Promise(r=>setTimeout(r,1100));
- await evaluate(`__sr.midi.simulateControl(64,127);__sr.midi.simulateNote(60);__sr.midi.simulateNote(64)`);
+ await evaluate(`__sr.midi.simulateControl(64,127);window.firstMidiTime=performance.now();__sr.midi.simulateNote(60,true,firstMidiTime);const stall=performance.now()+120;while(performance.now()<stall){}__sr.midi.simulateNote(64,true,firstMidiTime+10)`);
  assert.equal(await evaluate(`!!document.querySelector('.cp-media-studio[open]')`),false);
  assert.equal(await evaluate(`document.querySelectorAll('.cp-midi-feedback .is-active[data-midi-key]').length`),2);
  await click('[data-media=minimize]');assert.equal(await evaluate(`getComputedStyle(document.querySelector('.cp-midi-feedback')).display`),'none');await capture('minimized');
@@ -35,7 +35,7 @@ test('MIDI capture, piano playback, export, reload and disconnect in a disposabl
  await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').getAttribute('aria-label')==='Pause'`);assert.equal(await evaluate(`document.querySelector('.cp-midi-player [role=alert]').textContent`),'');await click('.cp-midi-player button');
  await evaluate(`window.exported=[];HTMLAnchorElement.prototype.click=function(){exported.push({name:this.download,url:this.href})}`);await click('[data-media=share]');await wait(`exported.length===1`);
  assert.ok((await evaluate(`exported[0].name`)).endsWith('.mid'));
- const bytes=await evaluate(`fetch(exported[0].url).then(r=>r.arrayBuffer()).then(b=>Array.from(new Uint8Array(b)))`);const midi=decodeMidi(new Uint8Array(bytes).buffer);assert.equal(midi.events.filter(e=>(e.data[0]&240)===144).length,2);assert.equal(midi.events.find(e=>(e.data[0]&240)===144).time,0);assert.equal(midi.events.find(e=>e.data[1]===64&&(e.data[0]&240)===176).time,0);
+ const bytes=await evaluate(`fetch(exported[0].url).then(r=>r.arrayBuffer()).then(b=>Array.from(new Uint8Array(b)))`);const midi=decodeMidi(new Uint8Array(bytes).buffer);assert.equal(midi.events.filter(e=>(e.data[0]&240)===144).length,2);assert.equal(midi.events.find(e=>(e.data[0]&240)===144).time,0);assert.equal(midi.events.filter(e=>(e.data[0]&240)===144)[1].time,10);assert.equal(midi.events.find(e=>e.data[1]===64&&(e.data[0]&240)===176).time,0);
  await click('[data-media=close]');await send('Page.reload');await wait(`document.querySelector('.cp-today')`);
  await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await wait(`document.querySelector('[data-action=media-play]')`);await click('[data-action=media-filter-type][data-id=midi]');assert.equal(await evaluate(`document.querySelectorAll('.cp-media-list article').length`),1);
  await click('[data-action=media-play]');await wait(`document.querySelector('.cp-midi-player')`);await click('.cp-midi-player button');await wait(`document.querySelector('.cp-midi-player button').getAttribute('aria-label')==='Pause'`);await click('[data-media=close]');

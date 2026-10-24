@@ -43,9 +43,9 @@ async function bindWebInputs() {
     if (input.state === 'disconnected') { input.onmidimessage = null; return; }
     input.onmidimessage = m => {
       const [status, note, vel] = m.data, type = status & 0xf0;
-      if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel, channel: status & 15 });
-      else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note, channel: status & 15 });
-      else if (type === 0xb0) emit('control', { controller: note, value: vel, channel: status & 15 });
+      if (type === 0x90 && vel > 0) emit('note', { midi: note, velocity: vel, channel: status & 15, timestamp: m.timeStamp });
+      else if (type === 0x80 || (type === 0x90 && vel === 0)) emit('noteOff', { midi: note, channel: status & 15, timestamp: m.timeStamp });
+      else if (type === 0xb0) emit('control', { controller: note, value: vel, channel: status & 15, timestamp: m.timeStamp });
     };
     try { if (input.connection !== 'open') await input.open(); if (input.state !== 'disconnected') names.push(input.name || 'MIDI input'); }
     catch { input.onmidimessage = null; }
@@ -54,9 +54,9 @@ async function bindWebInputs() {
 }
 async function initialize() {
   if (isNative) {
-    subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity, channel: e.channel || 0 })));
-    subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note, channel: e.channel || 0 })));
-    subscriptions.push(await Native.addListener('controlChange', (e) => emit('control', { controller: e.controller, value: e.value, channel: e.channel || 0 })));
+    subscriptions.push(await Native.addListener('noteOn', (e) => emit('note', { midi: e.note, velocity: e.velocity, channel: e.channel || 0, timestamp: e.timestamp })));
+    subscriptions.push(await Native.addListener('noteOff', (e) => emit('noteOff', { midi: e.note, channel: e.channel || 0, timestamp: e.timestamp })));
+    subscriptions.push(await Native.addListener('controlChange', (e) => emit('control', { controller: e.controller, value: e.value, channel: e.channel || 0, timestamp: e.timestamp })));
     subscriptions.push(await Native.addListener('devicesChanged', (e) => emit('devices', e.devices)));
     subscriptions.push(await Native.addListener('bleDevice', (e) => emit('ble', e)));
     const { devices } = await Native.openAll();
@@ -79,11 +79,11 @@ export function simulateDevices(names) {
   simulated = true;
   emit('devices', names);
 }
-export function simulateControl(controller, value) {
-  emit('control', { controller, value });
+export function simulateControl(controller, value, timestamp = performance.now()) {
+  emit('control', { controller, value, timestamp });
 }
-export function simulateNote(midi, on = true) {
-  emit(on ? 'note' : 'noteOff', on ? { midi, velocity: 80 } : { midi });
+export function simulateNote(midi, on = true, timestamp = performance.now()) {
+  emit(on ? 'note' : 'noteOff', on ? { midi, velocity: 80, timestamp } : { midi, timestamp });
 }
 
 export async function scanBluetooth() {

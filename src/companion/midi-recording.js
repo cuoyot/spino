@@ -5,7 +5,7 @@ export function encodeMidi(events, durationMs) {
   const track=[0,255,81,3,7,161,32];
   for(let channel=0;channel<16;channel++)track.push(0,192|channel,0);
   let previous=0;
-  for(const event of events){
+  for(const event of [...events].sort((a,b)=>a.time-b.time)){
     const tick=Math.max(previous,Math.round(event.time));
     if(!Number.isFinite(tick)||tick>900000||!Array.isArray(event.data)||event.data.length!==3||![128,144,176].includes(event.data[0]&240)||event.data.slice(1).some(n=>!Number.isInteger(n)||n<0||n>127))throw Error('Invalid MIDI event');
     track.push(...vlq(tick-previous),...event.data);previous=tick;
@@ -39,7 +39,7 @@ export function decodeMidi(buffer) {
 // Resolve sustain and note lengths before scheduling, including repeated notes and channels.
 export function midiNotes(events, durationMs) {
   const active=new Map(),sustained=new Set(),pedals=new Set(),notes=[];
-  const release=(note,time)=>{note.duration=Math.max(.01,(time-note.time)/1000);sustained.delete(note);};
+  const release=(note,time)=>{note.duration=Math.max(0,(time-note.time)/1000);sustained.delete(note);};
   for(const {time,data:[status,key,value]} of events){const channel=status&15,type=status&240,id=channel+':'+key;
     if(type===144&&value){const old=active.get(id);if(old)release(old,time);const note={midi:key,velocity:value,channel,time,duration:0};notes.push(note);active.set(id,note);}
     else if(type===128||type===144){const note=active.get(id);if(note){active.delete(id);if(pedals.has(channel))sustained.add(note);else release(note,time);}}
