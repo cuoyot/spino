@@ -1,0 +1,44 @@
+{
+  "version": "6.1.4-beta.4",
+  "build": 95,
+  "date": "2026-10-24",
+  "channel": "beta",
+  "stable": {
+    "version": "6.1.3",
+    "build": 91
+  },
+  "beta": {
+    "version": "6.1.4-beta.4",
+    "build": 95
+  },
+  "googlePlay": {
+    "version": "6.1.3",
+    "build": 91
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.4-beta.4-95-android.aab",
+      "bytes": 64078390,
+      "sha256": "bd21cd4e44a023245b98ae5c196c6263b5375a013af9f87d7dd24d432ef5b6e1"
+    },
+    {
+      "file": "spino-6.1.4-beta.4-95-beta-android.apk",
+      "bytes": 76826254,
+      "sha256": "5bee379eb6e83654dec278ffa231d4c30ddb9504a5ed90f468989022565ff4db"
+    },
+    {
+      "file": "spino-6.1.4-beta.4-play-console-handoff.zip",
+      "bytes": 63794040,
+      "sha256": "473ffc8b4be82aacdff4139c95d653fad0fc64243a30076f359f7b39b4f85670"
+    },
+    {
+      "file": "spino-6.1.4-beta.4-release-notes.txt",
+      "bytes": 1136,
+      "sha256": "be8eda13b3db5f0c8bff77e55c2201b0393a3a9d5391aa103e6cbea8cfdbc203"
+    }
+  ],
+  "source": {
+    "tag": "v6.1.4-beta.4",
+    "url": "https://github.com/cuoyot/spino/tree/v6.1.4-beta.4"
+  }
+}

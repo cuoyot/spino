@@ -1,0 +1,31 @@
+{
+  "version": "6.1.4-beta.4",
+  "versionCode": 95,
+  "sourceCommit": "f4c2b1b517df4d1c2477c89a7ebb0c9bd33275dc",
+  "focusedTests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "packagedWebFiles": 680,
+  "signatures": {
+    "apk": "verified",
+    "aab": "verified"
+  },
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "preservedIndexedDBFiles": 135,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{fd45109 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t164}"
+    ]
+  },
+  "physicalMidiAcceptance": "pending",
+  "playConsole": "Not submitted; beta website delivery."
+}
