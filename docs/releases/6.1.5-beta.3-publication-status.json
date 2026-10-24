@@ -1,0 +1,17 @@
+{
+  "version": "6.1.5-beta.3",
+  "versionCode": 102,
+  "reviewedCommit": "779a6a44920b2b0b4fe2cf315926977fa4c22e32",
+  "appSourceCommit": "62dd560d494269bc6d655a0af16401ec322cf2bf",
+  "providerStatus": "active_100_percent",
+  "providerVersion": "cc03e271-9559-4128-9847-05fdb45645a3",
+  "publicVerification": "Unverified: spinoapp.com and provider URL timed out through curl and in-app browser.",
+  "nativeVerification": "Build/tests/signatures pass; replacement install and package queries timed out. Foreground unverified.",
+  "packagedWebFilesMatch": 684,
+  "githubPublication": "Not pushed or tagged, per owner choice.",
+  "stableUnchanged": {
+    "version": "6.1.4",
+    "versionCode": 99
+  },
+  "personalDriveModified": false
+}

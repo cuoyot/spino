@@ -1,0 +1,9 @@
+{
+  "commit": "779a6a44920b2b0b4fe2cf315926977fa4c22e32",
+  "exitCode": 0,
+  "versionId": "cc03e271-9559-4128-9847-05fdb45645a3",
+  "log": "docs/releases/6.1.5-beta.3-wrangler-deploy.log",
+  "logSHA256": "66711fa1a8f14a839acd84aee23555b9d19ef8d57f04ddb0033aa6de3580e6ee",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "authorization": "Owner requested beta website upload and explicitly chose website-only publication; no GitHub push or public tag."
+}

@@ -1,0 +1,27 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.152.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 494 files from the assets directory /private/tmp/spino-web-615-beta3/site
+🌀 Starting asset upload...
+🌀 Found 5 new or modified static assets to upload. Proceeding with upload...
++ /ca/index.html
++ /de/index.html
++ /index.html
++ /hu/index.html
++ /en/index.html
+Uploaded 1 of 5 assets
+Uploaded 3 of 5 assets
+Uploaded 5 of 5 assets
+✨ Success! Uploaded 5 files (469 already uploaded) (2.37 sec)
+
+Total Upload: 63.82 KiB / gzip: 16.21 KiB
+Worker Startup Time: 1 ms
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (33.09 sec)
+Deployed spino triggers (1.95 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: cc03e271-9559-4128-9847-05fdb45645a3

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/private/tmp/spino-web-615-beta3/scripts/site/verify-public-release.py", line 67, in <module>
+    body = fetch(url)
+  File "/private/tmp/spino-web-615-beta3/scripts/site/verify-public-release.py", line 29, in fetch
+    subprocess.run(['curl', '-fsSL', '--connect-timeout', '10', '--max-time', str(max_seconds), '-o', download.name, url], check=True, capture_output=True)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['curl', '-fsSL', '--connect-timeout', '10', '--max-time', '30', '-o', '/var/folders/wf/cs2jrz4d6dx3y7xz757q21yw0000gn/T/tmpzuchn37h', 'https://spinoapp.com/']' returned non-zero exit status 28.
