@@ -1,0 +1,14 @@
+{
+  "version": "6.1.5-beta.2",
+  "versionCode": 101,
+  "reviewedCommit": "9cb8fa76b6d3f5922d52fb4a8dfb34c196bea6c7",
+  "webBuild": "passed",
+  "driveUnitTests": 14,
+  "websiteTests": 8,
+  "androidTests": 10,
+  "androidFailures": 0,
+  "packagedWebFiles": 684,
+  "signedAAB": "verified",
+  "nativeInstall": "Emulator restarted without wipe; two replacement installs timed out. Last confirmed installed version remained 99; foreground not verified.",
+  "publicVerification": "Deployment active confirmed by provider; public page/browser and APK connection timeout, download bytes unverified"
+}

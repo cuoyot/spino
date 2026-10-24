@@ -1,0 +1,9 @@
+{
+  "commit": "9cb8fa76b6d3f5922d52fb4a8dfb34c196bea6c7",
+  "exitCode": 0,
+  "versionId": "dcc9b425-f42d-4455-af2a-35d9dba6d494",
+  "log": "docs/releases/6.1.5-beta.2-wrangler-deploy.log",
+  "logSHA256": "61d50f0247d13fe49859e496a5294f2d5f593e9fc7bfb8b35bec0b1f140b587e",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "authorization": "Owner explicitly requested uploading APK to website. GitHub beta.2 publication remains pending separate approval."
+}
