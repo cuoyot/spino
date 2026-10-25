@@ -157,7 +157,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         state.retryCount = (state.retryCount || 0) + 1;
         state.retryable = retrySafe() && state.retryCount <= 3;
       }
-      finally { task = null; publish(); schedule(); }
+      finally { if(adapter.info?.name)state.name=adapter.info.name;task = null; publish(); schedule(); }
     })();
     return task;
   }
@@ -202,6 +202,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
   return {
     get state() { return state.mode === 'sync' ? { ...state, ...adapter.info } : { ...independent.state, ...adapter.info, ...(state.connectionError ? { status: 'error', error: state.connectionError } : {}), mode: 'backup' }; },
     get busy() { return !!task || independent.busy; },
+    waitForIdle:async()=>{if(task)await task;},
     async init() {
       const destination = await adapter.status();
       // The old provider is retained only for migration/recovery, never for automatic writes.
@@ -311,7 +312,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       if(adapter.info?.fileId){if(task)throw new Error('Wait for synchronization.');}
       else await sync();
       if (state.status !== 'saved') throw new Error('Finish practice and resolve sync problems before showing the notebook QR.');
-      const link={id:state.notebookId,name:state.name,...(adapter.info?.fileId?{fileId:adapter.info.fileId}:{})};
+      const link={id:state.notebookId,name:adapter.info?.name||state.name,...(adapter.info?.fileId?{fileId:adapter.info.fileId}:{})};
       return {...link,code:encodeDeviceLink(link)};
     },
     resolve: preference => {

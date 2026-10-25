@@ -1,7 +1,9 @@
 import {verifyDeviceReset,retainResetArchive,readResetArchive} from './device-reset.js';
 import {createDriveStorage} from './drive-storage.js';
 import {createStorageUI} from './storage-ui.js';
+import {createStorageCoordinator} from './storage-coordinator.js';
 import {createCompleteBackup,inspectCompleteBackup} from './complete-backup.js';
+import {createCompleteBackupExport} from './complete-backup-ui.js';
 import {downloadArchive} from './drive-archive.js';
 import {shareNativeRecording} from './media-share.js';
 import {Capacitor as StorageCapacitor,registerPlugin as storagePlugin} from '@capacitor/core';
@@ -142,7 +144,7 @@ export async function bootCompanion(reader) {
   let startingPractice = false;
   let profileFiles = null, fileSearch = '', fileLimit = 24;
   const cloudTransport = driveNotebookAvailable() ? createNotebookTransport() : CloudBackup;
-  let connectionFeedback=false,driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, completeBackupBusy=false;
+  let connectionFeedback=false,driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, storageCoordinator=null, completeZipExportUI=null, completeBackupBusy=false;
   const recoveredNotebook=localStorage.getItem('spino.recovered-notebook');
   function refreshSyncIndicator() {
     const slot = root.querySelector('[data-sync-indicator]');
@@ -409,7 +411,7 @@ export async function bootCompanion(reader) {
     if (view==='profile-files'||view==='settings') render();
   }
   function backupPage() {
-    return '<section class="cp-profile">'+profileHeading(ui("Backup & sync", "Copia y sincronización"),getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+manualBackupMarkup(data.lastBackup,getAppLanguage(),native)+'</section>';
+    return '<section class="cp-profile">'+profileHeading(ui("Backup & sync", "Copia y sincronización"),getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+`${completeZipExportUI?.markup()||''}<section class="cp-card"><h2>${ui('Keep a copy','Guarda una copia')}</h2><div class="cp-actions">${btn('storage-export',ui('Save a copy','Guardar una copia'))}${btn('storage-import',ui('Recover a copy','Recuperar una copia'))}</div></section></section>`;
   }
   function fileDetail(id) {
     const file=profileFiles?.find(f=>f.id===id);if(!file)return;
@@ -868,7 +870,7 @@ export async function bootCompanion(reader) {
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail','calendar'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
-    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
+    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${['home','profile-backup'].includes(view)?storageUI?.entryMarkup()||'':''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
       root.querySelectorAll('.cp-nav [aria-current]').forEach(el=>el.removeAttribute('aria-current'));
@@ -1046,18 +1048,18 @@ export async function bootCompanion(reader) {
   const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
   if (cloudAvailable()&&!recoveredNotebook) {
     let lastCloudKey='',lastProfileCloud='',adoptedScroll=0;
-    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !storageManager?.state.busy && !completeBackupBusy && !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
+    cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !storageCoordinator?.locked && !storageManager?.state.busy && !completeBackupBusy && !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
       canApply: () => !mediaCapture?.busy && !cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog:connectionFeedback&&dialog.querySelector('[data-drive-progress]')?{open:false}:dialog,scoreViewer,openingScore,document}),
       applyBlocker: () => mediaCapture?.busy ? 'Finish the recording first.' : cloudApplyBlocker({active:data.active,allowPausedPractice:cloudTransport.transport==='drive'&&!root.hidden&&!['session','free-practice'].includes(view)&&!sessionDrag?.active,startingPractice,dialog:connectionFeedback&&dialog.querySelector('[data-drive-progress]')?{open:false}:dialog,scoreViewer,openingScore,document}),
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
       apply: async (text, syncBase) => { adoptedScroll=root.querySelector('.cp-page')?.scrollTop||0;root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly','notificationsEnabled','practiceSuggestions'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
         data = await store.restore(text, { syncBase }); library=await store.library();reader.refreshSavedState?.();setAppLanguage(data.preferences.language);reader.setLanguage?.(getAppLanguage());await refreshProfileFiles();await reminders(); } finally {root.inert=false;sessionWriting=false;} },
       adopted: () => {render();root.querySelector('.cp-page')?.scrollTo(0,adoptedScroll);mediaSync?.markDirty();},
-      changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;const scroll=root.querySelector('.cp-page')?.scrollTop||0;render();root.querySelector('.cp-page')?.scrollTo(0,scroll);} } });
+      changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.storageFolderId,visible.storageFolderName,visible.fileId,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;const scroll=root.querySelector('.cp-page')?.scrollTop||0;render();root.querySelector('.cp-page')?.scrollTo(0,scroll);} } });
     if(driveNotebookAvailable()&&mediaStore){
       mediaSync=createMediaSync({store:mediaStore,connection:async context=>{await storageManager?.refresh();return connectDriveMedia({...context,folderId:storageManager?.state.config?.mediaFolder});},
         getContext:()=>{const state=cloud.state;return state.transport==='drive'&&state.account?.id&&state.notebookId&&state.enabled?{accountId:state.account.id,notebookId:state.notebookId,works:data.works.filter(w=>!w.trashedAt),wifiOnly:readMediaWifiOnly(data.preferences.wifiOnly)}:null;},
-        eligible:()=>!storageManager?.state.busy&&!completeBackupBusy&&cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
+        eligible:()=>!storageCoordinator?.locked&&!storageManager?.state.busy&&!completeBackupBusy&&cloud.state.status==='saved'&&!document.hidden&&!mediaCapture?.busy&&!data.active&&!dialog.open&&!scoreViewer&&!openingScore&&!cloud.busy&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup,
         network:networkStatus,changed:()=>{refreshSyncIndicator();const panel=document.querySelector('#cloud-media');if(panel)replaceHelpMarkup(panel,mediaSyncMarkup(mediaSync.state,cloudOptions()));},
         refreshed:async()=>{mediaRecords=await mediaStore.index();if(['multimedia','work','progress','event','session-detail','calendar'].includes(view))render();}});
       mediaStore.onChange(()=>mediaSync.markDirty());
@@ -1068,14 +1070,20 @@ export async function bootCompanion(reader) {
   if(driveNotebookAvailable()&&mediaStore&&!recoveredNotebook){
     const deviceKey='spino.backup-device.id',deviceId=localStorage.getItem(deviceKey)||crypto.randomUUID();localStorage.setItem(deviceKey,deviceId);
     const deviceName=localStorage.getItem('spino.backup-device.name')||('Android · '+deviceId.slice(0,6));
+    storageCoordinator=createStorageCoordinator({cloud,media:mediaSync});
     storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
       eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{}});
-    storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,refresh:refreshMedia,exportZip:exportCompleteZip,restoreZip:importCompleteZip,
-      downloadCopy:async file=>reviewCompleteZip(await downloadArchive({accountId:storageManager.link().accountId,file})),cloud,deviceName});
-    setInterval(async()=>{if(cloud?.state.transport==='drive'&&cloud.state.enabled&&!cloud.busy&&!mediaSync?.busy&&!storageManager.state.busy&&!completeBackupBusy&&!data.active&&!dialog.open&&!document.hidden){try{await cloudTransport.drive.prepareCheckpoint();}catch{/* Optional accelerator: synchronization keeps its verified original records. */}await storageManager.daily();}},60000);
+    storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,prepareSetup:async()=>{
+      if(data.active||mediaCapture?.busy)throw Error(ui('Finish practice and recording before setting up backups.','Termina la práctica y la grabación antes de configurar las copias.'));
+      connectionFeedback=true;
+      try{return await storageCoordinator.reserve();}
+      finally{connectionFeedback=false;}
+    },refresh:async()=>{await refreshMedia();if(['home','profile-backup'].includes(view))render();},exportZip:exportCompleteZip,restoreZip:importCompleteZip,
+      downloadCopy:async file=>reviewCompleteZip(await downloadArchive({accountId:storageManager.link().accountId,file})),cloud,deviceName,connect:()=>openDriveNotebooks(),canNotify:()=>!data.active&&!dialog.open&&!scoreViewer&&!openingScore});
+    setInterval(async()=>{if(!storageCoordinator?.locked&&cloud?.state.transport==='drive'&&cloud.state.enabled&&!cloud.busy&&!mediaSync?.busy&&!storageManager.state.busy&&!completeBackupBusy&&!data.active&&!dialog.open&&!document.hidden){await storageCoordinator.background(async()=>{try{await cloudTransport.drive.prepareCheckpoint();}catch{/* Optional accelerator: synchronization keeps its verified original records. */}await storageManager.daily();});}},60000);
   }
   async function completeZip(){
-    if(mediaCapture?.busy||cloud?.busy||mediaSync?.busy||data.active)throw Error(ui('Finish practice and transfers before creating a complete backup.','Termina la práctica y las transferencias antes de crear una copia completa.'));
+    if(storageCoordinator?.locked||storageManager?.state.busy||mediaCapture?.busy||cloud?.busy||mediaSync?.busy||data.active)throw Error(ui('Finish practice and transfers before creating a complete backup.','Termina la práctica y las transferencias antes de crear una copia completa.'));
     if(storageManager&&cloud?.state.transport==='drive'&&cloudTransport.drive.storageLink()?.id)return (await storageManager.complete()).blob;
     return createCompleteBackup({text:await completeNotebookText(),records:await mediaStore.index(),load:row=>mediaStore.get(row.id)});
   }
@@ -1085,7 +1093,8 @@ export async function bootCompanion(reader) {
     const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
   }
   async function exportCompleteZip(){
-    showDialog(ui('Export complete ZIP','Exportar ZIP completo'),`<form><p>${ui('Includes notebook, scores and all available recordings. Missing files are downloaded from Drive. Mobile data may be used.','Incluye cuaderno, partituras y todas las grabaciones disponibles. Los archivos que falten se descargarán de Drive. Puede usar datos móviles.')}</p><p>${ui('Beta limit: 250 MB per complete archive. An incomplete copy is never marked complete.','Límite de esta beta: 250 MB por archivo completo. Nunca se marca una copia incompleta como completa.')}</p>${formEnd(ui('Prepare ZIP','Preparar ZIP'))}</form>`,async()=>{completeBackupBusy=true;try{const blob=await transferFeedback(ui('Preparing complete backup','Preparando copia completa'),()=>completeZip());await saveZip(blob,'Spino-'+new Date().toISOString().replace(/[:.]/g,'-')+'.zip');dialog.close();}finally{completeBackupBusy=false;}});
+    completeZipExportUI ||= createCompleteBackupExport({showDialog,dialog,formEnd,prepare:completeZip,save:saveZip,setBusy:value=>{completeBackupBusy=value;},changed:()=>{if(view==='profile-backup')render();},notify:toast,progress:()=>storageManager?.state.progress||cloudTransport?.drive?.info.progress});
+    completeZipExportUI.open();
   }
   async function importCompleteZip(){
     const input=document.createElement('input');input.type='file';input.accept='.zip,application/zip';input.hidden=true;document.body.append(input);input.onchange=async()=>{try{if(input.files[0])await reviewCompleteZip(input.files[0]);}catch(e){toast(e.message);}finally{input.remove();}};input.addEventListener('cancel',()=>input.remove(),{once:true});input.click();
@@ -1215,7 +1224,7 @@ export async function bootCompanion(reader) {
     if(cloud.busy)throw Error(ui('Wait for notebook synchronization to finish.','Espera a que termine la sincronización del cuaderno.'));
     if(consent){const approved=await new Promise(resolve=>{let settled=false;const finish=value=>{if(settled)return;settled=true;dialog.removeEventListener('close',closed);resolve(value);};const closed=()=>{if(!dialog.open)finish(false);};showDialog(ui('Score in Google Drive','Partitura en Google Drive'),`<form><p>${esc(asset.name)} · ${Math.ceil(asset.remoteContent.length*3/4/1024)} KB</p><p>${ui('Download to open it. Mobile data, including 5G, may be used.','Descárgala para abrirla. Puede usar datos móviles, incluido 5G.')}</p>${formEnd(ui('Download score','Descargar partitura'))}</form>`,async()=>{finish(true);dialog.close();});dialog.addEventListener('close',closed);});if(!approved)throw Error(ui('Download cancelled.','Descarga cancelada.'));}
     const wasBusy=completeBackupBusy;completeBackupBusy=true;
-    try{const downloaded=await transferFeedback(ui('Downloading score','Descargando partitura'),()=>cloudTransport.drive.downloadAsset(id));if(JSON.stringify(downloaded.remoteContent)!==JSON.stringify(asset.remoteContent)&&downloaded.remoteContent)throw Error('The score changed. Synchronize before downloading.');
+    try{const downloaded=await (consent?transferFeedback(ui('Downloading score','Descargando partitura'),()=>cloudTransport.drive.downloadAsset(id)):cloudTransport.drive.downloadAsset(id));if(JSON.stringify(downloaded.remoteContent)!==JSON.stringify(asset.remoteContent)&&downloaded.remoteContent)throw Error('The score changed. Synchronize before downloading.');
       // Keep this device's annotations; only verified score bytes are downloaded.
       const current=await store.asset(id);if(!current||JSON.stringify(current.remoteContent)!==JSON.stringify(asset.remoteContent))throw Error('The score changed while downloading. Retry.');
       const result={...current,base64:downloaded.base64};await store.putAsset(result);return result;
@@ -1330,13 +1339,12 @@ export async function bootCompanion(reader) {
   }
   const actions={
     ...(storageUI?.actions||{}),
-    'storage-export':exportCompleteZip,'storage-import':importCompleteZip,
+    'storage-export':exportCompleteZip,'storage-export-new':()=>completeZipExportUI?.startNew(),'storage-import':importCompleteZip,
     'storage-reset':resetThisDevice,
     'drive-create-new':configureNewStorage,
     'storage-restore-local':async()=>{const id=localStorage.getItem('spino.local-before-join'),archive=await readResetArchive(id);if(!archive)throw Error('Recovery copy unavailable.');await reviewCompleteZip(archive.blob);},
     'storage-reconnect-reset':()=>{const saved=JSON.parse(localStorage.getItem('spino.reset-recovery'));return openDriveNotebooks(saved.link.notebookId,saved.link.id);},
     'storage-restore-reset':async()=>{const saved=JSON.parse(localStorage.getItem('spino.reset-recovery')),archive=await readResetArchive(saved.archive);if(!archive)throw Error('Recovery archive unavailable.');await reviewCompleteZip(archive.blob);},
-    'storage-optimize':async()=>{if(cloud?.busy)throw Error('Finish synchronization first.');showDialog(ui('Prepare fast connection','Preparar conexión rápida'),`<form><p>${ui('Creates a compressed companion file for faster connection on updated devices. Existing notebook files and IDs are kept.','Crea un archivo comprimido auxiliar para conectar más rápido los dispositivos actualizados. Se conservan los archivos e identificadores existentes.')}</p>${formEnd(ui('Prepare','Preparar'))}</form>`,async()=>{const result=await cloudTransport.drive.prepareCheckpoint();if(!result.created)throw Error('This notebook cannot yet create a compact checkpoint.');dialog.close();toast(ui('Fast connection prepared.','Conexión rápida preparada.'));});},
     'storage-return-original':()=>{localStorage.removeItem('spino.recovered-notebook');location.reload();},
     ...libraryUI.actions,
     'library-downloadable':()=>{libraryFilters={state:'located'};libraryPage=0;render();},
@@ -1701,7 +1709,7 @@ export async function bootCompanion(reader) {
   if (['catalog','library-detail','downloads'].includes(view)) render();
   mediaSync?.markDirty();
   if (cloud) { try { await cloud.init(); } catch(error) { toast(ui('Could not start backup: ', 'No se ha podido iniciar la copia: ')+localizeMessage(error.message)); } }
-  if(storageUI&&cloud?.state.name&&!dialog.open)storageUI.notify();
+  if(storageUI&&cloud?.state.name&&!dialog.open){await storageUI.notify();if(['home','profile-backup'].includes(view))render();}
   if(localStorage.getItem('spino.reset-recovery')&&!recoveredNotebook&&!cloud?.state.name)showDialog(ui('Reconnect your notebook','Reconectar tu cuaderno'),`<p>${ui('A verified recovery ZIP is retained on this device.','Se conserva un ZIP de recuperación verificado en este dispositivo.')}</p><div class="cp-actions">${btn('storage-reconnect-reset',ui('Reconnect the same notebook','Reconectar el mismo cuaderno'))}${btn('storage-restore-reset',ui('Restore retained ZIP','Restaurar ZIP conservado'))}</div>`);
   if(recoveredNotebook)showDialog(ui('Recovered notebook','Cuaderno recuperado'),`<p>${ui('This is a separate local recovery. Cloud synchronization is disabled. Your original notebook is intact.','Esta es una recuperación local separada. La sincronización en la nube está desactivada. Tu cuaderno original está intacto.')}</p><div class="cp-actions">${btn('storage-return-original',ui('Return to original notebook','Volver al cuaderno original'))}${btn('close-dialog',ui('Review recovered notebook','Revisar cuaderno recuperado'))}</div>`);
 

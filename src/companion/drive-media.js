@@ -10,8 +10,9 @@ const id = value => typeof value === 'string' && /^[\w-]{1,160}$/.test(value);
 const checksum = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
 // MediaRecorder and HTTP servers may serialize codec parameters differently.
 // Keep the supported containers bounded, including quoted codec lists (RFC 6381).
-const mime = value => value === 'audio/midi' || typeof value === 'string' && /^(audio|video)\/(webm|mp4|wav|ogg)(?:[ \t]*;[ \t]*[\w-]+=(?:[\w.,-]+|"[\w., -]+"))*[ \t]*$/i.test(value);
-const mediaType = value => value.split(';',1)[0].trim().toLowerCase();
+const mediaType = value => {const type=value.split(';',1)[0].trim().toLowerCase();return ({'audio/mp3':'audio/mpeg','audio/x-wav':'audio/wav','audio/x-m4a':'audio/mp4','audio/x-midi':'audio/midi'})[type]||type;};
+const supportedTypes=new Set(['audio/midi','audio/mpeg','audio/webm','video/webm','audio/mp4','video/mp4','audio/wav','audio/ogg','video/ogg']);
+const mime = value => typeof value==='string'&&/^[\w-]+\/[\w-]+(?:[ \t]*;[ \t]*[\w-]+=(?:[\w.,-]+|"[\w., -]+"))*[ \t]*$/i.test(value)&&supportedTypes.has(mediaType(value));
 export const mediaHash = async blob => [...new Uint8Array(await crypto.subtle.digest('SHA-256', await blob.arrayBuffer()))].map(v=>v.toString(16).padStart(2,'0')).join('');
 export function driveURL(value) {
   const url = new URL(value);
@@ -28,10 +29,11 @@ export function validateRemote(file, notebookId) {
   if(!((p.spinoMedia==='spino-media-v1'&&id(p.workId))||(p.spinoMedia==='spino-media-free-v1'&&p.workId==='')))invalid('The Drive recording has an invalid piece association. Local files are kept.');
   if(!Number.isFinite(Date.parse(p.createdAt))||!Number.isFinite(Number(p.durationMs))||Number(p.durationMs)<0)invalid('The Drive recording has invalid dates or duration.');
   if(!checksum(p.sha256))invalid('The Drive recording has no valid checksum. Local files are kept.');
-  if(!mime(file.mimeType))invalid('The Drive recording format is not supported. Local files are kept.');
+  const type=p.spinoMimeType??file.mimeType;
+  if(!mime(type))invalid('The Drive recording format is not supported. Local files are kept.');
   if(!Number.isSafeInteger(Number(file.size))||Number(file.size)<=0||Number(file.size)>MEDIA_LIMIT)invalid('The Drive recording is empty or exceeds 250 MB. Local files are kept.');
   if(file.sha256Checksum!=null&&file.sha256Checksum!==p.sha256)invalid('The Drive recording checksum does not match. Local files are kept.');
-  return {...file,mimeType:mediaType(file.mimeType)};
+  return {...file,mimeType:mediaType(type)};
 }
 export function createDriveMedia({request, state, accountId, notebookId, folderId, downloadFile,hashBlob=mediaHash,readChunk=(blob,start,end)=>blob.slice(start,end)}) {
   if(!id(accountId)||!id(notebookId))throw fail('Connect a Drive account and notebook first.','NOT_CONNECTED');
@@ -61,7 +63,7 @@ export function createDriveMedia({request, state, accountId, notebookId, folderI
     if(existing.status===200){const found=validateRemote(existing.json,notebookId);if(found.appProperties.takeId!==takeId||recordingChecksum(found)!==hash)throw fail('Recording identity conflict.','IDENTITY_CONFLICT');return verifyUploaded(found);}
     expect(existing,[404]);aborted();
     const start=async()=>{
-      const properties={spinoMedia:workId===''?'spino-media-free-v1':'spino-media-v1',notebookId,takeId,workId,sha256:hash,createdAt,durationMs:String(Math.max(0,Math.round(durationMs)))};
+      const properties={spinoMedia:workId===''?'spino-media-free-v1':'spino-media-v1',notebookId,takeId,workId,sha256:hash,createdAt,durationMs:String(Math.max(0,Math.round(durationMs))),spinoMimeType:mediaType(blob.type)};
       const type=mediaType(blob.type);
       const r=expect(await scoped(`${UPLOAD}?uploadType=resumable&fields=${encodeURIComponent(fields)}`,{method:'POST',headers:{'X-Upload-Content-Type':type,'X-Upload-Content-Length':String(blob.size)},json:{id:saved.fileId,name:title,mimeType:type,...(folderId?{parents:[folderId]}:{}),appProperties:properties}}),[200,201]);
       saved.session=driveURL(r.headers?.location);await state.set(key(takeId),saved);
@@ -112,14 +114,15 @@ export function createDriveMedia({request, state, accountId, notebookId, folderI
     const check=()=>{if(signal?.aborted)throw fail('Transfer paused. Its progress is retained.','ABORTED');};
     check();
     const response=expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`));
-    // Only the MIME label may change; all identity and integrity checks still apply.
-    const file=validateRemote({...response.json,mimeType:mediaType(blob.type)},notebookId);
+    // Drive's mimeType cannot change without a new revision. Keep the original
+    // bytes and file ID; retain a verified Spino format in private metadata.
+    const file=validateRemote({...response.json,appProperties:{...response.json.appProperties,spinoMimeType:mediaType(blob.type)}},notebookId);
     if(file.appProperties.takeId!==takeId||file.appProperties.workId!==workId||Number(file.size)!==blob.size||await hashBlob(blob)!==recordingChecksum(file))throw fail('Recording identity conflict.','IDENTITY_CONFLICT');
     const downloaded=await downloadContent(file);
     try{if(!downloaded.verified&&await mediaHash(downloaded.blob)!==recordingChecksum(file))throw fail('Downloaded recording checksum differs.','INTEGRITY');}
     finally{await downloaded.cleanup?.();}
     check();
-    expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`,{method:'PATCH',json:{mimeType:file.mimeType}}));
+    expect(await scoped(`${API}/files/${encodeURIComponent(fileId)}?fields=${encodeURIComponent(fields)}`,{method:'PATCH',json:{appProperties:{spinoMimeType:file.mimeType}}}));
     return metadata(fileId);
   }
   return {upload,list,download,repairFormat};

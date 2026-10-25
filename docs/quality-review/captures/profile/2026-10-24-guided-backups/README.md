@@ -1,0 +1,9 @@
+# Guided backups — 24 October 2026
+
+Owner rejected beta.3 storage menu as confusing. Accepted objective: visible guided setup, few decisions, immediate progress, clear recovery choices. The owner approved the implemented screens on 24 October 2026 ("perfecto, cambiar"). The guided flow is applied to Spino source; it is packaged in beta.4 (103).
+
+Pending setup has a direct card on Today and Backup & sync and a one-time guided offer independent of the obsolete shown marker. It remains discoverable after Later. Opening storage while unconfigured opens step 1 directly. Step 1 confirms the current folder/name; changing/creating a folder is optional. Step 2 enables changed daily copies, keeps the current principal (defaults to this device) and seven-copy retention, with one optional mobile-data checkbox. The result distinguishes verified backup from Wi-Fi, secondary-device or incomplete-copy states. No remote settings are changed until the last confirmation. Optimization stays automatic. Recovery/reset actions are separated from setup.
+
+53 focused tests pass, covering final-confirmation-only writes, persistent pending entry after Later/old dismissal, suppressing late reopening, configured-notebook suppression, and manual guided copies with retained ownership checks. Web build passes. Browser review exercises the actual storage UI controller with a synthetic manager, including visible preparation, timed phases and verified result. No personal notebook/Drive was accessed or modified.
+
+Browser dimensions measured: phone 390×844, phone landscape 844×390, tablet 768×1024, tablet landscape 1024×768. Body width matches viewport in each; dialog widths are 358, 520, 520, 520 px. Screenshots are responsive browser evidence, not native Android acceptance. Background operations/provider calls in the preview are synthetic; final device/Drive acceptance remains open.

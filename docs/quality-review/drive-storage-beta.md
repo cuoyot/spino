@@ -17,3 +17,7 @@ Connection feedback follow-up: the notebook picker now shows animated activity, 
 ## Beta.3 follow-up
 
 Fast metadata reads and deferred PDF hydration, bounded parallel native requests, retry/elapsed feedback, local recovery before opening a remote notebook without merging, explicit legacy conversion confirmation and guarded device reset are implemented in beta.3 (102). See captures/profile/2026-10-24-sync-fast-beta3/README.md for synthetic validation and acceptance limits. Conversion is no longer implicit: the exact selected old file requires confirmation that every device has updated and synchronized. The owner's stable file remains untouched.
+
+## Folder setup failure follow-up
+
+A synthetic Drive transport returning 404 for the selected folder's inaccessible My Drive ancestor reproduces the owner's beta.4 error verbatim. Ancestor traversal now permits only that missing optional ancestor; selected folders and notebook resources remain mandatory. Permission errors still stop setup, visible descendants are rejected, and Drive remains responsible for rejecting any cycle beyond the visible ancestry boundary. The real incremental adapter is exercised by the storage regression; no personal Drive data is changed. Retry reuses child folders and retains notebook/object IDs. Physical Google Drive acceptance remains pending.

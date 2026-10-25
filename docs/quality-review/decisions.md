@@ -842,3 +842,17 @@ A reported broken Profile ring was caused by the external avatar outline being c
 Accepted owner objectives: continuous scrolling; title/composer first; compact download controls; combine catalogue search with clear Downloaded access; add to repertoire only after acquiring a score; preview notation before choosing. Implemented proposal combines formats, provides temporary opening previews and offline PDF first-page images, and condenses transfer management. [Evidence](captures/repertoire/2026-10-21-catalogue-rows-01/README.md) records 19 unit and four browser passes, including real-source and read-only preview checks. The row layout remains open for owner visual feedback. Native/release handoff is separate.
 
 Difficulty labels remain proposed. Existing algorithm outputs no calibrated grade. Any future Henle/ABRSM label must cite a source and match the precise work/version; no title-based grades, implicit conversion or inherited grades for arrangements.
+
+
+## 24 October 2026 — Guided backup setup
+
+Owner rejected the beta.3 storage menu and nested configuration entry. Accepted objective: start from the user's task with a visible guided process, minimal choices, prompt progress and clear results. Implemented source proposal: persistent setup card, two steps, automatic optimization, unchanged principal/retention defaults, and separate recovery tools. The owner approved this layout on 24 October 2026 ("perfecto, cambiar"); the implementation is accepted in source. Beta.3 APK/web remain unchanged pending a new packaged release. See captures/profile/2026-10-24-guided-backups/README.md.
+
+
+The owner requested publication of the approved guided backup flow; packaged as 6.1.5-beta.4 (103).
+
+## 2026-10-25 — connection identity and format recovery follow-up
+
+Owner reports setup blocked by synchronization, multimedia format rejection, ZIP failure and confusing old names. Fix storage concurrency through a shared reservation with periodic checkpoints/backups, while permitting notebook adoption before acquiring it. Read the verified descriptor name, selected folder and file reference consistently across connected, manage, picker and QR surfaces. Preserve user-selected folders; only rename app-owned nested data folders. Do not infer that equal logical notebook IDs or names mean the same Drive root. Never automatically combine the owner's distinct connections.
+
+The previous recording MIME-only PATCH contradicted Drive's binary MIME contract. Retain verified format in private spinoMimeType metadata, with original and remote-byte verification, without a content revision or new file. New uploads retain their known type. Unknown/mismatched recordings remain isolated; ZIP errors identify them. 142 synthetic protocol/controller checks, seven website checks and native replacement-install/foreground/hash verification pass for beta.6 (105). Physical Google/two-device acceptance remains open.

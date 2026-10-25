@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createDriveMedia,driveURL,DRIVE_CHUNK} from '../src/companion/drive-media.js';
+import {createDriveMedia,driveURL,DRIVE_CHUNK,mediaHash} from '../src/companion/drive-media.js';
 import {syntheticDrive} from '../src/companion/drive-media-fixture.js';
 const book='synthetic-notebook',account='synthetic-owner';
 const take={takeId:'take-1',workId:'work-1',title:'Original musical title',blob:new Blob([new Uint8Array(DRIVE_CHUNK+123).map((_,i)=>i%251)],{type:'audio/webm'})};
@@ -84,10 +84,25 @@ test('invalid metadata identifies the failed check and can be isolated without a
   [f=>{f.sha256Checksum='a'.repeat(64);},/checksum does not match/],
   [f=>{f.size='0';},/empty or exceeds/]
  ]){
-  const file=structuredClone(original);change(file);server.files.set(uploaded.id,file);
+  const file=structuredClone(original);delete file.appProperties.spinoMimeType;change(file);server.files.set(uploaded.id,file);
   await assert.rejects(a.client.list(),reason);
   const rejected=[];assert.deepEqual(await a.client.list({onInvalid:(file,error)=>rejected.push({file,error})}),[]);
   assert.equal(rejected[0].file.id,uploaded.id);assert.match(rejected[0].error.message,reason);
   await assert.rejects(a.client.download(uploaded.id),reason);assert.equal(server.files.size,1);
  }
+});
+
+test('MP3 and supported audio aliases synchronize without a false unsupported-format error',async()=>{
+ for(const [type,canonical] of [['audio/mpeg','audio/mpeg'],['audio/mp3','audio/mpeg'],['audio/x-wav','audio/wav'],['audio/x-m4a','audio/mp4'],['audio/x-midi','audio/midi']]){
+  const server=syntheticDrive(),a=device(server),original=new Blob(['original audio'],{type});const uploaded=await a.client.upload({...take,blob:original});assert.equal(uploaded.mimeType,canonical);const b=device(server);assert.equal((await b.client.list()).length,1);assert.equal(await (await b.client.download(uploaded.id)).blob.text(),'original audio');
+ }
+});
+test('new uploads retain their known format when Drive reports a generic binary type',async()=>{
+ const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take),file=server.files.get(uploaded.id);file.mimeType='application/octet-stream';const b=device(server),listed=await b.client.list();assert.equal(listed[0].mimeType,'audio/webm');assert.equal(file.appProperties.spinoMimeType,'audio/webm');assert.equal(await mediaHash((await b.client.download(file.id)).blob),await mediaHash(take.blob));assert.equal(server.files.size,1);
+});
+test('format repair uses private metadata without changing MIME or uploading a content revision',async()=>{
+ const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take),file=server.files.get(uploaded.id);delete file.appProperties.spinoMimeType;file.mimeType='application/octet-stream';const requests=[],b=device(server,{request:async options=>{requests.push(options);return server.request(options);}});const before=await mediaHash(file.blob),repaired=await b.client.repairFormat({...take,fileId:file.id});assert.equal(repaired.mimeType,'audio/webm');assert.equal(file.mimeType,'application/octet-stream');assert.equal(file.appProperties.spinoMimeType,'audio/webm');assert.equal(await mediaHash(file.blob),before);assert.ok(requests.some(r=>r.method==='PATCH'&&r.json.appProperties.spinoMimeType==='audio/webm'));assert.ok(!requests.some(r=>r.method==='POST'||r.method==='PUT'||r.json?.mimeType));assert.equal(file.appProperties.notebookId,book);assert.equal(file.appProperties.takeId,take.takeId);
+});
+test('unsupported private format metadata is rejected rather than trusted or silently replaced',async()=>{
+ const server=syntheticDrive(),a=device(server),uploaded=await a.client.upload(take);server.files.get(uploaded.id).appProperties.spinoMimeType='text/html';await assert.rejects(a.client.list(),/format is not supported/);await assert.rejects(a.client.download(uploaded.id),/format is not supported/);
 });

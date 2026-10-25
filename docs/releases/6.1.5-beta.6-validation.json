@@ -1,0 +1,40 @@
+{
+  "version": "6.1.5-beta.6",
+  "versionCode": 105,
+  "focusedUnitTests": 142,
+  "websiteTests": 7,
+  "androidBuildAndTests": "passed",
+  "signatures": "APK and AAB verified",
+  "packagedWebFilesMatch": 684,
+  "nativeAcceptance": {
+    "installExitCode": 0,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{2ec4d30 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t178}"
+    ],
+    "version": [
+      "versionCode=105 minSdk=24 targetSdk=36",
+      "versionName=6.1.5-beta.6"
+    ],
+    "foregroundVerified": true,
+    "installedAPKMatches": true,
+    "installedAPKSHA256": "7ee808eaa3272ae5ac6ee051f21dd65e1ea1bb839a09830557ce71be68b35f54",
+    "dataPreservation": "Replacement install, same AVD, no wipe; headless emulator after GUI startup stalled",
+    "liveDriveAccountPreferences": "not present in emulator"
+  },
+  "browserPresentation": {
+    "fixture": "docs/quality-review/fixtures/drive-identity-review.html",
+    "connectedAndManageLayouts": [
+      "390x844",
+      "844x390",
+      "768x1024",
+      "1024x768"
+    ],
+    "horizontalOverflow": false,
+    "sameReferenceInConnectedAndManage": true,
+    "metadataRepairContract": "Final metadata-only repair verified by protocol tests; browser UI layout was reviewed before final transport refinement."
+  },
+  "driveContract": "Binary mimeType cannot be changed without a new revision. Uses appProperties.spinoMimeType after byte verification instead. Synthetic provider rejects the old MIME-only PATCH.",
+  "physicalGoogleTwoDevice5G": "pending",
+  "personalDriveModified": false,
+  "privateReadScope": "Locally mounted small descriptor metadata only; no account tokens, media content or notebook history copied."
+}

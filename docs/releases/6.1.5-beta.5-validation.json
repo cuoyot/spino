@@ -1,0 +1,37 @@
+{
+  "version": "6.1.5-beta.5",
+  "versionCode": 104,
+  "focusedUnitTests": 67,
+  "websiteTests": 7,
+  "androidBuildAndTests": "passed",
+  "signatures": "APK and AAB verified",
+  "packagedWebFilesMatch": 684,
+  "nativeAcceptance": {
+    "installExitCode": 0,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{c2cfa30 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t175}"
+    ],
+    "version": [
+      "versionCode=104 minSdk=24 targetSdk=36",
+      "versionName=6.1.5-beta.5"
+    ],
+    "foregroundVerified": true,
+    "dataPreservation": "Replacement install, same AVD, no data wipe"
+  },
+  "browserReview": {
+    "fixture": "docs/quality-review/fixtures/complete-backup-export-review.html",
+    "actualController": true,
+    "syntheticPreparationErrorVisible": true,
+    "retryGeneratedVerifiedZipBytes": 1154,
+    "responsiveErrorDialog": {
+      "390x844": 358,
+      "844x390": 520,
+      "768x1024": 520,
+      "1024x768": 520
+    },
+    "horizontalOverflow": false
+  },
+  "physicalGoogleDrive": "pending",
+  "personalDriveModified": false,
+  "ownerZipFailureCause": "Not confirmed; owner reports successful preparation after sync finishes. Failure UI and progress persistence corrected."
+}

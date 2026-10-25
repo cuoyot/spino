@@ -1,4 +1,5 @@
 import {mediaHash,recordingChecksum} from './drive-media.js';
+import {readRecordingCopies} from './recording-copies.js';
 
 const takeId=record=>record.mediaTakeId||record.id;
 
@@ -40,7 +41,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
         const policy=await network();if(!policy.online){publish({status:'offline'});return;}
         const allowed=!context.wifiOnly||policy.wifi&&!policy.metered;
         publish({status:'checking',completed:0,total:0,percent:0,error:'',issues:[]});
-        client=await connection({...context,wifiOnly:false});if(!current(key))return;
+        client=await connection({...context,wifiOnly:allowed?context.wifiOnly:false});if(!current(key))return;
         if(repairFileId){
           const issue=repairIssues.find(i=>i.fileId===repairFileId&&i.localId);
           const record=issue&&await store.get(issue.localId);
@@ -49,9 +50,11 @@ export function createMediaSync({store, connection, getContext, eligible, change
           await client.repairFormat({fileId:repairFileId,takeId:takeId(record),workId:record.workId,blob:record.blob,signal});
           if(!current(key))return;
         }
-        const byTake=new Map();for(const f of await client.list({onInvalid:(file,error)=>recordIssue(file,error,true)})){const previous=byTake.get(f.appProperties.takeId);if(previous&&(recordingChecksum(previous)!==recordingChecksum(f)||previous.appProperties.workId!==f.appProperties.workId))recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);if(!previous)byTake.set(f.appProperties.takeId,f);}
+        const local=await store.index(),copies=await readRecordingCopies({client,rows:local,load:id=>store.get(id),...context,allowRepair:allowed,signal});
+        for(const issue of copies.issues)recordIssue(issue.file,issue.error,true);
+        const byTake=new Map();for(const f of copies.files){const previous=byTake.get(f.appProperties.takeId);if(previous&&(recordingChecksum(previous)!==recordingChecksum(f)||previous.appProperties.workId!==f.appProperties.workId))recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);if(!previous)byTake.set(f.appProperties.takeId,f);}
         if(!current(key))return;
-        const local=await store.index(),works=new Map(context.works.map(w=>[w.id,w]));
+        const works=new Map(context.works.map(w=>[w.id,w]));
         for(const issue of issues)if(issue.message==='The Drive recording format is not supported. Local files are kept.'){
           issue.formatProblem=true;
           const row=local.find(r=>takeId(r)===issue.takeId&&!r.draft&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId));
@@ -118,5 +121,5 @@ export function createMediaSync({store, connection, getContext, eligible, change
     }finally{await result.cleanup?.();}
     })();try{return await task;}finally{task=null;}
   }
-  return {get state(){return {...state};},get busy(){return !!task;},sync,download,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
+  return {get state(){return {...state};},get busy(){return !!task;},waitForIdle:async()=>{if(task)await task;},sync,download,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
 }

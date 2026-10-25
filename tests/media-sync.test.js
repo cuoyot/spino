@@ -64,15 +64,22 @@ test('allowed mobile networks upload and download exact audio/video bytes, while
  const offline=device(t,syntheticDrive(),[recording()],{wifiOnly:false,network:async()=>({online:false,wifi:false,metered:true})});await offline.engine.sync();assert.equal(offline.engine.state.status,'offline');assert.equal(offline.store.rows.size,1);
 });
 
-test('a rejected Drive file does not block other uploads/downloads or cause duplicate uploads on retry',async t=>{
+test('a wrong Drive MIME label is repaired against verified original bytes without duplicating recordings',async t=>{
  const server=syntheticDrive(),a=device(t,server,[recording('bad'),recording('remote-good')]);await a.engine.sync();
- const bad=[...server.files.values()].find(f=>f.appProperties.takeId==='bad'),badType=bad.mimeType;bad.mimeType='application/octet-stream';
+ const bad=[...server.files.values()].find(f=>f.appProperties.takeId==='bad'),originalId=bad.id;bad.mimeType='application/octet-stream';delete bad.appProperties.spinoMimeType;
  const b=device(t,server,[recording('bad'),recording('local-good')]);await b.engine.sync();
- assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,2);assert.equal(b.engine.state.issues.length,1);
- assert.equal(b.engine.state.issues[0].takeId,'bad');assert.equal(b.engine.state.issues[0].title,recording().title);assert.match(b.engine.state.issues[0].message,/format is not supported/);
- assert.equal(b.store.rows.size,3);assert.equal(b.store.rows.get('bad').cloud,undefined);assert.equal(server.files.size,3);
- await b.engine.sync();assert.equal(server.files.size,3);assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,0);
- bad.mimeType=badType;await b.engine.sync();assert.equal(b.engine.state.status,'saved');assert.deepEqual(b.engine.state.issues,[]);assert.equal(b.store.rows.get('bad').cloud.fileId,bad.id);assert.equal(server.files.size,3);
+ assert.equal(b.engine.state.status,'saved',b.engine.state.error);assert.equal(b.engine.state.issues.length,0);
+ assert.equal(server.files.get(originalId).mimeType,'application/octet-stream');assert.equal(server.files.get(originalId).appProperties.spinoMimeType,'audio/webm');assert.equal(server.files.size,3);assert.equal(b.store.rows.size,3);
+ assert.equal(b.store.rows.get('bad').cloud.fileId,originalId);await b.engine.sync();assert.equal(server.files.size,3);
+ const tablet=device(t,server);await tablet.engine.sync();assert.equal(tablet.engine.state.status,'saved');assert.equal(tablet.store.rows.size,3);
+ for(const row of tablet.store.rows.values())assert.equal(await mediaHash(row.blob),await mediaHash(recording(row.id).blob));
+});
+
+test('a format issue without the original remains isolated and never causes a duplicate upload',async t=>{
+ const server=syntheticDrive(),a=device(t,server,[recording('bad'),recording('remote-good')]);await a.engine.sync();
+ const bad=[...server.files.values()].find(f=>f.appProperties.takeId==='bad');bad.mimeType='application/octet-stream';delete bad.appProperties.spinoMimeType;
+ const b=device(t,server,[recording('local-good')]);await b.engine.sync();assert.equal(b.engine.state.status,'error');assert.equal(b.engine.state.completed,2);assert.equal(b.engine.state.issues[0].takeId,'bad');assert.equal(server.files.size,3);assert.equal(bad.mimeType,'application/octet-stream');
+ await b.engine.sync();assert.equal(server.files.size,3);
 });
 
 test('a damaged remote take ID cannot duplicate or rebind an existing cloud-linked recording',async t=>{
@@ -106,8 +113,8 @@ test('authorization failure stops the queue, retains all local bytes, and identi
 test('invalid metadata after a completed upload preserves its immutable ID and does not block the next take',async t=>{
  const server=syntheticDrive(),a=device(t,server,[recording('first'),recording('second')],{request:async options=>{
   const r=await server.request(options);
-  for(const file of server.files.values())if(file.appProperties.takeId==='first')file.mimeType='application/octet-stream';
-  if(r.json?.appProperties?.takeId==='first')r.json.mimeType='application/octet-stream';
+  for(const file of server.files.values())if(file.appProperties.takeId==='first'){file.mimeType='application/octet-stream';delete file.appProperties.spinoMimeType;}
+  if(r.json?.appProperties?.takeId==='first'){r.json.mimeType='application/octet-stream';delete r.json.appProperties.spinoMimeType;}
   return r;
  }});
  await a.engine.sync();assert.equal(a.engine.state.status,'error');assert.equal(a.engine.state.completed,1);assert.equal(a.engine.state.issues[0].takeId,'first');assert.equal(server.files.size,2);assert.equal(a.store.rows.get('first').cloud.pending,true);
