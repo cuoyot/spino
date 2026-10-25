@@ -1,0 +1,11 @@
+{
+  "commit": "b1098f8619b39b8c050e4b69c47feda16ea7b2cd",
+  "exitCode": 0,
+  "versionId": "1f80b21f-45d2-4bc5-bf19-857c77910109",
+  "log": "docs/releases/6.1.6-beta.1-wrangler-deploy.log",
+  "logSHA256": "cf6a887251ce9e771566ed095f6f645b91087ce376e9c97734fdb6e51df2f088",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "authorization": "Owner requested publication of this beta in the conversation.",
+  "wranglerVersion": "4.151.3"
+}

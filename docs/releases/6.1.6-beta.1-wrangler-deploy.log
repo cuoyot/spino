@@ -1,0 +1,43 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.152.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 564 files from the assets directory /private/tmp/spino-beta616-web-export/site
+🌀 Starting asset upload...
+🌀 Found 19 new or modified static assets to upload. Proceeding with upload...
++ /downloads/spino-6.1.6-beta.1-checksums.json
++ /index.html
++ /hu/index.html
++ /downloads/parts/spino-6.1.6-beta.1-107-beta-android.apk.003.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-android.aab.002.bin
++ /downloads/spino-6.1.6-beta.1-release-notes.txt
++ /en/index.html
++ /downloads/parts/spino-6.1.6-beta.1-107-android.aab.003.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-android.aab.000.bin
++ /ca/index.html
++ /de/index.html
++ /downloads/parts/spino-6.1.6-beta.1-play-console-handoff.zip.003.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-android.aab.001.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-beta-android.apk.000.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-beta-android.apk.001.bin
++ /downloads/parts/spino-6.1.6-beta.1-107-beta-android.apk.002.bin
++ /downloads/parts/spino-6.1.6-beta.1-play-console-handoff.zip.000.bin
++ /downloads/parts/spino-6.1.6-beta.1-play-console-handoff.zip.001.bin
++ /downloads/parts/spino-6.1.6-beta.1-play-console-handoff.zip.002.bin
+Uploaded 4 of 19 assets
+Uploaded 8 of 19 assets
+Uploaded 13 of 19 assets
+Uploaded 16 of 19 assets
+Uploaded 19 of 19 assets
+✨ Success! Uploaded 19 files (525 already uploaded) (21.52 sec)
+
+Total Upload: 79.30 KiB / gzip: 19.71 KiB
+Worker Startup Time: 2 ms
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (58.43 sec)
+Deployed spino triggers (2.26 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: 1f80b21f-45d2-4bc5-bf19-857c77910109
