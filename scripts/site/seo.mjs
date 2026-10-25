@@ -2,7 +2,7 @@
 export const ORIGIN = 'https://spinoapp.com';
 export const LANGUAGES = ['es', 'en', 'ca', 'de', 'hu'];
 const ARCADE_LANGUAGES = ['es','en','ca'];
-export const STABLE_RELEASE = { version: '6.1.4', code: '99' };
+export const STABLE_RELEASE = { version: '6.1.5', code: '103' };
 export const localizedPath = (lang, base = '/') => base + (lang === 'es' ? '' : `${lang}/`);
 export const absoluteUrl = path => new URL(path, ORIGIN).href;
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);

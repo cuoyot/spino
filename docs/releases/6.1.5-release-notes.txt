@@ -1,0 +1,15 @@
+<es-ES>
+Sincronización del historial antes de descargar partituras, con progreso y reintentos. Conexión a Drive más sencilla y copia local recuperable antes de abrir otro cuaderno sin mezclar datos. Conversión con confirmación de que todos los dispositivos están actualizados. Últimas 7 copias ZIP completas, creadas por el dispositivo principal cuando hay cambios. Copias automáticas con la app abierta; ZIP hasta 250 MB.
+</es-ES>
+<en-US>
+History synchronizes before score downloads, with progress and retries. Simpler Drive connection and a recoverable local copy before opening another notebook without merging. Conversion requires confirmation that every device is updated. Keep the latest 7 complete ZIP backups, created by the principal device after changes. Automatic backups require the app to be open; ZIP limit 250 MB.
+</en-US>
+<ca>
+Sincronització de l’historial abans de baixar partitures, amb progrés i reintents. Connexió a Drive més senzilla i còpia local recuperable abans d’obrir un altre quadern sense barrejar dades. Conversió amb confirmació que tots els dispositius estan actualitzats. Últimes 7 còpies ZIP completes, creades pel dispositiu principal quan hi ha canvis. Còpies automàtiques amb l’app oberta; ZIP fins a 250 MB.
+</ca>
+<de-DE>
+Der Verlauf wird vor den Noten synchronisiert, mit Fortschritt und Wiederholungen. Einfachere Drive-Verbindung und lokale Wiederherstellungskopie vor dem Öffnen eines anderen Notizbuchs ohne Zusammenführen. Konvertierung erst nach Bestätigung, dass alle Geräte aktuell sind. Die letzten 7 vollständigen ZIP-Sicherungen, vom Hauptgerät bei Änderungen erstellt. Automatische Sicherung bei geöffneter App; ZIP bis 250 MB.
+</de-DE>
+<hu-HU>
+Az előzmények a kották előtt szinkronizálódnak, folyamatjelzéssel és újrapróbálkozással. Egyszerűbb Drive-kapcsolat és helyreállítható helyi másolat másik füzet megnyitása előtt, egyesítés nélkül. Átalakítás csak az összes eszköz frissítésének megerősítése után. Az utolsó 7 teljes ZIP-mentés megőrzése; csak az elsődleges eszköz készít mentést változás után. Automatikus mentés nyitott alkalmazásnál; ZIP legfeljebb 250 MB.
+</hu-HU>
