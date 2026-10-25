@@ -1,0 +1,44 @@
+{
+  "version": "6.1.5",
+  "build": 106,
+  "date": "2026-10-25",
+  "channel": "stable",
+  "stable": {
+    "version": "6.1.5",
+    "build": 106
+  },
+  "beta": {
+    "version": "6.1.5-beta.6",
+    "build": 105
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.5-106-android.apk",
+      "bytes": 72568133,
+      "sha256": "824b33afe5bace6b47113214970347be7b285c6e50e2edaa9dba522a169d8aaf",
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.5-106-android.aab",
+      "bytes": 64171761,
+      "sha256": "29e69bfa6f170b5eee2a1b49f82de895c30127067a867fdea1f778802ee0a2ac",
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.5-play-console-handoff.zip",
+      "bytes": 63888958,
+      "sha256": "2ef343a9ea4a32806ba537a02244acb15a824552cf2383f67c15266b89cf50dd",
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.1.5-release-notes.txt",
+      "bytes": 1967,
+      "sha256": "d6d1b5c56e23575c2e1fda6b18c27ab6accea5b37fad33046e59bb26bf958b55",
+      "applicationId": "com.miguecoll.spino"
+    }
+  ],
+  "source": {
+    "tag": "v6.1.5",
+    "url": "https://github.com/cuoyot/spino/tree/v6.1.5"
+  }
+}

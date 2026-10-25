@@ -1,0 +1,59 @@
+{
+  "version": "6.1.5",
+  "versionCode": 106,
+  "sourceCommit": "b3bf5fe66b13d554d6bda3d7446ef915ef7f70b2",
+  "promotedBetaCommit": "a99d37986a00b9bbfc075470a249a0a3c3627646",
+  "packagedWebFiles": 684,
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0
+  },
+  "focusedTests": {
+    "passed": 159,
+    "failed": 0
+  },
+  "physicalTwoDeviceDriveAcceptance": "unverified",
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "applicationId": "com.miguecoll.spino",
+    "versionCode": 106,
+    "versionName": "6.1.5",
+    "foreground": [
+      "topResumedActivity=ActivityRecord{95f9083 u0 com.miguecoll.spino/.MainActivity t180}"
+    ],
+    "dataPreservation": "Same AVD, replacement installation without clearing application storage."
+  },
+  "signatures": {
+    "apk": "verified",
+    "aab": "verified"
+  },
+  "websiteTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "verifiedAt": "2026-10-25",
+  "responsiveBrowserReview": {
+    "viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "horizontalOverflow": false,
+    "currentReleaseNotes": "6.1.5",
+    "evidenceDirectory": "output/releases/6.1.5",
+    "evidenceType": "responsive browser; separate from native emulator acceptance"
+  }
+}

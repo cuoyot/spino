@@ -1,0 +1,36 @@
+{
+  "version": "6.1.5-beta.4",
+  "build": 103,
+  "date": "2026-10-24",
+  "channel": "beta",
+  "stable": {
+    "version": "6.1.4",
+    "build": 99
+  },
+  "beta": {
+    "version": "6.1.5-beta.4",
+    "build": 103
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.1.5-beta.4-103-android.aab",
+      "bytes": 64167724,
+      "sha256": "3636da7451003e965d2bff795d62c6c62510dd6c563c05dc8b330530e92c66f3"
+    },
+    {
+      "file": "spino-6.1.5-beta.4-103-beta-android.apk",
+      "bytes": 76928534,
+      "sha256": "50f2fe9aec199b65bf32c8af139a00d9253975184687a1bba049a9171744a7eb"
+    },
+    {
+      "file": "spino-6.1.5-beta.4-play-console-handoff.zip",
+      "bytes": 63883621,
+      "sha256": "83cda8cae5dc1cde08fd66d4ad3688a209cf4c3623579868a8ca8bf1b3fc6dfe"
+    },
+    {
+      "file": "spino-6.1.5-beta.4-release-notes.txt",
+      "bytes": 1098,
+      "sha256": "6bd7030e0e99d725c1781d71ee89576860b3dd8ea8ceb94efa4ad1f306abd589"
+    }
+  ]
+}

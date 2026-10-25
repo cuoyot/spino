@@ -1,0 +1,15 @@
+<es-ES>
+La configuración espera a la sincronización en curso y evita operaciones simultáneas. Nombre, carpeta y referencia del cuaderno se muestran de forma coherente entre dispositivos. Se admiten MP3 y alias de audio compatibles. Las etiquetas de formato erróneas de Drive se corrigen únicamente tras verificar la grabación original y los bytes remotos. Los errores del ZIP identifican la grabación afectada.
+</es-ES>
+<en-US>
+Backup setup waits for synchronization and prevents concurrent operations. Notebook name, folder and reference remain consistent across devices. Supports MP3 and compatible audio aliases. Incorrect Drive format labels are repaired only after verifying the original recording and remote bytes. ZIP errors identify the affected recording.
+</en-US>
+<ca>
+La configuració espera la sincronització i evita operacions simultànies. Nom, carpeta i referència del quadern són coherents entre dispositius. Admet MP3 i àlies d’àudio compatibles. Les etiquetes de format errònies de Drive només es corregeixen després de verificar l’original i els bytes remots. Els errors del ZIP identifiquen la gravació afectada.
+</ca>
+<de-DE>
+Die Sicherungseinrichtung wartet auf die Synchronisierung und verhindert gleichzeitige Vorgänge. Name, Ordner und Referenz des Notizbuchs bleiben auf allen Geräten einheitlich. MP3 und kompatible Audioformate werden unterstützt. Falsche Drive-Formatangaben werden erst nach Prüfung der Originalaufnahme und der entfernten Bytes korrigiert. ZIP-Fehler nennen die betroffene Aufnahme.
+</de-DE>
+<hu-HU>
+A mentés beállítása megvárja a szinkronizálást, és megakadályozza a párhuzamos műveleteket. A füzet neve, mappája és hivatkozása egységes az eszközökön. MP3 és kompatibilis hangformátumok támogatása. A hibás Drive-formátumjelölés csak az eredeti felvétel és a távoli bájtok ellenőrzése után javítható. A ZIP-hibák megnevezik az érintett felvételt.
+</hu-HU>
