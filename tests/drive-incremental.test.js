@@ -330,3 +330,13 @@ test('legacy conversion requires consent for this exact file; modern client foll
  modern.authorizeMigration('another-file');await assert.rejects(modern.readLinked(),{code:'MIGRATION_REQUIRED'});modern.authorizeMigration(legacy.id);const result=JSON.parse((await modern.readLinked()).text);assert.equal(result.data.works.length,fixture().data.works.length);assert.equal(legacy.appProperties.spinoType,'spino-notebook-archive-v1');
  const second=createIncrementalNotebookAdapter({...d.options,fastReads:true,preserveLegacy:true});assert.equal(JSON.parse((await second.readLinked()).text).data.works.length,result.data.works.length);
 });
+
+test('renaming on one device updates the other through its changes feed without changing notebook identity',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server),id=a.settings().link.id,folder=a.settings().link.folderId;
+ await a.adapter.rename('5_Practice.json');const start=server.requests.length;await b.adapter.readLinked();assert.equal(b.adapter.info.name,'5_Practice.json');assert.equal(b.settings().link.id,id);assert.equal(b.settings().link.folderId,folder);assert.ok(server.requests.slice(start).every(r=>r.path.startsWith('/drive/v3/changes?')));
+});
+test('connected presentation and QR use the verified descriptor name even if engine settings retain an old name',async t=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server);await a.adapter.rename('5_Shared notebook.json');await b.adapter.readLinked();
+ const engine=createNotebookCloud({adapter:b.adapter,settings:{read:()=>({mode:'sync',enabled:true,status:'saved',name:'3_Old.json',notebookId:b.settings().link.notebookId}),save:()=>{}},snapshot:async()=>JSON.stringify(fixture()),eligible:()=>true,readBase:async()=>null,saveBase:async()=>{},apply:async()=>{},backupFactory:()=>({state:{},busy:false,stop(){}})});t.after(()=>engine.stop());
+ assert.equal(engine.state.name,'5_Shared notebook.json');const qr=await engine.deviceLink();assert.equal(qr.name,'5_Shared notebook.json');assert.equal(qr.fileId,a.adapter.info.fileId);
+});

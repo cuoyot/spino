@@ -118,3 +118,5 @@
 #cp-dialog .cp-drive-manage-disconnect { border-top:1px solid var(--theme-line); padding-top:12px; }
 #cp-dialog .cp-drive-manage-disconnect button { padding:10px 0; border:0; background:transparent; min-height:44px; }
 #cp-dialog .cp-drive-manage-disconnect p { margin:0; font-size:12px; color:var(--theme-muted); line-height:1.5; }
+
+.cp-drive-location p{margin:.5rem 0;overflow-wrap:anywhere}.cp-drive-location code{font-size:.9em;overflow-wrap:anywhere}

@@ -49,6 +49,7 @@ function organizerFixture(){
    if(method==='PUT'){const body=JSON.parse(request.text);if(request.etag&&request.etag!==`"${revision}"`)return response(412);if(body.title)file.name=body.title;for(const p of body.properties||[])file.appProperties[p.key]=p.value;revision++;}
    return response(200,{id,title:file.name,etag:`"${revision}"`,properties:Object.entries(file.appProperties).map(([key,value])=>({key,value,visibility:'PRIVATE'}))});
   }
+  if(method==='PATCH'&&!url.searchParams.has('addParents'))Object.assign(file,JSON.parse(request.text));
   if(method==='PATCH'&&url.searchParams.has('addParents')){
    const parent=url.searchParams.get('addParents');
    // Drive also rejects cycles when an ancestor cannot be inspected by the app.
@@ -100,4 +101,8 @@ test('Drive rejection of a move beyond visible ancestors does not activate backu
  assert.equal(f.manager.state.config.storageVersion,undefined);assert.equal(f.settings().link.name,'Original.json');
  assert.deepEqual(f.files.get('objects').parents,['private-drive-root']);
  assert.ok(!f.requests.some(r=>r.method==='PUT'));
+});
+
+test('organization gives the app-owned nested data folder the notebook name and preserves selected user folders',async()=>{
+ const f=organizerFixture();Object.assign(f.files.get('objects'),{name:'SPino — 2_Old',description:'SPino synchronized notebook objects. Keep this folder intact.'});const target=await f.manager.createFolder('My chosen folder');await f.manager.organize({folderId:target.id,name:'5_My piano'});assert.equal(f.files.get('objects').name,'5_My piano');assert.equal(f.files.get(target.id).name,'My chosen folder');assert.equal(f.manager.state.config.storageFolderName,'My chosen folder');assert.equal(f.settings().link.storageFolderName,'My chosen folder');
 });

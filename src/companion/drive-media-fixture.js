@@ -33,7 +33,11 @@ export function syntheticDrive(){
         const [,start,end]=/^bytes=(\d+)-(\d+)$/.exec(headers.Range);
         return {status:206,body:new Uint8Array(await f.blob.slice(Number(start),Number(end)+1).arrayBuffer()),headers:{'content-range':`bytes ${start}-${end}/${f.size}`}};
       }
-      if(method==='PATCH')f.mimeType=json.mimeType;
+      if(method==='PATCH'){
+        // Drive does not allow metadata-only changes to the binary MIME type.
+        if(json.mimeType!==undefined)return ok(null,400);
+        Object.assign(f.appProperties,json.appProperties||{});
+      }
       const {blob,accountId:owner,...metadata}=f;return ok(metadata);
     }
   };

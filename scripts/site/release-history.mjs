@@ -255,3 +255,6 @@ if(guidedBackupBeta){const text=await readFile(new URL('../../docs/releases/6.1.
 
 const folderFixBeta=releases.find(r=>r.version==='6.1.5-beta.5');
 if(folderFixBeta){const text=await readFile(new URL('../../docs/releases/6.1.5-beta.5-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca'}))folderFixBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const identityBeta=releases.find(r=>r.version==='6.1.5-beta.6');
+if(identityBeta){const text=await readFile(new URL('../../docs/releases/6.1.5-beta.6-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca'}))identityBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

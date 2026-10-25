@@ -61,6 +61,14 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
    if(!Array.isArray(r.changes))throw atomicFailure('Invalid Drive changes response.');
    for(const change of [...inventory,...r.changes]){
     const previous=files.get(change.fileId),f=change.file;
+    const linked=state().link;
+    if(linked?.id===change.fileId){
+     if(change.removed||f?.trashed)throw atomicFailure('The Drive notebook is unavailable. Reconnect or choose your notebook again.','FILE_UNAVAILABLE');
+     if(f?.appProperties?.spinoType===ROOT_MARKER){
+      if(f.appProperties.rootId!==linked.rootId||f.appProperties.notebookId!==linked.notebookId)throw atomicFailure('The notebook identity does not match.');
+      save({...state(),link:{...linked,name:f.name,storageFolderId:f.appProperties.storageFolder||linked.folderId,storageFolderName:(!f.appProperties.storageFolder||f.appProperties.storageFolder===linked.storageFolderId)?linked.storageFolderName||'':''}});
+     }
+    }
     if(previous&&(change.removed||f?.trashed)){throw atomicFailure('A synchronized notebook object was removed from Drive. Your local notebook is kept.','FILE_UNAVAILABLE');}
     if(f?.appProperties?.rootId===c.rootId&&f.appProperties.notebookId===c.notebookId&&[COMMIT_MARKER,OBJECT_MARKER].includes(f.appProperties.spinoType)){
      if(previous&&previous.appProperties.hash!==f.appProperties.hash)throw atomicFailure('An immutable notebook object was replaced. Your local notebook is kept.','INTEGRITY');
@@ -186,10 +194,11 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   authorizeMigration:id=>{if(!validDriveId(id))throw atomicFailure('Choose a notebook.');migrationConsent=id;},
   storageRequest:(path,options)=>serialized(()=>api(path,options)),
   storageLink:()=>({...state().link}),
+  rememberStorage:({folderId,name,notebookName})=>{if(!validDriveId(folderId))throw atomicFailure('Choose a folder.');save({...state(),link:{...state().link,...(notebookName?{name:notebookName}:{}),storageFolderId:folderId,storageFolderName:name||''}});},
   setDestination:value=>{if(value&&(!validDriveId(value.folderId)||typeof value.name!=='string'||!value.name.trim()||value.name.length>200))throw atomicFailure('Choose a folder and file name.');destination=value;},
   onProgress:callback=>{progressListener=callback;},
   cancelPending:()=>requests.cancel(),
-  get info(){return {transport:'drive',account:state().account||null,fileId:state().link?.id,folderId:state().link?.folderId,notebookId:state().link?.notebookId,incremental:true,syncFormat:state().link?.format||'previous',progress};},
+  get info(){const linked=state().link;return {transport:'drive',account:state().account||null,...(linked?{name:linked.name}:{}),fileId:linked?.id,folderId:linked?.folderId,storageFolderId:linked?.storageFolderId||linked?.folderId,storageFolderName:linked?.storageFolderName||'',notebookId:linked?.notebookId,incremental:true,syncFormat:linked?.format||'previous',progress};},
   pendingNotebookId:()=>state().pending?.notebookId,
   async connect(){const connected=await native.connect();if(state().link&&state().link.accountId!==connected.id)throw atomicFailure('Reconnect the Google account linked to this notebook.','ACCOUNT_MISMATCH');save({...state(),account:connected});return connected;},
   async status(){const result=await native.status(),linkState=state().link;return {linked:!!linkState,name:linkState?.name||'',mode:'sync',setupPending:!!state().setupPending,account:result.account,transport:'drive',recoveryAvailable:true};},

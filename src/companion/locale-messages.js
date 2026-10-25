@@ -1,5 +1,9 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ['A backup operation is already running.', 'Hay una copia en curso. Puedes consultar su progreso en Copia y sincronización.'],
+  ['Synchronize the notebook before setting up backups.', 'Sincroniza el cuaderno antes de configurar las copias.'],
+  ['Finish synchronization and editing before organizing storage.', 'Espera a que termine la sincronización y cierra la práctica antes de configurar las copias.'],
+  ['A recording needs attention before the complete ZIP can be created.', 'Hay una grabación que necesita revisión antes de crear el ZIP completo.'],
   ["The Drive recording is unavailable. Local files are kept.","La grabación de Drive no está disponible. Se conservan los archivos locales."],
   ["The Drive recording belongs to a different notebook. Local files are kept.","La grabación de Drive pertenece a otro cuaderno. Se conservan los archivos locales."],
   ["The Drive recording has no valid recording identity. Local files are kept.","La grabación de Drive no tiene un identificador válido. Se conservan los archivos locales."],
