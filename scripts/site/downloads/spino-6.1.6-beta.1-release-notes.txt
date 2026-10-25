@@ -1,0 +1,30 @@
+<es-ES>
+• Carga inicial de cuadernos más eficiente mediante copias comprimidas verificadas.
+• Mantiene la conexión actual y la compatibilidad con la versión estable, sin migraciones.
+• El icono de sincronización gira de forma continua al actualizar el progreso o cambiar de pantalla.
+Beta para probar la sincronización entre dispositivos; conserva el historial original.
+</es-ES>
+<en-US>
+• More efficient first notebook load using verified compressed copies.
+• Keeps the current connection and compatibility with the stable version, with no migration.
+• The sync icon rotates continuously through progress updates and screen changes.
+Beta for testing synchronization between devices; original history is preserved.
+</en-US>
+<ca>
+• Càrrega inicial de quaderns més eficient amb còpies comprimides verificades.
+• Manté la connexió actual i la compatibilitat amb la versió estable, sense migracions.
+• La icona de sincronització gira de manera contínua en actualitzar el progrés o canviar de pantalla.
+Beta per provar la sincronització entre dispositius; conserva l’historial original.
+</ca>
+<de-DE>
+• Effizienteres erstmaliges Laden durch geprüfte komprimierte Kopien.
+• Bestehende Verbindung und Kompatibilität mit der stabilen Version bleiben erhalten, ohne Migration.
+• Das Synchronisierungssymbol dreht sich bei Fortschrittsmeldungen und Bildschirmwechseln gleichmäßig weiter.
+Beta zum Testen der Synchronisierung zwischen Geräten. Der ursprüngliche Verlauf bleibt erhalten.
+</de-DE>
+<hu-HU>
+• Hatékonyabb első naplóbetöltés ellenőrzött, tömörített másolatokkal.
+• Megmarad a jelenlegi kapcsolat és a stabil verzióval való kompatibilitás, migráció nélkül.
+• A szinkronizálás ikonja folyamatosan forog az állapotfrissítések és képernyőváltások során.
+Béta az eszközök közötti szinkronizálás teszteléséhez. Az eredeti előzmények megmaradnak.
+</hu-HU>

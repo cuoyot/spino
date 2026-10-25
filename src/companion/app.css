@@ -675,7 +675,7 @@
 #app-shell .cp-header-status { display:flex; align-items:center; gap:0; }
 #app-shell [data-sync-indicator]:empty { display:none; }
 #app-shell .cp-sync-status { position:relative; display:grid; place-items:center; width:44px; height:44px; padding:12px; border:0; border-radius:50%; color:#617c78; background:transparent; }
-.cp-sync-status svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.cp-sync-status svg { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transform-box:view-box; transform-origin:center; }
 #app-shell .cp-sync-status[data-attention=true] { color:#b5473e; background:transparent; }
 #app-shell .cp-sync-status[data-sync-status=paused] { color:var(--theme-muted); }
 .cp-sync-status[data-sync-status=writing] svg { animation:cp-sync-spin 1.5s linear infinite; }

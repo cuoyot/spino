@@ -1,16 +1,18 @@
-import {packCheckpoint,unpackCheckpoint} from './drive-checkpoint.js';
+import {buildObjectPacks,unpackObjectPack,validatePackIndex,INDEX_KIND,SEGMENT_LIMIT} from './drive-object-pack.js';
 import {createDriveRequestGate} from './drive-request.js';
 import {backupHash} from './cloud-backup.js';
 import {validateBackup} from './model.js';
 import {validNotebookId} from './device-link.js';
 import {stableJSON,mergeNotebooks} from './cloud-merge.js';
 import {ATOMIC_FORMAT,atomicFailure,notebookRecords,recordsNotebook,recordChanges,validateCommit,validateChanges,mergeCommitGraph,hashPattern} from './atomic-notebook.js';
-import {createDriveObjects,ROOT_MARKER,COMMIT_MARKER,OBJECT_MARKER,objectFields,validDriveId} from './drive-objects.js';
+import {createDriveObjects,ROOT_MARKER,COMMIT_MARKER,OBJECT_MARKER,PACK_MARKER,PACK_INDEX_MARKER,objectFields,validDriveId} from './drive-objects.js';
 import {createDriveJournal} from './drive-journal.js';
 
 const oldMarker='spino-notebook-v1',archivedMarker='spino-notebook-archive-v1';
 const parse=response=>JSON.parse(response.text),equal=(a,b)=>stableJSON(a)===stableJSON(b);
 const bytes=text=>new TextEncoder().encode(text).length;
+const optionalPack=file=>[PACK_MARKER,PACK_INDEX_MARKER].includes(file?.appProperties?.spinoType);
+const optionalFailure=error=>['INTEGRITY','LIMIT','FILE_UNAVAILABLE','INVALID_NOTEBOOK','INCOMPLETE'].includes(error.code);
 export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=60000,fastReads=false,preserveLegacy=false}){
  let migrationConsent=null,destination=null,selected=null,client=null,progress=null,progressListener=()=>{},metrics={requests:0,receivedBytes:0,startedAt:0};
  const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs});
@@ -55,7 +57,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   let token=c.catalog.token,changed=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));
   // A cursor alone cannot establish that this device discovered all existing commits.
   // Explicit recovery and first connection inventory the immutable notebook objects.
-  let inventory=fullScan?(await listFiles(`trashed = false and appProperties has { key='rootId' and value='${c.rootId}' } and appProperties has { key='notebookId' and value='${c.notebookId}' } and (appProperties has { key='spinoType' and value='${COMMIT_MARKER}' } or appProperties has { key='spinoType' and value='${OBJECT_MARKER}' })`)).map(file=>({fileId:file.id,file})):[];
+  let inventory=fullScan?(await listFiles(`trashed = false and appProperties has { key='rootId' and value='${c.rootId}' } and appProperties has { key='notebookId' and value='${c.notebookId}' } and (appProperties has { key='spinoType' and value='${COMMIT_MARKER}' } or appProperties has { key='spinoType' and value='${OBJECT_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_INDEX_MARKER}' })`)).map(file=>({fileId:file.id,file})):[];
   do{
    const r=parse(await api(`/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=${encodeURIComponent(token)}&fields=${encodeURIComponent('nextPageToken,newStartPageToken,changes(fileId,removed,file('+objectFields+'))')}`));
    if(!Array.isArray(r.changes))throw atomicFailure('Invalid Drive changes response.');
@@ -69,12 +71,14 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
       save({...state(),link:{...linked,name:f.name,storageFolderId:f.appProperties.storageFolder||linked.folderId,storageFolderName:(!f.appProperties.storageFolder||f.appProperties.storageFolder===linked.storageFolderId)?linked.storageFolderName||'':''}});
      }
     }
+    if(previous&&optionalPack(previous)&&(change.removed||f?.trashed)){files.delete(change.fileId);changed=true;c.packState=null;continue;}
     if(previous&&(change.removed||f?.trashed)){throw atomicFailure('A synchronized notebook object was removed from Drive. Your local notebook is kept.','FILE_UNAVAILABLE');}
-    if(f?.appProperties?.rootId===c.rootId&&f.appProperties.notebookId===c.notebookId&&[COMMIT_MARKER,OBJECT_MARKER].includes(f.appProperties.spinoType)){
+    if(f?.appProperties?.rootId===c.rootId&&f.appProperties.notebookId===c.notebookId&&[COMMIT_MARKER,OBJECT_MARKER,PACK_MARKER,PACK_INDEX_MARKER].includes(f.appProperties.spinoType)){
+     if(previous&&optionalPack(previous)&&previous.appProperties.hash!==f.appProperties.hash){files.delete(f.id);changed=true;continue;}
      if(previous&&previous.appProperties.hash!==f.appProperties.hash)throw atomicFailure('An immutable notebook object was replaced. Your local notebook is kept.','INTEGRITY');
      if(previous&&!equal(previous,f)){await journal.set(c.scope+'/object/'+f.appProperties.hash,{id:f.id,verified:false});c.objects.invalidate(f.appProperties.hash);}
      if(!previous||!equal(previous,f))changed=true;
-     c.objects.register(f);files.set(f.id,f);
+     try{c.objects.register(f);}catch(error){if(!optionalPack(f)||!optionalFailure(error))throw error;files.delete(f.id);changed=true;continue;}files.set(f.id,f);
     }
    }
    inventory=[];
@@ -82,20 +86,39 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   }while(true);
   // Persist discovery only. Missing dependencies still block graph reconstruction and local application.
   const catalog={startToken:c.startToken,version:c.catalog.version+(changed?1:0),token,files:[...files.values()]};
-  if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;}
+  if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;c.packState=null;}
   if(changed||token!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token});
   c.catalog=catalog;return changed;
+ }
+ async function loadPacks(c){
+  const candidates=c.catalog.files.filter(f=>Number(f.appProperties.packIndexCount)>0).sort((a,b)=>Number(b.appProperties.packIndexCount)-Number(a.appProperties.packIndexCount)||a.appProperties.hash.localeCompare(b.appProperties.hash));
+  // Optional acceleration is bounded; originals remain the source of truth.
+  for(const file of candidates.slice(0,2)){
+   report('checkpoint');
+   try{
+    const index=validatePackIndex(await c.objects.get(file.appProperties.hash),c),records=new Map();let expanded=0;
+    for(const segment of index.segments){
+     if(!c.objects.metadata.has(segment.hash))throw atomicFailure('An optional notebook pack is unavailable.','FILE_UNAVAILABLE');
+     const decoded=await unpackObjectPack(await c.objects.get(segment.hash),c);
+     expanded+=[...decoded.values()].reduce((sum,record)=>sum+record.size+512,0);if(expanded>64*1024*1024)throw atomicFailure('Optional notebook packs exceed the loading budget.','LIMIT');
+     if(decoded.size!==segment.count)throw atomicFailure('Invalid optional notebook pack count.','INTEGRITY');
+     for(const [hash,record] of await c.objects.seed(decoded))records.set(hash,record);
+    }
+    c.packState={index,records};return true;
+   }catch(error){if(!optionalFailure(error))throw error;}
+  }
+  report('receiving');return false;
  }
  async function graph(c,{refreshFeed=true,fullScan=false}={}){
   if(refreshFeed)await refresh(c,{fullScan});
   if(c.graph)return c.graph;
   report('receiving');
   const raw=new Map();
-  if(fastReads){const checkpoints=c.catalog.files.filter(f=>Number(f.appProperties.checkpointCount)>0).sort((a,b)=>Number(b.appProperties.checkpointCount)-Number(a.appProperties.checkpointCount));
-   if(checkpoints.length){report('checkpoint');try{const cached=await unpackCheckpoint(await c.objects.get(checkpoints[0].appProperties.hash));for(const [key,value] of cached)raw.set(key,value);}catch(error){if(!['INTEGRITY','LIMIT','FILE_UNAVAILABLE','INVALID_NOTEBOOK'].includes(error.code))throw error;report('receiving');}}}
   const get=async hash=>{if(raw.has(hash))return raw.get(hash);const value=await c.objects.get(hash);raw.set(hash,value);return value;};
   const commits=new Map(),pending=[...new Set([...(c.initialHeads||[]),...c.catalog.files.filter(f=>f.appProperties.spinoType===COMMIT_MARKER).map(f=>f.appProperties.hash)])];
   if(fastReads){
+   let missing=0;for(const hash of pending){if(!await c.objects.cached(hash)&&++missing>=8)break;}
+   if(fullScan||missing>=8)await loadPacks(c);
    // Existing notebooks have no checkpoint yet. Bound parallel reads, never writes.
    const prefetch=async hashes=>{const queue=[...new Set(hashes)].filter(h=>!raw.has(h));let index=0,failure=null,completed=0;await Promise.all(Array.from({length:Math.min(4,queue.length)},async()=>{while(index<queue.length&&!failure){const h=queue[index++];try{await get(h);report('receiving',++completed,queue.length);}catch(error){failure??=error;}}}));if(failure)throw failure;};
    await prefetch(pending);
@@ -234,7 +257,28 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
    const resolved=mergeNotebooks(detail.hasBase?wrap(detail.base):null,wrap(localRecords[key]),wrap(before.records[key]),'local',detail.paths).backup.record;
    if(resolved!==undefined)wanted[key]=resolved;else delete wanted[key];
   }const backup=await recordsNotebook(wanted,c.objects.get);backup.cloudBackup={sharedNotebookId:c.notebookId};return stableJSON(backup);}),
-  prepareCheckpoint:()=>serialized(async()=>{const c=await current();await graph(c);const packed=packCheckpoint(c.checkpointObjects||new Map());if(!packed)return {created:false};const count=[...(c.checkpointObjects||new Map()).values()].filter(v=>v?.format===ATOMIC_FORMAT).length;if(!count)return {created:false};const existing=Math.max(0,...c.catalog.files.map(f=>Number(f.appProperties.checkpointCount)||0));if(existing&&count<existing+20)return {created:true,reused:true,count:existing};report('checkpoint');await c.objects.put(packed,{checkpointCount:count});return {created:true,count};}),
+  prepareCheckpoint:()=>serialized(async()=>{
+   const c=await current();await graph(c);
+   const raw=c.checkpointObjects||new Map(),count=[...raw.values()].filter(v=>v?.format===ATOMIC_FORMAT).length;
+   if(!count)return {created:false};
+   const existing=Math.max(0,...c.catalog.files.map(f=>Number(f.appProperties.packIndexCount)||0));
+   if(existing&&count<existing+20)return {created:true,reused:true,count:existing};
+   if(!c.packState&&existing)await loadPacks(c);
+   const segments=[...(c.packState?.index.segments||[])],uncovered=new Map();
+   for(const [hash,value] of raw){
+    const file=c.objects.metadata.get(hash);
+    if(!file||c.packState?.records.has(hash)||value?.kind==='score-bytes')continue;
+    uncovered.set(hash,{id:file.id,version:String(file.version),size:Number(file.size),value});
+   }
+   const packs=buildObjectPacks(uncovered,c);
+   if(!packs.length||segments.length+packs.length>SEGMENT_LIMIT)return {created:false};
+   report('checkpoint');
+   for(const pack of packs){await unpackObjectPack(pack.value,c);segments.push({hash:await c.objects.put(pack.value,{objectPack:true}),count:pack.count});}
+   const index={kind:INDEX_KIND,rootId:c.rootId,notebookId:c.notebookId,commitCount:count,objectCount:segments.reduce((sum,v)=>sum+v.count,0),segments};
+   // Publish coverage only after every immutable segment has been verified.
+   await c.objects.put(index,{packIndexCount:count});
+   return {created:true,count,segments:segments.length};
+  }),
   downloadAsset:id=>serialized(async()=>{const c=await current(),g=await graph(c),key='asset/'+encodeURIComponent(id);if(!g.records[key])throw atomicFailure('This score is no longer in the notebook.','FILE_UNAVAILABLE');report('scores');return {...(await recordsNotebook({header:g.records.header,[key]:g.records[key]},c.objects.get)).assets[0],remoteContent:g.records[key].content};}),
   async acknowledgeSetup(){save({...state(),setupPending:false});},
   saveRecovery:o=>recovery.saveRecovery(o),readRecovery:()=>recovery.readRecovery(),

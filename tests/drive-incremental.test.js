@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createIncrementalNotebookAdapter} from '../src/companion/drive-incremental.js';
+import {createIncrementalNotebookAdapter as stable615Adapter} from './fixtures/drive/stable-615-adapter.js';
 import {createDriveNotebookAdapter} from '../src/companion/drive-notebook.js';
 import {syntheticNotebookDrive} from './fixtures/drive/notebook-server.js';
 import {cloudRecoveryFixture} from '../scripts/review/cloud-recovery-fixture.mjs';
@@ -315,7 +316,7 @@ test('fast checkpoint joins keep history visible without fetching any score byte
  assert.equal(backup.data.works[0].notes,'Edit 4');assert.equal(backup.assets[0].base64,undefined);assert.ok(backup.assets[0].remoteContent.parts.length);
  const scoreIds=new Set([...server.files.values()].filter(f=>{try{return JSON.parse(f.text).kind==='score-bytes';}catch{return false;}}).map(f=>f.id));
  assert.ok(!server.requests.slice(start).some(r=>[...scoreIds].some(id=>r.path.includes('/'+id+'?alt=media'))));
- const reads=server.requests.slice(start).filter(r=>r.path.includes('alt=media'));assert.ok(reads.length<=2,'Index + one compressed checkpoint: '+reads.length);
+ const reads=server.requests.slice(start).filter(r=>r.path.includes('alt=media'));assert.ok(reads.length<=3,'Descriptor + pack index + compressed segment: '+reads.length);
  const score=await reader.adapter.downloadAsset(backup.assets[0].id);assert.equal(score.base64,original.assets[0].base64);
  // Older client writes an ordinary commit after the checkpoint: it must not be skipped.
  const before=await writer.adapter.readLinked(),value=JSON.parse(before.text);value.data.works[0].notes='From older client';await writer.adapter.write({text:JSON.stringify(value),expectedHash:before.hash});
@@ -339,4 +340,60 @@ test('connected presentation and QR use the verified descriptor name even if eng
  const server=syntheticNotebookDrive(),{a,b}=await pair(server);await a.adapter.rename('5_Shared notebook.json');await b.adapter.readLinked();
  const engine=createNotebookCloud({adapter:b.adapter,settings:{read:()=>({mode:'sync',enabled:true,status:'saved',name:'3_Old.json',notebookId:b.settings().link.notebookId}),save:()=>{}},snapshot:async()=>JSON.stringify(fixture()),eligible:()=>true,readBase:async()=>null,saveBase:async()=>{},apply:async()=>{},backupFactory:()=>({state:{},busy:false,stop(){}})});t.after(()=>engine.stop());
  assert.equal(engine.state.name,'5_Shared notebook.json');const qr=await engine.deviceLink();assert.equal(qr.name,'5_Shared notebook.json');assert.equal(qr.fileId,a.adapter.info.fileId);
+});
+
+const packIndexes=server=>[...server.files.values()].filter(f=>f.appProperties?.packIndexCount);
+const packSegments=server=>[...server.files.values()].filter(f=>f.appProperties?.objectPack);
+async function editedHistory(server,count=8){const writer=device(server);await writer.adapter.create({text:JSON.stringify(fixture())});for(let n=0;n<count;n++){const before=await writer.adapter.readLinked(),value=JSON.parse(before.text);value.data.works[0].notes='History '+n;await writer.adapter.write({text:JSON.stringify(value),expectedHash:before.hash});}return writer;}
+async function joinFast(server){const reader=device(server,{fastReads:true});reader.adapter.choose(roots(server)[0].id);return {reader,result:await reader.adapter.pickBackup()};}
+
+test('packs interoperate with the frozen stable 6.1.5 adapter in both directions',async()=>{
+ const server=syntheticNotebookDrive(),writer=await editedHistory(server);await writer.adapter.prepareCheckpoint();
+ const id=roots(server)[0].id,older=device(server,{fastReads:true}),stable=stable615Adapter(older.options);stable.choose(id);await stable.pickBackup();
+ const {reader}=await joinFast(server),previous=await stable.readLinked(),fromStable=JSON.parse(previous.text);fromStable.data.works[0].notes='Stable remained connected';await stable.write({text:JSON.stringify(fromStable),expectedHash:previous.hash});
+ assert.equal(JSON.parse((await reader.adapter.readLinked()).text).data.works[0].notes,'Stable remained connected');
+ const before=await reader.adapter.readLinked(),fromBeta=JSON.parse(before.text);fromBeta.data.works[0].bpm=92;await reader.adapter.write({text:JSON.stringify(fromBeta),expectedHash:before.hash});
+ const received=JSON.parse((await stable.readLinked()).text);assert.equal(received.data.works[0].bpm,92);assert.equal((await stable.downloadAsset(received.assets[0].id)).base64,fixture().assets[0].base64);assert.deepEqual(received.assets[0].annotations,fixture().assets[0].annotations);assert.equal(older.settings().link.id,id);assert.equal(reader.settings().link.id,id);
+});
+test('warm polling and ordinary incoming edits never download packs or add polling requests',async()=>{
+ const server=syntheticNotebookDrive(),writer=await editedHistory(server);await writer.adapter.prepareCheckpoint();const {reader}=await joinFast(server);
+ let start=server.requests.length;for(let n=0;n<3;n++)await reader.adapter.readLinked();await reader.restart().readLinked();
+ assert.equal(server.requests.length-start,4);assert.ok(server.requests.slice(start).every(r=>r.path.startsWith('/drive/v3/changes?')));
+ const before=await writer.adapter.readLinked(),updated=JSON.parse(before.text);updated.data.works[0].notes='One incoming edit';await writer.adapter.write({text:JSON.stringify(updated),expectedHash:before.hash});
+ start=server.requests.length;await reader.adapter.readLinked();const ids=[...packIndexes(server),...packSegments(server)].map(f=>f.id);
+ assert.ok(!server.requests.slice(start).some(r=>ids.some(id=>r.path.includes('/'+id+'?alt=media'))));
+});
+test('new pack generations reuse verified segments and retain all original Drive identities',async()=>{
+ const server=syntheticNotebookDrive(),writer=await editedHistory(server);await writer.adapter.prepareCheckpoint();const segment=packSegments(server)[0].appProperties.hash,originals=[...server.files.values()].filter(f=>!f.appProperties?.objectPack&&!f.appProperties?.packIndexCount).map(f=>[f.id,f.text]);
+ for(let n=0;n<21;n++){const before=await writer.adapter.readLinked(),value=JSON.parse(before.text);value.data.works[0].notes='Next '+n;await writer.adapter.write({text:JSON.stringify(value),expectedHash:before.hash});}
+ await writer.adapter.prepareCheckpoint();const indexes=packIndexes(server).map(f=>JSON.parse(f.text)).sort((a,b)=>b.commitCount-a.commitCount);
+ assert.equal(indexes.length,2);assert.equal(indexes[0].segments[0].hash,segment);assert.equal(packSegments(server).length,2);
+ for(const [id,text] of originals)assert.equal(server.files.get(id).text,text);
+ assert.equal(JSON.parse((await joinFast(server)).result.text).data.works[0].notes,'Next 20');
+});
+test('lost segment or index responses retry the same IDs without duplicating acceleration files',async t=>{
+ for(const target of ['segment','index'])await t.test(target,async()=>{
+  const server=syntheticNotebookDrive(),writer=await editedHistory(server),original=writer.options.native.request;let lost=false;
+  writer.options.native.request=async options=>{if(!lost&&options.method==='POST'&&options.path.startsWith('/upload/')&&options.text?.includes(target==='segment'?'"objectPack":"1"':'"packIndexCount"')){lost=true;server.dropMediaResponse=true;}return original(options);};
+  await assert.rejects(writer.adapter.prepareCheckpoint(),/lost upload/);await writer.adapter.prepareCheckpoint();
+  assert.equal(packSegments(server).length,1);assert.equal(packIndexes(server).length,1);assert.equal(JSON.parse((await joinFast(server)).result.text).data.works[0].notes,'History 7');
+ });
+});
+test('corrupt or missing optional packs fall back; changed or missing originals still reject adoption',async t=>{
+ for(const failure of ['corrupt-pack','corrupt-pack-metadata','missing-pack','changed-original','missing-original'])await t.test(failure,async()=>{
+  const server=syntheticNotebookDrive(),writer=await editedHistory(server);await writer.adapter.prepareCheckpoint();
+  const pack=packSegments(server)[0],part=[...server.files.values()].find(f=>JSON.parse(f.text||'null')?.kind==='record-changes');
+  if(failure==='corrupt-pack')pack.text=pack.text.replace('notebook-object-pack-v1','notebook-object-pack-bad');
+  if(failure==='corrupt-pack-metadata'){server.includeChecksum=true;server.checksums.set(pack.id,'0'.repeat(64));}
+  if(failure==='missing-pack'){server.files.delete(pack.id);server.changes.push({fileId:pack.id,removed:true});}
+  if(failure==='changed-original'){part.text=part.text.replace('"kind":"record-changes"','"kind":"record-changed"');part.revision++;server.touch(part);}
+  if(failure==='missing-original'){server.files.delete(part.id);server.changes.push({fileId:part.id,removed:true});}
+  if(failure.endsWith('original'))await assert.rejects(joinFast(server),e=>['INTEGRITY','INCOMPLETE','FILE_UNAVAILABLE'].includes(e.code));
+  else assert.equal(JSON.parse((await joinFast(server)).result.text).data.works[0].notes,'History 7');
+ });
+});
+test('removing an accelerator after discovery never makes the retained original notebook unavailable',async()=>{
+ const server=syntheticNotebookDrive(),writer=await editedHistory(server);await writer.adapter.prepareCheckpoint();const {reader}=await joinFast(server),before=await reader.adapter.readLinked();
+ for(const file of [...packSegments(server),...packIndexes(server)]){server.files.delete(file.id);server.changes.push({fileId:file.id,removed:true});}
+ assert.equal((await reader.adapter.readLinked()).text,before.text);
 });

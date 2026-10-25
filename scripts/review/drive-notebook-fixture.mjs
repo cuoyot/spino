@@ -28,6 +28,6 @@ export function driveNotebookBootstrap({legacy=false,remote=null,localMedia=null
     throw Error('Unsupported synthetic media method');
   };
   window.Capacitor.PluginHeaders.push({name:'DriveNotebook',methods:['status','connect','request','disconnect'].map(name=>({name,rtype:'promise'}))});
-  window.Capacitor.nativePromise=async(plugin,method,args)=>{if(plugin==='DriveMedia')return mediaNative(method,args);if(plugin!=='DriveNotebook')return legacy(plugin,method,args);try{if(window.__driveStall&&method==='request')await new Promise(resolve=>window.__releaseDrive=resolve);return await drive[method](args);}finally{persist();}};
+  window.Capacitor.nativePromise=async(plugin,method,args)=>{if(plugin==='DriveMedia')return mediaNative(method,args);if(plugin!=='DriveNotebook')return legacy(plugin,method,args);try{if(window.__driveStall&&method==='request')await new Promise(resolve=>{(window.__driveWaiters??=[]).push(resolve);window.__releaseDrive=()=>{const pending=window.__driveWaiters;window.__driveWaiters=[];for(const resume of pending)resume();};});return await drive[method](args);}finally{persist();}};
  }`;
 }

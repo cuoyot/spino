@@ -1,3 +1,5 @@
+2026-10-25 beta 6.1.6-beta.1 (107): bounded optional Drive packs preserve the current connection and original history. Continuous sync rotation is verified through progress and route renders in both themes/four layouts. [Release scope](../releases/6.1.6-beta.1.md); [responsive evidence](captures/profile/2026-10-25-beta616-sync-05/verification.json). Native replacement install/foreground and unchanged IndexedDB file hashes pass; physical Google/two-device acceptance remains pending.
+
 2026-10-25: notebook setup now waits for synchronization with an exclusive storage reservation; verified names/folder/reference propagate, and compatible recording formats or verified MIME repair unblock ZIP creation. Source and synthetic browser/protocol validation in [beta.6](../releases/6.1.5-beta.6.md); physical Google acceptance remains open.
 
 2026-10-24 follow-up: fix optional Drive ancestor 404 during folder setup and retain visible ZIP preparation/ready/error state after closing progress. Synthetic regression and browser checks pass; physical Drive acceptance remains pending. See [beta.5](../releases/6.1.5-beta.5.md).

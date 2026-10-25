@@ -21,3 +21,8 @@ Fast metadata reads and deferred PDF hydration, bounded parallel native requests
 ## Folder setup failure follow-up
 
 A synthetic Drive transport returning 404 for the selected folder's inaccessible My Drive ancestor reproduces the owner's beta.4 error verbatim. Ancestor traversal now permits only that missing optional ancestor; selected folders and notebook resources remain mandatory. Permission errors still stop setup, visible descendants are rejected, and Drive remains responsible for rejecting any cycle beyond the visible ancestry boundary. The real incremental adapter is exercised by the storage regression; no personal Drive data is changed. Retry reuses child folders and retains notebook/object IDs. Physical Google Drive acceptance remains pending.
+
+
+## Beta 6.1.6 follow-up
+
+Bounded optional compressed segments replace the single checkpoint acceleration path without changing the connected notebook or original commit/object files. 86 focused protocol/indicator tests and two responsive spinner tests pass. Stable 6.1.5 interoperability is checked against its frozen adapter; unavailable or corrupt acceleration falls back to verified originals. Native replacement installation preserves 135 IndexedDB file hashes and launches the exact APK. This does not compact history. Physical Google/two-device acceptance remains open. See `../releases/6.1.6-beta.1.md` and the dated profile evidence.

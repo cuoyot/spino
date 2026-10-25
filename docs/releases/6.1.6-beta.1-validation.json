@@ -1,0 +1,102 @@
+{
+  "version": "6.1.6-beta.1",
+  "versionCode": 107,
+  "focusedProtocolTests": 86,
+  "spinnerBrowserTests": 2,
+  "packagedWebFilesMatch": {
+    ".apk": 684,
+    ".aab": 684
+  },
+  "nativeAcceptance": {
+    "replacementInstall": true,
+    "foregroundVerified": true,
+    "indexedDBFilesPreserved": 135,
+    "indexedDBManifestSHA256": "674f7b6b5585586198b43d84b80ec0eebde2a001696a976630b05abdca9bf862",
+    "liveDriveAccount": false,
+    "installedAPKSHA256": "de0c982d5f70803b27dae2daa9559e597da99e772d85e1b1834b301a8a2d61c1"
+  },
+  "physicalDriveAcceptance": "pending",
+  "fullSuite": {
+    "initialBeta": {
+      "tests": 662,
+      "passCount": 615,
+      "failCount": 44,
+      "skipped": 3
+    },
+    "unchangedStableBrowserControl": {
+      "tests": 662,
+      "passCount": 612,
+      "failCount": 47,
+      "skipped": 3,
+      "root": "/Users/migue/Source/spino-stable-6.1.5/dist"
+    },
+    "scope": "Same test sources with unchanged stable 6.1.5 browser assets; pure source tests still use the beta source. This is not a fully passing suite.",
+    "betaTopLevelFailuresReproducedOnStable": [
+      "Android Back traverses screen history, closes dialogs and preserves catalogue context",
+      "Catalan Drive notebook keeps reader settings, scores and annotations and rejects invalid cloud data",
+      "Catalan reader, operational messages and warm-ups have explicit resources",
+      "Drive setup, legacy migration, reconnect, offline continuation and local JSON copies",
+      "Home and Multimedia record a chosen repertoire piece without a practice session, with live audio feedback and camera preview",
+      "Manage keeps routine controls readable and recovery separate without leaving on pause",
+      "Navigation palette covers both themes while preserving practice screens",
+      "PDF repertoire import, safe page gestures, annotation tools, persistence and practice timing",
+      "a paused phone practice stays local while completed tablet history arrives; stalled sync can pause and retry",
+      "a second device finds and joins the Drive notebook from Profile",
+      "a stalled Drive read can be paused immediately and still permits a local JSON export",
+      "all known persisted diagnostic messages have German and Hungarian copy",
+      "authorized account can disconnect after failed legacy migration and configure again without losing local data",
+      "closed retained forms no longer prevent applying cloud changes",
+      "complete one lesson occurrence, retain planning, stable result edits and backup links",
+      "conflict review retains both offline practices and only chooses the shared plan link: local",
+      "conflict review retains both offline practices and only chooses the shared plan link: remote",
+      "create open and bounded event series, edit one date and cancel future dates",
+      "device linking code, real QR decoding and backup compatibility choices in four layouts",
+      "duplicate notebook comparison, exact QR, rename and channel-specific local export",
+      "local audio/video capture, playback, restart, quota retry, device isolation and notebook restore",
+      "localized catalogue website section explains the released catalogue across four layouts",
+      "management print icons invoke printing without opening score or custom preview",
+      "musical streak detail and weekly/monthly recording navigation preserve notebook and recordings",
+      "offline practice starts without a sync prompt, saves progress and keeps automatic sync enabled after restart",
+      "optional explanations use keyboard-accessible Info while actions, warnings and notebook data remain available",
+      "page actions stay accessible below the shared header and Calendar keeps one toolbar",
+      "piano companion: local planning, practice, history, recovery and responsive navigation",
+      "piano sessions open with a Hanon warm-up that explains itself, rotates and can be switched off",
+      "profile switches and persists both new languages, including reader and stable app copy",
+      "public site distinguishes stable and beta in every language",
+      "quick score is shown, saved once at finish and retained after reload",
+      "recording mobile-data switch permits cellular copies independently from score downloads and survives reload",
+      "recording problems name the file, allow independent copies and recover through Retry",
+      "saved local recording uploads through the notebook account without a separate media login",
+      "second device automatically stores a verified recording, plays offline, and respects local deletion",
+      "stalled Drive never gates practice and late incoming changes wait until the saved session is finished",
+      "unfinished session stays discoverable across destinations and clears on discard"
+    ],
+    "initialFailuresNotReproduced": [
+      "each new edition is searchable and has a working bundled preview",
+      "period and author filters combine with search in four responsive layouts",
+      "release notes show current and historical versions in a responsive accessible dialog"
+    ],
+    "resolvedByFixtureOrSitePreparation": [
+      "Two catalogue capture directories restored: both tests pass on beta",
+      "Release-history browser check rechecked against final generated site"
+    ],
+    "controlOnlyFailures": [
+      "PDF mark sizing, compact palette and editing preserve IDs and undo history",
+      "complete PDF/XML printing includes marks and leaves source/viewer unchanged",
+      "light appearance keeps main screens, form labels and floating PDF tools legible in four layouts",
+      "progress preserves rotation, focus and centered geometry across shared header renders",
+      "raised score timer advances through checkpoints, pauses and resumes in four layouts"
+    ],
+    "initialLogSHA256": "fc32ed77a1a32a2acf84af0cb3b532220cd5234a79c8325e2be4e97dfe24c19c",
+    "controlLogSHA256": "dd3f91228a35b8c46a9ad8a9ba65fe34584368c2002f93d54db1eaa687e1522d"
+  },
+  "websiteTests": 12,
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "releaseNotesBrowserTests": 1,
+  "catalogueRecheckTests": 2
+}

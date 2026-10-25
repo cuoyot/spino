@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-25",
+  "kind": "Synthetic protocol benchmark; not physical Google/device timing",
+  "injectedRequestLatencyMs": 2,
+  "baseline": "Frozen stable 6.1.5 adapter, commit 50b0e37",
+  "scenario": "Distinct versions of one work record, original PDF/annotations retained, separate empty caches; unchanged polling measured separately",
+  "results": [
+    {
+      "edits": 100,
+      "prepared": {
+        "created": true,
+        "count": 101,
+        "segments": 1
+      },
+      "stable": {
+        "requests": 209,
+        "contentReads": 203,
+        "responseBytes": 211589,
+        "requestBodyBytes": 0,
+        "elapsedMs": 148,
+        "processRSS": 52565872,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 40
+        }
+      },
+      "beta": {
+        "requests": 9,
+        "contentReads": 3,
+        "responseBytes": 169508,
+        "requestBodyBytes": 0,
+        "elapsedMs": 46,
+        "processRSS": 54794288,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 40
+        }
+      },
+      "requestReductionPercent": 96,
+      "responseReductionPercent": 20
+    },
+    {
+      "edits": 1000,
+      "prepared": {
+        "created": true,
+        "count": 1001,
+        "segments": 1
+      },
+      "stable": {
+        "requests": 2029,
+        "contentReads": 2003,
+        "responseBytes": 2068069,
+        "requestBodyBytes": 0,
+        "elapsedMs": 1408,
+        "processRSS": 102706600,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 41
+        }
+      },
+      "beta": {
+        "requests": 29,
+        "contentReads": 3,
+        "responseBytes": 1727705,
+        "requestBodyBytes": 0,
+        "elapsedMs": 265,
+        "processRSS": 101789888,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 41
+        }
+      },
+      "requestReductionPercent": 99,
+      "responseReductionPercent": 16
+    },
+    {
+      "edits": 10000,
+      "prepared": {
+        "created": true,
+        "count": 10001,
+        "segments": 10
+      },
+      "stable": {
+        "requests": 20227,
+        "contentReads": 20003,
+        "responseBytes": 20699512,
+        "requestBodyBytes": 0,
+        "elapsedMs": 15180,
+        "processRSS": 360116456,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 42
+        }
+      },
+      "beta": {
+        "requests": 236,
+        "contentReads": 12,
+        "responseBytes": 17335430,
+        "requestBodyBytes": 0,
+        "elapsedMs": 2964,
+        "processRSS": 397082432,
+        "unchangedPoll": {
+          "requests": 1,
+          "responseBytes": 42
+        }
+      },
+      "requestReductionPercent": 99,
+      "responseReductionPercent": 16
+    }
+  ]
+}

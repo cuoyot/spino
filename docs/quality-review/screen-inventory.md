@@ -453,3 +453,6 @@ A reported broken Profile ring was caused by the external avatar outline being c
 ## 2026-10-21 — Shared Library and Progress tabs
 
 2026-10-21 owner follow-up: Library adopts Progress's segmented three-tab design. Both use the shared cp-section-tabs and cp-choice-group styles, including selected fill, text, corner radius and responsive spacing. Library retains sticky placement. Removed obsolete underline and repertoire-specific selected-color overrides. Production build and synthetic browser comparison of computed styles/navigation pass in phone/tablet portrait/landscape. Evidence: captures/multimedia/2026-10-21-shared-tabs-01. Responsive browser only; native and owner visual acceptance remain open.
+
+
+2026-10-25 CLOUD / shared header follow-up: [beta sync evidence](captures/profile/2026-10-25-beta616-sync-05/verification.json) covers continuous rotation, keyboard focus, reduced motion, error navigation, both themes and phone/tablet portrait/landscape on Today, Practice, Calendar and Profile. Surface IDs unchanged. Native replacement installation retains IndexedDB file hashes; physical connected-Drive visual acceptance remains pending.

@@ -2,12 +2,13 @@ import {backupHash} from './cloud-backup.js';
 import {stableJSON} from './cloud-merge.js';
 import {atomicFailure,hashPattern} from './atomic-notebook.js';
 export const OBJECT_MARKER='spino-object-v2',COMMIT_MARKER='spino-commit-v2',ROOT_MARKER='spino-notebook-v2';
+export const PACK_MARKER='spino-object-pack-v1',PACK_INDEX_MARKER='spino-pack-index-v1';
 export const objectFields='id,name,mimeType,size,version,sha256Checksum,appProperties,trashed';
 export const validDriveId=id=>typeof id==='string'&&/^[\w-]{1,180}$/.test(id);
 export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId,lookup}){
- const cache=new Map(),locations=new Map();
+ const cache=new Map(),locations=new Map(),metadata=new Map();
  const key=hash=>scope+'/object/'+hash;
- function register(file){const p=file?.appProperties;if(!validDriveId(file?.id)||file.trashed||file.mimeType!=='application/json'||!Number.isSafeInteger(Number(file.size))||Number(file.size)<1||Number(file.size)>1048576||p?.rootId!==rootId||p.notebookId!==notebookId||![OBJECT_MARKER,COMMIT_MARKER].includes(p.spinoType)||!hashPattern.test(p.hash))throw atomicFailure('Invalid incremental Drive object.');if(file.sha256Checksum&&file.sha256Checksum!==p.hash)throw atomicFailure('An incremental notebook object failed its integrity check.','INTEGRITY');if(!locations.has(p.hash))locations.set(p.hash,file.id);}
+ function register(file){const p=file?.appProperties;if(!validDriveId(file?.id)||file.trashed||file.mimeType!=='application/json'||!Number.isSafeInteger(Number(file.size))||Number(file.size)<1||Number(file.size)>1048576||p?.rootId!==rootId||p.notebookId!==notebookId||![OBJECT_MARKER,COMMIT_MARKER,PACK_MARKER,PACK_INDEX_MARKER].includes(p.spinoType)||!hashPattern.test(p.hash))throw atomicFailure('Invalid incremental Drive object.');if(file.sha256Checksum&&file.sha256Checksum!==p.hash)throw atomicFailure('An incremental notebook object failed its integrity check.','INTEGRITY');if(!locations.has(p.hash))locations.set(p.hash,file.id);if(locations.get(p.hash)===file.id)metadata.set(p.hash,file);}
  async function get(hash){
   if(!hashPattern.test(hash))throw atomicFailure('Invalid incremental object checksum.');
   if(cache.has(hash))return cache.get(hash);
@@ -18,7 +19,7 @@ export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId
   let value;try{value=JSON.parse(text);}catch{throw atomicFailure('Invalid incremental object data.');}
   if(!saved?.verified)await journal.set(key(hash),{id:locations.get(hash)||saved?.id,text,verified:true});cache.set(hash,value);return value;
  }
- async function put(value,{commit=false,checkpointCount=0}={}){
+ async function put(value,{commit=false,checkpointCount=0,packIndexCount=0,objectPack=false}={}){
   const text=stableJSON(value);if(new TextEncoder().encode(text).length>1048576)throw atomicFailure('An incremental object exceeds 1 MB.','LIMIT');
   const hash=await backupHash(text),saved=await journal.get(key(hash));
   if(saved?.verified){if(saved.text!==text)throw atomicFailure('Incremental content identity mismatch.','INTEGRITY');cache.set(hash,value);return hash;}
@@ -29,7 +30,7 @@ export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId
   // After a lost POST response the same allocated ID is verified, never duplicated.
   const existing=await api(`/drive/v3/files/${id}?fields=${objectFields}`,{missing:true});
   if(existing){if(await confirm(JSON.parse(existing.text)))return hash;locations.set(hash,id);await get(hash);return hash;}
-  const metadata={id,name:(commit?'Change ':'Object ')+hash.slice(0,16),mimeType:'application/json',...(folderId?{parents:[folderId]}:{}),appProperties:{spinoType:commit?COMMIT_MARKER:OBJECT_MARKER,rootId,notebookId,hash,...(checkpointCount?{checkpointCount:String(checkpointCount)}:{})}};
+  const metadata={id,name:(commit?'Change ':packIndexCount?'Pack index ':objectPack?'Pack ':'Object ')+hash.slice(0,16),mimeType:'application/json',...(folderId?{parents:[folderId]}:{}),appProperties:{spinoType:commit?COMMIT_MARKER:packIndexCount?PACK_INDEX_MARKER:objectPack?PACK_MARKER:OBJECT_MARKER,rootId,notebookId,hash,...(checkpointCount?{checkpointCount:String(checkpointCount)}:{}),...(packIndexCount?{packIndexCount:String(packIndexCount)}:{}),...(objectPack?{objectPack:'1'}:{})}};
   const boundary='spino_'+crypto.randomUUID().replaceAll('-','');
   const body=`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${text}\r\n--${boundary}--\r\n`;
   const response=await api('/upload/drive/v3/files?uploadType=multipart&fields='+objectFields,{method:'POST',text:body,contentType:'multipart/related; boundary='+boundary,allowConflict:true});
@@ -37,5 +38,18 @@ export function createDriveObjects({api,journal,scope,rootId,notebookId,folderId
   locations.set(hash,id);await get(hash);return hash;
  }
  function invalidate(hash){cache.delete(hash);}
- return {get,put,register,invalidate,locations};
+ async function cached(hash){return cache.has(hash)||!!(await journal.get(key(hash)))?.verified;}
+ async function seed(records){
+  const accepted=new Map();
+  for(const [hash,record] of records){
+   const file=metadata.get(hash);
+   // A pack never hides removal, replacement or changed metadata of an original object.
+   if(!file||file.id!==record.id||String(file.version)!==record.version||Number(file.size)!==record.size)continue;
+   const text=stableJSON(record.value);if(await backupHash(text)!==hash)throw atomicFailure('Notebook pack content failed verification.','INTEGRITY');
+   if(!(await cached(hash)))await journal.set(key(hash),{id:file.id,text,verified:true});
+   cache.set(hash,record.value);accepted.set(hash,record);
+  }
+  return accepted;
+ }
+ return {get,put,register,invalidate,locations,metadata,cached,seed};
 }

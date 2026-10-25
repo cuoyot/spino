@@ -10,7 +10,7 @@ import {Capacitor as StorageCapacitor,registerPlugin as storagePlugin} from '@ca
 import {APP_VERSION} from './app-version.js';
 import {backupExportName} from './backup-export-name.js';
 import {driveRenameMarkup,driveRecoveryCopy} from './drive-recovery-view.js';
-import { syncIndicatorMarkup } from './sync-indicator.js';
+import { syncIndicatorMarkup, updateSyncIndicator } from './sync-indicator.js';
 import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
 import {bindEventDates} from './event-date.js';
@@ -147,9 +147,7 @@ export async function bootCompanion(reader) {
   let connectionFeedback=false,driveConnecting = false, mediaSync = null, storageManager=null, storageUI=null, storageCoordinator=null, completeZipExportUI=null, completeBackupBusy=false;
   const recoveredNotebook=localStorage.getItem('spino.recovered-notebook');
   function refreshSyncIndicator() {
-    const slot = root.querySelector('[data-sync-indicator]');
-    const markup = syncIndicatorMarkup(cloud?.state, mediaSync?.state);
-    if (slot && slot.innerHTML !== markup) slot.innerHTML = markup;
+    updateSyncIndicator(root.querySelector('[data-sync-indicator]'), cloud?.state, mediaSync?.state);
   }
   const cloudOptions = () => ({ driveOnly:true,media:mediaSync?.state,mediaWifiOnly:readMediaWifiOnly(data.preferences.wifiOnly), available: cloudAvailable(), driveAvailable: driveNotebookAvailable(), transport: cloudTransport.transport==='drive'?'drive':'provider', linked:!!cloud?.state.name, platform: cloudPlatform(), lang: getAppLanguage() });
   const instrument = createInstrumentController({ changed: () => {
@@ -858,6 +856,8 @@ export async function bootCompanion(reader) {
   }
   let historyThumbnails = null;
   function render() {
+    const previousSpin = root.querySelector('.cp-sync-status svg')?.getAnimations().find(animation => animation.animationName === 'cp-sync-spin');
+    const syncPhase = previousSpin && {time: previousSpin.currentTime, capturedAt: performance.now()};
     const catalogueScroll = view === 'catalog' && root.querySelector('.cp-page')?.dataset.view === 'catalog' ? root.querySelector('.cp-page').scrollTop : 0;
     const catalogueInput = view === 'catalog' && document.activeElement?.id === 'catalogue-query' ? {value:document.activeElement.value,caret:document.activeElement.selectionStart} : null;
     historyThumbnails?.(); historyThumbnails = null;
@@ -871,6 +871,9 @@ export async function bootCompanion(reader) {
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail','calendar'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${['home','profile-backup'].includes(view)?storageUI?.entryMarkup()||'':''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
+    // Keep the rotation phase when rebuilding a route or applying incoming records.
+    const nextSpin = root.querySelector('.cp-sync-status svg')?.getAnimations().find(animation => animation.animationName === 'cp-sync-spin');
+    if (syncPhase && nextSpin && syncPhase.time !== null) nextSpin.currentTime = syncPhase.time + performance.now() - syncPhase.capturedAt;
     if (view === 'free-practice') {
       root.querySelector('.cp-content').innerHTML = freePracticeMarkup(data.active, blockMs(), !!metro);
       root.querySelectorAll('.cp-nav [aria-current]').forEach(el=>el.removeAttribute('aria-current'));

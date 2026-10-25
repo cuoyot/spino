@@ -38,3 +38,8 @@ In Backup & sync, Export file offers a complete ZIP with scores and recordings o
 For a connected Drive notebook, Manage → Synchronization and backups chooses an accessible folder and notebook filename, enables changed daily copies and selects a principal device. Only that device makes automatic copies; only the latest seven complete copies are retained. Change principal from the device that should take over. Existing folder organization preserves notebook identities and connections.
 
 Automatic checks run while Spino is open. The beta supports archives up to 250 MB. Restoring a complete ZIP opens a separate local notebook with cloud sync disabled. Return to the original notebook from Profile or the recovery notice. Keep all devices updated and review your existing configuration when prompted after updating.
+
+
+## Beta 6.1.6 synchronization
+
+The beta can create verified compressed copies to reduce requests when another device opens the existing notebook. Keep your current Drive connection; no export/import or reconnect is required. Original history is retained, and stable devices can continue using it. This acceleration does not remove old files. The synchronization icon keeps rotating through progress updates and screen changes. Physical-device Drive validation is still pending for this beta.

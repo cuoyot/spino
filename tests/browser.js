@@ -26,7 +26,7 @@ function browserPath() {
   return exe;
 }
 
-export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = 'dist', onboarding = false } = {}) {
+export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = process.env.SPINO_BROWSER_ROOT || 'dist', onboarding = false } = {}) {
   const root = resolve(rootDirectory);
   const server = createServer(async (req, res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname;
