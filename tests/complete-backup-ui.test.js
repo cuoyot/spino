@@ -42,3 +42,15 @@ test('save remains pending until the document provider acknowledges completion',
  for(let n=0;n<5&&!finish;n++)await Promise.resolve();assert.equal(c.state.status,'saving');assert.equal(c.state.saved,false);assert.deepEqual(f.notices,[]);
  finish({saved:true});await saving;assert.equal(c.state.saved,true);assert.deepEqual(f.notices,['Backup saved.']);
 });
+
+test('acknowledged save shows a completed summary and reopening never offers the pending chooser',async()=>{
+ const f=fixture();f.succeed();f.options.save=async()=>({saved:true});const c=createCompleteBackupExport(f.options);
+ c.open();await f.screen().accept();assert.equal(c.state.status,'saved');assert.equal(c.state.saved,true);
+ assert.match(c.markup(),/Backup saved/);assert.match(c.markup(),/data-action="storage-export-new"/);assert.doesNotMatch(c.markup(),/Choose where to save|ZIP prepared/);
+ c.open();assert.match(f.screen().title,/Backup saved/);assert.doesNotMatch(f.screen().body,/Choose where to save|stays available/);
+ c.startNew();assert.equal(c.state.saved,false);assert.equal(c.state.status,'idle');assert.match(f.screen().body,/Prepare ZIP/);
+});
+test('browser download cannot claim a provider-confirmed save',async()=>{
+ const f=fixture();f.succeed();f.options.save=async()=>({downloaded:true});const c=createCompleteBackupExport(f.options);
+ c.open();await f.screen().accept();assert.equal(c.state.saved,false);assert.equal(c.state.status,'ready');assert.doesNotMatch(c.markup(),/Backup saved/);
+});

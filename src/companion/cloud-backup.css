@@ -127,8 +127,14 @@
 .cp-backups-card { margin-top:24px; }
 .cp-backup-automatic { margin-top:20px; padding-top:20px; border-top:1px solid var(--theme-line); }
 .cp-backup-onboarding h3 { margin:0 0 12px; }
-.cp-zip-export-status { margin:16px 0; padding:16px; border:1px solid var(--theme-line); border-radius:12px; background:var(--theme-tint); }
-.cp-zip-export-status h3 { margin:0 0 8px; font-size:16px; }
+.cp-zip-export-status { display:grid; gap:14px; margin:0; padding:18px 0; border-top:1px solid var(--theme-line); }
+.cp-zip-export-status h3 { margin:0; font-size:16px; line-height:1.4; }
+.cp-zip-export-status > button { justify-self:start; max-width:100%; white-space:normal; }
+.cp-zip-metadata { margin:5px 0 0; color:var(--theme-muted); font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
+#cp-dialog .cp-zip-dialog { display:grid; gap:18px; }
+#cp-dialog .cp-zip-dialog p { margin:0; }
+#cp-dialog .cp-zip-dialog-actions { display:grid; gap:12px; }
+#cp-dialog .cp-zip-dialog-actions button { width:100%; margin:0; white-space:normal; overflow-wrap:anywhere; }
 .cp-backups-card .cp-actions { align-items:stretch; }
 
 .cp-backup-intro { margin:8px 0 20px; line-height:1.5; font-size:14px; }

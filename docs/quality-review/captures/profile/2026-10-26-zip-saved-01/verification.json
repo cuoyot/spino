@@ -1,0 +1,8 @@
+{
+  "kind": "Responsive browser; synthetic notebook and document provider",
+  "nativeAcceptance": false,
+  "cancellationRetainsZIP": true,
+  "acknowledgedSaveRemovesPendingAction": true,
+  "newCopyRequiresPreparation": true,
+  "layouts": 4
+}

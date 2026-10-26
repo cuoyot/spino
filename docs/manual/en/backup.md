@@ -70,3 +70,6 @@ Manual ZIP export opens Android's Save file destination picker, including instal
 When automatic backups are enabled, the main page shows the latest copy date and destination. While a copy runs, its status progresses from Prepare ZIP to Save. File/byte progress is shown when measurable; an indeterminate bar represents steps without a measured total. The last successful copy is retained in the summary until the new one is committed.
 
 Manage includes Export notebook (JSON) and Import notebook (JSON) for notebook portability: practice history, scores and annotations, excluding multimedia files. JSON import previews counts and asks for confirmation before replacing this installation's notebook and disconnecting cloud synchronization. ZIP backup/restore remains the complete archive path with recordings.
+
+
+Source/browser follow-up (26 October 2026, not yet packaged): after the document provider confirms a manual ZIP save, Backups shows Backup saved and Prepare a new copy. Cancelling the picker keeps the prepared ZIP available to retry while the app remains open. A browser download alone does not confirm a completed provider save.

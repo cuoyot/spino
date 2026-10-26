@@ -1,0 +1,18 @@
+{
+  "kind": "Responsive browser; synthetic notebook and document provider",
+  "nativeAcceptance": false,
+  "cancellationRetainsZIP": true,
+  "acknowledgedSaveRemovesPendingAction": true,
+  "newCopyRequiresPreparation": true,
+  "layouts": 4,
+  "sourceCommit": "71ed2c51",
+  "sourceHashes": {
+    "src/companion/complete-backup-ui.js": "d25f6d390fdf2444e41ac5a708afeeea880a0293b49ce6026a627965268eb932",
+    "src/companion/cloud-backup.css": "726e4d3f7f4d7dbf11be971e1e9d3c0357fcc2207269af7cb57ee1a1733cd6a9"
+  },
+  "validation": {
+    "productionBuild": "passed",
+    "focusedTests": 19,
+    "failures": 0
+  }
+}
