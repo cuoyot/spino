@@ -34,6 +34,8 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(CloudBackupPlugin.class);
         registerPlugin(DriveMediaPlugin.class);
         registerPlugin(DriveNotebookPlugin.class);
+        registerPlugin(DriveBackupAccountPlugin.class);
+        registerPlugin(DriveArchivePlugin.class);
         // Internal storage checks start on a static asset before opening any notebook.
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
                 && "storage-check".equals(getIntent().getStringExtra("spinoReview"))) {

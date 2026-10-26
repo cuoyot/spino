@@ -38,7 +38,7 @@ const messages = [
 ];
 export function localizeMessage(message, locale = language) {
   const value = String(message ?? '');
-  const automaticErrors={'Choose a backup folder different from the notebook folder.':'sameFolder','Automatic local backups are available in the Android app.':'localUnavailable','Could not save the automatic backup on this device.':'saveLocalError'};
+  const automaticErrors={'Connect Google Drive for backups.':'connectionRequired','Enter a backup folder name.':'folderRequired','The backup folder name matches the notebook folder. Choose another name.':'folderCollision','Choose a backup folder different from the notebook folder.':'sameFolder','Automatic local backups are available in the Android app.':'localUnavailable','Could not save the automatic backup on this device.':'saveLocalError'};
   if(automaticErrors[value])return automaticBackupCopy(locale)[automaticErrors[value]];
   const known = messages.find(pair => pair.includes(value));
   if (known) return localize(known[0], known[1], locale);

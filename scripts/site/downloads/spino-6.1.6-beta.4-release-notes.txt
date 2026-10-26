@@ -1,0 +1,35 @@
+<es-ES>
+• Sincronización en la nube y copias de seguridad en secciones separadas.
+• Copias automáticas en disco local o en una cuenta de Drive independiente, con carpeta por nombre.
+• Última copia, destino y progreso visibles.
+• Guardar ZIP abre el selector de archivos de Android.
+• Las grabaciones se sincronizan con el cuaderno según tu conexión.
+</es-ES>
+<en-US>
+• Separate cloud synchronization and backup sections.
+• Automatic backups to local disk or an independent Drive account, with a named folder.
+• Visible latest backup, destination and progress.
+• Save ZIP opens the Android file destination picker.
+• Recordings synchronize with the notebook according to your connection settings.
+</en-US>
+<ca>
+• Sincronització al núvol i còpies de seguretat en seccions separades.
+• Còpies automàtiques al disc local o en un compte de Drive independent, amb carpeta per nom.
+• Última còpia, destinació i progrés visibles.
+• Desa ZIP obre el selector de fitxers d’Android.
+• Les gravacions se sincronitzen amb el quadern segons la connexió.
+</ca>
+<de-DE>
+• Getrennte Bereiche für Cloud-Synchronisierung und Sicherheitskopien.
+• Automatische Backups lokal oder in einem unabhängigen Drive-Konto mit benanntem Ordner.
+• Letzte Sicherung, Ziel und Fortschritt sichtbar.
+• ZIP speichern öffnet die Android-Dateiauswahl.
+• Aufnahmen werden gemäß den Verbindungseinstellungen mit dem Notizbuch synchronisiert.
+</de-DE>
+<hu-HU>
+• Külön felhőszinkronizálási és biztonsági mentési rész.
+• Automatikus mentés helyi lemezre vagy külön Drive-fiókba, megadott nevű mappába.
+• Látható az utolsó mentés, a cél és a folyamat állapota.
+• A ZIP mentése az Android fájlmentési ablakát nyitja meg.
+• A felvételek a kapcsolat beállításai szerint szinkronizálódnak a füzettel.
+</hu-HU>

@@ -1,4 +1,5 @@
 import {verifyDeviceReset,retainResetArchive,readResetArchive} from './device-reset.js';
+import {createBackupDrive} from './backup-drive.js';
 import {createDriveStorage} from './drive-storage.js';
 import {createStorageUI} from './storage-ui.js';
 import {syncBackupCopy} from './sync-backup-copy.js';
@@ -1081,7 +1082,7 @@ export async function bootCompanion(reader) {
     const deviceName=localStorage.getItem('spino.backup-device.name')||('Android · '+deviceId.slice(0,6));
     storageCoordinator=createStorageCoordinator({cloud,media:mediaSync});
     let lastAutomaticBackupState='';
-    storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,localArchive:StorageCapacitor.getPlatform()==='android'?{save:(blob,name,notebookId,progress)=>saveAutomaticLocalBackup(new File([blob],name,{type:'application/zip'}),storagePlugin('MediaShare'),notebookId,progress),commit:args=>storagePlugin('MediaShare').commitAutomatic(args)}:null,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
+    storageManager=createDriveStorage({drive:cloudTransport.drive,backupDrive:createBackupDrive(),deviceId,deviceName,localArchive:StorageCapacitor.getPlatform()==='android'?{save:(blob,name,notebookId,progress)=>saveAutomaticLocalBackup(new File([blob],name,{type:'application/zip'}),storagePlugin('MediaShare'),notebookId,progress),commit:args=>storagePlugin('MediaShare').commitAutomatic(args)}:null,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
       eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{const key=JSON.stringify([getAppLanguage(),storageManager.state]);if(storageUI&&key!==lastAutomaticBackupState){lastAutomaticBackupState=key;const panel=document.querySelector('#automatic-backup-status');if(panel)replaceHelpMarkup(panel,automaticBackupMarkup());}}});
     storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,prepareSetup:async()=>{
       if(data.active||mediaCapture?.busy)throw Error(ui('Finish practice and recording before setting up backups.','Termina la práctica y la grabación antes de configurar las copias de seguridad.'));
@@ -1089,7 +1090,7 @@ export async function bootCompanion(reader) {
       try{return await storageCoordinator.reserve();}
       finally{connectionFeedback=false;}
     },refresh:async()=>{await refreshMedia();if(['home','profile-backup'].includes(view))render();},exportZip:exportCompleteZip,restoreZip:importCompleteZip,
-      downloadCopy:async file=>reviewCompleteZip(await downloadArchive({accountId:storageManager.link().accountId,file})),cloud,deviceName,connect:()=>openDriveNotebooks(),canNotify:()=>!data.active&&!dialog.open&&!scoreViewer&&!openingScore});
+      downloadCopy:async file=>reviewCompleteZip(await storageManager.downloadCopy(file)),cloud,deviceName,connect:()=>openDriveNotebooks(),canNotify:()=>!data.active&&!dialog.open&&!scoreViewer&&!openingScore});
     setInterval(async()=>{if(!storageCoordinator?.locked&&cloud?.state.transport==='drive'&&cloud.state.enabled&&!cloud.busy&&!mediaSync?.busy&&!storageManager.state.busy&&!completeBackupBusy&&!data.active&&!dialog.open&&!document.hidden){await storageCoordinator.background(async()=>{try{await cloudTransport.drive.prepareCheckpoint();}catch{/* Optional accelerator: synchronization keeps its verified original records. */}await storageManager.daily();});}},60000);
   }
   async function completeZip(){
@@ -1691,7 +1692,7 @@ export async function bootCompanion(reader) {
   window.addEventListener('piano:devices',()=>{if(!root.hidden&&view==='session')render();});
   window.addEventListener('online',()=>{if(cloud?.state.enabled&&cloud.state.status!=='conflict')cloud.resumeChecks().catch(error=>toast(error.message));downloads.pump().catch(e=>toast(e.message));libraryDownloads.pump().catch(e=>toast(e.message));});
   setInterval(()=>{if(!document.hidden){if(data.downloadJobs.some(j=>j.status==='waiting-wifi'))downloads.pump().catch(()=>{});if(Object.values(library.executions).some(e=>e.job?.status==='waiting-wifi'))libraryDownloads.pump().catch(()=>{});}},10000);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {void reminders();void cloud?.resumeChecks().catch(error=>toast(error.message));mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){void storageManager?.pauseArchive()?.catch(()=>{});mediaSync?.pause();if(driveNotebookAvailable())void pauseDriveMedia().catch(()=>{});if(mediaCapture?.requesting)return;if(downloads.busy||libraryDownloads.busy)pauseTransfers().catch(()=>{});if(backgroundTimer()){stopMetro();checkpoint();}else pauseSession();}else {void reminders();void cloud?.resumeChecks().catch(error=>toast(error.message));mediaSync?.markDirty();if(data.active){checkpoint();updateClock();}if(['home','calendar','session','free-practice'].includes(view)&&!dialog.open)render();}});
   let sessionResize;
   window.addEventListener('resize', () => {
     if(view==='prepare')requestAnimationFrame(revealStandSelection);

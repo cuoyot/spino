@@ -1,0 +1,11 @@
+{
+  "kind": "Responsive browser; disposable separate account provider",
+  "physicalGoogleAuthorizationAcceptance": false,
+  "separateAccountPrompt": true,
+  "typedFolderName": true,
+  "nameCollisionBlockedBeforeWrites": true,
+  "suggestedSuffix": "_backup",
+  "sameNotebookIdentity": true,
+  "cancelKeepsConfiguredAccount": true,
+  "layouts": 4
+}

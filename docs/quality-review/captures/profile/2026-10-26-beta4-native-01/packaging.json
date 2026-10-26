@@ -1,0 +1,12 @@
+{
+  "packagedWebFilesMatch": {
+    "apk": 684,
+    "aab": 684
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

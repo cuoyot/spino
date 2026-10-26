@@ -28,9 +28,12 @@ public class DriveMediaPlugin extends Plugin {
     private volatile String token=null, accountId=null;
     private volatile HttpURLConnection activeConnection;
     private volatile boolean paused=false,wifiOnly=true;
+    protected android.content.SharedPreferences accountPreferences(String id){return getContext().getSharedPreferences("spino-drive-account",0);}
+    protected String transferCacheName(){return "spino-drive-media";}
+    protected String transferStateName(){return "spino-drive-media";}
     @PluginMethod public void useNotebookAccount(PluginCall call){
         String selected=call.getString("accountId","");
-        android.content.SharedPreferences prefs=getContext().getSharedPreferences("spino-drive-account",0);
+        android.content.SharedPreferences prefs=accountPreferences(selected);
         String email=prefs.getString("email","");
         if(selected.isEmpty()||!selected.equals(prefs.getString("id",""))||email.isEmpty()){call.reject("Connect the same Google Drive account first.","PERMISSION_REQUIRED");return;}
         getActivity().runOnUiThread(()->Identity.getAuthorizationClient(getActivity()).authorize(AuthorizationRequest.builder().setAccount(new android.accounts.Account(email,"com.google")).setRequestedScopes(Collections.singletonList(new Scope(SCOPE))).build())
@@ -40,7 +43,7 @@ public class DriveMediaPlugin extends Plugin {
           }).addOnFailureListener(error->call.reject("Reconnect Google Drive to copy recordings. Local recordings are kept.","PERMISSION_REQUIRED")));
     }
     @PluginMethod public void pause(PluginCall call){paused=true;HttpURLConnection active=activeConnection;if(active!=null)active.disconnect();call.resolve();}
-    private File directory(){File dir=new File(getContext().getCacheDir(),"spino-drive-media");dir.mkdirs();return dir;}
+    private File directory(){File dir=new File(getContext().getCacheDir(),transferCacheName());dir.mkdirs();return dir;}
     private File file(String name)throws IOException{if(name==null||!name.matches("[a-zA-Z0-9_.-]{1,200}")||name.contains(".."))throw new IOException("Invalid transfer file.");return new File(directory(),name);}
     private long integer(PluginCall call,String name)throws IOException{
         Object value=call.getData().opt(name);
@@ -64,7 +67,7 @@ public class DriveMediaPlugin extends Plugin {
         if(paused)throw new IOException("Recording copies are paused.");HttpURLConnection c=(HttpURLConnection)network().openConnection(endpoint(url));activeConnection=c;c.setConnectTimeout(20000);c.setReadTimeout(60000);c.setInstanceFollowRedirects(false);c.setRequestMethod(method);c.setRequestProperty("Authorization","Bearer "+access);return c;
     }
     private String access(PluginCall call)throws IOException{
-        if(paused||token==null||accountId==null||!accountId.equals(call.getString("accountId"))||!accountId.equals(getContext().getSharedPreferences("spino-drive-account",0).getString("id","")))throw new IOException("Reconnect the same Google Drive account.");return token;
+        if(paused||token==null||accountId==null||!accountId.equals(call.getString("accountId"))||!accountId.equals(accountPreferences(accountId).getString("id","")))throw new IOException("Reconnect the same Google Drive account.");return token;
     }
     private byte[] read(InputStream input,int limit)throws IOException{
         if(input==null)return new byte[0];try(InputStream in=input;ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] b=new byte[8192];int n;while((n=in.read(b))!=-1){if(out.size()+n>limit)throw new IOException("Drive response exceeds the transfer limit.");out.write(b,0,n);}return out.toByteArray();}
@@ -110,8 +113,8 @@ public class DriveMediaPlugin extends Plugin {
             call.resolve(result);
         }catch(Exception error){call.reject("Could not prepare the recording for upload.","STAGING");}});
     }
-    @PluginMethod public void readState(PluginCall call){String key=call.getString("key","");try{String value=getContext().getSharedPreferences("spino-drive-media",0).getString(key,null);call.resolve(new JSObject().put("value",value==null?JSONObject.NULL:new JSObject(value)));}catch(Exception error){call.reject("Invalid Drive transfer state.");}}
-    @PluginMethod public void writeState(PluginCall call){JSObject value=call.getObject("value");String key=call.getString("key","");if(!key.matches("media1\\.[\\w.-]{1,500}")||value==null||value.toString().length()>8192){call.reject("Invalid Drive transfer state.");return;}if(!getContext().getSharedPreferences("spino-drive-media",0).edit().putString(key,value.toString()).commit()){call.reject("Could not retain transfer progress.");return;}call.resolve();}
+    @PluginMethod public void readState(PluginCall call){String key=call.getString("key","");try{String value=getContext().getSharedPreferences(transferStateName(),0).getString(key,null);call.resolve(new JSObject().put("value",value==null?JSONObject.NULL:new JSObject(value)));}catch(Exception error){call.reject("Invalid Drive transfer state.");}}
+    @PluginMethod public void writeState(PluginCall call){JSObject value=call.getObject("value");String key=call.getString("key","");if(!key.matches("media1\\.[\\w.-]{1,500}")||value==null||value.toString().length()>8192){call.reject("Invalid Drive transfer state.");return;}if(!getContext().getSharedPreferences(transferStateName(),0).edit().putString(key,value.toString()).commit()){call.reject("Could not retain transfer progress.");return;}call.resolve();}
     @PluginMethod public void download(PluginCall call){
         worker.execute(()->{HttpURLConnection c=null;try{
             String access=access(call),id=call.getString("fileId",""),digest=call.getString("sha256","");long expected=integer(call,"bytes");

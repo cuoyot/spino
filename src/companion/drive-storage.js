@@ -1,11 +1,11 @@
+import {validateBackupFolder} from './backup-drive.js';
 import {backupFingerprint,createCompleteBackup,dailyBackupDecision,retainedBackups,backupArchiveName} from './complete-backup.js';
 import {mediaHash} from './drive-media.js';
-import {uploadArchive} from './drive-archive.js';
 import {readRecordingCopies} from './recording-copies.js';
 const valid=id=>typeof id==='string'&&/^[\w-]{1,180}$/.test(id);
 const enc=encodeURIComponent;
 const conflict=()=>Object.assign(Error('Storage settings changed on another device. Reload and try again.'),{code:'CONFLICT'});
-export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeSnapshot=snapshot,mediaStore,mediaClient,network,eligible,changed=()=>{},upload=uploadArchive,localArchive=null,now=()=>new Date()}){
+export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeSnapshot=snapshot,mediaStore,mediaClient,network,eligible,changed=()=>{},upload=null,backupDrive=null,localArchive=null,now=()=>new Date()}){
  let busy=false,config=null,configKey='',status='idle',error='',progress=null;
  const folderNames=new Map();
  const api=async(path,options)=>{const r=await drive.storageRequest(path,options);return r?.text?JSON.parse(r.text):null;};
@@ -23,7 +23,8 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
   // Unknown settings are not an unfinished setup. Publish only a complete read for the current notebook.
   if(identity()!==key)throw Error('The connected notebook changed. Try again.');
   const archiveFolder=p.backupEnabled==='1'&&(p.backupDestination==='drive'||!p.backupDestination&&p.copiesFolder)?p.backupFolder||p.copiesFolder:null;
-  if(archiveFolder){const cacheKey=key+'.'+archiveFolder;if(!folderNames.has(cacheKey)){const folder=await api(`/drive/v3/files/${archiveFolder}?fields=id,name`,{missing:true});folderNames.set(cacheKey,folder?.name||'');}next.backupFolderName=folderNames.get(cacheKey);}
+  if(archiveFolder&&p.backupAccount){next.backupFolderName=folderNames.get(key+'.'+p.backupAccount+'.'+archiveFolder)||p.backupFolderLabel||'';}
+  else if(archiveFolder){const cacheKey=key+'.'+archiveFolder;if(!folderNames.has(cacheKey)){const folder=await api(`/drive/v3/files/${archiveFolder}?fields=id,name`,{missing:true});folderNames.set(cacheKey,folder?.name||'');}next.backupFolderName=folderNames.get(cacheKey);}
   if(identity()!==key)throw Error('The connected notebook changed. Try again.');
   config=next;configKey=key;
   drive.rememberStorage?.({folderId,name:next.storageFolderName,notebookName:f.title});
@@ -65,27 +66,29 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
    await patch(fresh,{storageVersion:'1',storageFolder:folderId,mediaFolder:mediaFolder.id,copiesFolder:copiesFolder.id,principalId:before.principalId||deviceId,principalName:before.principalName||deviceName,backupEnabled:enabled?'1':'0',backupWifiOnly:wifiOnly?'1':'0'});status='ready';return config;
   }catch(e){error=e.message;status='error';throw e;}finally{busy=false;changed();}
  }
- async function claimPrincipal(){const before=await control();return patch(before,{principalId:deviceId,principalName:deviceName,...(before.principalId!==deviceId&&(before.backupDestination==='local'||!before.copiesFolder)?{lastBackupDate:'',lastBackupHash:'',lastBackupAt:'',lastBackupFile:'',lastBackupLocalUri:''}:{})});}
+ async function claimPrincipal(){const before=await control();return patch(before,{principalId:deviceId,principalName:deviceName,...(before.principalId!==deviceId&&destination(before)==='local'?{lastBackupDate:'',lastBackupHash:'',lastBackupAt:'',lastBackupFile:'',lastBackupLocalUri:''}:{})});}
  const destination=c=>c.backupDestination||(c.copiesFolder&&c.backupEnabled==='1'?'drive':'local');
- async function configureAutomatic({enabled,destination:target='local',folderId='',wifiOnly=true}){
+ const notebookFolderNames=()=>[config?.name?.replace(/\.json$/i,''),config?.storageFolderName].filter(Boolean);
+ const label=value=>{let result='';for(const c of String(value||'')){if(new TextEncoder().encode(result+c).length>95)break;result+=c;}return result;};
+ const needArchive=()=>{if(!backupDrive||!config?.backupAccount)throw Error('Connect Google Drive for backups.');return config.backupAccount;};
+ const archiveApi=(path,options)=>backupDrive.request(needArchive(),path,options);
+ async function configureAutomatic({enabled,destination:target='local',folderName='',accountId='',wifiOnly=true}){
   if(busy)throw Error('A backup operation is already running.');
   if(!['local','drive'].includes(target))throw Error('Invalid backup destination.');
-  const before=await control(),l=link();
+  const before=await control(),l=link();let folder,account;
   if(target==='drive'&&enabled){
-   if(!valid(folderId)||folderId===l.folderId||folderId===before.storageFolder)throw Error('Choose a backup folder different from the notebook folder.');
-   const folder=await api(`/drive/v3/files/${folderId}?fields=id,name,mimeType,trashed,parents`);
-   if(folder.trashed||folder.mimeType!=='application/vnd.google-apps.folder')throw Error('The selected folder is unavailable.');
-   folderNames.set(identity()+'.'+folderId,folder.name||'');
-   let parent=folder;for(let n=0;parent?.parents?.length&&n<100;n++){
-    const id=parent.parents[0];if(id===l.folderId)throw Error('Choose a backup folder different from the notebook folder.');
-    parent=await api(`/drive/v3/files/${id}?fields=id,parents`,{missing:true});
-   }
+   folderName=validateBackupFolder(folderName,notebookFolderNames());
+   if(!backupDrive||!accountId)throw Error('Connect Google Drive for backups.');
+   account=await backupDrive.requireAccount(accountId);
+   folder=await backupDrive.ensureFolder({accountId,sourceRoot:l.id,name:folderName,notebookNames:notebookFolderNames(),excludedIds:accountId===l.accountId?[l.folderId,before.storageFolder].filter(Boolean):[]});
+   folderNames.set(identity()+'.'+accountId+'.'+folder.id,folder.name);
   }
   if(enabled&&target==='local'&&!localArchive)throw Error('Automatic local backups are available in the Android app.');
-  const updates={backupSettingsVersion:'2',backupEnabled:enabled?'1':'0',backupDestination:target,backupFolder:target==='drive'?folderId:'',backupWifiOnly:wifiOnly?'1':'0'};
+  const updates={backupSettingsVersion:'3',backupEnabled:enabled?'1':'0',backupDestination:target,backupWifiOnly:wifiOnly?'1':'0'};
+  if(folder)Object.assign(updates,{backupAccount:account.id,backupAccountLabel:label(account.email),backupFolder:folder.id,backupFolderLabel:label(folder.name)});
   if(enabled&&!before.principalId)Object.assign(updates,{principalId:deviceId,principalName:deviceName});
-  // A changed destination needs its own first snapshot, even when the notebook is unchanged.
-  if(target!==destination(before)||target==='drive'&&folderId!==(before.backupFolder||before.copiesFolder))Object.assign(updates,{lastBackupDate:'',lastBackupHash:'',lastBackupAt:'',lastBackupFile:'',lastBackupLocalUri:''});
+  // A changed account/destination needs its own first archive; live synchronization is untouched.
+  if(target!==destination(before)||folder&&(folder.id!==before.backupFolder||account.id!==before.backupAccount))Object.assign(updates,{lastBackupDate:'',lastBackupHash:'',lastBackupAt:'',lastBackupFile:'',lastBackupLocalUri:''});
   return patch(before,updates);
  }
  async function inventory(wifiOnly=false){const l=link(),client=await mediaClient({accountId:l.accountId,notebookId:l.notebookId,wifiOnly,folderId:config?.mediaFolder}),local=await mediaStore.index(),copies=await readRecordingCopies({client,rows:local,load:id=>mediaStore.get(id),accountId:l.accountId,notebookId:l.notebookId});
@@ -97,12 +100,16 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
  async function complete({wifiOnly=false}={}){const {rows,client}=await inventory(wifiOnly),fingerprintText=await snapshot(),text=await completeSnapshot();const available=new Set(rows.map(r=>r.id));for(const event of JSON.parse(text).data.events||[])for(const id of event.recordingIds||[])if(!available.has(id))throw Error('Some linked recordings have not reached this device or Drive. Open the original device and synchronize first.');for(const r of rows)if(r.remoteOnly&&!r.cloud?.fileId)throw Error('Some recordings have not reached Drive.');
   const blob=await createCompleteBackup({text,records:rows,onProgress:(completed,total)=>{progress={stage:'files',completed,total};changed();},load:async row=>{const local=await mediaStore.get(row.id);if(local)return local;if(!row.cloud?.fileId)throw Error('A recording is unavailable.');const result=await client.download(row.cloud.fileId);try{return {...row,blob:result.blob};}finally{await result.cleanup?.();}}});return {blob,hash:await backupFingerprint(fingerprintText,rows)};
  }
- async function copies(){const l=link();return list(`trashed = false and appProperties has { key='spinoBackup' and value='complete-v1' } and appProperties has { key='notebookId' and value='${l.notebookId}' } and appProperties has { key='complete' and value='1' }`);}
- async function prune(){if(destination(config)==='local')return;const folder=config.backupFolder||config.copiesFolder;for(const file of retainedBackups((await copies()).filter(f=>!f.parents||f.parents.includes(folder)))){const owner=await control();if(owner.principalId!==deviceId)throw conflict();await api(`/drive/v3/files/${file.id}?fields=id`,{method:'PATCH',text:JSON.stringify({trashed:true})});}}
+ async function copies(){const accountId=needArchive();await backupDrive.requireAccount(accountId);const l=link(),folder=config.backupFolder;if(!valid(folder))throw Error('Enter a backup folder name.');
+  const q=`trashed = false and '${folder}' in parents and appProperties has { key='spinoBackup' and value='complete-v1' } and appProperties has { key='notebookId' and value='${l.notebookId}' } and appProperties has { key='complete' and value='1' }`;
+  const files=[];let token='';do{const result=await archiveApi('/drive/v3/files?pageSize=100&q='+enc(q)+'&fields='+enc('nextPageToken,files(id,name,parents,size,sha256Checksum,appProperties)')+(token?'&pageToken='+enc(token):''));files.push(...result.files);token=result.nextPageToken||'';}while(token);return files;
+ }
+ async function prune(){if(destination(config)==='local')return;const accountId=needArchive(),folder=config.backupFolder;for(const file of retainedBackups((await copies()).filter(f=>!f.parents||f.parents.includes(folder)))){const owner=await control();if(owner.principalId!==deviceId||owner.backupAccount!==accountId||owner.backupFolder!==folder)throw conflict();await archiveApi(`/drive/v3/files/${file.id}?fields=id`,{method:'PATCH',text:JSON.stringify({trashed:true})});}}
  async function daily({manual=false}={}){if(busy||!eligible(manual))return;busy=true;error='';progress=null;try{const c=await control();if(c.backupEnabled!=='1'||c.principalId!==deviceId){status=c.principalId&&c.principalId!==deviceId?'secondary':'disabled';return;}
    const local=destination(c)==='local';
+   if(!local){const accountId=needArchive();await backupDrive.requireAccount(accountId);}
    if(local&&c.lastBackupLocalUri&&localArchive)await localArchive.commit({uri:c.lastBackupLocalUri,notebookId:link().notebookId});
-   if(!local&&c.lastBackupFile){const pending=await api(`/drive/v3/files/${c.lastBackupFile}?fields=id,appProperties,trashed`);if(!pending.trashed&&pending.appProperties?.complete==='0'&&pending.appProperties.contentHash===c.lastBackupHash)await api(`/drive/v3/files/${c.lastBackupFile}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});}
+   if(!local&&c.lastBackupFile){const pending=await archiveApi(`/drive/v3/files/${c.lastBackupFile}?fields=id,appProperties,trashed`);if(!pending.trashed&&pending.appProperties?.complete==='0'&&pending.appProperties.contentHash===c.lastBackupHash)await archiveApi(`/drive/v3/files/${c.lastBackupFile}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});}
    const net=await network();if(!net.online||!local&&c.backupWifiOnly!=='0'&&(!net.wifi||net.metered)){status=net.online?'wifi':'offline';return;}
    status='checking';progress={stage:'preparing',completed:0,total:0};changed();const {rows}=await inventory(),text=await snapshot(),hash=await backupFingerprint(text,rows),date=now().toLocaleDateString('en-CA');
    if(local&&c.backupWifiOnly!=='0'&&(!net.wifi||net.metered)&&(rows.some(r=>r.remoteOnly)||JSON.parse(text).assets.some(a=>a.base64===undefined))){status='wifi';return;}
@@ -118,14 +125,14 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
     await patch(latest,{lastBackupDate:date,lastBackupHash:result.hash,lastBackupAt:createdAt,lastBackupFile:'',lastBackupLocalUri:saved.uri});
     await localArchive.commit({uri:saved.uri,notebookId:l.notebookId});status='saved';return;
    }
-   const id=(await api('/drive/v3/files/generateIds?count=1&space=drive')).ids[0];
-   await upload({blob:result.blob,accountId:l.accountId,folderId:c.backupFolder||c.copiesFolder,fileId:id,name:backupArchiveName(c.name,new Date(createdAt)),properties:{spinoBackup:'complete-v1',notebookId:l.notebookId,createdAt,contentHash:result.hash,principalId:deviceId},wifiOnly:c.backupWifiOnly!=='0',onProgress:value=>{progress=value;changed();}});
+   const id=(await archiveApi('/drive/v3/files/generateIds?count=1&space=drive')).ids[0];
+   await (upload||backupDrive.upload)({blob:result.blob,accountId:c.backupAccount,folderId:c.backupFolder,fileId:id,name:backupArchiveName(c.name,new Date(createdAt)),properties:{spinoBackup:'complete-v1',notebookId:l.notebookId,sourceRoot:l.id,createdAt,contentHash:result.hash,principalId:deviceId},wifiOnly:c.backupWifiOnly!=='0',onProgress:value=>{progress=value;changed();}});
    const latest=await control();if(latest.principalId!==deviceId||latest.etag!==check.etag)throw conflict();
    // Commit ownership and the verified snapshot pointer atomically on the control file.
    // A concurrent principal change rejects this CAS before the ZIP becomes a completed copy.
    await patch(latest,{lastBackupDate:date,lastBackupHash:result.hash,lastBackupAt:createdAt,lastBackupFile:id});
-   await api(`/drive/v3/files/${id}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});
+   await archiveApi(`/drive/v3/files/${id}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});
    await prune();status='saved';
   }catch(e){status='error';error=e.message;}finally{busy=false;changed();}}
- return {get state(){const loaded=!!configKey&&configKey===identity();return {config:loaded?config:null,loaded,busy,status,error,progress,deviceId,deviceName};},refresh:control,folders,createFolder,organize,claimPrincipal,copies,complete,daily,link,inventory,folderName:async id=>(await api(`/drive/v3/files/${id}?fields=name`)).name,settings:async updates=>patch(await control(),updates),configureAutomatic,putInFolder};
+ return {get state(){const loaded=!!configKey&&configKey===identity();return {config:loaded?config:null,loaded,busy,status,error,progress,deviceId,deviceName};},refresh:control,folders,createFolder,organize,claimPrincipal,copies,complete,daily,link,inventory,folderName:async id=>(await api(`/drive/v3/files/${id}?fields=name`)).name,settings:async updates=>patch(await control(),updates),configureAutomatic,notebookFolderNames,backupFolderName:async()=>{const id=needArchive(),folder=await backupDrive.request(id,`/drive/v3/files/${config.backupFolder}?fields=id,name`);folderNames.set(identity()+'.'+id+'.'+folder.id,folder.name);return folder.name;},pauseArchive:()=>backupDrive?.pause?.(),backupAccount:async id=>backupDrive?.account(id)||null,connectBackupAccount:()=>{if(busy)throw Error('A backup operation is already running.');return backupDrive.connect();},downloadCopy:file=>backupDrive.download({accountId:needArchive(),file}),putInFolder};
 }

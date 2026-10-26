@@ -4,23 +4,27 @@ import {createStorageUI} from '../src/companion/storage-ui.js';
 function fixture(config={}){
  const calls=[],dialog={open:false,contains:n=>n===dialog.lastElementChild,querySelector:()=>null};let screen;
  const showDialog=(title,body,accept)=>{dialog.open=true;dialog.lastElementChild={querySelector:()=>({textContent:''})};screen={title,body,accept};};dialog.close=()=>dialog.open=false;
- const state={loaded:true,deviceId:'phone',config:{name:'Original musical title.json',...config}},manager={state,refresh:async()=>{},link:()=>({folderId:'notebook'}),folders:async()=>[{id:'notebook',name:'Notebook'},{id:'container',name:'Notebook folder'},{id:'archives',name:'Archives'}],folderName:async()=> 'Archives',configureAutomatic:async options=>calls.push(options),claimPrincipal:async()=>{calls.push('claim');state.config.principalId='phone';}};
+ const state={loaded:true,deviceId:'phone',config:{name:'Original musical title.json',...config}},manager={state,refresh:async()=>{},link:()=>({folderId:'notebook'}),folders:async()=>[{id:'notebook',name:'Notebook'},{id:'container',name:'Notebook folder'},{id:'archives',name:'Archives'}],folderName:async()=> 'Archives',backupAccount:async id=>({id,email:'backups@example.invalid'}),connectBackupAccount:async()=>{calls.push('connect-backup');return {id:'archive-account',email:'backups@example.invalid'};},configureAutomatic:async options=>calls.push(options),claimPrincipal:async()=>{calls.push('claim');state.config.principalId='phone';}};
  const ui=createStorageUI({manager,showDialog,dialog,formEnd:label=>`<div class="cp-actions"><button data-action="close-dialog">Cancel</button><button type="submit">${label}</button></div>`,toast:message=>calls.push(message),cloud:{state:{transport:'drive',name:'Original musical title.json',notebookId:'book'}},deviceName:'Phone'});
  return {ui,manager,dialog,calls,screen:()=>screen};
 }
 test('optional automatic settings open directly with local destination off by default and no manual archive actions',async()=>{
  const f=fixture();await f.ui.overview();assert.match(f.screen().body,/data-backup-settings/);assert.match(f.screen().body,/value="local" selected/);assert.doesNotMatch(f.screen().body,/name="enabled" checked/);
  assert.doesNotMatch(f.screen().body,/data-action="storage-(export|import|copies|problem)"|<label>Notebook name|Step 1/);assert.match(f.screen().body,/Original musical title_\d{4}-\d{2}-\d{2}\.zip/);assert.deepEqual(f.calls,[]);
- await f.screen().accept(new Map([['enabled','on'],['destination','local']]));assert.deepEqual(f.calls[0],{enabled:true,destination:'local',folderId:'',wifiOnly:true});assert.equal(f.dialog.open,false);
+ await f.screen().accept(new Map([['enabled','on'],['destination','local']]));assert.deepEqual(f.calls[0],{enabled:true,destination:'local',folderName:'Original musical title_backup',accountId:'',wifiOnly:true});assert.equal(f.dialog.open,false);
 });
 test('the other principal is named and only an explicit takeover replaces it',async()=>{
  const f=fixture({principalId:'other',principalName:'My tablet'});await f.ui.overview();assert.match(f.screen().body,/My tablet/);assert.match(f.screen().body,/storage-principal/);assert.deepEqual(f.calls,[]);
  await f.ui.actions['storage-principal']();assert.deepEqual(f.calls,['claim']);assert.match(f.screen().body,/This device/);assert.doesNotMatch(f.screen().body,/storage-principal/);
 });
-test('remote picker excludes notebook and its selected container and preserves local defaults until save',async()=>{
- const f=fixture({storageFolder:'container'});await f.ui.overview();await f.ui.actions['storage-folder']();assert.doesNotMatch(f.screen().body,/value="notebook"|value="container"/);assert.match(f.screen().body,/value="archives"/);assert.equal((f.screen().body.match(/>Cancel</g)||[]).length,1);assert.match(f.screen().body,/>Use this folder</);
- await f.screen().accept(new Map([['folder','archives']]));assert.deepEqual(f.calls,[]);assert.match(f.screen().body,/value="drive" selected/);assert.match(f.screen().body,/Archives/);
- await f.screen().accept(new Map([['enabled','on'],['destination','drive'],['mobile','on']]));assert.deepEqual(f.calls[0],{enabled:true,destination:'drive',folderId:'archives',wifiOnly:false});
+test('Drive asks for its own account and an editable folder name without listing existing folders',async()=>{
+ const f=fixture({storageFolder:'container'});await f.ui.overview();assert.match(f.screen().body,/name="backupFolderName"/);assert.doesNotMatch(f.screen().body,/name="folder"|storage-folder"/);assert.match(f.screen().body,/Original musical title_backup/);
+ await f.ui.actions['storage-backup-connect']();assert.deepEqual(f.calls,['connect-backup']);assert.match(f.screen().body,/backups@example.invalid/);
+ await f.screen().accept(new Map([['enabled','on'],['destination','drive'],['backupFolderName','My archives'],['mobile','on']]));assert.deepEqual(f.calls[1],{enabled:true,destination:'drive',folderName:'My archives',accountId:'archive-account',wifiOnly:false});
+});
+test('a matching folder name is rejected before saving and the suggested name fixes it',async()=>{
+ const f=fixture();await f.ui.overview();await assert.rejects(f.screen().accept(new Map([['enabled','on'],['destination','drive'],['backupFolderName','Original musical title']])),/matches the notebook folder/);assert.deepEqual(f.calls,[]);
+ f.ui.actions['storage-folder-suggestion']();assert.match(f.screen().body,/Original musical title_backup/);
 });
 test('existing enabled remote settings retain their explicit destination',async()=>{
  const f=fixture({backupEnabled:'1',copiesFolder:'archives',principalId:'phone'});await f.ui.overview();assert.match(f.screen().body,/value="drive" selected/);assert.match(f.screen().body,/name="enabled" checked/);assert.match(f.ui.summary(),/Last automatic backup.*Not created yet[\s\S]*Folder: Google Drive/);
@@ -38,4 +42,13 @@ test('enabled automatic row names the last archive and destination, with real ph
  f.manager.state.progress={stage:'saving',completed:0,total:0};html=f.ui.statusMarkup();assert.match(html,/data-backup-phase="saving"/);assert.doesNotMatch(html,/<progress[^>]*value=/);
  f.manager.state.progress={stage:'upload',completed:1024,total:4096};assert.match(f.ui.statusMarkup(),/value="25"/);
  f.manager.state.busy=false;assert.equal(f.ui.statusMarkup(),'');f.manager.state.config.backupEnabled='0';assert.equal(f.ui.summary(),'Disabled');
+});
+
+
+test('the full existing folder name is loaded from the backup account before editing',async()=>{
+ const full='A complete original folder name '.repeat(4),f=fixture({backupAccount:'archive-account',backupFolder:'folder',backupFolderLabel:'A shortened display label',backupEnabled:'1',backupDestination:'drive'});
+ f.manager.backupFolderName=async()=>full;await f.ui.overview();assert.ok(f.screen().body.includes('value="'+full+'"'));assert.deepEqual(f.calls,[]);
+});
+test('choosing an account in a draft and cancelling never changes configured archive account',async()=>{
+ const f=fixture({backupAccount:'previous-account',backupFolder:'folder',backupDestination:'drive'});await f.ui.overview();await f.ui.actions['storage-backup-connect']();f.dialog.close();assert.equal(f.manager.state.config.backupAccount,'previous-account');assert.deepEqual(f.calls,['connect-backup']);
 });

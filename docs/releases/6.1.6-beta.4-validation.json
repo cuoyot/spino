@@ -1,0 +1,68 @@
+{
+  "version": "6.1.6-beta.4",
+  "versionCode": 110,
+  "focusedJavaScript": {
+    "passed": 142,
+    "failed": 0
+  },
+  "browser": {
+    "finalPassed": 6,
+    "failed": 0,
+    "initialRun": {
+      "passed": 5,
+      "failed": 1
+    },
+    "correctedRerun": {
+      "passed": 1,
+      "failed": 0
+    },
+    "correction": "Test wait used a nullable DOM node before the form existed; fixed the wait and reran the failing progress test. Product source unchanged by that test correction."
+  },
+  "website": {
+    "passed": 10,
+    "failed": 0
+  },
+  "nativeInstrumentation": {
+    "passed": 2,
+    "failed": 0,
+    "checks": [
+      "Independent backup account policies, per-account credentials, prior grant retention and scoped disconnect without notebook credentials",
+      "Exact ZIP bytes, last-seven completed retention and notebook boundary"
+    ]
+  },
+  "signatures": "APK matches previous beta certificate; release AAB jarsigner verified",
+  "packagedWebFilesMatch": {
+    "apk": 684,
+    "aab": 684
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ownerLayoutAcceptance": "Accepted in conversation on 26 October 2026; owner requested beta publication",
+  "physicalGoogleAcceptance": "Pending owner test of real OAuth account selection and file destination providers",
+  "fullSuite": {
+    "rerun": false,
+    "fullyGreen": false,
+    "baseline": "6.1.6-beta.3-validation.json",
+    "reason": "Focused affected checks pass; preceding full-suite baseline retains 39 failures. No claim that the full suite is green."
+  },
+  "responsiveEvidence": "docs/quality-review/captures/profile/2026-10-26-independent-backup-account-04",
+  "nativeEvidence": "docs/quality-review/captures/profile/2026-10-26-beta4-native-01/install.json",
+  "replacementInstall": {
+    "kind": "Beta 6.1.6-beta.4 (110) replacement installation",
+    "replacementInstall": true,
+    "indexedDBFilesPreserved": 135,
+    "verification": "Device SHA-256 file manifests equal before and after replacement install, before launching the app",
+    "applicationDataCleared": false,
+    "apkSHA256": "710d2859a9a0cac4f02fc79979dffaf53e4dea3658c08707b4489748ed9a79ab",
+    "foregroundVerified": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{4616525 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t177}"
+    ],
+    "nativeVisualAcceptance": false,
+    "physicalGoogleAuthorizationAcceptance": false
+  }
+}

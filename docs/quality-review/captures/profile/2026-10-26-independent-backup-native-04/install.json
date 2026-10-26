@@ -1,0 +1,13 @@
+{
+  "kind": "Unreleased independent backup account review",
+  "replacementInstall": true,
+  "indexedDBFilesPreserved": 135,
+  "applicationDataCleared": false,
+  "apkSHA256": "2c9601837fb6ca188681e564e35a3e4aeb7f56cbfd45759cb9a73779323aceba",
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{6ebb564 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t176}"
+  ],
+  "nativeVisualAcceptance": false,
+  "physicalGoogleAuthorizationAcceptance": false
+}

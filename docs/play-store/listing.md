@@ -72,11 +72,11 @@ Disponible en español, inglés y catalán.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-• Distingue la sincronización en la nube de las copias de seguridad ZIP.
-• El aviso de configuración espera a comprobar los ajustes de Drive.
-• Sincronizar ahora evita releer todo el cuaderno si no hay cambios.
-• Corrige el icono que seguía girando y los avisos de espera incorrectos.
-Conserva tu conexión actual.
+• Sincronización en la nube y copias de seguridad en secciones separadas.
+• Copias automáticas en disco local o en una cuenta de Drive independiente, con carpeta por nombre.
+• Última copia, destino y progreso visibles.
+• Guardar ZIP abre el selector de archivos de Android.
+• Las grabaciones se sincronizan con el cuaderno según tu conexión.
 <!-- /field -->
 
 ## English — en-US
@@ -147,11 +147,11 @@ Available in English, Spanish and Catalan.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-• Separates cloud synchronization from ZIP backups.
-• Setup notices wait until Drive settings have been checked.
-• Sync now avoids rereading the whole notebook when unchanged.
-• Fixes the icon continuing to rotate and incorrect waiting messages.
-Keeps your existing connection.
+• Separate cloud synchronization and backup sections.
+• Automatic backups to local disk or an independent Drive account, with a named folder.
+• Visible latest backup, destination and progress.
+• Save ZIP opens the Android file destination picker.
+• Recordings synchronize with the notebook according to your connection settings.
 <!-- /field -->
 
 ## Other listing fields

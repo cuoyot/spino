@@ -178,3 +178,7 @@
 .cp-auto-backup-progress progress { display:block; width:100%; height:8px; accent-color:var(--theme-link,#3066db); }
 .cp-auto-backup-progress small { display:block; margin-top:7px; color:var(--theme-muted); font-size:12px; }
 .cp-auto-backup-error { font-size:13px; color:var(--theme-danger); padding:0 0 16px; margin:0; }
+.cp-backup-account { margin:16px 0; padding:12px 0; }
+#cp-dialog .cp-backup-account h4 { margin:0 0 6px; font-size:14px; }
+#cp-dialog .cp-backup-account p { overflow-wrap:anywhere; }
+#cp-dialog #backup-folder-error { color:var(--theme-danger); }

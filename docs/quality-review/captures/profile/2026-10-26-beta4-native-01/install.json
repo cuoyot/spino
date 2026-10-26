@@ -1,0 +1,14 @@
+{
+  "kind": "Beta 6.1.6-beta.4 (110) replacement installation",
+  "replacementInstall": true,
+  "indexedDBFilesPreserved": 135,
+  "verification": "Device SHA-256 file manifests equal before and after replacement install, before launching the app",
+  "applicationDataCleared": false,
+  "apkSHA256": "710d2859a9a0cac4f02fc79979dffaf53e4dea3658c08707b4489748ed9a79ab",
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{4616525 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t177}"
+  ],
+  "nativeVisualAcceptance": false,
+  "physicalGoogleAuthorizationAcceptance": false
+}

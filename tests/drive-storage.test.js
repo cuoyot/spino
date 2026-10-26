@@ -4,7 +4,7 @@ import {emptyData} from '../src/companion/model.js';
 import {inspectCompleteBackup} from '../src/companion/complete-backup.js';
 import {createIncrementalNotebookAdapter} from '../src/companion/drive-incremental.js';
 function fixture(){
- let revision=1,index=1;const props={storageVersion:'1',storageFolder:'folder',copiesFolder:'copies',mediaFolder:'media',principalId:'device-a',principalName:'Phone A',backupEnabled:'1',backupWifiOnly:'1'};
+ let revision=1,index=1;const props={storageVersion:'1',storageFolder:'folder',copiesFolder:'copies',mediaFolder:'media',principalId:'device-a',principalName:'Phone A',backupEnabled:'1',backupWifiOnly:'1',backupAccount:'archive-account',backupFolder:'copies',backupFolderLabel:'Archives'};
  const files=new Map(),trashed=[];const drive={storageLink:()=>({id:'root',folderId:'objects',notebookId:'book',accountId:'account'}),storageRequest:async(path,o={})=>{const url=new URL('https://example.test'+path);let result;
   if(url.pathname==='/drive/v2/files/root'){if(o.method==='PUT'){if(o.etag!==`"${revision}"`)throw Object.assign(Error('Conflict'),{code:'CONFLICT'});for(const p of JSON.parse(o.text).properties)props[p.key]=p.value;revision++;}result={id:'root',title:'Spino.json',etag:`"${revision}"`,properties:Object.entries(props).map(([key,value])=>({key,value,visibility:'PRIVATE'}))};}
   else if(url.pathname.endsWith('/copies'))result={id:'copies',name:'Archives',mimeType:'application/vnd.google-apps.folder'};
@@ -14,7 +14,8 @@ function fixture(){
   return {status:200,text:JSON.stringify(result)};
  }};
  const book={format:'cuaderno-piano',version:1,data:emptyData(),assets:[],legacy:{}},upload=async({blob,fileId,properties})=>{await inspectCompleteBackup(blob);files.set(fileId,{id:fileId,name:'copy.zip',size:blob.size,appProperties:{...properties,complete:'0'}});};
- const args={drive,deviceId:'device-a',deviceName:'Phone A',snapshot:async()=>JSON.stringify(book),mediaStore:{index:async()=>[]},mediaClient:async()=>({list:async()=>[]}),network:async()=>({online:true,wifi:true}),eligible:()=>true,upload,now:()=>new Date('2026-10-24T12:00:00Z')};
+ const backupDrive={requireAccount:async id=>{assert.equal(id,'archive-account');return {id,email:'backups@example.invalid'};},request:async(id,path,options)=>{assert.equal(id,'archive-account');assert.ok(!path.startsWith('/drive/v2/'),'Archive API must never edit synchronization control');return JSON.parse((await drive.storageRequest(path,options)).text);}};
+ const args={drive,backupDrive,deviceId:'device-a',deviceName:'Phone A',snapshot:async()=>JSON.stringify(book),mediaStore:{index:async()=>[]},mediaClient:async()=>({list:async()=>[]}),network:async()=>({online:true,wifi:true}),eligible:()=>true,upload,now:()=>new Date('2026-10-24T12:00:00Z')};
  return {args,props,files,trashed,book,upload,steal:()=>{props.principalId='device-b';revision++;}};
 }
 test('daily backup writes a verified ZIP and retains the latest seven, without rewriting unchanged days',async()=>{const f=fixture();for(let i=0;i<7;i++)f.files.set('old-'+i,{id:'old-'+i,appProperties:{complete:'1',createdAt:'2026-10-'+(10+i)}});const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'saved',m.state.error);assert.equal(f.props.lastBackupDate,'2026-10-24');assert.deepEqual(f.trashed,['old-0']);await m.daily();assert.equal(m.state.status,'unchanged');assert.equal(f.files.size,8);});
@@ -152,7 +153,7 @@ test('changing local principal clears the other device local pointer and makes a
  const m=createDriveStorage({...f.args,deviceId:'device-b'});await m.claimPrincipal();assert.equal(f.props.lastBackupLocalUri,'');assert.equal(f.props.lastBackupAt,'');
 });
 test('automatic destination selection refuses the notebook folder without moving or renaming it',async()=>{
- const f=organizerFixture();await assert.rejects(f.manager.configureAutomatic({enabled:true,destination:'drive',folderId:'objects'}),/different from the notebook/);
+ const f=organizerFixture();await assert.rejects(f.manager.configureAutomatic({enabled:true,destination:'drive',folderName:'Original',accountId:'archive-account'}),/matches the notebook folder/);
  assert.equal(f.settings().link.name,'Original.json');assert.ok(!f.requests.some(r=>r.method==='PUT'||r.method==='PATCH'));
 });
 test('disabling automatic backups does not require the old destination to be available',async()=>{
@@ -164,7 +165,11 @@ test('local backups can save cached content on cellular without uploading a remo
  f.args.localArchive={save:async(blob)=>{saved++;return {saved:true,bytes:blob.size,uri:'content://local/1'};},commit:async()=>{}};
  const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'saved',m.state.error);assert.equal(saved,1);assert.equal(f.files.size,0);
 });
-test('remote backup destination is separate, keeps existing notebook IDs and forces a new snapshot',async()=>{
- const f=organizerFixture();const folder=await f.manager.createFolder('Archives');await f.manager.configureAutomatic({enabled:true,destination:'drive',folderId:folder.id});
- assert.equal(f.manager.state.config.backupFolder,folder.id);assert.equal(f.manager.state.config.backupDestination,'drive');assert.equal(f.settings().link.id,'descriptor');assert.equal(f.settings().link.folderId,'objects');assert.equal(f.settings().link.name,'Original.json');assert.ok(!f.requests.some(r=>r.method==='PATCH'));
+test('remote backup destination uses an explicitly connected archive account and never changes notebook location',async()=>{
+ const f=fixture();f.args.backupDrive.ensureFolder=async args=>{assert.equal(args.accountId,'archive-account');assert.equal(args.name,'Spino_backup');assert.equal(args.sourceRoot,'root');return {id:'archives-new',name:args.name};};
+ const m=createDriveStorage(f.args);await m.configureAutomatic({enabled:true,destination:'drive',folderName:'Spino_backup',accountId:'archive-account'});
+ assert.equal(m.state.config.backupFolder,'archives-new');assert.equal(m.state.config.backupAccount,'archive-account');assert.equal(m.state.config.backupAccountLabel,'backups@example.invalid');assert.equal(m.link().folderId,'objects');assert.equal(m.state.config.name,'Spino.json');
+});
+test('legacy remote settings without an explicit backup account cannot reuse synchronization credentials',async()=>{
+ const f=fixture();delete f.props.backupAccount;let uploads=0;f.args.upload=async()=>uploads++;const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'error');assert.match(m.state.error,/Connect Google Drive for backups/);assert.equal(uploads,0);assert.equal(f.files.size,0);
 });

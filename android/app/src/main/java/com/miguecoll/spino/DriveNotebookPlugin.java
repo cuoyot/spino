@@ -54,7 +54,12 @@ public class DriveNotebookPlugin extends Plugin {
     }
     private volatile PluginCall pending;
     private ActivityResultLauncher<IntentSenderRequest> authorization;
-    private SharedPreferences preferences(){return getContext().getSharedPreferences("spino-drive-account",0);}
+    protected SharedPreferences preferences(){return getContext().getSharedPreferences("spino-drive-account",0);}
+    protected SharedPreferences preferencesFor(String id){return preferences();}
+    protected boolean alwaysChooseAccount(){return false;}
+    protected boolean acceptsAccountChange(){return false;}
+    protected void rememberAccount(JSObject account)throws IOException{}
+    protected boolean forgetAccounts(){return preferences().edit().clear().commit();}
     @Override public void load(){
         authorization=bridge.registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(),result->{
             PluginCall call=pending;if(call==null)return;
@@ -72,12 +77,14 @@ public class DriveNotebookPlugin extends Plugin {
         pending=null;
         call.reject(DriveAuthorizationDiagnostic.message(stage,activityResult,error,getContext().getPackageName()),"AUTHORIZATION");
     }
-    private JSObject account(){return new JSObject().put("id",preferences().getString("id","")).put("email",preferences().getString("email","")).put("name",preferences().getString("name",""));}
-    @PluginMethod public void status(PluginCall call){call.resolve(new JSObject().put("account",account()));}
-    private AuthorizationRequest authorizationRequest(boolean interactive){
+    private JSObject account(SharedPreferences prefs){return new JSObject().put("id",prefs.getString("id","")).put("email",prefs.getString("email","")).put("name",prefs.getString("name",""));}
+    @PluginMethod public void status(PluginCall call){String id=call.getString("accountId","");call.resolve(new JSObject().put("account",account(id.isEmpty()?preferences():preferencesFor(id))));}
+    private AuthorizationRequest authorizationRequest(boolean interactive){return authorizationRequest(interactive,preferences());}
+    protected AuthorizationRequest authorizationRequest(boolean interactive,SharedPreferences selected){
         AuthorizationRequest.Builder request=AuthorizationRequest.builder().setRequestedScopes(Collections.singletonList(new Scope(SCOPE)));
-        String email=preferences().getString("email","");
-        if(!email.isEmpty())request.setAccount(new Account(email,"com.google"));
+        String email=selected.getString("email","");
+        if(interactive&&alwaysChooseAccount())request.setPrompt(AuthorizationRequest.Prompt.SELECT_ACCOUNT);
+        else if(!email.isEmpty())request.setAccount(new Account(email,"com.google"));
         else if(interactive)request.setPrompt(AuthorizationRequest.Prompt.SELECT_ACCOUNT);
         return request.build();
     }
@@ -96,9 +103,10 @@ public class DriveNotebookPlugin extends Plugin {
             if(response.getInteger("status",0)!=200)throw new IOException();
             JSONObject user=new JSONObject(response.getString("text")).getJSONObject("user");
             String id=user.getString("permissionId"),previous=preferences().getString("id","");
-            if(!previous.isEmpty()&&!previous.equals(id)){call.reject("Reconnect the same Google account. Disconnect before changing accounts.","ACCOUNT_MISMATCH");return;}
+            if(!acceptsAccountChange()&&!previous.isEmpty()&&!previous.equals(id)){call.reject("Reconnect the same Google account. Disconnect before changing accounts.","ACCOUNT_MISMATCH");return;}
+            rememberAccount(new JSObject().put("id",id).put("email",user.getString("emailAddress")).put("name",user.optString("displayName")));
             if(!preferences().edit().putString("id",id).putString("email",user.getString("emailAddress")).putString("name",user.optString("displayName")).commit())throw new IOException();
-            call.resolve(account());
+            call.resolve(account(preferences()));
         }catch(Exception error){call.reject("Could not identify your Google Drive account. Try connecting again.","CONNECTION");}finally{pending=null;}});
     }
     static boolean validPath(String path){
@@ -130,7 +138,8 @@ public class DriveNotebookPlugin extends Plugin {
         String path=call.getString("path"),method=call.getString("method","GET"),contentType=call.getString("contentType");
         if(!validContentType(contentType)){call.reject("Invalid notebook request content type.","INVALID_REQUEST");return;}
         if(!validPath(path)||!method.matches("GET|POST|PATCH|PUT")){call.reject("Invalid Google Drive request.","INVALID_REQUEST");return;}
-        String accountId=preferences().getString("id","");
+        SharedPreferences selected=preferencesFor(call.getString("accountId",""));
+        String accountId=selected.getString("id","");
         if(accountId.isEmpty()||!accountId.equals(call.getString("accountId"))){call.reject("Reconnect the same Google Drive account.","PERMISSION_REQUIRED");return;}
         String requestId=call.getString("requestId",UUID.randomUUID().toString());
         if(!requestId.matches("[a-zA-Z0-9_-]{1,100}")){call.reject("Invalid Drive request identity.","INVALID_REQUEST");return;}
@@ -139,13 +148,13 @@ public class DriveNotebookPlugin extends Plugin {
         request.totalDeadline=deadlines.schedule(()->request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR"),50,TimeUnit.SECONDS);
         request.authDeadline=deadlines.schedule(()->request.fail("Google Drive did not respond in time. Pending changes are kept. Retry synchronization.","PROVIDER_ERROR"),20,TimeUnit.SECONDS);
         // Silent renewal never launches consent from an automatic sync timer.
-        getActivity().runOnUiThread(()->{if(request.finished.get())return;Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(false))
+        getActivity().runOnUiThread(()->{if(request.finished.get())return;Identity.getAuthorizationClient(getActivity()).authorize(authorizationRequest(false,selected))
             .addOnSuccessListener(result->{
                 if(request.finished.get())return;
                 if(result.hasResolution()||!DriveMediaPlugin.hasDrivePermission(result)){request.fail("Reconnect Google Drive to renew permission. Your notebook is saved locally.","PERMISSION_REQUIRED");return;}
                 final String token=result.getAccessToken();
                 if(token==null||token.isEmpty()){request.fail("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED");return;}
-                if(!accountId.equals(preferences().getString("id",""))){request.fail("Reconnect the same Google Drive account.","ACCOUNT_MISMATCH");return;}
+                if(!accountId.equals(preferencesFor(accountId).getString("id",""))){request.fail("Reconnect the same Google Drive account.","ACCOUNT_MISMATCH");return;}
                 transfer(request,path,method,token,contentType,accountId);
             }).addOnFailureListener(error->request.fail("Reconnect Google Drive. Your notebook is saved locally.","PERMISSION_REQUIRED"));});
     }
@@ -154,7 +163,7 @@ public class DriveNotebookPlugin extends Plugin {
         if(request.finished.get())return;
         request.work=worker.submit(()->{try{
             if(request.finished.get())return;
-            if(!accountId.equals(preferences().getString("id","")))throw new IOException();
+            if(!accountId.equals(preferencesFor(accountId).getString("id","")))throw new IOException();
             request.resolve(fetch(path,method,token,request.call.getString("text"),request.call.getString("etag"),contentType,request));
         }catch(java.net.SocketTimeoutException error){request.fail("The Drive notebook transfer timed out. Pending changes are kept for retry.","PROVIDER_ERROR");}
         catch(java.net.UnknownHostException error){request.fail("The Drive server could not be reached. Check the connection and retry.","PROVIDER_ERROR");}
@@ -168,7 +177,7 @@ public class DriveNotebookPlugin extends Plugin {
     }
     @PluginMethod public void disconnect(PluginCall call){
         if(pending!=null){call.reject("Wait for the Google connection to finish.","BUSY");return;}
-        worker.execute(()->{if(preferences().edit().clear().commit())call.resolve();else call.reject("Could not disconnect Google Drive.");});
+        worker.execute(()->{if(forgetAccounts())call.resolve();else call.reject("Could not disconnect Google Drive.");});
     }
     @Override protected void handleOnDestroy(){for(Request request:requests.values())request.fail("Synchronization paused. Pending changes are kept.","CANCELLED");deadlines.shutdownNow();worker.shutdownNow();}
 }

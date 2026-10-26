@@ -1,0 +1,35 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {openBrowser} from './browser.js';
+import {connectedDriveBootstrap} from '../scripts/review/drive-connected-fixture.mjs';
+import {backupAccountBootstrap} from '../scripts/review/backup-account-fixture.mjs';
+
+test('backup Drive selects its own account and validates a typed folder name without modifying notebook connection',{timeout:60000},async t=>{
+ const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:await connectedDriveBootstrap({language:'es'})+backupAccountBootstrap({interactive:true})});await send('Page.navigate',{url});
+ const wait=condition=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${condition}){clearInterval(timer);resolve();}else if(++n>900){clearInterval(timer);reject(Error('Backup account review timeout: '+${JSON.stringify(condition)}));}},20);})`);
+ const click=action=>evaluate(`document.querySelector('[data-action="${action}"]').click()`);
+ await wait(`document.querySelector('.cp-today')`);await click('settings');await click('profile-backup');await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);await evaluate(`document.querySelector('[data-drive-picker]').requestSubmit()`);await wait(`document.querySelector('[data-open-remote]')||document.querySelector('#cloud-backup[data-cloud-status=saved]')`);await evaluate(`document.querySelector('[data-open-remote]')?.closest('form').requestSubmit()`);await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);
+ const identity=await evaluate(`(()=>{const f=[...__driveFixture.files.values()].find(f=>f.appProperties?.spinoType==='spino-notebook-v2');return {id:f.id,name:f.name,parents:f.parents};})()`);
+ await click('storage-manage');await wait(`document.querySelector('[data-backup-settings]')`);assert.equal(await evaluate(`!!document.querySelector('[name=folder]')`),false);
+ await evaluate(`const select=document.querySelector('[name=destination]');select.value='drive';select.dispatchEvent(new Event('change',{bubbles:true}));`);await wait(`document.querySelector('[data-review-backup-account]')`);
+ assert.equal(await evaluate(`__backupReview.connections`),1);await evaluate(`const picker=document.querySelector('[data-review-backup-account]');picker.querySelector('select').value='synthetic-archive-owner';picker.querySelector('form').requestSubmit()`);
+ await wait(`document.querySelector('[data-backup-settings]')?.textContent.includes('backups@example.invalid')&&!document.querySelector('[data-review-backup-account]')`);
+ assert.equal(await evaluate(`document.querySelector('[name=backupFolderName]').value`),'SPino notebook_backup');
+ const dir=process.env.BACKUP_ACCOUNT_EVIDENCE;
+ const capture=async state=>{if(!dir)return;await mkdir(dir,{recursive:true});for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});assert.equal(await evaluate(`document.querySelector('#cp-dialog').scrollWidth<=document.querySelector('#cp-dialog').clientWidth`),true);const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${dir}/${state}-${width}x${height}.png`,Buffer.from(shot.data,'base64'));}};
+ await capture('separate-account');
+ await evaluate(`const input=document.querySelector('[name=backupFolderName]');input.value='  SPino notebook ';document.querySelector('[name=enabled]').checked=true;document.querySelector('[name=enabled]').dispatchEvent(new Event('change',{bubbles:true}));input.dispatchEvent(new Event('input',{bubbles:true}));`);
+ assert.equal(await evaluate(`document.querySelector('[name=backupFolderName]').checkValidity()`),false);assert.match(await evaluate(`document.querySelector('#backup-folder-error').textContent`),/coincide.*SPino notebook_backup/);assert.equal(await evaluate(`Object.keys(__backupReview.state.files).length`),0);await capture('folder-collision');await evaluate(`document.querySelector('[data-backup-settings]').requestSubmit()`);assert.equal(await evaluate(`Object.keys(__backupReview.state.files).length`),0);
+ await click('storage-folder-suggestion');assert.equal(await evaluate(`document.querySelector('[name=backupFolderName]').checkValidity()`),true);assert.equal(await evaluate(`document.querySelector('[name=backupFolderName]').value`),'SPino notebook_backup');
+ await evaluate(`document.querySelector('[name=enabled]').checked=true;document.querySelector('[data-backup-settings]').requestSubmit()`);await wait(`!document.querySelector('#cp-dialog').open`);
+ const folder=await evaluate(`Object.values(__backupReview.state.files)[0]`);assert.equal(folder.name,'SPino notebook_backup');assert.equal(folder.owner,'synthetic-archive-owner');assert.deepEqual(folder.parents,['root']);
+ assert.deepEqual(await evaluate(`(()=>{const f=__driveFixture.files.get(${JSON.stringify(identity.id)});return {id:f.id,name:f.name,parents:f.parents};})()`),identity);
+ const props=await evaluate(`__driveFixture.files.get(${JSON.stringify(identity.id)}).appProperties`);assert.equal(props.backupAccount,'synthetic-archive-owner');assert.equal(props.backupAccountLabel,'backups@example.invalid');assert.equal(props.backupFolder,folder.id);
+ assert.ok(await evaluate(`__backupReview.requests.every(r=>r.accountId==='synthetic-archive-owner')`));
+ await click('storage-manage');await wait(`document.querySelector('[data-backup-settings]')`);assert.match(await evaluate(`document.querySelector('[data-backup-settings]').textContent`),/backups@example.invalid/);
+ await click('storage-backup-connect');await wait(`document.querySelector('[data-review-backup-account]')`);await evaluate(`document.querySelector('[data-review-backup-account] [data-cancel]').click()`);await wait(`!document.querySelector('[data-review-backup-account]')`);assert.equal(await evaluate(`__driveFixture.files.get(${JSON.stringify(identity.id)}).appProperties.backupAccount`),'synthetic-archive-owner');
+ assert.deepEqual(errors,[]);
+ if(dir)await writeFile(`${dir}/verification.json`,JSON.stringify({kind:'Responsive browser; disposable separate account provider',physicalGoogleAuthorizationAcceptance:false,separateAccountPrompt:true,typedFolderName:true,nameCollisionBlockedBeforeWrites:true,suggestedSuffix:'_backup',sameNotebookIdentity:true,cancelKeepsConfiguredAccount:true,layouts:4},null,2)+'\n');
+});
