@@ -20,12 +20,12 @@ export async function createCompleteBackup({text,records,load,onProgress=()=>{}}
   const record=await load(row);if(!(record?.blob instanceof Blob)||!record.blob.size)throw Error('Some recordings are unavailable. The complete backup was not created.');
   total+=record.blob.size;if(total>LIMIT)throw Error('The complete backup exceeds the 250 MB beta limit. No incomplete copy has been saved.');
   const sha256=await mediaHash(record.blob);if(row.cloud?.sha256&&sha256!==row.cloud.sha256)throw Error('A recording failed verification.');
-  const path='media/'+row.id;files[path]=new Uint8Array(await record.blob.arrayBuffer());
+  const path='media/'+row.id;files[path]=[new Uint8Array(await record.blob.arrayBuffer()),{level:0}];
   const {blob,installation,cloud,remoteOnly,...meta}=row;
   manifest.recordings.push({...meta,path,mimeType:record.blob.type,bytes:record.blob.size,sha256});onProgress(++done,records.length);
  }
  files['manifest.json']=strToU8(JSON.stringify(manifest));
- const blob=new Blob([zipSync(files,{level:0})],{type:'application/zip'});
+ const blob=new Blob([zipSync(files,{level:6})],{type:'application/zip'});
  await inspectCompleteBackup(blob);return blob;
 }
 export async function inspectCompleteBackup(blob){
@@ -45,3 +45,8 @@ export function dailyBackupDecision({enabled,principalId,deviceId,lastDate,lastH
  if(!enabled)return 'disabled';if(principalId!==deviceId)return 'secondary';if(lastHash===hash)return 'unchanged';if(lastDate===date)return 'today';return 'due';
 }
 export const retainedBackups=files=>[...files].filter(f=>f.appProperties?.complete==='1').sort((a,b)=>(b.appProperties.createdAt||'').localeCompare(a.appProperties.createdAt||'')||b.id.localeCompare(a.id)).slice(7);
+
+export function backupArchiveName(name,date=new Date()) {
+ const title=String(name||'SPino').replace(/\.json$/i,'').replace(/[\\/:*?"<>|\u0000-\u001f]/g,'-').replace(/[. ]+$/,'').trim().slice(0,110)||'SPino';
+ return title+'_'+date.toISOString().replace(/[:.]/g,'-')+'.zip';
+}

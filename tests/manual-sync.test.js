@@ -8,7 +8,7 @@ import {driveSyncMarkup} from '../src/companion/drive-sync-view.js';
 import {syntheticNotebookDrive} from './fixtures/drive/notebook-server.js';
 import {cloudRecoveryFixture} from '../scripts/review/cloud-recovery-fixture.mjs';
 
-async function connected(t) {
+async function connected(t,options={}) {
   const server=syntheticNotebookDrive(),entries=new Map(),reads=[];
   let settings={},cloudSettings={},local=cloudRecoveryFixture('en'),base=null,snapshots=0,applyAllowed=true;
   const adapter=createIncrementalNotebookAdapter({native:server.native(),fastReads:true,
@@ -16,7 +16,7 @@ async function connected(t) {
     journal:{get:async key=>structuredClone(entries.get(key)),set:async(key,value)=>entries.set(key,structuredClone(value))}});
   const originalRead=adapter.readLinked;
   adapter.readLinked=async options=>{reads.push(options);return originalRead(options);};
-  const cloud=createNotebookCloud({adapter,delay:1000000,
+  const cloud=createNotebookCloud({adapter,delay:1000000,synchronized:options.synchronized,
     settings:{read:()=>cloudSettings,save:value=>{cloudSettings=structuredClone(value);}},
     snapshot:async()=>{snapshots++;return JSON.stringify(local);},eligible:()=>true,canApply:()=>applyAllowed,
     readBase:async()=>base,saveBase:async value=>{base=structuredClone(value);},
@@ -96,4 +96,18 @@ test('waiting copy names the actual blocker and does not invent a practice when 
   for(const [waitReason,text] of [['practice','Termina y guarda la práctica pendiente'],['editor','Termina de editar'],['dialog','Cierra el diálogo abierto'],['score','Cierra la partitura']]){
     assert.ok(driveSyncMarkup({...state,waitReason},{lang:'es',driveAvailable:true}).includes(text));
   }
+});
+
+
+test('the successful notebook hook runs after it is idle on connection and unchanged manual and automatic checks',async t=>{
+ let cloud,calls=0;const f=await connected(t,{synchronized:()=>{calls++;if(cloud){assert.equal(cloud.busy,false);assert.equal(cloud.state.status,'saved');}}});cloud=f.cloud;const initial=calls;assert.ok(initial>=1);
+ await cloud.sync();assert.equal(calls,initial+1);await cloud.resumeChecks();assert.equal(calls,initial+2);
+ f.server.revoked=true;await cloud.sync();assert.equal(calls,initial+2,'Failed notebook checks cannot start media transfers');
+});
+
+test('the first successful notebook check wakes media immediately after an ineligible pass',async t=>{
+ let allowed=false,connections=0,done;const completed=new Promise(resolve=>done=resolve);
+ const media=createMediaSync({store:{index:async()=>[]},getContext:()=>({accountId:'owner',notebookId:'book',works:[],wifiOnly:true}),eligible:()=>allowed,connection:async()=>{connections++;return {list:async()=>[]};},delay:1000000,changed:()=>{if(media.state.status==='saved')done();}});
+ t.after(()=>media.stop());await media.sync();assert.equal(connections,0);
+ allowed=true;media.afterNotebookSync();await Promise.race([completed,new Promise((_,reject)=>setTimeout(()=>reject(Error('Missed first notebook follow-up')),1000).unref())]);assert.equal(connections,1);assert.equal(media.state.status,'saved');
 });

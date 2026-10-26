@@ -2045,5 +2045,21 @@
   "Open Cloud synchronization": "Felhőszinkronizálás megnyitása",
   "Connect cloud synchronization": "Felhőszinkronizálás csatlakoztatása",
   "Cloud synchronization keeps the same notebook on your devices. Connect the same Google account and open the existing notebook.": "A felhőszinkronizálás ugyanazt a füzetet tartja elérhetően az eszközeiden. Csatlakoztasd ugyanazt a Google-fiókot, és nyisd meg a meglévő füzetet.",
-  "Start cloud synchronization for this notebook. Existing files are kept.": "Felhőszinkronizálás indítása ehhez a füzethez. A meglévő fájlok megmaradnak."
+  "Start cloud synchronization for this notebook. Existing files are kept.": "Felhőszinkronizálás indítása ehhez a füzethez. A meglévő fájlok megmaradnak.",
+  "Sync & backups": "Szinkronizálás és mentések",
+  "Automatic backups": "Automatikus biztonsági mentések",
+  "Backup saved.": "Biztonsági mentés mentve.",
+  "Could not open the file save dialog.": "A fájlmentési párbeszédablak nem nyitható meg.",
+  "Could not save the file. Choose a destination and try again.": "A fájl nem menthető. Válassz mentési helyet, és próbáld újra.",
+  "The file is not ready to save.": "A fájl még nem áll készen a mentésre.",
+  "You can close this window and return from Sync & backups to see progress.": "Bezárhatod ezt az ablakot. A folyamatot a Szinkronizálás és mentések oldalon követheted.",
+  "The ZIP could not be saved. Review Sync & backups.": "A ZIP nem menthető. Nézd meg a Szinkronizálás és mentések oldalt.",
+  "Your ZIP is ready. Choose where to save it in Sync & backups.": "A ZIP elkészült. Válassz mentési helyet a Szinkronizálás és mentések oldalon.",
+  "The copy could not be prepared. Review Sync & backups.": "A biztonsági mentés nem készíthető el. Nézd meg a Szinkronizálás és mentések oldalt.",
+  "Working locally. Resume synchronization from Sync & backups.": "Helyben dolgozol. A szinkronizálás a Szinkronizálás és mentések oldalon folytatható.",
+  "Disconnect the current notebook in Sync & backups before connecting another one.": "Másik füzet csatlakoztatása előtt válaszd le a jelenlegi füzetet a Szinkronizálás és mentések oldalon.",
+  "Open Sync & backups": "Szinkronizálás és mentések megnyitása",
+  "Practice history, scores and annotations. Does not include multimedia files.": "Gyakorlási előzmények, kották és jegyzetek. Multimédiás fájlokat nem tartalmaz.",
+  "Import notebook (JSON)": "Füzet importálása (JSON)",
+  "Open an exported JSON notebook. Does not include multimedia files.": "Exportált JSON-füzet megnyitása. Multimédiás fájlokat nem tartalmaz."
 }

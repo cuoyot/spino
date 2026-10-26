@@ -1,3 +1,4 @@
+import {automaticBackupCopy} from './automatic-backup-copy.js';
 import { extraCopy } from './locale-extra.js';
 import { MESSAGE_PAIRS, MESSAGE_PATTERNS } from './locale-messages.js';
 import { catalan, catalanCopy } from './locale-ca.js';
@@ -18,6 +19,9 @@ export function setAppLanguage(value) {
 // Translate known operational errors at presentation time, including persisted jobs.
 // Unknown source diagnostics and musical/user content are never rewritten.
 const messages = [
+  ['Could not open the file save dialog.', 'No se ha podido abrir el diálogo para guardar el archivo.'],
+  ['Could not save the file. Choose a destination and try again.', 'No se ha podido guardar el archivo. Elige un destino y vuelve a intentarlo.'],
+  ['The file is not ready to save.', 'El archivo todavía no está preparado para guardar.'],
   ['The connected notebook changed. Try again.', 'El cuaderno conectado ha cambiado. Reinténtalo.'],
   ['The PDF must be smaller than 20 MB.', 'El PDF debe ocupar menos de 20 MB.'],
   ['This file is not a valid PDF.', 'El archivo no es un PDF válido.'],
@@ -34,6 +38,8 @@ const messages = [
 ];
 export function localizeMessage(message, locale = language) {
   const value = String(message ?? '');
+  const automaticErrors={'Choose a backup folder different from the notebook folder.':'sameFolder','Automatic local backups are available in the Android app.':'localUnavailable','Could not save the automatic backup on this device.':'saveLocalError'};
+  if(automaticErrors[value])return automaticBackupCopy(locale)[automaticErrors[value]];
   const known = messages.find(pair => pair.includes(value));
   if (known) return localize(known[0], known[1], locale);
   for (const { pattern, translate } of MESSAGE_PATTERNS) {

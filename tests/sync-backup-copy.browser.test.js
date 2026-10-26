@@ -14,7 +14,7 @@ test('configured cloud synchronization never flashes unfinished backup setup dur
     if(sessionStorage.getItem('hold-storage-read')){window.__settingsReadEntered=true;await new Promise(resolve=>window.__releaseSettings=resolve);}
     const result=await native(plugin,method,args),file=JSON.parse(result.text);
     const folder=[...__driveFixture.files.values()].find(f=>f.mimeType==='application/vnd.google-apps.folder');
-    file.properties=[...(file.properties||[]),...Object.entries({storageVersion:'1',storageFolder:folder.id,principalId:'synthetic-phone'}).map(([key,value])=>({key,value,visibility:'PRIVATE'}))];
+    file.properties=[...(file.properties||[]),...Object.entries({storageVersion:'1',storageFolder:folder.id,principalId:'synthetic-phone',principalName:'Tableta de ensayo'}).map(([key,value])=>({key,value,visibility:'PRIVATE'}))];
     return {...result,text:JSON.stringify(file)};
    }
    return native(plugin,method,args);
@@ -41,13 +41,20 @@ test('configured cloud synchronization never flashes unfinished backup setup dur
  await evaluate(`new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))`);
  assert.deepEqual(await evaluate(`__setupFlashes`),[]);
  const text=await evaluate(`document.querySelector('[data-view=profile-backup]').textContent`);
- assert.match(text,/Sincronización en la nube/);assert.match(text,/Sincronización de grabaciones/);assert.match(text,/Copias de seguridad/);assert.match(text,/ZIP comprimidos/);assert.doesNotMatch(text,/Copias de audio|Configura tus copias|Copia y sincronización/);
+ assert.match(text,/Sincronización en la nube/);assert.match(text,/Sincronización multimedia/);assert.match(text,/Copias de seguridad/);assert.match(text,/Copias de seguridad automáticas/);assert.doesNotMatch(text,/Sincronizar grabaciones ahora/);assert.doesNotMatch(text,/Copias de audio|Configura tus copias|Copia y sincronización/);
+ const structure=await evaluate(`({headings:[...document.querySelectorAll('.cp-sync-backups>section>h2,.cp-sync-backups>section>.cp-notebook-sync .cp-cloud-heading h2')].map(x=>x.textContent),mediaInsideCloud:!!document.querySelector('#cloud-backup #cloud-media'),backupActions:[...document.querySelectorAll('#backup-archives [data-action]')].map(x=>x.dataset.action),pageTitle:document.querySelector('.cp-header-title').textContent})`);
+ assert.deepEqual(structure.headings,['Sincronización en la nube','Copias de seguridad']);assert.equal(structure.mediaInsideCloud,true);for(const action of ['storage-export','storage-import','storage-manage'])assert.ok(structure.backupActions.includes(action));assert.match(structure.pageTitle,/Sincronización y copias/);
  const dir=process.env.SYNC_COPY_EVIDENCE;
  if(dir){await mkdir(dir,{recursive:true});for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
   assert.equal(await evaluate(`document.documentElement.scrollWidth<=innerWidth`),true);
   const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${dir}/synchronization-${width}x${height}.png`,Buffer.from(shot.data,'base64'));
+  await evaluate(`document.querySelector('#backup-archives').scrollIntoView({block:'start'})`);const backupShot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${dir}/backups-${width}x${height}.png`,Buffer.from(backupShot.data,'base64'));await click('storage-manage');await wait(`document.querySelector('[data-backup-settings]')`);
+  assert.equal(await evaluate(`!!document.querySelector('#cp-dialog [data-action=storage-export],#cp-dialog [data-action=storage-import],#cp-dialog [data-action=storage-copies]')`),false);
+  assert.equal(await evaluate(`document.querySelector('#cp-dialog').scrollWidth<=document.querySelector('#cp-dialog').clientWidth`),true);
+  const settingsShot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${dir}/automatic-settings-${width}x${height}.png`,Buffer.from(settingsShot.data,'base64'));
+  await evaluate(`document.querySelector('[data-action=close-dialog]').click()`);await evaluate(`document.querySelector('.cp-page').scrollTo(0,0)`);
  }
- await writeFile(`${dir}/verification.json`,JSON.stringify({kind:'Responsive browser; disposable synthetic Drive notebook',nativeAcceptance:false,delayedSettingsRead:true,setupFlashes:[],separateCloudAndZIPCopy:true,layouts:4},null,2)+'\n');}
+ await writeFile(`${dir}/verification.json`,JSON.stringify({kind:'Responsive browser; disposable synthetic Drive notebook',nativeAcceptance:false,delayedSettingsRead:true,setupFlashes:[],separateCloudAndZIPCopy:true,structure,layouts:4},null,2)+'\n');}
  assert.deepEqual(errors,[]);
 });

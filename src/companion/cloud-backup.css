@@ -120,3 +120,61 @@
 #cp-dialog .cp-drive-manage-disconnect p { margin:0; font-size:12px; color:var(--theme-muted); line-height:1.5; }
 
 .cp-drive-location p{margin:.5rem 0;overflow-wrap:anywhere}.cp-drive-location code{font-size:.9em;overflow-wrap:anywhere}
+
+/* The page has two functional groups; multimedia remains inside cloud synchronization. */
+.cp-sync-section > .cp-cloud-media { margin-top:24px; padding-top:24px; border-top:1px solid var(--theme-line); }
+.cp-sync-section > .cp-cloud-media h3 { margin:0 0 12px; font-size:18px; line-height:1.35; }
+.cp-backups-card { margin-top:24px; }
+.cp-backup-automatic { margin-top:20px; padding-top:20px; border-top:1px solid var(--theme-line); }
+.cp-backup-onboarding h3 { margin:0 0 12px; }
+.cp-zip-export-status { margin:16px 0; padding:16px; border:1px solid var(--theme-line); border-radius:12px; background:var(--theme-tint); }
+.cp-zip-export-status h3 { margin:0 0 8px; font-size:16px; }
+.cp-backups-card .cp-actions { align-items:stretch; }
+
+.cp-backup-intro { margin:8px 0 20px; line-height:1.5; font-size:14px; }
+.cp-backup-actions { border-top:1px solid var(--theme-line); }
+#app-shell .cp-backup-action { display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%; padding:18px 0; min-height:78px; text-align:start; border:0; border-radius:0; box-shadow:none; background:transparent; color:var(--theme-text); }
+#app-shell .cp-backup-action + .cp-backup-action { border-top:1px solid var(--theme-line); }
+.cp-backup-action > span:first-child { min-width:0; }
+.cp-backup-action strong,.cp-backup-action small { display:block; }
+.cp-backup-action strong { font-size:16px; line-height:1.4; }
+.cp-backup-action small { color:var(--theme-muted); font-size:13px; line-height:1.5; margin-top:4px; font-weight:400; }
+.cp-backup-action > span:last-child { font-size:26px; color:var(--theme-muted); }
+#cp-dialog .cp-auto-backup-settings { display:grid; gap:0; }
+#cp-dialog .cp-backup-enable { display:flex; flex-direction:row; align-items:flex-start; gap:12px; margin:0; padding:18px 0; }
+#cp-dialog .cp-backup-enable input { width:20px; height:20px; flex:none; margin:2px 0 0; }
+.cp-backup-enable strong,.cp-backup-enable small { display:block; line-height:1.5; }
+.cp-backup-enable small { font-size:13px; color:var(--theme-muted); margin-top:5px; }
+.cp-backup-setting { padding:18px 0; border-top:1px solid var(--theme-line); }
+#cp-dialog .cp-backup-setting h3 { border:0; padding:0; margin:0 0 8px; font-size:14px; font-weight:600; color:var(--theme-muted); }
+#cp-dialog .cp-backup-setting p { margin:6px 0; font-size:14px; line-height:1.5; }
+#cp-dialog .cp-backup-setting .muted { font-size:13px; }
+#cp-dialog .cp-backup-setting .cp-backup-setting-value { font-size:16px; font-weight:600; }
+.cp-backup-setting button { margin-top:8px; }
+.cp-backup-example { overflow-wrap:anywhere; }
+.cp-backup-last { margin:0; padding:18px 0; border-top:1px solid var(--theme-line); }
+.cp-backup-last dt { font-size:13px; color:var(--theme-muted); }
+.cp-backup-last dd { margin:6px 0 0; font-size:14px; }
+.cp-backup-settings-footer { padding-top:16px; border-top:1px solid var(--theme-line); }
+#cp-dialog .cp-backup-settings-footer .cp-actions { margin:0; }
+#cp-dialog .cp-backup-enable { align-items:center; padding:14px 0; }
+#cp-dialog .cp-backup-enable > span { flex:1; min-width:0; }
+#cp-dialog .cp-backup-enable strong { color:var(--theme-text); font-size:15px; }
+#cp-dialog .cp-backup-enable input { appearance:none; order:2; width:42px; min-width:42px; height:24px; min-height:24px; padding:0; border:0; border-radius:14px; background:#9299a5; position:relative; }
+#cp-dialog .cp-backup-enable input::after { content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:white; transition:transform .15s; }
+#cp-dialog .cp-backup-enable input:checked { background:var(--theme-link,#3066db); }
+#cp-dialog .cp-backup-enable input:checked::after { transform:translateX(18px); }
+#cp-dialog .cp-backup-setting { padding:14px 0; }
+#cp-dialog .cp-backup-setting .cp-backup-file-label { font-size:12px; margin-top:16px; color:var(--theme-muted); }
+#cp-dialog .cp-backup-setting .cp-backup-example { font-size:13px; }
+#cp-dialog .cp-backup-last { font-size:12px; padding:12px 0; margin:0; }
+@media(prefers-reduced-motion:reduce){#cp-dialog .cp-backup-enable input::after { transition:none; }}
+#cp-dialog .cp-backup-setting { display:block; }
+.cp-backup-action small { white-space:pre-line; overflow-wrap:anywhere; }
+#automatic-backup-status { border-top:1px solid var(--theme-line); }
+.cp-auto-backup-progress { padding:0 0 18px; }
+.cp-backup-phases { display:flex; flex-wrap:wrap; gap:8px 24px; margin-bottom:10px; color:var(--theme-muted); font-size:13px; }
+.cp-backup-phases [data-current] { color:var(--theme-text); font-weight:600; }
+.cp-auto-backup-progress progress { display:block; width:100%; height:8px; accent-color:var(--theme-link,#3066db); }
+.cp-auto-backup-progress small { display:block; margin-top:7px; color:var(--theme-muted); font-size:12px; }
+.cp-auto-backup-error { font-size:13px; color:var(--theme-danger); padding:0 0 16px; margin:0; }

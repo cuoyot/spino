@@ -1,65 +1,41 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createStorageUI} from '../src/companion/storage-ui.js';
-function fixture(options={}){
- const values=new Map([['spino.storage.review.v1','shown']]),calls=[],dialog={open:false,contains:n=>n===dialog.lastElementChild};let screen;
+function fixture(config={}){
+ const calls=[],dialog={open:false,contains:n=>n===dialog.lastElementChild,querySelector:()=>null};let screen;
  const showDialog=(title,body,accept)=>{dialog.open=true;dialog.lastElementChild={querySelector:()=>({textContent:''})};screen={title,body,accept};};dialog.close=()=>dialog.open=false;
- const state={loaded:true,config:{name:'Existing.json'},status:'idle'},manager={state,refresh:async()=>{},folders:async()=>[{id:'folder',name:'My folder'}],link:()=>({folderId:'folder'}),folderName:async()=> 'My folder',organize:async options=>{calls.push(options);Object.assign(state.config,{...options,storageVersion:'1',storageFolder:options.folderId,principalId:'phone'});},daily:async options=>{calls.push(options);state.status='wifi';}};
- const ui=createStorageUI({manager,showDialog,dialog,formEnd:()=>'<button>Save</button>',cloud:{state:{transport:'drive',name:'Existing.json',notebookId:'book'}},deviceName:'Phone',refresh:async()=>{},...options,storage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)}});
- return {ui,manager,dialog,calls,values,screen:()=>screen};
+ const state={loaded:true,deviceId:'phone',config:{name:'Original musical title.json',...config}},manager={state,refresh:async()=>{},link:()=>({folderId:'notebook'}),folders:async()=>[{id:'notebook',name:'Notebook'},{id:'container',name:'Notebook folder'},{id:'archives',name:'Archives'}],folderName:async()=> 'Archives',configureAutomatic:async options=>calls.push(options),claimPrincipal:async()=>{calls.push('claim');state.config.principalId='phone';}};
+ const ui=createStorageUI({manager,showDialog,dialog,formEnd:label=>`<div class="cp-actions"><button data-action="close-dialog">Cancel</button><button type="submit">${label}</button></div>`,toast:message=>calls.push(message),cloud:{state:{transport:'drive',name:'Original musical title.json',notebookId:'book'}},deviceName:'Phone'});
+ return {ui,manager,dialog,calls,screen:()=>screen};
 }
-test('old dismissed notice cannot hide unfinished setup; entry stays visible after Later',async()=>{
- const f=fixture();await f.ui.notify();assert.ok(f.screen());assert.equal(f.ui.pending,true);f.ui.actions['storage-review-later']();assert.equal(f.dialog.open,false);assert.match(f.ui.entryMarkup(),/storage-setup/);assert.notEqual(f.values.get('spino.storage.review.v1'),'done');
+test('optional automatic settings open directly with local destination off by default and no manual archive actions',async()=>{
+ const f=fixture();await f.ui.overview();assert.match(f.screen().body,/data-backup-settings/);assert.match(f.screen().body,/value="local" selected/);assert.doesNotMatch(f.screen().body,/name="enabled" checked/);
+ assert.doesNotMatch(f.screen().body,/data-action="storage-(export|import|copies|problem)"|<label>Notebook name|Step 1/);assert.match(f.screen().body,/Original musical title_\d{4}-\d{2}-\d{2}\.zip/);assert.deepEqual(f.calls,[]);
+ await f.screen().accept(new Map([['enabled','on'],['destination','local']]));assert.deepEqual(f.calls[0],{enabled:true,destination:'local',folderId:'',wifiOnly:true});assert.equal(f.dialog.open,false);
 });
-test('guided setup writes only after final confirmation and reports first copy still pending',async()=>{
- const f=fixture();await f.ui.actions['storage-setup']();assert.match(f.screen().body,/data-storage-step="location"/);assert.equal(f.calls.length,0);
- await f.screen().accept(new Map([['name','My practice']]));assert.match(f.screen().body,/data-storage-step="backups"/);assert.equal(f.calls.length,0);
- await f.screen().accept(new Map());assert.deepEqual(f.calls[0],{folderId:'folder',name:'My practice',enabled:true,wifiOnly:true});assert.deepEqual(f.calls[1],{manual:true});assert.equal(f.values.get('spino.storage.review.v1'),'done');assert.equal(f.ui.pending,false);assert.match(f.screen().body,/first copy will start with Wi-Fi/);assert.doesNotMatch(f.screen().body,/saved and verified/);
+test('the other principal is named and only an explicit takeover replaces it',async()=>{
+ const f=fixture({principalId:'other',principalName:'My tablet'});await f.ui.overview();assert.match(f.screen().body,/My tablet/);assert.match(f.screen().body,/storage-principal/);assert.deepEqual(f.calls,[]);
+ await f.ui.actions['storage-principal']();assert.deepEqual(f.calls,['claim']);assert.match(f.screen().body,/This device/);assert.doesNotMatch(f.screen().body,/storage-principal/);
 });
-test('closing during setup preparation never reopens a late wizard',async()=>{
- const f=fixture();let release;f.manager.folders=()=>new Promise(r=>release=r);const running=f.ui.actions['storage-setup']();for(let n=0;n<5&&!release;n++)await Promise.resolve();f.dialog.close();release([]);await running;assert.equal(f.dialog.open,false);assert.equal(f.calls.length,0);
+test('remote picker excludes notebook and its selected container and preserves local defaults until save',async()=>{
+ const f=fixture({storageFolder:'container'});await f.ui.overview();await f.ui.actions['storage-folder']();assert.doesNotMatch(f.screen().body,/value="notebook"|value="container"/);assert.match(f.screen().body,/value="archives"/);assert.equal((f.screen().body.match(/>Cancel</g)||[]).length,1);assert.match(f.screen().body,/>Use this folder</);
+ await f.screen().accept(new Map([['folder','archives']]));assert.deepEqual(f.calls,[]);assert.match(f.screen().body,/value="drive" selected/);assert.match(f.screen().body,/Archives/);
+ await f.screen().accept(new Map([['enabled','on'],['destination','drive'],['mobile','on']]));assert.deepEqual(f.calls[0],{enabled:true,destination:'drive',folderId:'archives',wifiOnly:false});
 });
-test('configured notebooks do not receive the setup notification',async()=>{
- const f=fixture();Object.assign(f.manager.state.config,{storageVersion:'1',storageFolder:'folder',principalId:'phone'});await f.ui.notify();assert.equal(f.screen(),undefined);assert.equal(f.ui.entryMarkup(),'');
+test('existing enabled remote settings retain their explicit destination',async()=>{
+ const f=fixture({backupEnabled:'1',copiesFolder:'archives',principalId:'phone'});await f.ui.overview();assert.match(f.screen().body,/value="drive" selected/);assert.match(f.screen().body,/name="enabled" checked/);assert.match(f.ui.summary(),/Last automatic backup.*Not created yet[\s\S]*Folder: Google Drive/);
 });
-
-test('unknown or failed settings never advertise unfinished setup',async()=>{
- const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});
- assert.equal(f.ui.pending,false);assert.equal(f.ui.entryMarkup(),'');
- f.manager.refresh=async()=>{throw Error('Offline.');};await f.ui.notify();
- assert.equal(f.screen(),undefined);assert.equal(f.ui.entryMarkup(),'');
- assert.equal(f.values.get('spino.storage.wizard.offered.v2.book'),undefined);
-});
-
-test('delayed configured settings do not flash setup or record a dismissed notice',async()=>{
- const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});let finish;
- f.manager.refresh=()=>new Promise(resolve=>finish=()=>{Object.assign(f.manager.state,{loaded:true,config:{storageVersion:'1',storageFolder:'folder',principalId:'phone'}});resolve();});
- const loading=f.ui.notify();assert.equal(f.ui.entryMarkup(),'');assert.equal(f.screen(),undefined);
- finish();await loading;assert.equal(f.ui.entryMarkup(),'');assert.equal(f.screen(),undefined);
- assert.equal(f.values.get('spino.storage.wizard.offered.v2.book'),undefined);
+test('unknown settings produce no setup prompt and a late read cannot reopen a closed dialog',async()=>{
+ const f=fixture();f.manager.state.loaded=false;assert.equal(f.ui.entryMarkup(),'');await f.ui.notify();assert.equal(f.screen(),undefined);assert.equal(f.ui.pending,false);
+ let finish;f.manager.refresh=()=>new Promise(resolve=>finish=resolve);const opening=f.ui.overview();f.dialog.close();finish();await opening;assert.equal(f.dialog.open,false);assert.deepEqual(f.calls,[]);
 });
 
-test('setup is offered only after a successful read confirms missing archive settings',async()=>{
- const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});let finish;
- f.manager.refresh=()=>new Promise(resolve=>finish=()=>{Object.assign(f.manager.state,{loaded:true,config:{name:'Existing.json'}});resolve();});
- const loading=f.ui.notify();assert.equal(f.ui.pending,false);finish();await loading;
- assert.equal(f.ui.pending,true);assert.match(f.screen().body,/Cloud synchronization is connected/);assert.match(f.screen().body,/daily ZIP backups/);
-});
 
-test('a late settings read cannot offer setup for a different notebook',async()=>{
- const cloud={state:{transport:'drive',name:'First.json',notebookId:'first'}},f=fixture({cloud});let finish;
- f.manager.refresh=()=>new Promise(resolve=>finish=resolve);const loading=f.ui.notify();
- cloud.state={transport:'drive',name:'Second.json',notebookId:'second'};finish();await loading;
- assert.equal(f.screen(),undefined);assert.equal(f.values.get('spino.storage.wizard.offered.v2.second'),undefined);
-});
-
-test('setup waits for synchronization and closing its wait prevents any storage changes',async()=>{
- let finish;const gate=new Promise(resolve=>finish=resolve),f=fixture({prepareSetup:()=>gate});const opening=f.ui.actions['storage-setup']();assert.match(f.screen().body,/data-drive-progress/);assert.equal(f.calls.length,0);f.dialog.close();finish();await opening;assert.equal(f.dialog.open,false);assert.equal(f.calls.length,0);
-});
-test('activation waits for notebook synchronization instead of failing while it is busy',async()=>{
- let prepare=0,finish;const f=fixture({prepareSetup:()=>++prepare===1?Promise.resolve():new Promise(resolve=>finish=resolve)});await f.ui.actions['storage-setup']();await f.screen().accept(new Map([['name','After sync']]));const activating=f.screen().accept(new Map());assert.equal(f.calls.length,0);assert.match(f.screen().body,/Finishing notebook synchronization/);finish();await activating;assert.equal(f.calls[0].name,'After sync');
-});
-test('storage reservation is released after both successful preparation and a late close',async()=>{
- let released=0;const f=fixture({prepareSetup:async()=>()=>{released++;}});await f.ui.actions['storage-setup']();assert.equal(released,1);
- await f.screen().accept(new Map([['name','Reserved']]));await f.screen().accept(new Map());assert.equal(released,2);
+test('enabled automatic row names the last archive and destination, with real phase progress while busy',()=>{
+ const f=fixture({backupEnabled:'1',backupDestination:'drive',backupFolderName:'Piano archives',lastBackupAt:'2026-10-26T12:00:00Z'});
+ assert.match(f.ui.summary(),/Last automatic backup:/);assert.match(f.ui.summary(),/Google Drive \/ Piano archives/);assert.equal(f.ui.statusMarkup(),'');
+ f.manager.state.busy=true;f.manager.state.progress={stage:'files',completed:2,total:4};let html=f.ui.statusMarkup();assert.match(html,/data-backup-phase="preparing"/);assert.match(html,/value="50"/);assert.match(html,/2\/4 files/);
+ f.manager.state.progress={stage:'saving',completed:0,total:0};html=f.ui.statusMarkup();assert.match(html,/data-backup-phase="saving"/);assert.doesNotMatch(html,/<progress[^>]*value=/);
+ f.manager.state.progress={stage:'upload',completed:1024,total:4096};assert.match(f.ui.statusMarkup(),/value="25"/);
+ f.manager.state.busy=false;assert.equal(f.ui.statusMarkup(),'');f.manager.state.config.backupEnabled='0';assert.equal(f.ui.summary(),'Disabled');
 });

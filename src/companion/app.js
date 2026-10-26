@@ -6,7 +6,7 @@ import {createStorageCoordinator} from './storage-coordinator.js';
 import {createCompleteBackup,inspectCompleteBackup} from './complete-backup.js';
 import {createCompleteBackupExport} from './complete-backup-ui.js';
 import {downloadArchive} from './drive-archive.js';
-import {shareNativeRecording} from './media-share.js';
+import {saveNativeFile,saveAutomaticLocalBackup} from './media-share.js';
 import {Capacitor as StorageCapacitor,registerPlugin as storagePlugin} from '@capacitor/core';
 import {APP_VERSION} from './app-version.js';
 import {backupExportName} from './backup-export-name.js';
@@ -409,9 +409,12 @@ export async function bootCompanion(reader) {
     }).sort((a,b)=>a.title.localeCompare(b.title,getAppLanguage()));
     if (view==='profile-files'||view==='settings') render();
   }
+  function backupAction(action,title,hint){return `<button type="button" class="cp-backup-action" data-action="${action}"><span><strong>${esc(title)}</strong><small>${esc(hint)}</small></span><span aria-hidden="true">›</span></button>`;}
+  function automaticBackupMarkup(){const t=syncBackupCopy();return `<div id="automatic-backup-status">${backupAction('storage-manage',t.automatic,storageUI.summary())}${storageUI.statusMarkup()}</div>`;}
   function backupPage() {
     const t=syncBackupCopy();
-    return '<section class="cp-profile">'+profileHeading(t.sync,getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+`${completeZipExportUI?.markup()||''}<section class="cp-card"><h2>${esc(t.backups)} (ZIP)</h2><p>${esc(t.backupHelp)}</p><div class="cp-actions">${btn('storage-export',ui('Save a backup (ZIP)','Guardar copia de seguridad (ZIP)'))}${btn('storage-import',ui('Restore a backup (ZIP)','Restaurar copia de seguridad (ZIP)'))}</div></section></section>`;
+    const linked=cloud?.state.transport==='drive'&&!!cloud.state.name,exportStatus=completeZipExportUI?.markup()||'';
+    return '<section class="cp-profile cp-sync-backups">'+profileHeading(t.page,getAppLanguage())+cloudBackupMarkup(cloud?.state||{status:'disconnected'},cloudOptions())+`<section class="cp-card cp-backups-card" id="backup-archives" aria-labelledby="backup-archives-heading"><h2 id="backup-archives-heading">${esc(t.backups)}</h2>${moreInfo(`<p>${esc(t.backupHelp)}</p>`)}<p class="cp-backup-intro muted">${esc(t.archiveIntro)}</p>${exportStatus}<div class="cp-backup-actions">${exportStatus?'':backupAction('storage-export',t.saveArchive,t.saveArchiveHelp)}${backupAction('storage-import',t.restoreArchive,t.restoreArchiveHelp)}${linked&&storageUI?automaticBackupMarkup():''}</div></section></section>`;
   }
   function fileDetail(id) {
     const file=profileFiles?.find(f=>f.id===id);if(!file)return;
@@ -872,7 +875,7 @@ export async function bootCompanion(reader) {
     if(view==='prepare') materialSelection=null;
     const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail','calendar'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
-    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${['home','profile-backup'].includes(view)?storageUI?.entryMarkup()||'':''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
+    root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time'].includes(view)?pendingSessionMarkup(data.active):''}${view==='home'?storageUI?.entryMarkup()||'':''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     // Keep the rotation phase when rebuilding a route or applying incoming records.
     const nextSpin = root.querySelector('.cp-sync-status svg')?.getAnimations().find(animation => animation.animationName === 'cp-sync-spin');
     if (syncPhase && nextSpin && syncPhase.time !== null) nextSpin.currentTime = syncPhase.time + performance.now() - syncPhase.capturedAt;
@@ -1059,7 +1062,8 @@ export async function bootCompanion(reader) {
       readBase: () => store.syncBase(), saveBase: value => store.saveSyncBase(value),
       apply: async (text, syncBase) => { adoptedScroll=root.querySelector('.cp-page')?.scrollTop||0;root.inert=true;sessionWriting=true; try { const incoming=JSON.parse(text);if(cloudTransport.transport==='drive'){incoming.data.active=copy(data.active);for(const key of ['theme','wifiOnly','notificationsEnabled','practiceSuggestions'])incoming.data.preferences[key]=data.preferences[key];}if(incoming.library)incoming.library.report=library.report; text=JSON.stringify(incoming);
         data = await store.restore(text, { syncBase }); library=await store.library();reader.refreshSavedState?.();setAppLanguage(data.preferences.language);reader.setLanguage?.(getAppLanguage());await refreshProfileFiles();await reminders(); } finally {root.inert=false;sessionWriting=false;} },
-      adopted: () => {render();root.querySelector('.cp-page')?.scrollTo(0,adoptedScroll);mediaSync?.markDirty();},
+      adopted: () => {render();root.querySelector('.cp-page')?.scrollTo(0,adoptedScroll);},
+      synchronized:()=>mediaSync?.afterNotebookSync(),
       changed: () => { refreshSyncIndicator();const panel=document.querySelector('#cloud-backup'),visible=cloud.state,key=JSON.stringify([getAppLanguage(),visible.transport,visible.status,visible.name,visible.enabled,visible.account,visible.storageFolderId,visible.storageFolderName,visible.fileId,visible.syncFormat,visible.error,visible.lastWrittenAt,visible.waitReason,visible.status==='writing'?visible.progress:null]);if(panel&&lastCloudKey!==key){replaceHelpMarkup(panel,cloudBackupMarkup(visible,cloudOptions()));lastCloudKey=key;}const checked=panel?.querySelector('[data-cloud-checked]');if(checked){checked.hidden=!visible.lastCheckedAt||visible.status!=='saved';checked.textContent=driveLastCheck(visible,getAppLanguage());}const profileState=JSON.stringify([cloud.state.status,cloud.state.enabled,cloud.state.transport,cloud.state.name,cloud.state.account]);if(view==='settings'&&profileState!==lastProfileCloud){lastProfileCloud=profileState;const scroll=root.querySelector('.cp-page')?.scrollTop||0;render();root.querySelector('.cp-page')?.scrollTo(0,scroll);} } });
     if(driveNotebookAvailable()&&mediaStore){
       mediaSync=createMediaSync({store:mediaStore,connection:async context=>{await storageManager?.refresh();return connectDriveMedia({...context,folderId:storageManager?.state.config?.mediaFolder});},
@@ -1076,9 +1080,9 @@ export async function bootCompanion(reader) {
     const deviceKey='spino.backup-device.id',deviceId=localStorage.getItem(deviceKey)||crypto.randomUUID();localStorage.setItem(deviceKey,deviceId);
     const deviceName=localStorage.getItem('spino.backup-device.name')||('Android · '+deviceId.slice(0,6));
     storageCoordinator=createStorageCoordinator({cloud,media:mediaSync});
-    let storageSetupPending=false;
-    storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
-      eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{const pending=!!storageUI?.pending;if(pending!==storageSetupPending){storageSetupPending=pending;if(['home','profile-backup'].includes(view))render();}}});
+    let lastAutomaticBackupState='';
+    storageManager=createDriveStorage({drive:cloudTransport.drive,deviceId,deviceName,localArchive:StorageCapacitor.getPlatform()==='android'?{save:(blob,name,notebookId,progress)=>saveAutomaticLocalBackup(new File([blob],name,{type:'application/zip'}),storagePlugin('MediaShare'),notebookId,progress),commit:args=>storagePlugin('MediaShare').commitAutomatic(args)}:null,snapshot:()=>store.export(data),completeSnapshot:completeNotebookText,mediaStore,mediaClient:connectDriveMedia,network:networkStatus,
+      eligible:(manual=false)=>!document.hidden&&!cloud?.busy&&!mediaSync?.busy&&!mediaCapture?.busy&&!data.active&&!downloads.busy&&!libraryDownloads.busy&&!restoringBackup&&(manual||!dialog.open)&&cloud?.state.status==='saved',changed:()=>{const key=JSON.stringify([getAppLanguage(),storageManager.state]);if(storageUI&&key!==lastAutomaticBackupState){lastAutomaticBackupState=key;const panel=document.querySelector('#automatic-backup-status');if(panel)replaceHelpMarkup(panel,automaticBackupMarkup());}}});
     storageUI=createStorageUI({manager:storageManager,showDialog,dialog,formEnd,toast,prepareSetup:async()=>{
       if(data.active||mediaCapture?.busy)throw Error(ui('Finish practice and recording before setting up backups.','Termina la práctica y la grabación antes de configurar las copias de seguridad.'));
       connectionFeedback=true;
@@ -1095,11 +1099,11 @@ export async function bootCompanion(reader) {
   }
   async function saveZip(blob,name){
     const file=new File([blob],name,{type:'application/zip'});
-    if(StorageCapacitor.getPlatform()==='android')return shareNativeRecording(file,storagePlugin('MediaShare'),{title:'Spino backup',dialogTitle:ui('Save complete backup','Guardar copia de seguridad completa')});
-    const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
+    if(StorageCapacitor.getPlatform()==='android')return saveNativeFile(file,storagePlugin('MediaShare'));
+    const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);return {downloaded:true};
   }
   async function exportCompleteZip(){
-    completeZipExportUI ||= createCompleteBackupExport({showDialog,dialog,formEnd,prepare:completeZip,save:saveZip,setBusy:value=>{completeBackupBusy=value;},changed:()=>{if(view==='profile-backup')render();},notify:toast,progress:()=>storageManager?.state.progress||cloudTransport?.drive?.info.progress});
+    completeZipExportUI ||= createCompleteBackupExport({showDialog,dialog,formEnd,prepare:completeZip,save:saveZip,notebookName:()=>cloud?.state.name||'SPino',setBusy:value=>{completeBackupBusy=value;},changed:()=>{if(view==='profile-backup')render();},notify:toast,progress:()=>storageManager?.state.progress||cloudTransport?.drive?.info.progress});
     completeZipExportUI.open();
   }
   async function importCompleteZip(){
@@ -1576,7 +1580,7 @@ export async function bootCompanion(reader) {
     'share-app':async()=>{try{const shared=await shareApp();if(!shared)toast(ui('App link copied.','Enlace de la app copiado.'));}catch(error){if(error.name!=='AbortError')toast(ui('Could not share the app.','No se pudo compartir la app.'));}},
     'profile-edit':()=>showDialog(ui("Edit profile", "Editar perfil"),identityMarkup(data.preferences,getAppLanguage()),async f=>{const language=String(f.get('language'));if(!Object.hasOwn(APP_LANGUAGES,language))throw Error(ui('Choose a supported language.','Elige un idioma disponible.'));const level=Number(f.get('level'));if(!(Number.isInteger(level)&&level>=1&&level<=4))throw Error(ui('Choose a pianist level.','Elige un nivel de pianista.'));const next=copy(data);next.preferences={...next.preferences,name:String(f.get('name')).trim(),weeklyMinutes:Number(f.get('weeklyMinutes')),language,level};await store.save(next);data=next;setAppLanguage(language);reader.setLanguage?.(language);dialog.close();render();await reminders();toast(ui('Profile saved.','Perfil guardado.'));}),
     about:()=>showDialog(ui('About SPino','Acerca de SPino'),aboutMarkup(getAppLanguage())),
-    'profile-data':()=>showDialog(ui("Data on this device", "Datos de este dispositivo"),ui("<p class=\"muted\">Your history, repertoire and scores are stored on this device.</p><div class=\"cp-actions\">", "<p class=\"muted\">Tu historial, repertorio y partituras se guardan en este dispositivo.</p><div class=\"cp-actions\">")+btn('profile-data-backup',ui("Cloud synchronization and backups", "Sincronización en la nube y copias de seguridad"))+btn('erase-data',ui("Erase notebook", "Borrar cuaderno"),'','danger quiet')+btn('close-dialog',ui("Close", "Cerrar"))+'</div>'),
+    'profile-data':()=>showDialog(ui("Data on this device", "Datos de este dispositivo"),ui("<p class=\"muted\">Your history, repertoire and scores are stored on this device.</p><div class=\"cp-actions\">", "<p class=\"muted\">Tu historial, repertorio y partituras se guardan en este dispositivo.</p><div class=\"cp-actions\">")+btn('profile-data-backup',syncBackupCopy().page)+btn('erase-data',ui("Erase notebook", "Borrar cuaderno"),'','danger quiet')+btn('close-dialog',ui("Close", "Cerrar"))+'</div>'),
     'profile-data-backup':()=>{dialog.close();go('profile-backup');},
     'midi-settings':async()=>{pauseSession();if(scoreViewer&&!await scoreViewer.close())return;hideReader();go('instrument');},
     'instrument-connect':()=>instrument.connect(),
@@ -1607,7 +1611,7 @@ export async function bootCompanion(reader) {
     'cloud-setup':()=>cloud?.state.name?actions['cloud-manage']():showDialog(ui("Connect cloud synchronization","Conectar sincronización en la nube"),cloudSetupMarkup(cloudOptions())),
     'cloud-manage':()=>showDialog(ui("Manage connection", "Gestionar conexión"),cloudManageMarkup(cloud?.state||{},cloudOptions())),
     'cloud-conflicts':()=>{pauseSession();hideReader();go('profile-backup');showDialog(ui("Review changes", "Revisar cambios"),cloudConflictMarkup(cloud?.state||{},cloudOptions()));},
-    'cloud-help':()=>showDialog(ui("Cloud synchronization and backups", "Sincronización en la nube y copias de seguridad"),cloudHelpMarkup(cloudOptions())),
+    'cloud-help':()=>showDialog(syncBackupCopy().page,cloudHelpMarkup(cloudOptions())),
     'cloud-connect':()=>openDriveNotebooks(),
     'cloud-create-shared':()=>openDriveNotebooks(),
     'cloud-join-shared':()=>openDriveNotebooks(),
@@ -1622,9 +1626,9 @@ export async function bootCompanion(reader) {
       finally{const panel=document.querySelector('#cloud-media');if(panel)replaceHelpMarkup(panel,mediaSyncMarkup(mediaSync?.state||{},cloudOptions()));mediaSync?.markDirty();}
       document.querySelector('[data-action=media-mobile-data]')?.focus({preventScroll:true});
     },
-    'cloud-sync':async()=>{dialog.close();await cloud?.retry();mediaSync?.markDirty();},
+    'cloud-sync':async()=>{dialog.close();await cloud?.retry();await mediaSync?.sync();},
     'cloud-relink':()=>{dialog.close();return cloud?.relink();},
-    'cloud-continue-local':async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Cloud synchronization.','Trabajando en local. Reanuda la sincronización desde Sincronización en la nube.'));},
+    'cloud-continue-local':async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();cloud?.continueLocal();dialog.close();toast(ui('Working locally. Resume synchronization from Sync & backups.','Trabajando en local. Reanuda la sincronización desde Sincronización y copias.'));},
     'cloud-disconnect':()=>confirm(ui("Disconnect cloud synchronization","Desconectar sincronización en la nube"),ui("The connection on this device will stop. Files saved in the cloud will be kept.", "Se detendrá la conexión en este dispositivo. Los archivos guardados en la nube se conservarán."),async()=>{mediaSync?.pause();if(driveNotebookAvailable())await pauseDriveMedia();await cloud.disconnect();}),
     'cloud-restore':async()=>{if(downloads.busy||libraryDownloads.busy||cloud?.busy)throw new Error(ui("Pause transfers before importing a notebook.","Pausa las transferencias antes de importar un cuaderno."));pauseSession();restoringBackup=true;try{const result=await CloudBackup.pickBackup();if(result.text)reviewBackupRestore(result.text);else restoringBackup=false;}catch(error){restoringBackup=false;throw error;}},
     'cloud-recovery':async()=>{if(cloud?.busy)throw new Error(ui("Wait for cloud synchronization to finish.","Espera a que termine la sincronización en la nube."));pauseSession();reviewBackupRestore((await CloudBackup.readRecovery()).text);},

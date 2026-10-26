@@ -5,7 +5,7 @@ const takeId=record=>record.mediaTakeId||record.id;
 
 // Copies are additive. Deleting a local take keeps its cloud copy and records a local exclusion.
 export function createMediaSync({store, connection, getContext, eligible, changed=()=>{}, refreshed=()=>{}, network=async()=>({online:true,wifi:true,metered:false}), delay=30000}) {
-  let state={status:'idle',completed:0,total:0,percent:0,error:'',issues:[]},task=null,timer=null,controller=null,stopped=false;
+  let state={status:'idle',completed:0,total:0,percent:0,error:'',issues:[]},task=null,timer=null,controller=null,stopped=false,dirty=false;
   const publish=next=>{state={...state,...next};changed();};
   const contextKey=c=>c&&c.accountId+'.'+c.notebookId;
   const current=(key)=>eligible()&&contextKey(getContext())===key&&!controller?.signal.aborted;
@@ -13,7 +13,9 @@ export function createMediaSync({store, connection, getContext, eligible, change
   async function sync(repairFileId){
     if(stopped)return;
     if(task)return task;
+    clearTimeout(timer);timer=null;
     const context=getContext();if(!context||!eligible()){schedule();return;}
+    dirty=false;
     const repairIssues=state.issues;
     controller=new AbortController();const signal=controller.signal,key=contextKey(context);
     task=(async()=>{
@@ -112,7 +114,7 @@ export function createMediaSync({store, connection, getContext, eligible, change
         // Notebook checks, editors or a changed account can suspend this pass.
         // A finished task must not leave the shared indicator rotating forever.
         if(['checking','copying'].includes(state.status))publish({status:signal.aborted?'paused':'idle',percent:0});
-        schedule();
+        schedule(dirty?0:delay);
       }}
     })();return task;
   }
@@ -128,5 +130,5 @@ export function createMediaSync({store, connection, getContext, eligible, change
     }finally{await result.cleanup?.();}
     })();try{return await task;}finally{task=null;}
   }
-  return {get state(){return {...state};},get busy(){return !!task;},waitForIdle:async()=>{if(task)await task;},sync,download,repair:fileId=>sync(fileId),markDirty:()=>{if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
+  return {get state(){return {...state};},get busy(){return !!task;},waitForIdle:async()=>{if(task)await task;},sync,download,repair:fileId=>sync(fileId),afterNotebookSync:()=>{dirty=true;if(timer)clearTimeout(timer);timer=null;schedule(0);},markDirty:()=>{dirty=true;if(timer)clearTimeout(timer);timer=null;schedule(1500);},pause(){controller?.abort();publish({status:'paused'});},stop(){stopped=true;clearTimeout(timer);timer=null;controller?.abort();}};
 }

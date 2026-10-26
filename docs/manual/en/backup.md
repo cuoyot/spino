@@ -56,3 +56,17 @@ In beta 6.1.6-beta.2, **Sync now** checks the existing changes cursor and avoids
 **Export notebook** also offers the existing JSON portability formats. JSON exports are labeled notebook export/import and exclude audio/video files. Legacy JSON imports remain compatible.
 
 An already configured notebook does not show an unfinished-setup notice while Drive settings load. Unknown or failed initial reads do not trigger setup. A complete lookup confirming absent archive settings can still offer optional backup setup. Browser validation uses a delayed synthetic Drive response; physical-device acceptance is separate.
+
+## Unreleased review: Sync & backups
+
+The page groups notebook and multimedia under Cloud synchronization. Recordings upload on the first eligible notebook synchronization; there is no separate routine recording-sync action. The existing Wi-Fi/mobile-data setting applies. Retry and repair remain available for actual recording errors.
+
+Backups contains Save ZIP, Restore a backup, and Automatic backups. The automatic settings dialog contains no manual save or restore controls. Enable or disable automatic backups, view the principal device and explicitly switch it to this device. New configurations default to local disk; existing enabled remote settings are retained until changed. A separate Google Drive folder can be selected, excluding the notebook folder. These settings never move or rename live synchronization files. ZIP filenames contain the notebook name and timestamp.
+
+Automatic backups make one changed-state ZIP per day while SPino is open, retaining the latest seven. Android 10+ stores local archives in Downloads / SPino backups, in a notebook-specific subfolder. Older Android uses the app's external Documents directory. Shared ownership is checked online; local archives are never used for live synchronization. Cached content can be backed up locally on cellular without uploading an archive; missing files respect the backup data preference. Changing principal or destination creates a first local snapshot instead of reusing another device's local pointer.
+
+Manual ZIP export opens Android's Save file destination picker, including installed document providers. Completion follows stream closure; cancellation keeps the prepared ZIP for another attempt. Responsive checks use synthetic notebooks. Native/provider evidence and physical Google Drive acceptance are tracked separately. These instructions describe the unreleased review, not website beta.3.
+
+When automatic backups are enabled, the main page shows the latest copy date and destination. While a copy runs, its status progresses from Prepare ZIP to Save. File/byte progress is shown when measurable; an indeterminate bar represents steps without a measured total. The last successful copy is retained in the summary until the new one is committed.
+
+Manage includes Export notebook (JSON) and Import notebook (JSON) for notebook portability: practice history, scores and annotations, excluding multimedia files. JSON import previews counts and asks for confirmation before replacing this installation's notebook and disconnecting cloud synchronization. ZIP backup/restore remains the complete archive path with recordings.

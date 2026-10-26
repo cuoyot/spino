@@ -7,6 +7,7 @@ function fixture(){
  let revision=1,index=1;const props={storageVersion:'1',storageFolder:'folder',copiesFolder:'copies',mediaFolder:'media',principalId:'device-a',principalName:'Phone A',backupEnabled:'1',backupWifiOnly:'1'};
  const files=new Map(),trashed=[];const drive={storageLink:()=>({id:'root',folderId:'objects',notebookId:'book',accountId:'account'}),storageRequest:async(path,o={})=>{const url=new URL('https://example.test'+path);let result;
   if(url.pathname==='/drive/v2/files/root'){if(o.method==='PUT'){if(o.etag!==`"${revision}"`)throw Object.assign(Error('Conflict'),{code:'CONFLICT'});for(const p of JSON.parse(o.text).properties)props[p.key]=p.value;revision++;}result={id:'root',title:'Spino.json',etag:`"${revision}"`,properties:Object.entries(props).map(([key,value])=>({key,value,visibility:'PRIVATE'}))};}
+  else if(url.pathname.endsWith('/copies'))result={id:'copies',name:'Archives',mimeType:'application/vnd.google-apps.folder'};
   else if(url.pathname.endsWith('/generateIds'))result={ids:['file-'+index++]};
   else if(url.pathname==='/drive/v3/files'){result={files:[...files.values()].filter(f=>!f.trashed&&f.appProperties.complete==='1')};}
   else {const id=url.pathname.split('/').at(-1),f=files.get(id);if(!f)throw Error('Missing '+id);if(o.method==='PATCH'){const update=JSON.parse(o.text);if(update.trashed){f.trashed=true;trashed.push(id);}Object.assign(f.appProperties,update.appProperties||{});}result=f;}
@@ -28,7 +29,7 @@ test('explicit guided backup can proceed with its progress dialog open without b
 test('storage settings remain unknown until the full linked-notebook lookup completes',async()=>{
  const f=fixture(),request=f.args.drive.storageRequest;let finish;
  f.args.drive.rememberStorage=()=>{};
- f.args.drive.storageRequest=(path,options)=>path.startsWith('/drive/v3/files/')?new Promise(resolve=>finish=()=>resolve({text:JSON.stringify({name:'Cloud folder'})})):request(path,options);
+ f.args.drive.storageRequest=(path,options)=>path.startsWith('/drive/v3/files/folder?')?new Promise(resolve=>finish=()=>resolve({text:JSON.stringify({name:'Cloud folder'})})):request(path,options);
  const manager=createDriveStorage(f.args),loading=manager.refresh();
  for(let n=0;n<10&&!finish;n++)await Promise.resolve();
  assert.equal(manager.state.loaded,false);assert.equal(manager.state.config,null);
@@ -132,4 +133,38 @@ test('Drive rejection of a move beyond visible ancestors does not activate backu
 
 test('organization gives the app-owned nested data folder the notebook name and preserves selected user folders',async()=>{
  const f=organizerFixture();Object.assign(f.files.get('objects'),{name:'SPino — 2_Old',description:'SPino synchronized notebook objects. Keep this folder intact.'});const target=await f.manager.createFolder('My chosen folder');await f.manager.organize({folderId:target.id,name:'5_My piano'});assert.equal(f.files.get('objects').name,'5_My piano');assert.equal(f.files.get(target.id).name,'My chosen folder');assert.equal(f.manager.state.config.storageFolderName,'My chosen folder');assert.equal(f.settings().link.storageFolderName,'My chosen folder');
+});
+
+test('new automatic settings default to local, never move notebook files, and use a verified local ZIP',async()=>{
+ const f=fixture(),writes=[],commits=[];for(const key of ['storageVersion','copiesFolder','principalId','backupEnabled'])delete f.props[key];
+ f.args.localArchive={save:async(blob,name,notebookId)=>{await inspectCompleteBackup(blob);writes.push({name,notebookId,bytes:blob.size});return {saved:true,bytes:blob.size,uri:'content://synthetic/backup-1'};},commit:async args=>commits.push(args)};
+ const m=createDriveStorage(f.args);await m.configureAutomatic({enabled:true});assert.equal(f.props.backupDestination,'local');assert.equal(f.props.principalId,'device-a');assert.equal(f.props.storageVersion,undefined);
+ await m.daily();assert.equal(m.state.status,'saved',m.state.error);assert.equal(f.files.size,0);assert.equal(writes.length,1);assert.match(writes[0].name,/^Spino_2026-10-24T12-00-00-000Z\.zip$/);assert.equal(commits.length,1);
+ await m.daily();assert.equal(m.state.status,'unchanged');assert.equal(writes.length,1);
+});
+test('local save failure or ownership change never advances the backup pointer or prunes',async()=>{
+ for(const kind of ['write','ownership']){const f=fixture(),commits=[];f.props.backupDestination='local';
+ f.args.localArchive={save:async blob=>{if(kind==='write')throw Error('Disk full');f.steal();return {saved:true,bytes:blob.size,uri:'content://synthetic/copy'};},commit:async args=>commits.push(args)};
+ const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'error');assert.equal(f.props.lastBackupAt,undefined);assert.deepEqual(commits,[]);assert.deepEqual(f.trashed,[]);}
+});
+test('changing local principal clears the other device local pointer and makes a first local copy',async()=>{
+ const f=fixture();Object.assign(f.props,{backupDestination:'local',lastBackupLocalUri:'content://other-device/1',lastBackupAt:'2026-10-24',lastBackupHash:'old'});
+ const m=createDriveStorage({...f.args,deviceId:'device-b'});await m.claimPrincipal();assert.equal(f.props.lastBackupLocalUri,'');assert.equal(f.props.lastBackupAt,'');
+});
+test('automatic destination selection refuses the notebook folder without moving or renaming it',async()=>{
+ const f=organizerFixture();await assert.rejects(f.manager.configureAutomatic({enabled:true,destination:'drive',folderId:'objects'}),/different from the notebook/);
+ assert.equal(f.settings().link.name,'Original.json');assert.ok(!f.requests.some(r=>r.method==='PUT'||r.method==='PATCH'));
+});
+test('disabling automatic backups does not require the old destination to be available',async()=>{
+ const f=fixture(),m=createDriveStorage(f.args);await m.configureAutomatic({enabled:false,destination:'drive',folderId:'gone'});assert.equal(f.props.backupEnabled,'0');
+});
+
+test('local backups can save cached content on cellular without uploading a remote ZIP',async()=>{
+ const f=fixture();f.props.backupDestination='local';f.args.network=async()=>({online:true,wifi:false,metered:true});let saved=0;
+ f.args.localArchive={save:async(blob)=>{saved++;return {saved:true,bytes:blob.size,uri:'content://local/1'};},commit:async()=>{}};
+ const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'saved',m.state.error);assert.equal(saved,1);assert.equal(f.files.size,0);
+});
+test('remote backup destination is separate, keeps existing notebook IDs and forces a new snapshot',async()=>{
+ const f=organizerFixture();const folder=await f.manager.createFolder('Archives');await f.manager.configureAutomatic({enabled:true,destination:'drive',folderId:folder.id});
+ assert.equal(f.manager.state.config.backupFolder,folder.id);assert.equal(f.manager.state.config.backupDestination,'drive');assert.equal(f.settings().link.id,'descriptor');assert.equal(f.settings().link.folderId,'objects');assert.equal(f.settings().link.name,'Original.json');assert.ok(!f.requests.some(r=>r.method==='PATCH'));
 });

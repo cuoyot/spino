@@ -31,3 +31,14 @@ test('save failure retains the ZIP so Retry does not download or prepare again',
 test('a new copy discards the retained ZIP only when explicitly requested',async()=>{
  const f=fixture();f.succeed();f.controller.open();await f.screen().accept();f.controller.open();assert.match(f.screen().body,/Prepare a new copy/);f.controller.startNew();assert.match(f.screen().body,/Prepare ZIP/);assert.equal(f.controller.state.bytes,0);await f.screen().accept();assert.equal(f.prepareCount(),2);
 });
+
+test('cancelling the file picker retains the prepared ZIP and never claims it was saved',async()=>{
+ const f=fixture();f.succeed();let cancel=true;f.options.save=async()=>cancel?{cancelled:true}:{saved:true};const c=createCompleteBackupExport(f.options);c.open();await f.screen().accept();
+ assert.equal(c.state.saved,false);assert.equal(f.dialog.open,true);assert.match(f.screen().body,/Choose where to save/);assert.equal(f.notices.length,0);assert.equal(f.prepareCount(),1);
+ cancel=false;await f.screen().accept();assert.equal(c.state.saved,true);assert.equal(f.dialog.open,false);assert.equal(f.prepareCount(),1);assert.deepEqual(f.notices,['Backup saved.']);
+});
+test('save remains pending until the document provider acknowledges completion',async()=>{
+ const f=fixture();f.succeed();let finish;f.options.save=()=>new Promise(resolve=>finish=resolve);const c=createCompleteBackupExport(f.options);c.open();const saving=f.screen().accept();
+ for(let n=0;n<5&&!finish;n++)await Promise.resolve();assert.equal(c.state.status,'saving');assert.equal(c.state.saved,false);assert.deepEqual(f.notices,[]);
+ finish({saved:true});await saving;assert.equal(c.state.saved,true);assert.deepEqual(f.notices,['Backup saved.']);
+});

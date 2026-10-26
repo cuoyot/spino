@@ -12,17 +12,20 @@ export function recordingFile(record) {
   const date=/^\d{4}-\d{2}-\d{2}/.exec(record.createdAt||'')?.[0];
   return new File([record.blob],title+(date?' · '+date:'')+'.'+extension,{type});
 }
-export async function shareNativeRecording(file,plugin,{title,dialogTitle}) {
+async function transferNativeFile(file,plugin,finish,onProgress=()=>{}) {
   const {token}=await plugin.begin({name:file.name,mimeType:file.type,size:file.size});
   try {
     for(let offset=0;offset<file.size;offset+=CHUNK){
       const bytes=new Uint8Array(await file.slice(offset,offset+CHUNK).arrayBuffer());
       let binary='';for(let n=0;n<bytes.length;n+=8192)binary+=String.fromCharCode(...bytes.subarray(n,n+8192));
-      await plugin.writeChunk({token,offset,base64:btoa(binary)});
+      await plugin.writeChunk({token,offset,base64:btoa(binary)});onProgress(Math.min(offset+CHUNK,file.size),file.size);
     }
-    return await plugin.share({token,title,dialogTitle});
+    return await finish(token);
   }catch(error){await plugin.abort({token}).catch(()=>{});throw error;}
 }
+export const shareNativeRecording=(file,plugin,{title,dialogTitle})=>transferNativeFile(file,plugin,token=>plugin.share({token,title,dialogTitle}));
+export const saveNativeFile=(file,plugin)=>transferNativeFile(file,plugin,token=>plugin.save({token}));
+export const saveAutomaticLocalBackup=(file,plugin,notebookId,onProgress=()=>{})=>transferNativeFile(file,plugin,token=>{onProgress({stage:'saving',completed:0,total:0});return plugin.saveAutomatic({token,notebookId});},(completed,total)=>onProgress({stage:'staging',completed,total}));
 async function chooseMidiFormat() {
   const dialog=document.createElement('dialog');dialog.className='cp-midi-export-dialog';dialog.dataset.mediaExport='true';
   const heading=document.createElement('h2');heading.textContent=ui('Share recording','Compartir grabación');dialog.append(heading);

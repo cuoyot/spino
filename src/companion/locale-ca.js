@@ -1,5 +1,8 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Practice history, scores and annotations. Does not include multimedia files.|Historial de pràctica, partitures i anotacions. No inclou fitxers multimèdia.
+Import notebook (JSON)|Importa el quadern (JSON)
+Open an exported JSON notebook. Does not include multimedia files.|Obre un quadern exportat en JSON. No inclou fitxers multimèdia.
 Notifications|Notificacions
 Enable notifications|Habilita les notificacions
 Suggest practising|Suggereix practicar
@@ -2114,6 +2117,19 @@ Open Cloud synchronization|Obre Sincronització al núvol
 Connect cloud synchronization|Connecta la sincronització al núvol
 Cloud synchronization keeps the same notebook on your devices. Connect the same Google account and open the existing notebook.|La sincronització al núvol manté el mateix quadern als teus dispositius. Connecta el mateix compte de Google i obre el quadern existent.
 Start cloud synchronization for this notebook. Existing files are kept.|Inicia la sincronització al núvol d’aquest quadern. Es conserven els fitxers existents.
+Sync & backups|Sincronització i còpies
+Automatic backups|Còpies de seguretat automàtiques
+Backup saved.|Còpia de seguretat desada.
+Could not open the file save dialog.|No s’ha pogut obrir el diàleg per desar el fitxer.
+Could not save the file. Choose a destination and try again.|No s’ha pogut desar el fitxer. Tria una destinació i torna-ho a provar.
+The file is not ready to save.|El fitxer encara no està preparat per desar-lo.
+You can close this window and return from Sync & backups to see progress.|Pots tancar aquesta finestra i tornar des de Sincronització i còpies per veure el progrés.
+The ZIP could not be saved. Review Sync & backups.|No s’ha pogut desar el ZIP. Revisa Sincronització i còpies.
+Your ZIP is ready. Choose where to save it in Sync & backups.|El ZIP està preparat. Tria on desar-lo a Sincronització i còpies.
+The copy could not be prepared. Review Sync & backups.|No s’ha pogut preparar la còpia de seguretat. Revisa Sincronització i còpies.
+Working locally. Resume synchronization from Sync & backups.|Treballant en local. Reprèn la sincronització des de Sincronització i còpies.
+Disconnect the current notebook in Sync & backups before connecting another one.|Desconnecta el quadern actual a Sincronització i còpies abans de connectar-ne un altre.
+Open Sync & backups|Obre Sincronització i còpies
 `;
 export const CATALAN = Object.fromEntries(entries.trim().split('\n').map(line => {
   const split = line.indexOf('|'); return [line.slice(0, split), line.slice(split + 1)];

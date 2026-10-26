@@ -2045,5 +2045,21 @@
   "Open Cloud synchronization": "Cloud-Synchronisierung öffnen",
   "Connect cloud synchronization": "Cloud-Synchronisierung verbinden",
   "Cloud synchronization keeps the same notebook on your devices. Connect the same Google account and open the existing notebook.": "Die Cloud-Synchronisierung hält dasselbe Notizbuch auf deinen Geräten bereit. Verbinde dasselbe Google-Konto und öffne das vorhandene Notizbuch.",
-  "Start cloud synchronization for this notebook. Existing files are kept.": "Starte die Cloud-Synchronisierung für dieses Notizbuch. Vorhandene Dateien bleiben erhalten."
+  "Start cloud synchronization for this notebook. Existing files are kept.": "Starte die Cloud-Synchronisierung für dieses Notizbuch. Vorhandene Dateien bleiben erhalten.",
+  "Sync & backups": "Synchronisierung & Sicherungen",
+  "Automatic backups": "Automatische Sicherheitskopien",
+  "Backup saved.": "Sicherheitskopie gespeichert.",
+  "Could not open the file save dialog.": "Der Dialog zum Speichern der Datei konnte nicht geöffnet werden.",
+  "Could not save the file. Choose a destination and try again.": "Die Datei konnte nicht gespeichert werden. Wähle ein Ziel und versuche es erneut.",
+  "The file is not ready to save.": "Die Datei ist noch nicht zum Speichern bereit.",
+  "You can close this window and return from Sync & backups to see progress.": "Du kannst dieses Fenster schließen und den Fortschritt unter Synchronisierung & Sicherungen ansehen.",
+  "The ZIP could not be saved. Review Sync & backups.": "Die ZIP-Datei konnte nicht gespeichert werden. Prüfe Synchronisierung & Sicherungen.",
+  "Your ZIP is ready. Choose where to save it in Sync & backups.": "Deine ZIP-Datei ist bereit. Wähle unter Synchronisierung & Sicherungen einen Speicherort.",
+  "The copy could not be prepared. Review Sync & backups.": "Die Sicherheitskopie konnte nicht vorbereitet werden. Prüfe Synchronisierung & Sicherungen.",
+  "Working locally. Resume synchronization from Sync & backups.": "Du arbeitest lokal. Setze die Synchronisierung unter Synchronisierung & Sicherungen fort.",
+  "Disconnect the current notebook in Sync & backups before connecting another one.": "Trenne das aktuelle Notizbuch unter Synchronisierung & Sicherungen, bevor du ein anderes verbindest.",
+  "Open Sync & backups": "Synchronisierung & Sicherungen öffnen",
+  "Practice history, scores and annotations. Does not include multimedia files.": "Übungsverlauf, Noten und Anmerkungen. Enthält keine Multimediadateien.",
+  "Import notebook (JSON)": "Notizbuch importieren (JSON)",
+  "Open an exported JSON notebook. Does not include multimedia files.": "Exportiertes JSON-Notizbuch öffnen. Enthält keine Multimediadateien."
 }

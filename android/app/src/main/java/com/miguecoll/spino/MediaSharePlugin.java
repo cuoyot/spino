@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/** Share a temporary recording copy without loading the entire take into the bridge. */
+/** Stage recording shares and document exports without loading a whole file into the bridge. */
 @CapacitorPlugin(name="MediaShare")
 public class MediaSharePlugin extends Plugin {
     private static final long LIMIT=250L*1024*1024;
@@ -82,6 +82,53 @@ public class MediaSharePlugin extends Plugin {
         // Keep the granted file available for receivers that read after the chooser closes.
         worker.execute(()->{transfers.remove(call.getString("token",""));call.resolve(new JSObject().put("cancelled",result.getResultCode()==android.app.Activity.RESULT_CANCELED));});
     }
+    private void discard(String token) {
+        Transfer transfer=transfers.remove(token);
+        if(transfer!=null){transfer.file.delete();transfer.file.getParentFile().delete();}
+    }
+    @PluginMethod public void save(PluginCall call){worker.execute(()->{
+        try {
+            Transfer transfer=transfer(call);
+            if(transfer.finished||transfer.file.length()!=transfer.size||presenting)throw new IOException("The file is not ready to save.");
+            // Do not restrict to local storage: cloud document providers such as Drive are valid destinations.
+            Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE)
+                .setType(transfer.mime).putExtra(Intent.EXTRA_TITLE,transfer.file.getName());
+            transfer.finished=true;presenting=true;
+            getActivity().runOnUiThread(()->{try{startActivityForResult(call,intent,"saveResult");}catch(Exception error){
+                worker.execute(()->{presenting=false;discard(call.getString("token",""));call.reject("Could not open the file save dialog.");});
+            }});
+        } catch(Exception error){call.reject(error.getMessage());}
+    });}
+    @ActivityCallback private void saveResult(PluginCall call,ActivityResult result){
+        if(call==null){presenting=false;return;}
+        worker.execute(()->{
+            String token=call.getString("token","");
+            try {
+                Uri uri=result.getData()==null?null:result.getData().getData();
+                if(result.getResultCode()!=android.app.Activity.RESULT_OK||uri==null){call.resolve(new JSObject().put("cancelled",true));return;}
+                Transfer transfer=transfer(call);
+                // CREATE_DOCUMENT grants write access to this destination. Close the provider stream before reporting success.
+                long written=DocumentExport.write(new FileInputStream(transfer.file),()->getContext().getContentResolver().openOutputStream(uri,"w"),transfer.size);
+                call.resolve(new JSObject().put("saved",true).put("bytes",written));
+            } catch(Exception error){call.reject("Could not save the file. Choose a destination and try again.","SAVE_FAILED",error);}
+            finally {discard(token);presenting=false;}
+        });
+    }
+    @PluginMethod public void saveAutomatic(PluginCall call){worker.execute(()->{
+        String token=call.getString("token","");
+        try {
+            Transfer transfer=transfer(call);
+            if(transfer.finished||!transfer.mime.equals("application/zip")||transfer.file.length()!=transfer.size)throw new IOException("The file is not ready to save.");
+            transfer.finished=true;
+            Uri uri=new LocalBackupArchive(getContext()).save(transfer.file,transfer.size,call.getString("notebookId",""));
+            call.resolve(new JSObject().put("saved",true).put("bytes",transfer.size).put("uri",uri.toString()));
+        } catch(Exception error){call.reject("Could not save the automatic backup on this device.","SAVE_FAILED",error);}
+        finally {discard(token);}
+    });}
+    @PluginMethod public void commitAutomatic(PluginCall call){worker.execute(()->{
+        try {new LocalBackupArchive(getContext()).commit(call.getString("notebookId",""),Uri.parse(call.getString("uri","")));call.resolve();}
+        catch(Exception error){call.reject("Could not finish automatic backup retention.","SAVE_FAILED",error);}
+    });}
     @PluginMethod public void abort(PluginCall call){worker.execute(()->{
         Transfer transfer=transfers.remove(call.getString("token",""));if(transfer!=null&&!transfer.finished){transfer.file.delete();transfer.file.getParentFile().delete();}call.resolve();
     });}

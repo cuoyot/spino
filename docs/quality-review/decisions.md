@@ -1,5 +1,22 @@
 # Review decisions and consistency checks
 
+## D-071 — Automatic backups are settings; recordings join notebook synchronization (26 October 2026)
+
+Accepted owner objectives: a direct enable/disable setting; identify the current principal and explicitly take over on this device; default new automatic configurations to device-local disk; allow a separate remote folder, excluding the notebook folder; derive ZIP filenames from notebook name and timestamp. Manual ZIP save/restore remain on the main page and must not be repeated in automatic settings. Configuration never reorganizes or renames synchronization files. Existing enabled remote destinations are preserved until explicitly changed. The previous guided storage wizard is superseded for automatic backup configuration.
+
+Recordings follow successful notebook synchronization automatically, respecting the existing device mobile-data permission. The separate routine recording-sync button is removed; real recording errors retain retry/repair. The owner also requested removing the multimedia + Info control and its paragraph. Enabled automatic backups show last-copy date and destination on the main row; live preparation/save phases use a progress bar with actual counts where available. The folder picker has one Cancel returning to settings and a Use this folder action. JSON import is exposed beside export and both descriptions explicitly exclude multimedia. Default local Android archives are written as ZIPs under Downloads / SPino backups on Android 10+, without showing a chooser for each automatic run. Older Android uses app external Documents storage. Manual ZIP export uses CREATE_DOCUMENT. Daily changed-state snapshots retain the latest seven after verified saving and shared-principal commit. Automatic checks still require SPino open and a readable shared control file; this does not introduce a background scheduler or change the live synchronization format.
+
+The owner rejected the first two D-070 layouts for button accumulation and unclear hierarchy. Those dated captures remain as rejected evidence. Revised action rows and a configuration-only dialog are presented for review, not claimed as visually accepted. Responsive synthetic verification and native local/provider evidence are linked from the active review. This work is unreleased; website beta.3 is unchanged.
+
+## D-070 — Separate synchronization and backups; save ZIPs as documents (26 October 2026)
+
+Owner-requested page name: **Sync & backups** (Spanish: **Sincronización y copias**). The page has two functional sections: Cloud synchronization includes notebook and multimedia synchronization; Backups groups complete ZIP save/restore, prepared-export progress and automatic archive settings. Connection management retains connection/JSON portability controls; archive controls belong to Backups. This accepted objective supersedes D-069's page-label choice while preserving its cloud/ZIP distinction. The initial layout was rejected by the owner; D-071 records the revised objective and proposal.
+
+ZIP saving uses Android CREATE_DOCUMENT with application/zip and a suggested filename. The selected local or cloud document provider receives streamed bytes. Completion is acknowledged only after exact-length writing and stream closure. Cancellation retains the prepared ZIP for another destination without repeating downloads. Provider failure remains retryable. Recording sharing retains SEND behavior.
+
+Source tests and responsive synthetic evidence are in the active Drive storage review; native DocumentsUI/provider evidence is recorded separately. No personal Google account is changed. Physical Drive acceptance remains distinct from emulator document-provider acceptance. This follow-up is unreleased; the website beta.3 remains unchanged.
+
+
 ## D-069 — Cloud synchronization and ZIP backups (26 October 2026)
 
 Owner terminology is accepted: **Cloud synchronization** is the live shared notebook/files mechanism across devices, including reconnection to the existing notebook on a replacement phone. **Backups** are compressed ZIP archives saved or explicitly restored for recovery, never read as live synchronization data. JSON portability remains labeled export/import rather than backup. Original IDs, files and connections are retained.

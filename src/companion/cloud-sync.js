@@ -13,7 +13,7 @@ const defaultSettings = {
 };
 
 export function createNotebookCloud({ adapter = CloudBackup, settings = defaultSettings, snapshot, eligible, canApply = eligible, applyBlocker = () => 'editor',
-  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, delay = 5000, dirtyDelay = delay, retireProvider = false,
+  readBase, saveBase, apply, changed = () => {}, adopted = () => {}, synchronized = () => {}, delay = 5000, dirtyDelay = delay, retireProvider = false,
   validate = validateBackup, backupFactory = createCloudBackup }) {
   let state = { mode: 'backup', enabled: false, status: 'disconnected', name: '', ...settings.read() };
   let task = null, timer = null, revision = 0, applying = false, lastSyncedRevision=null, lastRemoteHash=null;
@@ -161,7 +161,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
         state.retryCount = (state.retryCount || 0) + 1;
         state.retryable = retrySafe() && state.retryCount <= 3;
       }
-      finally { if(adapter.info?.name)state.name=adapter.info.name;task = null; publish(); schedule(); }
+      finally { if(adapter.info?.name)state.name=adapter.info.name;task = null; publish(); schedule(); if(state.enabled&&state.status==='saved')synchronized(); }
     })();
     return task;
   }
@@ -199,7 +199,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
       } catch (error) {
         if (!linked) state = { ...previous, connectionError: error.message || String(error) };
         state.status = 'error'; state.error = error.message || String(error);
-      } finally { task = null; if (!linked && previousBackupEnabled) await independent.setEnabled(true); publish(); schedule(); if (state.mode === 'backup') independent.markDirty(); }
+      } finally { task = null; if (!linked && previousBackupEnabled) await independent.setEnabled(true); publish(); schedule(); if (state.mode === 'backup') independent.markDirty(); else if(state.enabled&&state.status==='saved')synchronized(); }
     })();
     return task;
   }
@@ -266,7 +266,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
           await reconcileWithRetry();
         } catch (error) {
           state = {...(switched ? state : previous),enabled:false,status:'error',error:error.message,connectionError:error.message,errorCode:cloudErrorCode(error)};
-        } finally { task = null; publish(); schedule(); }
+        } finally { task = null; publish(); schedule(); if(state.enabled&&state.status==='saved')synchronized(); }
       })();
       return task;
     },
@@ -288,7 +288,7 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
           publish();
           await adapter.acknowledgeSetup?.();
         } catch (error) { state.status = 'error'; state.error = error.message || String(error); state.errorCode = cloudErrorCode(error); state.retryable = false; }
-        finally { task = null; publish(); schedule(); }
+        finally { task = null; publish(); schedule(); if(state.enabled&&state.status==='saved')synchronized(); }
       })();
       await task;
       if (state.status === 'pending') await sync();
