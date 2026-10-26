@@ -1,0 +1,487 @@
+{
+  "verifiedAt": "2026-10-26T12:04:03.789670+00:00",
+  "version": "6.1.6-beta.4",
+  "build": 110,
+  "websiteCommit": "46520aad600406ac076990606a833d9eb1a443be",
+  "tag": "v6.1.6-beta.4",
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "bytes": 112058,
+      "sha256": "db4190c0b96f74182a1ba24a9b77e4117d035df4336f067cec74855da3a0c09c"
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "bytes": 114284,
+      "sha256": "46b58a56833c9ca81f5afec4d9319592959b8f7251b162b63354db7a9177ebdb"
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "bytes": 111859,
+      "sha256": "35fcb144c595a1f439d757c67bb4bc4ca358c7a42af892c9417f75daadf2d91b"
+    },
+    {
+      "language": "de",
+      "url": "https://spinoapp.com/de/",
+      "bytes": 115899,
+      "sha256": "94a98fb3a92979404f7a6bf86b43c930fa1890537fd9758091dcb1d1a41cd1d8"
+    },
+    {
+      "language": "hu",
+      "url": "https://spinoapp.com/hu/",
+      "bytes": 116637,
+      "sha256": "89914e25760cd8d7099226027f80a02b21049716963215b05488da0eeec61db7"
+    }
+  ],
+  "manifestSHA256": "ebdeb0ff6300841984e22af688105329bd33f4d734555b609f70aeb1c638862b",
+  "downloads": [
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.6-beta.4-110-beta-android.apk",
+      "bytes": 76971370,
+      "sha256": "710d2859a9a0cac4f02fc79979dffaf53e4dea3658c08707b4489748ed9a79ab",
+      "ranges": [
+        {
+          "start": 20971510,
+          "end": 20971530,
+          "bytes": 21,
+          "status": 206,
+          "sha256": "c112b9a84ba0ebebdf57f4fd77fe69053f272d8041ea02dc7caf65a4dd367327"
+        },
+        {
+          "start": 41943030,
+          "end": 41943060,
+          "bytes": 31,
+          "status": 206,
+          "sha256": "93ba190e44a553b003e8081a48ee722354706d6fd95bb9d45ffca513cf9ebd07"
+        },
+        {
+          "start": 76971339,
+          "end": 76971369,
+          "bytes": 31,
+          "status": 206,
+          "sha256": "d79bcbd4e398a454cb4e48c154e61373753b9e53ae2bbc4d0d9d9832e8559b02"
+        }
+      ]
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.6-beta.4-110-android.aab",
+      "bytes": 64201746,
+      "sha256": "4d443bd84f8a7554f9e48a69152036cd744e1e579b0c43fc2a3aec0173d28159"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.6-beta.4-play-console-handoff.zip",
+      "bytes": 64204253,
+      "sha256": "2012bf5c74255b7f52c1772df17bec57cb6a1d14475f969f8e8292ae740cc1c6"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.6-beta.4-release-notes.txt",
+      "bytes": 1868,
+      "sha256": "093b2fbb5f94c62d88bb041052b818a83fb1076d5d14d1bb8bef6274ec026d82"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.6-beta.3-109-beta-android.apk",
+      "bytes": 77253110,
+      "sha256": "283bcce242d44b0ba8c9e8f10ead2acc111353761b06ba92998aed009b68a60c"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.5-106-android.apk",
+      "bytes": 72568133,
+      "sha256": "824b33afe5bace6b47113214970347be7b285c6e50e2edaa9dba522a169d8aaf"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.5-106-android.aab",
+      "bytes": 64171761,
+      "sha256": "29e69bfa6f170b5eee2a1b49f82de895c30127067a867fdea1f778802ee0a2ac"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.5-play-console-handoff.zip",
+      "bytes": 63888958,
+      "sha256": "2ef343a9ea4a32806ba537a02244acb15a824552cf2383f67c15266b89cf50dd"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.1.5-release-notes.txt",
+      "bytes": 1967,
+      "sha256": "d6d1b5c56e23575c2e1fda6b18c27ab6accea5b37fad33046e59bb26bf958b55"
+    }
+  ],
+  "websiteImages": [
+    {
+      "url": "https://spinoapp.com/img/ca/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 151207,
+      "sha256": "9abd2f42f88b7181caff8a37515e1fbfeb17e6f951f8c3cb64b64f269820e50e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/02-routine.png?v=2026-10-23-de-hu-04",
+      "bytes": 136183,
+      "sha256": "faebd7d1bd5b2caf572772707ad729c4eed5c6932e47c53cee32280a9e5c2a43"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/03-repertoire.png?v=2026-10-23-de-hu-04",
+      "bytes": 142244,
+      "sha256": "483cb668547d508821f0bf7f96cdb1b488db96ec9a52925ec4fb37fbeb15cb36"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/04-quick-practice.png?v=2026-10-23-de-hu-04",
+      "bytes": 310289,
+      "sha256": "a7ef490c4d21db55f6d3136da41281f3b8438f74c47c481c7e44c96380421687"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/05-quick-result.png?v=2026-10-23-de-hu-04",
+      "bytes": 122386,
+      "sha256": "6e79b29fa1271ab73ef0c76fd68ddc072abd1860df7c07b15a255f50a1b8ebed"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/06-progress.png?v=2026-10-23-de-hu-04",
+      "bytes": 142857,
+      "sha256": "0e9b2824e9f32b5fdafef88a3ce4b1a76df6361296cec3e89fb51be7fd64d384"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/07-multimedia.png?v=2026-10-23-de-hu-04",
+      "bytes": 234949,
+      "sha256": "a18928109705aa7afcb4dac2b10a0b75782c20867074873cc3af1b04cdc55a65"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/08-time-details.png?v=2026-10-23-de-hu-04",
+      "bytes": 158713,
+      "sha256": "03f8cdbef48bbe4f674cd5f700bb04af4b0e9cc890f12c6eaf2b0ec406b1e27e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/09-calendar.png?v=2026-10-23-de-hu-04",
+      "bytes": 157039,
+      "sha256": "80d3c60b2b5c53110a6fc4a870b5e413c06376c5a18a45408a3aa5eb3d1cd532"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-catalogue-beta8.png",
+      "bytes": 177314,
+      "sha256": "d49282f84656b88c37522279993c19349d19b7ab8e0b9f1746ecde6cf3956b03"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-period-author-beta8.png",
+      "bytes": 174256,
+      "sha256": "032ac8abeaa850576cc2f6f74c15abc4b8c8493edd9631ca8e3f104f10eb42cf"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-preview-beta8.png",
+      "bytes": 228978,
+      "sha256": "442382e799c8cc2f8f5a830ba0fddab9329dc523654adb5578dc70b414e400e2"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 75505,
+      "sha256": "0ec6e912d92ac95cee07488bd4c328144d5b098aa2b7b546406a06c7ec00c5e0"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 385888,
+      "sha256": "7c5ba5d28839fba64a8ba7260125a19514c821467d602b63c775ee7e3a9fc80c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 155977,
+      "sha256": "5cc948d422207f0a539392768e170af7f27233ae46518d4a0ab59da5a8c98c2c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/02-routine.png?v=2026-10-23-de-hu-04",
+      "bytes": 141285,
+      "sha256": "a3751d9fbb7e4af084814fad53353a46951f999dcf3555a3061cc2b7efad6680"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/03-repertoire.png?v=2026-10-23-de-hu-04",
+      "bytes": 142216,
+      "sha256": "7fc0420f3a32aa422d84e9f5e5ed9b84093135477a0a175138966a63e9e359cd"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/04-quick-practice.png?v=2026-10-23-de-hu-04",
+      "bytes": 309131,
+      "sha256": "075cc7bcafe06d698f65c26def9fc3a8df5b8a2437a89001fbc3251285a4b406"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/05-quick-result.png?v=2026-10-23-de-hu-04",
+      "bytes": 129338,
+      "sha256": "0032300d71a93dd9a82438216b30f09ee0e6b2296bf2e980356645503cc793de"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/06-progress.png?v=2026-10-23-de-hu-04",
+      "bytes": 142097,
+      "sha256": "eaf98264b4de4714e4c205f40840adc40546d6547ce387c61896ac998531071c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/07-multimedia.png?v=2026-10-23-de-hu-04",
+      "bytes": 230570,
+      "sha256": "78b7eb1803e3e4bea6c102007c5b5e84b9a514c43dbd7cd72863383b7570bdf9"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/08-time-details.png?v=2026-10-23-de-hu-04",
+      "bytes": 157124,
+      "sha256": "dda329ee3123ccfe3bf78326cc1b796ebeb3a7f5ae6be40e1c833eaa902b7b8f"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/09-calendar.png?v=2026-10-23-de-hu-04",
+      "bytes": 163863,
+      "sha256": "3c9f52af07eba6a2a45b916f5d7b57443ba09dd585da83edb13a7d69e395756a"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-catalogue-beta8.png",
+      "bytes": 174975,
+      "sha256": "8ffbd9ce29bc109813acef86eb1fcd181733f76061acf87b764f929f7be853fb"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-period-author-beta8.png",
+      "bytes": 170217,
+      "sha256": "632a27590a581de4b1874678b96fa58074f728316654069a64150eefdba2615f"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-preview-beta8.png",
+      "bytes": 227728,
+      "sha256": "5432c9934fd1561d2cca1ae1894a5f07a23bf1ef2c99a028fcc23616283309f8"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 73500,
+      "sha256": "31e3e05d6596fbeb8f2b0b7d92d92cb45b391d4384f850b9da01d2df34efd770"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 378199,
+      "sha256": "297b8e2cf437650ac0a8432d7ee87bfc74b460fe02164ba08a660fd39fb30787"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 153269,
+      "sha256": "6d318b22d0350783fb70a5d982706d5b8d74c54e93637eb5f2b7600f6b34cd81"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/02-routine.png?v=2026-10-23-de-hu-04",
+      "bytes": 129637,
+      "sha256": "e9b113159d583dfad2748b1d5a6a27a535de11ea7f3d9d4dafcdb8b1de7ee76f"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/03-repertoire.png?v=2026-10-23-de-hu-04",
+      "bytes": 138952,
+      "sha256": "b7236d814e0608ed66ae9715429c4780036905c0c05e6bb08c3a0579510855da"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/04-quick-practice.png?v=2026-10-23-de-hu-04",
+      "bytes": 295218,
+      "sha256": "f04260b2ef6558b77c0222d5ed03cc8e0947cfc6c7042c42df223bb21238090d"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/05-quick-result.png?v=2026-10-23-de-hu-04",
+      "bytes": 121756,
+      "sha256": "9eebae008d3081f3023f64ccb1e751cb08b785e875d89942adef5d1c1ff359c1"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/06-progress.png?v=2026-10-23-de-hu-04",
+      "bytes": 137161,
+      "sha256": "b5e4fbf54ae4c985410e947852dba022c78299d6c038c479c7513f7042bb218e"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/07-multimedia.png?v=2026-10-23-de-hu-04",
+      "bytes": 234161,
+      "sha256": "63282aa8f132b5a817e613c81c94fcd52598ac754200da784e21f1442d5a9735"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/08-time-details.png?v=2026-10-23-de-hu-04",
+      "bytes": 149004,
+      "sha256": "f841118c998c6aa128d1f711d77fb9eb08d1865a827be298c810350e80f5f016"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/09-calendar.png?v=2026-10-23-de-hu-04",
+      "bytes": 164543,
+      "sha256": "85838f330fcaca3ca9c2295fa48e5f1718dc5c9dfbaff121afadef5f9cbe71ce"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-catalogue-beta8.png",
+      "bytes": 178623,
+      "sha256": "de282af44437a209c35b86a233483550c101349a7a2b90d05b8d8f0d2d53a87b"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-period-author-beta8.png",
+      "bytes": 169374,
+      "sha256": "4dbbac0256bbc8bd0c3964be310162eb2993aecfc4b31bf63fd0eb698d6e13f2"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-preview-beta8.png",
+      "bytes": 227299,
+      "sha256": "50838a437b7c6788bec4fff213b4ad71afdedaa0b61dd2f476a4e9752872ed23"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 75222,
+      "sha256": "d1f4cb938cbbfef7805194f0cf850752c31c36cd25e06bb9f2d66f55eb430182"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 384715,
+      "sha256": "e64799fb9e5fa9a61c78d7797c8f279c1f01e4a3bdfdb6e036819d0f82015d98"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 148427,
+      "sha256": "d2478c603c496bbe623fabe1a8b7db2225a4ff6375331055dc40a7dcc695da03"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/02-routine.png?v=2026-10-23-de-hu-04",
+      "bytes": 132909,
+      "sha256": "afb8f53ebe3a785e45ccaabae197b866cfee74f28943f146880a238be7ff28a6"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/03-repertoire.png?v=2026-10-23-de-hu-04",
+      "bytes": 135367,
+      "sha256": "181699c98acad63ad5f3bb0bf4a94174a8a7afadf40e44ac055e04873696f42f"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/04-quick-practice.png?v=2026-10-23-de-hu-04",
+      "bytes": 303458,
+      "sha256": "573a8068dff452b5fd3d3d153482c37d8f8ccb865310716e7d130043c967b266"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/05-quick-result.png?v=2026-10-23-de-hu-04",
+      "bytes": 130001,
+      "sha256": "08a8978162b645707a80b196321dfe50d2b9f493595889aaa0d5720ec44acf9e"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/06-progress.png?v=2026-10-23-de-hu-04",
+      "bytes": 141604,
+      "sha256": "72dba3fcebb40e55492b37a44c8b103d255e448fb261cf845df69244d935070c"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/07-multimedia.png?v=2026-10-23-de-hu-04",
+      "bytes": 239452,
+      "sha256": "a590fc136c6ae6c3b66564148d2d02f2e5aeff81ab0f6f8a2b9963a7664a6f57"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/08-time-details.png?v=2026-10-23-de-hu-04",
+      "bytes": 153202,
+      "sha256": "4565a8823d6b2b0db5799366bfdcac94941e2dee5f128a8fe29aecd69730af0d"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/09-calendar.png?v=2026-10-23-de-hu-04",
+      "bytes": 166749,
+      "sha256": "c9734fc4e4a88dbfec38f3ea5b5cbb4388c5770966b08ae8c88ace7f79c25b4e"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-catalogue-beta8.png",
+      "bytes": 181579,
+      "sha256": "8f584e3ce9c7480a7d8b3a9cc8fbeb8192c88b6f24a3f4b4262f1255e05c0922"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-period-author-beta8.png",
+      "bytes": 175127,
+      "sha256": "3165e203efd07b560215dd9a5774b577725950c613c3309f41bdd985e7a2fccf"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-preview-beta8.png",
+      "bytes": 228912,
+      "sha256": "d5c75be8a8852610095908b3de85e2dd05701a9f37ef3c2acd3cab517e7c49a2"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 74365,
+      "sha256": "448e2ca1a08029bfcc3b288cbd4bf61723e513c6c759f1b7107d28c950736cca"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 383808,
+      "sha256": "6beb6412bb54f2574df3ef52c84d034ea78d02c7a02ff9d24a36d33f9eb776c2"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 161917,
+      "sha256": "1e674aa999f09f05af5f42ffb9a5edf97355d7b42fd10e2ef4ca7dbe51bfb215"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/02-routine.png?v=2026-10-23-de-hu-04",
+      "bytes": 151224,
+      "sha256": "f8a6f1a87b05da56f739d99174576d8e7a3e96ee039a79211556b6300fa4bbf3"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/03-repertoire.png?v=2026-10-23-de-hu-04",
+      "bytes": 154332,
+      "sha256": "329acfc4af6eaf71b144332fcb81499b9f83251e0488c22d290ae93d06b51c39"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/04-quick-practice.png?v=2026-10-23-de-hu-04",
+      "bytes": 309471,
+      "sha256": "7de246350a6eaf267e4a529b857275cc1687c953b07c61b163e1cafed8694349"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/05-quick-result.png?v=2026-10-23-de-hu-04",
+      "bytes": 125535,
+      "sha256": "76f32a75e0a75e009d6a884102bd3779e70875970578b0876057e7ecfca4b4b8"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/06-progress.png?v=2026-10-23-de-hu-04",
+      "bytes": 144909,
+      "sha256": "d0ea9932debc11079cd65d283287fa8db6423fc2e6bf439b5d3e8be3abcadab6"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/07-multimedia.png?v=2026-10-23-de-hu-04",
+      "bytes": 230716,
+      "sha256": "59a6d97c179003b0a0a247f2c29f022fdc3b1927aebce0e7d747fc8628ed9e80"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/08-time-details.png?v=2026-10-23-de-hu-04",
+      "bytes": 168041,
+      "sha256": "301bc7994954e83d9b9cc0e18b118cb1391714cb64fe558751f43b16cb331729"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/09-calendar.png?v=2026-10-23-de-hu-04",
+      "bytes": 153850,
+      "sha256": "6424a1ae901d3a9f58190863067fc40c44400e57be258ea51f712cb75349e916"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-catalogue-beta8.png",
+      "bytes": 181398,
+      "sha256": "8f88ab59f0f3ef4bf8723d63e633a2c70ef52b171afa26aaea3e27d67fe850c4"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-period-author-beta8.png",
+      "bytes": 174761,
+      "sha256": "2f1e3d6f2e9ce146d5770d905f4ddcdf32541d1d6c0ebb082aa2c767257aaebd"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-preview-beta8.png",
+      "bytes": 227579,
+      "sha256": "6afe3c7264455a313d0a4329506815c8b77c1125e1c2c3e3d5e9e1fe6340d70b"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 74349,
+      "sha256": "868e8bfd4664d49a15878b9aa3ba1c5e9e88d0dcb786a65683b14302051e506c"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 380630,
+      "sha256": "de22ac80b082f5091b4e1b73459372ae396fa924ac849925522d887914f8668d"
+    },
+    {
+      "url": "https://spinoapp.com/img/icon.png",
+      "bytes": 156405,
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    }
+  ],
+  "languagePagesWithoutCacheQueryVerified": true,
+  "deployment": {
+    "provider": "Cloudflare Wrangler",
+    "check": "Wrangler direct deployment",
+    "status": "completed",
+    "conclusion": "success",
+    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+    "directEvidence": {
+      "file": "docs/releases/6.1.6-beta.4-direct-deployment.json",
+      "sha256": "f6c70e5873cd0c647aec589c9b908adef257bf393bfa0a2d1a9264141b3a5d0d",
+      "versionId": "b243b474-b23d-49ed-b626-c1ed56f75052"
+    }
+  },
+  "nativeEvidence": "docs/quality-review/captures/profile/2026-10-26-beta4-native-01/install.json",
+  "physicalDeviceAcceptance": false
+}
