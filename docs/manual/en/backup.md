@@ -73,3 +73,6 @@ Manage includes Export notebook (JSON) and Import notebook (JSON) for notebook p
 
 
 Source/browser follow-up (26 October 2026, not yet packaged): after the document provider confirms a manual ZIP save, Backups shows Backup saved and Prepare a new copy. Cancelling the picker keeps the prepared ZIP available to retry while the app remains open. A browser download alone does not confirm a completed provider save.
+
+
+The manual ZIP saved-state and dialog follow-up is packaged in Android 6.1.6-beta.5 (111). Public signed downloads and replacement emulator installation are verified. Physical document-provider and personal-archive completeness acceptance remain separate.

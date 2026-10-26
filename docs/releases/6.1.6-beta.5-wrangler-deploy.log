@@ -1,0 +1,46 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.152.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 620 files from the assets directory /private/tmp/spino-616b5-web/site
+🌀 Starting asset upload...
+🌀 Found 19 new or modified static assets to upload. Proceeding with upload...
++ /downloads/spino-6.1.6-beta.5-release-notes.txt
++ /index.html
++ /hu/index.html
++ /downloads/parts/spino-6.1.6-beta.5-111-beta-android.apk.003.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-android.aab.002.bin
++ /downloads/spino-6.1.6-beta.5-checksums.json
++ /en/index.html
++ /downloads/parts/spino-6.1.6-beta.5-play-console-handoff.zip.003.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-android.aab.000.bin
++ /ca/index.html
++ /de/index.html
++ /downloads/parts/spino-6.1.6-beta.5-111-android.aab.003.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-android.aab.001.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-beta-android.apk.000.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-beta-android.apk.001.bin
++ /downloads/parts/spino-6.1.6-beta.5-111-beta-android.apk.002.bin
++ /downloads/parts/spino-6.1.6-beta.5-play-console-handoff.zip.000.bin
++ /downloads/parts/spino-6.1.6-beta.5-play-console-handoff.zip.001.bin
++ /downloads/parts/spino-6.1.6-beta.5-play-console-handoff.zip.002.bin
+Uploaded 4 of 19 assets
+Uploaded 8 of 19 assets
+Received a "Retry-After" header from the Cloudflare API. Waiting 60 second(s) before retrying...
+Asset upload failed. Retrying... 1 of 5 attempts.
+
+Uploaded 13 of 19 assets
+Uploaded 16 of 19 assets
+Uploaded 19 of 19 assets
+✨ Success! Uploaded 19 files (581 already uploaded) (88.28 sec)
+
+Total Upload: 91.79 KiB / gzip: 22.39 KiB
+Worker Startup Time: 2 ms
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (135.54 sec)
+Deployed spino triggers (2.20 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: a18e1a97-a8fd-42e7-bf3e-7b1e45e25fe9

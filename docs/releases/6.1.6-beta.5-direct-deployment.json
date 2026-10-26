@@ -1,0 +1,21 @@
+{
+  "commit": "41d3509dbb95b201b586b18a6f4b108bc9200ac0",
+  "exitCode": 0,
+  "versionId": "a18e1a97-a8fd-42e7-bf3e-7b1e45e25fe9",
+  "log": "docs/releases/6.1.6-beta.5-wrangler-deploy.log",
+  "logSHA256": "d34b22ed0edf4bed05159e7346c5596117016461e6acd2bfdda7d9c749420d98",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "wranglerVersion": "4.151.3",
+  "authorization": "Owner requested a new beta on 26 October 2026. Existing Worker and stored session reused.",
+  "isolatedExport": {
+    "commit": "41d3509dbb95b201b586b18a6f4b108bc9200ac0",
+    "files": 1455,
+    "bytes": 13946742362,
+    "method": "Independent APFS clones of Git-blob-verified inputs; committed bytes for missing small files"
+  },
+  "automaticBuild": {
+    "buildId": "5f5b70fd-f98d-43e6-be7e-1da88f826db4",
+    "result": "Stopped through Cancel build after five minutes cloning; provider check completed/failure; no automatic deployment occurred"
+  }
+}

@@ -140,3 +140,6 @@ Beta22 publication follow-up: source/APK `5395d3e`, immutable tag `v6.1.0-beta.2
 ## 26 October 2026 — Manual ZIP completion and dialog actions
 
 Provider-confirmed ZIP saves now show a completed inline summary and Prepare a new copy instead of reopening Your ZIP is ready. Cancellation/retry retains the prepared archive. Preparation/ready dialogs use the existing top Close with spaced, stacked actions. [Responsive synthetic evidence](captures/profile/2026-10-26-zip-saved-02/README.md) covers four orientations; build and 19 focused checks pass. The owner-reported physical archive was not inspected. Layout acceptance, native packaging and later real-ZIP content verification remain open.
+
+
+Beta.5 (111) publication follow-up: ZIP saved-state/dialog corrections are packaged and publicly verified. Fifteen Android unit checks, 19 focused app checks and ten website checks pass; all 683 web assets match both signed packages. Native replacement installation preserves 135 IndexedDB hashes and foreground activity. Current deployment and public proof: ../releases/6.1.6-beta.5-publication.json. Next: physical ZIP save/layout check and deferred real-archive completeness verification.
