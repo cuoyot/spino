@@ -1,0 +1,47 @@
+{
+  "packagedWebFilesMatch": {
+    "apk": 683,
+    "aab": 683
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "version": "6.1.6-beta.5",
+  "versionCode": 111,
+  "appSourceCommit": "af67701e6651d0eca05c26fd320caefa502dffe7",
+  "focusedJavaScriptAndBrowser": {
+    "passed": 19,
+    "failed": 0
+  },
+  "website": {
+    "passed": 10,
+    "failed": 0
+  },
+  "signatures": "APK retains the beta.4 signing certificate; release AAB jarsigner verification passed",
+  "nativeEvidence": "docs/quality-review/captures/profile/2026-10-26-beta5-native-01/install.json",
+  "physicalDeviceAcceptance": false,
+  "personalZIPCompleteness": "Deferred owner check; no personal archive inspected",
+  "unrelatedSettingsChanges": "Excluded by building an isolated committed export",
+  "replacementInstall": {
+    "version": "6.1.6-beta.5",
+    "versionCode": 111,
+    "replacementInstall": true,
+    "indexedDBFilesPreserved": 135,
+    "verification": "Exact pre-launch SHA-256 manifests match before and after replacement install",
+    "applicationDataCleared": false,
+    "foregroundVerified": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{daef6b8 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t178}"
+    ],
+    "apkSHA256": "1e06fdf6d705fbf19810952a6689acfdae99c5250ddd6aa3c8aaffb3b38f97dc",
+    "nativeVisualAcceptance": false,
+    "physicalGoogleAcceptance": false
+  },
+  "websiteAssetRepair": {
+    "cause": "ENOSPC while recopying retained downloads",
+    "resolution": "Removed disposable build intermediates; verified all 337 split download parts and repaired nine local copies from source. Existing committed website images and retained downloads unchanged."
+  }
+}

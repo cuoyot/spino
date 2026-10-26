@@ -1,0 +1,15 @@
+<es-ES>
+Corregido el estado tras guardar una copia ZIP: muestra la confirmación y permite preparar una copia nueva. Cancelar conserva el ZIP para reintentar. Diálogos más claros, con botones separados y un único cierre.
+</es-ES>
+<en-US>
+Fixed the status after saving a ZIP backup: it confirms completion and offers to prepare a new copy. Cancelling keeps the ZIP available to retry. Clearer dialogs with spaced buttons and a single close action.
+</en-US>
+<ca>
+Corregit l’estat després de desar una còpia ZIP: confirma el desament i permet preparar una còpia nova. Cancel·lar conserva el ZIP per tornar-ho a provar. Diàlegs més clars, amb botons separats i un únic tancament.
+</ca>
+<de-DE>
+Nach dem Speichern einer ZIP-Sicherung wird der Abschluss bestätigt und eine neue Kopie angeboten. Beim Abbrechen bleibt die ZIP-Datei für einen weiteren Versuch verfügbar. Klarere Dialoge mit getrennten Schaltflächen und einer einzigen Schließen-Aktion.
+</de-DE>
+<hu-HU>
+A ZIP-mentés után megjelenik a visszaigazolás és az új másolat készítésének lehetősége. Megszakításkor a ZIP megmarad az újrapróbáláshoz. Áttekinthetőbb párbeszédablakok, elkülönített gombokkal és egy bezárási művelettel.
+</hu-HU>

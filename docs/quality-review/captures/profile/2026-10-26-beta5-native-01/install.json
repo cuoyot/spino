@@ -1,0 +1,15 @@
+{
+  "version": "6.1.6-beta.5",
+  "versionCode": 111,
+  "replacementInstall": true,
+  "indexedDBFilesPreserved": 135,
+  "verification": "Exact pre-launch SHA-256 manifests match before and after replacement install",
+  "applicationDataCleared": false,
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{daef6b8 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t178}"
+  ],
+  "apkSHA256": "1e06fdf6d705fbf19810952a6689acfdae99c5250ddd6aa3c8aaffb3b38f97dc",
+  "nativeVisualAcceptance": false,
+  "physicalGoogleAcceptance": false
+}
