@@ -31,3 +31,8 @@ Bounded optional compressed segments replace the single checkpoint acceleration 
 ## Unreleased manual-check follow-up — 26 October 2026
 
 Owner beta feedback reproduces unnecessary manual inventory/local export and a recording-check status left active after ineligibility. Source fixes and synthetic protocol/browser validation are in `captures/profile/2026-10-26-manual-sync-01/README.md`. The panel now distinguishes known wait blockers without weakening adoption guards. Physical Google timing remains unmeasured; no new APK/publication is claimed.
+
+
+## Beta.2 release packaging
+
+The 26 October manual-check follow-up is packaged as 6.1.6-beta.2 (108). Native replacement installation, foreground activity, 135 preserved IndexedDB hashes and exact packaged web bytes pass. The live Google timing remains owner acceptance work; public release evidence is recorded in the versioned reports.

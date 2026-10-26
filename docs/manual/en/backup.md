@@ -43,3 +43,6 @@ Automatic checks run while Spino is open. The beta supports archives up to 250 M
 ## Beta 6.1.6 synchronization
 
 The beta can create verified compressed copies to reduce requests when another device opens the existing notebook. Keep your current Drive connection; no export/import or reconnect is required. Original history is retained, and stable devices can continue using it. This acceleration does not remove old files. The synchronization icon keeps rotating through progress updates and screen changes. Physical-device Drive validation is still pending for this beta.
+
+
+In beta 6.1.6-beta.2, **Sync now** checks the existing changes cursor and avoids a full local export when both sides are unchanged. The shared icon stops rotating when a recording check finishes or is suspended. A waiting message names the known practice, editor, dialog or score blocker; a generic wait does not imply a practice is running. Received changes still wait for a safe time to apply.

@@ -1,0 +1,30 @@
+<es-ES>
+• Sincronizar ahora evita releer el cuaderno completo cuando no hay cambios.
+• El icono deja de girar cuando termina o se interrumpe la comprobación de grabaciones.
+• Los avisos de espera indican el motivo conocido, sin pedir terminar una práctica que no está en marcha.
+Conserva la conexión y los datos actuales.
+</es-ES>
+<en-US>
+• Sync now avoids rereading the complete notebook when nothing has changed.
+• The icon stops rotating when a recording check finishes or is interrupted.
+• Waiting messages show the known reason instead of asking you to finish a practice that is not running.
+Your existing connection and data are preserved.
+</en-US>
+<ca>
+• Sincronitza ara evita rellegir el quadern complet quan no hi ha canvis.
+• La icona deixa de girar quan acaba o s’interromp la comprovació de gravacions.
+• Els avisos d’espera indiquen el motiu conegut, sense demanar acabar una pràctica que no està en marxa.
+Conserva la connexió i les dades actuals.
+</ca>
+<de-DE>
+• Jetzt synchronisieren liest bei unverändertem Stand nicht das gesamte Notizbuch erneut.
+• Das Symbol dreht sich nach Ende oder Unterbrechung einer Aufnahmeprüfung nicht weiter.
+• Wartemeldungen zeigen den bekannten Grund, statt zum Beenden einer nicht laufenden Übung aufzufordern.
+Die bestehende Verbindung und Daten bleiben erhalten.
+</de-DE>
+<hu-HU>
+• A Szinkronizálás most változatlan adatoknál nem olvassa újra a teljes naplót.
+• Az ikon forgása leáll, amikor a felvételek ellenőrzése befejeződik vagy megszakad.
+• A várakozási üzenet az ismert okot mutatja, nem kér egy nem futó gyakorlás befejezésére.
+A meglévő kapcsolat és adatok megmaradnak.
+</hu-HU>

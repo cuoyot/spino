@@ -1,0 +1,24 @@
+{
+  "kind": "Responsive browser; synthetic Drive and recordings",
+  "nativeAcceptance": false,
+  "manualCheck": {
+    "requests": [
+      "/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=14&fields=nextPageToken%2CnewStartPageToken%2Cchanges(fileId%2Cremoved%2Cfile(id%2Cname%2CmimeType%2Csize%2Cversion%2Csha256Checksum%2CappProperties%2Ctrashed))"
+    ],
+    "assetExports": 0
+  },
+  "stalledRecordingCheckResumes": true,
+  "spinnerReturnsToSaved": true,
+  "version": "6.1.6-beta.2",
+  "versionCode": 108,
+  "status": "Release build, responsive browser verification",
+  "physicalDeviceTiming": "Pending",
+  "sourceHashes": {
+    "src/companion/cloud-sync.js": "a44da927b868381d0e5639b74745a12d0b7a891a3715415e0404485ab4ea2707",
+    "src/companion/media-sync.js": "ed33a74bfc91063083b4ce8150037cd26c25fd3d76b2609b765b134d89ae51a6",
+    "src/companion/drive-sync-view.js": "2cd47d6cca62e18ed74b759af0c4395e35f816468074b67815f2248c286efab5",
+    "tests/manual-sync.browser.test.js": "c1d830a79f4fc2013132fdfa2502fccdf65b20d1263be3c9b384b167ec9666d2"
+  },
+  "buildIndexSHA256": "ec9469894765f7511c2a2b9adf0ee44f380f3b7173a75b9e2cb86a5e2bc77009",
+  "installedAPKSHA256": "17742241a71d4e793967291fd93fa58ada1f16c7e4beba982c6f54db23040e22"
+}

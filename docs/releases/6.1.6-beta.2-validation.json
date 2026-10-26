@@ -1,0 +1,112 @@
+{
+  "version": "6.1.6-beta.2",
+  "versionCode": 108,
+  "focusedTests": 115,
+  "browserRegressionTests": 3,
+  "androidUnitTests": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "signatures": "APK apksigner and release AAB jarsigner verified",
+  "packagedWebFilesMatch": {
+    ".apk": 684,
+    ".aab": 684
+  },
+  "nativeEvidence": {
+    "replacementInstall": true,
+    "foregroundVerified": true,
+    "foreground": "topResumedActivity=ActivityRecord{ab63a93 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t183}",
+    "versionName": "6.1.6-beta.2",
+    "versionCode": 108,
+    "indexedDBFilesPreserved": 135,
+    "indexedDBManifestSHA256": "e98d0a3fa6259a3cd4befbec5762e82791d3f38192fcaa7ac50bc14e94eae4bb",
+    "installedAPKSHA256": "17742241a71d4e793967291fd93fa58ada1f16c7e4beba982c6f54db23040e22",
+    "liveDriveAccount": false
+  },
+  "nativeAcceptance": {
+    "replacementInstall": true,
+    "foregroundVerified": true,
+    "foreground": "topResumedActivity=ActivityRecord{ab63a93 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t183}",
+    "versionName": "6.1.6-beta.2",
+    "versionCode": 108,
+    "indexedDBFilesPreserved": 135,
+    "indexedDBManifestSHA256": "e98d0a3fa6259a3cd4befbec5762e82791d3f38192fcaa7ac50bc14e94eae4bb",
+    "installedAPKSHA256": "17742241a71d4e793967291fd93fa58ada1f16c7e4beba982c6f54db23040e22",
+    "liveDriveAccount": false
+  },
+  "physicalDriveTiming": "Pending; no timing guarantee inferred from synthetic tests.",
+  "fullSuite": {
+    "application": {
+      "tests": 651,
+      "passed": 609,
+      "failed": 39,
+      "skipped": 3
+    },
+    "websiteFinal": {
+      "tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0
+    },
+    "combinedUniqueTests": 670,
+    "combinedPassed": 628,
+    "combinedFailed": 39,
+    "combinedSkipped": 3,
+    "fullyGreen": false,
+    "allApplicationFailureNamesPresentInRetainedStableControl": true,
+    "failureNames": [
+      "Android Back traverses screen history, closes dialogs and preserves catalogue context",
+      "Catalan Drive notebook keeps reader settings, scores and annotations and rejects invalid cloud data",
+      "Catalan reader, operational messages and warm-ups have explicit resources",
+      "Drive setup, legacy migration, reconnect, offline continuation and local JSON copies",
+      "Home and Multimedia record a chosen repertoire piece without a practice session, with live audio feedback and camera preview",
+      "Manage keeps routine controls readable and recovery separate without leaving on pause",
+      "Navigation palette covers both themes while preserving practice screens",
+      "PDF repertoire import, safe page gestures, annotation tools, persistence and practice timing",
+      "a paused phone practice stays local while completed tablet history arrives; stalled sync can pause and retry",
+      "a second device finds and joins the Drive notebook from Profile",
+      "a stalled Drive read can be paused immediately and still permits a local JSON export",
+      "all known persisted diagnostic messages have German and Hungarian copy",
+      "authorized account can disconnect after failed legacy migration and configure again without losing local data",
+      "closed retained forms no longer prevent applying cloud changes",
+      "complete one lesson occurrence, retain planning, stable result edits and backup links",
+      "conflict review retains both offline practices and only chooses the shared plan link: local",
+      "conflict review retains both offline practices and only chooses the shared plan link: remote",
+      "create open and bounded event series, edit one date and cancel future dates",
+      "device linking code, real QR decoding and backup compatibility choices in four layouts",
+      "duplicate notebook comparison, exact QR, rename and channel-specific local export",
+      "local audio/video capture, playback, restart, quota retry, device isolation and notebook restore",
+      "management print icons invoke printing without opening score or custom preview",
+      "musical streak detail and weekly/monthly recording navigation preserve notebook and recordings",
+      "offline practice starts without a sync prompt, saves progress and keeps automatic sync enabled after restart",
+      "optional explanations use keyboard-accessible Info while actions, warnings and notebook data remain available",
+      "page actions stay accessible below the shared header and Calendar keeps one toolbar",
+      "piano companion: local planning, practice, history, recovery and responsive navigation",
+      "piano sessions open with a Hanon warm-up that explains itself, rotates and can be switched off",
+      "profile switches and persists both new languages, including reader and stable app copy",
+      "quick score is shown, saved once at finish and retained after reload",
+      "recording mobile-data switch permits cellular copies independently from score downloads and survives reload",
+      "recording problems name the file, allow independent copies and recover through Retry",
+      "saved local recording uploads through the notebook account without a separate media login",
+      "second device automatically stores a verified recording, plays offline, and respects local deletion",
+      "stalled Drive never gates practice and late incoming changes wait until the saved session is finished",
+      "unfinished session stays discoverable across destinations and clears on discard"
+    ],
+    "newFailureNamesComparedWithControl": [],
+    "baselineScope": "25 October retained control used unchanged stable 6.1.5 browser assets with beta.1 test sources. Pure source tests still used beta.1 sources; this was not a fully passing control.",
+    "applicationLogSHA256": "07debe2b4fbb6b5cb08e1b9070c13503f672fb48bbb008dd80d200eb9e080648",
+    "retainedControlLogSHA256": "dd3f91228a35b8c46a9ad8a9ba65fe34584368c2002f93d54db1eaa687e1522d",
+    "testFilesCovered": 194
+  },
+  "websiteTests": {
+    "passed": 19,
+    "initialBatch": {
+      "tests": 19,
+      "passed": 18,
+      "failed": 1
+    },
+    "resolvedLegacyAssertion": "Catalogue test expected obsolete stable 6.1.1 (86) and 390x844 captures; now checks the actual stable manifest version and valid portrait image decoding. Corrected test passes. Historical evidence paths are preserved."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replacementInstall": true,
+  "foregroundVerified": true,
+  "foreground": "topResumedActivity=ActivityRecord{ab63a93 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t183}",
+  "versionName": "6.1.6-beta.2",
+  "versionCode": 108,
+  "indexedDBFilesPreserved": 135,
+  "indexedDBManifestSHA256": "e98d0a3fa6259a3cd4befbec5762e82791d3f38192fcaa7ac50bc14e94eae4bb",
+  "installedAPKSHA256": "17742241a71d4e793967291fd93fa58ada1f16c7e4beba982c6f54db23040e22",
+  "liveDriveAccount": false
+}
