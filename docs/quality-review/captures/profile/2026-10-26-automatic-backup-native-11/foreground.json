@@ -1,0 +1,7 @@
+{
+  "activity": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+  "normalAppForegroundVerified": true,
+  "launchWaitTimedOut": true,
+  "note": "ADB did not acknowledge full normal-app launch within its wait, but dumpsys confirmed MainActivity was topResumedActivity. This is foreground evidence, not native visual acceptance.",
+  "applicationDataCleared": false
+}

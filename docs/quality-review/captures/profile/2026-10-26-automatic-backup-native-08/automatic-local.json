@@ -1,0 +1,14 @@
+{
+  "kind": "Android API 34 instrumentation; synthetic local ZIP archives",
+  "test": "LocalBackupArchiveInstrumentedTest",
+  "result": "passed",
+  "archivesWritten": 9,
+  "exactSavedBytesVerified": true,
+  "retainedArchives": 7,
+  "oldestTwoPruned": true,
+  "crossNotebookCommitRejected": true,
+  "savedWithoutPicker": true,
+  "personalNotebookUsed": false,
+  "physicalGoogleDriveAcceptance": false,
+  "instrumentationAPK_SHA256": "8ef9186c2d64e1afb365ab4e080b6cf288579772f4fb7ccccacc9dece5338e9c"
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "Unreleased review; not a website release",
+  "versionName": "6.1.6-beta.3",
+  "versionCode": 109,
+  "apkSHA256": "ba25b7d4735ffd4cde02306d988776998fbbcea0048445ce31628655566be56a",
+  "packagedWebFilesMatched": 684,
+  "webMismatches": [],
+  "focusedJavaScriptTests": {
+    "passed": 80,
+    "failed": 0
+  },
+  "browserChecks": {
+    "passed": 6,
+    "failed": 0,
+    "syntheticGoogleProvider": true
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "androidInstrumentation": {
+    "passed": 1,
+    "syntheticArchiveCount": 9,
+    "retained": 7,
+    "exactBytesVerified": true
+  },
+  "nativeManualSaveCancel": "verified with synthetic ZIP in earlier review; physical Drive acceptance open",
+  "personalGoogleFilesChanged": false,
+  "sourceHashes": {
+    "src/companion/cloud-backup.js": "43714dc95ac94aa761dc4d0134765106d9bc86c4934ee44ed279a22606fcf402",
+    "src/companion/complete-backup.js": "c3572df3900718565a59184c83243606fe015139392ac5df32bce392790982d4",
+    "src/companion/sync-backup-copy.js": "ff0adf567a00e3eeaf11122c4c5ad80e4cc1eb100a8b9ba61c8acc8578397665",
+    "src/companion/complete-backup-ui.js": "1994ed775e723666e73b970ad729811c580a3e89ab04e3266654fc9581dc0fab",
+    "src/companion/cloud-backup.css": "4b16052812358c7591db3d3f2662e61c634ca0706b036e0c4e8a9f7320ae5d8a",
+    "src/companion/cloud-backup-view.js": "bdf96fd0c2457b0726d44de4a429c2c1cedae3e5d80476e35ff4ce468ce05652",
+    "src/companion/backup-export-name.js": "7985e3c261ea85ddcbc6adf678de15b87f7f51097cfe4b7759fe2e33b68a83f3",
+    "src/companion/backup-format.js": "92bf18c258f4f3a2fbba96a58b01774907bf26faf2cd9f9859a5390b2591b643",
+    "src/companion/automatic-backup-copy.js": "9012ac4c458cec3db2620f7a14310b71b406c85e78b27a912e383c8bd73fb1e6",
+    "src/companion/storage-ui.js": "9bbb731f7a9a27def9824c219a07681479f6e10366cf6f8f2198bcfd2053c37f",
+    "src/companion/drive-storage.js": "5d10d26d159973cc8a54e7ec956c33e8f93e887b40fbf5824163c86e19365ca1",
+    "src/companion/cloud-sync.js": "f4ee46ebd5138f96df1d4ab55887fa02e3d75d21f50b134b2fb72c9660d7cac0",
+    "src/companion/media-sync.js": "d642318e631a442542b745a14483bbb9481b62d2d52fcbf4b7a3fb79aaabb9ad",
+    "src/companion/app.js": "a29a5fa5b37289dc931755d3d6df49fa2ac82dab544ecde6a33e62d7d8ffe200"
+  },
+  "additionalCloudAndCoordinatorRegressionTests": {
+    "passed": 53,
+    "failed": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "Unreleased review build based on beta.3 (109); not the website artifact",
+  "replacementInstall": true,
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{dd5debc u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t167}"
+  ],
+  "indexedDBFilesPreserved": 135,
+  "apkSHA256": "fd3cda6e9abe0a20d3ae5e49d622909b47560a588229659154c87cc468407460",
+  "applicationDataCleared": false,
+  "physicalGoogleDriveAcceptance": false,
+  "installationNote": "Replacement install; an interrupted ADB archive read was retried after reconnecting. No application storage was cleared."
+}

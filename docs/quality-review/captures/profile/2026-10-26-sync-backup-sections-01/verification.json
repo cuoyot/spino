@@ -1,0 +1,21 @@
+{
+  "kind": "Responsive browser; disposable synthetic Drive notebook",
+  "nativeAcceptance": false,
+  "delayedSettingsRead": true,
+  "setupFlashes": [],
+  "separateCloudAndZIPCopy": true,
+  "structure": {
+    "headings": [
+      "Sincronización en la nube",
+      "Copias de seguridad"
+    ],
+    "mediaInsideCloud": true,
+    "backupActions": [
+      "storage-export",
+      "storage-import",
+      "storage-manage"
+    ],
+    "pageTitle": "Sincronización y copias"
+  },
+  "layouts": 4
+}

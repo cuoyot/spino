@@ -1,0 +1,16 @@
+{
+  "kind": "Native Android CREATE_DOCUMENT review; synthetic ZIP",
+  "saved": {
+    "saved": true,
+    "bytes": 700418
+  },
+  "cancelled": {
+    "cancelled": true
+  },
+  "bytes": 700418,
+  "sha256": "d0e838fd3824d979cf86678a67bdf26f2ddec2fcdfe052235dc6f05b8266f555",
+  "exactDestinationBytesVerified": true,
+  "destinationProvider": "Android external storage / Downloads",
+  "googleDriveProviderInstalled": true,
+  "physicalGoogleDriveAcceptance": false
+}

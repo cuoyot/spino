@@ -1,0 +1,11 @@
+{
+  "kind": "Responsive browser; disposable synthetic notebook and document writer",
+  "nativeProviderAcceptance": false,
+  "lastCopyAndFolder": true,
+  "preparationAndSavePhases": true,
+  "indeterminateUntilRealCounts": true,
+  "completionRefresh": true,
+  "oneFolderCancel": true,
+  "JSONImportAndNoMultimediaCopy": true,
+  "layouts": 4
+}

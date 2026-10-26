@@ -1,0 +1,13 @@
+{
+  "kind": "Unreleased review build based on beta.3 (109); not the website artifact",
+  "replacementInstall": true,
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{3512163 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t164}"
+  ],
+  "indexedDBFilesPreserved": 135,
+  "apkSHA256": "1daeb921c1fa998dd127c6e4d1e6b7aadd5cf3c8453953a368cbb8b8f7d2183f",
+  "applicationDataCleared": false,
+  "physicalGoogleDriveAcceptance": false,
+  "installationNote": "The original ADB install timed out; the same AVD was cold-booted and the exact installed APK and retained notebook bytes were checked."
+}
