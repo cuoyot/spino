@@ -25,6 +25,33 @@ test('retention is retried on an unchanged day after a previous prune interrupti
 test('new principal starts copying and former principal stops without deleting its previous copies',async()=>{const f=fixture(),first=createDriveStorage(f.args);await first.daily();const second=createDriveStorage({...f.args,deviceId:'device-b',deviceName:'Phone B'});await second.claimPrincipal();assert.equal(f.props.principalId,'device-b');await first.daily();assert.equal(first.state.status,'secondary');await second.daily();assert.equal(second.state.status,'unchanged');assert.equal(f.files.size,1);});
 test('explicit guided backup can proceed with its progress dialog open without bypassing ownership',async()=>{const f=fixture();f.args.eligible=manual=>manual===true;const manager=createDriveStorage(f.args);await manager.daily();assert.equal(f.files.size,0);await manager.daily({manual:true});assert.equal(manager.state.status,'saved');assert.equal(f.files.size,1);});
 
+test('storage settings remain unknown until the full linked-notebook lookup completes',async()=>{
+ const f=fixture(),request=f.args.drive.storageRequest;let finish;
+ f.args.drive.rememberStorage=()=>{};
+ f.args.drive.storageRequest=(path,options)=>path.startsWith('/drive/v3/files/')?new Promise(resolve=>finish=()=>resolve({text:JSON.stringify({name:'Cloud folder'})})):request(path,options);
+ const manager=createDriveStorage(f.args),loading=manager.refresh();
+ for(let n=0;n<10&&!finish;n++)await Promise.resolve();
+ assert.equal(manager.state.loaded,false);assert.equal(manager.state.config,null);
+ finish();await loading;assert.equal(manager.state.loaded,true);assert.equal(manager.state.config.storageFolderName,'Cloud folder');
+});
+
+test('a failed initial lookup does not mark settings as loaded; a transient later failure keeps known settings',async()=>{
+ const f=fixture(),request=f.args.drive.storageRequest;let fail=true;
+ f.args.drive.storageRequest=(...args)=>fail?Promise.reject(Error('Offline.')):request(...args);
+ const manager=createDriveStorage(f.args);await assert.rejects(manager.refresh(),/Offline/);assert.equal(manager.state.loaded,false);assert.equal(manager.state.config,null);
+ fail=false;await manager.refresh();const config=manager.state.config;fail=true;await assert.rejects(manager.refresh(),/Offline/);assert.equal(manager.state.loaded,true);assert.deepEqual(manager.state.config,config);
+});
+
+test('switching notebooks hides old settings and rejects a late lookup from the previous connection',async()=>{
+ const f=fixture(),originalLink=f.args.drive.storageLink(),request=f.args.drive.storageRequest;
+ let link=originalLink,finish;
+ f.args.drive.storageLink=()=>link;const manager=createDriveStorage(f.args);await manager.refresh();assert.equal(manager.state.loaded,true);
+ f.args.drive.storageRequest=(...args)=>new Promise(resolve=>finish=async()=>resolve(await request(...args)));
+ const loading=manager.refresh();link={...originalLink,id:'other-descriptor',notebookId:'other-notebook'};
+ assert.equal(manager.state.loaded,false);assert.equal(manager.state.config,null);
+ await finish();await assert.rejects(loading,/connected notebook changed/);assert.equal(manager.state.loaded,false);assert.equal(manager.state.config,null);
+});
+
 // Use the real notebook adapter so a Drive 404 has the same meaning as on Android.
 function organizerFixture(){
  const notebookId='11111111-1111-4111-8111-111111111111',requests=[];

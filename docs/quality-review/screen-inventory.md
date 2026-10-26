@@ -1,5 +1,7 @@
 # Screen review inventory
 
+26 October 2026 follow-up (D-069): distinct cloud synchronization, ZIP backup and JSON export/import wording, plus verified-settings gating for startup setup notices. [Responsive synthetic evidence](captures/profile/2026-10-26-sync-copy-03/README.md). Beta.3 packaging/publication is tracked in `../releases/6.1.6-beta.3.md`; physical Google timing remains unverified.
+
 2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
 
 2026-10-21 Albéniz priority: Rumores de la Caleta Op.71 No.6 acquired as original solo piano, complete eight-page PDF with exact source/credits and Public Domain dedication. Source instrumentation is visible in details. Local catalogue now has129 editions (55XML,74PDF) and106 identified works; five unresolved identities remain excluded from the work count. [Evidence](captures/repertoire/2026-10-21-periods-01/README.md). Further composer/period candidates remain research-only; no new release.

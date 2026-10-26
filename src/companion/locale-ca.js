@@ -2045,6 +2045,75 @@ Clear dates|Esborrar dates
 No recordings match these filters|Cap gravació coincideix amb aquests filtres
 Choose another date, piece or recording type.|Tria una altra data, peça o tipus de gravació.
 
+Cloud synchronization and backups|Sincronització al núvol i còpies de seguretat
+Set up automatic backups|Configura les còpies de seguretat automàtiques
+Cloud synchronization is connected. You can also save daily ZIP backups to restore an earlier notebook state.|La sincronització al núvol està connectada. També pots desar còpies de seguretat ZIP diàries per restaurar un estat anterior del quadern.
+Cloud synchronization files and separate ZIP backups will stay in this folder.|Els fitxers de sincronització al núvol i les còpies de seguretat ZIP separades quedaran en aquesta carpeta.
+One compressed ZIP backup a day when there are changes. We keep the latest 7. Backups are only used when you restore them.|Una còpia de seguretat ZIP comprimida al dia quan hi hagi canvis. Conservem les darreres 7. Només es fan servir quan les restaures.
+Save a backup (ZIP)|Desa una còpia de seguretat (ZIP)
+Restore a backup (ZIP)|Restaura una còpia de seguretat (ZIP)
+Review this backup|Revisa aquesta còpia de seguretat
+Your ZIP backup|La teva còpia de seguretat ZIP
+You can close this window and return from Cloud synchronization and backups to see progress.|Pots tancar aquesta finestra i tornar des de Sincronització al núvol i còpies de seguretat per veure el progrés.
+The ZIP could not be saved. Review Cloud synchronization and backups.|No s’ha pogut desar el ZIP. Revisa Sincronització al núvol i còpies de seguretat.
+Your ZIP is ready. Choose where to save it in Cloud synchronization and backups.|El ZIP està preparat. Tria on desar-lo a Sincronització al núvol i còpies de seguretat.
+The copy could not be prepared. Review Cloud synchronization and backups.|No s’ha pogut preparar la còpia de seguretat. Revisa Sincronització al núvol i còpies de seguretat.
+Working locally. Resume synchronization from Cloud synchronization and backups.|Treballant en local. Reprèn la sincronització des de Sincronització al núvol i còpies de seguretat.
+Recording synchronization|Sincronització de gravacions
+Synchronizes audio and video over Wi-Fi or mobile data on this device.|Sincronitza àudio i vídeo amb Wi-Fi o dades mòbils en aquest dispositiu.
+Only changed records and missing score pieces transfer. JSON notebook exports are available separately.|Només es transfereixen els registres modificats i els fragments de partitures que falten. Les exportacions del quadern en JSON estan disponibles per separat.
+Recordings synchronize between devices through this Google account. Downloaded files play offline. JSON notebook exports do not contain audio/video files.|Les gravacions se sincronitzen entre dispositius mitjançant aquest compte de Google. Els fitxers descarregats es reprodueixen sense connexió. Les exportacions JSON no contenen fitxers d’àudio o vídeo.
+Recording synchronization is checked automatically while SPino is open.|La sincronització de gravacions es comprova automàticament amb SPino obert.
+Recordings synchronized|Gravacions sincronitzades
+Synchronizing recording|Sincronitzant gravació
+Could not synchronize recordings. Local files are kept.|No s’han pogut sincronitzar les gravacions. Es conserven els fitxers locals.
+Synchronize recordings now|Sincronitza les gravacions ara
+Deleting a local recording keeps the synchronized file in Drive and stops downloading it again on this device.|Esborrar una gravació local conserva el fitxer sincronitzat a Drive i evita que es torni a descarregar en aquest dispositiu.
+Keeps the local notebook, recordings and synchronized Google Drive files.|Conserva el quadern local, les gravacions i els fitxers sincronitzats de Google Drive.
+Repair synchronized recording|Repara la gravació sincronitzada
+To repair synchronization, open SPino on the device with the original recording.|Per reparar la sincronització, obre SPino al dispositiu que conserva la gravació original.
+Checking recording synchronization…|Comprovant la sincronització de gravacions…
+Retry recording synchronization|Torna a provar la sincronització de gravacions
+Local files are kept. Retrying preserves recordings already synchronized.|Es conserven els fitxers locals. En tornar-ho a provar es mantenen les gravacions ja sincronitzades.
+Cloud folder and the latest 7 ZIP backups.|Carpeta del núvol i darreres 7 còpies de seguretat ZIP.
+Restore previous local state|Recupera l’estat local anterior
+Review the previous local state before restoring it.|Revisa l’estat local anterior abans de restaurar-lo.
+ZIP backup or JSON notebook export.|Còpia de seguretat ZIP o exportació del quadern en JSON.
+Export notebook|Exporta el quadern
+Export notebook (JSON)|Exporta el quadern (JSON)
+Import notebook|Importa un quadern
+Backup (ZIP) with recordings|Còpia de seguretat (ZIP) amb gravacions
+Restore backup as a separate notebook|Restaura la còpia de seguretat com un altre quadern
+Restore as a separate notebook|Restaura com un altre quadern
+Your current notebook and recordings will remain intact. The restored notebook opens without cloud synchronization. You can return to the original notebook.|El quadern i les gravacions actuals es conservaran intactes. El quadern restaurat s’obre sense sincronització al núvol. Podràs tornar al quadern original.
+Convert a JSON notebook|Converteix un quadern JSON
+Export a JSON notebook|Exporta un quadern JSON
+JSON format|Format JSON
+Compatible notebook · JSON format 1|Quadern compatible · format JSON 1
+Organized notebook · JSON format 2|Quadern organitzat · format JSON 2
+I understand that older versions cannot open the format 2 notebook.|Entenc que les versions anteriors no poden obrir el quadern en format 2.
+Choose and convert a notebook|Tria i converteix un quadern
+Pause transfers before exporting or converting a notebook.|Pausa les transferències abans d’exportar o convertir un quadern.
+Notebook exported with repertoire, scores and annotations.|Quadern exportat amb repertori, partitures i anotacions.
+Import this JSON notebook|Importa aquest quadern JSON
+History, plans, scores, annotations and shared practice preferences. Audio and video synchronization is included.|Historial, plans, partitures, anotacions i preferències de pràctica compartides. Inclou la sincronització d’àudio i vídeo.
+Your notebook is always saved on this device. You can practice offline and export or import a JSON notebook.|El quadern sempre es desa en aquest dispositiu. Pots practicar sense connexió i exportar o importar un quadern JSON.
+The connected notebook changed. Try again.|El quadern connectat ha canviat. Torna-ho a provar.
+Cloud synchronization|Sincronització al núvol
+Cloud synchronization|Sincronització al núvol
+You can close this window and return from Cloud synchronization to see progress.|Pots tancar aquesta finestra i tornar des de Sincronització al núvol per veure el progrés.
+The ZIP could not be saved. Review Cloud synchronization.|No s’ha pogut desar el ZIP. Revisa Sincronització al núvol.
+Your ZIP is ready. Choose where to save it in Cloud synchronization.|El ZIP està preparat. Tria on desar-lo a Sincronització al núvol.
+The copy could not be prepared. Review Cloud synchronization.|No s’ha pogut preparar la còpia de seguretat. Revisa Sincronització al núvol.
+Working locally. Resume synchronization from Cloud synchronization.|Treballant en local. Reprèn la sincronització des de Sincronització al núvol.
+Disconnect cloud synchronization|Desconnecta la sincronització al núvol
+Wait for cloud synchronization to finish.|Espera que acabi la sincronització al núvol.
+Pause transfers before importing a notebook.|Pausa les transferències abans d’importar un quadern.
+Disconnect the current notebook in Cloud synchronization before connecting another one.|Desconnecta el quadern actual a Sincronització al núvol abans de connectar-ne un altre.
+Open Cloud synchronization|Obre Sincronització al núvol
+Connect cloud synchronization|Connecta la sincronització al núvol
+Cloud synchronization keeps the same notebook on your devices. Connect the same Google account and open the existing notebook.|La sincronització al núvol manté el mateix quadern als teus dispositius. Connecta el mateix compte de Google i obre el quadern existent.
+Start cloud synchronization for this notebook. Existing files are kept.|Inicia la sincronització al núvol d’aquest quadern. Es conserven els fitxers existents.
 `;
 export const CATALAN = Object.fromEntries(entries.trim().split('\n').map(line => {
   const split = line.indexOf('|'); return [line.slice(0, split), line.slice(split + 1)];

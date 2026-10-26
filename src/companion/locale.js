@@ -18,6 +18,7 @@ export function setAppLanguage(value) {
 // Translate known operational errors at presentation time, including persisted jobs.
 // Unknown source diagnostics and musical/user content are never rewritten.
 const messages = [
+  ['The connected notebook changed. Try again.', 'El cuaderno conectado ha cambiado. Reinténtalo.'],
   ['The PDF must be smaller than 20 MB.', 'El PDF debe ocupar menos de 20 MB.'],
   ['This file is not a valid PDF.', 'El archivo no es un PDF válido.'],
   ['The score annotations are invalid or exceed the limit.', 'Las anotaciones de esta partitura no son válidas o superan el límite.'],

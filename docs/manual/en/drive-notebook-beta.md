@@ -1,16 +1,16 @@
-# Google Drive notebook and recording copies (Android beta)
+# Cloud synchronization and recordings (Android beta)
 
-Android beta14 uses one Google Drive connection for the notebook, scores and saved audio/video copies. Profile → Backup & sync shows the Google account and notebook explicitly. Use the same Google account on both devices. Google OAuth test users may still be required while the Google project is in testing.
+Android beta14 uses one Google Drive connection for the notebook, scores and saved audio/video copies. Profile → Cloud synchronization shows the Google account and notebook explicitly. Use the same Google account on both devices. Google OAuth test users may still be required while the Google project is in testing.
 
 ## Connect the first device
 
-Finish practice and close editors. Open Profile → Backup & sync → Connect Google Drive. Sign in, select this device’s notebook, and press **Connect selected notebook**. The selected radio choice shows what will be connected; Cancel closes the selection without creating or moving a notebook.
+Finish practice and close editors. Open Profile → Cloud synchronization → Connect Google Drive. Sign in, select this device’s notebook, and press **Connect selected notebook**. The selected radio choice shows what will be connected; Cancel closes the selection without creating or moving a notebook.
 
 An old provider-file connection is paused. Its automatic synchronization and connection menus are retired in this beta. Connect Google Drive to move it. SPino keeps the previous file, local data, stable notebook/record IDs, PDFs, annotations and local recovery copy. If that notebook already exists in the selected Google account, choose it to retain its identity and merge history. Independent edits combine; overlapping edits require review. No old file is deleted.
 
 ## Connect the second device
 
-Open Backup & sync, connect the **same Google account**, select the existing notebook and confirm. Do not create a second notebook when the first device has already connected it. An optional notebook QR narrows the list; it does not grant Google access. A connected notebook must be disconnected before selecting another identity. Reconnect in Manage renews access for the same account.
+Open Cloud synchronization, connect the **same Google account**, select the existing notebook and confirm. Do not create a second notebook when the first device has already connected it. An optional notebook QR narrows the list; it does not grant Google access. A connected notebook must be disconnected before selecting another identity. Reconnect in Manage renews access for the same account.
 
 The overview says Connected to Google Drive when the notebook is connected, and shows its account and notebook name separately. Paused or error states remain visible. An account may be authorized while no notebook is selected; that is still shown as Not connected.
 
@@ -50,7 +50,7 @@ Copies are additive. Deleting a local take keeps any existing Drive copy and pre
 
 ## Local copies and offline use
 
-Export file, Restore file and Convert a copy remain in Backup & sync. JSON copies include repertoire, history, plans, scores, annotations and notebook preferences; audio/video binaries remain separate. Practice and play downloaded/local recordings offline. Manage → Restore local recovery copy reviews the snapshot before incoming synchronization. Disconnect keeps local notebook data, recordings, recovery and Drive files. Explicit Erase notebook removes local notebook data and recordings.
+Export file, Restore file and Convert a copy remain in Cloud synchronization. JSON copies include repertoire, history, plans, scores, annotations and notebook preferences; audio/video binaries remain separate. Practice and play downloaded/local recordings offline. Manage → Restore local recovery copy reviews the snapshot before incoming synchronization. Disconnect keeps local notebook data, recordings, recovery and Drive files. Explicit Erase notebook removes local notebook data and recordings.
 
 ## Verification status
 
@@ -71,7 +71,7 @@ Changes to an already-reviewed conflicting value require another review. Unrelat
 
 ## Recording network permission (Android beta17)
 
-In the updated source, open **Profile > Backup & sync > Audio and video copies** and enable **Allow mobile data for recordings** to copy audio/video using Wi-Fi or mobile data. Turn it off to wait for unmetered Wi-Fi. The choice is saved on this device and does not change score-download settings or the other device's permission. Before the first explicit choice, recordings retain the existing network preference. An internet connection is still required for copying; local recordings remain playable offline.
+In the updated source, open **Profile > Cloud synchronization > Audio and video copies** and enable **Allow mobile data for recordings** to copy audio/video using Wi-Fi or mobile data. Turn it off to wait for unmetered Wi-Fi. The choice is saved on this device and does not change score-download settings or the other device's permission. Before the first explicit choice, recordings retain the existing network preference. An internet connection is still required for copying; local recordings remain playable offline.
 
 Included in Android beta17/build70. Browser/fixture verification covers uploads and downloads over a simulated metered mobile network, persistence and unchanged score-download settings. Actual cellular/Google acceptance remains separate. Publication and package verification are recorded in the beta17 release manifests.
 
@@ -91,7 +91,7 @@ Beta22/build75 packages the behavior above. Update both devices before testing a
 
 ## Notebook recovery and duplicate names (6.1.2-beta.1)
 
-Open Backup & sync → Manage → Rename Drive notebook to rename the connected Drive descriptor. The file and notebook identities, sessions, scores, annotations and recordings are retained. Give the original tablet's notebook a distinctive name before reconnecting another installation. In beta.6, connected devices refresh the verified descriptor name through the changes feed; renaming is not a new notebook or a merge operation.
+Open Cloud synchronization → Manage → Rename Drive notebook to rename the connected Drive descriptor. The file and notebook identities, sessions, scores, annotations and recordings are retained. Give the original tablet's notebook a distinctive name before reconnecting another installation. In beta.6, connected devices refresh the verified descriptor name through the changes feed; renaming is not a new notebook or a merge operation.
 
 When more than one notebook is offered, the chooser compares saved session count, practice this week, latest practice date, work count, weekly goal and sessions absent from the other available copies. The file reference distinguishes equal names. These are summaries, not a claim that equal counts mean identical content. No option is preselected when there are multiple matches. Failed content checks remain visibly unavailable; they are not shown as empty notebooks.
 
@@ -110,6 +110,8 @@ Converting an old Drive file requires confirming that Spino is updated on every 
 
 ## Beta.6 setup, identity and recording recovery
 
-Backup setup waits for the current notebook synchronization and media operation, then reserves the short storage operation so automatic polling cannot race its requests. Its wait dialog shows elapsed time and available notebook progress; closing before activation prevents any storage writes. Name, chosen Drive folder link and the descriptor reference are visible on Backup & sync, Manage and the notebook picker. Match the same account and reference on both devices; identical old names or logical notebook IDs do not establish the same Drive connection. No duplicate notebook is merged automatically. When organizing under another folder, only the app-owned internal data folder may adopt the notebook name; selected user folders retain their names.
+Backup setup waits for the current notebook synchronization and media operation, then reserves the short storage operation so automatic polling cannot race its requests. Its wait dialog shows elapsed time and available notebook progress; closing before activation prevents any storage writes. Name, chosen Drive folder link and the descriptor reference are visible on Cloud synchronization, Manage and the notebook picker. Match the same account and reference on both devices; identical old names or logical notebook IDs do not establish the same Drive connection. No duplicate notebook is merged automatically. When organizing under another folder, only the app-owned internal data folder may adopt the notebook name; selected user folders retain their names.
 
 MP3 and recognized audio MIME aliases are supported. A legacy invalid remote MIME label can be handled using private Spino format metadata only when the exact local original is available and the remote identity, size, checksum and downloaded bytes verify against it. The file ID and bytes are retained. Without that original, unrecognized formats remain blocked rather than guessed; independent recordings still synchronize. Complete ZIP creation uses the same verified repair path. An unresolved failure names the affected recording; no incomplete archive is reported complete. These paths pass synthetic two-device and ZIP round-trip checks. Physical Google Drive acceptance remains pending.
+
+Cloud synchronization and ZIP recovery archives are distinct in beta.3 (109); see [Cloud synchronization and recovery archives](backup.md#cloud-synchronization-and-recovery-archives-616-beta3). The startup setup notice waits for a complete current-notebook settings lookup.

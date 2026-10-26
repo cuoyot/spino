@@ -1,5 +1,7 @@
 # Drive storage and complete backups — 24 October 2026
 
+26 October 2026 follow-up (D-069): distinct cloud synchronization, ZIP backup and JSON export/import wording, plus verified-settings gating for startup setup notices. [Responsive synthetic evidence](captures/profile/2026-10-26-sync-copy-03/README.md). Beta.3 packaging/publication is tracked in `../releases/6.1.6-beta.3.md`; physical Google timing remains unverified.
+
 Owner approved the synchronization/storage preview and requested a website beta. Implemented folder/file setup, a principal device, seven changed daily snapshots, remote recording placeholders and manual cellular downloads, a one-time settings review prompt, complete ZIP export and separate local recovery.
 
 Migration preserves the existing notebook/object IDs. The existing data folder remains intact beneath the selected folder; Multimedia and Copias group recordings and verified archives. Old clients still use the same notebook. Media discovery relocates legacy-client uploads to the configured media folder. Retrying setup reuses marked child folders. No original Drive folder was modified during testing.

@@ -4,7 +4,7 @@ import {createStorageUI} from '../src/companion/storage-ui.js';
 function fixture(options={}){
  const values=new Map([['spino.storage.review.v1','shown']]),calls=[],dialog={open:false,contains:n=>n===dialog.lastElementChild};let screen;
  const showDialog=(title,body,accept)=>{dialog.open=true;dialog.lastElementChild={querySelector:()=>({textContent:''})};screen={title,body,accept};};dialog.close=()=>dialog.open=false;
- const state={config:{name:'Existing.json'},status:'idle'},manager={state,refresh:async()=>{},folders:async()=>[{id:'folder',name:'My folder'}],link:()=>({folderId:'folder'}),folderName:async()=> 'My folder',organize:async options=>{calls.push(options);Object.assign(state.config,{...options,storageVersion:'1',storageFolder:options.folderId,principalId:'phone'});},daily:async options=>{calls.push(options);state.status='wifi';}};
+ const state={loaded:true,config:{name:'Existing.json'},status:'idle'},manager={state,refresh:async()=>{},folders:async()=>[{id:'folder',name:'My folder'}],link:()=>({folderId:'folder'}),folderName:async()=> 'My folder',organize:async options=>{calls.push(options);Object.assign(state.config,{...options,storageVersion:'1',storageFolder:options.folderId,principalId:'phone'});},daily:async options=>{calls.push(options);state.status='wifi';}};
  const ui=createStorageUI({manager,showDialog,dialog,formEnd:()=>'<button>Save</button>',cloud:{state:{transport:'drive',name:'Existing.json',notebookId:'book'}},deviceName:'Phone',refresh:async()=>{},...options,storage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)}});
  return {ui,manager,dialog,calls,values,screen:()=>screen};
 }
@@ -21,6 +21,36 @@ test('closing during setup preparation never reopens a late wizard',async()=>{
 });
 test('configured notebooks do not receive the setup notification',async()=>{
  const f=fixture();Object.assign(f.manager.state.config,{storageVersion:'1',storageFolder:'folder',principalId:'phone'});await f.ui.notify();assert.equal(f.screen(),undefined);assert.equal(f.ui.entryMarkup(),'');
+});
+
+test('unknown or failed settings never advertise unfinished setup',async()=>{
+ const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});
+ assert.equal(f.ui.pending,false);assert.equal(f.ui.entryMarkup(),'');
+ f.manager.refresh=async()=>{throw Error('Offline.');};await f.ui.notify();
+ assert.equal(f.screen(),undefined);assert.equal(f.ui.entryMarkup(),'');
+ assert.equal(f.values.get('spino.storage.wizard.offered.v2.book'),undefined);
+});
+
+test('delayed configured settings do not flash setup or record a dismissed notice',async()=>{
+ const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});let finish;
+ f.manager.refresh=()=>new Promise(resolve=>finish=()=>{Object.assign(f.manager.state,{loaded:true,config:{storageVersion:'1',storageFolder:'folder',principalId:'phone'}});resolve();});
+ const loading=f.ui.notify();assert.equal(f.ui.entryMarkup(),'');assert.equal(f.screen(),undefined);
+ finish();await loading;assert.equal(f.ui.entryMarkup(),'');assert.equal(f.screen(),undefined);
+ assert.equal(f.values.get('spino.storage.wizard.offered.v2.book'),undefined);
+});
+
+test('setup is offered only after a successful read confirms missing archive settings',async()=>{
+ const f=fixture();Object.assign(f.manager.state,{loaded:false,config:null});let finish;
+ f.manager.refresh=()=>new Promise(resolve=>finish=()=>{Object.assign(f.manager.state,{loaded:true,config:{name:'Existing.json'}});resolve();});
+ const loading=f.ui.notify();assert.equal(f.ui.pending,false);finish();await loading;
+ assert.equal(f.ui.pending,true);assert.match(f.screen().body,/Cloud synchronization is connected/);assert.match(f.screen().body,/daily ZIP backups/);
+});
+
+test('a late settings read cannot offer setup for a different notebook',async()=>{
+ const cloud={state:{transport:'drive',name:'First.json',notebookId:'first'}},f=fixture({cloud});let finish;
+ f.manager.refresh=()=>new Promise(resolve=>finish=resolve);const loading=f.ui.notify();
+ cloud.state={transport:'drive',name:'Second.json',notebookId:'second'};finish();await loading;
+ assert.equal(f.screen(),undefined);assert.equal(f.values.get('spino.storage.wizard.offered.v2.second'),undefined);
 });
 
 test('setup waits for synchronization and closing its wait prevents any storage changes',async()=>{

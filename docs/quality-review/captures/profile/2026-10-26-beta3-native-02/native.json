@@ -1,0 +1,15 @@
+{
+  "replacementInstall": true,
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{fe806ba u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t162}"
+  ],
+  "versionName": "6.1.6-beta.3",
+  "versionCode": 109,
+  "indexedDBFilesPreserved": 135,
+  "indexedDBManifestSHA256": "f4ee1f77acedfa56132a2ef2862303a58db52a0b0bf458ab5a270f88cb0ca6dc",
+  "installedAPKSHA256": "283bcce242d44b0ba8c9e8f10ead2acc111353761b06ba92998aed009b68a60c",
+  "liveDriveAccount": false,
+  "physicalDeviceAcceptance": false,
+  "verification": "Replacement install succeeded; file-by-file device hashing timed out. A private post-install IndexedDB TAR was hashed locally and all 135 files match the retained pre-install manifest before launch."
+}

@@ -6,13 +6,25 @@ const valid=id=>typeof id==='string'&&/^[\w-]{1,180}$/.test(id);
 const enc=encodeURIComponent;
 const conflict=()=>Object.assign(Error('Storage settings changed on another device. Reload and try again.'),{code:'CONFLICT'});
 export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeSnapshot=snapshot,mediaStore,mediaClient,network,eligible,changed=()=>{},upload=uploadArchive,now=()=>new Date()}){
- let busy=false,config=null,status='idle',error='',progress=null;
+ let busy=false,config=null,configKey='',status='idle',error='',progress=null;
  const api=async(path,options)=>{const r=await drive.storageRequest(path,options);return r?.text?JSON.parse(r.text):null;};
  const link=()=>{const l=drive.storageLink();if(!valid(l.id)||!valid(l.folderId)||!valid(l.notebookId))throw Error('Connect and synchronize your Drive notebook first.');return l;};
  async function list(q,fields='id,name,mimeType,parents,size,sha256Checksum,appProperties,trashed'){
   const files=[];let token='';do{const r=await api('/drive/v3/files?pageSize=100&q='+enc(q)+'&fields='+enc('nextPageToken,files('+fields+')')+(token?'&pageToken='+enc(token):''));files.push(...r.files);token=r.nextPageToken||'';if(files.length>100000)throw Error('Too many files in the storage folder.');}while(token);return files;
  }
- async function control(){const l=link(),f=await api(`/drive/v2/files/${l.id}?fields=id,title,etag,properties`);if(!/^"[^"\r\n]+"$/.test(f.etag||''))throw Error('Drive did not provide a settings revision.');const p=Object.fromEntries((f.properties||[]).filter(p=>p.visibility==='PRIVATE').map(p=>[p.key,p.value]));config={...p,name:f.title,etag:f.etag};if(drive.rememberStorage){const folderId=p.storageFolder||l.folderId,folder=await api(`/drive/v3/files/${folderId}?fields=id,name`,{missing:true});config.storageFolderName=folder?.name||'';drive.rememberStorage({folderId,name:config.storageFolderName,notebookName:f.title});}return config;}
+ const identity=()=>{try{const l=link();return JSON.stringify([l.accountId,l.id,l.folderId,l.notebookId]);}catch{return '';}};
+ async function control(){
+  const l=link(),key=identity(),f=await api(`/drive/v2/files/${l.id}?fields=id,title,etag,properties`);
+  if(!/^"[^"\r\n]+"$/.test(f.etag||''))throw Error('Drive did not provide a settings revision.');
+  const p=Object.fromEntries((f.properties||[]).filter(p=>p.visibility==='PRIVATE').map(p=>[p.key,p.value])),next={...p,name:f.title,etag:f.etag};
+  const folderId=p.storageFolder||l.folderId;
+  if(drive.rememberStorage){const folder=await api(`/drive/v3/files/${folderId}?fields=id,name`,{missing:true});next.storageFolderName=folder?.name||'';}
+  // Unknown settings are not an unfinished setup. Publish only a complete read for the current notebook.
+  if(identity()!==key)throw Error('The connected notebook changed. Try again.');
+  config=next;configKey=key;
+  drive.rememberStorage?.({folderId,name:next.storageFolderName,notebookName:f.title});
+  changed();return config;
+ }
  async function patch(expected,updates){const l=link();await api(`/drive/v2/files/${l.id}?fields=id`,{method:'PUT',etag:expected.etag,text:JSON.stringify({properties:Object.entries({...expected,...updates}).filter(([k])=>!['name','etag','storageFolderName'].includes(k)).map(([key,value])=>({key,value:String(value),visibility:'PRIVATE'}))})});return control();}
  async function folders(){return list("trashed = false and mimeType = 'application/vnd.google-apps.folder'");}
  async function createFolder(name,parent){if(!name.trim()||name.length>180)throw Error('Enter a folder name.');return api('/drive/v3/files?fields=id,name',{method:'POST',text:JSON.stringify({name:name.trim(),mimeType:'application/vnd.google-apps.folder',...(parent?{parents:[parent]}:{})})});}
@@ -76,5 +88,5 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
    await api(`/drive/v3/files/${id}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});
    await prune();status='saved';
   }catch(e){status='error';error=e.message;}finally{busy=false;changed();}}
- return {get state(){return {config,busy,status,error,progress,deviceId,deviceName};},refresh:control,folders,createFolder,organize,claimPrincipal,copies,complete,daily,link,inventory,folderName:async id=>(await api(`/drive/v3/files/${id}?fields=name`)).name,settings:async updates=>patch(await control(),updates),putInFolder};
+ return {get state(){const loaded=!!configKey&&configKey===identity();return {config:loaded?config:null,loaded,busy,status,error,progress,deviceId,deviceName};},refresh:control,folders,createFolder,organize,claimPrincipal,copies,complete,daily,link,inventory,folderName:async id=>(await api(`/drive/v3/files/${id}?fields=name`)).name,settings:async updates=>patch(await control(),updates),putInFolder};
 }

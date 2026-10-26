@@ -1,5 +1,12 @@
 # Review decisions and consistency checks
 
+## D-069 — Cloud synchronization and ZIP backups (26 October 2026)
+
+Owner terminology is accepted: **Cloud synchronization** is the live shared notebook/files mechanism across devices, including reconnection to the existing notebook on a replacement phone. **Backups** are compressed ZIP archives saved or explicitly restored for recovery, never read as live synchronization data. JSON portability remains labeled export/import rather than backup. Original IDs, files and connections are retained.
+
+The configured-notebook setup notice must not appear while settings are unknown. A complete read for the current account/notebook gates the notice; transient failure cannot invent missing configuration, and late results from another connection are rejected. Genuine missing archive settings still offer optional daily ZIP setup. Responsive synthetic evidence and native packaging are tracked in the active Drive storage review; physical Drive timing and owner visual acceptance remain separate.
+
+
 2026-10-24: Drive storage/backups beta implementation and validation are recorded in [the active review](drive-storage-beta.md). Owner-approved preview; physical Google/two-device acceptance remains open.
 
 ## 2026-10-21 — Acquire new playable catalogue editions

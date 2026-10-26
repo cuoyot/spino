@@ -72,10 +72,11 @@ Disponible en español, inglés y catalán.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-• Sincronizar ahora evita releer el cuaderno completo cuando no hay cambios.
-• El icono deja de girar cuando termina o se interrumpe la comprobación de grabaciones.
-• Los avisos de espera indican el motivo conocido, sin pedir terminar una práctica que no está en marcha.
-Conserva la conexión y los datos actuales.
+• Distingue la sincronización en la nube de las copias de seguridad ZIP.
+• El aviso de configuración espera a comprobar los ajustes de Drive.
+• Sincronizar ahora evita releer todo el cuaderno si no hay cambios.
+• Corrige el icono que seguía girando y los avisos de espera incorrectos.
+Conserva tu conexión actual.
 <!-- /field -->
 
 ## English — en-US
@@ -146,10 +147,11 @@ Available in English, Spanish and Catalan.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-• Sync now avoids rereading the complete notebook when nothing has changed.
-• The icon stops rotating when a recording check finishes or is interrupted.
-• Waiting messages show the known reason instead of asking you to finish a practice that is not running.
-Your existing connection and data are preserved.
+• Separates cloud synchronization from ZIP backups.
+• Setup notices wait until Drive settings have been checked.
+• Sync now avoids rereading the whole notebook when unchanged.
+• Fixes the icon continuing to rotate and incorrect waiting messages.
+Keeps your existing connection.
 <!-- /field -->
 
 ## Other listing fields

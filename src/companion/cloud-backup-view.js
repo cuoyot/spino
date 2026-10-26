@@ -4,6 +4,7 @@ import { escapeHTML as esc } from './views.js';
 import { needsCloudRelink } from './cloud-errors.js';
 import {driveSyncMarkup,driveManageMarkup} from './drive-sync-view.js';
 import {driveCopy} from './drive-notebook-view.js';
+import {syncBackupCopy} from './sync-backup-copy.js';
 
 const messages = {
   en: {
@@ -25,7 +26,7 @@ const messages = {
     showQR: 'Show my notebook QR', qrDetail: 'Scan it from the device you want to connect.',
     disconnectFirst: 'Disconnect this notebook before connecting another one.',
     disconnect: 'Disconnect this device', disconnectDetail: 'Your local notebook and cloud file are kept.',
-    recovery: 'Recovery options', recover: 'Restore local recovery copy',
+    recovery: 'Recovery options', recover: 'Restore previous local state',
     recoverDetail: 'Review the copy saved before the last incoming sync.',
     errorDetail: 'Connection details',
     continueLocal: 'Continue locally', localDetail: 'Changes stay on this device until you resume synchronization.',
@@ -61,7 +62,7 @@ const messages = {
     showQR: 'Mostrar el QR de mi cuaderno', qrDetail: 'Escanéalo desde el dispositivo que quieres conectar.',
     disconnectFirst: 'Desconecta este cuaderno antes de conectar otro.',
     disconnect: 'Desconectar este dispositivo', disconnectDetail: 'Conserva tu cuaderno y el archivo en la nube.',
-    recovery: 'Opciones de recuperación', recover: 'Recuperar la copia local',
+    recovery: 'Opciones de recuperación', recover: 'Recuperar estado local anterior',
     recoverDetail: 'Revisa la copia anterior a la última sincronización recibida.',
     errorDetail: 'Detalles de la conexión',
     continueLocal: 'Continuar en local', localDetail: 'Los cambios se guardan en este dispositivo hasta que reanudes la sincronización.',
@@ -168,6 +169,6 @@ export function cloudConflictMarkup(state, options = {}) {
 
 export function cloudHelpMarkup(options = {}) {
   const t = copy(options), d=driveCopy(options.lang);
-  if(options.driveOnly||options.driveAvailable&&(options.transport==='drive'||!options.linked))return `<div class="cp-cloud-dialog" data-cloud-dialog="help"><div class="cp-cloud-help"><section><h3>Google Drive</h3><p>${esc(d.help)}</p></section><section><h3>${esc(t.recovery)}</h3><p>${esc(d.offline)}</p></section></div>${footer(t)}</div>`;
+  if(options.driveOnly||options.driveAvailable&&(options.transport==='drive'||!options.linked)){const glossary=syncBackupCopy(options.lang);return `<div class="cp-cloud-dialog" data-cloud-dialog="help"><div class="cp-cloud-help"><section><h3>${esc(glossary.sync)}</h3><p>${esc(glossary.syncHelp)}</p></section><section><h3>${esc(glossary.backups)}</h3><p>${esc(glossary.backupHelp)}</p></section></div>${footer(t)}</div>`;}
   return `<div class="cp-cloud-dialog" data-cloud-dialog="help"><div class="cp-cloud-help">${['sync', 'backup', 'provider', 'foreground'].map(key => `<section><h3>${esc(t[`${key}HelpTitle`])}</h3><p>${esc(t[`${key}Help`])}</p></section>`).join('')}</div>${footer(t)}</div>`;
 }

@@ -1,0 +1,35 @@
+<es-ES>
+• Distingue la sincronización en la nube de las copias de seguridad ZIP.
+• El aviso de configuración espera a comprobar los ajustes de Drive.
+• Sincronizar ahora evita releer todo el cuaderno si no hay cambios.
+• Corrige el icono que seguía girando y los avisos de espera incorrectos.
+Conserva tu conexión actual.
+</es-ES>
+<en-US>
+• Separates cloud synchronization from ZIP backups.
+• Setup notices wait until Drive settings have been checked.
+• Sync now avoids rereading the whole notebook when unchanged.
+• Fixes the icon continuing to rotate and incorrect waiting messages.
+Keeps your existing connection.
+</en-US>
+<ca>
+• Distingeix la sincronització al núvol de les còpies de seguretat ZIP.
+• L’avís de configuració espera a comprovar els ajustos de Drive.
+• Sincronitza ara evita rellegir tot el quadern si no hi ha canvis.
+• Corregeix la icona que continuava girant i els avisos d’espera incorrectes.
+Conserva la connexió actual.
+</ca>
+<de-DE>
+• Unterscheidet Cloud-Synchronisierung und ZIP-Sicherheitskopien.
+• Einrichtungshinweise warten auf die Prüfung der Drive-Einstellungen.
+• Jetzt synchronisieren liest unveränderte Notizbücher nicht vollständig neu.
+• Behebt das weiterdrehende Symbol und falsche Wartehinweise.
+Die bestehende Verbindung bleibt erhalten.
+</de-DE>
+<hu-HU>
+• Megkülönbözteti a felhőszinkronizálást a ZIP biztonsági mentésektől.
+• A beállítási jelzés megvárja a Drive-beállítások ellenőrzését.
+• Változatlan adatoknál nem olvassa újra a teljes füzetet.
+• Javítja a tovább forgó ikont és a téves várakozási üzeneteket.
+A meglévő kapcsolat megmarad.
+</hu-HU>

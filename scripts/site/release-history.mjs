@@ -264,3 +264,6 @@ if(stable615){const text=await readFile(new URL('../../docs/releases/6.1.5-relea
 
 const manualSyncBeta=releases.find(r=>r.version==='6.1.6-beta.2');
 if(manualSyncBeta){const text=await readFile(new URL('../../docs/releases/6.1.6-beta.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))manualSyncBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const syncCopyBeta=releases.find(r=>r.version==='6.1.6-beta.3');
+if(syncCopyBeta){const text=await readFile(new URL('../../docs/releases/6.1.6-beta.3-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))syncCopyBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

@@ -2,7 +2,7 @@
 
 ## Connect another device
 
-On the connected device, open Profile → Backup & sync → Manage → Show my notebook QR. Synchronization must be enabled and up to date. On the new, unconnected device, open Profile → Connect another device and choose Scan a notebook QR. If the camera is unavailable, choose Enter a connection code from the scanner. After reading the QR/code, select the indicated sync file in the same Google Drive/iCloud account. The QR does not sign you into that account or carry its credentials. SPino checks the notebook identity before retaining file access. Wait for your provider's upload to finish before connecting the other device. Camera/provider behavior still requires native-device acceptance.
+On the connected device, open Profile → Cloud synchronization → Manage → Show my notebook QR. Synchronization must be enabled and up to date. On the new, unconnected device, open Profile → Connect another device and choose Scan a notebook QR. If the camera is unavailable, choose Enter a connection code from the scanner. After reading the QR/code, select the indicated sync file in the same Google Drive/iCloud account. The QR does not sign you into that account or carry its credentials. SPino checks the notebook identity before retaining file access. Wait for your provider's upload to finish before connecting the other device. Camera/provider behavior still requires native-device acceptance.
 
 ## Backup formats and conversion
 
@@ -14,7 +14,7 @@ Convert a backup creates a separate compatible or organized copy without restori
 
 Open Profile → Connect another device → Select an existing cloud file. Select the same file used by your other SPino installation in the provider's picker; stable and beta each need their own grant even on the same tablet.
 
-While a cloud file is connected, Profile does not offer another device connection and Manage does not offer changing the file or mode. To switch notebooks, choose Backup & sync → Manage → Disconnect this device first. Pausing automatic updates does not disconnect it. Disconnect keeps the local notebook and provider file; independent records from a new connection are still merged, and overlapping edits need review. Repairing access to the same notebook remains available without disconnecting.
+While a cloud file is connected, Profile does not offer another device connection and Manage does not offer changing the file or mode. To switch notebooks, choose Cloud synchronization → Manage → Disconnect this device first. Pausing automatic updates does not disconnect it. Disconnect keeps the local notebook and provider file; independent records from a new connection are still merged, and overlapping edits need review. Repairing access to the same notebook remains available without disconnecting.
 
 File selection validates the local snapshot before opening the provider. Beta6 accepts Catalan reader settings, which earlier builds incorrectly rejected despite supporting Catalan in the reader. Update both devices and retry the existing connection. A setup failure appears in Manage with connection details; cancelling selection keeps the notebook intact.
 
@@ -33,16 +33,26 @@ The beta6 connection flow is verified with synthetic browser providers in four p
 
 ## Complete ZIP backups (6.1.5 beta)
 
-In Backup & sync, Export file offers a complete ZIP with scores and recordings or the existing JSON notebook-only export. Complete ZIPs verify each file. Missing linked recordings prevent a complete copy. Remote media can be downloaded manually using mobile data, including 5G.
+In Cloud synchronization, Export file offers a complete ZIP with scores and recordings or the existing JSON notebook-only export. Complete ZIPs verify each file. Missing linked recordings prevent a complete copy. Remote media can be downloaded manually using mobile data, including 5G.
 
-For a connected Drive notebook, Manage → Synchronization and backups chooses an accessible folder and notebook filename, enables changed daily copies and selects a principal device. Only that device makes automatic copies; only the latest seven complete copies are retained. Change principal from the device that should take over. Existing folder organization preserves notebook identities and connections.
+For a connected Drive notebook, Manage → Cloud synchronization and backups chooses an accessible folder and notebook filename, enables changed daily copies and selects a principal device. Only that device makes automatic copies; only the latest seven complete copies are retained. Change principal from the device that should take over. Existing folder organization preserves notebook identities and connections.
 
 Automatic checks run while Spino is open. The beta supports archives up to 250 MB. Restoring a complete ZIP opens a separate local notebook with cloud sync disabled. Return to the original notebook from Profile or the recovery notice. Keep all devices updated and review your existing configuration when prompted after updating.
 
 
 ## Beta 6.1.6 synchronization
 
-The beta can create verified compressed copies to reduce requests when another device opens the existing notebook. Keep your current Drive connection; no export/import or reconnect is required. Original history is retained, and stable devices can continue using it. This acceleration does not remove old files. The synchronization icon keeps rotating through progress updates and screen changes. Physical-device Drive validation is still pending for this beta.
+The beta can create verified compressed synchronization segments to reduce requests when another device opens the existing notebook. Keep your current Drive connection; no export/import or reconnect is required. Original history is retained, and stable devices can continue using it. This acceleration does not remove old files. The synchronization icon keeps rotating through progress updates and screen changes. Physical-device Drive validation is still pending for this beta.
 
 
 In beta 6.1.6-beta.2, **Sync now** checks the existing changes cursor and avoids a full local export when both sides are unchanged. The shared icon stops rotating when a recording check finishes or is suspended. A waiting message names the known practice, editor, dialog or score blocker; a generic wait does not imply a practice is running. Received changes still wait for a safe time to apply.
+
+## Cloud synchronization and recovery archives (6.1.6-beta.3)
+
+**Cloud synchronization** keeps the same notebook and its synchronized files available on several devices. The local notebook and downloaded files work offline. On a replacement phone, connect the same Google account and open the existing notebook; a ZIP restore is not needed to resume that connection.
+
+**Backups** are compressed ZIP archives for restoring an earlier notebook state if it becomes damaged. They are saved or restored explicitly and never used as live synchronization data. The ZIP section has separate save/restore controls. Manage → Cloud synchronization and backups configures the cloud folder and changed daily ZIP archives; only the principal device creates these archives, retaining the latest seven. Automatic checks run with the app open. ZIP restore opens a separate local notebook.
+
+**Export notebook** also offers the existing JSON portability formats. JSON exports are labeled notebook export/import and exclude audio/video files. Legacy JSON imports remain compatible.
+
+An already configured notebook does not show an unfinished-setup notice while Drive settings load. Unknown or failed initial reads do not trigger setup. A complete lookup confirming absent archive settings can still offer optional backup setup. Browser validation uses a delayed synthetic Drive response; physical-device acceptance is separate.
