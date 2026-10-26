@@ -81,3 +81,6 @@ The manual ZIP saved-state and dialog follow-up is packaged in Android 6.1.6-bet
 ## Immediate copy and daily frequency (6.2.0)
 
 While SPino is open and idle, it checks each minute whether an automatic archive is due. It creates at most one automatic ZIP per local calendar day when the content changes. The enabled principal device shows Back up now beside the latest-copy summary. This explicitly creates another copy in the saved destination, including on the same day or with unchanged content. A successful explicit copy also satisfies that day's automatic schedule. Existing network/data preferences, complete-file checks and latest-seven retention apply. Unsaved settings drafts do not change this destination.
+
+
+The daily-frequency and Back up now controls are packaged in stable Android 6.2.0 (112), available as a verified signed website download. Google Play submission is in review. Personal-archive completeness and physical provider acceptance remain separate checks.

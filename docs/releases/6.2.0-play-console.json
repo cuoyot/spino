@@ -1,7 +1,7 @@
 {
   "version": "6.2.0",
   "versionCode": 112,
-  "status": "submitted_pending_automated_checks_and_review",
+  "status": "in_review",
   "uploaded": true,
   "submitted": true,
   "track": "production",
@@ -31,5 +31,13 @@
     "version": "6.1.5",
     "versionCode": 106
   },
-  "verification": "Directly verified in the Codex in-app browser after confirming production submission."
+  "verification": "Directly verified in the Codex in-app browser after confirming production submission.",
+  "finalObservedUI": [
+    "Cambios en revisi\u00f3n",
+    "Producci\u00f3n",
+    "6.2.0",
+    "Iniciar lanzamiento completo",
+    "Publicaci\u00f3n gestionada desactivada"
+  ],
+  "finalObservation": "Quick-check progress panel no longer shown; production remains Changes in review. Store approval/publication not yet confirmed."
 }

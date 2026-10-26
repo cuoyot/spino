@@ -1,0 +1,21 @@
+{
+  "commit": "c75ad663427723a16f838f69bec383f606158a66",
+  "exitCode": 0,
+  "versionId": "0cb32087-7fe7-45c5-a4b3-675e3d4ab5ec",
+  "log": "docs/releases/6.2.0-wrangler-deploy.log",
+  "logSHA256": "2ed46db85315b4dca64a082ac8cb884342b04286c90e30383e3359b0b1031167",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "wranglerVersion": "4.151.3",
+  "authorization": "Owner requested stable 6.2 after the backup-now change on 26 October 2026. Existing Worker and stored session reused.",
+  "isolatedExport": {
+    "commit": "c75ad663427723a16f838f69bec383f606158a66",
+    "files": 1493,
+    "bytes": 14347305831,
+    "method": "Independent APFS clones of Git-blob-verified inputs; committed bytes for missing small files"
+  },
+  "automaticBuild": {
+    "buildId": "04d487bf-6101-4e8f-84f8-45874ac3dced",
+    "result": "Cancelled in Codex in-app browser before direct deploy; provider terminal check completed/failure; no automatic publication."
+  }
+}

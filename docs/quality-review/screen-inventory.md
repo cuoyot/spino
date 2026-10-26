@@ -471,3 +471,6 @@ A reported broken Profile ring was caused by the external avatar outline being c
 
 
 26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.
+
+
+26 October 2026 stable follow-up: owner-authorized Back up now and daily-cap behavior is packaged in 6.2.0/build112. Website publication and six full download hashes verified; Google Play production submission is accepted and remains in review. Responsive synthetic coverage and stable/beta file-retention evidence are separate from personal-ZIP and physical-provider acceptance. See ../releases/6.2.0-publication.json and ../releases/6.2.0-play-console.json.
