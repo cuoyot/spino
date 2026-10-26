@@ -1,0 +1,32 @@
+{
+  "version": "6.1.6-beta.1",
+  "build": 107,
+  "commit": "b1098f8619b39b8c050e4b69c47feda16ea7b2cd",
+  "date": "2026-10-25T21:43:27.750804+00:00",
+  "status": "deployment_accepted_public_verification_pending",
+  "provider": {
+    "currentVersionId": "1f80b21f-45d2-4bc5-bf19-857c77910109",
+    "currentVersionConfirmed": true,
+    "url": "https://spino.cuoyot.workers.dev",
+    "deployExitCode": 0
+  },
+  "publicVerification": {
+    "passed": false,
+    "reason": "TCP connection timeouts from this host for both the custom domain and provider URL; the same custom-domain failure was observed before beta deployment.",
+    "verifierExitCode": 1,
+    "log": "docs/releases/6.1.6-beta.1-public-verification.log",
+    "logSHA256": "67bad1fe33cb0defdbc7911505f24dc446d957bc8a0b8983ee94bb2d362a0bcc",
+    "customDomain": "https://spinoapp.com/",
+    "providerURL": "https://spino.cuoyot.workers.dev",
+    "browserAndIndependentFetch": "Also unavailable; not accepted as public-content proof"
+  },
+  "localDeliverables": "Four artifacts retained and checked against the release manifest; combined tagged notes verified inside handoff ZIP.",
+  "sourceExport": {
+    "commit": "b1098f8619b39b8c050e4b69c47feda16ea7b2cd",
+    "files": 1313,
+    "bytes": 12304739458,
+    "method": "Isolated APFS clone export; every file bound to the exact committed Git blob; untracked files excluded",
+    "snapshot": "/private/tmp/spino-beta616-web-export"
+  },
+  "playConsole": "No production upload or rollout; website beta distribution follows the established beta channel."
+}
