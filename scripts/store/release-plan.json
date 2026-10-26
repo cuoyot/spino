@@ -1,7 +1,7 @@
 {
   "stable": {
-    "version": "6.1.5",
-    "build": 106
+    "version": "6.2.0",
+    "build": 112
   },
   "googlePlay": {
     "version": "6.1.4",
@@ -9,7 +9,7 @@
     "status": "published"
   },
   "beta": {
-    "version": "6.1.6-beta.4",
-    "build": 110
+    "version": "6.1.6-beta.5",
+    "build": 111
   }
 }

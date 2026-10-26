@@ -105,7 +105,7 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
   const files=[];let token='';do{const result=await archiveApi('/drive/v3/files?pageSize=100&q='+enc(q)+'&fields='+enc('nextPageToken,files(id,name,parents,size,sha256Checksum,appProperties)')+(token?'&pageToken='+enc(token):''));files.push(...result.files);token=result.nextPageToken||'';}while(token);return files;
  }
  async function prune(){if(destination(config)==='local')return;const accountId=needArchive(),folder=config.backupFolder;for(const file of retainedBackups((await copies()).filter(f=>!f.parents||f.parents.includes(folder)))){const owner=await control();if(owner.principalId!==deviceId||owner.backupAccount!==accountId||owner.backupFolder!==folder)throw conflict();await archiveApi(`/drive/v3/files/${file.id}?fields=id`,{method:'PATCH',text:JSON.stringify({trashed:true})});}}
- async function daily({manual=false}={}){if(busy||!eligible(manual))return;busy=true;error='';progress=null;try{const c=await control();if(c.backupEnabled!=='1'||c.principalId!==deviceId){status=c.principalId&&c.principalId!==deviceId?'secondary':'disabled';return;}
+ async function daily({manual=false,force=false}={}){if(busy||!eligible(manual))return 'busy';busy=true;error='';progress=null;try{const c=await control();if(c.backupEnabled!=='1'||c.principalId!==deviceId){status=c.principalId&&c.principalId!==deviceId?'secondary':'disabled';return;}
    const local=destination(c)==='local';
    if(!local){const accountId=needArchive();await backupDrive.requireAccount(accountId);}
    if(local&&c.lastBackupLocalUri&&localArchive)await localArchive.commit({uri:c.lastBackupLocalUri,notebookId:link().notebookId});
@@ -113,7 +113,7 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
    const net=await network();if(!net.online||!local&&c.backupWifiOnly!=='0'&&(!net.wifi||net.metered)){status=net.online?'wifi':'offline';return;}
    status='checking';progress={stage:'preparing',completed:0,total:0};changed();const {rows}=await inventory(),text=await snapshot(),hash=await backupFingerprint(text,rows),date=now().toLocaleDateString('en-CA');
    if(local&&c.backupWifiOnly!=='0'&&(!net.wifi||net.metered)&&(rows.some(r=>r.remoteOnly)||JSON.parse(text).assets.some(a=>a.base64===undefined))){status='wifi';return;}
-   const decision=dailyBackupDecision({enabled:true,principalId:c.principalId,deviceId,lastDate:c.lastBackupDate,lastHash:c.lastBackupHash,date,hash});if(decision!=='due'){await prune();status=decision;return;}
+   const decision=dailyBackupDecision({enabled:true,principalId:c.principalId,deviceId,lastDate:c.lastBackupDate,lastHash:c.lastBackupHash,date,hash});if(decision!=='due'&&!(manual&&force)){await prune();status=decision;return;}
    status='copying';changed();const result=await complete({wifiOnly:c.backupWifiOnly!=='0'});if(!eligible(manual))throw Error('Backup paused until the app is available.');const check=await control();if(check.principalId!==deviceId||check.etag!==c.etag)throw conflict();
    progress={stage:'saving',completed:0,total:0};changed();
    const l=link(),createdAt=now().toISOString();
@@ -123,7 +123,7 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
     if(!saved?.saved||!saved.uri||saved.bytes!==result.blob.size)throw Error('Could not save the automatic backup on this device.');
     const latest=await control();if(latest.principalId!==deviceId||latest.etag!==check.etag)throw conflict();
     await patch(latest,{lastBackupDate:date,lastBackupHash:result.hash,lastBackupAt:createdAt,lastBackupFile:'',lastBackupLocalUri:saved.uri});
-    await localArchive.commit({uri:saved.uri,notebookId:l.notebookId});status='saved';return;
+    await localArchive.commit({uri:saved.uri,notebookId:l.notebookId});status='saved';return 'saved';
    }
    const id=(await archiveApi('/drive/v3/files/generateIds?count=1&space=drive')).ids[0];
    await (upload||backupDrive.upload)({blob:result.blob,accountId:c.backupAccount,folderId:c.backupFolder,fileId:id,name:backupArchiveName(c.name,new Date(createdAt)),properties:{spinoBackup:'complete-v1',notebookId:l.notebookId,sourceRoot:l.id,createdAt,contentHash:result.hash,principalId:deviceId},wifiOnly:c.backupWifiOnly!=='0',onProgress:value=>{progress=value;changed();}});
@@ -132,7 +132,7 @@ export function createDriveStorage({drive,deviceId,deviceName,snapshot,completeS
    // A concurrent principal change rejects this CAS before the ZIP becomes a completed copy.
    await patch(latest,{lastBackupDate:date,lastBackupHash:result.hash,lastBackupAt:createdAt,lastBackupFile:id});
    await archiveApi(`/drive/v3/files/${id}?fields=id`,{method:'PATCH',text:JSON.stringify({appProperties:{complete:'1'}})});
-   await prune();status='saved';
+   await prune();status='saved';return 'saved';
   }catch(e){status='error';error=e.message;}finally{busy=false;changed();}}
  return {get state(){const loaded=!!configKey&&configKey===identity();return {config:loaded?config:null,loaded,busy,status,error,progress,deviceId,deviceName};},refresh:control,folders,createFolder,organize,claimPrincipal,copies,complete,daily,link,inventory,folderName:async id=>(await api(`/drive/v3/files/${id}?fields=name`)).name,settings:async updates=>patch(await control(),updates),configureAutomatic,notebookFolderNames,backupFolderName:async()=>{const id=needArchive(),folder=await backupDrive.request(id,`/drive/v3/files/${config.backupFolder}?fields=id,name`);folderNames.set(identity()+'.'+id+'.'+folder.id,folder.name);return folder.name;},pauseArchive:()=>backupDrive?.pause?.(),backupAccount:async id=>backupDrive?.account(id)||null,connectBackupAccount:()=>{if(busy)throw Error('A backup operation is already running.');return backupDrive.connect();},downloadCopy:file=>backupDrive.download({accountId:needArchive(),file}),putInFolder};
 }

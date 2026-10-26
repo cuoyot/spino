@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createStorageUI} from '../src/companion/storage-ui.js';
-function fixture(config={}){
+function fixture(config={},options={}){
  const calls=[],dialog={open:false,contains:n=>n===dialog.lastElementChild,querySelector:()=>null};let screen;
  const showDialog=(title,body,accept)=>{dialog.open=true;dialog.lastElementChild={querySelector:()=>({textContent:''})};screen={title,body,accept};};dialog.close=()=>dialog.open=false;
  const state={loaded:true,deviceId:'phone',config:{name:'Original musical title.json',...config}},manager={state,refresh:async()=>{},link:()=>({folderId:'notebook'}),folders:async()=>[{id:'notebook',name:'Notebook'},{id:'container',name:'Notebook folder'},{id:'archives',name:'Archives'}],folderName:async()=> 'Archives',backupAccount:async id=>({id,email:'backups@example.invalid'}),connectBackupAccount:async()=>{calls.push('connect-backup');return {id:'archive-account',email:'backups@example.invalid'};},configureAutomatic:async options=>calls.push(options),claimPrincipal:async()=>{calls.push('claim');state.config.principalId='phone';}};
- const ui=createStorageUI({manager,showDialog,dialog,formEnd:label=>`<div class="cp-actions"><button data-action="close-dialog">Cancel</button><button type="submit">${label}</button></div>`,toast:message=>calls.push(message),cloud:{state:{transport:'drive',name:'Original musical title.json',notebookId:'book'}},deviceName:'Phone'});
+ const ui=createStorageUI({...options,manager,showDialog,dialog,formEnd:label=>`<div class="cp-actions"><button data-action="close-dialog">Cancel</button><button type="submit">${label}</button></div>`,toast:message=>calls.push(message),cloud:{state:{transport:'drive',name:'Original musical title.json',notebookId:'book'}},deviceName:'Phone'});
  return {ui,manager,dialog,calls,screen:()=>screen};
 }
 test('optional automatic settings open directly with local destination off by default and no manual archive actions',async()=>{
@@ -37,11 +37,11 @@ test('unknown settings produce no setup prompt and a late read cannot reopen a c
 
 test('enabled automatic row names the last archive and destination, with real phase progress while busy',()=>{
  const f=fixture({backupEnabled:'1',backupDestination:'drive',backupFolderName:'Piano archives',lastBackupAt:'2026-10-26T12:00:00Z'});
- assert.match(f.ui.summary(),/Last automatic backup:/);assert.match(f.ui.summary(),/Google Drive \/ Piano archives/);assert.equal(f.ui.statusMarkup(),'');
+ assert.match(f.ui.summary(),/Last automatic backup:/);assert.match(f.ui.summary(),/Google Drive \/ Piano archives/);assert.match(f.ui.statusMarkup(),/One ZIP a day/);
  f.manager.state.busy=true;f.manager.state.progress={stage:'files',completed:2,total:4};let html=f.ui.statusMarkup();assert.match(html,/data-backup-phase="preparing"/);assert.match(html,/value="50"/);assert.match(html,/2\/4 files/);
  f.manager.state.progress={stage:'saving',completed:0,total:0};html=f.ui.statusMarkup();assert.match(html,/data-backup-phase="saving"/);assert.doesNotMatch(html,/<progress[^>]*value=/);
  f.manager.state.progress={stage:'upload',completed:1024,total:4096};assert.match(f.ui.statusMarkup(),/value="25"/);
- f.manager.state.busy=false;assert.equal(f.ui.statusMarkup(),'');f.manager.state.config.backupEnabled='0';assert.equal(f.ui.summary(),'Disabled');
+ f.manager.state.busy=false;assert.match(f.ui.statusMarkup(),/One ZIP a day/);f.manager.state.config.backupEnabled='0';assert.equal(f.ui.summary(),'Disabled');
 });
 
 
@@ -51,4 +51,18 @@ test('the full existing folder name is loaded from the backup account before edi
 });
 test('choosing an account in a draft and cancelling never changes configured archive account',async()=>{
  const f=fixture({backupAccount:'previous-account',backupFolder:'folder',backupDestination:'drive'});await f.ui.overview();await f.ui.actions['storage-backup-connect']();f.dialog.close();assert.equal(f.manager.state.config.backupAccount,'previous-account');assert.deepEqual(f.calls,['connect-backup']);
+});
+
+test('copy now is on the enabled principal summary and uses the saved destination under a reservation',async()=>{
+ let locked=false,release,received;const f=fixture({backupEnabled:'1',principalId:'phone'},{prepareSetup:async()=>{locked=true;return ()=>locked=false;}});
+ assert.match(f.ui.statusMarkup(),/storage-backup-now/);assert.match(f.ui.statusMarkup(),/One ZIP a day/);
+ f.manager.daily=async options=>{assert.equal(locked,true);received=options;await new Promise(resolve=>release=resolve);f.manager.state.status='saved';return 'saved';};
+ const first=f.ui.actions['storage-backup-now']();for(let n=0;n<5&&!release;n++)await Promise.resolve();await f.ui.actions['storage-backup-now']();
+ assert.deepEqual(received,{manual:true,force:true});release();await first;assert.equal(locked,false);assert.deepEqual(f.calls,['Backup saved.']);
+ f.manager.state.config.principalId='other';assert.doesNotMatch(f.ui.statusMarkup(),/storage-backup-now/);
+ f.manager.state.config.backupEnabled='0';assert.equal(f.ui.statusMarkup(),'');
+});
+test('a skipped copy cannot claim success from an earlier completed copy',async()=>{
+ const f=fixture({backupEnabled:'1',principalId:'phone'});f.manager.state.status='saved';f.manager.daily=async()=> 'busy';
+ await f.ui.actions['storage-backup-now']();assert.deepEqual(f.calls,['A backup is already running.']);assert.equal(f.dialog.open,false);
 });

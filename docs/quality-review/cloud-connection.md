@@ -143,3 +143,6 @@ Provider-confirmed ZIP saves now show a completed inline summary and Prepare a n
 
 
 Beta.5 (111) publication follow-up: ZIP saved-state/dialog corrections are packaged and publicly verified. Fifteen Android unit checks, 19 focused app checks and ten website checks pass; all 683 web assets match both signed packages. Native replacement installation preserves 135 IndexedDB hashes and foreground activity. Current deployment and public proof: ../releases/6.1.6-beta.5-publication.json. Next: physical ZIP save/layout check and deferred real-archive completeness verification.
+
+
+26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.

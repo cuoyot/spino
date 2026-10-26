@@ -8,7 +8,7 @@ import {connectedDriveBootstrap} from '../scripts/review/drive-connected-fixture
 test('automatic archive row updates last copy and folder through preparing and saving phases',{timeout:60000},async t=>{
  const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
  const instrument=`{
-  const native=Capacitor.nativePromise,interval=window.setInterval;window.__archiveIntervals=[];
+  const native=Capacitor.nativePromise,interval=window.setInterval;window.__archiveIntervals=[];window.__archiveWrites=0;
   window.setInterval=(fn,delay,...args)=>{if(delay===60000)__archiveIntervals.push(fn);return interval(fn,delay,...args);};
   Capacitor.PluginHeaders.push({name:'MediaShare',methods:['begin','writeChunk','saveAutomatic','commitAutomatic'].map(name=>({name,rtype:'promise'}))});
   Capacitor.nativePromise=async(plugin,method,args)=>{
@@ -18,7 +18,7 @@ test('automatic archive row updates last copy and folder through preparing and s
    }
    if(plugin==='DriveMedia'&&method==='useNotebookAccount'&&window.__holdArchivePreparation){window.__holdArchivePreparation=false;await new Promise(resolve=>window.__releaseArchivePreparation=resolve);}
    if(plugin==='MediaShare'){
-    if(method==='begin'){window.__archiveFile=args;return {token:'synthetic-archive'};}
+    if(method==='begin'){window.__archiveWrites++;window.__archiveFile=args;return {token:'synthetic-archive'};}
     if(method==='writeChunk')return {};
     if(method==='saveAutomatic'){await new Promise(resolve=>window.__releaseArchiveSave=resolve);return {saved:true,bytes:__archiveFile.size,uri:'content://synthetic/automatic-copy'};}
     if(method==='commitAutomatic')return {};
@@ -41,6 +41,12 @@ test('automatic archive row updates last copy and folder through preparing and s
  await evaluate(`__releaseArchivePreparation()`);await wait(`window.__releaseArchiveSave&&document.querySelector('[data-backup-phase=saving]')`);await capture('saving');
  await evaluate(`__releaseArchiveSave()`);await wait(`!document.querySelector('[data-backup-phase]')&&!document.querySelector('#automatic-backup-status')?.textContent.includes('25/10')`);
  assert.match(await evaluate(`__archiveFile.name`),/^SPino notebook_\d{4}-\d{2}-\d{2}T.*\.zip$/);await capture('saved');
+ assert.equal(await evaluate(`__archiveWrites`),1);assert.match(await evaluate(`document.querySelector('#automatic-backup-status').textContent`),/Un ZIP al día/);
+ await evaluate(`window.__releaseArchiveSave=null`);await click('storage-backup-now');await wait(`window.__releaseArchiveSave`);
+ assert.equal(await evaluate(`__archiveWrites`),2);await capture('copy-now-saving');await evaluate(`__releaseArchiveSave()`);
+ await wait(`document.querySelector('[data-action=storage-backup-now]')&&!document.querySelector('[data-backup-phase]')`);
+ await evaluate(`__archiveIntervals.find(fn=>fn.toString().includes('.daily('))()`);assert.equal(await evaluate(`__archiveWrites`),2);
+ await capture('copy-now-saved');
  await click('cloud-manage');assert.equal(await evaluate(`!!document.querySelector('#cp-dialog [data-action=import-json]')`),true);assert.match(await evaluate(`document.querySelector('#cp-dialog [data-action=export-json]').textContent`),/No incluye archivos multimedia/);await evaluate(`document.querySelector('[data-action=close-dialog]').click()`);
  await click('storage-manage');await wait(`document.querySelector('[data-backup-settings]')`);await evaluate(`const select=document.querySelector('[name=destination]');select.value='drive';select.dispatchEvent(new Event('change',{bubbles:true}))`);await wait(`document.querySelector('[data-backup-settings]')?.textContent.includes('backups@example.invalid')`);
  assert.equal(await evaluate(`!!document.querySelector('[name=folder]')`),false);assert.equal(await evaluate(`!!document.querySelector('[name=backupFolderName]')`),true);

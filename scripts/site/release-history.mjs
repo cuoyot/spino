@@ -268,6 +268,8 @@ if(manualSyncBeta){const text=await readFile(new URL('../../docs/releases/6.1.6-
 const syncCopyBeta=releases.find(r=>r.version==='6.1.6-beta.3');
 if(syncCopyBeta){const text=await readFile(new URL('../../docs/releases/6.1.6-beta.3-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))syncCopyBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
 
+const stable620=releases.find(r=>r.version==='6.2.0');
+if(stable620){const text=await readFile(new URL('../../docs/releases/6.2.0-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))stable620.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
 const savedZIPBeta=releases.find(r=>r.version==='6.1.6-beta.5');
 if(savedZIPBeta){const text=await readFile(new URL('../../docs/releases/6.1.6-beta.5-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))savedZIPBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
 const independentBackupBeta=releases.find(r=>r.version==='6.1.6-beta.4');

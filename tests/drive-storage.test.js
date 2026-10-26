@@ -173,3 +173,18 @@ test('remote backup destination uses an explicitly connected archive account and
 test('legacy remote settings without an explicit backup account cannot reuse synchronization credentials',async()=>{
  const f=fixture();delete f.props.backupAccount;let uploads=0;f.args.upload=async()=>uploads++;const m=createDriveStorage(f.args);await m.daily();assert.equal(m.state.status,'error');assert.match(m.state.error,/Connect Google Drive for backups/);assert.equal(uploads,0);assert.equal(f.files.size,0);
 });
+
+test('automatic copies stay once per day; an explicit copy can repeat unchanged or changed data',async()=>{
+ const f=fixture(),m=createDriveStorage(f.args);await m.daily();assert.equal(f.files.size,1);
+ await m.daily({force:true});assert.equal(f.files.size,1,'background force cannot bypass the schedule');
+ assert.equal(await m.daily({manual:true,force:true}),'saved');assert.equal(f.files.size,2);
+ f.book.data.preferences.name='Changed after the copy';await m.daily();assert.equal(m.state.status,'today');assert.equal(f.files.size,2);
+ assert.equal(await m.daily({manual:true,force:true}),'saved');assert.equal(f.files.size,3);
+ await m.daily();assert.equal(f.files.size,3,'manual copies also satisfy the automatic daily schedule');
+});
+test('copy now retains principal, enablement, network and duplicate-operation guards',async()=>{
+ for(const change of [f=>f.args.deviceId='other',f=>f.props.backupEnabled='0',f=>f.args.network=async()=>({online:false,wifi:false})]){
+  const f=fixture();change(f);const m=createDriveStorage(f.args);await m.daily({manual:true,force:true});assert.equal(f.files.size,0);
+ }
+ const f=fixture();f.args.eligible=()=>false;const m=createDriveStorage(f.args);assert.equal(await m.daily({manual:true,force:true}),'busy');assert.equal(f.files.size,0);
+});

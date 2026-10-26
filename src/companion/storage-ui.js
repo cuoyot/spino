@@ -4,8 +4,8 @@ import {escapeHTML as esc} from './views.js';
 import {automaticBackupCopy} from './automatic-backup-copy.js';
 import {backupArchiveName} from './complete-backup.js';
 const button=(action,text,id='')=>`<button type="button" data-action="${action}" data-id="${esc(id)}">${esc(text)}</button>`;
-export function createStorageUI({manager,showDialog,dialog,formEnd,toast,refresh,exportZip,restoreZip,downloadCopy,cloud,deviceName}){
- let draft=null,request=0;
+export function createStorageUI({manager,showDialog,dialog,formEnd,toast,refresh,prepareSetup,exportZip,restoreZip,downloadCopy,cloud,deviceName}){
+ let draft=null,request=0,copyPending=false;
  const t=()=>automaticBackupCopy(getAppLanguage());
  const destination=c=>c.backupDestination||(c.copiesFolder&&c.backupEnabled==='1'?'drive':'local');
  const current=()=>manager.state.loaded&&manager.state.config;
@@ -14,7 +14,7 @@ export function createStorageUI({manager,showDialog,dialog,formEnd,toast,refresh
  function summary(){const c=current(),v=t();return !c?v.unknown:c.backupEnabled==='1'?`${v.last}: ${c.lastBackupAt?new Date(c.lastBackupAt).toLocaleString():v.never}\n${v.folder}: ${destination(c)==='drive'?'Google Drive / '+(c.backupFolderName||v.choose):v.localPath}`:v.off;}
  function statusMarkup(){
   const c=current(),s=manager.state,v=t();if(!c||c.backupEnabled!=='1')return '';
-  if(!s.busy)return s.error?`<p class="cp-auto-backup-error" role="alert">${esc(localizeMessage(s.error))}</p>`:'';
+  if(!s.busy)return `<p class="cp-auto-backup-schedule muted">${esc(v.schedule)}</p>${s.error?`<p class="cp-auto-backup-error" role="alert">${esc(localizeMessage(s.error))}</p>`:''}${c.principalId===s.deviceId?`<div class="cp-auto-backup-now">${button('storage-backup-now',v.copyNow)}</div>`:''}`;
   const p=s.progress||{},saving=['saving','staging','upload'].includes(p.stage),phase=saving?v.saving:v.prepare;
   const known=p.total>0,percent=known?Math.min(100,Math.floor(100*p.completed/p.total)):null;
   const count=known?(p.stage==='files'?`${p.completed}/${p.total} ${v.files}`:`${(p.completed/1048576).toFixed(1)}/${(p.total/1048576).toFixed(1)} MB`):'';
@@ -63,7 +63,22 @@ export function createStorageUI({manager,showDialog,dialog,formEnd,toast,refresh
   finally{if(draft){draft.connecting=false;if(dialog.open&&dialog.contains(node))renderSettings();}}
  }
 
+ async function backupNow(){
+  if(copyPending||manager.state.busy)return;
+  copyPending=true;let release;
+  waiting(t().prepare);const node=dialog.lastElementChild;
+  try{
+   release=await prepareSetup?.();
+   if(dialog.open&&dialog.contains(node))dialog.close();
+   const result=await manager.daily({manual:true,force:true});
+   const state=manager.state,v=t();
+   if(result==='saved')toast?.(v.copySaved);
+   else if(state.error)toast?.(localizeMessage(state.error));
+   else toast?.(state.status==='wifi'?v.copyWifi:state.status==='offline'?v.copyOffline:v.copyBusy);
+  }finally{release?.();copyPending=false;if(dialog.open&&dialog.contains(node))dialog.close();await refresh?.();}
+ }
  const actions={
+  'storage-backup-now':backupNow,
   'storage-manage':overview,'storage-settings':overview,'storage-setup':overview,'storage-backup-connect':connectAccount,'storage-folder-suggestion':()=>{readDraft();draft.folderName=suggestedBackupFolder(draft.folderName,notebookNames());draft.folderEdited=true;renderSettings();},
   'storage-principal':async()=>{readDraft();const node=dialog.lastElementChild;await manager.claimPrincipal();if(dialog.open&&dialog.contains(node))renderSettings();},
   'storage-copies':async()=>{waiting(ui('Looking for your backups…','Buscando tus copias de seguridad…'));const node=dialog.lastElementChild;await manager.refresh();const files=(await manager.copies()).sort((a,b)=>b.appProperties.createdAt.localeCompare(a.appProperties.createdAt));if(!dialog.open||!dialog.contains(node))return;showDialog(t().restoreArchive,`<p>${ui('Choose the date you want to recover.','Elige la fecha que quieres recuperar.')}</p>${files.map(f=>`<section class="cp-card"><h3>${esc(new Date(f.appProperties.createdAt).toLocaleString())}</h3><p>${(Number(f.size)/1048576).toFixed(1)} MB</p>${button('storage-download-copy',ui('Review this backup','Revisar esta copia de seguridad'),f.id)}</section>`).join('')||`<p>${ui('No complete backups yet.','Todavía no hay copias de seguridad completas.')}</p>`}${button('storage-import',ui('Choose a ZIP from my device','Elegir un ZIP del dispositivo'))}`);},

@@ -76,3 +76,8 @@ Source/browser follow-up (26 October 2026, not yet packaged): after the document
 
 
 The manual ZIP saved-state and dialog follow-up is packaged in Android 6.1.6-beta.5 (111). Public signed downloads and replacement emulator installation are verified. Physical document-provider and personal-archive completeness acceptance remain separate.
+
+
+## Immediate copy and daily frequency (6.2.0)
+
+While SPino is open and idle, it checks each minute whether an automatic archive is due. It creates at most one automatic ZIP per local calendar day when the content changes. The enabled principal device shows Back up now beside the latest-copy summary. This explicitly creates another copy in the saved destination, including on the same day or with unchanged content. A successful explicit copy also satisfies that day's automatic schedule. Existing network/data preferences, complete-file checks and latest-seven retention apply. Unsaved settings drafts do not change this destination.

@@ -468,3 +468,6 @@ A reported broken Profile ring was caused by the external avatar outline being c
 
 
 26 October 2026 CLOUD-01/CLOUD-05 manual ZIP follow-up: saved/prepared/error states and preparation/ready dialogs reopened. Source/browser evidence at profile/2026-10-26-zip-saved-02 covers phone/tablet portrait/landscape. Inline completion and stacked actions pending owner/native acceptance; shared saved-session component unchanged.
+
+
+26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.

@@ -1,0 +1,7 @@
+# Immediate automatic-destination backup — 26 October 2026
+
+The owner requests at most daily automatic archives and a Back up now button, then authorizes stable 6.2.0 promotion. Existing automatic checks run every minute while foreground/idle, but archive creation stays limited to one changed state per local calendar day. The summary now exposes this policy and an explicit Back up now action for the enabled principal device. This action uses saved settings, permits another same-day/unchanged complete copy, shows the existing preparation/save progress and satisfies the daily schedule after success. It does not alter pending settings drafts or silently take ownership.
+
+Protocol tests cover same-day changed and unchanged copies, background force rejection, principal/enablement/network guards and duplicates. The responsive browser run verifies an actual second ZIP writer call from the button and no third write from a following automatic check. Twenty-four frames cover six states in four phone/tablet orientations, with a disposable synthetic notebook and writer. Run 01 retains an initial test-only invalid top-level await; the final test uses the returned operation promise. No personal files are used.
+
+Native packaging, Google Play acceptance and publication are tracked in docs/releases/6.2.0*. Real personal-ZIP completeness remains an owner follow-up. Concurrent backup-settings work remains preserved outside the stable release scope.

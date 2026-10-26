@@ -893,3 +893,6 @@ The previous recording MIME-only PATCH contradicted Drive's binary MIME contract
 ## 26 October 2026 — Manual ZIP saved-state follow-up
 
 Accepted objective from owner feedback: successful saving must stop presenting the ZIP as pending; dialog actions must be spaced and clear. Implemented proposal: completed inline status with Prepare a new copy, retained pending ZIP after cancellation, and stacked ready actions with one top Close. Four-layout synthetic browser evidence and 19 focused checks pass in profile/2026-10-26-zip-saved-02. Owner/native visual acceptance and packaging remain pending. Real archive completeness is a separate follow-up explicitly deferred by the owner.
+
+
+26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.
