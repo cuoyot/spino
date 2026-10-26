@@ -8,5 +8,12 @@
   "typedBackupFolder": true,
   "independentAccountSelection": true,
   "JSONImportAndNoMultimediaCopy": true,
-  "layouts": 4
+  "layouts": 4,
+  "copyNowAdditionalWrite": true,
+  "followingAutomaticCheckCreatesNoThirdCopy": true,
+  "appSourceCommit": "a63af4020a0508b2a7b87dc96b883e9fdd9fbc55",
+  "sourceHashes": {
+    "src/companion/drive-storage.js": "aabeb415e34a0929e160496a0c70b42a327ba440fa178144e39a11dc70ef58a2",
+    "src/companion/storage-ui.js": "56951f1d141591c3d3c59441c5bf0a15dc7f987513dea848e2c8558ef0b7b5e0"
+  }
 }

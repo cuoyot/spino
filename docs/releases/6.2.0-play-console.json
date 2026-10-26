@@ -1,0 +1,35 @@
+{
+  "version": "6.2.0",
+  "versionCode": 112,
+  "status": "submitted_pending_automated_checks_and_review",
+  "uploaded": true,
+  "submitted": true,
+  "track": "production",
+  "rolloutPercent": 100,
+  "targetRegions": 178,
+  "managedPublishing": false,
+  "notesLocales": [
+    "es-ES",
+    "en-US",
+    "ca",
+    "de-DE",
+    "hu-HU"
+  ],
+  "aabSHA256": "1c6acef0fc66f7b2e0fcd10944c343e6e0f48c122467e66d7109565c5fc9dc36",
+  "validationWarnings": [
+    "Missing deobfuscation file; non-blocking, same as previous releases."
+  ],
+  "consoleURL": "https://play.google.com/console/u/0/developers/5810146646828567054/app/4975350856482164945/publishing",
+  "observedUI": [
+    "Cambios en revisi\u00f3n",
+    "Producci\u00f3n",
+    "6.2.0",
+    "Iniciar lanzamiento completo",
+    "Realizando comprobaciones r\u00e1pidas de los problemas m\u00e1s habituales"
+  ],
+  "previousPublished": {
+    "version": "6.1.5",
+    "versionCode": 106
+  },
+  "verification": "Directly verified in the Codex in-app browser after confirming production submission."
+}

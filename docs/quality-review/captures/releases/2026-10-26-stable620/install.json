@@ -1,0 +1,18 @@
+{
+  "version": "6.2.0",
+  "versionCode": 112,
+  "replacementInstall": true,
+  "indexedDBFilesPreserved": {
+    "com.miguecoll.spino": 7,
+    "com.miguecoll.spino.beta": 135
+  },
+  "verification": "Both pre-launch file manifest equality assertions passed in the installation script before launch",
+  "applicationDataCleared": false,
+  "foregroundVerified": true,
+  "foreground": [
+    "topResumedActivity=ActivityRecord{940fa5 u0 com.miguecoll.spino/.MainActivity t179}"
+  ],
+  "nativeVisualAcceptance": false,
+  "physicalGoogleAcceptance": false,
+  "verifierCorrection": "Initial foreground assertion expected a fully qualified component; stable Android reports .MainActivity. Corrected verifier and confirmed installed version and actual foreground."
+}

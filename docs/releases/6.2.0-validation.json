@@ -1,0 +1,46 @@
+{
+  "version": "6.2.0",
+  "versionCode": 112,
+  "appSourceCommit": "a63af4020a0508b2a7b87dc96b883e9fdd9fbc55",
+  "focusedAppChecks": {
+    "passed": 62,
+    "failed": 0
+  },
+  "packagedWebFilesMatch": {
+    "apk": 683,
+    "aab": 683
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "nativeEvidence": "docs/quality-review/captures/releases/2026-10-26-stable620/install.json",
+  "physicalProviderAcceptance": false,
+  "personalZIPCompleteness": "Deferred owner verification",
+  "concurrentSettingsChanges": "Preserved and excluded from isolated stable source",
+  "replacementInstall": {
+    "version": "6.2.0",
+    "versionCode": 112,
+    "replacementInstall": true,
+    "indexedDBFilesPreserved": {
+      "com.miguecoll.spino": 7,
+      "com.miguecoll.spino.beta": 135
+    },
+    "verification": "Both pre-launch file manifest equality assertions passed in the installation script before launch",
+    "applicationDataCleared": false,
+    "foregroundVerified": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{940fa5 u0 com.miguecoll.spino/.MainActivity t179}"
+    ],
+    "nativeVisualAcceptance": false,
+    "physicalGoogleAcceptance": false,
+    "verifierCorrection": "Initial foreground assertion expected a fully qualified component; stable Android reports .MainActivity. Corrected verifier and confirmed installed version and actual foreground."
+  },
+  "website": {
+    "passed": 10,
+    "failed": 0
+  },
+  "signatures": "Production APK retains the SPino upload certificate; AAB jarsigner verified; Play accepted version 112"
+}

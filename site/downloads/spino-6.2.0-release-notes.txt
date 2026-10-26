@@ -1,0 +1,15 @@
+<es-ES>
+Nueva gestión de sincronización y copias de seguridad. Copias automáticas como máximo una vez al día cuando hay cambios, con SPino abierto, y botón Realizar copia ahora. Guarda copias en disco local o en una cuenta de Drive independiente. Estado, destino y progreso más claros. Corregida la confirmación al guardar ZIP y mejorados los diálogos.
+</es-ES>
+<en-US>
+Improved synchronization and backup management. Automatic backups run at most once a day when content changes, while SPino is open, with a Back up now button for extra copies. Save backups locally or to an independent Drive account. Clearer status, destination and progress. Fixed ZIP save confirmation and improved dialogs.
+</en-US>
+<ca>
+Nova gestió de sincronització i còpies de seguretat. Còpies automàtiques com a màxim un cop al dia quan hi ha canvis, amb SPino obert, i botó Fes una còpia ara. Desa còpies al disc local o en un compte de Drive independent. Estat, destinació i progrés més clars. Corregida la confirmació en desar ZIP i millorats els diàlegs.
+</ca>
+<de-DE>
+Verbesserte Synchronisierung und Sicherungsverwaltung. Automatische Backups höchstens einmal täglich bei Änderungen, während SPino geöffnet ist, sowie Jetzt sichern für zusätzliche Kopien. Sicherungen lokal oder in einem unabhängigen Drive-Konto. Klarere Angaben zu Status, Ziel und Fortschritt. ZIP-Speicherbestätigung und Dialoge verbessert.
+</de-DE>
+<hu-HU>
+Továbbfejlesztett szinkronizálás és mentéskezelés. Automatikus mentés változás esetén legfeljebb naponta egyszer, nyitott SPino mellett; a Mentés most gombbal további másolat készíthető. Helyi tárhely vagy külön Drive-fiók választható. Áttekinthetőbb állapot, cél és folyamatjelzés. Javított ZIP-mentési visszaigazolás és párbeszédablakok.
+</hu-HU>
