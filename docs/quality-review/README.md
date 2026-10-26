@@ -1,5 +1,7 @@
 2026-10-26 beta.2 packaging: Android 6.1.6-beta.2 (108) includes the manual-check and stale recording activity fixes. Three browser regressions and ten Android unit tests pass; replacement installation/foreground and 135 preserved IndexedDB hashes are verified. [Release scope](../releases/6.1.6-beta.2.md). Public deployment and physical Google timing are recorded separately.
 
+26 October 2026: beta.3 (109) is now published with D-069 terminology and setup-state gating, the fast manual check and recording-spinner fixes. Native replacement installation retains 135 file hashes; the public pages and signed downloads are verified. [Release proof](../releases/6.1.6-beta.3-publication.json). Physical Google timing and owner visual acceptance remain open.
+
 26 October 2026 follow-up (D-069): distinct cloud synchronization, ZIP backup and JSON export/import wording, plus verified-settings gating for startup setup notices. [Responsive synthetic evidence](captures/profile/2026-10-26-sync-copy-03/README.md). Beta.3 packaging/publication is tracked in `../releases/6.1.6-beta.3.md`; physical Google timing remains unverified.
 
 2026-10-26 unreleased beta.1 follow-up: manual checks now use the changes cursor without unchanged asset export; interrupted recording checks clear stale spinner state; waiting text uses the actual blocker. 115 focused checks and one actual-browser overlap regression pass. [Evidence and physical-timing limits](captures/profile/2026-10-26-manual-sync-01/README.md). No new APK/publication.

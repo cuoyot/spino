@@ -1,0 +1,7 @@
+{
+  "commit": "006fe4fa7e1c00398607378b116bf9ca2167f33b",
+  "files": 1383,
+  "bytes": 13126647253,
+  "method": "Isolated APFS clone export; each file verified against its exact committed Git blob; missing historical aliases restored from Git; untracked files excluded",
+  "snapshot": "/private/tmp/spino-beta616b3-web-export"
+}
