@@ -1,0 +1,26 @@
+{
+  "kind": "Responsive browser; synthetic Drive and recordings",
+  "nativeAcceptance": false,
+  "manualCheck": {
+    "requests": [
+      "/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=14&fields=nextPageToken%2CnewStartPageToken%2Cchanges(fileId%2Cremoved%2Cfile(id%2Cname%2CmimeType%2Csize%2Cversion%2Csha256Checksum%2CappProperties%2Ctrashed))"
+    ],
+    "assetExports": 0
+  },
+  "stalledRecordingCheckResumes": true,
+  "spinnerReturnsToSaved": true,
+  "date": "2026-10-26",
+  "status": "Unreleased source/browser follow-up to 6.1.6-beta.1 (107)",
+  "focusedTests": 115,
+  "beforeFix": "Three regression assertions failed: unchanged manual export, unnecessary full scan, and stale recording spinner.",
+  "physicalGoogleTiming": "Not measured; the reported 25 seconds is owner observation, not reproduced wall time.",
+  "sourceHashes": {
+    "src/companion/cloud-sync.js": "a44da927b868381d0e5639b74745a12d0b7a891a3715415e0404485ab4ea2707",
+    "src/companion/media-sync.js": "ed33a74bfc91063083b4ce8150037cd26c25fd3d76b2609b765b134d89ae51a6",
+    "src/companion/drive-sync-view.js": "2cd47d6cca62e18ed74b759af0c4395e35f816468074b67815f2248c286efab5",
+    "tests/manual-sync.test.js": "92b3223121cb40d3498257e8ca8e94e2a338c9b431ca486455e7f910f819313c",
+    "tests/manual-sync.browser.test.js": "c1d830a79f4fc2013132fdfa2502fccdf65b20d1263be3c9b384b167ec9666d2"
+  },
+  "buildIndexSHA256": "e3d162dfd7429a86351171e19c04524446c47c04622b5c785b72825a12891d5d",
+  "existingSpinnerBrowserRegressions": 2
+}

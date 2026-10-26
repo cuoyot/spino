@@ -5,6 +5,7 @@ import {resolve,extname} from 'node:path';
 import {connectedDriveBootstrap} from './drive-connected-fixture.mjs';
 
 const root=resolve('dist'),port=Number(process.env.SPINO_SYNC_PREVIEW_PORT||5216);
+const reviewLabel=process.env.SPINO_SYNC_PREVIEW_LABEL||'Responsive browser review · simulated Drive · ';
 const bootstrap=await connectedDriveBootstrap({language:'es'});
 createServer(async(req,res)=>{
   try {
@@ -30,7 +31,7 @@ createServer(async(req,res)=>{
       document.title='SPino · synthetic synchronization animation review';
       const banner=document.createElement('aside');
       banner.style='position:fixed;z-index:5000;bottom:80px;right:12px;max-width:calc(100vw - 24px);padding:10px;border-radius:8px;background:#e7edff;color:#183567;font:12px system-ui;box-shadow:0 2px 12px #0003';
-      banner.textContent='Responsive browser review · simulated Drive · ';
+      banner.textContent=${JSON.stringify(reviewLabel)};
       const resume=document.createElement('button');resume.textContent='Complete simulated transfer';
       resume.addEventListener('click',()=>{window.__driveStall=false;window.__releaseDrive?.();resume.disabled=true;});
       banner.append(resume);document.body.append(banner);

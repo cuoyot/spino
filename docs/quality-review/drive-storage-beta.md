@@ -26,3 +26,8 @@ A synthetic Drive transport returning 404 for the selected folder's inaccessible
 ## Beta 6.1.6 follow-up
 
 Bounded optional compressed segments replace the single checkpoint acceleration path without changing the connected notebook or original commit/object files. 86 focused protocol/indicator tests and two responsive spinner tests pass. Stable 6.1.5 interoperability is checked against its frozen adapter; unavailable or corrupt acceleration falls back to verified originals. Native replacement installation preserves 135 IndexedDB file hashes and launches the exact APK. This does not compact history. Physical Google/two-device acceptance remains open. See `../releases/6.1.6-beta.1.md` and the dated profile evidence.
+
+
+## Unreleased manual-check follow-up — 26 October 2026
+
+Owner beta feedback reproduces unnecessary manual inventory/local export and a recording-check status left active after ineligibility. Source fixes and synthetic protocol/browser validation are in `captures/profile/2026-10-26-manual-sync-01/README.md`. The panel now distinguishes known wait blockers without weakening adoption guards. Physical Google timing remains unmeasured; no new APK/publication is claimed.

@@ -23,11 +23,18 @@ const phaseCopy={
  ca:{checkpoint:'Llegint el quadern comprimit…',retrying:'Connexió interrompuda · reintentant',checking:'Comprovant Google Drive…',receiving:'Rebent canvis del quadern',merging:'Combinant canvis…',scores:'Preparant partitures…',sending:'Enviant canvis del quadern…',pause:'Posa en pausa la sincronització',checked:'Darrera comprovació'}
 };
 export function driveLastCheck(state,lang=getAppLanguage()){return state.lastCheckedAt?(phaseCopy[lang]||localize(phaseCopy.en,phaseCopy.es,lang)).checked+': '+new Intl.DateTimeFormat(lang,{dateStyle:'medium',timeStyle:'short'}).format(new Date(state.lastCheckedAt)):'';}
+const waitCopy={
+ en:{generic:'Synchronization waiting',practice:'Finish and save your pending practice to receive changes.',editor:'Finish editing to receive changes.',dialog:'Close the open dialog to receive changes.',score:'Close the score to receive changes.'},
+ es:{generic:'Sincronización en espera',practice:'Termina y guarda la práctica pendiente para recibir los cambios.',editor:'Termina de editar para recibir los cambios.',dialog:'Cierra el diálogo abierto para recibir los cambios.',score:'Cierra la partitura para recibir los cambios.'},
+ ca:{generic:'Sincronització en espera',practice:'Acaba i desa la pràctica pendent per rebre els canvis.',editor:'Acaba d’editar per rebre els canvis.',dialog:'Tanca el diàleg obert per rebre els canvis.',score:'Tanca la partitura per rebre els canvis.'}
+};
 export function driveSyncMarkup(state,options={}){
  const lang=options.lang||getAppLanguage();
  const phase=phaseCopy[lang]||localize(phaseCopy.en,phaseCopy.es,options.lang||getAppLanguage());
  const t=syncCopy(options.lang),direct=state.transport==='drive',linked=direct&&!!state.name,legacy=!direct&&!!state.name;
- const status=!linked?t.disconnected:state.status==='error'||state.status==='conflict'?t.attention:!state.enabled?t.paused:state.status==='writing'?t.updating:state.status==='waiting'?t.waiting:t.connected;
+ const waiting=waitCopy[lang]||localize(waitCopy.en,waitCopy.es,lang);
+ const waitMessage=waiting[state.waitReason]||(state.waitReason?localizeMessage(state.waitReason,lang):waiting.generic);
+ const status=!linked?t.disconnected:state.status==='error'||state.status==='conflict'?t.attention:!state.enabled?t.paused:state.status==='writing'?t.updating:state.status==='waiting'?waitMessage:t.connected;
  const progress=state.status==='writing'?state.progress:null;
  const phaseLabel=progress?phase[progress.stage]||phase.checking:phase.checking;
  const progressText=phaseLabel+(['receiving','retrying'].includes(progress?.stage)&&progress.total?` · ${progress.completed}/${progress.total}`:'')+(progress?.elapsedSeconds!=null?` · ${progress.elapsedSeconds}s · ${progress.requests||0} ${lang==='es'?'peticiones':'requests'} · ${Math.ceil((progress.receivedBytes||0)/1024)} KB`:'');

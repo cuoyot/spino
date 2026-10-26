@@ -67,7 +67,8 @@ export function createMediaSync({store, connection, getContext, eligible, change
         }
         await refreshed();
         if(!allowed){publish({status:'wifi'});return;}
-        client=await connection(context);if(!current(key))return;
+        // The discovery client already has this account, folder and network policy.
+        // Reconnecting here repeated storage metadata requests even with no copies.
         const uploads=local.filter(r=>!blockedTakes.has(takeId(r))&&!r.remoteOnly&&!r.draft&&(r.workId===''||works.has(r.workId))&&(!r.cloud||r.cloud.accountId===context.accountId&&r.cloud.notebookId===context.notebookId)&&!remote.some(f=>f.appProperties.takeId===takeId(r)));
         const downloads=[];
         for(const f of remote){const p=f.appProperties;if(!(p.workId===''||works.has(p.workId))||await store.ignored(key,p.takeId))continue;const exists=local.find(r=>takeId(r)===p.takeId);if(!exists||exists.remoteOnly)downloads.push(f);else if(exists.workId!==p.workId||exists.cloud?.sha256&&exists.cloud.sha256!==p.sha256)recordIssue(f,Error('Recording identity conflict. Local recordings were kept.'),true);}
@@ -106,7 +107,13 @@ export function createMediaSync({store, connection, getContext, eligible, change
         }
         if(current(key))publish(issues.length?{status:'error',completed,total,issues,error:'Some recording copies need attention. Local files are kept.',percent:0}:{status:'saved',completed,total,issues:[],error:'',percent:100,lastCheckedAt:new Date().toISOString()});
       }catch(error){if(current(key))publish({status:'error',issues:repairFileId&&!issues.length?repairIssues:issues,error:error.message||String(error)});}
-      finally{try{if(completed&&current(key))await refreshed();}finally{task=null;controller=null;schedule();}}
+      finally{try{if(completed&&current(key))await refreshed();}finally{
+        task=null;controller=null;
+        // Notebook checks, editors or a changed account can suspend this pass.
+        // A finished task must not leave the shared indicator rotating forever.
+        if(['checking','copying'].includes(state.status))publish({status:signal.aborted?'paused':'idle',percent:0});
+        schedule();
+      }}
     })();return task;
   }
   async function download(id){

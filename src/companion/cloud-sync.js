@@ -37,19 +37,19 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     validate(text);
     return text;
   };
-  async function reconcile(preference,automatic=false) {
+  async function reconcile(preference,{incremental=false,quick=false}={}) {
     const captured = revision; let uploaded=false,remoteFile;
-    if(automatic&&adapter.info?.incremental&&state.status==='saved'&&lastSyncedRevision===captured){
+    if(quick&&adapter.info?.incremental&&lastSyncedRevision===captured){
       state.operation='read';remoteFile=await adapter.readLinked();
       if(!state.enabled)return;
-      if(captured===revision&&remoteFile.hash===lastRemoteHash&&!remoteFile.conflicts?.length){state.operation=null;state.lastCheckedAt=new Date().toISOString();return;}
+      if(captured===revision&&remoteFile.hash===lastRemoteHash&&!remoteFile.conflicts?.length){state.operation=null;state.status='saved';state.waitReason=null;state.lastCheckedAt=new Date().toISOString();return;}
     }
     state.operation = 'snapshot';
     const original = await snapshot();
     if (!state.enabled) return;
     const local = content(original);
     state.operation = 'read';
-    remoteFile ??= await adapter.readLinked({fullScan:!automatic});
+    remoteFile ??= await adapter.readLinked({fullScan:!incremental});
     if (!state.enabled) return;
     state.operation = 'validate';
     const remoteId = JSON.parse(remoteFile.text).cloudBackup?.sharedNotebookId;
@@ -122,11 +122,11 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     publish();
     if (localChanged) adopted();
   }
-  async function reconcileWithRetry(preference,automatic=false) {
+  async function reconcileWithRetry(preference,mode) {
     // A changed provider revision is contention, not a user data conflict.
     // Re-read and merge afresh; never retry the stale serialized write.
     for (let attempt = 0; attempt < 3; attempt++) {
-      try { await reconcile(preference,automatic); return; }
+      try { await reconcile(preference,mode); return; }
       catch (error) {
         if (!['CONFLICT', 'LOCKED', 'BUSY'].includes(error.code)) throw error;
         if (!state.enabled) return;
@@ -141,11 +141,15 @@ export function createNotebookCloud({ adapter = CloudBackup, settings = defaultS
     if (task || !state.enabled) return task;
     clearTimeout(timer); timer = null;
     if (!automatic) state.retryCount = 0;
-    if (!eligible()) { state.status = 'waiting'; publish(); schedule(); return; }
+    if (!eligible()) { state.status = 'waiting'; state.waitReason = null; publish(); schedule(); return; }
+    // Routine manual checks use the same cursor as polling; errors and conflict
+    // recovery still inventory the original objects before accepting data.
+    const routine=adapter.info?.incremental&&!preference&&!['error','conflict'].includes(state.status);
+    const mode={incremental:automatic||routine,quick:state.status==='saved'&&(automatic||routine)};
     task = (async () => {
       try {
         if(!automatic||state.status!=='saved'){state.status = 'writing'; state.waitReason = null; state.error = ''; publish();}
-        await reconcileWithRetry(preference,automatic);
+        await reconcileWithRetry(preference,mode);
       }
       catch (error) {
         if (!state.enabled) return;
