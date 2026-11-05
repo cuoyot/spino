@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-05T13:51:23.168676+00:00",
+  "version": "6.2.1-beta.1",
+  "versionCode": 113,
+  "commit": "b37f2a38c210b13877667adb168eec0580c81714",
+  "wrangler": "4.151.3",
+  "exitCode": 0,
+  "versionId": "d3b915a0-a57c-49a2-ae24-cc033f02c1c7",
+  "log": "docs/releases/6.2.1-beta.1-wrangler-deploy.log",
+  "logSHA256": "4b74bd081edc0bb8fd0fe231077a2dd7786000e6eab971e4bddb1c8135db96d3",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "automaticCheck": "GitHub Workers Builds check remained in_progress for more than twenty minutes without a live deployment. Direct deployment uses exactly the same commit; no newer source or deployment was present immediately before upload.",
+  "exportVerification": {
+    "commit": "b37f2a38c210b13877667adb168eec0580c81714",
+    "siteTree": "2f5178e55d55ddde4eed76ca9a0578673c21a9b8",
+    "filesVerifiedAgainstGitBlobs": 633,
+    "bytesVerified": 7487429038,
+    "export": "Exact committed Worker files via git archive; site via APFS clone, every file verified against its committed Git blob."
+  }
+}

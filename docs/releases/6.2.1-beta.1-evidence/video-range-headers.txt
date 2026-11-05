@@ -1,0 +1,16 @@
+HTTP/2 206 
+date: Thu, 05 Nov 2026 13:52:18 GMT
+content-type: video/mp4
+content-length: 31
+content-range: bytes 20971510-20971540/22190578
+accept-ranges: bytes
+cache-control: public, max-age=300
+content-disposition: inline; filename="hanon-warmups-2026-10-20.mp4"
+etag: "639abea0dc4c1a3ca24e936a25681d4300fd654dfbbe55da5e3c2e4258f2539e"
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BCUmLBTxnJOw6X4%2FCSMbm0EvrYZ3NJAjhhyxyCWn%2BVadZjnJH0kz%2FL5DfM0a%2Bwe32f6RQxgtlWhX%2BT%2B04iHgD%2FEcx%2Bu8lcz7pwLhCXaL4PGZKQqQBYsl8LH4WFkRe9U%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a55c56962ab8cfcb-MAD
+alt-svc: h3=":443"; ma=86400
+
