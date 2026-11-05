@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: direct block entry retains separate times, PDF position and warm-up through recovery and final save
+ok 1 - direct block entry retains separate times, PDF position and warm-up through recovery and final save
+  ---
+  duration_ms: 4778.885625
+  type: 'test'
+  ...
+# Subtest: repeat a saved practice keeps its warm-up type and both hands instead of silently replacing it with Reading
+ok 2 - repeat a saved practice keeps its warm-up type and both hands instead of silently replacing it with Reading
+  ---
+  duration_ms: 1034.415375
+  type: 'test'
+  ...
+# Subtest: reading, note names and technique share the floating controls without covering the playable keyboard
+ok 3 - reading, note names and technique share the floating controls without covering the playable keyboard
+  ---
+  duration_ms: 2380.153292
+  type: 'test'
+  ...
+# Subtest: immersive PDF practice, pause-only tools, fingering and saved framing
+    # Subtest: MIDI feedback minimizes without blocking score reading or interrupting capture
+    ok 1 - MIDI feedback minimizes without blocking score reading or interrupting capture
+      ---
+      duration_ms: 934.78525
+      type: 'test'
+      ...
+    # Subtest: floating Record starts compact capture and stops into review over the running PDF
+    ok 2 - floating Record starts compact capture and stops into review over the running PDF
+      ---
+      duration_ms: 2620.742458
+      type: 'test'
+      ...
+    # Subtest: running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+    ok 3 - running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+      ---
+      duration_ms: 96.83325
+      type: 'test'
+      ...
+    # Subtest: paused tools offer direct fingering stamps, a visual palette and undo/redo
+    ok 4 - paused tools offer direct fingering stamps, a visual palette and undo/redo
+      ---
+      duration_ms: 539.826625
+      type: 'test'
+      ...
+    # Subtest: saved framing survives page turns, portrait/landscape and reopening the same work
+    ok 5 - saved framing survives page turns, portrait/landscape and reopening the same work
+      ---
+      duration_ms: 819.485833
+      type: 'test'
+      ...
+    # Subtest: one draggable widget stays inside phone/tablet screens and does not resize the score
+    ok 6 - one draggable widget stays inside phone/tablet screens and does not resize the score
+      ---
+      duration_ms: 1088.163042
+      type: 'test'
+      ...
+    # Subtest: opening tools preserves the dragged bottom anchor when collapsed or resumed
+    ok 7 - opening tools preserves the dragged bottom anchor when collapsed or resumed
+      ---
+      duration_ms: 1404.376917
+      type: 'test'
+      ...
+    # Subtest: pause and explicit editing keep one row across phone and tablet layouts
+    ok 8 - pause and explicit editing keep one row across phone and tablet layouts
+      ---
+      duration_ms: 14399.672625
+      type: 'test'
+      ...
+    # Subtest: visible finish action opens feedback without automatically saving the session
+    ok 9 - visible finish action opens feedback without automatically saving the session
+      ---
+      duration_ms: 73.480125
+      type: 'test'
+      ...
+    1..9
+ok 4 - immersive PDF practice, pause-only tools, fingering and saved framing
+  ---
+  duration_ms: 25182.395042
+  type: 'test'
+  ...

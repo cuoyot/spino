@@ -17,8 +17,10 @@ import { sing, syllableFor } from './voice.js';
 import * as midi from './midi.js';
 import { bootCompanion } from './companion/app.js';
 import { generateTargetBars, targetById } from './companion/curriculum.js';
+import { ACTIVITIES } from './companion/model.js';
 import { rhythmFigures, rhythmLevel } from './companion/rhythm-levels.js';
-import { warmupExercises, warmupLabel, warmupUnit } from './companion/warmups.js';
+import { warmupExercises, warmupLabel, warmupUnit, warmupSetLabel } from './companion/warmups.js';
+import { marginTurn } from './companion/pdf-annotations.js';
 
 // ---------- persistence ----------
 const DEFAULTS = {
@@ -320,6 +322,7 @@ function browsePage(direction) {
   scrollTo = beat;
   if (timed) countInAt(beat); else line.seekBeat = beat;
   draw(); updateHud(); feedback(ui('Paused · press Continue to play this page.','En pausa · pulsa Continuar para tocar esta página.'), '');
+  readerEvent('range-changed');
 }
 // Leave the paused clock one bar before `beat`, so resuming counts in and then plays from there.
 function countInAt(beat) {
@@ -354,13 +357,27 @@ function noteAt(x, y) {
 }
 {
   let tap = null;
-  $('#staff-wrap').addEventListener('pointerdown', (e) => { tap = e.target.closest('button, nav') ? null : { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  $('#staff-wrap').addEventListener('pointerdown', (e) => {
+    if(tap&&!e.isPrimary){tap.pointers++;return;}
+    tap = e.target.closest('button, nav') ? null : { id:e.pointerId,x:e.clientX,y:e.clientY,t:performance.now(),distance:0,pointers:1 };
+  });
+  $('#staff-wrap').addEventListener('pointermove',e=>{if(tap&&tap.id===e.pointerId)tap.distance=Math.max(tap.distance,Math.hypot(e.clientX-tap.x,e.clientY-tap.y));});
+  $('#staff-wrap').addEventListener('pointercancel',()=>{tap=null;});
   $('#staff-wrap').addEventListener('pointerup', (e) => {
     const start = tap; tap = null;
-    if (!start || performance.now() - start.t > 500 || Math.hypot(e.clientX - start.x, e.clientY - start.y) > 8) return;
+    if(start&&start.id===e.pointerId&&managed&&pageMode()&&!selfPaced()){
+      const rect=$('#staff-wrap').getBoundingClientRect();
+      const delta=marginTurn({x:e.clientX-rect.left,width:rect.width,duration:performance.now()-start.t,distance:Math.max(start.distance,Math.hypot(e.clientX-start.x,e.clientY-start.y)),pointers:start.pointers,tool:'read',zoom:1});
+      if(delta){browsePage(delta);$('#staff-wrap').classList.add('show-turn-zones');setTimeout(()=>$('#staff-wrap').classList.remove('show-turn-zones'),700);return;}
+    }
+    if (!start || start.id!==e.pointerId || start.pointers!==1 || start.distance>8 || performance.now() - start.t > 500 || Math.hypot(e.clientX - start.x, e.clientY - start.y) > 8) return;
     if (timed && timed.suspendedAt == null) return; // only while paused or before starting
     const i = noteAt(e.clientX, e.clientY);
     if (i >= 0) seekTo(i);
+  });
+  $('#staff-wrap').addEventListener('keydown',event=>{
+    if(!managed||!pageMode()||selfPaced()||!['ArrowLeft','ArrowRight','PageUp','PageDown'].includes(event.key))return;
+    event.preventDefault();event.stopPropagation();browsePage(['ArrowLeft','PageUp'].includes(event.key)?-1:1);
   });
 }
 $('#score-prev').onclick = () => browsePage(-1);
@@ -381,7 +398,7 @@ function layoutPanels() {
   root.dataset.device = isPhone() ? 'phone' : 'tablet';
   root.dataset.orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
   root.dataset.input = settings.input;
-  root.dataset.landscapeKeyboard = String(mobileKeyboardPractice() && isPhone());
+  root.dataset.landscapeKeyboard = String(mobileKeyboardPractice() && isPhone() && !document.body.classList.contains('managed-practice-floating'));
   lightsEl.hidden = !(settings.guide === 'lights' && settings.input === 'piano');
   root.dataset.lights = String(!lightsEl.hidden);
   $('#guide-btn').disabled = settings.input !== 'piano';
@@ -2033,11 +2050,15 @@ const reader = {
   configure(block, context, snapshot = null) {
     stopTimed(); setMidiContext(context); managed = { block, context }; readerVisible = true; suspendedByCompanion = false;
     settings.timing = selfPaced() ? 'wait' : 'timed';
-    const presentation = ['page', 'scroll'].includes(block.presentation) ? block.presentation : !isPhone() && context !== 'mobile' ? 'page' : 'scroll';
+    const presentation = ['page', 'scroll'].includes(block.presentation) ? block.presentation : context !== 'mobile' && (block.type === 'warmup' || !isPhone()) ? 'page' : 'scroll';
     Object.assign(settings, { templateId: null, lang: getAppLanguage(), clef: block.hand === 'left' ? 'bass' : 'treble', pianoMode: false, level: block.level ?? 0, mode: 'notes', layoutMode: presentation, input: context === 'mobile' ? block.input : 'none', bpm: block.bpm, timeSig: '4/4', ...rhythmFigures(block.figures), rhythm: rhythmLevel(block.figures), accidentals: false, kbLo: null });
     Object.assign(session, { correct: 0, wrong: 0, streak: 0, best: 0, times: [] });
-    document.body.classList.add('managed-practice');
+    document.body.classList.add('managed-practice', 'managed-practice-floating');
     $('#reader-view').hidden = false; $('#practice-toolbar').hidden = false;
+    let floatingHeading=$('#practice-floating-heading');if(!floatingHeading){floatingHeading=document.createElement('div');floatingHeading.id='practice-floating-heading';$('#reader-view > header').prepend(floatingHeading);}
+    floatingHeading.textContent=ACTIVITIES[block.type]+' · '+(block.type==='warmup'?warmupSetLabel(warmupExercises(block).map(e=>e.id)):targetById(block.target).label);
+    $('#staff-wrap').tabIndex=0;$('#staff-wrap').setAttribute('aria-label',ui('Score. Use arrow keys or page edges to turn pages.','Partitura. Usa las flechas del teclado o los bordes para pasar página.'));
+    if(!$('#staff-wrap .practice-turn-zone'))$('#staff-wrap').insertAdjacentHTML('beforeend','<div class="practice-turn-zone" data-side="prev" aria-hidden="true">‹</div><div class="practice-turn-zone" data-side="next" aria-hidden="true">›</div>');
     if (snapshot?.line && snapshot.line.notes?.length) {
       if (mobileKeyboardPractice() && ['bass', 'treble'].includes(snapshot.settings?.clef)) settings.clef = snapshot.settings.clef;
       settings.bpm = Math.max(30, Math.min(160, Number(snapshot.settings?.bpm) || block.bpm));
@@ -2058,7 +2079,7 @@ const reader = {
   pause: companionPause,
   notify: toast,
   play: startTimed,
-  stop() { stopTimed(); managed = null; readerVisible = false; $('#reader-view').hidden = true; document.body.classList.remove('managed-practice'); layoutPanels(); },
+  stop() { stopTimed(); managed = null; readerVisible = false; $('#reader-view').hidden = true; document.body.classList.remove('managed-practice', 'managed-practice-floating'); layoutPanels(); },
   async refreshMidi() { await midi.refreshMidi(); },
   settings() { showTab('general'); syncForm(); dialog.showModal(); },
 };

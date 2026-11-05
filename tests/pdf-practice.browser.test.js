@@ -71,7 +71,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
       for(const state of ['minimized','expanded']){
         if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
         const bounds=await evaluate(`(()=>{const panel=document.querySelector('#cp-media-capture'),r=panel.getBoundingClientRect(),paper=document.querySelector('.pdf-paper').getBoundingClientRect();return {width:r.width,height:r.height,right:r.right,bottom:r.bottom,paperWidth:paper.width,blocked:document.elementFromPoint(paper.left+paper.width/2,Math.max(60,paper.top+60))?.closest('#cp-media-capture')!==null}})()`);
-        assert.ok(bounds.right<=width+1&&bounds.bottom<=height+1);if(state==='minimized')assert.ok(bounds.height<90);
+        assert.ok(bounds.right<=width+1&&bounds.bottom<=height+1,JSON.stringify({width,height,state,bounds}));if(state==='minimized')assert.ok(bounds.height<90);
         if(state==='expanded')assert.equal(await evaluate(`document.querySelector('[data-midi-key="60"]').classList.contains('is-active')`),true);
         const file=state+'-'+width+'x'+height+'.png';await writeFile(folder+'/'+file,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));frames.push({file,width,height,bounds});
         if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
@@ -253,7 +253,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await t.test('visible finish action opens feedback without automatically saving the session', async () => {
     if(await evaluate(`!document.querySelector('[data-pdf=split-done]').hidden`)){await control('split-done');await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);await control('timer');}
     assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').hidden`), false);
-    assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').getAttribute('aria-label')`), 'Terminar práctica');
+    assert.equal(await evaluate(`document.querySelector('[data-pdf=finish]').getAttribute('aria-label')`), 'Parar práctica');
     await control('finish'); await wait(`!document.querySelector('.pdf-viewer')`);
     await wait(`document.querySelector('#cp-dialog[open] [data-action=discard-session]')`);
     const data = await read('state', 'current');

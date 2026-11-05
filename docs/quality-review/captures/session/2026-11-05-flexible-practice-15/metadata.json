@@ -1,0 +1,201 @@
+{
+  "capturedAt": "2026-11-05T09:44:11.768Z",
+  "scope": "Responsive production browser; no native-device acceptance",
+  "head": "902f0e7ee5ab6933e36421b17631d5fe61dad894",
+  "workingTree": "Pre-existing unrelated work retained; no task commit or publication",
+  "sourceHashes": {
+    "src/main.js": "9973811d751cc2f900a2077b6c14008770453065e393b72e60d39cf1b245a7de",
+    "src/companion/app.js": "2c8fb3b78dd652350adf751a1b1230b10b3f55ffd60fb191613c78e4322b00db",
+    "src/companion/app.css": "575535626b1d051471b9026febc1bea77486d32ded362a471adc22afb54f2bdf",
+    "src/companion/model.js": "f33982362950a418886f54da7498bd1edd6c947b61a55f827f2f3a5163f01906",
+    "src/companion/session-edit.js": "e66e9b715b4ae6bd7d6c8430aec051733bb1555504e70522e5e61c0425c74c33",
+    "src/companion/session-view.js": "322294fbdb154790b208de1d7219385f4a8c163a7807ebbb965b844f146753d9",
+    "src/companion/session-view.css": "310e3cda7d0aca6d7e9d7111778eb053607c0637d849492ee4a099a29f17a5e3",
+    "src/companion/session-drag.js": "2bf53d4d064b380162711bb73b45206237a1b53b9335d0fb169df51e9d0fc93c",
+    "src/companion/practice-widget.js": "ce39c7e3d5250c068b51eb714480ce65246c150bc5c80cfd9a33887863b764b2",
+    "src/companion/practice-widget.css": "13426bffd95c491f4c9b48a1f95cd910b42a115774c553bef9baa27d7b0fbb9e",
+    "src/companion/practice-clock.js": "62ffa1ead8c0ef14a0e1041b087b612a9ffb35bb9697534634edc5c7ae2b8ec9",
+    "src/companion/pdf-viewer.js": "e24223ffd8d9324cd4ab019ca2fbb59b065f307eb0eef9e23ba887031ab5981b",
+    "src/companion/pdf-viewer.css": "cc880ae8cd9678b1284c2147e70a0047e9a0d73689d78bcc36a2c61d05e90fe2",
+    "src/companion/musicxml-viewer.js": "c15c16014b2e7f02e983ed81dc4c0a6997e1f092e2eb2b3e6b974921bb8b2550",
+    "src/companion/views.js": "8b9e6508bd940ddf8081022d5f25d96ca2013a67f54f84d200fad4e423e58a00",
+    "scripts/review/flexible-practice-fixture.mjs": "cfa6108c161f8df31ff9c8e6dcc0a39adb01f4c7d05a9318c07a350b64cc1ca9",
+    "tests/flexible-practice.browser.test.js": "dc687d5f2eaaaa3d9b2887bad8f1750e70ce9a7c48b53f6be9e106cabf8cc7f4",
+    "tests/flexible-practice.test.js": "bec1478b717a1b65745725d39b6094eaeed6f2b5c04da5b9c01782f63fff0cc2",
+    "dist/index.html": "e80db1d33901779befd55a2cc49ce78ba441dc14bb114a4431a4f78316260fd8"
+  },
+  "buildAssets": [
+    {
+      "name": "app-BvVEpEPA.css",
+      "sha256": "92fc8e0837ae609cb6716dc3fb2929bb5b01e44dab151ba49b7f2c96aa481ee4"
+    },
+    {
+      "name": "app-CPcmOhQ1.js",
+      "sha256": "4420a4db13a10ae9433c1d728f914ecd6011a5b104174c1e95f6aa31f8d19511"
+    },
+    {
+      "name": "asset-print-DH4lOrJT.js",
+      "sha256": "481f5f37f9ac8227fc5d58cd3662859a256118ed4c22f4ee2860960dc3b5088f"
+    },
+    {
+      "name": "browser-NM0WNCww.js",
+      "sha256": "587bc2b2d333eadb46c14109032fc3899cf1104036ee328c8a1b964a8c2fcf0e"
+    },
+    {
+      "name": "catalogue-preview-BR3axiaz.js",
+      "sha256": "b9a20cd7c3cedc7e12a8dd8d134809e1eaedb945dcdf53d449e39789775739fa"
+    },
+    {
+      "name": "esm-BBchjGm5.js",
+      "sha256": "b4862aad7eb30248938b44c9d4ad166a2f20c270de39d7b2522d34067c1310fd"
+    },
+    {
+      "name": "lamejs-DxgK9G4m.js",
+      "sha256": "3798ccd48171e35a98bf9a2c7e2e105623975109fdee03627aa67b38b63c839f"
+    },
+    {
+      "name": "library--60XbAKY.js",
+      "sha256": "b35f0593e0dee78f29916788d7ed21be8ad8f54e2c333388b339f07f6d4af2b7"
+    },
+    {
+      "name": "media-trim-browser-pGINJezq.js",
+      "sha256": "9131419b27e382c8788ea61c7c5636bc5aa39d034cf393c3dfc3a13bd55d85ab"
+    },
+    {
+      "name": "musicxml-print-DbdBuuAs.js",
+      "sha256": "72842ef8bf6af1c41baa633ac891fa6a36afb3bb49dce37f6f9d1a03057598e3"
+    },
+    {
+      "name": "musicxml-viewer-CRNx5a8Z.js",
+      "sha256": "c03800323e02770127208230a14877e15851ab5f2bd649d375a68685fd177829"
+    },
+    {
+      "name": "musicxml-worker-BxUYDOkG.js",
+      "sha256": "001ed2f77a389ba959f6d2deaacca881e953cf0044f4e663742b3bb613ea0184"
+    },
+    {
+      "name": "opensheetmusicdisplay.min-BrXXX89h.js",
+      "sha256": "3736802269c73b0a966eb56d5cd290d5b5b690a6fa0ab280005eed8e93c03b02"
+    },
+    {
+      "name": "pdf-document-BemPTq8i.js",
+      "sha256": "373a29ad6f83d7d4783ce364aededb9fd4b9199d01cc9bbce650165e07e963be"
+    },
+    {
+      "name": "pdf-metadata-Do_XIiUg.js",
+      "sha256": "989ecaaf02949515a8be5b47fef339a8e3852c667c20d2edc2197d20469b3cef"
+    },
+    {
+      "name": "pdf-print-yubydAnI.js",
+      "sha256": "997f8ca1d46dc187d758a020c4e20545d6fa6f1c6ec439f56cec95dec2dfb54c"
+    },
+    {
+      "name": "pdf-viewer-BTyrMV8W.css",
+      "sha256": "8deb37f8101f886b06f3100c8172afe492d7d9652e48dd5673455708152b0435"
+    },
+    {
+      "name": "pdf-viewer-hLcn2vg2.js",
+      "sha256": "dd6bb4969dfb5f0dd96e32b54f92653caf9607b95909eec2b458a0cdf758bd37"
+    },
+    {
+      "name": "rolldown-runtime-C0FnF6B9.js",
+      "sha256": "e0a79ad36c6ca1ffbc796c80aa5661803a9d1bc684e29d1587f48b4ba9a82714"
+    },
+    {
+      "name": "score-ocr-BfbYBiY5.js",
+      "sha256": "45be38d2c4d020deca414123790c8142810d7d62853a5119da860d48d84016d6"
+    },
+    {
+      "name": "score-print-Cbqr5EFP.js",
+      "sha256": "7ed2bd8e08517a181d363018b162edb03bebf591d8f8d329dd194fa041d001dc"
+    },
+    {
+      "name": "web-CkHA3Wyn.js",
+      "sha256": "ad0eb80889d9d3b8b4810446cf554406335a76ea3b438c1e236896d7bcf4b846"
+    },
+    {
+      "name": "web-UpURjCxy.js",
+      "sha256": "840945f88a2188d82a20b26c5aae430a332a0de95d7d76346db254b61f004e6a"
+    }
+  ],
+  "screenshots": [
+    "dark-pdf-phone-landscape.png",
+    "dark-pdf-phone-portrait.png",
+    "dark-pdf-tablet-landscape.png",
+    "dark-pdf-tablet-portrait.png",
+    "dark-session-phone-landscape.png",
+    "dark-session-phone-portrait.png",
+    "dark-session-tablet-landscape.png",
+    "dark-session-tablet-portrait.png",
+    "dark-warmup-narrow-phone.png",
+    "dark-warmup-phone-landscape.png",
+    "dark-warmup-phone-portrait.png",
+    "dark-warmup-reported-portrait.png",
+    "dark-warmup-tablet-landscape.png",
+    "dark-warmup-tablet-portrait.png",
+    "free-shared-widget-phone-landscape.png",
+    "free-shared-widget-phone-portrait.png",
+    "free-shared-widget-tablet-landscape.png",
+    "free-shared-widget-tablet-portrait.png",
+    "light-pdf-phone-landscape.png",
+    "light-pdf-phone-portrait.png",
+    "light-pdf-tablet-landscape.png",
+    "light-pdf-tablet-portrait.png",
+    "light-session-phone-landscape.png",
+    "light-session-phone-portrait.png",
+    "light-session-tablet-landscape.png",
+    "light-session-tablet-portrait.png",
+    "light-warmup-narrow-phone.png",
+    "light-warmup-phone-landscape.png",
+    "light-warmup-phone-portrait.png",
+    "light-warmup-reported-portrait.png",
+    "light-warmup-tablet-landscape.png",
+    "light-warmup-tablet-portrait.png",
+    "warmup-two-clocks.png"
+  ],
+  "fixtureAssets": [
+    {
+      "id": "synthetic-pdf-bach",
+      "sha256": "d5a0d7a2c57d5753d634db7c827903955514bbb74a524157837b9931272250ef",
+      "annotationHash": "c57bebeb215dec839b5fb8befbfdeda147c620e79fd416cb4e5d41a5e84b2606"
+    },
+    {
+      "id": "synthetic-pdf-satie",
+      "sha256": "d5a0d7a2c57d5753d634db7c827903955514bbb74a524157837b9931272250ef",
+      "annotationHash": "d46297f24df7e6a6e7161dbce7a9bb4cdbb71feae9d1be253e9b6a40404e880a"
+    }
+  ],
+  "validation": {
+    "run15": {
+      "pass": 9,
+      "fail": 0
+    },
+    "run14": {
+      "pass": 13,
+      "fail": 0
+    },
+    "units": {
+      "pass": 378,
+      "skip": 1,
+      "fail": 1,
+      "baselineFailure": "Unchanged HEAD lesson reminder fixture leaves notifications disabled"
+    }
+  },
+  "nativeAcceptance": "Pending; no package built",
+  "liveBrowserHandoff": {
+    "origin": "http://127.0.0.1:5174/",
+    "viewport": [
+      2560,
+      1440
+    ],
+    "sheetBounds": [
+      0,
+      0,
+      2560,
+      1440
+    ],
+    "borderRadius": "0px",
+    "paused": true,
+    "notebook": "Existing review notebook retained; not reseeded"
+  }
+}

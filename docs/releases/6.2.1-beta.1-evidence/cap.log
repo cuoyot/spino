@@ -1,0 +1,9 @@
+✔ Copying web assets from dist to android/app/src/main/assets/public in 1.32s
+✔ Creating capacitor.config.json in android/app/src/main/assets in 588.79μs
+✔ copy android in 1.33s
+✔ Updating Android plugins in 1.38ms
+[info] Found 2 Capacitor plugins for android:
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+✔ update android in 20.95ms
+[info] Sync finished in 1.411s

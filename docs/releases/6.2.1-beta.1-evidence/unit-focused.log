@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: switching backwards and forwards retains timing, measurements, snapshots and stable order through recovery/save
+ok 1 - switching backwards and forwards retains timing, measurements, snapshots and stable order through recovery/save
+  ---
+  duration_ms: 13.905292
+  type: 'test'
+  ...
+# Subtest: legacy completed results remain immutable while revisiting their block accumulates additional time
+ok 2 - legacy completed results remain immutable while revisiting their block accumulates additional time
+  ---
+  duration_ms: 0.576625
+  type: 'test'
+  ...
+# Subtest: reordering and removing earlier flexible blocks preserves the active block and its runtime
+ok 3 - reordering and removing earlier flexible blocks preserves the active block and its runtime
+  ---
+  duration_ms: 0.734375
+  type: 'test'
+  ...
+# Subtest: recover a copied Hanon block mislabeled as Reading without losing timing, IDs or its exercises
+ok 4 - recover a copied Hanon block mislabeled as Reading without losing timing, IDs or its exercises
+  ---
+  duration_ms: 0.2845
+  type: 'test'
+  ...
+# Subtest: clock keeps updating without animation frames and shares change detection with frames
+ok 5 - clock keeps updating without animation frames and shares change detection with frames
+  ---
+  duration_ms: 47.566166
+  type: 'test'
+  ...
+# Subtest: score clock refreshes when only the independent session total changes
+ok 6 - score clock refreshes when only the independent session total changes
+  ---
+  duration_ms: 0.221209
+  type: 'test'
+  ...
+# Subtest: saving unchanged editor defaults does not reset an exercise or rewrite a free block target
+ok 7 - saving unchanged editor defaults does not reset an exercise or rewrite a free block target
+  ---
+  duration_ms: 32.928208
+  type: 'test'
+  ...
+# Subtest: editing musical settings preserves performed material under the original settings and stable block ID
+ok 8 - editing musical settings preserves performed material under the original settings and stable block ID
+  ---
+  duration_ms: 2.073209
+  type: 'test'
+  ...
+# Subtest: editing a postponed block archives only its performed work; invalid changes are atomic
+ok 9 - editing a postponed block archives only its performed work; invalid changes are atomic
+  ---
+  duration_ms: 1.941
+  type: 'test'
+  ...
+# Subtest: changing minutes pauses accrued time without restarting the current exercise or changing its source
+ok 10 - changing minutes pauses accrued time without restarting the current exercise or changing its source
+  ---
+  duration_ms: 0.42275
+  type: 'test'
+  ...
+# Subtest: postponing a progressed block restores its independent time, answers and score when it becomes current again
+ok 11 - postponing a progressed block restores its independent time, answers and score when it becomes current again
+  ---
+  duration_ms: 0.893708
+  type: 'test'
+  ...
+# Subtest: upcoming order and duration changes keep the current block and its result history intact
+ok 12 - upcoming order and duration changes keep the current block and its result history intact
+  ---
+  duration_ms: 0.659458
+  type: 'test'
+  ...
+# Subtest: removing current or postponed blocks retains performed work in results and leaves total time unchanged
+ok 13 - removing current or postponed blocks retains performed work in results and leaves total time unchanged
+  ---
+  duration_ms: 0.773291
+  type: 'test'
+  ...
+# Subtest: completed blocks stay fixed and the last remaining block cannot be removed
+ok 14 - completed blocks stay fixed and the last remaining block cannot be removed
+  ---
+  duration_ms: 0.731208
+  type: 'test'
+  ...
+# Subtest: an older all-complete checkpoint can append a fresh block without reopening completed results
+ok 15 - an older all-complete checkpoint can append a fresh block without reopening completed results
+  ---
+  duration_ms: 0.899625
+  type: 'test'
+  ...
+# Subtest: adding blocks preserves IDs and runtime while rejecting duplicate IDs, incompatible activities and limits
+ok 16 - adding blocks preserves IDs and runtime while rejecting duplicate IDs, incompatible activities and limits
+  ---
+  duration_ms: 1.841375
+  type: 'test'
+  ...
+# Subtest: postponed progress survives backup roundtrip and recovery resumes paused
+ok 17 - postponed progress survives backup roundtrip and recovery resumes paused
+  ---
+  duration_ms: 0.648792
+  type: 'test'
+  ...
+# Subtest: finalizing or changing context archives each postponed result exactly once without mutating a retryable session
+ok 18 - finalizing or changing context archives each postponed result exactly once without mutating a retryable session
+  ---
+  duration_ms: 0.778416
+  type: 'test'
+  ...
+# Subtest: backup validation rejects malformed postponed runtime instead of losing or misattributing it
+ok 19 - backup validation rejects malformed postponed runtime instead of losing or misattributing it
+  ---
+  duration_ms: 1.002417
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 272.777958

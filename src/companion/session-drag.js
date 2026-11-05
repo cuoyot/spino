@@ -67,7 +67,7 @@ export function bindSessionDrag(root, { change, pickup, cancelled, report }) {
   const start = (event, point, touch) => {
     if (drag) return;
     const row = event.target.closest('[data-session-block]:not(.is-completed)');
-    if (!row || event.target.closest('input,label,select,a,[data-session-menu]') || event.target.closest('button:not([data-session-options])')) return;
+    if (!row || event.target.closest('input,label,select,a,[data-session-menu]') || event.target.closest('button:not([data-session-options]):not([data-action="session-select-block"])')) return;
     suppressClick = false;
     drag = { row, id: row.dataset.sessionBlock, from: [...root.querySelectorAll('[data-session-block]')].indexOf(row), x: point.clientX, y: point.clientY, startX: point.clientX, startY: point.clientY, touch, lifted: false };
     timer = setTimeout(lift, 380);

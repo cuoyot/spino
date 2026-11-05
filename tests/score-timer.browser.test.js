@@ -39,7 +39,7 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
   const score=await evaluate(`document.querySelector('.pdf-paper,.xml-score').getBoundingClientRect().width`);
   await tap();assert.equal(await minimized(),false,'A single tap keeps the full bar');
   await tap();assert.equal(await minimized(),true,'Two real touch taps minimize');
-  assert.deepEqual(await evaluate(`[...document.querySelector('.pdf-widget-bar').children].filter(e=>e.getClientRects().length).map(e=>e.dataset.pdf||e.dataset.xml)`),name.startsWith('pdf')?['drag','timer']:['drag','pause']);
+  assert.deepEqual(await evaluate(`[...document.querySelector('.pdf-viewer .pdf-widget-bar').children].filter(e=>e.getClientRects().length).map(e=>e.dataset.pdf||e.dataset.xml)`),name.startsWith('pdf')?['drag','timer']:['drag','pause']);
   assert.equal(await evaluate(`document.querySelector('.score-timer').dataset.running`),running);
   assert.equal(await evaluate(`document.querySelector('.pdf-paper,.xml-score').getBoundingClientRect().width`),score);
   const r=await evaluate(`(()=>{const r=document.querySelector('.pdf-widget').getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom}})()`);
@@ -89,9 +89,10 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
  const assets=await readdir('dist/assets');let xmlChunk;
  for(const name of assets.filter(n=>/^musicxml-viewer-.*\.js$/.test(n)))if(/\bas openMusicScore\b/.test(await readFile(`dist/assets/${name}`,'utf8')))xmlChunk=name;
  assert.ok(xmlChunk);
- await evaluate(`(async()=>{const text=${JSON.stringify(musicXMLFixture())},bytes=new TextEncoder().encode(text),sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');window.xmlTiming={running:true,elapsed:0,since:Date.now()};window.xmlReview=await(await import('/assets/${xmlChunk}')).openMusicScore({asset:{base64:btoa(text),sha256,format:'musicxml'},selection:['P'],session:{read:()=>({running:xmlTiming.running,time:'0:'+String(Math.floor((xmlTiming.elapsed+(xmlTiming.running?Date.now()-xmlTiming.since:0))/1000)).padStart(2,'0')}),toggle:()=>{if(xmlTiming.running)xmlTiming.elapsed+=Date.now()-xmlTiming.since;else xmlTiming.since=Date.now();xmlTiming.running=!xmlTiming.running},finish:()=>{}}})})()`);
+ await evaluate(`(async()=>{const text=${JSON.stringify(musicXMLFixture())},bytes=new TextEncoder().encode(text),sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');window.xmlTiming={running:true,elapsed:0,since:Date.now()};window.xmlReview=await(await import('/assets/${xmlChunk}')).openMusicScore({asset:{base64:btoa(text),sha256,format:'musicxml'},selection:['P'],session:{read:()=>({running:xmlTiming.running,totalTime:'12:34',time:'0:'+String(Math.floor((xmlTiming.elapsed+(xmlTiming.running?Date.now()-xmlTiming.since:0))/1000)).padStart(2,'0')}),toggle:()=>{if(xmlTiming.running)xmlTiming.elapsed+=Date.now()-xmlTiming.since;else xmlTiming.since=Date.now();xmlTiming.running=!xmlTiming.running},finish:()=>{}}})})()`);
  await wait(`document.querySelector('.xml-score svg')`);await wait(`Number(document.querySelector('.score-timer .pdf-time').textContent.split(':')[1])>=7`);
  await checkClockFrames('[data-xml=pause]');
+ assert.equal(await evaluate(`document.querySelector('.xml-score-viewer .practice-total-clock b').textContent`),'12:34','The separate total must not use the MusicXML block clock');
  for(const [layout,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
   await evaluate(`new Promise(resolve=>setTimeout(resolve,550))`);

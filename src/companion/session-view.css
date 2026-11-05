@@ -194,6 +194,23 @@
 }
 
 /* Repertoire blocks planned without a piece: choose it at the start of the block. */
+.cp-session-stand { background: transparent; border: 0; border-radius: 0; }
+.cp-session-stand .cp-session-block { grid-template-columns: minmax(0, 1fr) auto; padding: 4px 0; border-color: var(--line); }
+#app-shell .cp-session-stand .cp-session-block-select { display: flex; justify-content: space-between; gap: 12px; width: 100%; text-align: left; padding: 12px; }
+.cp-session-stand .cp-session-block-copy { display: block; }
+.cp-session-stand .cp-session-block-copy > span { display: block; margin-top: 4px; color: var(--subtle); font-size: 12px; }
+.cp-session-stand .cp-session-row-actions { grid-column: 2; }
+.cp-session-stand .cp-session-block-menu { grid-column: 1 / -1; }
+.cp-session-stand .cp-session-leave { justify-content: flex-end; gap: 12px; padding: 16px 0 0; border-color: var(--line); }
+#app-shell .cp-session-stand .cp-session-leave > button { padding: 8px 12px; font-size: 13px; }
+#app-shell .cp-session-stand .cp-session-discard { text-decoration: underline; text-underline-offset: 3px; }
+#app-shell .cp-session-heading .cp-session-finish { margin-left: auto; }
+.cp-session-stand .cp-session-block-elapsed { white-space: nowrap; font-size: 14px; font-variant-numeric: tabular-nums; }
+.cp-session-stand .is-current { background: var(--theme-tint); box-shadow: none; border-radius: 9px; }
+#app-shell .cp-session-stand .cp-session-plan-heading button { color: var(--theme-link); }
+@media (max-width: 420px) {
+  .cp-session-stand .cp-session-row-actions { flex-direction: column; }
+}
 .cp-session-choose-work { display: grid; gap: 8px; margin: 12px 0; }
 .cp-session-choose-work h3 { margin: 0; font-size: 16px; }
 .cp-session-choose-work > p { margin: 0; font-size: 13px; }
@@ -243,7 +260,7 @@
   #app-shell .cp-metro-console { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
   #app-shell .cp-metro-display { display: grid; grid-template-columns: 1fr; align-content: center; gap: 4px; }
   #app-shell .cp-metro-display .cp-beats { grid-area: auto; margin: 0; }
-  #app-shell .cp-free-practice .cp-tempo-dial { grid-area: auto; width: clamp(80px,calc(100dvh - 250px),180px); }
+  #app-shell .cp-free-practice .cp-tempo-dial { grid-area: auto; width: clamp(80px,calc(100dvh - 292px),180px); }
   #app-shell .cp-free-practice .cp-tempo-favorites { grid-area: auto; }
   #app-shell .cp-metro-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; align-items: center; }
   #app-shell .cp-metro-controls > :not(.cp-mixer) { grid-column: auto; grid-row: auto; }
@@ -258,4 +275,9 @@
   #app-shell .cp-metro-controls > [data-action="toggle-metronome"] { grid-column: 3; grid-row: 5; }
   #app-shell .cp-metro-console { grid-template-columns: 52px minmax(0,1fr) 110px; }
   #app-shell .cp-metro-controls > .cp-metro-status { grid-row: 6; }
+}
+@media (orientation: landscape) and (max-height: 420px) {
+  #app-shell .cp-free-practice .cp-beats span { height: 24px; }
+  #app-shell .cp-free-practice .cp-metronome { padding: 6px; }
+  #app-shell .cp-free-practice .cp-metro-status { display: none; }
 }

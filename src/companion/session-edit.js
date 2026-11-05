@@ -6,10 +6,18 @@ const validMinutes = value => Number.isInteger(value) && value >= 1 && value <= 
 const performed = runtime => runtime.elapsedMs > 0 || (runtime.measurement?.correct || 0) > 0 || (runtime.measurement?.wrong || 0) > 0;
 const current = active => active.blocks[active.blockIndex];
 
+// Archived parts stay separate for their original settings and work associations.
+export function sessionBlockMs(active, blockId, liveMs = active.blockElapsedMs) {
+  const archived = active.results.filter(result => result.block.id === blockId).reduce((sum, result) => sum + result.elapsedMs, 0);
+  return archived + (current(active)?.id === blockId ? liveMs : active.blockRuntime?.find(runtime => runtime.blockId === blockId)?.elapsedMs || 0);
+}
+
 function validate(active) {
   if (!active || !Array.isArray(active.blocks) || active.blocks.length > MAX_BLOCKS) throw new Error(ui('The session cannot contain more than 30 blocks.', 'La sesión no puede contener más de 30 bloques.'));
   if (new Set(active.blocks.map(b => b.id)).size !== active.blocks.length) throw new Error(ui('Each session block must have a unique ID.', 'Cada bloque de la sesión debe tener un identificador único.'));
-  validateData({ ...emptyData(), active });
+  const checked = validateData({ ...emptyData(), active }).active;
+  checked.runningSince = active.runningSince;
+  return checked;
 }
 
 function runtimeOf(active) {
@@ -81,21 +89,26 @@ export function settleSuspendedBlocks(input) {
 // Only this session is edited. Source plans and routines are never mutated.
 // Reordering across the current position parks its runtime under its stable ID.
 export function editSession(input, action, options = {}) {
-  validate(input);
-  if (!current(input) && action.type !== 'add') throw new Error(ui('This session has no remaining blocks to edit.', 'Esta sesión no tiene bloques pendientes para editar.'));
+  input = validate(input);
+  if (!current(input) && !['add', 'select'].includes(action.type)) throw new Error(ui('This session has no remaining blocks to edit.', 'Esta sesión no tiene bloques pendientes para editar.'));
   const active = copy(input), now = options.now ?? Date.now();
   pause(active, now);
   if (Object.hasOwn(options, 'measurement')) active.currentMeasurement = copy(options.measurement);
   if (Object.hasOwn(options, 'readerSnapshot')) active.readerSnapshot = copy(options.readerSnapshot);
   const previous = current(active), index = active.blocks.findIndex(item => item.id === action.blockId);
   let removedResult = null;
-  if (!['minutes', 'update', 'move', 'remove', 'add'].includes(action.type)) throw new Error(ui('Unknown session change.', 'Cambio de sesión desconocido.'));
+  if (!['select', 'minutes', 'update', 'move', 'remove', 'add'].includes(action.type)) throw new Error(ui('Unknown session change.', 'Cambio de sesión desconocido.'));
   if (action.type !== 'add') {
     if (index < 0) throw new Error(ui('This block no longer exists.', 'Este bloque ya no existe.'));
-    if (index < active.blockIndex) throw new Error(ui('Completed blocks cannot be edited.', 'Los bloques completados no se pueden editar.'));
+    if (index < active.blockIndex && !active.flexibleBlocks && action.type !== 'select') throw new Error(ui('Completed blocks cannot be edited.', 'Los bloques completados no se pueden editar.'));
   }
 
-  if (action.type === 'minutes') {
+  if (action.type === 'select') {
+    active.flexibleBlocks = true;
+    if (previous) suspendCurrent(active);
+    active.blockIndex = index;
+    restore(active);
+  } else if (action.type === 'minutes') {
     if (!validMinutes(action.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));
     active.blocks[index].minutes = action.minutes;
   } else if (action.type === 'update') {
@@ -119,12 +132,14 @@ export function editSession(input, action, options = {}) {
     }
     active.blocks[index] = updated;
   } else if (action.type === 'move') {
-    if (!Number.isInteger(action.toIndex) || action.toIndex < active.blockIndex || action.toIndex >= active.blocks.length) throw new Error(ui('Move the block within the remaining session.', 'Mueve el bloque dentro de la parte pendiente de la sesión.'));
+    if (!Number.isInteger(action.toIndex) || action.toIndex < (active.flexibleBlocks ? 0 : active.blockIndex) || action.toIndex >= active.blocks.length) throw new Error(ui('Move the block within the remaining session.', 'Mueve el bloque dentro de la parte pendiente de la sesión.'));
     suspendCurrent(active);
     active.blocks.splice(action.toIndex, 0, ...active.blocks.splice(index, 1));
+    if (active.flexibleBlocks) active.blockIndex = active.blocks.findIndex(block => block.id === previous.id);
     restore(active);
   } else if (action.type === 'remove') {
-    if (active.blocks.length - active.blockIndex <= 1) throw new Error(ui('Keep at least one remaining block, or finish the session.', 'Mantén al menos un bloque pendiente o termina la sesión.'));
+    const removingCurrent = index === active.blockIndex;
+    if (active.blocks.length - (active.flexibleBlocks ? 0 : active.blockIndex) <= 1) throw new Error(ui('Keep at least one remaining block, or finish the session.', 'Mantén al menos un bloque pendiente o termina la sesión.'));
     const runtime = index === active.blockIndex ? runtimeOf(active) : active.blockRuntime?.find(item => item.blockId === action.blockId);
     if (runtime && performed(runtime)) {
       removedResult = resultOf(active.blocks[index], runtime, { removed: true });
@@ -132,7 +147,8 @@ export function editSession(input, action, options = {}) {
     }
     active.blockRuntime = (active.blockRuntime || []).filter(item => item.blockId !== action.blockId);
     active.blocks.splice(index, 1);
-    if (index === active.blockIndex) restore(active);
+    if (active.flexibleBlocks) active.blockIndex = Math.max(0, active.blocks.findIndex(block => block.id === previous.id));
+    if (removingCurrent) restore(active);
     else if (!active.blockRuntime.length) delete active.blockRuntime;
   } else {
     if (active.blocks.length >= MAX_BLOCKS) throw new Error(ui('The session cannot contain more than 30 blocks.', 'La sesión no puede contener más de 30 bloques.'));
@@ -140,9 +156,10 @@ export function editSession(input, action, options = {}) {
     if (!validMinutes(action.block.minutes)) throw new Error(ui('Choose a duration between 1 and 600 whole minutes.', 'Elige una duración de entre 1 y 600 minutos enteros.'));
     if (active.context === 'mobile' && !['reading', 'technique'].includes(action.block.type)) throw new Error(ui('Without a piano, choose reading or technique.', 'Sin piano, elige lectura o técnica.'));
     const toIndex = action.toIndex ?? active.blocks.length;
-    if (!Number.isInteger(toIndex) || toIndex < active.blockIndex || toIndex > active.blocks.length) throw new Error(ui('Add the block within the remaining session.', 'Añade el bloque dentro de la parte pendiente de la sesión.'));
+    if (!Number.isInteger(toIndex) || toIndex < (active.flexibleBlocks ? 0 : active.blockIndex) || toIndex > active.blocks.length) throw new Error(ui('Add the block within the remaining session.', 'Añade el bloque dentro de la parte pendiente de la sesión.'));
     if (toIndex === active.blockIndex && previous) suspendCurrent(active);
     active.blocks.splice(toIndex, 0, copy(action.block));
+    if (active.flexibleBlocks && toIndex < active.blockIndex) active.blockIndex++;
     if (toIndex === active.blockIndex) restore(active);
   }
   validate(active);

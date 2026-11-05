@@ -6,7 +6,8 @@ import { validateScoreView, fittedFrame, sortSections, sectionLayout, snapSectio
 import { scoreControlsMarkup, scoreIcon, updateScoreTimer, enableScoreWidgetMinimize } from './score-controls.js';
 import { scoreFullscreen, native } from './platform.js';
 import { ui, localizeMessage } from './locale.js';
-import { watchPracticeClock } from './practice-clock.js';
+import { watchPracticeClock, practiceTotalMarkup, updatePracticeTotal } from './practice-clock.js';
+import { standardizePracticeWidget, practiceWidgetLeft } from './practice-widget.js';
 import './pdf-viewer.css';
 import { printScore } from './score-print.js';
 import { pdfPrintPages, markNode as printableMarkNode } from './pdf-print.js';
@@ -33,9 +34,10 @@ export async function openScore({ asset, title, save, saveView = async () => {},
   const fullscreen = await scoreFullscreen();
   const modal = document.createElement('dialog');
   modal.className = 'pdf-viewer'; modal.setAttribute('aria-label', ui('Score and annotations', 'Partitura y anotaciones'));
-  modal.innerHTML = `<div class="pdf-viewport" tabindex="0" aria-label="${ui('Score. Use arrow keys or page edges to turn pages.', 'Partitura. Usa las flechas del teclado o los bordes para pasar página.')}"><div class="pdf-stage"><div class="pdf-paper" aria-busy="true"><canvas></canvas><svg class="pdf-marks"></svg><svg class="pdf-sections" style="display:none"></svg></div></div></div><div class="pdf-turn-zone" data-side="prev" aria-hidden="true"></div><div class="pdf-turn-zone" data-side="next" aria-hidden="true"></div>${scoreControlsMarkup(session)}`;
+  modal.innerHTML = `<div class="pdf-viewport" tabindex="0" aria-label="${ui('Score. Use arrow keys or page edges to turn pages.', 'Partitura. Usa las flechas del teclado o los bordes para pasar página.')}"><div class="pdf-stage"><div class="pdf-paper" aria-busy="true"><canvas></canvas><svg class="pdf-marks"></svg><svg class="pdf-sections" style="display:none"></svg></div></div></div><div class="pdf-turn-zone" data-side="prev" aria-hidden="true"></div><div class="pdf-turn-zone" data-side="next" aria-hidden="true"></div>${scoreControlsMarkup(session)}${session ? practiceTotalMarkup() : ''}`;
   const $ = selector => modal.querySelector(selector);
   const viewport = $('.pdf-viewport'), stage = $('.pdf-stage'), paper = $('.pdf-paper'), canvas = $('canvas'), svg = $('.pdf-marks'), widget = $('.pdf-widget'), sectionLayer = $('.pdf-sections');
+  if (session) standardizePracticeWidget(widget,{drag:$('[data-pdf=drag]'),timer:$('[data-pdf=timer]'),finish:$('[data-pdf=finish]'),options:$('[data-pdf=tools]'),alternateOptions:[$('[data-pdf=split-done]')].filter(Boolean)});
   const quickPalette = document.createElement('div');
   quickPalette.className = 'pdf-quick-palette'; quickPalette.hidden = true;
   widget.append(quickPalette);
@@ -317,7 +319,10 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     const raised = widget.querySelector('.score-timer:not([hidden])');
     const topInset = raised ? Math.max(8, 8 - parseFloat(getComputedStyle(raised).marginTop)) : 8;
     const y = Math.max(topInset, Math.min(dock.y, modal.clientHeight - 8) - widget.offsetHeight);
-    widget.style.left = `${x}px`; widget.style.top = `${y}px`; widget.style.right = 'auto'; widget.style.bottom = 'auto';
+    if(widget.classList.contains('practice-widget')){
+      widget.style.left=practiceWidgetLeft(x);widget.style.top='auto';widget.style.right='auto';
+      widget.style.bottom=`clamp(8px, calc(100dvh - ${dock.y}px), calc(100dvh - ${widget.offsetHeight}px - ${topInset}px))`;
+    }else{widget.style.left=`${x}px`;widget.style.top=`${y}px`;widget.style.right='auto';widget.style.bottom='auto';}
   }
   const handle = $('[data-pdf=drag]');
   handle.addEventListener('pointerdown', event => {
@@ -577,6 +582,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (closed) return;
     const info = session?.read() || { running: false, time: '' };
     if (session) {
+      updatePracticeTotal(modal, info);
       updateScoreTimer($('[data-pdf=timer]'), { ...info, editing: editing() });
     }
     if (wasRunning !== !!info.running) {

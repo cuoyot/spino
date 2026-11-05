@@ -1,0 +1,51 @@
+TAP version 13
+# Subtest: complete one lesson occurrence, retain planning, stable result edits and backup links
+not ok 1 - complete one lesson occurrence, retain planning, stable result edits and backup links
+  ---
+  duration_ms: 22.634709
+  location: '/private/tmp/spino-flexible-baseline-20261105/tests/lessons.test.js:12:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+
+      assert.ok(reminderNotifications(d,'en',now).some(n=>n.extra.recordId==='lesson@2026-10-18'))
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/spino-flexible-baseline-20261105/tests/lessons.test.js:19:137)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    node:internal/test_runner/harness:255:12
+    node:internal/process/task_queues:140:7
+    AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:137:8)
+  ...
+# Subtest: reject invalid lessons and feedback without changing the notebook; support long lessons without a score
+ok 2 - reject invalid lessons and feedback without changing the notebook; support long lessons without a score
+  ---
+  duration_ms: 1.248125
+  ...
+# Subtest: lesson result and recording references survive notebook backup and independent cloud edits
+ok 3 - lesson result and recording references survive notebook backup and independent cloud edits
+  ---
+  duration_ms: 1.269
+  ...
+# Subtest: lesson score clocks resume independently and completion credits exact piece times once
+ok 4 - lesson score clocks resume independently and completion credits exact piece times once
+  ---
+  duration_ms: 0.725
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 3
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.155916

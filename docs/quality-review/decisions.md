@@ -896,3 +896,10 @@ Accepted objective from owner feedback: successful saving must stop presenting t
 
 
 26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.
+
+
+## 2026-11-05 — Flexible practice and a shared floating control bar
+
+Accepted owner direction: all planned activities, including warm-up, are directly selectable and revisitable, retaining their own accumulated time. Continue later belongs at the upper right; Finish session belongs at the lower right with an adjacent red text-link-style Discard action. Stopping inside a multi-block practice returns to the practice menu; single-block practice opens feedback.
+
+Accepted owner consistency requirement: every live practice uses the same floating grip, block clock, stop and options slots, initially at the lower right. The separate Total indicator stays at the upper left. Activity-specific options remain available without relocating the four common controls. This supersedes earlier generated top-toolbar/phone-landscape sidebar placement while retaining musical input, progress, explicit score preferences and recording behavior. Shared implementation and synthetic browser verification are recorded in session.md; final owner and native visual acceptance remain separate.

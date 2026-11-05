@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: large downloads stream the exact artifact and resume across static-part boundaries
+ok 1 - large downloads stream the exact artifact and resume across static-part boundaries
+  ---
+  duration_ms: 52.089834
+  type: 'test'
+  ...
+# Subtest: the published Hanon video plays inline with byte ranges matching its exact reviewed media
+ok 2 - the published Hanon video plays inline with byte ranges matching its exact reviewed media
+  ---
+  duration_ms: 30.691458
+  type: 'test'
+  ...
+# Subtest: the 498 MB beta streams every complete part through native pipes without JavaScript readers
+ok 3 - the 498 MB beta streams every complete part through native pipes without JavaScript readers
+  ---
+  duration_ms: 599.12725
+  type: 'test'
+  ...
+# Subtest: sitemap lists every public page with reciprocal canonical language alternates
+ok 4 - sitemap lists every public page with reciprocal canonical language alternates
+  ---
+  duration_ms: 15.180041
+  type: 'test'
+  ...
+# Subtest: landing pages publish consistent application and visible FAQ structured data
+ok 5 - landing pages publish consistent application and visible FAQ structured data
+  ---
+  duration_ms: 4.851208
+  type: 'test'
+  ...
+# Subtest: crawler policy allows public content and advertises the canonical sitemap
+ok 6 - crawler policy allows public content and advertises the canonical sitemap
+  ---
+  duration_ms: 1.0535
+  type: 'test'
+  ...
+# Subtest: FAQ copy cannot break the HTML or JSON-LD script boundary
+ok 7 - FAQ copy cannot break the HTML or JSON-LD script boundary
+  ---
+  duration_ms: 0.256167
+  type: 'test'
+  ...
+# Subtest: website language variants use matching feature coverage and localized app screenshots
+ok 8 - website language variants use matching feature coverage and localized app screenshots
+  ---
+  duration_ms: 9.138042
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 812.450833

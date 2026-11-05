@@ -1,0 +1,20 @@
+TAP version 13
+# Subtest: release notes show current and historical versions in a responsive accessible dialog
+ok 1 - release notes show current and historical versions in a responsive accessible dialog
+  ---
+  duration_ms: 4830.836541
+  ...
+# Subtest: all website languages load current screenshots without page overflow on phone and desktop
+ok 2 - all website languages load current screenshots without page overflow on phone and desktop
+  ---
+  duration_ms: 4383.9605
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4899.706667

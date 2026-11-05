@@ -1,0 +1,37 @@
+{
+  "spino-6.2.1-beta.1-113-beta-android.apk": {
+    "packagedWebFilesMatch": 684,
+    "bytes": 76981146,
+    "sha256": "e9ec92013d0448dbe14a34b1bb08273e94527159c26ea325e2878b51b10fc85d"
+  },
+  "spino-6.2.1-beta.1-113-android.aab": {
+    "packagedWebFilesMatch": 684,
+    "bytes": 64209551,
+    "sha256": "21e6edbb1100f3bd9155ce67ae97d97177820973f93d391b3003b286c64f20f8"
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "version": "6.2.1-beta.1",
+  "versionCode": 113,
+  "baseCommit": "c75ad663427723a16f838f69bec383f606158a66",
+  "focusedUnits": {
+    "passed": 19,
+    "failed": 0
+  },
+  "practiceBrowser": "Flexible block entry (3), full PDF regression (9 subchecks), and isolated score-timer regression pass. The initial concurrent score run was terminated after stalling; the isolated Node 20 rerun passes.",
+  "websiteUnits": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteBrowser": {
+    "passed": 2,
+    "failed": 0
+  },
+  "knownBaselineFailure": "Unchanged lessons.test.js reminder fixture expects an enabled reminder while notifications are disabled; reproduced on unchanged baseline.",
+  "signatures": "Beta APK apksigner verification and signed release AAB jarsigner verification pass.",
+  "physicalDeviceAcceptance": false
+}

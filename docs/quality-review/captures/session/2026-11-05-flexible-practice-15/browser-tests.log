@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: direct block entry retains separate times, PDF position and warm-up through recovery and final save
+ok 1 - direct block entry retains separate times, PDF position and warm-up through recovery and final save
+  ---
+  duration_ms: 8113.656792
+  ...
+# Subtest: repeat a saved practice keeps its warm-up type and both hands instead of silently replacing it with Reading
+ok 2 - repeat a saved practice keeps its warm-up type and both hands instead of silently replacing it with Reading
+  ---
+  duration_ms: 1075.395042
+  ...
+# Subtest: reading, note names and technique share the floating controls without covering the playable keyboard
+ok 3 - reading, note names and technique share the floating controls without covering the playable keyboard
+  ---
+  duration_ms: 2555.939959
+  ...
+# Subtest: Free metronome fits portrait and landscape viewports
+ok 4 - Free metronome fits portrait and landscape viewports
+  ---
+  duration_ms: 8350.783625
+  ...
+# Subtest: practice seconds repaint promptly between checkpoints without redundant DOM writes
+ok 5 - practice seconds repaint promptly between checkpoints without redundant DOM writes
+  ---
+  duration_ms: 5198.599459
+  ...
+# timed-reading timer visibility: visible
+# timed-reading playing clock: 0:02
+# timed-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: timed-reading
+ok 6 - practice time advances, pauses and survives return: timed-reading
+  ---
+  duration_ms: 8005.452291
+  ...
+# self-paced-reading timer visibility: visible
+# self-paced-reading playing clock: 0:02
+# self-paced-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: self-paced-reading
+ok 7 - practice time advances, pauses and survives return: self-paced-reading
+  ---
+  duration_ms: 7718.906583
+  ...
+# piano-reading timer visibility: visible
+# piano-reading playing clock: 0:02
+# piano-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: piano-reading
+ok 8 - practice time advances, pauses and survives return: piano-reading
+  ---
+  duration_ms: 8112.737041
+  ...
+# Subtest: score cursor and light follow actual notation in page and scrolling layouts
+ok 9 - score cursor and light follow actual notation in page and scrolling layouts
+  ---
+  duration_ms: 4852.48475
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 29202.222333

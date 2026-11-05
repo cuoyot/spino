@@ -143,6 +143,17 @@ function validReaderSnapshot(snap) {
     (line.waitBars === undefined || [2, 4].includes(line.waitBars));
 }
 export function validateData(input) {
+  // Older preparation forms omitted Warm-up and silently selected Reading when repeating it.
+  // Its Hanon target and exercise list identify the original block without changing its ID or work.
+  const copiedWarmup = block => ['reading', 'technique'].includes(block?.type) && WARMUP_IDS.includes(block.target) && Array.isArray(block.exercises) && block.exercises.includes(block.target);
+  const list = value => Array.isArray(value) ? value : [];
+  const containers = [input?.active, ...list(input?.sessions), ...list(input?.routines), ...list(input?.plans)].filter(Boolean);
+  if (containers.some(session => list(session.blocks).some(copiedWarmup) || list(session.results).some(result => copiedWarmup(result?.block)))) {
+    input = copy(input);
+    for (const session of [input.active, ...(input.sessions || []), ...(input.routines || []), ...(input.plans || [])].filter(Boolean)) {
+      for (const block of [...(session.blocks || []), ...(session.results || []).map(result => result.block)]) if (copiedWarmup(block)) block.type = 'warmup';
+    }
+  }
   if (input?.preferences?.language !== undefined && !Object.hasOwn(APP_LANGUAGES, input.preferences.language)) fail();
   if (input?.preferences?.practiceDefaults != null && !validPracticeDefaults(input.preferences.practiceDefaults)) fail();
   if (input?.preferences?.warmup != null && !validWarmupPreferences(input.preferences.warmup)) fail();
@@ -192,8 +203,9 @@ export function validateData(input) {
     if (s.mood != null && (!Number.isInteger(s.mood) || s.mood < 1 || s.mood > 5)) fail();
     if (s.workIds != null && (!Array.isArray(s.workIds) || s.workIds.length > 500 || !s.workIds.every(id => str(id, 100)))) fail();
     if (!validMeasurement(s.currentMeasurement) || !validReaderSnapshot(s.readerSnapshot)) fail();
+    if (s.flexibleBlocks != null && typeof s.flexibleBlocks !== 'boolean') fail();
     if (s.blockRuntime != null) {
-      const remaining = new Set(s.blocks.slice(s.blockIndex + 1).map(b => b.id));
+      const remaining = new Set((s.flexibleBlocks ? s.blocks.filter((_, index) => index !== s.blockIndex) : s.blocks.slice(s.blockIndex + 1)).map(b => b.id));
       if (new Set(s.blocks.map(b => b.id)).size !== s.blocks.length) fail();
       if (!Array.isArray(s.blockRuntime) || s.blockRuntime.length > 30 || new Set(s.blockRuntime.map(r => r?.blockId)).size !== s.blockRuntime.length) fail();
       for (const runtime of s.blockRuntime) {
