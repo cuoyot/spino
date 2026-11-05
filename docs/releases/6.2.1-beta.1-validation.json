@@ -33,5 +33,17 @@
   },
   "knownBaselineFailure": "Unchanged lessons.test.js reminder fixture expects an enabled reminder while notifications are disabled; reproduced on unchanged baseline.",
   "signatures": "Beta APK apksigner verification and signed release AAB jarsigner verification pass.",
-  "physicalDeviceAcceptance": false
+  "physicalDeviceAcceptance": false,
+  "nativeReplacement": {
+    "version": "6.2.1-beta.1",
+    "build": 113,
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "retainedFiles": 135,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{dc8d177 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t181}"
+    ]
+  },
+  "nativeEvidence": "docs/quality-review/captures/session/2026-11-05-beta621-native-02/native-handoff.json"
 }
