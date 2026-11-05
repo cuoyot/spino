@@ -1,0 +1,52 @@
+{
+  "version": "6.2.1-beta.2",
+  "versionCode": 114,
+  "baseCommit": "b37f2a38c210b13877667adb168eec0580c81714",
+  "browserTests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "scope": "Website beta; no Play submission; original working tree preserved",
+  "physicalDeviceAcceptance": false,
+  "packages": {
+    "spino-6.2.1-beta.2-114-beta-android.apk": {
+      "packagedWebFilesMatch": 684,
+      "bytes": 76981506,
+      "sha256": "67f0b6a651c515f76f6c5eb3ca34d394d80f16a7d375245ccd3eb3b588e1fecc"
+    },
+    "spino-6.2.1-beta.2-114-android.aab": {
+      "packagedWebFilesMatch": 684,
+      "bytes": 64209840,
+      "sha256": "3bd527718ce3c1934f57cb317bd197f579aee5673f462485059e3d8071227c82"
+    }
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "nativeEvidence": {
+    "applicationId": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "retainedFiles": 135,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{52041ab u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t184}"
+    ]
+  },
+  "nativeEvidenceFile": "docs/quality-review/captures/preparation/2026-11-05-pending-beta114-native/native-handoff.json",
+  "signatures": {
+    "apk": "apksigner verified; same beta certificate",
+    "aab": "jarsigner verified"
+  },
+  "websiteUnitTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteBrowserTests": {
+    "passed": 2,
+    "failed": 0
+  }
+}

@@ -27,3 +27,8 @@ Next: owner reviews the opened responsive preparation and tests the replacement 
 ## Authorized publication follow-up
 
 After the local review above, the owner requested website publication. D-043 is included in Android 6.1.0-beta.2/build55, published from `1704af3` and tagged `v6.1.0-beta.2`. Final-version package, signature, 259 web-file hashes, replacement install/storage retention/foreground and all required checks pass. [Public verification](../releases/6.1.0-beta.2-publication.json) confirms the three language pages, manifest and APK bytes. The preceding same-version/local-only statements are historical. Physical PDF/capture and owner visual acceptance remain open.
+
+
+## 2026-11-05 — Pending practice beta handoff
+
+The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.

@@ -53,7 +53,7 @@
         "D-003",
         "D-004"
       ],
-      "coverage": " Source/browser 2026-10-21: page actions leave the global header; Today Record sits with practice, Quick practice joins activity types, and Calendar Week/Month shares one toolbar with Plan your week in both views. Week date arrows and current-week return remain available on the date range. Approved subtle synchronization indicator and continuous selected Profile avatar border are verified in light/dark, five sizes and four responsive layouts. Evidence: navigation/2026-10-21-page-actions-03. Native/package verification is tracked separately in the beta6 release."
+      "coverage": "Beta 6.2.1-beta.2 (114): pending Practice session emphasis and disabled alternate activity/routine choices, verified with synthetic responsive browser evidence; native handoff recorded separately.  Source/browser 2026-10-21: page actions leave the global header; Today Record sits with practice, Quick practice joins activity types, and Calendar Week/Month shares one toolbar with Plan your week in both views. Week date arrows and current-week return remain available on the date range. Approved subtle synchronization indicator and continuous selected Profile avatar border are verified in light/dark, five sizes and four responsive layouts. Evidence: navigation/2026-10-21-page-actions-03. Native/package verification is tracked separately in the beta6 release."
     },
     {
       "id": "practice",

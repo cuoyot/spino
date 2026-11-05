@@ -1,0 +1,19 @@
+<es-ES>
+La sesión pendiente destaca en Practicar, con un botón grande para continuar. Las demás actividades y rutinas quedan atenuadas y desactivadas hasta terminar, guardar o descartar la sesión. La navegación sigue disponible. Incluye las mejoras anteriores de práctica por bloques y controles flotantes.
+</es-ES>
+
+<en-US>
+Practice now highlights your unfinished session with a prominent Resume button. Other activities and routines stay dimmed and disabled until you finish, save or discard the session. Main navigation remains available. Includes the previous flexible practice blocks and floating controls.
+</en-US>
+
+<ca>
+La sessió pendent destaca a Practicar, amb un botó gran per continuar. Les altres activitats i rutines queden atenuades i desactivades fins que acabis, desis o descartis la sessió. La navegació continua disponible. Inclou les millores anteriors dels blocs de pràctica i els controls flotants.
+</ca>
+
+<de-DE>
+Üben hebt die offene Einheit mit einer großen Fortsetzen-Schaltfläche hervor. Andere Aktivitäten und Routinen bleiben abgeblendet und deaktiviert, bis die Einheit beendet, gespeichert oder verworfen wird. Die Navigation bleibt verfügbar. Enthält die bisherigen flexiblen Übungsblöcke und schwebenden Steuerelemente.
+</de-DE>
+
+<hu-HU>
+A Gyakorlás kiemeli a befejezetlen alkalmat egy nagy Folytatás gombbal. A többi tevékenység és rutin halvány és letiltott marad a befejezésig, mentésig vagy elvetésig. A navigáció továbbra is elérhető. Tartalmazza a korábbi rugalmas gyakorlási blokkokat és lebegő vezérlőket.
+</hu-HU>

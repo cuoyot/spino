@@ -277,3 +277,6 @@ if(independentBackupBeta){const text=await readFile(new URL('../../docs/releases
 
 const practiceBeta=releases.find(r=>r.version==='6.2.1-beta.1');
 if(practiceBeta){const text=await readFile(new URL('../../docs/releases/6.2.1-beta.1-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))practiceBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const pendingPracticeBeta=releases.find(r=>r.version==='6.2.1-beta.2');
+if(pendingPracticeBeta){const text=await readFile(new URL('../../docs/releases/6.2.1-beta.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))pendingPracticeBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

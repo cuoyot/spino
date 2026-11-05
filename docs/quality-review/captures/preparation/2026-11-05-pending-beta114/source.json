@@ -1,0 +1,8 @@
+{
+  "baseCommit": "b37f2a38c210b13877667adb168eec0580c81714",
+  "sha256": {
+    "src/companion/agenda.js": "08128a8ecb06238fe4aef62d191eb0f5ee217c24eddf7e5cbd699e610794865f",
+    "src/companion/browse-surfaces.css": "4ee0e52dad317fe8d0c6108f44a7b50154604d2a415f2386da57698b0b2d3b53",
+    "dist/index.html": "29d669970ea7a04b2e87f30f437753c9c842e152ffe464c906092f2fa620fb29"
+  }
+}

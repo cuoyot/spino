@@ -70,12 +70,13 @@ export function weekAgendaMarkup(data, selected, sessionOptions = {}, weekCount 
   }).join('')}</div>`;
 }
 export function practiceMarkup(data, icon) {
-  return `<section class="cp-practice-hub"><h1>${ui('Practice', 'Practicar')}</h1><p class="muted">${ui('What would you like to work on?', '¿Qué te apetece trabajar?')}</p>
+  return `<section class="cp-practice-hub${data.active ? ' cp-practice-hub-pending' : ''}"><h1>${ui('Practice', 'Practicar')}</h1><p class="muted">${data.active ? ui('Continue or finish your pending session first.', 'Continúa o termina primero tu sesión pendiente.') : ui('What would you like to work on?', '¿Qué te apetece trabajar?')}</p>
     ${pendingSessionMarkup(data.active)}
-    <div class="cp-shortcuts"><button type="button" class="cp-quick-practice" data-action="quick-practice"><span><strong>${ui('Quick practice','Práctica rápida')}</strong><small>${ui('On screen · no tempo · one hand','En pantalla · sin tempo · una mano')}</small></span><span aria-hidden="true">▶</span></button>
+    <fieldset class="cp-practice-options" ${data.active ? 'disabled' : ''} aria-label="${ui('Choose practice','Elegir práctica')}"><div class="cp-shortcuts"><button type="button" class="cp-quick-practice" data-action="quick-practice"><span><strong>${ui('Quick practice','Práctica rápida')}</strong><small>${ui('On screen · no tempo · one hand','En pantalla · sin tempo · una mano')}</small></span><span aria-hidden="true">▶</span></button>
     ${['reading','technique','repertoire','free'].map(type=>button('prepare',`<span class="cp-icon">${icon(type)}</span>${ACTIVITIES[type]}`,type)).join('')}</div>
     <section class="cp-section"><div class="cp-row"><h2>${ui('Your routines', 'Tus rutinas')}</h2>${button('routines',ui('Manage routines', 'Gestionar rutinas'),'','quiet')}</div>${data.routines.length ? `<div class="cp-practice-routines">${data.routines.map(r=>button('quick-routine',`<span><strong>${esc(r.title)}</strong><small>${r.blocks.reduce((n,b)=>n+b.minutes,0)} min · ${r.blocks.map(b=>ACTIVITIES[b.type]).join(' · ')}</small></span><span aria-hidden="true">▶</span>`,r.id)).join('')}</div>` : `<p class="muted">${ui('Save a sequence of exercises to use it again.', 'Guarda una secuencia de ejercicios para repetirla.')}</p>${button('new-routine',ui('Create routine', 'Crear rutina'))}`}</section>
     ${quickRecordsMarkup(data.sessions)}
+    </fieldset>
   </section>`;
 }
 

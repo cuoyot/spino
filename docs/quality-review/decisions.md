@@ -903,3 +903,8 @@ Accepted objective from owner feedback: successful saving must stop presenting t
 Accepted owner direction: all planned activities, including warm-up, are directly selectable and revisitable, retaining their own accumulated time. Continue later belongs at the upper right; Finish session belongs at the lower right with an adjacent red text-link-style Discard action. Stopping inside a multi-block practice returns to the practice menu; single-block practice opens feedback.
 
 Accepted owner consistency requirement: every live practice uses the same floating grip, block clock, stop and options slots, initially at the lower right. The separate Total indicator stays at the upper left. Activity-specific options remain available without relocating the four common controls. This supersedes earlier generated top-toolbar/phone-landscape sidebar placement while retaining musical input, progress, explicit score preferences and recording behavior. Shared implementation and synthetic browser verification are recorded in session.md; final owner and native visual acceptance remain separate.
+
+
+## 2026-11-05 — Pending practice beta handoff
+
+The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.

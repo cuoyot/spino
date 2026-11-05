@@ -609,3 +609,8 @@ Final beta16/build69 [native emulator verification](captures/multimedia/2026-10-
 2026-10-21 owner follow-up: omit the unfinished-session card from Calendar to avoid pushing its content down. Keep the Practice navigation indicator and the card on Today, Practice and other browsing destinations. Earlier Calendar-card captures remain historical evidence.
 
 2026-10-21 continuous weekly calendar — owner requests scrolling to keep showing weeks and removal of the month title in Week view. The agenda appends two weeks near the bottom, retains loaded weeks during same-date rerenders, preserves selected-day highlighting and shared saved-session cards, and keeps previous/next/This week controls. Month view retains its month title. Build, four agenda unit checks and two browser checks pass with disposable notebooks; responsive evidence: [week-scroll-02](captures/calendar/2026-10-21-week-scroll-02/README.md). Owner visual/native acceptance remains open; no APK/publication.
+
+
+## 2026-11-05 — Pending practice beta handoff
+
+The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.

@@ -63,3 +63,5 @@ The main destinations use a bottom bar on phones and a side rail on larger or sh
 The first card, **Your week**, combines saved practice time, your optional weekly goal and the seven-day calendar. Colored daily bars show recorded minutes relative to the busiest day that week; select a day to open its calendar. Choose or resume practice immediately below the card.
 
 The unfinished-session card uses the same design on Today and Practice and is also available on other browsing pages. Calendar omits this card to keep the calendar content higher on screen; the Practice navigation indicator remains visible. It shows the session title, elapsed time, context and **Resume session**. A dot on the Practice navigation icon indicates an unfinished session; it disappears when the session is saved or discarded.
+
+Practice highlights an unfinished session with a blue accent card and a prominent **Resume session** button. Other activity and routine choices are muted and disabled until that session is finished, saved or discarded. Main navigation remains available.

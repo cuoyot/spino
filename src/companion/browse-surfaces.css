@@ -258,3 +258,23 @@
 #cp-dialog .cp-catalogue-preview-sheet canvas { display: block; width: 100%; height: auto; min-width: 560px; }
 #cp-dialog .cp-catalogue-preview-sheet svg { background: white; }
 #cp-dialog .cp-catalogue-preview-sheet img { display: block; width: 100%; height: auto; min-width: 560px; }
+
+/* A pending practice is the hub's primary action; other choices remain recognizable. */
+.cp-practice-options { border: 0; padding: 0; margin: 0; min-width: 0; }
+#app-shell .cp-browse-surface .cp-practice-hub-pending .cp-today-resume {
+  background: linear-gradient(120deg, var(--browse-blue-tint), var(--browse-card));
+  border: 2px solid var(--browse-blue);
+  border-inline-start-width: 6px;
+  border-radius: 18px;
+  box-shadow: var(--browse-shadow);
+  padding: 20px;
+  margin: 18px 0 24px;
+}
+#app-shell .cp-practice-hub-pending .cp-focus-copy .eyebrow { color: var(--browse-blue); }
+#app-shell .cp-practice-hub-pending .cp-focus-actions .primary { min-height: 48px; padding: 12px 20px; }
+#app-shell .cp-practice-options:disabled { opacity: .45; filter: grayscale(1); }
+#app-shell .cp-practice-options:disabled button { cursor: default; }
+@media (max-width: 600px) {
+  #app-shell .cp-practice-hub-pending .cp-focus-actions { width: 100%; }
+  #app-shell .cp-practice-hub-pending .cp-focus-actions .primary { width: 100%; }
+}

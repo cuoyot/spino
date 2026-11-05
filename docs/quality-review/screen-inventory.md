@@ -473,3 +473,8 @@ A reported broken Profile ring was caused by the external avatar outline being c
 
 
 26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.
+
+
+## 2026-11-05 — Pending practice beta handoff
+
+The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.
