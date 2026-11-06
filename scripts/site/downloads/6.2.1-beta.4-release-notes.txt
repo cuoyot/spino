@@ -1,0 +1,15 @@
+<es-ES>
+Cerrar permanece visible en la barra flotante del PDF al leer, anotar y ajustar el encuadre. Al salir se guardan las anotaciones antes de volver a la obra. Si el guardado falla, el PDF permanece abierto para reintentar sin perder los cambios.
+</es-ES>
+<en-US>
+Close stays visible in the PDF floating bar while reading, annotating and adjusting framing. Closing saves annotations before returning to the piece. If saving fails, the PDF stays open so you can retry without losing changes.
+</en-US>
+<ca>
+Tanca es manté visible a la barra flotant del PDF en llegir, anotar i ajustar l’enquadrament. En sortir es desen les anotacions abans de tornar a l’obra. Si el desament falla, el PDF continua obert per reintentar sense perdre els canvis.
+</ca>
+<de-DE>
+Schließen bleibt beim Lesen, Annotieren und Anpassen des Ausschnitts in der schwebenden PDF-Leiste sichtbar. Vor der Rückkehr zum Stück werden Anmerkungen gespeichert. Bei einem Speicherfehler bleibt das PDF für einen erneuten Versuch geöffnet.
+</de-DE>
+<hu-HU>
+A Bezárás gomb olvasás, jegyzetelés és keretezés közben is látható a PDF lebegő sávján. A jegyzetek mentése után visszatér a darabhoz. Sikertelen mentéskor a PDF nyitva marad, így a változtatások elvesztése nélkül újrapróbálható.
+</hu-HU>

@@ -1,0 +1,10 @@
+{
+  "baseCommit": "1df7434e7c626e0d71b769635c52b4b774d087cb",
+  "date": "2026-11-06",
+  "sourceChanges": "Standalone Close only; beta115 packages remain unchanged",
+  "build": "Vite production API, publicDir:false, emptyOutDir:false; previously built public resources retained",
+  "tests": {
+    "passed": 3,
+    "failed": 0
+  }
+}

@@ -26,3 +26,10 @@ References without score files, internal analysis reports and editorial research
 
 
 2026-11-06 beta115 release: owner accepts the reviewed event/work detail cleanup. Event and work titles stay inside their overview cards, Close is inside the overview, events show a calendar date tile and weeks/days remaining. Work overview includes thumbnail-to-score opening, added date (explicitly unknown for legacy records) and saved attributed practice totals shared with event/repertoire rows. All five work overview actions are in one Actions menu. Shared saved-session design and existing notebook/assets are retained. Source/browser acceptance is recorded in the new dated event and repertoire evidence; native/release verification is recorded separately in docs/releases/6.2.1-beta.3-validation.json.
+
+### Close a score opened for annotation
+
+In the current web review after beta115, **Close** stays visible in the PDF’s floating bar, including while annotating or adjusting framing. It returns to the work after pending annotations/framing have saved. If saving fails, the PDF remains open with its marks and the error; retry Close after resolving the storage issue. This is browser-verified with synthetic data on 6 November 2026, and is not yet included in a newer APK or published download.
+
+
+2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.

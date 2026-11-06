@@ -33,6 +33,10 @@
 
 # Release quality review
 
+2026-11-06 PDF Close release: owner requests a new APK for the standalone floating Close fix. Beta 6.2.1-beta.4 (116) is built from beta115 plus the focused viewer correction. Three application browser regressions, 15 Android checks and ten website checks pass. Replacement installation retains 51 original IndexedDB files and confirms foreground. Publication/current-provider proof follows in docs/releases/6.2.1-beta.4-publication.json. Original working tree and historical packages are preserved; physical-device acceptance remains separate.
+
+2026-11-06 standalone PDF exit follow-up: owner reports no floating Close when opening a work for annotation. The sole exit was inside collapsed tools and hidden/rejected during editing. Source/web fix keeps one Close in the standalone floating bar, preserving save failure/retry and practice exit behavior. [Twenty synthetic responsive frames](captures/session/2026-11-06-standalone-pdf-close-01/README.md) and three browser regressions pass. Next: owner review before separately requested packaging. Published beta115 does not yet contain this fix; no new APK/deployment.
+
 2026-11-06 accepted detail cleanup is published as beta 6.2.1-beta.3 (115) from an isolated checkout based on published beta114. Event titles/date/countdown/Close and work thumbnail/date/totals/single Actions menu follow the owner-reviewed browser layout. Notebook, annotations and unrelated source changes are retained. Native replacement installation, 42 retained original IndexedDB files and foreground are verified. Cloudflare version 35f941e5-4f73-43e5-b693-cdb171c7958d and exact public pages/downloads are verified in the release validation/publication records.
 
 2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; packaged in beta.4 (103). [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).

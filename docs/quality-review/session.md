@@ -174,3 +174,10 @@ Dated browser runs 02–15 preserve the iteration history. The final evidence an
 Final owner refinement: generated fixed-page practice uses the same shared `marginTurn` edge-tap rules as PDF/MusicXML, with keyboard alternatives. Visible Previous/Next buttons are removed; the measure-range label stays. Swipes/multi-touch are rejected, and page browsing pauses/checkpoints without adding practice time.
 
 The owner then requests the generated physical-piano/MIDI sheet to fill the screen like PDF. Its outer header, rounded card and side/footer frames are removed; the sheet background reaches all viewport edges. A 120 px internal notation inset reserves a clear bottom margin for the floating controls. The generated reader reuses the score fullscreen lifecycle and exits it on return; native system-bar behavior still needs device acceptance. Mobile keyboard/name-input practice retains its playable-input layout.
+
+## 2026-11-06 — Standalone PDF Close
+
+Accepted owner objective: a visible floating exit when opening a work for annotation. The standalone viewer now keeps one Close in the bar in reading, annotation and framing states; it uses the existing save-before-exit path. Failed writes keep the viewer and marks open for retry. The practice-only editing guard remains in place. [Responsive evidence](captures/session/2026-11-06-standalone-pdf-close-01/README.md): both themes/four orientations/320 px, twenty frames, three passing browser regressions, original PDF/notebook retained. Source/web only after beta115; no APK/publication or native acceptance.
+
+
+2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.

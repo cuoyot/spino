@@ -82,3 +82,10 @@ Owner requested a separate edit action on saved practice. Implemented minutes/se
 ## 2026-10-15 — Local recording entry points
 
 Beta 6.1 source adds Record to repertoire blocks and PDF/MusicXML practice controls. The recording panel stays in the active modal top layer and can minimize during score reading. [Synthetic responsive evidence](captures/multimedia/2026-10-15-local-03/capture.json) covers choose/live/library/preview; existing PDF practice, annotation Back/resume and session/header/navigation checks pass. Native camera/microphone and owner layout acceptance remain open; no package or release is implied. See the recording decision and MEDIA-01/02 inventory.
+
+## 2026-11-06 — Standalone PDF Close
+
+Accepted owner objective: a visible floating exit when opening a work for annotation. The standalone viewer now keeps one Close in the bar in reading, annotation and framing states; it uses the existing save-before-exit path. Failed writes keep the viewer and marks open for retry. The practice-only editing guard remains in place. [Responsive evidence](captures/session/2026-11-06-standalone-pdf-close-01/README.md): both themes/four orientations/320 px, twenty frames, three passing browser regressions, original PDF/notebook retained. Source/web only after beta115; no APK/publication or native acceptance.
+
+
+2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.

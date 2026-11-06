@@ -103,7 +103,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     $('[data-pdf=reset-view]').disabled = !ready || !!viewSaving;
     $('[data-pdf=fullscreen]').hidden = native || !!document.fullscreenElement || !document.fullscreenEnabled;
     modal.dataset.running = String(running());
-    $('[data-pdf=close]').hidden = running() || editing(); $('[data-pdf=tools]').hidden = editing();
+    $('[data-pdf=close]').hidden = !!session && (running() || editing()); $('[data-pdf=tools]').hidden = editing();
     $('[data-pdf=finish]')?.toggleAttribute('hidden', false);
     $('.pdf-panel').hidden = running() || !expanded;
     $('[data-pdf=tools]').setAttribute('aria-expanded', String(expanded && !running()));
@@ -520,7 +520,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
     if (colorButton && !running()) { color = colorButton.dataset.color;const selected=annotations.marks.find(m=>m.id===selectedId);if(selected)changed(annotations.marks.map(m=>m.id===selectedId?{...m,color}:m));expanded=false;controls(); }
     const action = event.target.closest('[data-pdf]')?.dataset.pdf;
     try {
-      if (editing() && action === 'close') return;
+      if (session && editing() && action === 'close') return;
       if (editing() && action === 'timer') { await leaveEditing({ resume: false }); return; }
       if (action === 'record') { session?.record?.(); return; }
       if (action === 'finish' && session?.finish) {

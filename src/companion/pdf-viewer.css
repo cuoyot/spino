@@ -197,3 +197,6 @@
   .pdf-widget-bar:has(.score-timer:not([hidden])) { gap: 0; padding-inline: 0; }
   .pdf-widget-bar:has(.score-timer:not([hidden])) .pdf-page-count { display: none; }
 }
+
+/* Standalone score annotation keeps a visible exit alongside the floating controls. */
+.pdf-widget-bar [data-pdf=close] { order: 6; }

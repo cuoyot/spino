@@ -1,0 +1,157 @@
+{
+  "surface": "Responsive production browser; disposable synthetic notebook; not native acceptance",
+  "frames": [
+    {
+      "file": "reading-light-390x844.png",
+      "state": "reading",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "editing-light-390x844.png",
+      "state": "editing",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "reading-light-844x390.png",
+      "state": "reading",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "editing-light-844x390.png",
+      "state": "editing",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "reading-light-768x1024.png",
+      "state": "reading",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "editing-light-768x1024.png",
+      "state": "editing",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "reading-light-1024x768.png",
+      "state": "reading",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "editing-light-1024x768.png",
+      "state": "editing",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "reading-light-320x640.png",
+      "state": "reading",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "editing-light-320x640.png",
+      "state": "editing",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "reading-dark-390x844.png",
+      "state": "reading",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "editing-dark-390x844.png",
+      "state": "editing",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "reading-dark-844x390.png",
+      "state": "reading",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "editing-dark-844x390.png",
+      "state": "editing",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "reading-dark-768x1024.png",
+      "state": "reading",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "editing-dark-768x1024.png",
+      "state": "editing",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "reading-dark-1024x768.png",
+      "state": "reading",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "editing-dark-1024x768.png",
+      "state": "editing",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "reading-dark-320x640.png",
+      "state": "reading",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "editing-dark-320x640.png",
+      "state": "editing",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    }
+  ],
+  "sourceHashes": {
+    "src/companion/pdf-viewer.js": "fa8e0c450eb432edf5efdae420781157c53b681e60a1c35e9944b9145739a397",
+    "src/companion/score-controls.js": "672e4728dc19e7b055a0270f60c4d629df6329b6a59ee16894a7610ab59e213b",
+    "src/companion/pdf-viewer.css": "867f271c521c6f7bad7758cff85e53d0fd42fa54553c90762549572a38d79e6e",
+    "tests/pdf-standalone-close.browser.test.js": "de52d15fe4c078d3e3d6bd38dfb3fe4386b24d267414c35a420beb916d1f2441",
+    "dist/index.html": "1c90a382ac094767954f1d5ce4d5c83b2641c0cf52f118d5eeb40a7b7ec0c0f4"
+  },
+  "annotationsRetained": true,
+  "originalPDFUnchanged": true,
+  "notebookUnchanged": true,
+  "failedSaveKeepsViewerOpen": true,
+  "runtimeErrors": []
+}

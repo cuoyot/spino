@@ -1,0 +1,58 @@
+{
+  "version": "6.2.1-beta.4",
+  "versionCode": 116,
+  "packages": {
+    "app-debug.apk": {
+      "bytes": 76984698,
+      "sha256": "a44a1eb3fa0151b41b48a3a3ae28a04a4df08808973ea5a5c24ea7d8aeb36140",
+      "packagedWebFilesMatch": 684
+    },
+    "app-release.aab": {
+      "bytes": 64212395,
+      "sha256": "3196b4b9d17f6e1845e748cf472c58519591764f493982172b707899dc65cfc5",
+      "packagedWebFilesMatch": 684
+    }
+  },
+  "betaCertificateMatches115": true,
+  "signedAABVerified": true,
+  "baseCommit": "1df7434e7c626e0d71b769635c52b4b774d087cb",
+  "browserTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "scope": "Owner-authorized website beta APK; no Play submission; original working tree preserved",
+  "physicalDeviceAcceptance": false,
+  "webBuild": "Vite production bundling; unchanged public assets retained to avoid duplicating historical banks",
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "nativeEvidence": {
+    "date": "2026-11-06T07:44:57.891493+00:00",
+    "version": "6.2.1-beta.4",
+    "build": 116,
+    "applicationId": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "retainedFiles": 51,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{edf0ca u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t187}"
+    ],
+    "physicalDeviceAcceptance": false,
+    "emulator": "Existing Pixel_3a_API_34_extension_level_7_arm64-v8a; headless startup avoids host crash-report consent dialog; no wipe or new AVD"
+  },
+  "nativeEvidenceFile": "docs/quality-review/captures/releases/2026-11-06-beta116-native/native-handoff.json",
+  "inAppBrowser": "Available in this turn; spinoapp.com opened in Codex in-app browser; public version will be checked after publication.",
+  "websiteUnitTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteBrowserTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "resourceHandling": "Byte-identical generated copies use APFS clones; signed packages and prior releases retained. New site download parts were restored from retained sources after a low-space copy failure, then all website checks passed."
+}
