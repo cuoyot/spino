@@ -1,0 +1,15 @@
+<es-ES>
+Fichas de eventos y obras más claras, con el título dentro de la ficha y Cerrar integrado. Las audiciones muestran la fecha en formato calendario y el tiempo restante en semanas y días. Las obras incluyen miniatura para abrir y anotar el PDF, total practicado y fecha de incorporación cuando está registrada. Todas las acciones de la obra se reúnen en un único menú.
+</es-ES>
+<en-US>
+Clearer event and piece details, with titles and Close inside the overview. Auditions show a calendar date and remaining weeks and days. Pieces include a thumbnail that opens the PDF for annotations, total practice time and the addition date when recorded. All piece actions are grouped in one menu.
+</en-US>
+<ca>
+Fitxes d’esdeveniments i obres més clares, amb el títol i Tanca dins de la fitxa. Les audicions mostren la data en format calendari i el temps restant en setmanes i dies. Les obres inclouen miniatura per obrir i anotar el PDF, temps total practicat i data d’incorporació quan està registrada. Totes les accions de l’obra es reuneixen en un únic menú.
+</ca>
+<de-DE>
+Übersichtlichere Termin- und Stückdetails mit Titel und Schließen im Infobereich. Vorspiele zeigen ein Kalenderdatum und die verbleibenden Wochen und Tage. Stücke enthalten eine PDF-Vorschau zum Öffnen und Annotieren, die gesamte Übungszeit und das erfasste Hinzufügedatum. Alle Stückaktionen stehen in einem Menü.
+</de-DE>
+<hu-HU>
+Áttekinthetőbb esemény- és darabadatlap, a címmel és a Bezárás gombbal az összefoglalóban. A meghallgatások naptárlapot és a hátralévő heteket, napokat mutatják. A daraboknál PDF-et megnyitó bélyegkép, összes gyakorlási idő és a rögzített hozzáadási dátum látható. Minden darabművelet egy menübe került.
+</hu-HU>

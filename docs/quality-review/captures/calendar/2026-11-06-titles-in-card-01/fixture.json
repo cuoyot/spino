@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "Alex",
+    "context": "mobile",
+    "weeklyMinutes": 90,
+    "notificationsEnabled": false,
+    "practiceSuggestions": false,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [
+    {
+      "id": "review-ballade",
+      "title": "Balada Para Adelina",
+      "composer": "Paul de Senneville",
+      "onStand": true,
+      "stage": "En estudio",
+      "tags": [],
+      "notes": "",
+      "passage": "",
+      "bpm": 60,
+      "target": null
+    },
+    {
+      "id": "review-elise",
+      "title": "FÜR ELISE",
+      "composer": "Ludwig van Beethoven",
+      "onStand": true,
+      "stage": "En estudio",
+      "tags": [],
+      "notes": "",
+      "passage": "",
+      "bpm": 60,
+      "target": null
+    }
+  ],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [
+    {
+      "id": "review-audition",
+      "title": "Audicion de nadal",
+      "type": "Audición",
+      "date": "2026-12-17",
+      "time": "18:00",
+      "place": "",
+      "notes": "",
+      "workIds": [
+        "review-ballade",
+        "review-elise"
+      ],
+      "reminder": false,
+      "milestones": [
+        {
+          "title": "Primera lectura",
+          "done": false
+        },
+        {
+          "title": "Resolver pasajes",
+          "done": true
+        },
+        {
+          "title": "Tocar de principio a fin",
+          "done": true
+        },
+        {
+          "title": "Simular la actuación",
+          "done": true
+        }
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "a634df14-ceb8-40d6-95a5-f5321bd4629c",
+      "title": "Repertoire practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "30d26d53-3cd9-41f4-95bb-456fc6897935",
+          "type": "repertoire",
+          "minutes": 42,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "review-elise"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "30d26d53-3cd9-41f4-95bb-456fc6897935",
+            "type": "repertoire",
+            "minutes": 42,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "review-elise"
+          },
+          "context": "piano",
+          "elapsedMs": 2520000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-11-06T06:25:06.216Z",
+      "date": "2026-11-06",
+      "elapsedMs": 2520000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1793946306216,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "review-elise"
+      ],
+      "endedAt": "2026-11-06T06:25:06.216Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "ab1f263f-edaa-4b62-a287-0fa413e6a829",
+      "title": "Repertoire practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "19acf8b3-69c1-47da-8cc3-ef922a5e779f",
+          "type": "repertoire",
+          "minutes": 95,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": "review-ballade"
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "19acf8b3-69c1-47da-8cc3-ef922a5e779f",
+            "type": "repertoire",
+            "minutes": 95,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "review-ballade"
+          },
+          "context": "piano",
+          "elapsedMs": 5700000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-11-06T06:25:06.216Z",
+      "date": "2026-11-06",
+      "elapsedMs": 5700000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1793946306216,
+      "notes": "",
+      "next": "",
+      "mood": null,
+      "workIds": [
+        "review-ballade"
+      ],
+      "endedAt": "2026-11-06T06:25:06.216Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": {
+    "id": "f9c6f03a-34b3-4a85-8865-a0413131278a",
+    "title": "Práctica libre",
+    "context": "piano",
+    "planId": null,
+    "blocks": [
+      {
+        "id": "f4761adb-31a8-4754-a3be-f3244d3340d7",
+        "type": "free",
+        "minutes": 10,
+        "bpm": 60,
+        "timing": "timed",
+        "target": "C-major",
+        "hand": "right",
+        "input": "piano",
+        "figures": "1",
+        "passage": "",
+        "workId": ""
+      }
+    ],
+    "blockIndex": 0,
+    "results": [],
+    "startedAt": "2026-11-06T06:25:06.216Z",
+    "date": "2026-11-06",
+    "elapsedMs": 60000,
+    "blockElapsedMs": 60000,
+    "runningSince": null,
+    "updatedAt": 1793946306216,
+    "notes": "",
+    "next": ""
+  },
+  "lastBackup": null
+}

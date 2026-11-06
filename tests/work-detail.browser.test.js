@@ -22,7 +22,7 @@ test('work actions and every saved-session summary share the Progress card witho
   const expected = await summary();
   await openWork(); assert.deepEqual(await summary(), expected);
   assert.match(await evaluate(`document.querySelector('${card} .cp-work-part').textContent`), /Bars 9–16/);
-  assert.equal(await evaluate(`document.querySelectorAll('.cp-work-primary button').length`), 2);
+  assert.equal(await evaluate(`document.querySelectorAll('.cp-work-menu-items button').length`), 5);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-work-resources .cp-work-resource').length`), 2);
   assert.equal(await evaluate(`document.querySelector('[data-action=delete-work]').closest('details').open`), false);
   await click('.cp-work-menu summary');
@@ -34,6 +34,7 @@ test('work actions and every saved-session summary share the Progress card witho
   assert.equal(await evaluate(`document.querySelector('#cp-dialog [name=title]').value`), 'Balada Para Adelina');
   await click('#cp-dialog [data-action=close-dialog]');
   for (const action of ['practice-work', 'plan-work']) {
+    if(!await evaluate(`document.querySelector('.cp-work-menu').open`))await click('.cp-work-menu summary');
     await click(`[data-action=${action}]`); await wait(`document.querySelector('#prepare-form')`);
     assert.equal(await evaluate(`document.querySelector('#prepare-form [name=workId]')?.value === 'history-prelude' || document.querySelector('#prepare-form [name="workId-0"]')?.value === 'history-prelude' || document.querySelector('#prepare-form').textContent.includes('Balada Para Adelina')`), true);
     await openWork();
@@ -48,12 +49,30 @@ test('work actions and every saved-session summary share the Progress card witho
       assert.equal(await evaluate(`document.querySelector('.cp-page').scrollWidth<=document.querySelector('.cp-page').clientWidth+1`), true, state + ' page ' + width);
       assert.equal(await evaluate(`[...document.querySelectorAll('.cp-history-open')].every(b=>b.scrollWidth<=b.clientWidth+1)`), true, state + ' cards ' + width);
       if (state === 'work') {
+        assert.equal(await evaluate(`document.querySelector('.cp-work-overview h1').textContent`),'Balada Para Adelina');
+        assert.equal(await evaluate(`document.querySelector('.cp-app-header .cp-header-title').textContent`),'Repertorio');
         assert.equal(await evaluate(`[...document.querySelectorAll('.cp-work-primary button,.cp-work-resource button,.cp-work-menu summary')].every(b=>{const r=b.getBoundingClientRect();return r.width>=44&&r.height>=44&&b.scrollWidth<=b.clientWidth+1})`), true, 'Action targets ' + width);
       }
       if (folder) { const file = `${state}-${theme}-${width}x${height}.png`, shot = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(folder + '/' + file, Buffer.from(shot.data,'base64')); frames.push({ file, state, theme, width, height }); }
     }
   };
+  await wait(`document.querySelector('.cp-work-thumbnail img')?.naturalWidth>0`);
+  assert.equal(await evaluate(`document.querySelector('.cp-work-added time').dateTime`),'2026-09-14T10:00:00Z');
+  assert.equal(await evaluate(`document.querySelector('.cp-work-total strong').textContent`),'44 min');
+  await click('.cp-work-thumbnail');
+  await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
+  await click('[data-pdf=close]');
+  await wait(`document.querySelector('.cp-work-thumbnail img')?.naturalWidth>0`);
   await capture('work');
+  for (const [width,height] of [[390,844],[768,1024]]) {
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+    await evaluate(`document.documentElement.dataset.theme='light';document.querySelector('.cp-page').scrollTop=0`);
+    await click('.cp-work-menu summary');
+    assert.equal(await evaluate(`document.querySelector('.cp-work-menu').open`),true);
+    assert.equal(await evaluate(`[...document.querySelectorAll('.cp-work-menu-items button')].every(b=>b.getBoundingClientRect().height>=44)`),true);
+    if(folder){const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`${folder}/actions-light-${width}x${height}.png`,Buffer.from(shot.data,'base64'));}
+    await click('.cp-work-menu summary');
+  }
   await evaluate(`document.querySelector('${card}').scrollIntoView({block:'center'})`);
   await wait(`document.querySelector('${card} [data-score-thumbnail] img')?.naturalWidth>0`);
   if (folder) { const shot = await send('Page.captureScreenshot',{format:'png'}); await writeFile(folder+'/work-shared-session.png',Buffer.from(shot.data,'base64')); }

@@ -278,3 +278,49 @@
   #app-shell .cp-practice-hub-pending .cp-focus-actions { width: 100%; }
   #app-shell .cp-practice-hub-pending .cp-focus-actions .primary { width: 100%; }
 }
+
+/* Event detail: distinct sections and catalogue-style linked pieces. */
+#app-shell .cp-event-detail { max-width: 960px; margin-inline: auto; }
+#app-shell .cp-event-overview { padding: 16px; background: var(--theme-panel); border: 1px solid var(--theme-line); border-radius: 16px; }
+#app-shell .cp-event-summary { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+#app-shell .cp-event-detail .cp-event-type { margin: 6px 0 0; font-size: 15px; line-height: 1.4; font-weight: 650; color: var(--browse-teal); }
+#app-shell .cp-event-schedule { display: grid; grid-template-columns: 104px minmax(0,1fr); align-items: center; gap: 20px; }
+#app-shell .cp-event-date-tile { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--theme-line); border-radius: 12px; overflow: hidden; text-align: center; }
+#app-shell .cp-event-month { align-self: stretch; padding: 7px 4px; background: var(--browse-tint); color: var(--browse-teal); font-size: 13px; line-height: 1.4; font-weight: 700; text-transform: uppercase; }
+#app-shell .cp-event-date-tile strong { padding-top: 5px; font-size: 42px; line-height: 1.15; font-weight: 750; letter-spacing: -.04em; }
+#app-shell .cp-event-weekday { max-width: 100%; padding: 2px 4px 10px; font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+#app-shell .cp-event-countdown { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+#app-shell .cp-event-countdown > span { font-size: 13px; color: var(--theme-muted); }
+#app-shell .cp-event-countdown > strong { font-size: clamp(22px,4vw,30px); line-height: 1.25; color: var(--browse-teal); text-wrap: balance; }
+#app-shell .cp-event-hour { margin-top: 2px; font-size: 18px; font-weight: 650; }
+#app-shell .cp-event-place { margin: 16px 0 0; font-size: 16px; }
+#app-shell .cp-event-notes { margin: 16px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+#app-shell .cp-event-preparation, #app-shell .cp-event-repertoire { margin-top: 20px; }
+#app-shell .cp-event-detail h2 { font-size: 20px; margin: 0 0 10px; }
+#app-shell .cp-event-steps { display: grid; gap: 0 24px; }
+#app-shell .cp-event-steps .check { margin: 0; min-height: 44px; }
+#app-shell .cp-event-preparation > p { margin: 8px 0 0; font-size: 13px; }
+#app-shell .cp-event-work { gap: 12px; align-items: center; }
+#app-shell .cp-event-work .cp-catalogue-title { color: var(--theme-link); }
+#app-shell .cp-event-work h3 { margin: 0; font-size: 16px; }
+#app-shell .cp-event-work-actions { display: flex; flex-direction: column; align-items: end; flex-shrink: 0; }
+#app-shell .cp-event-work-actions button { padding-inline: 8px; font-size: 13px; color: var(--theme-link); }
+#app-shell .cp-work-practice { display: block; margin-top: 5px; color: var(--theme-muted); font-size: 12px; line-height: 1.5; }
+#app-shell .cp-event-footer { margin-top: 24px; padding-block: 8px; }
+@media (min-width: 700px) { #app-shell .cp-event-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 379px) { #app-shell .cp-event-work { flex-wrap: wrap; } #app-shell .cp-event-work-actions { width: 100%; align-items: start; } }
+
+@media (max-width: 379px) {
+  #app-shell .cp-event-schedule { grid-template-columns: 88px minmax(0,1fr); gap: 12px; }
+  #app-shell .cp-event-countdown > strong { font-size: 21px; }
+}
+
+#app-shell .cp-event-time-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+#app-shell .cp-event-time-actions button { margin-inline-start: auto; color: var(--theme-link); }
+
+/* Record names stay with their detail content; the app bar carries navigation context. */
+#app-shell .cp-detail-title { font-size: 26px; line-height: 1.2; letter-spacing: -.025em; margin: 0; overflow-wrap: anywhere; }
+#app-shell .cp-detail-heading { min-width: 0; }
+#app-shell .cp-event-summary > button { flex-shrink: 0; }
+#app-shell .cp-work-overview > .cp-detail-title { margin-bottom: 12px; }
+#app-shell .cp-header-context { font-size: 20px; font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }

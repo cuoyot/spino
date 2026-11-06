@@ -478,3 +478,6 @@ A reported broken Profile ring was caused by the external avatar outline being c
 ## 2026-11-05 — Pending practice beta handoff
 
 The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.
+
+
+2026-11-06 beta115 release: owner accepts the reviewed event/work detail cleanup. Event and work titles stay inside their overview cards, Close is inside the overview, events show a calendar date tile and weeks/days remaining. Work overview includes thumbnail-to-score opening, added date (explicitly unknown for legacy records) and saved attributed practice totals shared with event/repertoire rows. All five work overview actions are in one Actions menu. Shared saved-session design and existing notebook/assets are retained. Source/browser acceptance is recorded in the new dated event and repertoire evidence; native/release verification is recorded separately in docs/releases/6.2.1-beta.3-validation.json.

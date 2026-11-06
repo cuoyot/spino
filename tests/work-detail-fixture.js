@@ -3,7 +3,7 @@ import { localDate, addDays } from '../src/companion/model.js';
 
 export function workDetailFixture() {
   const fixture = historyFixture(), { data } = fixture, today = localDate();
-  Object.assign(data.works[0], { title: 'Balada Para Adelina', composer: 'Synthetic review', onStand: true, target: 'C-major' });
+  Object.assign(data.works[0], { title: 'Balada Para Adelina', composer: 'Paul de Senneville', addedAt:'2026-09-14T10:00:00Z', onStand: true, target: 'C-major' });
   const session = data.sessions.find(s => s.id === 'history-session-1');
   session.date = today;
   session.results[0].block.passage = 'Bars 9–16 · melody and accompaniment';

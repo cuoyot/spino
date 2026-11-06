@@ -23,3 +23,6 @@ Select the eye icon to inspect a score before saving it. PDF previews show the f
 **Transfers** combines PDF and MusicXML requests, including progress, retry, pause and completed downloads. The network preference controls transfers; if a browser cannot identify Wi-Fi, allow any connection to download. **View downloaded** returns to your local catalogue.
 
 References without score files, internal analysis reports and editorial research are excluded from the visible catalogue.
+
+
+2026-11-06 beta115 release: owner accepts the reviewed event/work detail cleanup. Event and work titles stay inside their overview cards, Close is inside the overview, events show a calendar date tile and weeks/days remaining. Work overview includes thumbnail-to-score opening, added date (explicitly unknown for legacy records) and saved attributed practice totals shared with event/repertoire rows. All five work overview actions are in one Actions menu. Shared saved-session design and existing notebook/assets are retained. Source/browser acceptance is recorded in the new dated event and repertoire evidence; native/release verification is recorded separately in docs/releases/6.2.1-beta.3-validation.json.

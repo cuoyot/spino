@@ -1,0 +1,56 @@
+{
+  "version": "6.2.1-beta.3",
+  "versionCode": 115,
+  "packages": {
+    "app-debug.apk": {
+      "bytes": 76984674,
+      "sha256": "a31af14878026698dcacaf2850c2436a843e6d29f6dcc00d78cdda34490b0191",
+      "packagedWebFilesMatch": 684
+    },
+    "app-release.aab": {
+      "bytes": 64212405,
+      "sha256": "6fdf674ef014186881bb501c820a0b4347c4f8da90c22162ab562bd986705b0c",
+      "packagedWebFilesMatch": 684
+    }
+  },
+  "betaCertificateMatches114": true,
+  "signedAABVerified": true,
+  "baseCommit": "772031a69f6e90828e3e34c58fc7eedaa2e1b5df",
+  "browserTests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "scope": "Owner-authorized website beta APK; no Play submission; original working tree preserved",
+  "physicalDeviceAcceptance": false,
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "nativeEvidence": {
+    "date": "2026-11-06T06:45:06.607559+00:00",
+    "version": "6.2.1-beta.3",
+    "build": 115,
+    "applicationId": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "applicationStorageCleared": false,
+    "retainedFiles": 42,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "foreground": [
+      "topResumedActivity=ActivityRecord{49dbf0c u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t186}"
+    ],
+    "physicalDeviceAcceptance": false,
+    "emulator": "Existing Pixel_3a_API_34_extension_level_7_arm64-v8a; headless startup avoids host crash-report consent dialog; no wipe or new AVD"
+  },
+  "nativeEvidenceFile": "docs/quality-review/captures/releases/2026-11-06-beta115-native/native-handoff.json",
+  "websiteUnitTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "websiteBrowserTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "inAppBrowser": "Unavailable: local browser use disabled in Work settings; no owner Chrome session used"
+}

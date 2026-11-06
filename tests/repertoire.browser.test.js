@@ -12,6 +12,8 @@ test('repertoire can be organized, deleted, restored and reloaded without losing
   await click('piano');await click('repertoire');await click('new-work');
   await evaluate(`document.querySelector('#cp-dialog [name=title]').value='Étude';document.querySelector('#cp-dialog [name=composer]').value='Chopin';document.querySelector('#cp-dialog [name=tags]').value='Lesson, Recital';document.querySelector('#cp-dialog form').requestSubmit()`);
   await wait(`document.querySelector('[data-action=delete-work]')`);
+  const addedAt=await evaluate(`document.querySelector('.cp-work-added time').dateTime`);
+  assert.ok(Number.isFinite(Date.parse(addedAt)));
   await click('delete-work');await click('close-dialog');
   assert.ok(await evaluate(`!!document.querySelector('[data-action=practice-work]')`));
   await click('delete-work');await evaluate(`document.querySelector('#cp-confirm').click()`);
@@ -30,7 +32,11 @@ test('repertoire can be organized, deleted, restored and reloaded without losing
   await send('Page.reload');await wait(`document.querySelector('#app-shell h1')`);
   await click('piano');await click('repertoire');
   assert.ok(await evaluate(`!!document.querySelector('[data-action=stand-work][aria-pressed=true]')`));
-  await click('work-detail');await click('edit-work');
+  await click('work-detail');assert.equal(await evaluate(`document.querySelector('.cp-work-added time').dateTime`),addedAt);
+  await click('edit-work');
   assert.equal(await evaluate(`document.querySelector('[name=tags]').value`),'Lesson, Recital');
+  await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`!document.querySelector('#cp-dialog').open`);
+  assert.equal(await evaluate(`document.querySelector('.cp-work-added time').dateTime`),addedAt);
+  await click('close-work');assert.equal(await evaluate(`document.querySelector('.cp-page').dataset.view`),'repertoire');
   assert.deepEqual(errors,[]);
 });

@@ -13,6 +13,7 @@ createServer(async (req, res) => {
     let body = await readFile(path);
     if (path.endsWith('/index.html')) body = body.toString().replace(/<script type="module" crossorigin src="([^"]+)"><\/script>/, (_, src) => `<script type="module">
       window.__SPINO_DISABLE_TOUR=true;
+      const originalOpen=indexedDB.open.bind(indexedDB);indexedDB.open=(name,...args)=>originalOpen('spino-work-overview-review-20261106-'+name,...args);
       await new Promise((resolve,reject)=>{const q=indexedDB.open('cuaderno-piano',1);q.onupgradeneeded=()=>{q.result.createObjectStore('state');q.result.createObjectStore('assets',{keyPath:'id'})};q.onsuccess=()=>{const db=q.result,tx=db.transaction(['state','assets'],'readwrite');tx.objectStore('state').get('current').onsuccess=e=>{if(!e.target.result){tx.objectStore('state').put(${safe(fixture.data)},'current');for(const asset of ${safe(fixture.assets)})tx.objectStore('assets').put(asset)}};tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)}});
       const observer=new MutationObserver(openHistory);
       function openHistory(){const button=document.querySelector('.cp-nav [data-action=piano]');if(button){observer.disconnect();button.click();document.querySelector('[data-action=work-detail][data-id=history-prelude]')?.click();document.title='SPino — synthetic work detail review'}}

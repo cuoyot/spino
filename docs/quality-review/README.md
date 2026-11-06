@@ -33,6 +33,8 @@
 
 # Release quality review
 
+2026-11-06 accepted detail cleanup is being packaged as beta 6.2.1-beta.3 (115) from an isolated checkout based on published beta114. Event titles/date/countdown/Close and work thumbnail/date/totals/single Actions menu follow the owner-reviewed browser layout. Notebook, annotations and unrelated source changes are retained. Native installation and publication evidence follow in the release validation/publication records.
+
 2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; packaged in beta.4 (103). [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).
 
 2026-10-24 beta.3: fast metadata sync, deferred scores, simple connection choices, explicit migration confirmation and guarded local recovery. [Evidence and remaining native/physical acceptance](captures/profile/2026-10-24-sync-fast-beta3/README.md).

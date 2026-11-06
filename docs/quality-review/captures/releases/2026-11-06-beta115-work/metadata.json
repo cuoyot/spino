@@ -1,0 +1,232 @@
+{
+  "capturedAt": "2026-11-06T06:42:50.382Z",
+  "kind": "responsive-browser",
+  "nativeAcceptance": false,
+  "gitHead": "772031a69f6e90828e3e34c58fc7eedaa2e1b5df",
+  "buildIndexSha256": "d390d1f433017633d800bd3183e9b63029890a9f0b46c51bf3ed9e11e276fe5a",
+  "sourceHashes": {
+    "src/companion/app.js": "0c58af51ee4019c8200ef3448cd342b31631e7773db4c440e91415511763a54d",
+    "src/companion/work-detail.js": "c58fa72ce6fbed808aa619771507afd4551d12151c83a2daca1f9752c3361812",
+    "src/companion/work-detail.css": "0a9359bedc53885628597fa917448b51e83a14b2a0bfac1c97a4cd47c02b33e1",
+    "src/companion/saved-session-card.js": "4a09e00df57ba8d15823320b6b103be93a284cb2dfe8cf8b5acb3ac2d2505ecd",
+    "src/companion/saved-session-card.css": "dd33bda4ee17e086234116041f9a0d69097ff7d52b5e33d214ba1a5f829a3440",
+    "src/companion/agenda.js": "08128a8ecb06238fe4aef62d191eb0f5ee217c24eddf7e5cbd699e610794865f",
+    "tests/work-detail.browser.test.js": "a8df9d1f4c0d2ba5d8c72f1f2e73b60043acf13e14c2121da7e575c0cb614e90",
+    "tests/work-detail-fixture.js": "93f89a3ba4fad0d1ad6223d474c8458187e8ac52625298828718392de06bfefc"
+  },
+  "frames": [
+    {
+      "file": "work-light-390x844.png",
+      "state": "work",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "work-light-844x390.png",
+      "state": "work",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "work-light-768x1024.png",
+      "state": "work",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "work-light-1024x768.png",
+      "state": "work",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "work-light-320x640.png",
+      "state": "work",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "work-dark-390x844.png",
+      "state": "work",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "work-dark-844x390.png",
+      "state": "work",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "work-dark-768x1024.png",
+      "state": "work",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "work-dark-1024x768.png",
+      "state": "work",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "work-dark-320x640.png",
+      "state": "work",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "today-light-390x844.png",
+      "state": "today",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "today-light-844x390.png",
+      "state": "today",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "today-light-768x1024.png",
+      "state": "today",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "today-light-1024x768.png",
+      "state": "today",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "today-light-320x640.png",
+      "state": "today",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "today-dark-390x844.png",
+      "state": "today",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "today-dark-844x390.png",
+      "state": "today",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "today-dark-768x1024.png",
+      "state": "today",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "today-dark-1024x768.png",
+      "state": "today",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "today-dark-320x640.png",
+      "state": "today",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "calendar-light-390x844.png",
+      "state": "calendar",
+      "theme": "light",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "calendar-light-844x390.png",
+      "state": "calendar",
+      "theme": "light",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "calendar-light-768x1024.png",
+      "state": "calendar",
+      "theme": "light",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "calendar-light-1024x768.png",
+      "state": "calendar",
+      "theme": "light",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "calendar-light-320x640.png",
+      "state": "calendar",
+      "theme": "light",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "calendar-dark-390x844.png",
+      "state": "calendar",
+      "theme": "dark",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "calendar-dark-844x390.png",
+      "state": "calendar",
+      "theme": "dark",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "file": "calendar-dark-768x1024.png",
+      "state": "calendar",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "calendar-dark-1024x768.png",
+      "state": "calendar",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "calendar-dark-320x640.png",
+      "state": "calendar",
+      "theme": "dark",
+      "width": 320,
+      "height": 640
+    }
+  ],
+  "notebookUnchanged": true,
+  "assetsUnchanged": true,
+  "runtimeErrors": []
+}

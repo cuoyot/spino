@@ -74,7 +74,7 @@ export function createDownloads({ getData, store, platform, persist, changed, is
           const savedDownloads = structuredClone(data.downloads), savedWorks = structuredClone(data.works);
           // An annotated edition remains attached to its work; updates get a separate PDF.
           if (keepEdition && !data.works.some(w => w.assetId === existingId)) {
-            data.works.push({ id: crypto.randomUUID(), title: `${item.title} · edición anotada`.slice(0, 200), composer: item.composer, stage: 'En estudio', target: item.targets[0] ?? null, bpm: 60, notes: 'Edición anterior conservada con sus anotaciones.', passage: '', assetId: existingId });
+            data.works.push({ id: crypto.randomUUID(), addedAt: new Date().toISOString(), title: `${item.title} · edición anotada`.slice(0, 200), composer: item.composer, stage: 'En estudio', target: item.targets[0] ?? null, bpm: 60, notes: 'Edición anterior conservada con sus anotaciones.', passage: '', assetId: existingId });
           }
           data.downloads = data.downloads.filter(d => d.catalogId !== item.id);
           data.downloads.push({ catalogId: item.id, assetId, title: item.title, revision: item.revision });

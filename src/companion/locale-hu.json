@@ -2061,5 +2061,11 @@
   "Open Sync & backups": "Szinkronizálás és mentések megnyitása",
   "Practice history, scores and annotations. Does not include multimedia files.": "Gyakorlási előzmények, kották és jegyzetek. Multimédiás fájlokat nem tartalmaz.",
   "Import notebook (JSON)": "Füzet importálása (JSON)",
-  "Open an exported JSON notebook. Does not include multimedia files.": "Exportált JSON-füzet megnyitása. Multimédiás fájlokat nem tartalmaz."
+  "Open an exported JSON notebook. Does not include multimedia files.": "Exportált JSON-füzet megnyitása. Multimédiás fájlokat nem tartalmaz.",
+  "Total practiced": "Összes gyakorlás",
+  "Time remaining": "Hátralévő idő",
+  "This lesson": "Ez az óra",
+  "Added to repertoire": "Hozzáadva a repertoárhoz",
+  "Date not recorded": "A dátum nincs rögzítve",
+  "Actions": "Műveletek"
 }

@@ -170,6 +170,7 @@ export function validateData(input) {
     if (w.tags !== undefined && (!Array.isArray(w.tags) || w.tags.length > 20 || w.tags.some(t=>!str(t,40)||!t.trim()))) fail();
     if (w.favorite !== undefined && typeof w.favorite !== 'boolean') fail();
     if (w.onStand !== undefined && typeof w.onStand !== 'boolean') fail();
+    if (w.addedAt !== undefined && (!str(w.addedAt,40) || !Number.isFinite(Date.parse(w.addedAt)))) fail();
     if (w.trashedAt !== undefined && (!str(w.trashedAt,40) || !Number.isFinite(Date.parse(w.trashedAt)))) fail();
   }
   for (const r of [...input.routines, ...input.plans]) if (!str(r.title, 200) || !CONTEXTS[r.context] || !Array.isArray(r.blocks) || !r.blocks.length || r.blocks.length > 30 || !r.blocks.every(validBlock)) fail();

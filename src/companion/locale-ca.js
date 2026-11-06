@@ -1,5 +1,10 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Total practiced|Total practicat
+Time remaining|Temps restant
+This lesson|Aquesta classe
+Added to repertoire|Afegida al repertori
+Date not recorded|Data no registrada
 Practice history, scores and annotations. Does not include multimedia files.|Historial de pràctica, partitures i anotacions. No inclou fitxers multimèdia.
 Import notebook (JSON)|Importa el quadern (JSON)
 Open an exported JSON notebook. Does not include multimedia files.|Obre un quadern exportat en JSON. No inclou fitxers multimèdia.

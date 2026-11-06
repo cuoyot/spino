@@ -2061,5 +2061,11 @@
   "Open Sync & backups": "Synchronisierung & Sicherungen öffnen",
   "Practice history, scores and annotations. Does not include multimedia files.": "Übungsverlauf, Noten und Anmerkungen. Enthält keine Multimediadateien.",
   "Import notebook (JSON)": "Notizbuch importieren (JSON)",
-  "Open an exported JSON notebook. Does not include multimedia files.": "Exportiertes JSON-Notizbuch öffnen. Enthält keine Multimediadateien."
+  "Open an exported JSON notebook. Does not include multimedia files.": "Exportiertes JSON-Notizbuch öffnen. Enthält keine Multimediadateien.",
+  "Total practiced": "Insgesamt geübt",
+  "Time remaining": "Verbleibende Zeit",
+  "This lesson": "Diese Unterrichtsstunde",
+  "Added to repertoire": "Zum Repertoire hinzugefügt",
+  "Date not recorded": "Datum nicht erfasst",
+  "Actions": "Aktionen"
 }

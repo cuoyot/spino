@@ -1,0 +1,77 @@
+{
+  "surface": "Responsive browser; synthetic notebook; not native acceptance",
+  "measurements": [
+    {
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "overlap": false
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "overflow": false,
+      "overlap": false
+    }
+  ],
+  "runtimeErrors": [],
+  "retention": "Sessions, active practice and works unchanged; event ID and milestone retained"
+}
