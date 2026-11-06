@@ -1,0 +1,92 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.158.0)
+───────────────────────────────────────────────
+Created:     2026-10-25T13:46:04.911Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Website stable 6.1.5 (106); reviewed commit 50b0e37acab4264fa19a55eabc4aa31bf645a3fb
+Version(s):  (100%) 09db3fea-0393-44cc-8910-3439628581dd
+                 Created:  2026-10-25T13:46:03.654Z
+                     Tag:  -
+                 Message:  Website stable 6.1.5 (106); reviewed commit 50b0e37acab4264fa19a55eabc4aa31bf645a3fb
+
+Created:     2026-10-25T21:41:48.865Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Website beta 6.1.6-beta.1 (107); reviewed commit b1098f8619b39b8c050e4b69c47feda16ea7b2cd
+Version(s):  (100%) 1f80b21f-45d2-4bc5-bf19-857c77910109
+                 Created:  2026-10-25T21:41:47.642Z
+                     Tag:  -
+                 Message:  Website beta 6.1.6-beta.1 (107); reviewed commit b1098f8619b39b8c050e4b69c47feda16ea7b2cd
+
+Created:     2026-10-26T10:16:36.728Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Website beta 6.1.6-beta.3 (109); reviewed commit 006fe4fa7e1c00398607378b116bf9ca2167f33b
+Version(s):  (100%) d6836b9e-c436-47aa-bad0-2c662a17b6ff
+                 Created:  2026-10-26T10:16:35.404Z
+                     Tag:  -
+                 Message:  Website beta 6.1.6-beta.3 (109); reviewed commit 006fe4fa7e1c00398607378b116bf9ca2167f33b
+
+Created:     2026-10-26T12:02:57.624Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Website beta 6.1.6-beta.4 (110); reviewed commit 46520aad600406ac076990606a833d9eb1a443be
+Version(s):  (100%) b243b474-b23d-49ed-b626-c1ed56f75052
+                 Created:  2026-10-26T12:02:56.441Z
+                     Tag:  -
+                 Message:  Website beta 6.1.6-beta.4 (110); reviewed commit 46520aad600406ac076990606a833d9eb1a443be
+
+Created:     2026-10-26T13:37:30.421Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Website beta 6.1.6-beta.5 (111); reviewed commit 41d3509dbb95b201b586b18a6f4b108bc9200ac0
+Version(s):  (100%) a18e1a97-a8fd-42e7-bf3e-7b1e45e25fe9
+                 Created:  2026-10-26T13:37:29.128Z
+                     Tag:  -
+                 Message:  Website beta 6.1.6-beta.5 (111); reviewed commit 41d3509dbb95b201b586b18a6f4b108bc9200ac0
+
+Created:     2026-10-26T14:24:01.030Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Stable 6.2.0 (112); reviewed commit c75ad663427723a16f838f69bec383f606158a66
+Version(s):  (100%) 0cb32087-7fe7-45c5-a4b3-675e3d4ab5ec
+                 Created:  2026-10-26T14:23:59.766Z
+                     Tag:  -
+                 Message:  Stable 6.2.0 (112); reviewed commit c75ad663427723a16f838f69bec383f606158a66
+
+Created:     2026-11-05T13:50:28.789Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Beta 6.2.1-beta.1 (113); reviewed commit b37f2a38c210b13877667adb168eec0580c81714
+Version(s):  (100%) d3b915a0-a57c-49a2-ae24-cc033f02c1c7
+                 Created:  2026-11-05T13:50:27.429Z
+                     Tag:  -
+                 Message:  Beta 6.2.1-beta.1 (113); reviewed commit b37f2a38c210b13877667adb168eec0580c81714
+
+Created:     2026-11-05T15:33:04.468Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Beta 6.2.1-beta.2 (114); reviewed commit a08221d9e63c3c1a6c3d51b9ed1353c291d7ff4c
+Version(s):  (100%) 7789772a-a218-4aa4-b6cd-660be13c0b6b
+                 Created:  2026-11-05T15:33:03.142Z
+                     Tag:  -
+                 Message:  Beta 6.2.1-beta.2 (114); reviewed commit a08221d9e63c3c1a6c3d51b9ed1353c291d7ff4c
+
+Created:     2026-11-06T06:51:45.778Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Beta 6.2.1-beta.3 (115); reviewed commit 2c2ce40be5dd6e8d1b36674c7abccd9b3119b54a
+Version(s):  (100%) 35f941e5-4f73-43e5-b693-cdb171c7958d
+                 Created:  2026-11-06T06:51:44.417Z
+                     Tag:  -
+                 Message:  Beta 6.2.1-beta.3 (115); reviewed commit 2c2ce40be5dd6e8d1b36674c7abccd9b3119b54a
+
+Created:     2026-11-06T07:59:44.931Z
+Author:      cuoyot@gmail.com
+Source:      Unknown (deployment)
+Message:     Beta 6.2.1-beta.4 (116); reviewed commit e7e1af92f6b3190461716d2d72f89c8187949556
+Version(s):  (100%) 9efa2998-40d4-447c-b439-17417ff659d5
+                 Created:  2026-11-06T07:59:43.751Z
+                     Tag:  -
+                 Message:  Beta 6.2.1-beta.4 (116); reviewed commit e7e1af92f6b3190461716d2d72f89c8187949556

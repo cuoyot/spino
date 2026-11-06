@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-06T08:15:58.029501+00:00",
+  "version": "6.2.1-beta.4",
+  "versionCode": 116,
+  "commit": "e7e1af92f6b3190461716d2d72f89c8187949556",
+  "wrangler": "4.151.3",
+  "exitCode": 0,
+  "versionId": "9efa2998-40d4-447c-b439-17417ff659d5",
+  "log": "docs/releases/6.2.1-beta.4-wrangler-deploy.log",
+  "logSHA256": "66310eaae054ec0e61347d5b4b49697450c4fd5ee3c489ad138e450b71fef3a2",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "automaticCheck": "Exact-commit automatic Workers Build e4d84db6-5129-46c4-9bac-86cb46959979 completed with failure before direct deployment; no concurrent publication was overwritten.",
+  "exportVerification": {
+    "commit": "e7e1af92f6b3190461716d2d72f89c8187949556",
+    "siteTree": "5e5fb736055a097850bf1705f7501704e5e94b48",
+    "filesVerifiedAgainstGitBlobs": 671,
+    "bytesVerified": 8102711398,
+    "export": "APFS clone of site; every file hash verified against exact committed Git blob. Worker inputs/release docs exported with git archive.",
+    "snapshot": "/Users/migue/.codex/worktrees/detail-cleanup/export-beta116"
+  }
+}
