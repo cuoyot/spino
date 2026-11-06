@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-06T06:52:14.358066+00:00",
+  "version": "6.2.1-beta.3",
+  "versionCode": 115,
+  "commit": "2c2ce40be5dd6e8d1b36674c7abccd9b3119b54a",
+  "wrangler": "4.151.3",
+  "exitCode": 0,
+  "versionId": "35f941e5-4f73-43e5-b693-cdb171c7958d",
+  "log": "docs/releases/6.2.1-beta.3-wrangler-deploy.log",
+  "logSHA256": "22e655aeb304209daf2b2ff3f6315d0c04decb8360ef3c0f1f454e3302edcb43",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "automaticCheck": "GitHub returned no check runs for this exact commit before upload; Cloudflare was still serving beta114. No newer publication existed.",
+  "exportVerification": {
+    "commit": "2c2ce40be5dd6e8d1b36674c7abccd9b3119b54a",
+    "siteTree": "9ab7440f775913fdf8d16af1203278647044cb37",
+    "filesVerifiedAgainstGitBlobs": 657,
+    "bytesVerified": 7897582031,
+    "export": "APFS clone of site; every file hash verified against exact committed Git blob. Worker inputs/release docs exported with git archive.",
+    "snapshot": "/Users/migue/.codex/worktrees/detail-cleanup/export-beta115"
+  }
+}

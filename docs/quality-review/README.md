@@ -33,7 +33,7 @@
 
 # Release quality review
 
-2026-11-06 accepted detail cleanup is being packaged as beta 6.2.1-beta.3 (115) from an isolated checkout based on published beta114. Event titles/date/countdown/Close and work thumbnail/date/totals/single Actions menu follow the owner-reviewed browser layout. Notebook, annotations and unrelated source changes are retained. Native installation and publication evidence follow in the release validation/publication records.
+2026-11-06 accepted detail cleanup is published as beta 6.2.1-beta.3 (115) from an isolated checkout based on published beta114. Event titles/date/countdown/Close and work thumbnail/date/totals/single Actions menu follow the owner-reviewed browser layout. Notebook, annotations and unrelated source changes are retained. Native replacement installation, 42 retained original IndexedDB files and foreground are verified. Cloudflare version 35f941e5-4f73-43e5-b693-cdb171c7958d and exact public pages/downloads are verified in the release validation/publication records.
 
 2026-10-24 current focus: replace the rejected beta.3 storage menu with a direct guided setup. The owner approved the implemented guided layout. Source and browser checks pass; packaged in beta.4 (103). [Guided backup evidence](captures/profile/2026-10-24-guided-backups/README.md).
 
