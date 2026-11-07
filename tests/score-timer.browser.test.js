@@ -22,7 +22,7 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
   assert.deepEqual(samples,[1,2,3,4],'Score seconds repaint on the next frame without waiting for a polling interval.');
  };
  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);await disableWarmup(evaluate);
- await action('piano');await action('repertoire');await action('new-work');
+ await action('piano');await action('repertoire');await action('add-work'); await action('new-work');
  await evaluate(`(()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Timer synthetic.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=dt.files;input.dispatchEvent(new Event('change'));})()`);
  await wait(`document.querySelector('[name=score]').validity.valid`);await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('[data-action=practice-work]')`);
  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);

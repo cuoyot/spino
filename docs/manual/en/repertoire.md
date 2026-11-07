@@ -33,3 +33,7 @@ In the current web review after beta115, **Close** stays visible in the PDF’s 
 
 
 2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.
+
+## Add a work
+
+Choose **Add work** in your repertoire. **Enter work details** opens the existing work form, including its optional score attachment. **Import PDF** opens the existing PDF picker and then the same editable work form. Cancelling creates no work. The existing metadata suggestions, original score bytes, annotations, save validation and editing flow are retained. This unified entry is available in the 7 November 2026 browser review; APK/publication and owner visual acceptance remain separate.

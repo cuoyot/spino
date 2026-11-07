@@ -1,3 +1,4 @@
+import { icon } from './icons.js';
 import { scoreIcon } from './score-controls.js';
 import { savedSessionCardMarkup } from './saved-session-card.js';
 import { progressMetrics } from './progress-metrics.js';
@@ -13,6 +14,12 @@ const button = (action, label, id = '', css = '') => `<button type="button" data
 const minutes = ms => Math.round(ms / 60000);
 const dateLabel = (date, options = { day: 'numeric', month: 'short' }) => new Intl.DateTimeFormat(getAppLanguage(), options).format(new Date(date + 'T12:00:00'));
 export const weekLabel = start => `${dateLabel(start)} – ${dateLabel(addDays(start, 6))}`;
+
+const weekNumber = date => {
+  const d = new Date(date + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  return Math.ceil((((d - new Date(Date.UTC(d.getUTCFullYear(), 0, 1))) / 86400000) + 1) / 7);
+};
 
 // A completed plan and its result occupy one card on their shared date. A moved
 // plan never hides the session on the date when it was actually practised.
@@ -31,10 +38,10 @@ export function todayPractice(data, today = localDate()) {
   const next = entries.find(e => e.kind === 'plan' && e.plan.status === 'planned' && !e.session)?.plan;
   return { active: data.active, next, entries };
 }
-export function agendaCard(entry, { detailed = false, movable = false, works = [], sessionOptions = {} } = {}) {
+export function agendaCard(entry, { detailed = false, movable = false, works = [], sessionOptions = {}, compact = false } = {}) {
   const s = entry.session, p = entry.plan, event = entry.event;
   const plannedMinutes = p?.blocks.reduce((n, b) => n + b.minutes, 0);
-  if (s) return savedSessionCardMarkup(s, works, { ...sessionOptions, entryId: entry.id, time: entry.time, plannedMinutes: p ? plannedMinutes : null, notes: detailed });
+  if (s) return savedSessionCardMarkup(s, works, { ...sessionOptions, compact, entryId: entry.id, time: entry.time, plannedMinutes: p ? plannedMinutes : null, notes: detailed });
   const type = event ? 'event' : p.blocks[0]?.type || 'free';
   const state = event ? (entry.lessonCompleted?ui('Completed lesson','Clase completada'):eventTypeLabel(event.type)) : p.status === 'partial' ? ui("Partial", "Parcial") : p.status === 'completed' ? ui("Completed", "Realizada") : ui("Planned", "Prevista");
   const title = event?.title || p.title;
@@ -42,12 +49,20 @@ export function agendaCard(entry, { detailed = false, movable = false, works = [
   const id = event?.id || p.id;
   const detail = event ? event.place || ui("Event", "Evento") : `${ACTIVITIES[type]} · ${CONTEXTS[p.context]}`;
   const timing = event ? ui("Preparation and repertoire", "Preparación y repertorio") : `${plannedMinutes} min · ${p.blocks.length} ${p.blocks.length === 1 ? ui("block", "bloque") : ui("blocks", "bloques")}`;
-  return `<article class="cp-agenda-card" data-activity="${type}" data-entry-id="${esc(entry.id)}">
+  if (compact) {
+    const symbol = event ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5zM6 11v7q6 4 12 0v-7M22 9v8"/></svg>' : icon(type);
+    const duration = event ? '' : `${plannedMinutes} min`;
+    return `<article class="cp-agenda-card cp-agenda-card-compact" data-activity="${type}" data-entry-id="${esc(entry.id)}">
+      <button type="button" class="cp-entry-open" data-action="${action}" data-id="${esc(id)}"><span class="cp-compact-icon">${symbol}</span><span class="cp-compact-copy"><strong>${esc(title)}</strong><small>${esc([entry.time, duration, state].filter(Boolean).join(' · '))}</small></span>${entry.lessonCompleted ? `<span class="cp-compact-status" aria-label="${esc(state)}">✓</span>` : ''}</button>
+      ${movable && p?.status === 'planned' ? `<button type="button" class="cp-plan-grip" data-move-plan="${esc(p.id)}" aria-label="${ui('Move practice: drag to a day, or use left and right arrow keys','Mover práctica: arrastra a un día o usa las flechas izquierda y derecha')}">⠿</button>` : ''}
+    </article>`;
+  }
+  return `<article class="cp-agenda-card${compact ? ' cp-agenda-card-compact' : ''}" data-activity="${type}" data-entry-id="${esc(entry.id)}">
     <button type="button" class="cp-entry-open" data-action="${action}" data-id="${esc(id)}">
       <span class="cp-row cp-entry-state"><span>${entry.time ? esc(entry.time) + ' · ' : ''}${esc(state)}</span></span>
       <strong>${esc(title)}</strong><span class="muted">${esc(detail)}</span><span>${esc(timing)}</span>
     </button>
-    ${p?.status === 'planned' ? `<div class="cp-entry-actions">${button('start-plan', ui("Start", "Empezar"), p.id, 'primary')}${button('edit-plan', ui("Edit practice", "Editar práctica"), p.id, 'quiet')}${movable ? `<button type="button" class="cp-plan-grip" data-move-plan="${esc(p.id)}" aria-label="${ui("Move practice: drag to a day, or use left and right arrow keys", "Mover práctica: arrastra a un día o usa las flechas izquierda y derecha")}" title="${ui("Drag to another day", "Arrastrar a otro día")}">⠿</button>` : ''}</div>` : ''}
+    ${p?.status === 'planned' ? `<div class="cp-entry-actions">${button('start-plan', ui("Start", "Empezar"), p.id, 'primary')}${button('edit-plan', compact ? ui('Edit','Editar') : ui("Edit practice", "Editar práctica"), p.id, 'quiet')}${movable ? `<button type="button" class="cp-plan-grip" data-move-plan="${esc(p.id)}" aria-label="${ui("Move practice: drag to a day, or use left and right arrow keys", "Mover práctica: arrastra a un día o usa las flechas izquierda y derecha")}" title="${ui("Drag to another day", "Arrastrar a otro día")}">⠿</button>` : ''}</div>` : ''}
   </article>`;
 }
 export function calendarSessionsMarkup(entries, works = [], sessionOptions = {}) {
@@ -62,10 +77,10 @@ export function weekAgendaMarkup(data, selected, sessionOptions = {}, weekCount 
     const stats = summary(data.sessions.filter(s => s.date >= week && s.date <= dates[6]));
     const planned = data.plans.filter(p => p.date >= week && p.date <= dates[6]).reduce((total, p) => total + p.blocks.reduce((n,b) => n+b.minutes, 0), 0);
     return `<section class="cp-agenda-week ${week === current ? 'current-week' : ''}" data-week-start="${week}">
-      <div class="cp-agenda-week-title"><div class="cp-row">${i === 0 ? `<div class="cp-week-date-navigation"><button type="button" class="quiet" data-action="calendar-prev" aria-label="${ui("Previous week", "Semana anterior")}">‹</button><h2><button type="button" class="quiet" data-action="today" aria-label="${ui("This week", "Esta semana")}" title="${ui("This week", "Esta semana")}">${weekLabel(week)}</button></h2><button type="button" class="quiet" data-action="calendar-next" aria-label="${ui("Next week", "Semana siguiente")}">›</button></div>` : `<h2>${weekLabel(week)}</h2>${week === current ? `<span class="cp-tag">${ui("This week", "Esta semana")}</span>` : ""}`}</div><p class="muted"><b>${stats.minutes} min</b> ${ui('practised', 'practicados')} · ${planned} ${ui('min planned', 'min previstos')}</p></div>
+      <div class="cp-agenda-week-title"><div class="cp-week-heading"><h2>${weekLabel(week)}</h2><span class="cp-week-badge">${ui('Week','Semana')} ${weekNumber(week)}${week === current ? ` · ${ui('Current','Actual')}` : ''}</span></div><p class="muted"><b>${stats.minutes} min</b> ${ui('practised', 'practicados')} · ${planned} ${ui('min planned', 'min previstos')}</p></div>
       ${dates.map(date => { const entries=agendaEntries(data,date);return `<div class="cp-agenda-day ${date === selected ? 'selected-day' : ''}" data-agenda-date="${date}">
         <time datetime="${date}" ${date === localDate() ? 'aria-current="date"' : ''}><span>${dateLabel(date,{weekday:'short'})}</span><b>${+date.slice(8)}</b></time>
-        <div class="cp-day-content">${entries.filter(e=>!e.session).map(e=>agendaCard(e,{movable:true})).join('')}${!entries.length ? `<span class="cp-unplanned">${ui("No practice planned", "Sin práctica prevista")}</span>` : ''}<div class="cp-day-sessions">${calendarSessionsMarkup(entries, data.works, sessionOptions)}<button type="button" data-action="add-on-day" data-id="${date}" class="cp-add-day quiet" aria-label="${ui('Add to', 'Añadir al')} ${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}">${ui("+ Add", "+ Añadir")}</button></div></div>
+        <div class="cp-day-content">${entries.length ? `<div class="cp-day-strip" tabindex="0" role="group" aria-label="${ui('Practices and events · scroll horizontally', 'Prácticas y eventos · desliza horizontalmente')}">${entries.map(e=>agendaCard(e,{movable:true,works:data.works,sessionOptions,compact:true})).join('')}</div>` : `<span class="cp-unplanned">${ui("No practice planned", "Sin práctica prevista")}</span>`}<button type="button" data-action="add-on-day" data-id="${date}" class="cp-add-day quiet ${entries.length ? 'has-entries' : ''}" aria-label="${ui('Add to', 'Añadir al')} ${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}">${entries.length ? '+' : ui('+ Add','+ Añadir')}</button></div>
       </div>`; }).join('')}</section>`;
   }).join('')}</div>`;
 }

@@ -1,0 +1,572 @@
+{
+  "data": {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 0,
+      "notificationsEnabled": false,
+      "practiceSuggestions": false,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [
+      {
+        "composer": "Review fixture",
+        "stage": "En estudio",
+        "notes": "",
+        "passage": "",
+        "target": null,
+        "bpm": 60,
+        "id": "history-prelude",
+        "title": "Prélude en do majeur",
+        "assetId": "history-pdf"
+      },
+      {
+        "composer": "Review fixture",
+        "stage": "En estudio",
+        "notes": "",
+        "passage": "",
+        "target": null,
+        "bpm": 60,
+        "id": "history-etude",
+        "title": "Étude mélodique",
+        "assetId": "history-mxl",
+        "onStand": false
+      },
+      {
+        "composer": "",
+        "stage": "En estudio",
+        "notes": "",
+        "passage": "",
+        "target": null,
+        "bpm": 60,
+        "id": "history-missing",
+        "title": "A long synthetic title with <tags> & several movements",
+        "assetId": "missing-score",
+        "trashedAt": "2026-10-15T12:00:00Z"
+      },
+      {
+        "composer": "Clara Schumann",
+        "stage": "En estudio",
+        "notes": "",
+        "passage": "",
+        "target": null,
+        "bpm": 60,
+        "id": "collection",
+        "title": "Nocturne",
+        "assetId": null,
+        "onStand": false
+      }
+    ],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [
+      {
+        "id": "compact-plan-0",
+        "title": "Lectura y coordinación de manos",
+        "date": "2026-11-02",
+        "time": "18:00",
+        "context": "piano",
+        "blocks": [
+          {
+            "id": "8bbafd0b-c21b-4e13-81b7-c2eddd4a6331",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "status": "planned",
+        "reminder": false
+      },
+      {
+        "id": "compact-plan-1",
+        "title": "Práctica prevista 1",
+        "date": "2026-11-02",
+        "time": "18:00",
+        "context": "piano",
+        "blocks": [
+          {
+            "id": "609b6727-59bf-4e48-aa22-fef579b2121e",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "status": "planned",
+        "reminder": false
+      },
+      {
+        "id": "compact-plan-2",
+        "title": "Práctica prevista 2",
+        "date": "2026-11-02",
+        "time": "18:00",
+        "context": "piano",
+        "blocks": [
+          {
+            "id": "199a921d-43e7-4584-bb72-0a7662594d35",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "status": "planned",
+        "reminder": false
+      },
+      {
+        "id": "reference-repertoire",
+        "title": "Repertorio",
+        "date": "2026-11-05",
+        "time": "",
+        "context": "piano",
+        "blocks": [
+          {
+            "id": "74a56d1c-67b3-4ff6-a3dc-2d020b45583e",
+            "type": "repertoire",
+            "minutes": 20,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-prelude"
+          }
+        ],
+        "status": "planned",
+        "reminder": false
+      },
+      {
+        "id": "reference-warmup",
+        "title": "Calentamiento",
+        "date": "2026-11-05",
+        "time": "",
+        "context": "piano",
+        "blocks": [
+          {
+            "id": "5c2c54d8-f480-4622-bfa0-26c0c3f232cc",
+            "type": "warmup",
+            "minutes": 10,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "hanon-1",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "status": "planned",
+        "reminder": false
+      }
+    ],
+    "events": [
+      {
+        "id": "reference-lesson",
+        "title": "Clase de piano",
+        "type": "Clase",
+        "date": "2026-11-03",
+        "time": "15:30",
+        "place": "",
+        "notes": "",
+        "workIds": [],
+        "milestones": [],
+        "reminder": false
+      }
+    ],
+    "sessions": [
+      {
+        "id": "history-session-0",
+        "title": "Práctica de piano",
+        "context": "piano",
+        "planId": null,
+        "blocks": [
+          {
+            "id": "history-block-0-0",
+            "type": "free",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "blockIndex": 1,
+        "results": [
+          {
+            "block": {
+              "id": "history-block-0-0",
+              "type": "free",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": ""
+            },
+            "context": "piano",
+            "elapsedMs": 1200000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-11-07T11:00:00.000Z",
+        "date": "2026-11-02",
+        "elapsedMs": 1200000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1794050400000,
+        "notes": "",
+        "next": "",
+        "mood": 4,
+        "workIds": [],
+        "endedAt": "2026-11-07T11:20:00.000Z",
+        "status": "completed",
+        "manual": true
+      },
+      {
+        "id": "history-session-1",
+        "title": "Repertorio",
+        "context": "midi",
+        "planId": null,
+        "blocks": [
+          {
+            "id": "history-block-1-0",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-prelude"
+          }
+        ],
+        "blockIndex": 1,
+        "results": [
+          {
+            "block": {
+              "id": "history-block-1-0",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "history-prelude"
+            },
+            "context": "midi",
+            "elapsedMs": 2640000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-11-06T11:00:00.000Z",
+        "date": "2026-11-02",
+        "elapsedMs": 2640000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1793965440000,
+        "notes": "",
+        "next": "",
+        "mood": 5,
+        "workIds": [
+          "history-prelude"
+        ],
+        "endedAt": "2026-11-06T11:44:00.000Z",
+        "status": "completed",
+        "manual": false
+      },
+      {
+        "id": "history-session-2",
+        "title": "Lectura y repertorio",
+        "context": "midi",
+        "planId": null,
+        "blocks": [
+          {
+            "id": "history-block-2-0",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          {
+            "id": "history-block-2-1",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-etude"
+          }
+        ],
+        "blockIndex": 2,
+        "results": [
+          {
+            "block": {
+              "id": "history-block-2-0",
+              "type": "reading",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": ""
+            },
+            "context": "midi",
+            "elapsedMs": 270000,
+            "measurement": null,
+            "material": null
+          },
+          {
+            "block": {
+              "id": "history-block-2-1",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "history-etude"
+            },
+            "context": "midi",
+            "elapsedMs": 270000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-11-05T11:00:00.000Z",
+        "date": "2026-11-02",
+        "elapsedMs": 540000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1793876940000,
+        "notes": "",
+        "next": "",
+        "mood": null,
+        "workIds": [
+          "history-etude"
+        ],
+        "endedAt": "2026-11-05T11:09:00.000Z",
+        "status": "completed",
+        "manual": false
+      },
+      {
+        "id": "history-session-3",
+        "title": "Técnica y lectura",
+        "context": "midi",
+        "planId": null,
+        "blocks": [
+          {
+            "id": "history-block-3-0",
+            "type": "technique",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          {
+            "id": "history-block-3-1",
+            "type": "reading",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          }
+        ],
+        "blockIndex": 2,
+        "results": [
+          {
+            "block": {
+              "id": "history-block-3-0",
+              "type": "technique",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": ""
+            },
+            "context": "midi",
+            "elapsedMs": 2700000,
+            "measurement": null,
+            "material": null
+          },
+          {
+            "block": {
+              "id": "history-block-3-1",
+              "type": "reading",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": ""
+            },
+            "context": "midi",
+            "elapsedMs": 2700000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-11-04T11:00:00.000Z",
+        "date": "2026-11-02",
+        "elapsedMs": 5400000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1793795400000,
+        "notes": "",
+        "next": "",
+        "mood": 2,
+        "workIds": [],
+        "endedAt": "2026-11-04T12:30:00.000Z",
+        "status": "partial",
+        "manual": false
+      },
+      {
+        "id": "history-session-4",
+        "title": "Repaso de una obra archivada",
+        "context": "midi",
+        "planId": null,
+        "blocks": [
+          {
+            "id": "history-block-4-0",
+            "type": "repertoire",
+            "minutes": 5,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": "history-missing"
+          }
+        ],
+        "blockIndex": 1,
+        "results": [
+          {
+            "block": {
+              "id": "history-block-4-0",
+              "type": "repertoire",
+              "minutes": 5,
+              "bpm": 60,
+              "timing": "timed",
+              "target": "C-major",
+              "hand": "right",
+              "input": "piano",
+              "figures": "1",
+              "passage": "",
+              "workId": "history-missing"
+            },
+            "context": "midi",
+            "elapsedMs": 720000,
+            "measurement": null,
+            "material": null
+          }
+        ],
+        "startedAt": "2026-11-03T11:00:00.000Z",
+        "date": "2026-11-02",
+        "elapsedMs": 720000,
+        "blockElapsedMs": 0,
+        "runningSince": null,
+        "updatedAt": 1793704320000,
+        "notes": "",
+        "next": "",
+        "mood": 1,
+        "workIds": [
+          "history-missing"
+        ],
+        "endedAt": "2026-11-03T11:12:00.000Z",
+        "status": "completed",
+        "manual": false
+      }
+    ],
+    "active": null,
+    "lastBackup": null
+  },
+  "assets": [
+    {
+      "id": "history-pdf",
+      "name": "Synthetic score.pdf",
+      "type": "application/pdf",
+      "base64": "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9Db3VudCAyIC9LaWRzIFszIDAgUiA0IDAgUl0gPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvQ29udGVudHMgNiAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUm90YXRlIDkwIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDUgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL0xlbmd0aCAxMDQ0ID4+CnN0cmVhbQpCVCAvRjEgMjQgVGYgNjAgNzMwIFRkIChTUGlubyAtIFBhZ2Ugb25lKSBUaiBFVAo2MCA2NjUgbSA1MzUgNjY1IGwgUwo2MCA2NTcgbSA1MzUgNjU3IGwgUwo2MCA2NDkgbSA1MzUgNjQ5IGwgUwo2MCA2NDEgbSA1MzUgNjQxIGwgUwo2MCA2MzMgbSA1MzUgNjMzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNjQ3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgNTc1IG0gNTM1IDU3NSBsIFMKNjAgNTY3IG0gNTM1IDU2NyBsIFMKNjAgNTU5IG0gNTM1IDU1OSBsIFMKNjAgNTUxIG0gNTM1IDU1MSBsIFMKNjAgNTQzIG0gNTM1IDU0MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDU1NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDQ4NSBtIDUzNSA0ODUgbCBTCjYwIDQ3NyBtIDUzNSA0NzcgbCBTCjYwIDQ2OSBtIDUzNSA0NjkgbCBTCjYwIDQ2MSBtIDUzNSA0NjEgbCBTCjYwIDQ1MyBtIDUzNSA0NTMgbCBTCkJUIC9GMSAxNiBUZiA5NSA0NjcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAzOTUgbSA1MzUgMzk1IGwgUwo2MCAzODcgbSA1MzUgMzg3IGwgUwo2MCAzNzkgbSA1MzUgMzc5IGwgUwo2MCAzNzEgbSA1MzUgMzcxIGwgUwo2MCAzNjMgbSA1MzUgMzYzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMzc3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzA1IG0gNTM1IDMwNSBsIFMKNjAgMjk3IG0gNTM1IDI5NyBsIFMKNjAgMjg5IG0gNTM1IDI4OSBsIFMKNjAgMjgxIG0gNTM1IDI4MSBsIFMKNjAgMjczIG0gNTM1IDI3MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDI4NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDIxNSBtIDUzNSAyMTUgbCBTCjYwIDIwNyBtIDUzNSAyMDcgbCBTCjYwIDE5OSBtIDUzNSAxOTkgbCBTCjYwIDE5MSBtIDUzNSAxOTEgbCBTCjYwIDE4MyBtIDUzNSAxODMgbCBTCkJUIC9GMSAxNiBUZiA5NSAxOTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAoKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8IC9MZW5ndGggMTA0NCA+PgpzdHJlYW0KQlQgL0YxIDI0IFRmIDYwIDczMCBUZCAoU1Bpbm8gLSBQYWdlIHR3bykgVGogRVQKNjAgNjY1IG0gNTM1IDY2NSBsIFMKNjAgNjU3IG0gNTM1IDY1NyBsIFMKNjAgNjQ5IG0gNTM1IDY0OSBsIFMKNjAgNjQxIG0gNTM1IDY0MSBsIFMKNjAgNjMzIG0gNTM1IDYzMyBsIFMKQlQgL0YxIDE2IFRmIDk1IDY0NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDU3NSBtIDUzNSA1NzUgbCBTCjYwIDU2NyBtIDUzNSA1NjcgbCBTCjYwIDU1OSBtIDUzNSA1NTkgbCBTCjYwIDU1MSBtIDUzNSA1NTEgbCBTCjYwIDU0MyBtIDUzNSA1NDMgbCBTCkJUIC9GMSAxNiBUZiA5NSA1NTcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCA0ODUgbSA1MzUgNDg1IGwgUwo2MCA0NzcgbSA1MzUgNDc3IGwgUwo2MCA0NjkgbSA1MzUgNDY5IGwgUwo2MCA0NjEgbSA1MzUgNDYxIGwgUwo2MCA0NTMgbSA1MzUgNDUzIGwgUwpCVCAvRjEgMTYgVGYgOTUgNDY3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKNjAgMzk1IG0gNTM1IDM5NSBsIFMKNjAgMzg3IG0gNTM1IDM4NyBsIFMKNjAgMzc5IG0gNTM1IDM3OSBsIFMKNjAgMzcxIG0gNTM1IDM3MSBsIFMKNjAgMzYzIG0gNTM1IDM2MyBsIFMKQlQgL0YxIDE2IFRmIDk1IDM3NyBUZCAobyAgIG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8pIFRqIEVUCjYwIDMwNSBtIDUzNSAzMDUgbCBTCjYwIDI5NyBtIDUzNSAyOTcgbCBTCjYwIDI4OSBtIDUzNSAyODkgbCBTCjYwIDI4MSBtIDUzNSAyODEgbCBTCjYwIDI3MyBtIDUzNSAyNzMgbCBTCkJUIC9GMSAxNiBUZiA5NSAyODcgVGQgKG8gICBvICAgbyAgIG8gICBvICAgbyAgIG8gICBvKSBUaiBFVAo2MCAyMTUgbSA1MzUgMjE1IGwgUwo2MCAyMDcgbSA1MzUgMjA3IGwgUwo2MCAxOTkgbSA1MzUgMTk5IGwgUwo2MCAxOTEgbSA1MzUgMTkxIGwgUwo2MCAxODMgbSA1MzUgMTgzIGwgUwpCVCAvRjEgMTYgVGYgOTUgMTk3IFRkIChvICAgbyAgIG8gICBvICAgbyAgIG8gICBvICAgbykgVGogRVQKCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjQ3IDAwMDAwIG4gCjAwMDAwMDAzODQgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNTUwIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMjY0NgolJUVPRg=="
+    },
+    {
+      "id": "history-mxl",
+      "name": "Synthetic score.mxl",
+      "format": "mxl",
+      "type": "application/vnd.recordare.musicxml",
+      "base64": "UEsDBBQAAAAIAMZkZ11uss/fEgAAABAAAAANAAAAdW5yZWxhdGVkLnhtbLPJyy/RLclI1S1Ozi9K1bcDAFBLAwQUAAAACADGZGdd7oIhN2YAAACPAAAAFgAAAE1FVEEtSU5GL2NvbnRhaW5lci54bWxNjkEOgzAMBL+Ccq0gHwj8xUqMasmxLcdU7e/bXoDbHnY0U6pKAAn6Vlw1dmIc15z2g3k2iOeaRlXHkY1AdOnHoPrunKaOjWCOj+GawIypQpBKfklbHH9MA8fz//gzeSv5JstXwxdQSwMEFAAAAAgAxmRnXY/Z/H15AwAAkhoAABUAAABzY29yZXMvcGlhbm8ubXVzaWN4bWztWdtymzAQ/RWG145DnFvTGVmZ3qdPzUw7eZeFCGoAUUnY8d93hcBGYOzQOGno5MXosrs6u0csKxld3aeJt2BScZHN/OnRsX+FkaJCsklOpF5yxTbTZzCN0VLIO/s70VwnDP9YZTpmmlMv5yQTnmIJoxo0vIjf60IyFDSkbQcjHrJM84hTYkQxopIRLaSnVzmb+VSkuVBM+vgnU3pjqJLCSPLbWCv8HZ48I4mnHbFqFgXtVYxTk4Qr3fTS4+HMvwHXytmMpAzfCE7BzmYABRv5ju61o3ttouDoWnGeKS2LFABZpW+gtRlzdNvDTTkliizEd2w1F0SGR2XMHQ0rUAPeTLR8sABtLJwopIwoiKKXFemcyZlvSCdaSz4vIMoYhXzBzYZQ+AwFmw4CSBhFPNKxwscoqFooKMc1N27Mgb1SzTbK/sQwXo/ZDgqseNBcNhMahnKuaQwR1SzHH8Eh80SCarJg+AIFVQucs3JhIS3zU5hcd9DC0IunKLANVK76u4AoMAmLlxiUJlFkZGwDBRZAUIWnG6cpxOnFgzwZA8jTMYA8GwPI8zGAvBgDyLcvEWSZwxvp23yIuunb42mecMr1zF8x1ZvNDbzt2RwQ1Nk8FSHDKfklAGTZfkx+B7cWgOGkdNC0EE1Y5CRUxW8z/BUEzBMlPGNGvHxCNQDSLR2T30rZL44OLO/oDPyygHovrYdidU7oXQFLbjcc1NP7wZ4OAwvh3AvWMvSIr6Bho8RIEjBunLeNhwT4xJQZa9Cas6pGBERS+0FP0JexSKCC2x5yAFiaA/LBXtg2aJys5/vYcVHtoOfTAHpco0/DDzk4Qc6mavIj8l569rwTfQRZi1v46XpkksYTv8OdsHdRvB+AAsztQcHMuSauQZgkOoEk3DjfEKoLkkwMDmV2mtMHeDJd92A1p2+TcsveLl6KPGH6Aa9ONygf/q+g9PrZzszn4/azn/wBr+WQmDxPEd8sBZpVz6RR9nSLnNM3EMNOmXP5F8fY9dtgMy4cnR+eet8NjVAoNDBFKC1vRuDihJLCaBO5qqrDjMAdCknM9qmFdtD5+R9USruPOy/yqqJdBOwKE+yhg4TJ/tJYyBAo3/qxPwiamCRRDaVaOhJyCZdTDTNutbSef9yG2lItPcvR9JXNcbK5/Qz/yuY42bx8ZXPEbFZXV42/JMyfTfgPUEsBAhQAFAAAAAgAxmRnXW6yz98SAAAAEAAAAA0AAAAAAAAAAAAAAAAAAAAAAHVucmVsYXRlZC54bWxQSwECFAAUAAAACADGZGdd7oIhN2YAAACPAAAAFgAAAAAAAAAAAAAAAAA9AAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFBLAQIUABQAAAAIAMZkZ12P2fx9eQMAAJIaAAAVAAAAAAAAAAAAAAAAANcAAABzY29yZXMvcGlhbm8ubXVzaWN4bWxQSwUGAAAAAAMAAwDCAAAAgwQAAAAA"
+    }
+  ]
+}

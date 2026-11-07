@@ -31,7 +31,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
   await disableWarmup(evaluate);
-  await action('piano'); await action('repertoire'); await action('new-work');
+  await action('piano'); await action('repertoire'); await action('add-work'); await action('new-work');
   await evaluate(`(()=>{const f=new DataTransfer();f.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Score.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=f.files;input.dispatchEvent(new Event('change'));})()`);
   await wait(`document.querySelector('[name=score]').validity.valid`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`); await wait(`document.querySelector('[data-action=practice-work]')`);

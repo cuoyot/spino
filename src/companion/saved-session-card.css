@@ -50,3 +50,9 @@
   :is(#app-shell,#cp-dialog) .cp-history-mood { min-width: 0; font-size: 10px; }
   :is(#app-shell,#cp-dialog) .cp-history-face { width: 40px; height: 40px; font-size: 32px; }
 }
+
+/* The approved calendar's compact variant stays inside the shared saved-session renderer. */
+#app-shell .cp-day-strip .cp-history-card-compact { border: 1px solid var(--review-edge,var(--theme-line)); border-inline-start: 4px solid var(--surface-accent); border-radius: 10px; background: var(--surface-tint); box-shadow: 0 2px 3px #00000012; }
+#app-shell .cp-history-card-compact .cp-history-open { display: flex; align-items: center; gap: 9px; width: 100%; height: 100%; box-sizing: border-box; padding: 5px 9px; border: 0; border-radius: 10px; }
+#app-shell .cp-history-card-compact .cp-compact-copy { flex: 1; }
+#app-shell .cp-history-card-compact .cp-history-title { font-size: 13px; line-height: 1.3; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; }

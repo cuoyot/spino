@@ -16,7 +16,7 @@ test('work form imports PDF and suggests editable metadata locally, including re
   await send('Network.enable'); await send('Network.setBlockedURLs', { urls: ['https://*', 'http://cdn.*', 'http://*.com/*'] });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
   await evaluate(scannedFixtureScript);
-  await action('piano'); await action('repertoire'); await action('new-work');
+  await action('piano'); await action('repertoire'); await action('add-work'); await action('new-work');
   await t.test('PDF selection is visible without scrolling on small portrait and landscape screens', async () => {
     for (const [width, height] of [[320, 568], [390, 844], [844, 390], [768, 1024], [1180, 820]]) {
       await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true });
@@ -30,7 +30,7 @@ test('work form imports PDF and suggests editable metadata locally, including re
     assert.equal(await field('title'), 'Nocturne'); assert.equal(await field('composer'), 'Clara Schumann');
     assert.equal(await field('bpm'), '88'); assert.equal(await field('tempoMark'), 'q = 88');
     assert.equal((await read('state', 'current')).works.length, 0);
-    await action('close-dialog'); await action('new-work');
+    await action('close-dialog'); await action('add-work'); await action('new-work');
     assert.equal(await field('title'), ''); assert.equal((await read('state', 'current')).works.length, 0);
   });
   await t.test('scanned PDF is recognized by bundled OCR while handwritten form values remain untouched', async () => {
@@ -65,7 +65,7 @@ test('work form imports PDF and suggests editable metadata locally, including re
     assert.deepEqual(await read('assets', state.works[0].assetId), asset);
   });
   await t.test('invalid files block saving; removing the file permits a normal work without PDF', async () => {
-    await action('piano'); await action('repertoire'); await action('new-work'); await choose(`btoa('%PDF-1.4 invalid')`);
+    await action('piano'); await action('repertoire'); await action('add-work'); await action('new-work'); await choose(`btoa('%PDF-1.4 invalid')`);
     await wait(`document.querySelector('#cp-score-status').textContent.includes('No se puede leer')`);
     await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);
     assert.equal((await read('state', 'current')).works.length, 1);
@@ -74,7 +74,7 @@ test('work form imports PDF and suggests editable metadata locally, including re
     assert.equal((await read('state', 'current')).works.length, 2);
   });
   await t.test('switching files discards stale OCR results and cancellation leaves no work', async () => {
-    await action('piano'); await action('repertoire'); await action('new-work'); await choose('window.scannedFixture');
+    await action('piano'); await action('repertoire'); await action('add-work'); await action('new-work'); await choose('window.scannedFixture');
     await wait(`document.querySelector('#cp-dialog [name=score]').validity.valid`);
     await choose(JSON.stringify(headerPDF()));
     await wait(`document.querySelector('#cp-score-status').textContent.startsWith('Sugerencias del PDF:')`);

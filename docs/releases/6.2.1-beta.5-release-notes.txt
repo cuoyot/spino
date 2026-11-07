@@ -1,0 +1,19 @@
+<es-ES>
+Calendario renovado con semanas continuas, prácticas compactas y acceso rápido a Hoy. Biblioteca y Progreso comparten un diseño más coherente y con menos espacios. Añadir obra reúne la entrada manual y la importación PDF. Se conservan el cuaderno, las partituras y el historial.
+</es-ES>
+
+<en-US>
+A refreshed calendar with continuous weeks, compact practices and a quick Today action. Library and Progress share a more consistent, compact design. Add work brings manual entry and PDF import together. Your notebook, scores and history are preserved.
+</en-US>
+
+<ca>
+Calendari renovat amb setmanes contínues, pràctiques compactes i accés ràpid a Avui. Biblioteca i Progrés comparteixen un disseny més coherent i compacte. Afegeix obra reuneix l’entrada manual i la importació PDF. Es conserven el quadern, les partitures i l’historial.
+</ca>
+
+<de-DE>
+Überarbeiteter Kalender mit fortlaufenden Wochen, kompakten Übungen und einer Heute-Taste. Bibliothek und Fortschritt erhalten ein einheitlicheres, kompakteres Design. Werk hinzufügen vereint manuelle Eingabe und PDF-Import. Notizbuch, Noten und Verlauf bleiben erhalten.
+</de-DE>
+
+<hu-HU>
+Megújult naptár folyamatos hetekkel, tömör gyakorláskártyákkal és gyors Ma gombbal. A Könyvtár és a Haladás egységesebb, tömörebb megjelenést kapott. A mű hozzáadása egyesíti a kézi bevitelt és a PDF-importot. A füzet, a kották és az előzmények megmaradnak.
+</hu-HU>

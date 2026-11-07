@@ -1,0 +1,43 @@
+{
+  "apk": {
+    "bytes": 76988838,
+    "sha256": "28057382f82735b9cb05a1ba46adeedcecb3ee86a4c44a88cc990cbd7b048648",
+    "packagedWebFilesMatch": 684
+  },
+  "aab": {
+    "bytes": 64215469,
+    "sha256": "881cbdfe9accac805d980affa063bf9c2bbd8259fd7bdec069e077d20c98ac34",
+    "packagedWebFilesMatch": 684
+  },
+  "androidTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "version": "6.2.1-beta.5",
+  "versionCode": 117,
+  "baseCommit": "e7e1af92f6b3190461716d2d72f89c8187949556",
+  "scope": "Owner-requested beta APK and website; no Play submission",
+  "nativeEvidence": {
+    "version": "6.2.1-beta.5",
+    "build": 117,
+    "applicationId": "com.miguecoll.spino.beta",
+    "replacementInstall": "Success",
+    "applicationStorageCleared": false,
+    "retainedFiles": 135,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "foreground": "com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity",
+    "physicalDeviceAcceptance": false
+  },
+  "signedAABVerified": true,
+  "betaCertificateAcceptedAsUpdate": true,
+  "browserTests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "modelTests": {
+    "passed": 47,
+    "failed": 0
+  }
+}

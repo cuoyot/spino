@@ -1,0 +1,83 @@
+{
+  "kind": "responsive-browser-synthetic",
+  "version": "6.2.1-beta.5",
+  "nativeAcceptance": false,
+  "frames": [
+    {
+      "language": "es",
+      "path": "es/phone/03-repertoire.png",
+      "sha256": "0313f8d3e024198371c4ad2468995f2a985e4bb5216c1dc8adeb8500ace12e52"
+    },
+    {
+      "language": "es",
+      "path": "es/phone/06-progress.png",
+      "sha256": "bd5bb427c7611233eacb7cdef0bd73322260cd226f9760247ac2924d40f17c72"
+    },
+    {
+      "language": "es",
+      "path": "es/phone/09-calendar.png",
+      "sha256": "b3d8dc14c761b63f0bdefae2913b7522ff8de2d62e7736f628147690745be3c0"
+    },
+    {
+      "language": "en",
+      "path": "en/phone/03-repertoire.png",
+      "sha256": "549a6121aac1ec6c69283f0895ea3452b6bcf8f72076a33794a9e165c10883d4"
+    },
+    {
+      "language": "en",
+      "path": "en/phone/06-progress.png",
+      "sha256": "20dbbd3dfff83133d32d98bd9dc42aed9a82c661abe094e7760719b72783c35d"
+    },
+    {
+      "language": "en",
+      "path": "en/phone/09-calendar.png",
+      "sha256": "366b943e9240cb70d1617f445b60ae2598868352f2ce0e63fb6780c838e3716b"
+    },
+    {
+      "language": "ca",
+      "path": "ca/phone/03-repertoire.png",
+      "sha256": "fcb672fa47ddf1eab0363116dad46db5b91154853781d11458b4a52c3b2cca0f"
+    },
+    {
+      "language": "ca",
+      "path": "ca/phone/06-progress.png",
+      "sha256": "513d443cc7b0aa11052db0d9dae63788cf648b273151d779a5ccfee426e3f42e"
+    },
+    {
+      "language": "ca",
+      "path": "ca/phone/09-calendar.png",
+      "sha256": "5ae6c3203c32173dd58fd0e7bc73c48d7e1d3ca513e83fc34f7f7cd751a5e864"
+    },
+    {
+      "language": "de",
+      "path": "de/phone/03-repertoire.png",
+      "sha256": "884476e5333bc8adc2d26e9ac1acdd835518e72cf73ed34e9c7e480f817d1d58"
+    },
+    {
+      "language": "de",
+      "path": "de/phone/06-progress.png",
+      "sha256": "340772e17d58ef6ab535c0fc7628862db3b2c87cfa83d358754fe89b0b3f5731"
+    },
+    {
+      "language": "de",
+      "path": "de/phone/09-calendar.png",
+      "sha256": "5b6e17ffb4b67229037287bed5973a06228c742ab278e819f3188b34688a754f"
+    },
+    {
+      "language": "hu",
+      "path": "hu/phone/03-repertoire.png",
+      "sha256": "bc38b9e0ba09706fa6a813604eb5752aae80aaa9d34a6b05b543eea9381f0113"
+    },
+    {
+      "language": "hu",
+      "path": "hu/phone/06-progress.png",
+      "sha256": "d1a28c9acf58b00a67e04b2521e4c68672758208448e283dba57fa6d4bf9e954"
+    },
+    {
+      "language": "hu",
+      "path": "hu/phone/09-calendar.png",
+      "sha256": "21856c89b0631570a4237871d8fbbb73212d0626ec14ea2119fe71b4697cb303"
+    }
+  ],
+  "errors": []
+}

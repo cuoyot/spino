@@ -12,7 +12,7 @@ test('Android Back traverses screen history, closes dialogs and preserves catalo
   assert.equal(await back(), false, 'Only the root delegates Back to Android.');
   await action('piano'); const piano = await title();
   await action('repertoire'); const repertoire = await title();
-  await action('new-work'); assert.ok(await evaluate(`document.querySelector('#cp-dialog').open`));
+  await action('add-work'); await action('new-work'); assert.ok(await evaluate(`document.querySelector('#cp-dialog').open`));
   assert.equal(await back(), true); assert.equal(await evaluate(`document.querySelector('#cp-dialog').open`), false);
   assert.equal(await title(), repertoire); assert.equal(await back(), true); assert.equal(await title(), piano);
   await action('catalog'); await wait(`document.querySelector('#library-search')`);

@@ -11,7 +11,7 @@ test('weekly calendar extends continuously without a month heading', {timeout:60
  if(evidence)await mkdir(evidence,{recursive:true});
  for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]) {
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
-  await evaluate(`document.querySelector('[data-action=calendar]').click();document.querySelector('[data-action=today]').click()`);
+  await evaluate(`document.querySelector('[data-action=calendar]').click();document.querySelector('[data-action=calendar-today]').click()`);
   assert.equal(await evaluate(`document.querySelector('.cp-calendar-heading')`),null);
   for(const count of [4,6,8]) {
    await evaluate(`document.querySelector('.cp-page').scrollTop=document.querySelector('.cp-page').scrollHeight`);

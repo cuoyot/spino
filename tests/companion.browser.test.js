@@ -75,7 +75,7 @@ test('piano companion: local planning, practice, history, recovery and responsiv
     const after=await stored();assert.equal(after.sessions.length,2);assert.equal(after.plans[0].sessionId,after.sessions[0].id);assert.equal(after.plans[0].status,'completed');
   });
   await t.test('persists repertoire and events, escaping user-provided titles',async()=>{
-    await action('piano');await action('repertoire');await action('new-work');
+    await action('piano');await action('repertoire');await action('add-work'); await action('new-work');
     await evaluate(`document.querySelector('#cp-dialog [name="title"]').value='<img src=x onerror=alert(1)>';document.querySelector('#cp-dialog form').requestSubmit()`);
     await wait(`document.querySelector('[data-action="practice-work"]')`);
     assert.equal(await evaluate(`document.querySelector('#app-shell img[onerror]')!==null`),false);

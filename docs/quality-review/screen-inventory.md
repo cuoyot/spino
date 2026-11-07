@@ -1,3 +1,5 @@
+2026-11-07: Calendar, Library and Progress are reopened against the owner-supplied calendar mockup. The initial repository-derived visual pass was rejected. All weeks remain expanded; compact horizontal practices, soft week panels and a current-week header are the reference. Library retains its functions behind one Add work entry; Progress receives bounded visual alignment. Today/Practice remain unchanged and Profile is excluded. Source/browser review, owner acceptance pending; no APK or publication. See [review](calendar-library-progress.md).
+
 # Screen review inventory
 
 2026-11-05: PRACTICE-01/02/03/04/05, C-PRACTICE and C-SCORE are reopened for direct block selection, independent clocks and common floating controls across PDF, MusicXML, generated and free practice. The owner supersedes the earlier generated toolbar/sidebar placement. Exit placement, stop-to-menu, copied-Hanon recovery and retained notebook/score state are tracked in session.md and dated session/2026-11-05-flexible-practice runs. Owner/native acceptance is separate.

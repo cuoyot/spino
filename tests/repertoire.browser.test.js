@@ -9,7 +9,7 @@ test('repertoire can be organized, deleted, restored and reloaded without losing
   const wait=exp=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${exp}){clearInterval(timer);resolve(true);}else if(++n>1000){clearInterval(timer);reject(Error('timeout'));}},20);})`);
   const click=action=>evaluate(`document.querySelector('[data-action="${action}"]').click()`);
   await wait(`document.querySelector('#app-shell h1')`);
-  await click('piano');await click('repertoire');await click('new-work');
+  await click('piano');await click('repertoire');await click('add-work'); await click('new-work');
   await evaluate(`document.querySelector('#cp-dialog [name=title]').value='Étude';document.querySelector('#cp-dialog [name=composer]').value='Chopin';document.querySelector('#cp-dialog [name=tags]').value='Lesson, Recital';document.querySelector('#cp-dialog form').requestSubmit()`);
   await wait(`document.querySelector('[data-action=delete-work]')`);
   const addedAt=await evaluate(`document.querySelector('.cp-work-added time').dateTime`);

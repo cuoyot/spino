@@ -1,0 +1,131 @@
+/* Approved calendar reference: soft panels, blue pills and compact horizontal practices.
+   Scope is limited to Calendar, Library and Progress; Profile, Today and Practice retain their styling. */
+#app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) {
+  --review-panel: var(--theme-panel);
+  --review-edge: var(--theme-line);
+  --review-blue: var(--theme-link);
+  --review-blue-tint: var(--theme-tint);
+  --review-shadow: 0 2px 5px #0002, 0 7px 18px #0001;
+}
+:root[data-theme=light] #app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) {
+  --review-panel: #fcfdff;
+  --review-edge: #e0e8f6;
+  --review-blue: #0068f5;
+  --review-blue-tint: #e7f0ff;
+  --review-shadow: 0 2px 3px #253f7010, 0 5px 12px #253f7009;
+  background: #f7f9fd;
+}
+#app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) .cp-choice-group {
+  gap: 0; padding: 0; border-radius: 24px; background: var(--theme-raised); border-color: var(--review-edge); overflow: hidden;
+}
+#app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) .cp-choice-group button { border-radius: 24px; padding: 8px 14px; }
+#app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) .cp-choice-group button:is([aria-pressed=true],[aria-current=page]) { background: var(--theme-accent); }
+:root[data-theme=light] #app-shell .cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia],[data-view=progress],[data-view=progress-time]) .cp-choice-group button:is([aria-pressed=true],[aria-current=page]) { background: #0068ff; }
+
+/* Every week remains expanded; the blue header identifies the current week. */
+#app-shell .cp-browse-surface[data-view=calendar] { padding: 0 10px 32px; overflow-anchor: none; }
+#app-shell .cp-browse-surface[data-view=calendar] .cp-agenda-toolbar { position: sticky; top: 0; z-index: 4; padding: 10px 6px; margin: 0 0 10px; background: var(--theme-bg); }
+:root[data-theme=light] #app-shell .cp-browse-surface[data-view=calendar] .cp-agenda-toolbar { background: #f7f9fd; }
+#app-shell .cp-agenda-toolbar > .primary { background: var(--review-blue-tint); color: var(--review-blue); border: 1px solid var(--review-edge); border-radius: 24px; padding: 8px 14px; box-shadow: var(--review-shadow); font-size: 13px; }
+#app-shell .cp-browse-surface .cp-week-agenda .cp-agenda-week { margin-bottom: 12px; border: 1px solid var(--review-edge); border-radius: 18px; background: var(--review-panel); box-shadow: var(--review-shadow); overflow: hidden; }
+#app-shell .cp-browse-surface .cp-week-agenda .cp-agenda-week.current-week { border-color: color-mix(in srgb,var(--review-blue) 18%,var(--review-edge)); }
+#app-shell .cp-week-agenda .cp-agenda-week-title { padding: 12px 14px 8px; border: 0; background: transparent; }
+#app-shell .cp-browse-surface .cp-week-agenda .current-week .cp-agenda-week-title { background: linear-gradient(100deg,var(--review-panel),var(--review-blue-tint)); }
+#app-shell .cp-week-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; }
+#app-shell .cp-week-heading h2 { margin: 0; font-size: 19px; font-weight: 750; line-height: 1.25; letter-spacing: -.035em; }
+#app-shell .cp-week-badge { padding: 3px 9px; border-radius: 20px; background: var(--theme-raised); color: var(--theme-muted); font-size: 10px; font-weight: 700; white-space: nowrap; }
+#app-shell .current-week .cp-week-badge { background: var(--theme-accent); color: white; }
+:root[data-theme=light] #app-shell .current-week .cp-week-badge { background: #0068ff; }
+#app-shell .cp-week-agenda .cp-agenda-week-title p { font-size: 12px; margin: 4px 0 0; }
+#app-shell .cp-browse-surface .cp-week-agenda .cp-agenda-week-title p b { color: var(--theme-text); }
+#app-shell .cp-browse-surface .cp-week-agenda .current-week .cp-agenda-week-title p b { color: var(--theme-success); }
+#app-shell .cp-week-agenda .cp-agenda-day { display: grid; grid-template-columns: 34px minmax(0,1fr); align-items: center; gap: 8px; min-height: 49px; box-sizing: border-box; margin-inline: 10px; padding: 4px 0; border-top: 1px solid var(--review-edge); }
+#app-shell .cp-browse-surface .cp-week-agenda .cp-agenda-day.selected-day { background: transparent; border-radius: 0; }
+#app-shell .cp-week-agenda .cp-agenda-day > time { gap: 0; }
+#app-shell .cp-week-agenda .cp-agenda-day > time > span { font-size: 10px; line-height: 1.1; }
+#app-shell .cp-week-agenda .cp-agenda-day > time > b { width: 30px; height: 28px; font-size: 19px; line-height: 1; }
+#app-shell .cp-week-agenda .cp-day-content { display: flex; flex-wrap: nowrap; gap: 4px; min-width: 0; }
+#app-shell .cp-day-strip { display: flex; flex: 1; gap: 7px; align-items: stretch; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; scroll-snap-type: x proximity; padding: 3px 2px; min-width: 0; }
+#app-shell .cp-day-strip::-webkit-scrollbar { display: none; }
+#app-shell .cp-day-strip > article { flex: 0 0 min(260px,calc(100% - 22px)); height: 56px; box-sizing: border-box; scroll-snap-align: start; }
+#app-shell .cp-day-strip .cp-agenda-card-compact { position: relative; display: block; flex-wrap: nowrap; overflow: hidden; border-radius: 10px; border: 1px solid var(--review-edge); border-inline-start: 4px solid var(--surface-accent,var(--activity-color)); background: var(--surface-tint,var(--review-panel)); box-shadow: 0 2px 3px #00000012; }
+#app-shell .cp-day-strip .cp-entry-open { display: flex; flex-direction: row; align-items: center; gap: 9px; width: 100%; height: 100%; box-sizing: border-box; padding: 5px 22px 5px 9px; border: 0; background: transparent; }
+#app-shell .cp-day-strip .cp-entry-open strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; font-size: 13px; line-height: 1.3; }
+#app-shell .cp-compact-icon { flex: 0 0 22px; display: grid; place-items: center; color: var(--theme-text); }
+#app-shell .cp-compact-icon svg { width: 22px; height: 22px; }
+#app-shell .cp-compact-copy { display: grid; gap: 1px; min-width: 0; text-align: start; }
+#app-shell .cp-compact-copy small { display: block; font-size: 11px; line-height: 1.25; color: var(--theme-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#app-shell .cp-compact-status { display: grid; place-items: center; flex: 0 0 18px; width: 18px; height: 18px; border-radius: 50%; background: var(--theme-success); color: var(--theme-panel); font-size: 12px; font-weight: 800; }
+#app-shell .cp-compact-status.is-partial { background: transparent; color: var(--theme-muted); font-size: 18px; }
+#app-shell .cp-day-strip .cp-plan-grip { position: absolute; inset: 6px 0 auto auto; width: 22px; min-width: 22px; min-height: 44px; padding: 0; background: transparent; border: 0; color: var(--theme-muted); font-size: 15px; }
+#app-shell .cp-week-agenda .cp-add-day { flex: 0 0 auto; width: auto; min-width: 44px; min-height: 44px; padding: 4px 10px; background: var(--review-panel); border: 1px solid var(--review-edge); color: var(--review-blue); font-size: 12px; border-radius: 22px; white-space: nowrap; }
+#app-shell .cp-week-agenda .cp-add-day.has-entries { width: 28px; min-width: 28px; padding: 0; border: 0; background: transparent; font-size: 20px; }
+#app-shell .cp-week-agenda .cp-unplanned { flex: 1; font-size: 12px; line-height: 1.3; color: var(--theme-muted); }
+#app-shell .cp-calendar-today { position: fixed; z-index: 6; bottom: calc(86px + env(safe-area-inset-bottom)); right: 18px; border: 1px solid var(--review-edge); border-radius: 28px; padding: 10px 18px; background: var(--review-blue-tint); color: var(--review-blue); box-shadow: 0 4px 8px #0003; font-size: 16px; }
+#app-shell .cp-calendar-today span { font-size: 22px; margin-inline-end: 5px; }
+
+/* Library keeps its existing rows, filters and actions inside the same soft panels. */
+#app-shell .cp-browse-surface:is([data-view=piano],[data-view=repertoire],[data-view=catalog],[data-view=multimedia]) > .cp-library-navigation { margin-bottom: 12px; }
+#app-shell .cp-browse-surface:is([data-view=piano],[data-view=repertoire]) .cp-repertoire-heading { flex-direction: row; justify-content: flex-end; padding: 0; margin-bottom: 12px; }
+#app-shell .cp-browse-surface .cp-repertoire-heading button { background: var(--review-blue-tint); color: var(--review-blue); border: 1px solid var(--review-edge); border-radius: 24px; padding: 8px 14px; box-shadow: var(--review-shadow); font-size: 13px; }
+#app-shell .cp-browse-surface .cp-repertoire-section { background: var(--review-panel); border: 1px solid var(--review-edge); border-radius: 18px; padding: 12px; margin-bottom: 14px; box-shadow: var(--review-shadow); }
+#app-shell .cp-browse-surface .cp-repertoire-section h2 { font-size: 16px; border-bottom: 1px solid var(--review-edge); padding-bottom: 8px; margin-bottom: 8px; }
+#app-shell .cp-browse-surface .cp-repertoire-searchbar { gap: 8px; margin-bottom: 8px; }
+#app-shell .cp-browse-surface .cp-repertoire-table .cp-repertoire-open { font-size: 14px; }
+#app-shell .cp-browse-surface .cp-repertoire-table td { padding-block: 6px; border-bottom-color: var(--review-edge); }
+#app-shell .cp-browse-surface .cp-repertoire-table .cp-stand-icon[aria-pressed=true] { background: transparent; }
+#cp-dialog .cp-add-work-options { display: grid; gap: 8px; margin-bottom: 12px; }
+#cp-dialog .cp-add-work-options button { text-align: start; padding: 12px; }
+
+/* Progress uses the calendar's panel hierarchy and quieter secondary actions. */
+#app-shell .cp-browse-surface:is([data-view=progress],[data-view=progress-time]) .cp-progress-page { gap: 12px; }
+#app-shell .cp-progress-page > .cp-section-tabs { margin-bottom: 0; }
+#app-shell .cp-browse-surface .cp-progress-page > .cp-card { padding: 14px; border: 1px solid var(--review-edge); border-radius: 18px; box-shadow: var(--review-shadow); background: var(--review-panel); overflow: hidden; }
+#app-shell .cp-browse-surface .cp-progress-page h2 { font-size: 16px; margin-bottom: 8px; }
+#app-shell .cp-progress-page h3 { font-size: 12px; margin: 10px 0 4px; color: var(--theme-muted); }
+#app-shell .cp-progress-page p { margin-bottom: 8px; font-size: 12px; }
+#app-shell .cp-progress-page > .cp-more-info { margin: 0; }
+#app-shell .cp-progress-page > .cp-card > button,
+#app-shell .cp-progress-page > .cp-card > .cp-row > button { width: auto; background: var(--review-blue-tint); border: 1px solid var(--review-edge); border-radius: 24px; color: var(--review-blue); padding: 6px 12px; font-size: 12px; text-align: start; }
+#app-shell .cp-progress-page .cp-time-summary { margin: -14px -14px 12px; padding: 14px; background: linear-gradient(110deg,var(--review-panel),var(--review-blue-tint)); }
+#app-shell .cp-progress-page .cp-time-stats { gap: 12px; }
+#app-shell .cp-progress-page .cp-time-stats strong { font-size: 27px; }
+#app-shell .cp-progress-page .cp-time-stats span { font-size: 11px; margin-top: 2px; }
+#app-shell .cp-progress-page .cp-time-caption { margin: 10px 0 4px; font-size: 11px; }
+#app-shell .cp-progress-page .cp-time-chart { margin: 6px 0 8px; }
+#app-shell .cp-progress-page .cp-time-chart svg { max-height: 160px; }
+#app-shell .cp-progress-page .cp-time-more { margin-inline-start: auto; }
+#app-shell .cp-progress-page .cp-progress-highlights { gap: 10px; }
+#app-shell .cp-progress-page .cp-progress-highlights > button { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; justify-items: start; gap: 4px 8px; padding: 12px; border: 1px solid var(--review-edge); border-radius: 18px; background: var(--review-panel); box-shadow: var(--review-shadow); }
+#app-shell .cp-progress-page .cp-highlight-heading { grid-column: 1 / -1; font-size: 12px; }
+#app-shell .cp-progress-page .cp-rhythm-emblem { grid-row: 2 / 4; width: 40px; height: 40px; margin: 0; border-radius: 12px; }
+#app-shell .cp-progress-page .cp-rhythm-emblem svg { width: 28px; height: 28px; }
+#app-shell .cp-progress-page .cp-rhythm-emblem strong { font-size: 23px; }
+#app-shell .cp-progress-page .cp-highlight-unit { font-size: 10px; text-align: start; }
+#app-shell .cp-progress-page .cp-rhythm-days { margin: 0; gap: 4px; }
+#app-shell .cp-progress-page .cp-rhythm-days i { width: 6px; height: 6px; }
+#app-shell .cp-progress-page .cp-highlight-foot { grid-column: 1 / -1; font-size: 10px; padding-top: 6px; margin: 0; text-align: start; }
+#app-shell .cp-progress-page .cp-recordings-symbol { margin: 0; grid-row: 2 / 4; gap: 4px; }
+#app-shell .cp-progress-page .cp-recordings-symbol svg { width: 18px; height: 18px; }
+#app-shell .cp-progress-page .cp-recordings-total { font-size: 23px; line-height: 1.1; }
+#app-shell .cp-progress-page .cp-recordings-kinds { justify-content: start; gap: 6px; }
+
+/* Navigation selection mirrors the reference only while one of the revised pages is open. */
+#app-shell:has(.cp-browse-surface:is([data-view=calendar],[data-view=piano],[data-view=repertoire],[data-view=progress])) > .cp-nav button[aria-current=page] { border-radius: 18px; background: var(--theme-tint); color: var(--theme-link); }
+@media (min-width: 600px) {
+  #app-shell .cp-browse-surface[data-view=calendar] { padding-inline: 20px; }
+  #app-shell .cp-week-agenda .cp-agenda-day { min-height: 55px; }
+  #app-shell .cp-week-heading h2 { font-size: 21px; }
+  #app-shell .cp-week-badge { font-size: 12px; }
+}
+@media (orientation: landscape) and (max-height: 599px), (min-width: 600px) and (min-height: 600px) {
+  #app-shell .cp-calendar-today { bottom: 20px; }
+}
+/* Keep full touch and keyboard targets while the visible cards remain low. */
+#app-shell .cp-week-agenda .cp-add-day.has-entries { width: 44px; min-width: 44px; }
+#app-shell .cp-day-strip .cp-plan-grip { width: 44px; min-width: 44px; }
+#app-shell .cp-day-strip .cp-entry-open { padding-inline-end: 40px; }
+#app-shell .cp-browse-surface .cp-day-strip .cp-history-card-compact { background: var(--surface-tint); }
+#app-shell .cp-day-strip .cp-entry-open .cp-compact-copy { flex: 1; }
+#app-shell .cp-day-strip .cp-entry-open strong,
+#app-shell .cp-history-card-compact .cp-history-title { -webkit-line-clamp: 2; line-height: 1.2; }

@@ -9,7 +9,7 @@ test('autoplay, saved annotation resume, editable time and MIDI hold across four
  const action=name=>evaluate(`document.querySelector('[data-action="${name}"]').click()`);
  const read=()=>evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const q=r.result.transaction('state').objectStore('state').get('current');q.onsuccess=()=>{resolve(q.result);r.result.close()}}})`);
  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);await disableWarmup(evaluate);
- await action('piano');await action('repertoire');await action('new-work');
+ await action('piano');await action('repertoire');await action('add-work'); await action('new-work');
  await evaluate(`(()=>{const transfer=new DataTransfer();transfer.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Synthetic.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=transfer.files;input.dispatchEvent(new Event('change'));})()`);
  await wait(`document.querySelector('[name=score]').validity.valid`);await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('[data-action=practice-work]')`);
  const workId=(await read()).works[0].id;

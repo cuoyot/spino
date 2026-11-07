@@ -9,7 +9,7 @@ test('event work cards retain multiple selections across search, save and edit',
  const click=s=>evaluate(`document.querySelector(${JSON.stringify(s)}).click()`);
  await send('Page.navigate',{url});await wait(`document.querySelector('[data-action=new-event]')`);
  for(const [title,onStand] of [['Prelude',true],['Sonata',false]]){
-  await click('.cp-nav [data-action=piano]');await click('[data-action=repertoire]');await click('[data-action=new-work]');
+  await click('.cp-nav [data-action=piano]');await click('[data-action=repertoire]');await click('[data-action=add-work]'); await click('[data-action=new-work]');
   await evaluate(`(()=>{const f=document.querySelector('#cp-dialog form');f.elements.title.value=${JSON.stringify(title)};f.elements.onStand.checked=${onStand};f.requestSubmit()})()`);
   await wait(`!document.querySelector('#cp-dialog').open`);
  }

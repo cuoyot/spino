@@ -85,6 +85,7 @@ import './instrument-view.css';
 import './dashboard.css';
 import './session-view.css';
 import './warmup-guide.css';
+import './navigation-refinement.css';
 import { openStore } from './store.js';
 import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, weekOf, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
 import { TARGETS, targetById } from './curriculum.js';
@@ -353,14 +354,18 @@ export async function bootCompanion(reader) {
   const sessionCards = (sessions, workId = null) => savedSessionsMarkup(sessions, data.works, { ...sessionOptions(), workId });
   function home() { return todayMarkup(data, icon, localDate(), sessionOptions()); }
   function practice() { return practiceMarkup(data, icon); }
-  let calendarWeekAnchor = null, calendarWeekCount = 2;
+  let calendarWeekAnchor = null, calendarWeekCount = 3, calendarStart = '';
+  let calendarNeedsPosition = false;
   function calendar() {
-    if (calendarWeekAnchor !== selectedDate) { calendarWeekAnchor = selectedDate; calendarWeekCount = 2; }
-    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate, sessionOptions(), calendarWeekCount) : (() => {
+    if (calendarWeekAnchor !== selectedDate) {
+      calendarWeekAnchor = selectedDate; calendarWeekCount = 3;
+      calendarStart = addDays(weekOf(selectedDate), -7); calendarNeedsPosition = true;
+    }
+    const agenda = calendarMode === 'week' ? weekAgendaMarkup(data, selectedDate, sessionOptions(), calendarWeekCount, calendarStart) : (() => {
       const entries = agendaEntries(data, selectedDate);
       return '<div class="cp-agenda">' + (entries.length ? entries.filter(e => !e.session).map(e => agendaCard(e,{movable:true})).join('') + calendarSessionsMarkup(entries, data.works, sessionOptions()) : empty(ui("No plans for this day. Add a practice or log one you have completed.", "Sin planes para este día. Añade una práctica o registra la que ya has realizado."))) + '</div>';
     })();
-    return calendarMarkup(data, selectedDate, calendarMode) + agenda;
+    return calendarMarkup(data, selectedDate, calendarMode) + agenda + (calendarMode === 'week' ? `<button type="button" class="cp-calendar-today primary" data-action="calendar-today" hidden><span aria-hidden="true">↑</span> ${ui('Today','Hoy')}</button>` : '');
   }
   async function saveWeek(proposal) {
     const previousPlans = data.plans, previousEvents = data.events;
@@ -400,7 +405,7 @@ export async function bootCompanion(reader) {
     return `<div class="cp-progress-page">${titleRow(ui('Progress','Progreso'))}${navigation}${practiceTimeOverviewMarkup(data,progressTimeWeek)}${progressHighlightsMarkup(data,mediaRecords)}<section class="cp-card"><h2>${ui('Scales and modes practiced','Escalas y modos trabajados')}</h2>${Object.entries(stats.byTarget).length?Object.entries(stats.byTarget).map(([id,ms])=>`<div class="cp-row"><span>${esc(targetById(id).label)} · ${formatProgressDuration(ms)}</span>${btn('target-history',ui('View','Ver'),id)}</div>`).join(''):empty(ui('Practice reading or technique to track your musical goals.','Practica lectura o técnica para seguir tus objetivos musicales.'))}</section><h2 class="cp-section">${ui('History','Historial')}</h2>${sessionCards(data.sessions)}</div>`;
   }
   function repertoire() {
-    return `<div class="cp-repertoire-page"><header class="cp-repertoire-heading"><h1>${ui('Repertoire','Repertorio')}</h1><div class="cp-actions">${btn('import-pdf',ui('Import PDF','Importar PDF'),'','quiet')}${btn('new-work',ui('+ Add work','+ Añadir obra'),'','primary')}</div></header>${repertoireMarkup(data,repertoireFilters,repertoireIndex,{esc,opts,btn,canPrint:workHasScore})}</div>`;
+    return `<div class="cp-repertoire-page"><header class="cp-repertoire-heading"><h1>${ui('Repertoire','Repertorio')}</h1><div class="cp-actions">${btn('add-work',ui('+ Add work','+ Añadir obra'),'','primary')}</div></header>${repertoireMarkup(data,repertoireFilters,repertoireIndex,{esc,opts,btn,canPrint:workHasScore})}</div>`;
   }
   function workDetail() {
     const w = data.works.find(w=>w.id===detailId); if(!w) return repertoire();
@@ -924,7 +929,7 @@ export async function bootCompanion(reader) {
     syncScreenAwake();
     if(root.hidden)return;
     if(view==='prepare') materialSelection=null;
-    const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail','calendar'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
+    const section=['settings'].includes(view)||view.startsWith('profile-')?'settings':['progress','progress-time','session-detail'].includes(view)?'progress':view==='instrument'?'instrument':['calendar','event','planner'].includes(view)?'calendar':['practice','prepare','session','routines'].includes(view)?'practice':view==='home'?'home':'piano';
     const pages={home,practice,calendar,planner:()=>plannerMarkup(data,selectedDate),piano:myPiano,multimedia,progress,'progress-time':progressTime,repertoire,work:workDetail,routines,catalog,'library-detail':()=>libraryDetailMarkup(library,detailId,!!materialSelection,getAppLanguage(),libraryRepertoire()),downloads:()=>downloadMarkup(data,native,library),settings:settingsPage,'profile-practice':()=>practicePreferencesMarkup(data.preferences,getAppLanguage()),'profile-backup':backupPage,'profile-files':()=>scoreFilesMarkup(profileFiles,{search:fileSearch,limit:fileLimit,lang:getAppLanguage()}),'profile-reminders':()=>remindersMarkup(reminderState,remindersAvailable,getAppLanguage(),data.preferences),instrument:()=>'<section class="cp-profile">'+profileHeading(ui("Instrument", "Instrumento"),getAppLanguage())+instrumentMarkup(instrument.state,{lang:getAppLanguage()})+'</section>',prepare:preparePage,session:sessionPage,'session-detail':sessionDetail,event:eventDetail};
     root.innerHTML=`<header class="cp-app-header"><div class="cp-header-profile"></div><div class="cp-header-middle"><div class="cp-header-title"></div></div><div class="cp-header-status"><span data-sync-indicator>${syncIndicatorMarkup(cloud?.state,mediaSync?.state)}</span><button type="button" class="cp-midi-status quiet" data-action="midi-settings" aria-label="${ui('MIDI instrument', 'Instrumento MIDI')}" title="${ui('MIDI instrument', 'Instrumento MIDI')}">${midiIndicatorMarkup()}</button></div></header><div class="cp-page${!materialSelection&&['home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','progress','progress-time','settings','profile-backup','profile-files','profile-reminders','event','downloads'].includes(view)?' cp-browse-surface':''}" data-view="${view}"><div class="cp-content">${saveError?`<p role="alert" class="cp-notice">${saveError}</p>`:''}${!['session','home','practice','calendar','piano','repertoire','catalog','multimedia','library-detail','work','downloads','progress','progress-time','event'].includes(view)?pendingSessionMarkup(data.active):''}${view==='home'?storageUI?.entryMarkup()||'':''}${(pages[view]||home)()}</div></div>${profileNavigation(icon,data.preferences.name,section,data.preferences.photo,!!data.active)}`;
     // Keep the rotation phase when rebuilding a route or applying incoming records.
@@ -979,18 +984,46 @@ export async function bootCompanion(reader) {
     if(view==='calendar') {
       const content=root.querySelector('.cp-content');content.dataset.calendar='true';
       if(calendarMode==='week') {
-        const page=root.querySelector('.cp-page');
-        page.addEventListener('scroll',()=>{
-          if(page.scrollHeight-page.scrollTop-page.clientHeight>500)return;
-          const agenda=content.querySelector('.cp-week-agenda');
-          const nextStart=addDays(weekOf(selectedDate),calendarWeekCount*7);
+        const page=root.querySelector('.cp-page'), agenda=content.querySelector('.cp-week-agenda');
+        const todayButton=content.querySelector('.cp-calendar-today');
+        let positioning=calendarNeedsPosition, extending=false, pendingScroll=false;
+        const updateToday=()=>{
+          const current=agenda.querySelector(`[data-week-start="${weekOf(localDate())}"]`);
+          const bounds=page.getBoundingClientRect(), rect=current?.getBoundingClientRect();
+          todayButton.hidden=!!rect && rect.top < bounds.bottom && rect.top >= bounds.top-80;
+        };
+        if(calendarNeedsPosition) {
+          calendarNeedsPosition=false;
+          requestAnimationFrame(()=>{
+            if(!page.isConnected)return;
+            const target=agenda.querySelector(`[data-week-start="${weekOf(selectedDate)}"]`);
+            const toolbar=content.querySelector('.cp-agenda-toolbar');
+            // Respect a scroll made before the initial animation frame.
+            if(page.scrollTop===0)page.scrollTop+=target.getBoundingClientRect().top-page.getBoundingClientRect().top-toolbar.offsetHeight-12;
+            requestAnimationFrame(()=>{positioning=false;updateToday();if(pendingScroll){pendingScroll=false;extendCalendar();}});
+          });
+        } else updateToday();
+        function extendCalendar() {
+          updateToday();
+          if(positioning || extending){pendingScroll=true;return;}
+          const earlier=page.scrollTop<160;
+          if(!earlier && page.scrollHeight-page.scrollTop-page.clientHeight>500)return;
+          extending=true;
+          const oldHeight=page.scrollHeight, oldTop=page.scrollTop;
+          const nextStart=earlier?addDays(calendarStart,-14):addDays(calendarStart,calendarWeekCount*7);
           const fragment=document.createElement('template');
           fragment.innerHTML=weekAgendaMarkup(data,selectedDate,sessionOptions(),2,nextStart);
-          agenda.append(...fragment.content.querySelector('.cp-week-agenda').children);
+          const weeks=fragment.content.querySelector('.cp-week-agenda').children;
+          if(earlier) {
+            agenda.prepend(...weeks);calendarStart=nextStart;
+            page.scrollTop=oldTop+page.scrollHeight-oldHeight;
+          } else agenda.append(...weeks);
           calendarWeekCount+=2;
           historyThumbnails?.();
           historyThumbnails=bindScoreThumbnails(content,store);
-        },{passive:true});
+          requestAnimationFrame(()=>{extending=false;updateToday();if(pendingScroll){pendingScroll=false;extendCalendar();}});
+        }
+        page.addEventListener('scroll',extendCalendar,{passive:true});
       }
       bindCalendarDrag(content,async(id,date,offset)=>{
         const next=copy(data), plan=next.plans.find(p=>p.id===id);
@@ -1457,11 +1490,11 @@ export async function bootCompanion(reader) {
     'calendar-day':id=>{selectedDate=id;calendarMode='week';go('calendar');root.querySelector('.selected-day')?.scrollIntoView({block:'center'});},
     'add-on-day':addOnDay,
     'plan-detail':planDetail,
-    'calendar-mode':id=>{calendarMode=id;render();},
+    'calendar-mode':id=>{calendarMode=id;calendarNeedsPosition=id==='week';render();},
     'calendar-prev':()=>{selectedDate=shiftCalendar(selectedDate,-1,calendarMode);render();},
     'calendar-next':()=>{selectedDate=shiftCalendar(selectedDate,1,calendarMode);render();},
     'calendar-add':()=>addOnDay(),
-    'week-prev':()=>{selectedDate=addDays(selectedDate,-7);render();},'week-next':()=>{selectedDate=addDays(selectedDate,7);render();},today:()=>{selectedDate=localDate();render();},'select-day':id=>{selectedDate=id;render();},
+    'week-prev':()=>{selectedDate=addDays(selectedDate,-7);render();},'week-next':()=>{selectedDate=addDays(selectedDate,7);render();},'calendar-today':()=>{selectedDate=localDate();calendarWeekAnchor=null;render();},today:()=>{selectedDate=localDate();calendarWeekAnchor=null;render();},'select-day':id=>{selectedDate=id;render();},
     'plan-practice':()=>{if(!data.routines.length){dialog.close();prepare('reading',null,'plan');return;}showDialog(ui('Schedule practice','Planificar práctica'),`<p class="muted">${ui('Use a saved routine or prepare a new practice.','Usa una rutina guardada o prepara una práctica nueva.')}</p><div class="cp-routine-activities">${data.routines.map(r=>btn('schedule-routine',esc(r.title),r.id))}${btn('schedule-new-practice',ui('+ New practice','+ Práctica nueva'),'','quiet')}${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`);},
     'schedule-new-practice':()=>{dialog.close();prepare('reading',null,'plan');},
     'schedule-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;preparePurpose='plan';planForm(null,copy(routine));},
@@ -1548,6 +1581,8 @@ export async function bootCompanion(reader) {
     'favorite-work':async id=>{const next=copy(data),work=next.works.find(w=>w.id===id);if(!work)return;work.favorite=!work.favorite;await store.save(next);data=next;render();},
     'restore-work':async id=>{const next=copy(data);setWorkTrashed(next,id,false);await store.save(next);data=next;render();toast(ui("Work restored.", "Obra restaurada."));},
     'delete-work':id=>confirm(ui("Delete work", "Eliminar obra"), ui("Move this work to trash? Its PDF, annotations, practice history and existing plans will be kept. You can restore it from Repertoire → Collection → Trash.", "¿Mover esta obra a la papelera? Se conservarán su PDF, anotaciones, historial y planes. Puedes restaurarla desde Repertorio → Colección → Papelera."),async()=>{const next=copy(data);setWorkTrashed(next,id,true);await store.save(next);data=next;go('repertoire');}),
+    'add-work':()=>showDialog(ui('Add work','Añadir obra'),`<div class="cp-add-work-options">${btn('new-work',ui('Enter work details','Introducir datos de la obra'),'','quiet')}${btn('add-work-pdf',ui('Import PDF','Importar PDF'),'','quiet')}</div><div class="cp-actions">${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`),
+    'add-work-pdf':()=>{dialog.close();importScore();},
     'new-work':()=>workForm(),'edit-work':id=>workForm(data.works.find(w=>w.id===id)),
     'work-detail':id=>go('work',id),
     'close-work':()=>go('repertoire'),

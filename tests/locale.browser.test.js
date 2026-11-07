@@ -42,7 +42,7 @@ test('Edit profile applies and retains language across notebook, catalogue and m
   await click('[data-action=repertoire]');
   assert.match(await evaluate(`document.querySelector('#app-shell').innerText`), /Mi repertorio/);
   assert.doesNotMatch(await evaluate(`document.querySelector('#app-shell').innerText`), /Find, organize|Collection|Trash|Sort by/);
-  await click('[data-action=new-work]');
+  await click('[data-action=add-work]'); await click('[data-action=new-work]');
   assert.match(await evaluate(`document.querySelector('#cp-dialog').innerText`), /Etiquetas/);
   assert.doesNotMatch(await evaluate(`document.querySelector('#cp-dialog').innerText`), /Unknown|Tags|Import score/);
   await click('[data-action=close-dialog]');

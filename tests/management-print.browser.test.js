@@ -17,7 +17,7 @@ test('management print icons invoke printing without opening score or custom pre
   const click=action=>evaluate(`document.querySelector('[data-action=${action}]').click()`);
   await wait(`document.querySelector('.cp-today')`);
   await evaluate(`window.fixture=${JSON.stringify(scorePDF())};window.originalFileClick=HTMLInputElement.prototype.click;HTMLInputElement.prototype.click=function(){if(this.type==='file'){const transfer=new DataTransfer();transfer.items.add(new File([Uint8Array.from(atob(fixture),c=>c.charCodeAt(0))],'Printing fixture.pdf',{type:'application/pdf'}));this.files=transfer.files;this.dispatchEvent(new Event('change'));}else originalFileClick.call(this);};`);
-  await click('piano');await click('repertoire');await click('import-pdf');
+  await click('piano');await click('repertoire');await click('add-work'); await click('add-work-pdf');
   await wait(`document.querySelector('#cp-dialog [name=score]')?.validity.valid`);
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('[data-action=print-work]')`);
   await click('print-work');await wait(`window.printed===1`);assert.equal(await evaluate('window.pages'),2);

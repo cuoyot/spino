@@ -40,10 +40,10 @@ test('PDF repertoire import, safe page gestures, annotation tools, persistence a
   await action('piano'); await action('repertoire');
   await t.test('imports and validates a PDF without creating a partial work on invalid files', async () => {
     await evaluate(`window.validFixture=window.fixture;window.fixture=btoa('%PDF-1.4 invalid')`);
-    await action('import-pdf'); await wait(`document.querySelector('#cp-score-status')?.textContent.includes('No se puede leer')`);
+    await action('add-work'); await action('add-work-pdf'); await wait(`document.querySelector('#cp-score-status')?.textContent.includes('No se puede leer')`);
     assert.equal((await readStore('state', 'current')).works.length, 0);
     await action('close-dialog');
-    await evaluate(`window.fixture=window.validFixture`); await action('import-pdf');
+    await evaluate(`window.fixture=window.validFixture`); await action('add-work'); await action('add-work-pdf');
     await wait(`document.querySelector('#cp-dialog [name=score]')?.validity.valid`);
     await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);
     await wait(`document.querySelector('[data-action="open-pdf"]')`);

@@ -21,7 +21,7 @@ test('preparation, calendar and dashboard adapt to phone/tablet orientations', {
       if(name==='calendar-week')await evaluate(`document.querySelector('[data-action="calendar-mode"][data-id="week"]').click()`);
       assert.equal(await evaluate(`document.querySelector('.cp-page').scrollWidth>document.querySelector('.cp-page').clientWidth+1`),false,`${width}x${height} ${name}`);
       if(name==='calendar-month')assert.ok(await evaluate(`document.querySelectorAll('.cp-day').length>=28`));
-      if(name==='calendar-week')assert.equal(await evaluate(`document.querySelectorAll('.cp-agenda-day').length`),14);
+      if(name==='calendar-week'){const days=await evaluate(`document.querySelectorAll('.cp-agenda-day').length`);assert.ok(days>=21 && days%7===0,'continuous calendar keeps complete expanded weeks');}
       if(process.env.UI_SCREENSHOTS){await mkdir('artifacts/review',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/review/${name}-${width}x${height}.png`,Buffer.from(shot.data,'base64'));}
     }
   }

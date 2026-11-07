@@ -8,7 +8,7 @@ test('Android Back from the opened PDF editing panel returns to running practice
  const wait=condition=>evaluate(`new Promise((resolve,reject)=>{let n=0;const id=setInterval(()=>{if(${condition}){clearInterval(id);resolve()}else if(++n>800){clearInterval(id);reject(Error('Timeout'))}},20)})`);
  const action=name=>evaluate(`document.querySelector('[data-action="${name}"]').click()`);
  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);await disableWarmup(evaluate);
- await action('piano');await action('repertoire');await action('new-work');
+ await action('piano');await action('repertoire');await action('add-work'); await action('new-work');
  await evaluate(`(()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Timer synthetic.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=dt.files;input.dispatchEvent(new Event('change'));})()`);
  await wait(`document.querySelector('[name=score]').validity.valid`);await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('[data-action=practice-work]')`);
  await action('practice-work');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);

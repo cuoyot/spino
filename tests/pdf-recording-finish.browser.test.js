@@ -8,7 +8,7 @@ test('finishing PDF practice closes recording review and retains the take and ti
  const wait=e=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${e}){clearInterval(timer);resolve()}else if(++n>700){clearInterval(timer);reject(Error('Timed out: '+${JSON.stringify(e)}))}},20)})`);
  const click=s=>evaluate(`document.querySelector(${JSON.stringify(s)}).click()`);
  await send('Page.navigate',{url});await wait(`document.querySelector('#app-shell h1')`);await disableWarmup(evaluate);
- await click('[data-action=piano]');await click('[data-action=repertoire]');await click('[data-action=new-work]');
+ await click('[data-action=piano]');await click('[data-action=repertoire]');await click('[data-action=add-work]'); await click('[data-action=new-work]');
  await evaluate(`(()=>{const files=new DataTransfer();files.items.add(new File([Uint8Array.from(atob(${JSON.stringify(scorePDF())}),c=>c.charCodeAt(0))],'Score.pdf',{type:'application/pdf'}));const input=document.querySelector('[name=score]');input.files=files.files;input.dispatchEvent(new Event('change'))})()`);
  await wait(`document.querySelector('[name=score]').validity.valid`);await evaluate(`document.querySelector('#cp-dialog form').requestSubmit()`);await wait(`document.querySelector('[data-action=practice-work]')`);
  await click('[data-action=practice-work]');await evaluate(`document.querySelector('#prepare-form').requestSubmit()`);await wait(`document.querySelector('.pdf-paper')?.getAttribute('aria-busy')==='false'`);
