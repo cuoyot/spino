@@ -289,3 +289,6 @@ if(beta116){const text=await readFile(new URL('../../docs/releases/6.2.1-beta.4-
 
 const beta117=releases.find(r=>r.version==='6.2.1-beta.5');
 if(beta117){const text=await readFile(new URL('../../docs/releases/6.2.1-beta.5-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))beta117.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const beta118=releases.find(r=>r.version==='6.2.1-beta.6');
+if(beta118){const text=await readFile(new URL('../../docs/releases/6.2.1-beta.6-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))beta118.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

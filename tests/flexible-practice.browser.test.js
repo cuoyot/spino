@@ -43,8 +43,25 @@ test('direct block entry retains separate times, PDF position and warm-up throug
  for(const theme of ['light','dark'])for(const [name,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='${theme}'`);await capture(theme+'-pdf-'+name);
   coreLayouts[theme+'-'+name]=await evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-viewer [data-practice-role]')].filter(e=>!e.hidden).map(e=>{const r=e.getBoundingClientRect();return[e.dataset.practiceRole,{left:r.left,top:r.top,width:r.width,height:r.height}]}))`);
+  if(width<=600||height<=500){
+   const compact=await evaluate(`(()=>{const w=document.querySelector('.pdf-widget').getBoundingClientRect(),record=document.querySelector('[data-pdf=record]').getBoundingClientRect(),grip=document.querySelector('[data-pdf=drag]').getBoundingClientRect(),count=document.querySelector('.pdf-page-count').getBoundingClientRect();return{height:w.height,left:w.left,right:w.right,recordY:record.y,gripY:grip.y,countWidth:count.width,countLeft:count.left,arrows:[...document.querySelectorAll('.pdf-pagination button')].some(e=>e.getClientRects().length)}})()`);
+   assert.ok(compact.height<75&&compact.left>=0&&compact.right<=width,JSON.stringify(compact));
+   assert.ok(Math.abs(compact.recordY-compact.gripY)<1,JSON.stringify(compact));
+   assert.equal(compact.arrows,false);assert.ok(compact.countWidth>0&&compact.countLeft<50);
+  }
   const bounds=await evaluate(`(()=>{const a=document.querySelector('.pdf-viewer .practice-total-clock').getBoundingClientRect(),b=document.querySelector('.pdf-widget').getBoundingClientRect();return{left:a.left,top:a.top,right:a.right,width:innerWidth,overlap:a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top}})()`);assert.ok(bounds.left>=0&&bounds.top>=0&&bounds.right<=bounds.width);assert.equal(bounds.overlap,false);
  }
+ await send('Emulation.setDeviceMetricsOverride',{width:320,height:568,deviceScaleFactor:1,mobile:true});
+ await wait(`document.querySelector('.pdf-paper[aria-busy=false]')`);
+ assert.equal(await evaluate(`(()=>{const r=document.querySelector('.pdf-widget').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height<75})()`),true);
+ assert.equal(await evaluate(`(()=>{const a=document.querySelector('.pdf-pagination').getBoundingClientRect(),b=document.querySelector('[data-pdf=record]').getBoundingClientRect();return a.right<=b.left||a.left>=b.right||a.bottom<=b.top||a.top>=b.bottom})()`),true,'The narrow-phone page indicator must not cover recording');
+ await capture('small-phone-pdf');
+ const tapPdfEdge=async side=>{
+  const point=await evaluate(`(()=>{const r=document.querySelector('.pdf-paper').getBoundingClientRect();return{x:${side==='prev'?'Math.max(0,r.left)+5':'Math.min(innerWidth,r.right)-5'},y:Math.max(100,r.top+100)}})()`);
+  await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...point,id:1}]});await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ };
+ await tapPdfEdge('prev');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('1')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
+ await tapPdfEdge('next');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('2')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
  await evaluate(`document.querySelector('[data-pdf=close]').click()`);await wait(`!document.querySelector('.pdf-viewer')`);
  await action('session-select-block','synthetic-bach-block');await wait(`document.querySelector('.pdf-paper[aria-busy=false]')`);assert.equal(await evaluate(`document.querySelector('.pdf-widget .pdf-time').textContent`),'8:00');
  await advance(5000);await evaluate(`document.querySelector('[data-pdf=timer]').click();document.querySelector('[data-pdf=close]').click()`);await wait(`!document.querySelector('.pdf-viewer')`);

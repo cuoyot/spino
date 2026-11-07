@@ -624,3 +624,5 @@ Final beta16/build69 [native emulator verification](captures/multimedia/2026-10-
 ## 2026-11-05 — Pending practice beta handoff
 
 The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.
+
+2026-11-07: mobile score controls packaged as beta 6.2.1-beta.6 (118), retaining published beta117 calendar/browsing changes. Phone controls use one row, edge paging and a compact page badge. Four focused application browser checks and Android unit checks pass. Replacement emulator installation preserves all 135 original IndexedDB files and confirms foreground. [Native launch evidence](captures/releases/2026-11-07-beta118-native/native-handoff.json); this is not physical-device acceptance. Website publication is tracked in the release manifest.
