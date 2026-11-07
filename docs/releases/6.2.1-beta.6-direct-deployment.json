@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-07T18:34:37.311493+00:00",
+  "version": "6.2.1-beta.6",
+  "versionCode": 118,
+  "commit": "3035fbdb07a27bf770dd0b2a701362d21292a76c",
+  "wrangler": "4.151.3",
+  "exitCode": 0,
+  "versionId": "bc44eed4-c13a-4a72-9d90-32be781ffcb1",
+  "log": "docs/releases/6.2.1-beta.6-wrangler-deploy.log",
+  "logSHA256": "e653ea9077f5d845a17ce202a265e178a367ee7a824ce6c03674c7f8f4151f0b",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+  "providerURL": "https://spino.cuoyot.workers.dev",
+  "automaticCheck": "Exact-commit automatic build aaf9e02a-9394-4600-8b78-8839c7d4816d completed with failure before direct deployment. Active beta117 checked immediately before upload; no newer publication overwritten.",
+  "exportVerification": {
+    "commit": "3035fbdb07a27bf770dd0b2a701362d21292a76c",
+    "siteTree": "bdbf39c76efa3b0992d1f831f0d4794f7fe80395",
+    "filesVerifiedAgainstGitBlobs": 699,
+    "bytesVerified": 8513921575,
+    "export": "APFS clone of site with every file verified against exact committed Git blobs; Worker and verification inputs exported using git archive.",
+    "snapshot": "/private/tmp/spino-beta118-publish"
+  },
+  "publicConnection": "System DNS resolved unreachable Cloudflare edge addresses; curl uses --resolve spinoapp.com:443:104.21.22.10 with normal HTTPS certificate verification and unchanged public URLs."
+}

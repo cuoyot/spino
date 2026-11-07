@@ -1,0 +1,669 @@
+{
+  "verifiedAt": "2026-11-07T18:34:52.587946+00:00",
+  "version": "6.2.1-beta.6",
+  "build": 118,
+  "websiteCommit": "3035fbdb07a27bf770dd0b2a701362d21292a76c",
+  "tag": "v6.2.1-beta.6",
+  "languagePages": [
+    {
+      "language": "es",
+      "url": "https://spinoapp.com/",
+      "bytes": 116682,
+      "sha256": "c8ff0d8a588c5aa7d86092e832ea46a8b1e93cc3757a5b9778b149bd3064092e"
+    },
+    {
+      "language": "en",
+      "url": "https://spinoapp.com/en/",
+      "bytes": 118636,
+      "sha256": "11b164be2b115ec70025c12a3ec258e9bf26f5f980600a5915c9a733aa760cd6"
+    },
+    {
+      "language": "ca",
+      "url": "https://spinoapp.com/ca/",
+      "bytes": 116486,
+      "sha256": "d3757076ad1b8a3cb92030e43f59cf12dcf2617ad1f79ed86218dadf280bbc06"
+    },
+    {
+      "language": "de",
+      "url": "https://spinoapp.com/de/",
+      "bytes": 120589,
+      "sha256": "0c5c991abe0f63b317401dc402efd7317e29279e080609c61281e288fd625550"
+    },
+    {
+      "language": "hu",
+      "url": "https://spinoapp.com/hu/",
+      "bytes": 121338,
+      "sha256": "a2baaea6de83b9804e4259e6b0452f0c326d6c683373ed9250c863a8f9fa20a5"
+    }
+  ],
+  "manifestSHA256": "26ea97089466b6fc161b0b6a23355f2a7fbf85ddb2c5f356f19babcfb0b325f7",
+  "downloads": [
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.1-beta.6-118-beta-android.apk",
+      "bytes": 76989126,
+      "sha256": "523d1115a86d6aaf286bbffa789b7fd5015f1b98e3fb8355994e74096007585b",
+      "ranges": [
+        {
+          "start": 20971510,
+          "end": 20971530,
+          "bytes": 21,
+          "status": 206,
+          "sha256": "09888f5c5fb4615c4a4452a623b9a81cb7c52a14488c3eb5606a7f2135a77e29"
+        },
+        {
+          "start": 41943030,
+          "end": 41943060,
+          "bytes": 31,
+          "status": 206,
+          "sha256": "39bf23140629756f8abcf78a57f0b3631154f4ed877711b61fc18ffd43cefeef"
+        },
+        {
+          "start": 76989095,
+          "end": 76989125,
+          "bytes": 31,
+          "status": 206,
+          "sha256": "098121cfbfec213ebbd68d353fd29d7dfaf015b315c44c4c1b4c6936011daa5e"
+        }
+      ]
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.1-beta.6-118-android.aab",
+      "bytes": 64215747,
+      "sha256": "d2bb8d365db8370abd9556f7bb0ad547a29b65235acdc693a12077217f651770"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.1-beta.6-play-console-handoff.zip",
+      "bytes": 63931290,
+      "sha256": "324cf164af65b46964054ce00310fdbd225bc0b699e2a5cdcb52a3b5eff66868"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/6.2.1-beta.6-release-notes.txt",
+      "bytes": 1376,
+      "sha256": "ef5e42d02496bdfb8ad2a7057d96a13199666bf9cc187936dee257cc8942d256"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.1-beta.5-117-beta-android.apk",
+      "bytes": 76988838,
+      "sha256": "28057382f82735b9cb05a1ba46adeedcecb3ee86a4c44a88cc990cbd7b048648"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.0.0-53-android.apk",
+      "bytes": 19147537,
+      "sha256": "5eaf1ba7fd0c104da69111ff33d782e367dadfc06e5548627ebc79cc31488f79"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.0-112-android.apk",
+      "bytes": 72443325,
+      "sha256": "1b168a7439593b82e6791709436ab3f23022cd90e97558fb469a26445f124200"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.0-112-android.aab",
+      "bytes": 64048502,
+      "sha256": "1c6acef0fc66f7b2e0fcd10944c343e6e0f48c122467e66d7109565c5fc9dc36"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.0-play-console-handoff.zip",
+      "bytes": 63763913,
+      "sha256": "76b86cb1ab343a197d8166b44f1c2f1d2b464196ac1ece98f469e4f2a5a32ccb"
+    },
+    {
+      "url": "https://spinoapp.com/downloads/spino-6.2.0-release-notes.txt",
+      "bytes": 1825,
+      "sha256": "64833c8890b0057a89b4f43a472c7a558904d91ceb65d9d07dbe1d004687481a"
+    }
+  ],
+  "websiteImages": [
+    {
+      "url": "https://spinoapp.com/img/ca/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 151207,
+      "sha256": "9abd2f42f88b7181caff8a37515e1fbfeb17e6f951f8c3cb64b64f269820e50e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/01-today.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 151207,
+      "sha256": "9abd2f42f88b7181caff8a37515e1fbfeb17e6f951f8c3cb64b64f269820e50e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/02-routine.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 136183,
+      "sha256": "faebd7d1bd5b2caf572772707ad729c4eed5c6932e47c53cee32280a9e5c2a43"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/03-repertoire.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 152257,
+      "sha256": "fcb672fa47ddf1eab0363116dad46db5b91154853781d11458b4a52c3b2cca0f"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/04-quick-practice.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 310289,
+      "sha256": "a7ef490c4d21db55f6d3136da41281f3b8438f74c47c481c7e44c96380421687"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/05-quick-result.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 122386,
+      "sha256": "6e79b29fa1271ab73ef0c76fd68ddc072abd1860df7c07b15a255f50a1b8ebed"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/06-progress.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 232294,
+      "sha256": "513d443cc7b0aa11052db0d9dae63788cf648b273151d779a5ccfee426e3f42e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/07-multimedia.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 234949,
+      "sha256": "a18928109705aa7afcb4dac2b10a0b75782c20867074873cc3af1b04cdc55a65"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/08-time-details.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 158713,
+      "sha256": "03f8cdbef48bbe4f674cd5f700bb04af4b0e9cc890f12c6eaf2b0ec406b1e27e"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/09-calendar.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 250072,
+      "sha256": "5ae6c3203c32173dd58fd0e7bc73c48d7e1d3ca513e83fc34f7f7cd751a5e864"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-catalogue-beta8.png",
+      "bytes": 177314,
+      "sha256": "d49282f84656b88c37522279993c19349d19b7ab8e0b9f1746ecde6cf3956b03"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-period-author-beta8.png",
+      "bytes": 174256,
+      "sha256": "032ac8abeaa850576cc2f6f74c15abc4b8c8493edd9631ca8e3f104f10eb42cf"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/catalogue-preview-beta8.png",
+      "bytes": 228978,
+      "sha256": "442382e799c8cc2f8f5a830ba0fddab9329dc523654adb5578dc70b414e400e2"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 75505,
+      "sha256": "0ec6e912d92ac95cee07488bd4c328144d5b098aa2b7b546406a06c7ec00c5e0"
+    },
+    {
+      "url": "https://spinoapp.com/img/ca/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 385888,
+      "sha256": "7c5ba5d28839fba64a8ba7260125a19514c821467d602b63c775ee7e3a9fc80c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 155977,
+      "sha256": "5cc948d422207f0a539392768e170af7f27233ae46518d4a0ab59da5a8c98c2c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/01-today.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 155977,
+      "sha256": "5cc948d422207f0a539392768e170af7f27233ae46518d4a0ab59da5a8c98c2c"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/02-routine.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 141285,
+      "sha256": "a3751d9fbb7e4af084814fad53353a46951f999dcf3555a3061cc2b7efad6680"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/03-repertoire.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 156611,
+      "sha256": "884476e5333bc8adc2d26e9ac1acdd835518e72cf73ed34e9c7e480f817d1d58"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/04-quick-practice.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 309131,
+      "sha256": "075cc7bcafe06d698f65c26def9fc3a8df5b8a2437a89001fbc3251285a4b406"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/05-quick-result.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 129338,
+      "sha256": "0032300d71a93dd9a82438216b30f09ee0e6b2296bf2e980356645503cc793de"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/06-progress.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 230929,
+      "sha256": "340772e17d58ef6ab535c0fc7628862db3b2c87cfa83d358754fe89b0b3f5731"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/07-multimedia.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 230570,
+      "sha256": "78b7eb1803e3e4bea6c102007c5b5e84b9a514c43dbd7cd72863383b7570bdf9"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/08-time-details.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 157124,
+      "sha256": "dda329ee3123ccfe3bf78326cc1b796ebeb3a7f5ae6be40e1c833eaa902b7b8f"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/09-calendar.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 241923,
+      "sha256": "5b6e17ffb4b67229037287bed5973a06228c742ab278e819f3188b34688a754f"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-catalogue-beta8.png",
+      "bytes": 174975,
+      "sha256": "8ffbd9ce29bc109813acef86eb1fcd181733f76061acf87b764f929f7be853fb"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-period-author-beta8.png",
+      "bytes": 170217,
+      "sha256": "632a27590a581de4b1874678b96fa58074f728316654069a64150eefdba2615f"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/catalogue-preview-beta8.png",
+      "bytes": 227728,
+      "sha256": "5432c9934fd1561d2cca1ae1894a5f07a23bf1ef2c99a028fcc23616283309f8"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 73500,
+      "sha256": "31e3e05d6596fbeb8f2b0b7d92d92cb45b391d4384f850b9da01d2df34efd770"
+    },
+    {
+      "url": "https://spinoapp.com/img/de/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 378199,
+      "sha256": "297b8e2cf437650ac0a8432d7ee87bfc74b460fe02164ba08a660fd39fb30787"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 153269,
+      "sha256": "6d318b22d0350783fb70a5d982706d5b8d74c54e93637eb5f2b7600f6b34cd81"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/01-today.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 153269,
+      "sha256": "6d318b22d0350783fb70a5d982706d5b8d74c54e93637eb5f2b7600f6b34cd81"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/02-routine.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 129637,
+      "sha256": "e9b113159d583dfad2748b1d5a6a27a535de11ea7f3d9d4dafcdb8b1de7ee76f"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/03-repertoire.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 153567,
+      "sha256": "549a6121aac1ec6c69283f0895ea3452b6bcf8f72076a33794a9e165c10883d4"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/04-quick-practice.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 295218,
+      "sha256": "f04260b2ef6558b77c0222d5ed03cc8e0947cfc6c7042c42df223bb21238090d"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/05-quick-result.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 121756,
+      "sha256": "9eebae008d3081f3023f64ccb1e751cb08b785e875d89942adef5d1c1ff359c1"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/06-progress.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 224439,
+      "sha256": "20dbbd3dfff83133d32d98bd9dc42aed9a82c661abe094e7760719b72783c35d"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/07-multimedia.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 234161,
+      "sha256": "63282aa8f132b5a817e613c81c94fcd52598ac754200da784e21f1442d5a9735"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/08-time-details.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 149004,
+      "sha256": "f841118c998c6aa128d1f711d77fb9eb08d1865a827be298c810350e80f5f016"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/09-calendar.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 231944,
+      "sha256": "366b943e9240cb70d1617f445b60ae2598868352f2ce0e63fb6780c838e3716b"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-catalogue-beta8.png",
+      "bytes": 178623,
+      "sha256": "de282af44437a209c35b86a233483550c101349a7a2b90d05b8d8f0d2d53a87b"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-period-author-beta8.png",
+      "bytes": 169374,
+      "sha256": "4dbbac0256bbc8bd0c3964be310162eb2993aecfc4b31bf63fd0eb698d6e13f2"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/catalogue-preview-beta8.png",
+      "bytes": 227299,
+      "sha256": "50838a437b7c6788bec4fff213b4ad71afdedaa0b61dd2f476a4e9752872ed23"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 75222,
+      "sha256": "d1f4cb938cbbfef7805194f0cf850752c31c36cd25e06bb9f2d66f55eb430182"
+    },
+    {
+      "url": "https://spinoapp.com/img/en/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 384715,
+      "sha256": "e64799fb9e5fa9a61c78d7797c8f279c1f01e4a3bdfdb6e036819d0f82015d98"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 148427,
+      "sha256": "d2478c603c496bbe623fabe1a8b7db2225a4ff6375331055dc40a7dcc695da03"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/01-today.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 148427,
+      "sha256": "d2478c603c496bbe623fabe1a8b7db2225a4ff6375331055dc40a7dcc695da03"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/02-routine.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 132909,
+      "sha256": "afb8f53ebe3a785e45ccaabae197b866cfee74f28943f146880a238be7ff28a6"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/03-repertoire.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 147064,
+      "sha256": "0313f8d3e024198371c4ad2468995f2a985e4bb5216c1dc8adeb8500ace12e52"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/04-quick-practice.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 303458,
+      "sha256": "573a8068dff452b5fd3d3d153482c37d8f8ccb865310716e7d130043c967b266"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/05-quick-result.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 130001,
+      "sha256": "08a8978162b645707a80b196321dfe50d2b9f493595889aaa0d5720ec44acf9e"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/06-progress.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 229555,
+      "sha256": "bd5bb427c7611233eacb7cdef0bd73322260cd226f9760247ac2924d40f17c72"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/07-multimedia.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 239452,
+      "sha256": "a590fc136c6ae6c3b66564148d2d02f2e5aeff81ab0f6f8a2b9963a7664a6f57"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/08-time-details.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 153202,
+      "sha256": "4565a8823d6b2b0db5799366bfdcac94941e2dee5f128a8fe29aecd69730af0d"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/09-calendar.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 247832,
+      "sha256": "b3d8dc14c761b63f0bdefae2913b7522ff8de2d62e7736f628147690745be3c0"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-catalogue-beta8.png",
+      "bytes": 181579,
+      "sha256": "8f584e3ce9c7480a7d8b3a9cc8fbeb8192c88b6f24a3f4b4262f1255e05c0922"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-period-author-beta8.png",
+      "bytes": 175127,
+      "sha256": "3165e203efd07b560215dd9a5774b577725950c613c3309f41bdd985e7a2fccf"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/catalogue-preview-beta8.png",
+      "bytes": 228912,
+      "sha256": "d5c75be8a8852610095908b3de85e2dd05701a9f37ef3c2acd3cab517e7c49a2"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 74365,
+      "sha256": "448e2ca1a08029bfcc3b288cbd4bf61723e513c6c759f1b7107d28c950736cca"
+    },
+    {
+      "url": "https://spinoapp.com/img/es/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 383808,
+      "sha256": "6beb6412bb54f2574df3ef52c84d034ea78d02c7a02ff9d24a36d33f9eb776c2"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/01-today.png?v=2026-10-23-de-hu-04",
+      "bytes": 161917,
+      "sha256": "1e674aa999f09f05af5f42ffb9a5edf97355d7b42fd10e2ef4ca7dbe51bfb215"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/01-today.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 161917,
+      "sha256": "1e674aa999f09f05af5f42ffb9a5edf97355d7b42fd10e2ef4ca7dbe51bfb215"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/02-routine.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 151224,
+      "sha256": "f8a6f1a87b05da56f739d99174576d8e7a3e96ee039a79211556b6300fa4bbf3"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/03-repertoire.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 171969,
+      "sha256": "bc38b9e0ba09706fa6a813604eb5752aae80aaa9d34a6b05b543eea9381f0113"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/04-quick-practice.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 309471,
+      "sha256": "7de246350a6eaf267e4a529b857275cc1687c953b07c61b163e1cafed8694349"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/05-quick-result.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 125535,
+      "sha256": "76f32a75e0a75e009d6a884102bd3779e70875970578b0876057e7ecfca4b4b8"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/06-progress.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 230785,
+      "sha256": "d1a28c9acf58b00a67e04b2521e4c68672758208448e283dba57fa6d4bf9e954"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/07-multimedia.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 230716,
+      "sha256": "59a6d97c179003b0a0a247f2c29f022fdc3b1927aebce0e7d747fc8628ed9e80"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/08-time-details.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 168041,
+      "sha256": "301bc7994954e83d9b9cc0e18b118cb1391714cb64fe558751f43b16cb331729"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/09-calendar.png?v=2026-11-07-calendar-library-progress-01",
+      "bytes": 253257,
+      "sha256": "21856c89b0631570a4237871d8fbbb73212d0626ec14ea2119fe71b4697cb303"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-catalogue-beta8.png",
+      "bytes": 181398,
+      "sha256": "8f88ab59f0f3ef4bf8723d63e633a2c70ef52b171afa26aaea3e27d67fe850c4"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-period-author-beta8.png",
+      "bytes": 174761,
+      "sha256": "2f1e3d6f2e9ce146d5770d905f4ddcdf32541d1d6c0ebb082aa2c767257aaebd"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/catalogue-preview-beta8.png",
+      "bytes": 227579,
+      "sha256": "6afe3c7264455a313d0a4329506815c8b77c1125e1c2c3e3d5e9e1fe6340d70b"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/landscape-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 74349,
+      "sha256": "868e8bfd4664d49a15878b9aa3ba1c5e9e88d0dcb786a65683b14302051e506c"
+    },
+    {
+      "url": "https://spinoapp.com/img/hu/wide-reading.png?v=2026-10-23-de-hu-04",
+      "bytes": 380630,
+      "sha256": "de22ac80b082f5091b4e1b73459372ae396fa924ac849925522d887914f8668d"
+    },
+    {
+      "url": "https://spinoapp.com/img/icon.png",
+      "bytes": 156405,
+      "sha256": "0aacb1e65db25178f35160b1bb3c5d5f9a527eb6e77417904016c5191734be01"
+    }
+  ],
+  "languagePagesWithoutCacheQueryVerified": true,
+  "deployment": {
+    "provider": "Cloudflare Wrangler",
+    "check": "Wrangler direct deployment",
+    "status": "completed",
+    "conclusion": "success",
+    "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production/deployments",
+    "directEvidence": {
+      "file": "docs/releases/6.2.1-beta.6-direct-deployment.json",
+      "sha256": "28a054ebe04ed6dae699aa35ce9887dfcad73fef138079b44c2cf795ab1ec199",
+      "versionId": "bc44eed4-c13a-4a72-9d90-32be781ffcb1"
+    }
+  },
+  "nativeEvidence": {
+    "date": "2026-11-07T18:21:24.103031+00:00",
+    "version": "6.2.1-beta.6",
+    "versionCode": 118,
+    "applicationId": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess\n",
+    "applicationStorageCleared": false,
+    "retainedFiles": 135,
+    "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+    "originalIndexedDBFileHashes": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "06e68c92831bea6f3c3b6089c3632a410f9b983270804588a1862eb31abc76c6",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "5c16430c1aa8d065e05cbe9a8db0b29099d19cdf8fa386304530e59fcb663797",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "73f3a2588a0c5e5cb2d1650566407671e8d52bb49cb5058f0476fcea520be655",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000004.log": "f0d3e160c736b20b644096352630009e536fa610448c072c605c7f7b17ce296b",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000005.ldb": "b0581ce72b6b40218b6fcc101fe626a9e46083be19682c22893385f0aec5f6ad",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/f": "fccce17c29b52d039b1b5facb07a877c3088590f626f52ce79c8a58b340f8da9",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "5396799a5ef85ee3e6202ec91d52419303fcd3db141ba36bee8d1ffe4fa4bb5c",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/5/00/f": "7891a39855942776aff68eb2c326b08d0361e67e804c35713cbbbf1158759e06",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/7/00/f": "6dbb746d2d5c9c66e297aeb76fc311024e3d3ae924ca3e44da436ae000f44933",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/9/00/11": "1181c39e04799abc6bd50cdc0eccfbe207e8c5babb115a63c1bdeac68d39c03a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/b/00/f": "1e40022191b0192ccc2a7f3b6973b8bbb558d37e38a53e53be759803fc7ec7f8",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/d/00/11": "97b90fb711a7cf070a675b9dcd1ea724baf4545593fce342c77ad99b91fd1e7d",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/e/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/f/00/11": "7ee6dcfabde0bb3fdcbece2ea8fa708d9eb7d964d3e469d29b05a58c35cd1d47",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/10/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/11/00/11": "7bf06384245d4886a710818bf7d434d48fdad97037332fdbe165a0b97a9bd3c8",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/12/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/13/00/10": "4104a04a742d4a61028ac9c946c365bc5aa0702df9b2cf28de7e05410d5b63ce",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/14/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/15/00/11": "0de0b557ab797bfb0257c18f6d1706c8aa11232f5f1d950b3526820a89cbf3b2",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/16/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/17/00/11": "9e205675c66c4ebb50fe5aec43b535e0b75e53d93b8a4aea7de40ea0a3812f96",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/18/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/19/00/11": "0346d11a1d65239bce7ed59c9ffc7c0f7ed0b01ba3deb372120507f4040fe397",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1a/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/11": "ad5073197f69b2ad92067a1a010ae86aaa73de055b1320cb3e049d6d6d1c9e75",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1b/00/12": "89c3e371f8ff1a1f4d42f37e8313cac5b157678113d4699163e655939947a72a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/2": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/3": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/4": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/5": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/6": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/7": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/8": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/9": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/a": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/b": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/c": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1c/00/d": "f90ade04bfc646b1deb5f81127af6b10d395f47734d4c817a985c11cfb6da0fb",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1e/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1d/00/f": "837e9410a920456d552298bf0198f1b793f38f4c9357c9fe076090f2e2e812a5",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1f/00/f": "1a69a0faedb6fad9e66cfafc5adaa52968086dc39e2fffebca3702735b843639",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/20/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/21/00/f": "d82a7d228bcb9763bf9fd225edda9dc4b771a76984cb8710a688998538c69150",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/22/00/3": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/23/00/f": "78be55bd2e1333cbb54c1318c9bead0458fc7d8e957705543c5a7ce5c0b4392f",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/24/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/25/00/f": "e9d27441e6881549d5fd74e1cd3a7d4f153e605e659354ff0ec67404466411d9",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/26/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/27/00/f": "18eb014b6fe536983ed66c875ad614c7b5de9e6e19e72c9b05803412eb21854b",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/28/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/29/00/f": "17922638f8ee3cc7abc7f7ef8839d96de802b990dbcf776cb18a4d23545b9fb7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2a/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2b/00/f": "eaf5c6fa7f23f5f7a4ba8d50c2b1a544a3b228ae7b6c424e09feded561e58653",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2c/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2d/00/f": "aa3ce57fd529f623f591fe332db255b503da9e3ba72fbe5bc9a56b4eacc3fc16",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2e/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/2f/00/f": "e4a1ef672363df9827f20ef78f1bd152cfcd5029cff2dd95abe5ccccdf73cf84",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/2": "e4f62a102e9ca749a52855ad2309e526ae80c1cc482d86d57cf16a35505fa542",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/30/00/4": "2498ec25e51471a8373b501b7f9a3d51632f5f95346fda9143aca7575ef39e69",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/31/00/f": "f64b1d49dec349333f148e469dbddef92b77c00bd008821bdc79f719cc9bd0ee",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/33/00/f": "2c4cf2263d3a2d16e37e06336675c70b0e4d7be96650700078d40f8df923d465",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/35/00/37": "bd25e39b56a8fbc4731f7cde4abe6400a130317dd66d5a08c81bf3dd838da71e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/37/00/f": "ced741a1ee90a91ece2d098ff976e00dabd6ed367c8af390a94705c57404fbe9",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/39/00/f": "715d4cde0083a9fbd0a0c7fe6d882d0357f7163a26ead117ebb8c119947f5229",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3b/00/13": "ddf204049e134fdd4eea047d13fdb70699d8b27070df0f814015c15773863ff9",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3d/00/f": "cec39f4fec5444b0e83b222e93eb8df6d6e435ca749506f011c27377cb97531b",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3f/00/37": "32f940359ec74260ccadfb80c07c089cd1f9bba97b5e53cf09e97195f34d307a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/41/00/21": "369b8309df1bc4d7299f9e02715dff0a9c97cee720d01f42b40331fdbde0bb1d",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/43/00/23": "64fb22c970e4b3b444514dc271f9b615ba4f119c466726c2828c6577eb072619",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/45/00/33": "002b2bbb7e3a9ab2c904b63a9bf3081ceabfac6c97d09eaa2b3c38897d4d623b",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/47/00/49": "39728351fd3f6882ad0b9043f7ca8d573540570851e70c2cbdc340eae57d53a5",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/49/00/f": "b31f4a1b01cd38d7f24d58ff16e4e955749efdb579db7a761f428df34ee71df1",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4b/00/f": "cc62ff5cb2b74bb09067eef7fa1bca5d06802be4d934ecdfcb81ac312060b777",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4d/00/f": "9f30672c72e8763a1f8bfd3b3d169ab60d965d6c96501f4c7a3a80f079e243ba",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/4f/00/f": "838d11d6ac0e21ccced55ad199dddfab2a1ea615b45bf533f248582df4c7d628",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/51/00/f": "ba729766ddf430bdca27acf033d7eb914747426db3e37ac0e3c713898bdc5d0c"
+    },
+    "foreground": [
+      "topResumedActivity=ActivityRecord{66ec3e u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t190}"
+    ],
+    "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity\nTotalTime: 3761\nWaitTime: 3835\nComplete\n",
+    "physicalDeviceAcceptance": false
+  },
+  "physicalDeviceAcceptance": false,
+  "videoRange": {
+    "status": 206,
+    "start": 0,
+    "end": 31,
+    "exactBytesVerified": true
+  }
+}
