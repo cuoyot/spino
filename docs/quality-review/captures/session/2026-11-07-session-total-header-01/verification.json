@@ -1,0 +1,122 @@
+[
+  {
+    "theme": "light",
+    "name": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 92.96875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "light",
+    "name": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "clock": "67:58",
+    "fontSize": 33.76,
+    "headerHeight": 86.921875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "light",
+    "name": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 92.96875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "light",
+    "name": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "clock": "67:58",
+    "fontSize": 40,
+    "headerHeight": 101.78125,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "light",
+    "name": "narrow-phone",
+    "width": 320,
+    "height": 640,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 110.359375,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "dark",
+    "name": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 92.96875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "dark",
+    "name": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "clock": "67:58",
+    "fontSize": 33.76,
+    "headerHeight": 86.921875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "dark",
+    "name": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 92.96875,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "dark",
+    "name": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "clock": "67:58",
+    "fontSize": 40,
+    "headerHeight": 101.78125,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  },
+  {
+    "theme": "dark",
+    "name": "narrow-phone",
+    "width": 320,
+    "height": 640,
+    "clock": "67:58",
+    "fontSize": 32,
+    "headerHeight": 110.359375,
+    "sameRow": true,
+    "overlap": false,
+    "overflow": false
+  }
+]

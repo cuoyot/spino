@@ -23,7 +23,7 @@ Inside generated reading or technique, the exercise title stays at the top and t
 The floating clock uses a play triangle to continue and two vertical bars to pause. Its tooltip and accessible name describe the current action.
 The same button shows active time accumulated in the current block. A separate small **Total** indicator shows the whole session in the upper-left control area. PDF and MusicXML use the block time in their floating play/pause control and the session total in a separate fixed corner indicator. Both clocks freeze while paused and continue when you resume.
 
-**Block time** measures accumulated active time in the current block, including earlier visits. **Session**, beside the heading, totals active time across all blocks. Both exclude pauses. Suggested minutes describe your intention; they are not a countdown and do not automatically advance the session.
+**Block time** measures accumulated active time in the current block, including earlier visits. **Total practice time**, in large digits at the top of the overview beside **Continue later**, totals active time across all blocks. Both exclude pauses. Suggested minutes describe your intention; they are not a countdown and do not automatically advance the session.
 
 For example, after ten minutes of technique and eight minutes of reading, the block clock shows **8:00** and the session clock shows **18:00**.
 

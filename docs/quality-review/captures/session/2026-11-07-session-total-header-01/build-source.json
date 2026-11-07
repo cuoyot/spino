@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-07",
+  "baseCommit": "902f0e7ee5ab6933e36421b17631d5fe61dad894",
+  "source": "Existing dirty workspace; unrelated changes preserved.",
+  "sha256": {
+    "src/companion/session-view.js": "504d36f0283bc8a7046e67e8587108c0e8151f4e7fb8794343d2be20a537c408",
+    "src/companion/session-view.css": "5d4ab96d8102091756603203681c164660229694a2acc7573e386ca919ab59fb",
+    "dist/index.html": "f9284c361e94662d003701c7146342a3eedab17f561f790b7ef2d5eec7b6ac49"
+  },
+  "validation": {
+    "build": "passed",
+    "flexiblePracticeBrowserTests": 3,
+    "runtime": "Node 22; Chrome headless; isolated temporary browser profile"
+  },
+  "presentation": "Responsive browser evidence only; native and owner visual acceptance pending.",
+  "preview": "http://127.0.0.1:5298/",
+  "releaseBaseCommit": "3035fbdb07a27bf770dd0b2a701362d21292a76c",
+  "ownerLayoutAcceptance": "2026-11-07: owner says Me gusta and requests APK/website publication"
+}

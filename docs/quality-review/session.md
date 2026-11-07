@@ -1,3 +1,5 @@
+2026-11-07: owner accepts the compact overview header and prominent total; beta119 APK/website packaging authorized. Responsive evidence: session/2026-11-07-session-total-header-01. Physical-device acceptance remains separate.
+
 # Session overview review
 
 Review ID: **PRACTICE-01**, reached from TODAY-02/03. Status: **D-005 direction accepted; implemented and in scoped verification; approved except the original movement controls, revised under D-006**. Updated: 2026-10-01.

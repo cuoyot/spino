@@ -1,0 +1,15 @@
+<es-ES>
+Cabecera de práctica más compacta, con el tiempo total destacado y «Continuar después» a su lado. El tiempo de cada bloque sigue visible por separado. Conserva las mejoras anteriores y los datos del cuaderno.
+</es-ES>
+<en-US>
+A more compact practice header highlights total practice time beside Continue later. Each block keeps its separate timer. Previous improvements and notebook data are retained.
+</en-US>
+<ca>
+Capçalera de pràctica més compacta, amb el temps total destacat al costat de Continua més tard. Cada bloc manté el seu temps per separat. Es conserven les millores anteriors i les dades del quadern.
+</ca>
+<de-DE>
+Kompakterer Übungskopf mit deutlich sichtbarer Gesamtübungszeit neben Später fortsetzen. Jeder Block behält seine eigene Zeitanzeige. Bisherige Verbesserungen und Notizbuchdaten bleiben erhalten.
+</de-DE>
+<hu-HU>
+Tömörebb gyakorlási fejléc, jól látható teljes gyakorlási idővel a Folytatás később mellett. A blokkok ideje külön látható marad. A korábbi fejlesztések és a füzet adatai megmaradnak.
+</hu-HU>

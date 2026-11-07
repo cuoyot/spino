@@ -1,3 +1,5 @@
+2026-11-07: owner accepts the compact overview header and prominent total; beta119 APK/website packaging authorized. Responsive evidence: session/2026-11-07-session-total-header-01. Physical-device acceptance remains separate.
+
 2026-11-07 beta117: owner-authorized APK and website delivery after corrected snapshots. Signed packages and 15 Android checks pass; replacement installation preserves all 135 original data-file hashes and confirms foreground activity. Website checks pass (8 unit, 2 browser); publication proof follows in docs/releases/6.2.1-beta.5-publication.json. Physical-device acceptance remains open.
 
 2026-11-07: Calendar, Library and Progress are reopened against the owner-supplied calendar mockup. The initial repository-derived visual pass was rejected. All weeks remain expanded; compact horizontal practices, soft week panels and a current-week header are the reference. Library retains its functions behind one Add work entry; Progress receives bounded visual alignment. Today/Practice remain unchanged and Profile is excluded. Source/browser review, owner acceptance pending; no APK or publication. See [review](calendar-library-progress.md).

@@ -60,10 +60,13 @@
 .cp-metro-settings select, .cp-metro-settings input { width: 100%; min-height: 44px; }
 .cp-metronome > .muted { font-size: 12px; line-height: 1.5; }
 .cp-session { --session-accent: #a9c8ff; }
-.cp-session-heading { align-items: center; gap: 10px; margin-bottom: 12px; }
+.cp-session-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.cp-session-summary { min-width: 0; }
+.cp-session-total { display: grid; gap: 3px; color: var(--ink); }
+.cp-session-total > span { font-size: 12px; font-weight: 600; }
 #app-shell .cp-session-heading h1 { font-size: clamp(22px, 2.8vw, 28px); line-height: 1.15; margin: 0 0 5px; overflow-wrap: anywhere; }
-#app-shell .cp-session-heading p { color: var(--subtle); font-size: 12px; margin: 0; display: flex; flex-wrap: wrap; gap: 3px 6px; }
-.cp-session-heading [data-session-clock] { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+#app-shell .cp-session-heading p { color: var(--subtle); font-size: 12px; margin: 4px 0 0; }
+.cp-session-heading [data-session-clock] { color: var(--ink); font-size: clamp(32px, 4vw, 40px); line-height: 1.1; letter-spacing: -.025em; font-weight: 700; font-variant-numeric: tabular-nums; }
 #app-shell .cp-session button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; font-size: 13px; border-radius: 9px; padding: 8px 11px; }
 .cp-session button svg { width: 18px; height: 18px; flex: none; }
 #app-shell .cp-session .cp-session-finish { flex: none; }
@@ -160,10 +163,10 @@
   .cp-session-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .95fr); gap: 14px; }
 }
 @media (max-width: 599px) {
-  .cp-session-heading { flex-wrap: wrap; align-items: start; margin-bottom: 10px; }
-  .cp-session-heading > div { flex: 1 1 100%; }
+  .cp-session-heading { margin-bottom: 12px; }
+  .cp-session-summary { flex: 1; }
   #app-shell .cp-session-heading h1 { font-size: 23px; }
-  #app-shell .cp-session-heading .cp-session-finish { padding: 7px 9px; min-height: 44px; font-size: 12px; }
+  #app-shell .cp-session-heading .cp-session-finish { padding: 7px 9px; min-height: 44px; max-width: 46%; font-size: 12px; }
   .cp-session-card { padding: 13px !important; }
 }
 @media (orientation: landscape) and (max-height: 599px) {
