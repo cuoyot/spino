@@ -37,7 +37,7 @@ export function processScoreInBackground(asset, record, options = {}) {
 }
 
 // The queue is durable, but never starts a new transfer merely because the app launches.
-export function createLibraryDownloads({ getLibrary, setLibrary, store, getData, platform, changed, isVisible = () => !document.hidden, process = processScoreInBackground }) {
+export function createLibraryDownloads({ getLibrary, setLibrary, store, getData, platform, changed, isVisible = () => !document.hidden, resolveAsset = id => store.asset(id), process = processScoreInBackground }) {
   let running = false, controller = null, activeId = null;
   const publish = async library => { await store.saveLibrary(library); setLibrary(library); changed(); };
   const execution = id => executionFor(getLibrary(), id);
@@ -45,12 +45,16 @@ export function createLibraryDownloads({ getLibrary, setLibrary, store, getData,
   async function analyze(id, options = {}) {
     const record = catalogueRecords(getLibrary()).find(r => r.piece_id === id), current = execution(id);
     if (!record || !current.assetId) throw new Error('Download a score before analyzing it.');
-    const asset = await store.asset(current.assetId);
+    const asset = await resolveAsset(current.assetId);
+    if (asset?.base64 === undefined) throw new Error('Download the score on this device before selecting parts.');
     await update(id, { analysis: { ...pendingAnalysis(), status: 'running' }, render: null });
     try {
       const result = await process(asset, record, options);
       await update(id, result);
-    } catch (error) { await update(id, { analysis: { ...pendingAnalysis(), status: 'failed', error: error.message }, segments: [] }); }
+    } catch (error) {
+      await update(id, current.analysis?.status === 'complete' ? { analysis: current.analysis, render: current.render } : { analysis: { ...pendingAnalysis(), status: 'failed', error: error.message }, segments: [] });
+      throw error;
+    }
   }
   async function pump() {
     if (running || !isVisible()) return;

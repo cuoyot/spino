@@ -1,3 +1,4 @@
+import { sameScoreContent, scoreBytesMatch } from './score-content.js';
 import { emptyData, validateData, validateBackup, VERSION } from './model.js';
 import { validateAnnotations } from './pdf-annotations.js';
 import { validateScoreView } from './score-view.js';
@@ -77,7 +78,7 @@ export async function openStore(name='cuaderno-piano') {
     },
     async restore(text, { syncBase } = {}) {
       const backup = validateBackup(text);
-      for(const asset of backup.assets){if(asset.base64===undefined&&asset.remoteContent){const previous=await read('assets',asset.id);if(previous?.base64&&JSON.stringify(previous.remoteContent)===JSON.stringify(asset.remoteContent))asset.base64=previous.base64;}}
+      for(const asset of backup.assets){if(asset.base64===undefined&&asset.remoteContent){const previous=await read('assets',asset.id);if(previous?.base64&&(sameScoreContent(previous.remoteContent,asset.remoteContent)||await scoreBytesMatch(previous.base64,asset.remoteContent)))asset.base64=previous.base64;}}
       const previous=Object.fromEntries(LEGACY_KEYS.map(k=>[k,localStorage.getItem(k)]));
       try {
         for (const key of LEGACY_KEYS) {

@@ -33,7 +33,7 @@ test('catalogue and advanced score detail follow the current language and keep s
   assert.match(libraryMarkup(data), /Catálogo de partituras/);
   const detail = libraryDetailMarkup(data, record.piece_id);
   assert.match(detail, /Fuentes, derechos y créditos/);
-  assert.match(detail, /Seleccionar partes de piano/);
+  assert.match(detail, /Elegir instrumentos/);
   assert.doesNotMatch(detail, /Revisar derechos de la edición/);
   assert.doesNotMatch(detail, /Métricas, versiones y avisos/);
   assert.doesNotMatch(detail, /Revisar pasaje/);
@@ -45,7 +45,7 @@ test('catalogue and advanced score detail follow the current language and keep s
   assert.match(libraryDetailMarkup(data, record.piece_id, false, 'en'), /Sources, rights and credits/);
   setAppLanguage('en');
   assert.match(libraryMarkup(data), /Score catalogue/);
-  assert.match(libraryDetailMarkup(data, record.piece_id), /Select piano parts/);
+  assert.match(libraryDetailMarkup(data, record.piece_id), /Choose instruments/);
 });
 
 test('PDF and MusicXML transfers localize visible state, actions, errors and progress labels', () => {
@@ -90,12 +90,12 @@ test('repertoire filters translate stored stage labels without modifying titles,
 test('catalogue dialogs, validation and review buttons use the selected language', async () => {
   const lib = local();
   let shown;
-  const ui = createLibraryUI({ getLibrary: () => lib, showDialog: (title, html, submit) => { shown = { title, html, submit }; }, pauseTransfers: async () => {} });
+  const ui = createLibraryUI({ getLibrary: () => lib, resolveAsset: async () => ({base64: bytesToBase64(bytes)}), showDialog: (title, html, submit) => { shown = { title, html, submit }; }, pauseTransfers: async () => {} });
   setAppLanguage('es');
-  ui.actions['library-parts'](record.piece_id);
-  assert.equal(shown.title, 'Seleccionar partes de piano');
+  await ui.actions['library-parts'](record.piece_id);
+  assert.equal(shown.title, 'Elegir instrumentos');
   assert.match(shown.html, /Asignación de manos revisada/);
-  assert.match(shown.html, /Analizar selección/);
+  assert.match(shown.html, /Aplicar selección/);
   await assert.rejects(() => shown.submit(new FormData()), /Selecciona al menos una parte/);
   ui.actions['library-rights'](record.piece_id);
   assert.match(shown.html, /Guardar revisión/);
@@ -105,9 +105,9 @@ test('catalogue dialogs, validation and review buttons use the selected language
   assert.match(shown.title, /Adjuntar una edición/);
   assert.match(shown.html, /Fuente \(URL o referencia\)/);
   setAppLanguage('en');
-  ui.actions['library-parts'](record.piece_id);
-  assert.equal(shown.title, 'Select piano parts');
-  assert.match(shown.html, /Analyze selection/);
+  await ui.actions['library-parts'](record.piece_id);
+  assert.equal(shown.title, 'Choose instruments');
+  assert.match(shown.html, /Apply selection/);
 });
 
 test('reviewed PDF guidance translates without rewriting titles, edition evidence, downloads or catalog IDs', () => {

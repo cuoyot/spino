@@ -1,0 +1,296 @@
+{
+  "date": "2026-11-08",
+  "surface": "Responsive production browser; not native-device acceptance",
+  "fixtureSha256": "9cd59706347d0719f97549db9ce55fe88fab0ccd8eeef738f5c1da5ac1e1af7e",
+  "sourceSha256": "68a3cbd8f1178213ebf13c6f10fd834c19b2560376070eb75a9c48cb17e0219c",
+  "buildSha256": "f3fe7d10fd25860aa5c8a6f9cf8e6dede43c46680b876f13f15e2a4c25f8c59c",
+  "results": [
+    {
+      "state": "reading",
+      "width": 390,
+      "height": 844,
+      "path": "reading-390x844.png",
+      "sha256": "2dcfb92d7e5bf1212b3424eff24e6fe500340c8e59566a6eb9fa06443becd3ab",
+      "id": "390x844",
+      "label": "390 × 844",
+      "frames": [
+        {
+          "path": "reading-390x844.png",
+          "scrollTop": 0,
+          "sha256": "2dcfb92d7e5bf1212b3424eff24e6fe500340c8e59566a6eb9fa06443becd3ab"
+        }
+      ]
+    },
+    {
+      "state": "labels",
+      "width": 390,
+      "height": 844,
+      "path": "labels-390x844.png",
+      "sha256": "882f1284dadd8cafe732c890e86bc9dcea5d05bd56d00c8c880828017d5d42df",
+      "id": "390x844",
+      "label": "390 × 844",
+      "frames": [
+        {
+          "path": "labels-390x844.png",
+          "scrollTop": 0,
+          "sha256": "882f1284dadd8cafe732c890e86bc9dcea5d05bd56d00c8c880828017d5d42df"
+        }
+      ]
+    },
+    {
+      "state": "options",
+      "width": 390,
+      "height": 844,
+      "path": "options-390x844.png",
+      "sha256": "4ccb33528820c97aeda88e8653580d69bff7ec2dd3fb87a5b4fab9bf1032b0c2",
+      "id": "390x844",
+      "label": "390 × 844",
+      "frames": [
+        {
+          "path": "options-390x844.png",
+          "scrollTop": 0,
+          "sha256": "4ccb33528820c97aeda88e8653580d69bff7ec2dd3fb87a5b4fab9bf1032b0c2"
+        }
+      ]
+    },
+    {
+      "state": "zoom160",
+      "width": 390,
+      "height": 844,
+      "path": "zoom160-390x844.png",
+      "sha256": "d35516b72e1ed56ed6eef6091f865af5de511f65d359ac81da55a12eef953f6a",
+      "id": "390x844",
+      "label": "390 × 844",
+      "frames": [
+        {
+          "path": "zoom160-390x844.png",
+          "scrollTop": 0,
+          "sha256": "d35516b72e1ed56ed6eef6091f865af5de511f65d359ac81da55a12eef953f6a"
+        }
+      ]
+    },
+    {
+      "state": "reading",
+      "width": 844,
+      "height": 390,
+      "path": "reading-844x390.png",
+      "sha256": "b199303cf1c5c42e293383435725617a229d8a7f448038aafc255fae2dbba369",
+      "id": "844x390",
+      "label": "844 × 390",
+      "frames": [
+        {
+          "path": "reading-844x390.png",
+          "scrollTop": 0,
+          "sha256": "b199303cf1c5c42e293383435725617a229d8a7f448038aafc255fae2dbba369"
+        }
+      ]
+    },
+    {
+      "state": "labels",
+      "width": 844,
+      "height": 390,
+      "path": "labels-844x390.png",
+      "sha256": "7d5b5a7fe135524a9792497230c11afad4d30376ff49691653625befef8c082b",
+      "id": "844x390",
+      "label": "844 × 390",
+      "frames": [
+        {
+          "path": "labels-844x390.png",
+          "scrollTop": 0,
+          "sha256": "7d5b5a7fe135524a9792497230c11afad4d30376ff49691653625befef8c082b"
+        }
+      ]
+    },
+    {
+      "state": "options",
+      "width": 844,
+      "height": 390,
+      "path": "options-844x390.png",
+      "sha256": "385a6aac82db11a1bdc1f0e1c8dd03e51aff4ea9337ba5c2696c61a613847746",
+      "id": "844x390",
+      "label": "844 × 390",
+      "frames": [
+        {
+          "path": "options-844x390.png",
+          "scrollTop": 0,
+          "sha256": "385a6aac82db11a1bdc1f0e1c8dd03e51aff4ea9337ba5c2696c61a613847746"
+        }
+      ]
+    },
+    {
+      "state": "zoom160",
+      "width": 844,
+      "height": 390,
+      "path": "zoom160-844x390.png",
+      "sha256": "e42fcbd7a9a98646307768c248c2670c0a3d8a15b369a080b1a9b86cdfeac3ae",
+      "id": "844x390",
+      "label": "844 × 390",
+      "frames": [
+        {
+          "path": "zoom160-844x390.png",
+          "scrollTop": 0,
+          "sha256": "e42fcbd7a9a98646307768c248c2670c0a3d8a15b369a080b1a9b86cdfeac3ae"
+        }
+      ]
+    },
+    {
+      "state": "reading",
+      "width": 768,
+      "height": 1024,
+      "path": "reading-768x1024.png",
+      "sha256": "6a4fd6ea715e45e57038137d36ea4ebe1b131a775793ab4f568a5a7ed9924c72",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "frames": [
+        {
+          "path": "reading-768x1024.png",
+          "scrollTop": 0,
+          "sha256": "6a4fd6ea715e45e57038137d36ea4ebe1b131a775793ab4f568a5a7ed9924c72"
+        }
+      ]
+    },
+    {
+      "state": "labels",
+      "width": 768,
+      "height": 1024,
+      "path": "labels-768x1024.png",
+      "sha256": "0cbaa5561b5a113019f3343ef1fea899c0e35f0db1316f618ae1d06e0630b9e3",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "frames": [
+        {
+          "path": "labels-768x1024.png",
+          "scrollTop": 0,
+          "sha256": "0cbaa5561b5a113019f3343ef1fea899c0e35f0db1316f618ae1d06e0630b9e3"
+        }
+      ]
+    },
+    {
+      "state": "options",
+      "width": 768,
+      "height": 1024,
+      "path": "options-768x1024.png",
+      "sha256": "d70dfc86ca51c5137b9c0c2e742c4173e846c958aa38570faa541b3d9adbd9e4",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "frames": [
+        {
+          "path": "options-768x1024.png",
+          "scrollTop": 0,
+          "sha256": "d70dfc86ca51c5137b9c0c2e742c4173e846c958aa38570faa541b3d9adbd9e4"
+        }
+      ]
+    },
+    {
+      "state": "zoom160",
+      "width": 768,
+      "height": 1024,
+      "path": "zoom160-768x1024.png",
+      "sha256": "8b64795434ad89504a0e1be6013bed74477b11c92493e91104a8d10190a03baf",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "frames": [
+        {
+          "path": "zoom160-768x1024.png",
+          "scrollTop": 0,
+          "sha256": "8b64795434ad89504a0e1be6013bed74477b11c92493e91104a8d10190a03baf"
+        }
+      ]
+    },
+    {
+      "state": "reading",
+      "width": 1024,
+      "height": 768,
+      "path": "reading-1024x768.png",
+      "sha256": "310de4546b2e86a842c1ebbf0af2ea30941aebb7465a84eb0aa1aa561a0d596d",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "frames": [
+        {
+          "path": "reading-1024x768.png",
+          "scrollTop": 0,
+          "sha256": "310de4546b2e86a842c1ebbf0af2ea30941aebb7465a84eb0aa1aa561a0d596d"
+        }
+      ]
+    },
+    {
+      "state": "labels",
+      "width": 1024,
+      "height": 768,
+      "path": "labels-1024x768.png",
+      "sha256": "04950347b528e621db00d18e6d0820e5f2b1ae4160f1330fd92be090d82b7aab",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "frames": [
+        {
+          "path": "labels-1024x768.png",
+          "scrollTop": 0,
+          "sha256": "04950347b528e621db00d18e6d0820e5f2b1ae4160f1330fd92be090d82b7aab"
+        }
+      ]
+    },
+    {
+      "state": "options",
+      "width": 1024,
+      "height": 768,
+      "path": "options-1024x768.png",
+      "sha256": "f2efe1bde038f3600c35800457ed64bb5e9173f7a3b190ddb2e555d9f9748bd1",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "frames": [
+        {
+          "path": "options-1024x768.png",
+          "scrollTop": 0,
+          "sha256": "f2efe1bde038f3600c35800457ed64bb5e9173f7a3b190ddb2e555d9f9748bd1"
+        }
+      ]
+    },
+    {
+      "state": "zoom160",
+      "width": 1024,
+      "height": 768,
+      "path": "zoom160-1024x768.png",
+      "sha256": "4e4895ea076f1470d2cabeafe05b077cb994bca1d5ab53706ad330580431e706",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "frames": [
+        {
+          "path": "zoom160-1024x768.png",
+          "scrollTop": 0,
+          "sha256": "4e4895ea076f1470d2cabeafe05b077cb994bca1d5ab53706ad330580431e706"
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": [],
+  "title": "MusicXML recovery and view options",
+  "runId": "2026-11-08-musicxml-recovery-04",
+  "reviewHref": "../../../manual-practice.md",
+  "baseCommit": "f509047d6426f2b1c9548089123a67c110219758",
+  "sourceFiles": {
+    "src/companion/musicxml-viewer.js": "68a3cbd8f1178213ebf13c6f10fd834c19b2560376070eb75a9c48cb17e0219c",
+    "src/companion/pdf-viewer.css": "1dfaa4f2ce053a000c9d22464a6bfd795fead292dd197eec4f4b952e8e2f2d13",
+    "src/companion/score-content.js": "d622fe5434072f5b01675ceb7b3ac94b40f0e129c0b5f0e1ce7a9e2f2fb2ab35",
+    "src/companion/store.js": "a1c93ed8a14b0bfc0dd282acc5e0d3c6c8b66b1e3ee9e013dd29436ec5eaa036",
+    "src/companion/library-pipeline.js": "aba5664af8c24a927e533328bcd633bc5a1642b016b583acce21a8726aeaff8a",
+    "src/companion/library-ui.js": "5bab3a197beb82582fba1b02b6e0f323efb9045bc564b7e23035ed9246fc7ca0",
+    "src/companion/library-view.js": "f29a382a8ae0eabca418b45b503ee723fba9ef0e97d18e4746289570b82f8107",
+    "src/companion/library-browse.js": "7fc33f851c55dc406b88a85b41cf2a31162eefbc4341cba316383c4c9c27436c",
+    "src/companion/app.js": "e9232ef11e93d961b8b32100ca3e749dd149253d6fb06c7e64024aa783e8f781",
+    "src/companion/locale.js": "97bdf8b5087a1c839660849f90a0d8670dd9c08013152ae75e6cbb60a3aa01b8"
+  },
+  "validation": {
+    "unit": {
+      "passed": 74,
+      "failed": 0
+    },
+    "browser": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1,
+      "reason": "Optional real acquired score artifact unavailable; synthetic full application path tested."
+    },
+    "native": "Not packaged or accepted",
+    "build": "Production Vite build passed"
+  }
+}

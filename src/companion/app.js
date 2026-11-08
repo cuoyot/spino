@@ -96,6 +96,7 @@ import { scoreImportMarkup, bindScoreImport } from './score-import.js';
 import { CATALOG, catalogPresentation } from './catalog.js';
 import { emptyLibrary, importLibrary, catalogueRecords, legacyMigrationReport } from './library.js';
 import { libraryMarkup, libraryDetailMarkup } from './library-view.js';
+import { downloadedScore } from './score-content.js';
 import { createLibraryDownloads } from './library-pipeline.js';
 import { createLibraryUI } from './library-ui.js';
 import { downloadScore } from './score-transfer.js';
@@ -1056,7 +1057,7 @@ export async function bootCompanion(reader) {
   const downloads=createDownloads({getData:()=>data,store,platform:{downloadPDF,networkStatus},persist,isVisible:()=>!document.hidden&&!scoreViewer&&!openingScore,changed:progressOnly=>{
     if(progressOnly)updateDownloadProgress(data.downloadJobs);else if(['downloads','catalog'].includes(view))render();
   }});
-  const libraryDownloads = createLibraryDownloads({ getLibrary: () => library, setLibrary: value => { library = value; }, store, getData: () => data, platform: { downloadScore, networkStatus }, isVisible: () => !document.hidden && !scoreViewer && !openingScore,
+  const libraryDownloads = createLibraryDownloads({ getLibrary: () => library, setLibrary: value => { library = value; }, store, resolveAsset: ensureScoreAsset, getData: () => data, platform: { downloadScore, networkStatus }, isVisible: () => !document.hidden && !scoreViewer && !openingScore,
     changed: progressOnly => { if (progressOnly) updateDownloadProgress(Object.entries(library.executions).filter(([,e])=>e.job).map(([id,e])=>({...e.job,catalogId:id}))); else if (['catalog','library-detail','downloads'].includes(view)) render(); } });
   const pauseTransfers = async () => { await downloads.pauseAll(); await libraryDownloads.pauseAll(); };
   async function printStoredScore(id, fromLibrary=false) {
@@ -1142,7 +1143,7 @@ export async function bootCompanion(reader) {
     if(draft.context==='mobile')draft.context='piano';
     materialSelection=null;go('prepare');toast(ui("Score added to your practice. Existing blocks have been kept.", "Partitura añadida a tu práctica. Se conservan los bloques existentes."));
   }
-  const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
+  const libraryUI = createLibraryUI({ getLibrary: () => library, setLibrary: value => { library = value; }, store, resolveAsset: ensureScoreAsset, downloads: libraryDownloads, showDialog, dialog, render, toast, go, preview: previewLibrary, practice: practiceLibrary, pauseTransfers });
   if (cloudAvailable()&&!recoveredNotebook) {
     let lastCloudKey='',lastProfileCloud='',adoptedScroll=0;
     cloud = createNotebookCloud({ retireProvider:true,delay:30000,dirtyDelay:1500,adapter:cloudTransport, snapshot: () => store.export(data), eligible: () => !storageCoordinator?.locked && !storageManager?.state.busy && !completeBackupBusy && !document.hidden && !downloads.busy && !libraryDownloads.busy && !restoringBackup && !importingScore && !sessionWriting && !startingPractice,
@@ -1323,10 +1324,10 @@ export async function bootCompanion(reader) {
     if(cloud.busy)throw Error(ui('Wait for notebook synchronization to finish.','Espera a que termine la sincronización del cuaderno.'));
     if(consent){const approved=await new Promise(resolve=>{let settled=false;const finish=value=>{if(settled)return;settled=true;dialog.removeEventListener('close',closed);resolve(value);};const closed=()=>{if(!dialog.open)finish(false);};showDialog(ui('Score in Google Drive','Partitura en Google Drive'),`<form><p>${esc(asset.name)} · ${Math.ceil(asset.remoteContent.length*3/4/1024)} KB</p><p>${ui('Download to open it. Mobile data, including 5G, may be used.','Descárgala para abrirla. Puede usar datos móviles, incluido 5G.')}</p>${formEnd(ui('Download score','Descargar partitura'))}</form>`,async()=>{finish(true);dialog.close();});dialog.addEventListener('close',closed);});if(!approved)throw Error(ui('Download cancelled.','Descarga cancelada.'));}
     const wasBusy=completeBackupBusy;completeBackupBusy=true;
-    try{const downloaded=await (consent?transferFeedback(ui('Downloading score','Descargando partitura'),()=>cloudTransport.drive.downloadAsset(id)):cloudTransport.drive.downloadAsset(id));if(JSON.stringify(downloaded.remoteContent)!==JSON.stringify(asset.remoteContent)&&downloaded.remoteContent)throw Error('The score changed. Synchronize before downloading.');
+    try{const downloaded=await (consent?transferFeedback(ui('Downloading score','Descargando partitura'),()=>cloudTransport.drive.downloadAsset(id)):cloudTransport.drive.downloadAsset(id));
       // Keep this device's annotations; only verified score bytes are downloaded.
-      const current=await store.asset(id);if(!current||JSON.stringify(current.remoteContent)!==JSON.stringify(asset.remoteContent))throw Error('The score changed while downloading. Retry.');
-      const result={...current,base64:downloaded.base64};await store.putAsset(result);return result;
+      const current=await store.asset(id);
+      const result=downloadedScore(current,asset,downloaded);await store.putAsset(result);return result;
     }finally{completeBackupBusy=wasBusy;}
   }
   async function resetThisDevice(){

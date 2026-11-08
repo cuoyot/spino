@@ -21,6 +21,11 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   const bytes = bytesFromBase64(asset.base64);
   if (await digest(bytes) !== asset.sha256) throw new Error(ui('The local score hash has changed. Revalidate it before viewing.', 'El archivo local de la partitura ha cambiado. Valídalo de nuevo antes de abrirlo.'));
   const validated = readMusicXML(bytes, asset.format);
+  const preferenceKey = `spino.musicxml-view.${asset.sha256}`;
+  let savedView = {};
+  try { savedView = JSON.parse(localStorage.getItem(preferenceKey)) || {}; } catch {}
+  const view = { names: savedView.names === true, heading: savedView.heading !== false, fingering: savedView.fingering !== false, marks: savedView.marks !== false };
+  const saveView = () => { try { localStorage.setItem(preferenceKey, JSON.stringify({ ...view, zoom })); } catch {} };
   const xml = excerptXML(validated.xml, selection, start, end);
   const fullscreen = await scoreFullscreen(), modal = document.createElement('dialog');
   modal.className = 'pdf-viewer xml-score-viewer'; modal.setAttribute('aria-label', session ? ui('MusicXML practice', 'Práctica con MusicXML') : ui('MusicXML review preview', 'Vista previa de MusicXML'));
@@ -33,7 +38,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   optionToggle.setAttribute('aria-label', ui('Edit score', 'Editar partitura')); optionToggle.innerHTML = scoreIcon('tools');
   const done = document.createElement('button'); done.dataset.xml = 'done'; done.textContent = ui('Done', 'Hecho'); done.hidden = true;
   const zoomLabel = document.createElement('label'); zoomLabel.textContent = ui('Zoom (%)', 'Zoom (%)');
-  const zoomField = document.createElement('input'); zoomField.type = 'number'; zoomField.min = '60'; zoomField.max = '200'; zoomField.step = '10'; zoomField.value = '100'; zoomField.dataset.xmlZoom = ''; zoomField.setAttribute('aria-label',ui('Zoom percentage','Porcentaje de zoom')); zoomLabel.append(zoomField);
+  const zoomField = document.createElement('input'); zoomField.type = 'number'; zoomField.min = '20'; zoomField.max = '300'; zoomField.step = '10'; zoomField.value = '100'; zoomField.dataset.xmlZoom = ''; zoomField.setAttribute('aria-label',ui('Zoom percentage','Porcentaje de zoom')); zoomLabel.append(zoomField);
   for (const node of [widget.querySelector('[data-action=midi-settings]'), modal.querySelector('[data-xml=follow]'), modal.querySelector('[data-xml-hands]'), modal.querySelector('[data-xml=out]'), zoomLabel, modal.querySelector('[data-xml=in]'), modal.querySelector('[data-xml=close]'), modal.querySelector('.xml-status')]) if (node) options.append(node);
   const closeButton=options.querySelector('[data-xml=close]');closeButton.textContent=session?ui('Return to session','Volver a la sesión'):ui('Close score','Cerrar partitura');closeButton.setAttribute('aria-label',closeButton.textContent);
   modal.querySelector('.xml-time').remove();
@@ -49,13 +54,24 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   for(const selector of ['[data-action=midi-settings]','[data-xml=follow]','[data-xml-hands]']){const node=modal.querySelector(selector);if(node)midiRow.append(node);}
   midiGroup.append(midiRow,modal.querySelector('.xml-follow'));
   const zoomGroup=document.createElement('section');zoomGroup.className='xml-options-section';
-  const zoomHeading=document.createElement('h3');zoomHeading.textContent='Zoom';zoomGroup.append(zoomHeading);
+  const zoomHeading=document.createElement('h3');zoomHeading.textContent='Zoom · 20–300 %';zoomGroup.append(zoomHeading);
   const zoomRow=document.createElement('div');zoomRow.className='xml-option-row xml-zoom-row';
   zoomLabel.firstChild.remove();
   zoomRow.append(modal.querySelector('[data-xml=out]'),zoomLabel,modal.querySelector('[data-xml=in]'));zoomGroup.append(zoomRow);
   const status=modal.querySelector('.xml-status');
   midiGroup.hidden=!session;
-  options.replaceChildren(midiGroup,zoomGroup,status);
+  const appearanceGroup=document.createElement('section');appearanceGroup.className='xml-options-section';
+  appearanceGroup.innerHTML=`<h3>${ui('Show in score','Mostrar en la partitura')}</h3>${[
+    ['names',ui('Instrument names','Nombres de instrumentos')],
+    ['heading',ui('Title and credits','Título y créditos')],
+    ['fingering',ui('Printed fingering','Digitación impresa')],
+    ['marks',ui('My fingering','Mi digitación')],
+  ].map(([key,label])=>`<label class="xml-visibility"><input type="checkbox" data-xml-show="${key}" ${view[key]?'checked':''}>${label}</label>`).join('')}`;
+  appearanceGroup.addEventListener('change',event=>{
+    const key=event.target.dataset.xmlShow;if(!key || running())return;
+    view[key]=event.target.checked;display.setOptions(appearanceOptions());renderView();saveView();
+  });
+  options.replaceChildren(zoomGroup,appearanceGroup,midiGroup,status);
   const printButton=document.createElement('button');printButton.dataset.xml='print';printButton.innerHTML=scoreIcon('print');printButton.className='score-print-icon';printButton.title=ui('Print score','Imprimir partitura');printButton.setAttribute('aria-label',printButton.title);options.append(printButton);
   const marksGroup=document.createElement('section');marksGroup.className='xml-options-section';
   marksGroup.innerHTML=`<h3>${ui('Fingering','Digitación')}</h3><div class="pdf-fingers" role="group" aria-label="${ui('Finger','Dedo')}">${[1,2,3,4,5].map(n=>`<button data-xml-digit="${n}" aria-label="${ui('Finger','Dedo')} ${n}" aria-pressed="false">${n}</button>`).join('')}</div><div class="pdf-palette" role="group" aria-label="${ui('Color','Color')}">${MARK_COLORS.map((color,i)=>`<button data-xml-color="${color}" style="--swatch:${color}" aria-label="${[ui('Red','Rojo'),ui('Blue','Azul'),ui('Ochre','Ocre'),ui('Green','Verde'),ui('Ink','Tinta')][i]}" aria-pressed="false"><span></span></button>`).join('')}</div><div class="xml-option-row"><button data-xml-mark="read">${ui('Read','Leer')}</button><button data-xml-mark="erase">${ui('Remove fingering','Borrar digitación')}</button></div>`;
@@ -73,13 +89,13 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   }
   marksGroup.addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button)return;
-    if(button.dataset.xmlDigit){annotationDigit=button.dataset.xmlDigit;annotationTool='finger';}
+    if(button.dataset.xmlDigit){annotationDigit=button.dataset.xmlDigit;annotationTool='finger';view.marks=true;appearanceGroup.querySelector('[data-xml-show=marks]').checked=true;paintNoteMarks();saveView();}
     if(button.dataset.xmlColor)annotationColor=button.dataset.xmlColor;
     if(button.dataset.xmlMark)annotationTool=button.dataset.xmlMark;
     if(annotationTool!=='read')expanded=false;
     updateDigitControls();controls();
   });updateDigitControls();
-  options.insertBefore(marksGroup,zoomGroup);
+  options.insertBefore(marksGroup,printButton);
   let noteMarks=structuredClone(asset.musicxmlMarks||[]), markSaving=Promise.resolve();
   const markLayer=document.createElement('div');markLayer.style.cssText='position:absolute;inset:0;pointer-events:none';target.style.position='relative';target.append(markLayer);
   const noteTargets=()=>{
@@ -93,6 +109,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   function paintNoteMarks(){
     if(!markLayer.isConnected)target.append(markLayer);
     markLayer.replaceChildren();const base=target.getBoundingClientRect();
+    if(!view.marks)return;
     for(const note of noteTargets())for(const mark of noteMarks.filter(m=>m.key===note.key&&m.type==='finger')){
       const r=note.element.getBoundingClientRect(),node=document.createElement('span');
       node.style.cssText=`position:absolute;left:${r.left-base.left-4}px;top:${r.top-base.top-8}px;width:${Math.max(18,r.width+8)}px;height:${r.height+16}px;`;
@@ -111,7 +128,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   });
   widget.append(closeButton);
   if (session) standardizePracticeWidget(widget,{drag:modal.querySelector('[data-xml=drag]'),timer:pauseButton,finish,options:optionToggle,alternateOptions:[done]});
-  let closed = false, stopClock, zoom = 1, drag = null, expanded = false;
+  let closed = false, stopClock, zoom = Number.isFinite(savedView.zoom) && savedView.zoom >= .2 && savedView.zoom <= 3 ? savedView.zoom : 1, drag = null, expanded = false;
   const running = () => !!session?.read().running;
   const controls = () => {
     const editing=expanded||annotationTool!=='read';
@@ -119,7 +136,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     const pause = modal.querySelector('[data-xml=pause]');
     if (session) { updateScoreTimer(pause, { ...info, editing }); updatePracticeTotal(modal, info); }
     for (const action of ['out', 'in']) modal.querySelector(`[data-xml=${action}]`).hidden = running();
-    closeButton.hidden=running()||editing;
+    closeButton.hidden=!!session&&(running()||editing);
     modal.querySelector('[data-xml=drag]').hidden=false;
     modal.querySelector('[data-xml=finish]')?.toggleAttribute('hidden', false);
     pause.hidden=!session;pause.disabled=false;
@@ -133,10 +150,17 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if(document.activeElement!==zoomField)zoomField.value=String(Math.round(zoom*100));
     status.hidden = !status.dataset.error;
   };
-  const display = new OpenSheetMusicDisplay(target, { backend: 'svg', autoResize: true, drawingParameters: 'default', drawTitle: true, pageFormat: 'Endless', cursorsOptions: [{ type: 0, color: '#2f6fe0', alpha: 0.35, follow: false }] });
+  const display = new OpenSheetMusicDisplay(target, { backend: 'svg', autoResize: true, drawingParameters: 'default', ...appearanceOptions(), pageFormat: 'Endless', cursorsOptions: [{ type: 0, color: '#2f6fe0', alpha: 0.35, follow: false }] });
+  function appearanceOptions() {
+    return { drawPartNames: view.names, drawPartAbbreviations: view.names, drawTitle: view.heading, drawSubtitle: view.heading, drawComposer: view.heading, drawLyricist: view.heading, drawFingerings: view.fingering };
+  }
+  function renderView() {
+    display.Zoom=zoom;display.render();paginate();
+    if(follower){display.cursor.update();showCursorPage();}controls();
+  }
   function setZoom(value) {
-    if(running()||!Number.isFinite(value)||value<.6||value>2){zoomField.value=String(Math.round(zoom*100));return;}
-    zoom=value;display.Zoom=zoom;display.render();paginate();if(follower){display.cursor.update();showCursorPage();}controls();
+    if(running()||!Number.isFinite(value)||value<.2||value>3){zoomField.value=String(Math.round(zoom*100));return;}
+    zoom=value;renderView();saveView();
   }
   zoomField.addEventListener('change',()=>setZoom(Number(zoomField.value)/100));
 
@@ -232,7 +256,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if (delta) turn(delta);
   });
   scroll.addEventListener('wheel', e => { e.preventDefault(); if (Math.abs(e.deltaY) > 20 && !scroll.dataset.wheel) { turn(e.deltaY > 0 ? 1 : -1); scroll.dataset.wheel = '1'; setTimeout(() => delete scroll.dataset.wheel, 350); } }, { passive: false });
-  modal.addEventListener('keydown', e => { if (['ArrowRight', 'PageDown', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); turn(['ArrowRight', 'PageDown'].includes(e.key) ? 1 : -1); } });
+  modal.addEventListener('keydown', e => { if (!e.target.closest('input,select,textarea,button') && ['ArrowRight', 'PageDown', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); turn(['ArrowRight', 'PageDown'].includes(e.key) ? 1 : -1); } });
   const stopPedals = onPedalTurn(turn);
   const resized = new ResizeObserver(() => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (!closed && target.querySelector('svg')) { paginate(); if (follower) { display.cursor.update(); showCursorPage(); } } }, 400); });
   resized.observe(scroll);
@@ -269,7 +293,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
     if (action === 'pause') { if (!running() && (expanded || annotationTool!=='read')) await leaveEditing({ resume: false }); else { await session.toggle(); controls(); if(session.returnOnStop && !running()) await close(); } }
     if (action === 'next' || action === 'prev') turn(action === 'next' ? 1 : -1);
     if (action === 'follow') { followPreference.enabled = !follower; saveFollowPreference(followPreference); if (follower) stopFollow(); else startFollow(); }
-    if (!running() && ['in', 'out'].includes(action)) setZoom(Math.max(.6,Math.min(2,zoom+(action==='in'?.2:-.2))));
+    if (!running() && ['in', 'out'].includes(action)) setZoom(Math.max(.2,Math.min(3,Math.round((zoom+(action==='in'?.1:-.1))*100)/100)));
   });
   const handle = modal.querySelector('[data-xml=drag]'); handle.style.touchAction = 'none';
   handle.onpointerdown = e => { e.preventDefault(); handle.setPointerCapture(e.pointerId); const r = widget.getBoundingClientRect(); drag = { x: e.clientX - r.x, y: e.clientY - r.y }; };
@@ -279,7 +303,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
   controls(); stopClock = watchPracticeClock(() => session?.read(), controls);
   try {
     await display.load(xml.trimStart().startsWith('<?xml')?xml:'<?xml version="1.0"?>'+xml); if (closed) return { close };
-    display.render();
+    display.Zoom=zoom;display.render();
     if (!target.querySelector('svg')) throw new Error(ui('The renderer did not produce a score.', 'No se ha podido dibujar la partitura.'));
     paginate();
     if (session && followPreference.enabled) startFollow();

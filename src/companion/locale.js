@@ -34,6 +34,9 @@ const messages = [
   ['Offline.', 'Sin conexión.'],
   ['Failed to fetch', 'No se pudo conectar con la fuente.'],
   ['WIFI_REQUIRED', 'Conecta a una red Wi-Fi o permite datos móviles en Descargas.'],
+  ['The score changed. Synchronize the notebook and open the score again.', 'La partitura ha cambiado. Sincroniza el cuaderno y vuelve a abrirla.'],
+  ['The downloaded score is incomplete. Retry downloading.', 'La descarga de la partitura está incompleta. Vuelve a descargarla.'],
+  ['Download the score on this device before selecting parts.', 'Descarga la partitura en este dispositivo antes de elegir instrumentos.'],
   ...MESSAGE_PAIRS,
 ];
 export function localizeMessage(message, locale = language) {

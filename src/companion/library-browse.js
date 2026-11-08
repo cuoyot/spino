@@ -13,6 +13,7 @@ export function downloadStatus(status, lang = getAppLanguage()) {
 
 export function scoreStatus(record, execution, state, lang = getAppLanguage()) {
   const t = libraryText(lang), job = execution.job;
+  if (state.playable) return t('Available offline', 'Disponible sin conexión');
   if (job?.status === 'waiting-wifi') return t('Waiting for Wi-Fi · change networks in Downloads', 'Esperando Wi-Fi · configura la red en Descargas');
   if (job?.status === 'queued') return t('Download queued', 'Descarga en cola');
   if (job?.status === 'downloading') return job.phase === 'analysis' ? t('Preparing score…', 'Preparando partitura…') : t('Downloading…', 'Descargando…');

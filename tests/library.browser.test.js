@@ -11,7 +11,7 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   const action = async (name, id = '') => { if(name==='library-pdfs')return evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.query.value='';form.elements.format.value='pdf';form.requestSubmit()})()`);if(name==='library-clear')return evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.query.value='';form.elements.format.value='';form.elements.composer.value='';form.requestSubmit();document.querySelector('[data-action=library-all]').click()})()`); if (name === 'catalog' && !await evaluate(`!!document.querySelector('[data-action=catalog]')`)) await evaluate(`document.querySelector('[data-action=piano]').click()`); return evaluate(`document.querySelector('[data-action="${name}"]${id ? `[data-id="${id}"]` : ''}').click()`); };
   const form = values => evaluate(`(()=>{const form=document.querySelector('#cp-dialog form');for(const [name,value]of Object.entries(${JSON.stringify(values)}))form.elements.namedItem(name).value=value;form.requestSubmit();})()`);
   const read = key => evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,q=db.transaction('state').objectStore('state').get('${key}');q.onsuccess=()=>{resolve(q.result);db.close();};};})`);
-  const shot = async name => { if (!process.env.UI_SCREENSHOTS) return; await mkdir('artifacts/repertoire', { recursive: true }); const r = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(`artifacts/repertoire/ui-${name}.png`, Buffer.from(r.data, 'base64')); };
+  const shot = async name => { if (!process.env.UI_SCREENSHOTS && !process.env.XML_REVIEW_CAPTURE) return; const folder=process.env.XML_REVIEW_CAPTURE || 'artifacts/repertoire'; await mkdir(folder, { recursive: true }); const r = await send('Page.captureScreenshot', { format: 'png' }); await writeFile(`${folder}/library-${name}.png`, Buffer.from(r.data, 'base64')); };
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   await send('Page.navigate', { url }); await wait(`document.querySelector('#app-shell h1')`);
   await disableWarmup(evaluate);
@@ -63,6 +63,16 @@ test('catalogue starts with obtainable scores and opens downloaded piano music w
   await evaluate(`document.querySelector('#library-search [name=query]').value=${JSON.stringify(id)};document.querySelector('#library-search').requestSubmit()`);
   await action('library-detail', id);
   assert.equal(await evaluate(`document.querySelector('[data-action=library-practice]').disabled`), false);
+  // Changing parts and returning to piano keeps the acquired file and explicit manual choice.
+  for (const part of ['V','P']) {
+    await action('library-parts', id); await wait(`document.querySelector('#library-parts-form')`);
+    await shot('choose-instrument-'+part);
+    await evaluate(`{const form=document.querySelector('#library-parts-form');for(const input of form.querySelectorAll('[name=parts]'))input.checked=input.value===${JSON.stringify(part)};form.requestSubmit();}`);
+    await wait(`!document.querySelector('#cp-dialog').open`);
+    const selected=(await read('repertoire-library-v2')).executions[id];
+    assert.deepEqual(selected.selection,[part]);assert.equal(selected.assetId,execution.assetId);
+    assert.equal(selected.manualSelection.configHash,selected.configHash);
+  }
   await action('library-practice', id); await wait(`document.querySelector('#prepare-form')`);
   await evaluate(`document.querySelector('[data-action=prepare-other-pieces][data-id="0"]').click();document.querySelector('#cp-dialog [data-action=choose-catalogue]').click()`);
   await wait(`document.querySelector('#library-search')`);

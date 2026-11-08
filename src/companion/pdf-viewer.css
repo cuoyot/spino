@@ -69,6 +69,8 @@
 .xml-options-section + .xml-options-section { margin-top: 14px; border-top: 1px solid var(--theme-border, #414650); padding-top: 12px; }
 .xml-options-section h3 { font-size: 13px; margin: 0 0 8px; color: var(--theme-muted, #adb7c6); }
 .xml-option-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.xml-score-viewer .xml-visibility input { width: 20px; height: 20px; min-height: 20px; flex: 0 0 auto; }
+.xml-score-viewer .pdf-panel label.xml-visibility { min-height: 44px; flex-direction: row; justify-content: flex-start; text-align: left; margin-block: 0; }
 .xml-zoom-row { flex-wrap: nowrap; }
 .xml-score-viewer .xml-zoom-row label { margin: 0; }
 .xml-score-viewer [data-xml=close] { margin-top: 4px; font-size: 12px; }

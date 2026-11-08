@@ -89,3 +89,23 @@ Accepted owner objective: a visible floating exit when opening a work for annota
 
 
 2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.
+
+## 2026-11-08 — MusicXML opening, instrument selection and view options
+
+The owner reports a blocked Canon in D after choosing an instrument, a misleading Wi-Fi state, a 60% minimum zoom and oversized instrument labels. The recovery and readability objectives are requested; the implemented layout remains subject to owner review.
+
+Source changes are isolated on `codex/musicxml-fix` in `/Users/migue/.codex/worktrees/musicxml-fix/spino`, based on beta119 commit `f509047d6426f2b1c9548089123a67c110219758`. The original working tree is preserved.
+
+- Content references from Drive now compare ordered chunk hashes and length, independent of object field order. A real content replacement is still rejected. Hydration keeps this device's annotations/metadata. A first deferred sync checks existing local chunk hashes before retaining cached score bytes.
+- Choosing instruments resolves a deferred score before opening the chooser. Analysis failure retains the last successful selection and leaves an actionable form error. Changing parts does not replace the original file or annotations.
+- Open score is the primary detail action; source/rights/credits are collapsed. A waiting replacement download does not hide the playable edition's availability; transfer details remain in Downloads.
+- Zoom accepts 20–300%. Instrument names and repeated abbreviations default to hidden. Title/credits, printed fingering and saved personal fingering can be hidden independently. These are reversible view preferences stored on this device per score hash, not edits to the source. The panel starts with zoom and appearance. Standalone Close remains reachable while options are open.
+
+[Final responsive browser evidence](captures/session/2026-11-08-musicxml-recovery-04/index.html) includes 16 viewer states in phone/tablet portrait/landscape, real application download/part-selection/practice states, a synthetic MusicXML fixture, source/build hashes and separate print output. Runs 01–03 are earlier development evidence and are superseded. Earlier printing baseline files are preserved byte-for-byte; the regression now writes to a run-specific or temporary artifact folder.
+
+Production build, 74 focused unit checks and three browser regressions pass. The optional previously acquired real-score check is skipped because its artifact is unavailable. MIDI-follow, part switching, hide/show/reopen, saved fingering and full-source printing are checked with synthetic data. No personal notebook, installed app, APK or website deployment is changed. Native/physical-device acceptance and owner visual acceptance remain open.
+
+The Codex browser is disabled in Work settings and the Mac is locked, so automatic interactive handoff is unavailable. The current local browser build is served at `http://127.0.0.1:4179/musicxml-review.html`, with disposable synthetic notation and a gallery link.
+
+
+2026-11-08 packaging follow-up: owner-requested APK is built as 6.2.1-beta.8/build120. All 683 web assets match the signed APK/AAB. Fifteen Android unit checks pass; replacement installation preserves all 135 original IndexedDB files before launch and confirms the beta activity in the foreground. No website publication or Play submission. Physical-device acceptance remains open. See [release validation](../releases/6.2.1-beta.8-validation.json).

@@ -44,9 +44,10 @@ test('complete PDF/XML printing includes marks and leaves source/viewer unchange
   assert.equal(await evaluate(`!!document.querySelector('.score-print-preview')`),false);
   const xmlRed=await evaluate(`(async()=>{const image=new Image();image.src=window.__printPages[0];await image.decode();const c=document.createElement('canvas');c.width=image.naturalWidth;c.height=image.naturalHeight;c.getContext('2d').drawImage(image,0,0);const bytes=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let red=0;for(let i=0;i<bytes.length;i+=4)if(bytes[i]>150&&bytes[i+1]<130&&bytes[i+2]<130)red++;return red;})()`);
   assert.ok(xmlRed>20,'Print includes a fingering outside the open excerpt');
-  await mkdir('docs/quality-review/captures/printing/2026-10-07-print-score',{recursive:true});
+  const captureFolder=process.env.XML_REVIEW_CAPTURE || 'artifacts/score-print';
+  await mkdir(captureFolder,{recursive:true});
   const images=await evaluate(`window.__printPages`);
-  for(const [index,image] of images.entries())await writeFile(`docs/quality-review/captures/printing/2026-10-07-print-score/xml-a4-${index+1}.png`,Buffer.from(image.split(',')[1],'base64'));
+  for(const [index,image] of images.entries())await writeFile(`${captureFolder}/print-xml-a4-${index+1}.png`,Buffer.from(image.split(',')[1],'base64'));
   await evaluate(`(async()=>{await viewer.close();window.__printPages=null;})()`);
   assert.deepEqual(errors,[]);
 });

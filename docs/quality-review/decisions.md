@@ -922,3 +922,8 @@ Accepted owner objective: a visible floating exit when opening a work for annota
 
 
 2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.
+
+
+## 2026-11-08 — MusicXML recovery and readable score options
+
+Requested objective: recover opening after instrument selection, expand zoom below 60% and remove space-consuming instrument labels from the view. Source/browser implementation uses semantic content identity, download-before-selection, the last working analysis on failure, 20–300% zoom, instrument names hidden by default and independent reversible heading/fingering controls. View preferences remain per device/score; original bytes and annotations remain intact. Open score leads details, credits are collapsed and standalone Close stays visible in options. The layout is proposed for owner review, not accepted by implementation. Native/physical acceptance and packaging are separate. Evidence and validation: [MusicXML review](manual-practice.md#2026-11-08--musicxml-opening-instrument-selection-and-view-options).

@@ -89,3 +89,19 @@ test('batch acquisition queues only missing piano candidates and preserves Wi-Fi
   assert.equal(Object.values(library.executions).filter(e=>e.job?.status==='waiting-wifi').length,1);
   assert.equal(library.executions[first.piece_id].assetId,'existing-score');
 });
+
+test('part selection hydrates deferred bytes, preserves marks and retains the last working selection after failure', async () => {
+  let library = await importLibrary({read});
+  const record=catalogueRecords(library).find(r=>r.assets.length), bytes=mxlFixture(), sha256=await digest(bytes);
+  const asset={id:'local-fixture',pieceId:record.piece_id,sourceAssetId:record.assets[0].asset_id,format:'mxl',sha256,base64:bytesToBase64(bytes),musicxmlMarks:[{digit:'3'}]};
+  const prior={...await processScore(asset,record,{includeSegments:false}),assetId:asset.id,sourceAssetId:asset.sourceAssetId,sha256};
+  library.executions[record.piece_id]=prior;
+  let hydrated=0,fail=false;
+  const manager=createLibraryDownloads({getLibrary:()=>library,setLibrary:value=>{library=value;},getData:()=>emptyData(),changed:()=>{},platform:{},store:{saveLibrary:async()=>{},asset:async()=>assert.fail('Deferred score bypassed hydration')},resolveAsset:async()=>{hydrated++;return asset;},process:async(...args)=>{if(fail)throw Error('Synthetic analysis failure');return processScore(...args);}});
+  await manager.analyze(record.piece_id,{selection:['V'],includeSegments:false});
+  assert.equal(hydrated,1);assert.deepEqual(library.executions[record.piece_id].selection,['V']);
+  assert.deepEqual(asset.musicxmlMarks,[{digit:'3'}]);
+  const working=structuredClone(library.executions[record.piece_id]);fail=true;
+  await assert.rejects(manager.analyze(record.piece_id,{selection:['P']}),/Synthetic/);
+  assert.deepEqual(library.executions[record.piece_id],working);
+});

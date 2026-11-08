@@ -37,3 +37,13 @@ In the current web review after beta115, **Close** stays visible in the PDF’s 
 ## Add a work
 
 Choose **Add work** in your repertoire. **Enter work details** opens the existing work form, including its optional score attachment. **Import PDF** opens the existing PDF picker and then the same editable work form. Cancelling creates no work. The existing metadata suggestions, original score bytes, annotations, save validation and editing flow are retained. This unified entry is available in the 7 November 2026 browser review; APK/publication and owner visual acceptance remain separate.
+
+
+## MusicXML view options (8 November 2026 browser review)
+
+Open a MusicXML score, then select the pencil to show its options. Zoom accepts **20–300%**. Under **Show in score**, choose whether to show instrument names, title and credits, printed fingering, or your saved fingering. Instrument labels are hidden initially. Hiding saved fingering keeps the annotations; showing it restores them. The score's zoom and visibility choices are remembered on this device. Printing still uses the complete original score and saved fingering.
+
+Use **Choose instruments** in the score details to change the displayed parts. A score held only in Drive is downloaded first. If analysis fails, the previous working selection remains available. **Close score** stays available while standalone options are open. These behaviors are verified in the local responsive browser review; this entry does not claim availability in the installed Android release.
+
+
+Packaging follow-up: these MusicXML changes are included in the owner-requested local Android 6.2.1-beta.8/build120 review package. Replacement installation and emulator foreground/data retention are verified. Public website/Play delivery and physical-device acceptance remain separate.
