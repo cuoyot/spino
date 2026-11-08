@@ -1,0 +1,149 @@
+{
+  "version": "6.2.1-beta.8",
+  "versionCode": 120,
+  "date": "2026-11-08",
+  "surface": "Responsive website browser; not native acceptance",
+  "results": [
+    {
+      "language": "es",
+      "width": 390,
+      "height": 844,
+      "path": "es-390x844.png",
+      "sha256": "94df1c416cf24b6c8634626c52e043bfec1180d26d85f40e227fab42dc96f716"
+    },
+    {
+      "language": "es",
+      "width": 844,
+      "height": 390,
+      "path": "es-844x390.png",
+      "sha256": "4fa1f9a166d0149ead824a48222672d12a41e284cfafdd954c230eee468184a9"
+    },
+    {
+      "language": "es",
+      "width": 768,
+      "height": 1024,
+      "path": "es-768x1024.png",
+      "sha256": "3c3d2e7c350beb440fee0f61210b5fbd0aaeb01b7d6a01bbb378962fe414bc6d"
+    },
+    {
+      "language": "es",
+      "width": 1024,
+      "height": 768,
+      "path": "es-1024x768.png",
+      "sha256": "8abcf5ad8f164c3e410beabeaf0224e9af6c6028ef445d7a8054c0e0ac442598"
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "height": 844,
+      "path": "en-390x844.png",
+      "sha256": "677cc3f2d9d5b129b206b01e8a274e3e02a982e71283d3b23232484e0f97a60a"
+    },
+    {
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "path": "en-844x390.png",
+      "sha256": "f74d212766356d493f7d5bcaa44856f0e0cd52321b417d35a4b3d88b5b54e884"
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "height": 1024,
+      "path": "en-768x1024.png",
+      "sha256": "28f827c3ba99055b7d517e7c311ecdeff9545cf36a935dac5eadc1cc52c2be3e"
+    },
+    {
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "path": "en-1024x768.png",
+      "sha256": "790d8dabc6f36296790b779529b643b4688e3a80641a80c71a6b6a7c9c83dcde"
+    },
+    {
+      "language": "ca",
+      "width": 390,
+      "height": 844,
+      "path": "ca-390x844.png",
+      "sha256": "f9194c26cbc136b6db57b80977efa2b3e169a1a81c21a539480503f77f4f7426"
+    },
+    {
+      "language": "ca",
+      "width": 844,
+      "height": 390,
+      "path": "ca-844x390.png",
+      "sha256": "f18d9bd066ddddba1dc7a4f7074741b728b4f95a956091854820bf0461b20a1b"
+    },
+    {
+      "language": "ca",
+      "width": 768,
+      "height": 1024,
+      "path": "ca-768x1024.png",
+      "sha256": "1f06b88ec96d57c12caedc26348398b53c1584425b9975f71274e8deb6ee31fa"
+    },
+    {
+      "language": "ca",
+      "width": 1024,
+      "height": 768,
+      "path": "ca-1024x768.png",
+      "sha256": "803bfbbd98ec6f04b3bed39dcb729c6e52a83f68cd1427b2218b3fbd7c23299a"
+    },
+    {
+      "language": "de",
+      "width": 390,
+      "height": 844,
+      "path": "de-390x844.png",
+      "sha256": "dd449d064615632587ad9d9d39881241147e5219bd9e6a248d694f8852ad19b2"
+    },
+    {
+      "language": "de",
+      "width": 844,
+      "height": 390,
+      "path": "de-844x390.png",
+      "sha256": "5cdd3d63fbb3109e97f282ee0e23199078dc60de6b35ec1a0d0a88e37e289556"
+    },
+    {
+      "language": "de",
+      "width": 768,
+      "height": 1024,
+      "path": "de-768x1024.png",
+      "sha256": "562ff1575b6a9505aad0392c8aea7463328511e395f23e65c0464412f625fec4"
+    },
+    {
+      "language": "de",
+      "width": 1024,
+      "height": 768,
+      "path": "de-1024x768.png",
+      "sha256": "50743d9b89ac707075f50e2fdf49bf25a69436f4bb9a5e1c800d9832e290b62f"
+    },
+    {
+      "language": "hu",
+      "width": 390,
+      "height": 844,
+      "path": "hu-390x844.png",
+      "sha256": "ae79fffe274203865fbc2e231657fcaefa2df4588ccdf0e6bea62c0c5cf897ea"
+    },
+    {
+      "language": "hu",
+      "width": 844,
+      "height": 390,
+      "path": "hu-844x390.png",
+      "sha256": "a8c6e8b889791e1203c1a613fd3f1abe1a7185b2d7b52e80451cb273edbb8dbb"
+    },
+    {
+      "language": "hu",
+      "width": 768,
+      "height": 1024,
+      "path": "hu-768x1024.png",
+      "sha256": "0709db502554fa738261d39636b66e41a76f084210f881f9e104a59d73c36af4"
+    },
+    {
+      "language": "hu",
+      "width": 1024,
+      "height": 768,
+      "path": "hu-1024x768.png",
+      "sha256": "67ae81756b23ce48622f6f3e0390f08aff9796f69f35666ff1d0ed3884aa0caf"
+    }
+  ],
+  "runtimeErrors": []
+}
