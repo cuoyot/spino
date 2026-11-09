@@ -1,0 +1,41 @@
+{
+  "version": "6.2.1",
+  "versionCode": 121,
+  "package": "com.miguecoll.spino",
+  "track": "production",
+  "requestedRollout": 1.0,
+  "consoleState": "Changes in review",
+  "releaseAction": "Start full rollout",
+  "managedPublishing": false,
+  "bundle": "spino-6.2.1-121-android.aab",
+  "bundleSHA256": "879203fb411e1e2808acaf733c49c0e045ce7b02cffbb4718e7a4c832e904897",
+  "releaseNotesLocales": [
+    "es-ES",
+    "en-US",
+    "ca",
+    "de-DE",
+    "hu-HU"
+  ],
+  "listingChanges": {
+    "languages": [
+      "en-US",
+      "es-ES"
+    ],
+    "groups": [
+      "phone",
+      "tablet-7",
+      "tablet-10"
+    ],
+    "screenshotsPerGroup": 8
+  },
+  "submittedChanges": 7,
+  "quickChecks": "No quick-check progress card is visible in the retained submission receipt; Console confirms changes are in review.",
+  "googleApproval": "Pending",
+  "publicPlayAvailability": "Not yet verified for 6.2.1; previous production is 6.2.0 (112).",
+  "compatibleDevicesLost": 0,
+  "warning": "No deobfuscation file (minification is disabled); no blocking validation errors.",
+  "consoleURL": "https://play.google.com/console/u/0/developers/5810146646828567054/app/4975350856482164945/publishing",
+  "evidence": "docs/releases/6.2.1-play-submission.jpg",
+  "codeCommit": "6a2adace0dbf116712190af9b55b714b9cc35c80",
+  "websiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c"
+}

@@ -1,0 +1,11 @@
+{
+  "commit": "01af1331d39c6f32ef2315996571f47980e2588c",
+  "exitCode": 0,
+  "versionId": "bf0c8037-119a-4c55-8854-2cac8360a221",
+  "log": "docs/releases/6.2.1-attempt1-wrangler-deploy.log",
+  "logSHA256": "c82660f5b28ca76495c2ef9cf4d5a7fcd6503740248907d7563fac18a854cd6c",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "authorization": "Owner requested stable 6.2.1 publication and a full 100% Play rollout. Standing Wrangler authorization reused.",
+  "wranglerVersion": "4.151.3",
+  "isolatedExportVerifiedFiles": 1802
+}

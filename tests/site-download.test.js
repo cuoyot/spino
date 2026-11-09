@@ -3,6 +3,24 @@ import {downloadResponse} from '../scripts/site/download-worker.mjs';
 import media from '../scripts/site/media-parts.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import splitDownloads from '../scripts/site/download-parts.mjs';
+
+test('current release manifests and generated download parts match the signed source artifacts',()=>{
+ const plan=JSON.parse(readFileSync('scripts/store/release-plan.json'));
+ const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+ for(const {version} of [plan.stable,plan.beta]){
+  const path=`downloads/spino-${version}-checksums.json`,source=readFileSync('scripts/site/'+path);
+  assert.deepEqual(readFileSync('site/'+path),source,version+' manifest');
+  for(const artifact of JSON.parse(source).artifacts){
+   const key='/downloads/'+artifact.file,entry=splitDownloads[key];
+   if(!entry){const bytes=readFileSync('site'+key);assert.equal(bytes.length,artifact.bytes,key);assert.equal(hash(bytes),artifact.sha256,key);continue;}
+   assert.equal(entry.bytes,artifact.bytes,key);assert.equal(entry.sha256,artifact.sha256,key);
+   const combined=createHash('sha256');let bytes=0;
+   for(const part of entry.parts){const actual=readFileSync('site'+part.path);assert.equal(actual.length,part.bytes,part.path);assert.equal(hash(actual),part.sha256,part.path);assert.deepEqual(actual,readFileSync('scripts/site'+part.path),part.path);combined.update(actual);bytes+=actual.length;}
+   assert.equal(bytes,artifact.bytes,key);assert.equal(combined.digest('hex'),artifact.sha256,key);
+  }
+ }
+});
 const file='/downloads/spino-test.apk',payload=new TextEncoder().encode('0123456789abcdef');
 const manifest={[file]:{bytes:payload.length,sha256:'original-sha',parts:[{path:'/part-a',bytes:5},{path:'/part-b',bytes:7},{path:'/part-c',bytes:4}]}};
 const parts={'/part-a':payload.slice(0,5),'/part-b':payload.slice(5,12),'/part-c':payload.slice(12)};

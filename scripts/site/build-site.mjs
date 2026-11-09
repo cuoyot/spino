@@ -166,6 +166,20 @@ await writeFile(join(OUT, '404.html'), `<!doctype html><html lang="en"><meta cha
 await writeFile(join(OUT, '_headers'), (await readFile(join(OUT, '_headers'), 'utf8')) + "\n/downloads/*.zip\n  Content-Type: application/zip\n  Content-Disposition: attachment\n  Cache-Control: public, max-age=300\n");
 // Versioned downloads are immutable; retain existing files to avoid copying the historical archive.
 await cp('scripts/site/downloads' , join(OUT, 'downloads'), { recursive: true, force: false, mode:fsConstants.COPYFILE_FICLONE });
+// A regenerated build of the same version must replace provisional downloads.
+// Compare only current releases so immutable historical artifacts stay untouched.
+const releasePlan=JSON.parse(await readFile('scripts/store/release-plan.json','utf8'));
+const downloadParts=(await import('./download-parts.mjs')).default;
+for(const {version} of [releasePlan.stable,releasePlan.beta]){
+  const manifestName=`spino-${version}-checksums.json`;
+  const manifest=JSON.parse(await readFile(join('scripts/site/downloads',manifestName),'utf8'));
+  const files=[manifestName,...manifest.artifacts.flatMap(artifact=>downloadParts['/downloads/'+artifact.file]?.parts.map(part=>part.path.replace('/downloads/',''))||[artifact.file])];
+  for(const name of files){
+    const source=await readFile(join('scripts/site/downloads',name)),destination=join(OUT,'downloads',name);
+    let current;try{current=await readFile(destination);}catch(error){if(error.code!=='ENOENT')throw error;}
+    if(!current||!source.equals(current))await copyFile(join('scripts/site/downloads',name),destination,fsConstants.COPYFILE_FICLONE);
+  }
+}
 await cp('scripts/site/arcade', join(OUT, 'arcade'), { recursive: true, mode:fsConstants.COPYFILE_FICLONE });
 for (const lang of ['es','en','ca']) {
   const path = localizedPath(lang, '/arcade/'), file = join(OUT, path, 'index.html');

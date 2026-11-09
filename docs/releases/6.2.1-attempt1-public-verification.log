@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/private/tmp/spino-621-publish3/scripts/site/verify-public-release.py", line 148, in <module>
+    downloads = list(executor.map(verify_artifact, artifacts.values()))
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 608, in result_iterator
+    yield fs.pop().result()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 445, in result
+    return self.__get_result()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/private/tmp/spino-621-publish3/scripts/site/verify-public-release.py", line 123, in verify_artifact
+    body = fetch(url, max_seconds=180)
+  File "/private/tmp/spino-621-publish3/scripts/site/verify-public-release.py", line 29, in fetch
+    subprocess.run(['curl', '-fsSL', '--connect-timeout', '10', '--max-time', str(max_seconds), '-o', download.name, url], check=True, capture_output=True)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['curl', '-fsSL', '--connect-timeout', '10', '--max-time', '180', '-o', '/var/folders/wf/cs2jrz4d6dx3y7xz757q21yw0000gn/T/tmp_u0d0amu', 'https://spinoapp.com/downloads/spino-6.2.1-121-android.apk']' returned non-zero exit status 92.

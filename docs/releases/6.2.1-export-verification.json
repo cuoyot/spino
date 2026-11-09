@@ -1,0 +1,6 @@
+{
+  "commit": "01af1331d39c6f32ef2315996571f47980e2588c",
+  "export": "/tmp/spino-621-publish3",
+  "verifiedFiles": 1802,
+  "method": "Isolated copy-on-write export; every file verified against the exact committed Git blob hash; no regeneration."
+}

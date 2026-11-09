@@ -10,5 +10,6 @@
   "privateRecoveryArchiveSha256": "dedbbc2270d5cbfe764615ea80c807ae2448454c995bb3fa3efada4e839926ed",
   "foreground": "topResumedActivity=ActivityRecord{c5aa8ca u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t194}",
   "checkedAt": "2026-11-09T10:50:22.306203+00:00",
-  "environmentRecovery": "Original emulator package service failed. Cold-booted the same AVD with software graphics and no snapshots; no data wipe. Non-streaming replacement installation succeeded."
+  "environmentRecovery": "Original emulator package service failed. Cold-booted the same AVD with software graphics and no snapshots; no data wipe. Non-streaming replacement installation succeeded.",
+  "retainedPrivateRecoveryArchive": "/Users/migue/Source/spino/output/native-review-backups/6.2.1-121-before-install-2026-11-09.tar"
 }

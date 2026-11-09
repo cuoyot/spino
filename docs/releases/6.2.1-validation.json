@@ -1,0 +1,63 @@
+{
+  "packages": {
+    "spino-6.2.1-121-android.apk": {
+      "bytes": 72616489,
+      "sha256": "5d34e01d29422533c3fc96f88b62e4fcda7dbae3877015c8d6a0874dd0845d36",
+      "applicationId": "com.miguecoll.spino",
+      "packagedWebFilesMatch": 684
+    },
+    "spino-6.2.1-121-android.aab": {
+      "bytes": 64220175,
+      "sha256": "879203fb411e1e2808acaf733c49c0e045ce7b02cffbb4718e7a4c832e904897",
+      "applicationId": "com.miguecoll.spino",
+      "packagedWebFilesMatch": 684
+    },
+    "spino-6.2.1-121-beta-review.apk": {
+      "bytes": 77295788,
+      "sha256": "fd3cb97c4f46f6705e7c465ce5bfaf355768ca00251c34b4fd09d42062b94eac",
+      "applicationId": "com.miguecoll.spino.beta",
+      "packagedWebFilesMatch": 684
+    }
+  },
+  "androidUnitTests": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "version": "6.2.1",
+  "versionCode": 121,
+  "signedAPKVerified": true,
+  "signedAABVerified": true,
+  "focusedTests": {
+    "passed": 48,
+    "failed": 0,
+    "skipped": 1
+  },
+  "websiteTests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "fullSuiteAllGreen": false,
+  "testComparison": "docs/releases/6.2.1-test-comparison.json",
+  "nativeEvidence": {
+    "version": "6.2.1",
+    "versionCode": 121,
+    "package": "com.miguecoll.spino.beta",
+    "filesRetained": 135,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "retentionCheck": "The full pre-install and post-install tar member hash maps were equal before launch in /tmp/spino-621-native-finish.py. Initial immediate foreground lookup preceded activity resume; a subsequent dumpsys confirms foreground.",
+    "replacementInstall": "Performing Push Install\noutput/release621/spino-6.2.1-121-beta-review.apk: 1 file pushed, 0 skipped. 247.8 MB/s (77295788 bytes in 0.297s)\nSuccess",
+    "privateRecoveryArchive": "/private/tmp/spino-release-621/output/native-review-backups/release621-before-install.tar",
+    "privateRecoveryArchiveSha256": "dedbbc2270d5cbfe764615ea80c807ae2448454c995bb3fa3efada4e839926ed",
+    "foreground": "topResumedActivity=ActivityRecord{c5aa8ca u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t194}",
+    "checkedAt": "2026-11-09T10:50:22.306203+00:00",
+    "environmentRecovery": "Original emulator package service failed. Cold-booted the same AVD with software graphics and no snapshots; no data wipe. Non-streaming replacement installation succeeded.",
+    "retainedPrivateRecoveryArchive": "/Users/migue/Source/spino/output/native-review-backups/6.2.1-121-before-install-2026-11-09.tar"
+  },
+  "responsiveEvidence": "docs/quality-review/captures/profile/2026-11-09-release621-02",
+  "playEvidence": "docs/releases/6.2.1-play-console.json",
+  "codeCommit": "6a2adace0dbf116712190af9b55b714b9cc35c80",
+  "nativeEvidenceFile": "docs/releases/6.2.1-native-validation.json",
+  "initialWebsiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c"
+}
