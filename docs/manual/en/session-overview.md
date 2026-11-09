@@ -48,7 +48,7 @@ If saving a change fails, the original sequence remains available in pause. Retr
 
 ## Warm up
 
-Piano and MIDI sessions start with a Hanon warm-up unless it is switched off in Practice preferences. The warm-up is a set of exercises from Hanon Nos. 1–10, played one after another without a break: each one goes one octave up and back, then the next starts on C. The number of exercises fits the warm-up minutes (at least two). Each session starts the set one exercise later, so consecutive warm-ups share all but one exercise. A fixed exercise in Practice preferences plays on its own.
+Ordinary preparation starts with the optional warm-up off. The warm-up appears immediately after Total duration. Enabling it borrows minutes from practice blocks and disabling it returns those minutes, preserving the selected total. New routines retain their own warm-up preference. The warm-up is a set of exercises from Hanon Nos. 1–10, played one after another without a break: each one goes one octave up and back, then the next starts on C. The number of exercises fits the warm-up minutes (at least two). Each session starts the set one exercise later, so consecutive warm-ups share all but one exercise. A fixed exercise in Practice preferences plays on its own.
 
 With automatic presentation, Hanon warm-ups use fixed pages on phones as well as tablets, showing several systems when the height allows. An explicitly selected scrolling presentation remains available. Fixed-page Hanon scores adapt the number of measures per line to screen width, rhythm and notation size, leaving room around the bar lines. Denser rhythms and larger notation fit fewer measures. Rotate the screen or tap the left/right score edges to read the same exercise across pages. Page Up/Down and arrow keys provide keyboard navigation. Brief taps turn pages; swipes and multi-touch do not. The measure-range label stays visible without Previous/Next buttons. Browsing pauses practice and saves the new reading position without adding elapsed time or missed-note errors.
 
@@ -121,7 +121,7 @@ Starting practice opens the score automatically when the current block is repert
 
 When preparing repertoire, swipe the equal-size cards under **On your stand** and tap a piece. A colored card and checkmark identify the selected piece, with its full title below. **Other pieces** opens search across your repertoire by title or composer, including pieces outside the stand and excluding the bin. Choose **Search the full catalogue** there to browse catalogue scores, or **Choose when practising** to decide later. Download and score checks still apply to catalogue scores. Returning to preparation preserves your choices. This local follow-up is verified in responsive browsers; physical-device visual acceptance remains open.
 
-**Include Hanon warm-up** controls the warm-up for this practice, starting from your saved preference. It does not change that preference. Scheduled practices retain the choice. Routines keep their own warm-up settings.
+**Warm-up block** offers Free, Hanon (selected exercise), Sight-reading and Scales (selected key/mode), with its own duration. It takes minutes from the selected total. Scheduled practices retain the choice. A scale preview keeps the static staff and shows highlighted piano keys with note names and Roman degrees I–VII; the upper tonic repeats I. A lone Passage or goal field stays open; reading and technique keep their additional settings under Options. The activity selector precedes its dependent block content, and repertoire preparation/overview omit tempo. Routines keep their own policy.
 
 The free-practice metronome opens in a fullscreen workspace. Tempo, volume, beat/subdivision settings and timing controls use a compact layout that adapts to portrait and landscape. Use **Session** to return to the session overview or **Finish session** (or **Next block**) to continue.
 
@@ -150,3 +150,13 @@ Recordings are stored only in this installation. Notebook JSON export, backup an
 ## Practice clock update (6.1.1-beta.1)
 
 Practice seconds repaint when they change, independently of periodic saving. PDF and MusicXML clock digits keep a fixed width. Tapping the clock during editing saves pending changes and returns to paused practice. The separate Done editing checkmark and Back retain their save-and-resume behavior. These changes are verified in responsive browsers with disposable notebooks, including pause/resume, delayed frames and phone/tablet layouts. Android package installation is recorded separately from physical-device acceptance.
+
+
+Practice metronomes use the audio-rendering thread; clock digits animate independently from interface callbacks while saved durations are computed from elapsed timestamps. The circular beat marker is centered at each cardinal direction.
+
+
+### Choose the practice mode first
+
+New Reading, Technique, Repertoire and Free practice start with a separate mode choice: **Mobile** or **With piano**. Mobile is available for Reading and Technique. Repertoire and Free practice require a piano. With piano uses a connected MIDI keyboard automatically when starting or reopening an exercise; MIDI is not a third configuration mode.
+
+The chosen mode appears above total duration with a **Change** action. Changing it returns to the mode-choice step and preserves the musical goal and selected total. The optional warm-up stays immediately after total duration in piano mode. Enabling it borrows minutes from practice; switching to Mobile returns those minutes. The practice type and its settings remain below these session choices.

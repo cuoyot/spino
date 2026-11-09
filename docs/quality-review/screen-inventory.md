@@ -496,3 +496,8 @@ Accepted owner objective: a visible floating exit when opening a work for annota
 
 
 2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.
+
+
+2026-11-09 — PREP-01, PRACTICE-01/02/05, CAL-01/02 and shared practice clocks reopened for the owner's block configuration/timing/synchronization follow-up. Scope includes optional warm-up selection, static scale previews and the circular metronome indicator. Existing surface and record IDs are retained; saved-session card design is unchanged. [Evidence](captures/preparation/2026-11-09-blocks-timing-01/README.md). Source/responsive browser verification only; owner layout and native/device acceptance remain open.
+
+2026-11-09 PREP-01/PRACTICE-01 refinement: warm-up first, total-preserving allocation, directly visible lone goal field and 2D scale keyboard. [New browser evidence](captures/preparation/2026-11-09-warmup-first-02/README.md) supersedes the earlier optional-block placement and note-name row; IDs and shared saved-session design remain unchanged. Owner/native acceptance remains open.

@@ -6,11 +6,12 @@ import {createHash} from 'node:crypto';
 import {block,beginSession,saveSession} from '../src/companion/model.js';
 import {createIncrementalNotebookAdapter} from '../src/companion/drive-incremental.js';
 import {syntheticNotebookDrive} from './fixtures/drive/notebook-server.js';
+import {connectedDriveBootstrap} from '../scripts/review/drive-connected-fixture.mjs';
 import {driveNotebookBootstrap} from '../scripts/review/drive-notebook-fixture.mjs';
 import {cloudRecoveryFixture} from '../scripts/review/cloud-recovery-fixture.mjs';
 const snapshot=evaluate=>evaluate(`new Promise(resolve=>{const q=indexedDB.open('cuaderno-piano',1);q.onsuccess=()=>{const db=q.result,tx=db.transaction(['state','assets']),data=tx.objectStore('state').get('current'),assets=tx.objectStore('assets').getAll();tx.oncomplete=()=>{resolve({data:data.result,assets:assets.result});db.close();};};})`);
 async function setup(t,options={}){
- const b=await openBrowser(t,{companion:true});await b.send('Page.addScriptToEvaluateOnNewDocument',{source:driveNotebookBootstrap(options)});await b.send('Page.navigate',{url:b.url});
+ const b=await openBrowser(t,{companion:true});await b.send('Page.addScriptToEvaluateOnNewDocument',{source:options.modern?await connectedDriveBootstrap(options):driveNotebookBootstrap(options)});await b.send('Page.navigate',{url:b.url});
  const wait=condition=>b.evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${condition}){clearInterval(timer);resolve()}else if(++n>500){clearInterval(timer);reject(Error('Drive local timeout: '+${JSON.stringify(condition)}));}},20)})`);
  const click=action=>b.evaluate(`document.querySelector('[data-action="${action}"]').click()`);await wait(`document.querySelector('.cp-today')&&__cloudReview.statusCalls>0`);return {...b,wait,click};
 }
@@ -125,4 +126,26 @@ test('a paused phone practice stays local while completed tablet history arrives
  await evaluate(`document.querySelector('#cloud-backup [data-action=cloud-toggle][data-id=true]').click()`);await wait(`document.querySelector('[data-action=cloud-sync]')`);await click('cloud-sync');await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);
  assert.equal((await snapshot(evaluate)).data.active.id,pending.id);assert.equal((await snapshot(evaluate)).data.sessions.filter(s=>s.id===savedId).length,1);assert.deepEqual(errors,[]);
  if(folder)await writeFile(folder+'/verification.json',JSON.stringify({kind:'responsive-browser-synthetic-drive',date:new Date().toISOString(),frames,phonePendingPracticeRetained:true,tabletCompletedPracticeReceived:true,scoreBytesAndAnnotationsUnchanged:true,stalledPauseAndRetryWithoutLateAdoption:true,runtimeErrors:errors},null,2));
+});
+
+test('calendar keeps its visible date when incoming synchronization inserts earlier cards',{timeout:60000},async t=>{
+ const b=await setup(t,{modern:true}),{send,evaluate,wait,click,errors}=b;
+ await click('settings');await click('profile-backup');await click('drive-connect');await wait(`document.querySelector('[data-drive-picker]')`);await evaluate(`document.querySelector('[data-drive-picker]').requestSubmit()`);await wait(`document.querySelector('[data-open-remote]')||document.querySelector('#cloud-backup[data-cloud-status=saved]')`);await evaluate(`document.querySelector('[data-open-remote]')?.closest('form').requestSubmit()`);await wait(`document.querySelector('#cloud-backup[data-cloud-status=saved]')`);
+ const initial=await snapshot(evaluate),samples=[];
+ await click('calendar');
+ const date=await evaluate(`document.querySelector('[data-agenda-date]').dataset.agendaDate`);
+ const position=()=>evaluate(`(()=>{const p=document.querySelector('.cp-page'),top=p.getBoundingClientRect().top,d=[...p.querySelectorAll('[data-agenda-date]')].find(d=>d.getBoundingClientRect().bottom>top+1);return {date:d.dataset.agendaDate,offset:d.getBoundingClientRect().top-top,weeks:p.querySelectorAll('[data-week-start]').length}})()`);
+ for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]) {
+  await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+  await remoteEdit(b,value=>{for(let n=0;n<3;n++)value.data.plans.push({id:`incoming-${width}-${n}`,title:'Synthetic incoming practice above the visible date',context:'piano',date,time:'',status:'planned',blocks:[block('repertoire',{target:null})]});});
+  await click('settings');await click('profile-backup');await evaluate(`__driveStall=true`);await click('cloud-sync');await wait(`window.__releaseDrive`);await click('calendar');
+  for(let n=0;n<3;n++) {await evaluate(`document.querySelector('.cp-page').scrollTop=document.querySelector('.cp-page').scrollHeight`);await wait(`document.querySelectorAll('[data-week-start]').length>=${4+n*2}`);}
+  await evaluate(`document.querySelectorAll('[data-agenda-date]')[25].scrollIntoView({block:'start'})`);
+  const before=await position();await evaluate(`__driveStall=false;__releaseDrive();__releaseDrive=null`);await wait(`JSON.parse(localStorage.getItem('spino.cloud-sync.device.v1')).status==='saved'`);
+  const after=await position();assert.equal(after.date,before.date,JSON.stringify({width,height,before,after}));assert.ok(Math.abs(after.offset-before.offset)<=1);assert.equal(after.weeks,before.weeks);
+  assert.equal(await evaluate(`document.querySelector('.cp-page').dataset.view`),'calendar');samples.push({width,height,before,after});
+  if(process.env.PRACTICE_REVISION_EVIDENCE)await writeFile(process.env.PRACTICE_REVISION_EVIDENCE+`/calendar-${width}x${height}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ }
+ assert.deepEqual((await snapshot(evaluate)).assets,initial.assets);assert.deepEqual(errors,[]);
+ if(process.env.PRACTICE_REVISION_EVIDENCE)await writeFile(process.env.PRACTICE_REVISION_EVIDENCE+'/calendar-sync.json',JSON.stringify(samples,null,2));
 });

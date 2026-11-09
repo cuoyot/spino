@@ -117,6 +117,7 @@ const number = v => Number.isFinite(v) && v >= 0;
 const validTarget = v => TARGETS.some(t => t.id === v);
 const date = v => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v) && localDate(v) === v;
 function validBlock(b) {
+  if(b?.warmupKind!==undefined&&!['free','hanon','reading','scales'].includes(b.warmupKind))return false;
   if(b?.quickPractice!==undefined&&typeof b.quickPractice!=='boolean')return false;
   if(b?.keyboardStart!==undefined&&(!Number.isInteger(b.keyboardStart)||b.keyboardStart<5||b.keyboardStart>56))return false;
   if (b?.level != null && (!Number.isInteger(b.level) || b.level < 0 || b.level > 2)) return false;
@@ -175,6 +176,10 @@ export function validateData(input) {
   }
   for (const r of [...input.routines, ...input.plans]) if (!str(r.title, 200) || !CONTEXTS[r.context] || !Array.isArray(r.blocks) || !r.blocks.length || r.blocks.length > 30 || !r.blocks.every(validBlock)) fail();
   for (const r of [...input.routines,...input.plans]) if(r.routinePolicy!==undefined) { const p=r.routinePolicy;if(!obj(p)||p.autoMidi!==true||p.dynamicTempo!==true||typeof p.warmup!=='boolean'||!Number.isInteger(p.warmupMinutes)||p.warmupMinutes<1||p.warmupMinutes>30)fail(); }
+  for (const owner of [...input.routines, ...input.plans]) if (owner.warmupBlock !== undefined) {
+    const w=owner.warmupBlock;
+    if(!obj(w)||!['free','hanon','reading','scales'].includes(w.kind)||!Number.isInteger(w.minutes)||w.minutes<1||w.minutes>30||!validTarget(w.target)||!(w.exercise==='rotate'||WARMUP_IDS.includes(w.exercise)))fail();
+  }
   for (const p of input.plans) if (!date(p.date) || !str(p.time, 5) || !['planned', 'completed', 'partial'].includes(p.status)) fail();
   for (const item of [...input.plans, ...input.events]) if (item.recurrence != null) {
     const r = item.recurrence;

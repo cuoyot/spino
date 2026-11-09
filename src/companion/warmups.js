@@ -102,8 +102,8 @@ export function generateWarmupBars(opts, exercises, phase = 0) {
   return result.sort((a, b) => a.start - b.start || (a.clef === 'treble' ? -1 : 1));
 }
 
-// Warm-up settings live in the notebook preferences: on by default for piano and MIDI sessions.
-export const WARMUP_DEFAULTS = { enabled: true, minutes: 3, exercise: 'rotate' };
+// Explicit saved preferences are retained; new notebooks start without a warm-up.
+export const WARMUP_DEFAULTS = { enabled: false, minutes: 3, exercise: 'rotate' };
 export const warmupPreferences = preferences => ({ ...WARMUP_DEFAULTS, ...preferences?.warmup });
 export function validWarmupPreferences(value) {
   return !!value && typeof value === 'object' && !Array.isArray(value) && typeof value.enabled === 'boolean'

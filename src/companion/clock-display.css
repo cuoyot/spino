@@ -1,0 +1,8 @@
+.clock-display { position: relative; display: inline-block; font-variant-numeric: tabular-nums; }
+.clock-display > .clock-readable { visibility: hidden; }
+.clock-display > .clock-digits { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; color: inherit; pointer-events: none; }
+.clock-digits > span { height: 1em; line-height: 1em; overflow: hidden; width: 1ch; color: inherit; }
+.clock-digits > [data-symbol] { width: auto; }
+.clock-digits > [data-symbol]::before { content: attr(data-symbol); }
+.clock-digits .clock-track { display: block; line-height: 1em; color: inherit; will-change: transform; }
+.clock-track::before { content: attr(data-track); white-space: pre; }

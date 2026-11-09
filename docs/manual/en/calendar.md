@@ -34,3 +34,6 @@ The unfinished-session card uses the same design on Today and Practice and is al
 
 
 2026-11-06 beta115 release: owner accepts the reviewed event/work detail cleanup. Event and work titles stay inside their overview cards, Close is inside the overview, events show a calendar date tile and weeks/days remaining. Work overview includes thumbnail-to-score opening, added date (explicitly unknown for legacy records) and saved attributed practice totals shared with event/repertoire rows. All five work overview actions are in one Actions menu. Shared saved-session design and existing notebook/assets are retained. Source/browser acceptance is recorded in the new dated event and repertoire evidence; native/release verification is recorded separately in docs/releases/6.2.1-beta.3-validation.json.
+
+
+Synchronization keeps the visible calendar date at its current offset when incoming cards are added above it. Previously loaded weeks and explicit navigation remain available.

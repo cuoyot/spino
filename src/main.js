@@ -3,6 +3,7 @@ import { ui, getAppLanguage } from './companion/locale.js';
 import './midi-indicator.css';
 import { midiIndicatorMarkup, setMidiContext } from './midi-indicator.js';
 import './style.css';
+import './companion/clock-display.css';
 import './layout.css';
 import './keyboard-material.css';
 import './companion/print-controls.css';
@@ -12,7 +13,8 @@ import { renderScore, renderPage, pxPerBeatFor, setUserZoom } from './render.js'
 import { pageSystemCount, pageBarCount } from './page-layout.js';
 import { LANGUAGES, t, tError, setLanguage, languageForLocale, applyStatic } from './i18n.js';
 import { LEVELS, TEMPLATE_KEYS, levelIndex, isLevel, clone, exerciseOf, exportTemplate, importTemplate, DEFAULT_GOAL, prefersMidi } from './levels.js';
-import { playNote, holdNote, click, now as audioNow } from './audio.js';
+import { playNote, holdNote, now as audioNow } from './audio.js';
+import { createMetronome } from './metronome.js';
 import { sing, syllableFor } from './voice.js';
 import * as midi from './midi.js';
 import { bootCompanion } from './companion/app.js';
@@ -194,6 +196,7 @@ const lightsEl = $('#lights');
 // ---------- session state ----------
 const session = { correct: 0, wrong: 0, streak: 0, best: 0, times: [] };
 let line = null; // note stream: { notes, onsets, states, key, melody, beats, bars, idx, misses, shownAt }
+let timedMetronome = null, timedMetronomeKey = null;
 let timed = null; // tempo clock, independent of answers
 let waiting = null; // self-paced reading has no musical clock
 let waitingGuideTransition = 'none';
@@ -753,6 +756,7 @@ function onTimeWindow() {
 }
 
 function cancelClicks() {
+  timedMetronome?.stop(); timedMetronome = null; timedMetronomeKey = null;
   timed?.clicks.forEach((c) => c.stop());
   if (timed) timed.clicks = [];
 }
@@ -878,14 +882,14 @@ function tick() {
   const now = performance.now() - timed.t0;
   showCount(now / bm);
 
-  // metronome, scheduled slightly ahead on the audio clock
-  // Skip stale clicks after a slow frame instead of playing a burst to catch up.
-  timed.nextClick = Math.max(timed.nextClick, Math.ceil((now - 80) / bm));
-  timed.clicks = timed.clicks.filter((c) => c.when > audioNow() - 0.1);
-  while (timed.nextClick * bm <= now + 120) {
-    const b = timed.nextClick;
-    if (b < 0 || settings.metronome) timed.clicks.push(click(((b % beatsPerBar()) + beatsPerBar()) % beatsPerBar() === 0, (timed.t0 + b * bm) / 1000 + timed.audioOffset));
-    timed.nextClick++;
+  // The audio rendering thread owns the beat grid. Frames only update controls
+  // when tempo, count-in origin or sound settings change.
+  const origin = timed.t0 / 1000 + timed.audioOffset;
+  const metroKey = JSON.stringify([origin, settings.bpm, beatsPerBar(), settings.metronome]);
+  if (metroKey !== timedMetronomeKey) {
+    timedMetronome ||= createMetronome(() => {}, error => { feedback(error.message, 'bad'); stopTimed(); });
+    timedMetronome.configure({origin, bpm: settings.bpm, beats: beatsPerBar(), firstStep: Math.ceil((audioNow() - origin) * 1000 / bm), enabled: settings.metronome});
+    timedMetronomeKey = metroKey;
   }
 
   let changed = false;

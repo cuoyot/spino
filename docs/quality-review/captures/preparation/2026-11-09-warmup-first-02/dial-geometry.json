@@ -1,0 +1,162 @@
+[
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 0,
+    "x": 105,
+    "y": 250.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from -6deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 90,
+    "x": 105,
+    "y": 250.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 84deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 180,
+    "x": 105,
+    "y": 250.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 174deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 270,
+    "x": 105,
+    "y": 250.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 264deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 98,
+    "height": 98,
+    "angle": 0,
+    "x": 168.5,
+    "y": 101.859375,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from -6deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 98,
+    "height": 98,
+    "angle": 90,
+    "x": 168.5,
+    "y": 96.53125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 84deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 98,
+    "height": 98,
+    "angle": 180,
+    "x": 168.5,
+    "y": 96.53125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 174deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 98,
+    "height": 98,
+    "angle": 270,
+    "x": 168.5,
+    "y": 96.53125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 264deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 0,
+    "x": 294,
+    "y": 305.0625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from -6deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 90,
+    "x": 294,
+    "y": 310.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 84deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 180,
+    "x": 294,
+    "y": 310.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 174deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 270,
+    "x": 294,
+    "y": 310.390625,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 264deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 0,
+    "x": 173.5,
+    "y": 202.125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from -6deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 90,
+    "x": 173.5,
+    "y": 202.125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 84deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 180,
+    "x": 173.5,
+    "y": 202.125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 174deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  },
+  {
+    "width": 180,
+    "height": 180,
+    "angle": 270,
+    "x": 173.5,
+    "y": 202.125,
+    "inset": -8,
+    "border": 8,
+    "background": "conic-gradient(from 264deg, rgb(169, 200, 255) 0deg, rgb(169, 200, 255) 12deg, rgba(0, 0, 0, 0) 12deg)"
+  }
+]

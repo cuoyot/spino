@@ -11,6 +11,21 @@
 .boot-message { padding: 32px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .cp-page { --cp-page-top-space: 24px; overflow-y: auto; overscroll-behavior: contain; padding: var(--cp-page-top-space) 20px 32px; }
+.cp-preparation-warmup > label { font-weight: 700; }
+.cp-preparation-warmup fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
+.cp-preparation-warmup.is-disabled fieldset { opacity: .5; }
+.cp-scale-preview { min-width: 0; }
+.cp-scale-preview svg { display: block; width: 100%; max-width: 560px; height: auto; margin: auto; }
+.cp-block-goal { margin-top: 12px; }
+.cp-scale-preview .cp-scale-piano { margin-top: 8px; }
+.cp-scale-piano rect { stroke: #334155; stroke-width: 1; }
+.cp-scale-piano .scale-white-key rect { fill: #fff; }
+.cp-scale-piano .scale-black-key rect { fill: #18212f; }
+.cp-scale-piano .scale-white-key.is-marked rect { fill: #b5d9ff; }
+.cp-scale-piano .scale-black-key.is-marked rect { fill: #2865b8; }
+.cp-scale-piano text { fill: #143e6c; font: 10px system-ui, sans-serif; }
+.cp-scale-piano .scale-degree { font-size: 9px; font-weight: 700; }
+.cp-scale-piano .scale-black-key text { fill: #fff; }
 .cp-content { max-width: 1080px; margin: 0 auto; }
 .cp-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 28px; }
 .cp-brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 650; letter-spacing: -.02em; }
@@ -718,3 +733,11 @@
 .cp-drive-spinner{width:24px;height:24px;flex:0 0 24px;border:3px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cp-drive-spin 1s linear infinite}
 @keyframes cp-drive-spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.cp-drive-spinner{animation:none}}
+
+.cp-mode-choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 20px; }
+.cp-mode-choices button { display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; text-align: left; min-height: 140px; padding: 20px; }
+.cp-mode-choices strong { font-size: 20px; }
+.cp-mode-choices span { color: var(--subtle); font-size: 14px; }
+.cp-mode-choices button:disabled { opacity: .5; }
+.cp-preparation-mode { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+@media(max-width:420px) { .cp-mode-choices { grid-template-columns: 1fr; } .cp-mode-choices button { min-height: 105px; padding: 16px; } }

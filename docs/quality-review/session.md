@@ -183,3 +183,17 @@ Accepted owner objective: a visible floating exit when opening a work for annota
 
 
 2026-11-06 beta116 release follow-up: the owner-authorized standalone PDF Close correction is packaged in Android 6.2.1-beta.4/build116. Reading/editing/framing exit, failed-save retention/retry and unchanged practice exit behavior are browser-verified. Native replacement/data retention/foreground and public delivery are recorded separately in the beta116 release manifests; physical-device acceptance remains open.
+
+
+## 2026-11-09 — Block configuration and timing follow-up
+
+Owner-accepted objectives: activity selection precedes the affected block content, repertoire omits tempo, optional warm-up starts disabled with configurable Free/Hanon/Reading/Scales and duration, and scales show static notes. The implemented overview keeps the warm-up role visible alongside its underlying activity. Free/generated metronomes now use AudioWorklet; shared clocks use discrete compositor digits while retaining timestamp-derived saved time. [Review and browser evidence](captures/preparation/2026-11-09-blocks-timing-01/README.md). PDF/MusicXML, pause/resume, four-layout and synthetic notebook regressions pass. Existing session IDs, progress and saved-session-card design are preserved. The layout and physical/native timing await acceptance; no APK or publication.
+
+
+## 2026-11-09 — Warm-up first, fixed total and piano preview
+
+Owner refinement supersedes the earlier placement: the optional warm-up comes immediately after Total duration, before context and practice blocks. Selecting it takes minutes from the practice blocks rather than extending the selected total; changing its duration reallocates the same total, and disabling it returns those minutes. Existing block IDs and musical settings remain intact. A minimum minute per block is retained.
+
+When only Passage or goal remains, it is shown directly, without an exercise-options disclosure. Reading/technique keep the disclosure for their additional settings. The scale's overlapping note-name row is replaced by a static two-octave piano: actual scale pitches, including enharmonic spellings, are highlighted alongside the unchanged staff.
+
+[Responsive verification](captures/preparation/2026-11-09-warmup-first-02/README.md) passes six focused unit checks and five browser checks, with both themes in phone/tablet portrait/landscape. The source/build hashes and isolated fixture references are retained there; earlier run 01 remains historical evidence. Functional direction is accepted; the exact layout still awaits owner review. No APK, native acceptance or publication.

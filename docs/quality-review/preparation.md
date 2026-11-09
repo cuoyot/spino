@@ -32,3 +32,35 @@ After the local review above, the owner requested website publication. D-043 is 
 ## 2026-11-05 — Pending practice beta handoff
 
 The owner reviewed the responsive pending-session snapshot and requested an APK and website delivery. Practice emphasizes Resume and disables/mutes alternative activity and routine controls while retaining navigation. Beta 6.2.1-beta.2 (114) packages this on beta 113 without overwriting concurrent work. Responsive and native installation evidence remain separate; physical-device acceptance remains open.
+
+
+## 2026-11-09 — Practice block configuration, calendar position and precise timing
+
+Accepted owner objectives: keep the visible calendar position during synchronization; put the activity selector at the beginning of each practice block; remove repertoire tempo from preparation and the overview; show an initially disabled, configurable warm-up block; preview scale notes without animation; eliminate interface-scheduled metronome jitter and regularize practice-clock display. The follow-up also requires the circular marker to be centered on the cardinal axes.
+
+The implemented browser proposal offers Free, Hanon (exercise choice), Sight-reading and Scales (key/mode choice) with a warm-up duration. The optional block is materialized into the existing activity model, retaining the other blocks and their IDs. Scheduled practices retain the warm-up configuration; notebook defaults remain intact. New ordinary preparation starts without the optional block. The saved warm-up enable preference applies to new routines; minutes/exercise remain configuration defaults. Repertoire keeps its stored BPM for compatibility while omitting the control and overview value. The activity selector precedes all affected block content. Enabled warm-up minutes are included in the total-duration slider.
+
+Calendar rerenders retain a visible-date anchor and its offset, including lazily loaded weeks. Incoming cards above that date no longer shift the viewport. Explicit range/mode changes retain their navigation behavior. No personal notebook, score or annotation is used or changed in validation.
+
+Free and generated practice use the same packaged AudioWorklet processor. Beat synthesis and its sample grid run on the audio rendering thread; interface callbacks only paint indicators. Pause, stop, backgrounding, subdivisions, accents, volume and visual-only mode are covered. Practice clock digits use discrete compositor transform animations, with accessible text and persisted totals still sampled from authoritative elapsed time. PDF/MusicXML share that display. This implementation uses [the Web Audio rendering-thread model](https://www.w3.org/TR/webaudio/); it does not rely on a Node timer for audio precision.
+
+[Responsive browser evidence](captures/preparation/2026-11-09-blocks-timing-01/README.md) covers phone/tablet portrait/landscape. The audio processor is checked against the ideal beat grid for 60 seconds at both 44.1 and 48 kHz, within half a sample with no accumulated drift. A browser stress test blocks the UI for 1.8 seconds and verifies uninterrupted audio-grid timestamps. Marker pixel centers deviate by at most 0.1 px from the relevant cardinal axis in the captured layouts. Existing PDF/MusicXML clock, pause/resume, scrolling, duration and synthetic cloud-adoption regressions pass. Layout acceptance and native/physical-device audio timing remain open. No APK, release or publication is included.
+
+
+## 2026-11-09 — Warm-up first, fixed total and piano preview
+
+Owner refinement supersedes the earlier placement: the optional warm-up comes immediately after Total duration, before context and practice blocks. Selecting it takes minutes from the practice blocks rather than extending the selected total; changing its duration reallocates the same total, and disabling it returns those minutes. Existing block IDs and musical settings remain intact. A minimum minute per block is retained.
+
+When only Passage or goal remains, it is shown directly, without an exercise-options disclosure. Reading/technique keep the disclosure for their additional settings. The scale's overlapping note-name row is replaced by a static two-octave piano: actual scale pitches, including enharmonic spellings, are highlighted alongside the unchanged staff.
+
+[Responsive verification](captures/preparation/2026-11-09-warmup-first-02/README.md) passes six focused unit checks and five browser checks, with both themes in phone/tablet portrait/landscape. The source/build hashes and isolated fixture references are retained there; earlier run 01 remains historical evidence. Functional direction is accepted; the exact layout still awaits owner review. No APK, native acceptance or publication.
+
+
+2026-11-09 scale-degree follow-up: the owner explicitly selects Roman numerals I–VII alongside each highlighted piano note. The repeated upper tonic is I again. This is an accepted display preference; it does not introduce chord-quality analysis. Both the visible labels and the keyboard accessible name retain pitch spelling and degree. See preparation/2026-11-09-warmup-first-02. The usual chord-analysis convention is documented in [Open Music Theory](https://viva.pressbooks.pub/openmusictheory/chapter/roman-numerals/); the owner chose the Roman degree display deliberately.
+
+
+## 2026-11-09 — Choose Mobile or piano before configuration
+
+Owner-approved direction: changing setup must not insert dependent content above the selection, for any practice type. New practice now has a separate Mobile/With piano choice before its configuration. Repertoire and Free require piano; Reading/Technique support both. MIDI is detected at physical-practice start/reopen, without a third setup choice. Change returns to the first step, preserving the goal, total duration and block identities. The selected-mode summary precedes total duration; warm-up still follows the total. This supersedes the earlier inline context selector.
+
+All four types, mode transitions, fixed totals, retained goals and automatic MIDI are covered by the dedicated browser regression. Physical/native timing checks and beta122 publication are tracked in release validation.

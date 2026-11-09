@@ -1,0 +1,41 @@
+{
+  "sampleRate": 48000,
+  "beats": [
+    {
+      "step": 0,
+      "beat": 0,
+      "accent": true,
+      "time": 2.1786666666666665
+    },
+    {
+      "step": 1,
+      "beat": 1,
+      "accent": false,
+      "time": 3.1786666666666665
+    },
+    {
+      "step": 2,
+      "beat": 2,
+      "accent": false,
+      "time": 4.1786666666666665
+    },
+    {
+      "step": 3,
+      "beat": 3,
+      "accent": false,
+      "time": 5.1786666666666665
+    },
+    {
+      "step": 4,
+      "beat": 0,
+      "accent": true,
+      "time": 6.1786666666666665
+    },
+    {
+      "step": 5,
+      "beat": 1,
+      "accent": false,
+      "time": 7.1786666666666665
+    }
+  ]
+}

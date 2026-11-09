@@ -26,7 +26,7 @@ function browserPath() {
   return exe;
 }
 
-export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = process.env.SPINO_BROWSER_ROOT || 'dist', onboarding = false, releaseNotice = false } = {}) {
+export async function openBrowser(t, { companion = false, language = 'es', rootDirectory = process.env.SPINO_BROWSER_ROOT || 'dist', onboarding = false, manualPracticeMode = false, releaseNotice = false } = {}) {
   const root = resolve(rootDirectory);
   const server = createServer(async (req, res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname;
@@ -138,6 +138,7 @@ export async function openBrowser(t, { companion = false, language = 'es', rootD
   await send('Page.setLifecycleEventsEnabled', { enabled: true });
   if(!onboarding) await send('Page.addScriptToEvaluateOnNewDocument',{source:'window.__SPINO_DISABLE_TOUR=true;'});
   if(!releaseNotice) { const version=JSON.parse(await readFile('package.json','utf8')).version; await send('Page.addScriptToEvaluateOnNewDocument',{source:`try { localStorage.setItem('spino.release-notice.v1',${JSON.stringify(version)}); } catch {}`}); }
+  if(!manualPracticeMode) await send('Page.addScriptToEvaluateOnNewDocument',{source:`document.addEventListener('click',()=>{const choice=document.querySelector('[data-action=prepare-mode][data-default-mode=true]:not(:disabled)');if(choice)choice.click();});`});
   if (companion) await send('Page.addScriptToEvaluateOnNewDocument', {source: `Object.defineProperty(navigator, 'language', { get: () => ${JSON.stringify(language)} });`});
   return { send, evaluate, errors, url: `http://127.0.0.1:${server.address().port}/${companion ? '' : '#reader'}` };
 }

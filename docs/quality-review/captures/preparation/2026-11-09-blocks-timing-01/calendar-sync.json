@@ -1,0 +1,58 @@
+[
+  {
+    "width": 390,
+    "height": 844,
+    "before": {
+      "date": "2026-12-04",
+      "offset": -0.4375,
+      "weeks": 8
+    },
+    "after": {
+      "date": "2026-12-04",
+      "offset": -0.875,
+      "weeks": 8
+    }
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "before": {
+      "date": "2026-12-04",
+      "offset": -0.0625,
+      "weeks": 14
+    },
+    "after": {
+      "date": "2026-12-04",
+      "offset": 0.125,
+      "weeks": 14
+    }
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "before": {
+      "date": "2026-12-04",
+      "offset": -0.3125,
+      "weeks": 20
+    },
+    "after": {
+      "date": "2026-12-04",
+      "offset": -0.25,
+      "weeks": 20
+    }
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "before": {
+      "date": "2026-12-04",
+      "offset": 0,
+      "weeks": 26
+    },
+    "after": {
+      "date": "2026-12-04",
+      "offset": -0.3125,
+      "weeks": 26
+    }
+  }
+]

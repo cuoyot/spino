@@ -1,0 +1,146 @@
+[
+  {
+    "file": "dial-0-1024x768.png",
+    "offset": [
+      -0.019,
+      -85.653
+    ],
+    "axisErrorPx": 0.019,
+    "pixels": 131
+  },
+  {
+    "file": "dial-180-844x390.png",
+    "offset": [
+      0.0,
+      46.833
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 36
+  },
+  {
+    "file": "dial-180-390x844.png",
+    "offset": [
+      0.0,
+      85.682
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 132
+  },
+  {
+    "file": "dial-270-1024x768.png",
+    "offset": [
+      -85.682,
+      0.0
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 132
+  },
+  {
+    "file": "dial-90-1024x768.png",
+    "offset": [
+      85.653,
+      0.019
+    ],
+    "axisErrorPx": 0.019,
+    "pixels": 131
+  },
+  {
+    "file": "dial-0-390x844.png",
+    "offset": [
+      0.0,
+      -85.623
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 130
+  },
+  {
+    "file": "dial-270-768x1024.png",
+    "offset": [
+      -85.682,
+      0.0
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 132
+  },
+  {
+    "file": "dial-0-768x1024.png",
+    "offset": [
+      0.0,
+      -80.623
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 130
+  },
+  {
+    "file": "dial-0-844x390.png",
+    "offset": [
+      0.0,
+      -50.5
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 10
+  },
+  {
+    "file": "dial-90-768x1024.png",
+    "offset": [
+      85.653,
+      0.019
+    ],
+    "axisErrorPx": 0.019,
+    "pixels": 131
+  },
+  {
+    "file": "dial-180-768x1024.png",
+    "offset": [
+      0.0,
+      85.682
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 132
+  },
+  {
+    "file": "dial-270-844x390.png",
+    "offset": [
+      -46.833,
+      0.0
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 36
+  },
+  {
+    "file": "dial-90-390x844.png",
+    "offset": [
+      85.653,
+      0.019
+    ],
+    "axisErrorPx": 0.019,
+    "pixels": 131
+  },
+  {
+    "file": "dial-90-844x390.png",
+    "offset": [
+      46.786,
+      0.071
+    ],
+    "axisErrorPx": 0.071,
+    "pixels": 35
+  },
+  {
+    "file": "dial-270-390x844.png",
+    "offset": [
+      -85.682,
+      0.0
+    ],
+    "axisErrorPx": 0.0,
+    "pixels": 132
+  },
+  {
+    "file": "dial-180-1024x768.png",
+    "offset": [
+      -0.1,
+      85.767
+    ],
+    "axisErrorPx": 0.1,
+    "pixels": 135
+  }
+]

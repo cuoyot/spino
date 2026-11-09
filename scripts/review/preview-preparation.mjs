@@ -22,6 +22,7 @@ const wait=fn=>new Promise(resolve=>{const timer=setInterval(()=>{const value=fn
 await wait(()=>document.querySelector('.cp-today'));
 document.querySelector('.cp-nav [data-action=practice]').click();
 document.querySelector('[data-action=prepare][data-id=repertoire]').click();
+document.querySelector('[data-action=prepare-mode][data-id=piano]').click();
 document.querySelector('.cp-practice-stand button').click();
 if(new URL(location.href).searchParams.get('review')==='pdf')document.querySelector('#prepare-form').requestSubmit();
 document.title='SPino — synthetic preparation review';

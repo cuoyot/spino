@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+ok 1 - new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+  ---
+  duration_ms: 1971.295208
+  type: 'test'
+  ...
+# Subtest: preparation puts warm-up first, borrows its minutes and shows static piano keys
+ok 2 - preparation puts warm-up first, borrows its minutes and shows static piano keys
+  ---
+  duration_ms: 1804.407917
+  type: 'test'
+  ...
+# Subtest: worklet audio grid continues through a blocked UI and clock digits keep their own animation
+ok 3 - worklet audio grid continues through a blocked UI and clock digits keep their own animation
+  ---
+  duration_ms: 5390.528792
+  type: 'test'
+  ...
+# Subtest: circular metronome marker is centered on all four cardinal directions
+ok 4 - circular metronome marker is centered on all four cardinal directions
+  ---
+  duration_ms: 1807.719334
+  type: 'test'
+  ...
+# Subtest: stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+ok 5 - stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+  ---
+  duration_ms: 2343.526584
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13769.718875

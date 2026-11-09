@@ -1,0 +1,11 @@
+# Warm-up first, fixed total and marked scale piano — 9 November 2026
+
+**Responsive browser review**, with synthetic disposable notebooks. This run supersedes the warm-up placement and lower scale-note row in run 01; that run and its audio/calendar evidence remain retained. No APK, publication or native acceptance.
+
+The warm-up comes immediately after total duration. For the tested 40-minute total, enabling a 3-minute warm-up leaves 37 minutes of repertoire; setting it to 4 leaves 36. Disabling it restores 40. Enabling it again retains the selected four minutes and returns practice to 36. The started session contains the same 40-minute total. Multi-block allocation preserves IDs and musical settings, whole minutes and a minute per block; a too-short total cannot enable another block.
+
+Passage or goal stays visible when it is the only option. Reading/technique retain their additional options. The staff remains static; the broken note-name row becomes a two-octave 2D piano with the actual scale pitches highlighted. Every scale/mode in the existing catalogue has eight highlighted keys across one octave, including enharmonic spellings. The owner selected Roman degrees **I–VII** beside the note names; the repeated upper tonic is **I** again, without chord-quality analysis. Both the visible labels and accessible keyboard name include these degrees.
+
+Six focused unit checks and five browser checks pass. The latter include total allocation, saved warm-up configuration, library return, global duration changes, audio-thread/blocked-UI regression and the centered metronome. Both themes and phone/tablet portrait/landscape are captured. `verification.json` records source/build hashes and fixture references. Logs are retained here. `review-degrees-spanish.png` is the actual in-app-browser review; the other frames come from isolated responsive Chromium.
+
+The existing preview tab and its draft were kept. A separate updated scale-degree review is open at `http://127.0.0.1:5196/?review=degrees`. Exact layout acceptance remains open; Android/device timing acceptance remains separate from this source/browser review. Original notebook data, score bytes, annotations and shared saved-session-card design are unchanged.

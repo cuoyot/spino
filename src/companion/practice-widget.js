@@ -52,14 +52,14 @@ export function createManagedPracticeWidget({ toggle, pause, stop, returnToSessi
   return widget;
 }
 
-export function updateManagedPracticeWidget(widget, { visible, key, time, running, free, warmup, bpm, keepTimeInBackground }) {
+export function updateManagedPracticeWidget(widget, { visible, key, time, elapsedMs, running, free, warmup, bpm, keepTimeInBackground }) {
   if(visible&&(widget.hidden||widget.dataset.practiceKey!==key)){
     widget.style.left=widget.style.top=widget.style.right=widget.style.bottom='';widget.classList.remove('score-widget-minimized');widget.querySelector('.pdf-panel').hidden=true;widget.dataset.practiceKey=key;
   }
   widget.hidden=!visible;
   if(!visible){widget.remove();return;}
   if(!widget.isConnected)document.body.append(widget);
-  updateScoreTimer(widget.querySelector('[data-managed=timer]'),{time,running});
+  updateScoreTimer(widget.querySelector('[data-managed=timer]'),{time,elapsedMs,running});
   widget.querySelector('[data-managed-generated]').hidden=free;
   widget.querySelector('[data-managed-free]').hidden=!free;
   widget.querySelector('[data-managed=guide]').hidden=!warmup;

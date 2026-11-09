@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: raised score timer advances through checkpoints, pauses and resumes in four layouts
+ok 1 - raised score timer advances through checkpoints, pauses and resumes in four layouts
+  ---
+  duration_ms: 41411.289
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 46308.892208

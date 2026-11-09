@@ -1,0 +1,85 @@
+TAP version 13
+# Subtest: weekly calendar extends continuously without a month heading
+ok 1 - weekly calendar extends continuously without a month heading
+  ---
+  duration_ms: 2267.819541
+  type: 'test'
+  ...
+# Subtest: dedicated free practice retains time and offers selectable visual metronome
+ok 2 - dedicated free practice retains time and offers selectable visual metronome
+  ---
+  duration_ms: 3336.865916
+  type: 'test'
+  ...
+# Subtest: practice seconds repaint promptly between checkpoints without redundant DOM writes
+ok 3 - practice seconds repaint promptly between checkpoints without redundant DOM writes
+  ---
+  duration_ms: 2391.223292
+  type: 'test'
+  ...
+# timed-reading timer visibility: visible
+# timed-reading playing clock: 0:02
+# timed-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: timed-reading
+ok 4 - practice time advances, pauses and survives return: timed-reading
+  ---
+  duration_ms: 8447.839875
+  type: 'test'
+  ...
+# self-paced-reading timer visibility: visible
+# self-paced-reading playing clock: 0:02
+# self-paced-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: self-paced-reading
+ok 5 - practice time advances, pauses and survives return: self-paced-reading
+  ---
+  duration_ms: 7836.486625
+  type: 'test'
+  ...
+# piano-reading timer visibility: visible
+# piano-reading playing clock: 0:02
+# piano-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: piano-reading
+ok 6 - practice time advances, pauses and survives return: piano-reading
+  ---
+  duration_ms: 7999.940167
+  type: 'test'
+  ...
+# Subtest: new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+ok 7 - new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+  ---
+  duration_ms: 905.852666
+  type: 'test'
+  ...
+# Subtest: preparation configures optional blocks below a stable activity header
+ok 8 - preparation configures optional blocks below a stable activity header
+  ---
+  duration_ms: 1296.814875
+  type: 'test'
+  ...
+# Subtest: worklet audio grid continues through a blocked UI and clock digits keep their own animation
+ok 9 - worklet audio grid continues through a blocked UI and clock digits keep their own animation
+  ---
+  duration_ms: 5369.434917
+  type: 'test'
+  ...
+# Subtest: circular metronome marker is centered on all four cardinal directions
+ok 10 - circular metronome marker is centered on all four cardinal directions
+  ---
+  duration_ms: 1944.018875
+  type: 'test'
+  ...
+# Subtest: stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+ok 11 - stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+  ---
+  duration_ms: 2430.4685
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 45197.201542

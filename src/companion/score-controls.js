@@ -1,3 +1,4 @@
+import { updateClockDisplay } from './clock-display.js';
 import { midiIndicatorMarkup } from '../midi-indicator.js';
 import { MARK_COLORS } from './pdf-annotations.js';
 import { ui } from './locale.js';
@@ -44,7 +45,7 @@ export function updateScoreTimer(button, info) {
   button.dataset.running = String(running);
   button.dataset.editing = String(editing);
   const time = button.querySelector('.pdf-time');
-  if (time.textContent !== info.time) time.textContent = info.time;
+  updateClockDisplay(time, info.time, info.elapsedMs, running);
   const label = editing ? ui('Finish editing and stay paused', 'Finalizar edición y seguir en pausa') : running ? ui('Pause practice', 'Pausar práctica') : ui('Resume practice', 'Continuar práctica');
   button.setAttribute('aria-label', label);
   button.title = label;

@@ -932,3 +932,29 @@ Requested objective: recover opening after instrument selection, expand zoom bel
 ## 2026-11-09 — Update highlights and full production rollout
 
 Accepted objective: show the 6.2.1 improvements after updating and offer an optional neutral rating link. The owner explicitly requests production at 100%, replacing the skill's staged-rollout default. Implemented shared-dialog layout and behavior are browser-verified; owner visual acceptance is separate. See [review evidence](profile-release-notice.md). No notebook schema, saved-session card, recording data, original scores or annotation format changes. Shared navigation contrast corrections reopen Calendar/Library/Progress evidence; both-theme navigation and four-orientation light audits pass.
+
+
+## 2026-11-09 — Practice blocks, synchronization position and precise timing
+
+Accepted owner direction: the activity selector belongs at the start of the practice block; repertoire has no preparation/overview tempo; optional warm-up starts disabled and offers Free, chosen Hanon, Reading or selected Scales with duration; scale previews contain static notes. Calendar synchronization must retain the visible date. Metronome audio must be independent of interface delays, practice clocks must advance regularly, and the circular marker must align with the cardinal axes.
+
+Implemented source/responsive-browser proposal uses existing activity/block IDs and saved-session cards, a date-relative calendar anchor, shared AudioWorklet synthesis, compositor clock digits and a centered 12° marker. [Verification](captures/preparation/2026-11-09-blocks-timing-01/README.md) records sample-grid, blocked-UI, two-device/calendar and four-layout checks. Objectives are accepted; exact layout, Android/physical audio output and device latency still require review. No APK or publication.
+
+
+## 2026-11-09 — Warm-up first, fixed total and piano preview
+
+Owner refinement supersedes the earlier placement: the optional warm-up comes immediately after Total duration, before context and practice blocks. Selecting it takes minutes from the practice blocks rather than extending the selected total; changing its duration reallocates the same total, and disabling it returns those minutes. Existing block IDs and musical settings remain intact. A minimum minute per block is retained.
+
+When only Passage or goal remains, it is shown directly, without an exercise-options disclosure. Reading/technique keep the disclosure for their additional settings. The scale's overlapping note-name row is replaced by a static two-octave piano: actual scale pitches, including enharmonic spellings, are highlighted alongside the unchanged staff.
+
+[Responsive verification](captures/preparation/2026-11-09-warmup-first-02/README.md) passes six focused unit checks and five browser checks, with both themes in phone/tablet portrait/landscape. The source/build hashes and isolated fixture references are retained there; earlier run 01 remains historical evidence. Functional direction is accepted; the exact layout still awaits owner review. No APK, native acceptance or publication.
+
+
+2026-11-09 scale-degree follow-up: the owner explicitly selects Roman numerals I–VII alongside each highlighted piano note. The repeated upper tonic is I again. This is an accepted display preference; it does not introduce chord-quality analysis. Both the visible labels and the keyboard accessible name retain pitch spelling and degree. See preparation/2026-11-09-warmup-first-02. The usual chord-analysis convention is documented in [Open Music Theory](https://viva.pressbooks.pub/openmusictheory/chapter/roman-numerals/); the owner chose the Roman degree display deliberately.
+
+
+## 2026-11-09 — Choose Mobile or piano before configuration
+
+Owner-approved direction: changing setup must not insert dependent content above the selection, for any practice type. New practice now has a separate Mobile/With piano choice before its configuration. Repertoire and Free require piano; Reading/Technique support both. MIDI is detected at physical-practice start/reopen, without a third setup choice. Change returns to the first step, preserving the goal, total duration and block identities. The selected-mode summary precedes total duration; warm-up still follows the total. This supersedes the earlier inline context selector.
+
+All four types, mode transitions, fixed totals, retained goals and automatic MIDI are covered by the dedicated browser regression. Physical/native timing checks and beta122 publication are tracked in release validation.

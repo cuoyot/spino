@@ -1,3 +1,9 @@
+2026-11-09 beta122 validation: 75 focused unit checks, 8 final browser cases and 15 Android unit checks pass. Signed APK/AAB contain the same 685 web assets. Native replacement keeps original notebook stores/blobs unchanged, verifies all four mode gates, fixed totals and 48 kHz metronome startup/cadence under blocked UI. Publication is in progress; see docs/releases/6.2.2-beta.1-validation.json.
+
+2026-11-09 latest direction: two-step practice preparation starts with Mobile/With piano for all four types; no separate MIDI setup mode. Mode changes preserve draft and total, and all affected content follows the choice. Beta122 browser/native/release validation is in progress; previous inline-context evidence is historical.
+
+2026-11-09: owner requests APK and website beta for the reviewed practice block/scale/warm-up/timing changes. Ported onto published stable 6.2.1 (121), retaining later backup, MusicXML, navigation and release-notice features. Beta 6.2.2-beta.1 (122) validation/publication in progress. Browser evidence: captures/preparation/2026-11-09-warmup-first-02.
+
 2026-11-09 final production acceptance: Google Play confirms stable 6.2.1/build121 available at 100% in all 178 target countries, published at 12:15 Europe/Madrid. Website pages, final signed downloads, ranges and images are publicly verified. Evidence: docs/releases/6.2.1-play-production.jpg and 6.2.1-publication.json. Owner physical-device visual acceptance remains separate.
 
 2026-11-09 delivery: stable 6.2.1/build121 is submitted to Google Play for a full 100% production rollout and is in review. Final website/download verification is recorded in docs/releases/6.2.1-publication.json; the corrected generator replaces provisional same-version files while preserving history. Native replacement retains 135 files and foreground activity. [Update notice review](profile-release-notice.md). Google approval and owner physical-device acceptance remain pending.

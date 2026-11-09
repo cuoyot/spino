@@ -11,8 +11,8 @@
 .cp-beats span { flex: 1; max-width: 68px; height: 44px; display: grid; place-items: center; border: 1px solid #536078; border-radius: 8px; background: var(--theme-control, #202630); }
 .cp-beats .is-active { background: #5892ff; color: #fff; box-shadow: 0 0 18px #5892ff60; }
 .cp-beats .is-active:first-child { background: #e8b66c; }
-.cp-tempo-dial { --beat-angle: 0deg; display: flex; flex-direction: column; align-items: center; justify-content: center; width: min(250px, 70vw); aspect-ratio: 1; border-radius: 50%; border: 12px solid #637895; margin: 18px auto; background: var(--theme-control, #181e28); box-shadow: inset 0 0 0 4px #273246, 0 0 0 2px #263144; position: relative; }
-.cp-tempo-dial::before { content: ''; position: absolute; inset: -12px; border-radius: 50%; background: conic-gradient(from var(--beat-angle), #a9c8ff 0deg 12deg, transparent 12deg); mask: radial-gradient(transparent 64%, #000 65%); pointer-events: none; }
+.cp-tempo-dial { --beat-angle: 0deg; display: flex; flex-direction: column; align-items: center; justify-content: center; width: min(250px, 70vw); aspect-ratio: 1; border-radius: 50%; border: var(--dial-border, 12px) solid #637895; margin: 18px auto; background: var(--theme-control, #181e28); box-shadow: inset 0 0 0 4px #273246, 0 0 0 2px #263144; position: relative; }
+.cp-tempo-dial::before { content: ''; position: absolute; inset: calc(-1 * var(--dial-border, 12px)); border-radius: 50%; background: conic-gradient(from calc(var(--beat-angle) - 6deg), #a9c8ff 0deg 12deg, transparent 12deg); mask: radial-gradient(transparent 64%, #000 65%); pointer-events: none; }
 .cp-tempo-dial strong { font-size: 52px; font-variant-numeric: tabular-nums; }
 .cp-tempo-dial.is-accent { border-color: #e8b66c; }
 .cp-metro-console { display: grid; grid-template-columns: 52px minmax(0, 1fr) 52px; gap: 12px; }
@@ -246,7 +246,7 @@
 #app-shell .cp-metronome > h2, #app-shell .cp-metronome > .muted { display: none; }
 #app-shell .cp-metro-console { gap: 6px; }
 #app-shell .cp-metro-controls .cp-free-timer { margin: 0; padding: 6px; font-size: 24px; }
-#app-shell .cp-free-practice .cp-tempo-dial { width: min(180px, 100%, max(100px, calc(100dvh - 480px))); margin: 0 auto; border-width: 8px; }
+#app-shell .cp-free-practice .cp-tempo-dial { width: min(180px, 100%, max(100px, calc(100dvh - 480px))); margin: 0 auto; --dial-border: 8px; }
 #app-shell .cp-tempo-dial strong { font-size: 36px; }
 #app-shell .cp-free-practice .cp-fader { gap: 3px; }
 #app-shell .cp-free-practice .cp-fader-track, #app-shell .cp-free-practice .cp-fader input[type=range] { height: clamp(60px, calc(100dvh - 540px), 150px); }

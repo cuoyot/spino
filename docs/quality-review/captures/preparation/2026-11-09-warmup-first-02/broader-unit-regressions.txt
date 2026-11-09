@@ -1,0 +1,305 @@
+TAP version 13
+# Subtest: three-way merge keeps additions, independent fields, deletions and annotation IDs
+ok 1 - three-way merge keeps additions, independent fields, deletions and annotation IDs
+  ---
+  duration_ms: 1.777333
+  ...
+# Subtest: delete versus edit and same annotation edits require explicit choices
+ok 2 - delete versus edit and same annotation edits require explicit choices
+  ---
+  duration_ms: 0.4625
+  ...
+# Subtest: Catalan reader settings synchronize between same-version devices using the production validator
+ok 3 - Catalan reader settings synchronize between same-version devices using the production validator
+  ---
+  duration_ms: 26.911166
+  ...
+# Subtest: two devices combine offline additions, pull without local edits and preserve recovery
+ok 4 - two devices combine offline additions, pull without local edits and preserve recovery
+  ---
+  duration_ms: 4.136167
+  ...
+# Subtest: continued edits after a deferred upload do not conflict with this device itself
+ok 5 - continued edits after a deferred upload do not conflict with this device itself
+  ---
+  duration_ms: 2.867667
+  ...
+# Subtest: edits during a successful provider write retain the acknowledged baseline
+ok 6 - edits during a successful provider write retain the acknowledged baseline
+  ---
+  duration_ms: 1.170541
+  ...
+# Subtest: provider contention re-reads and merges independent changes automatically
+ok 7 - provider contention re-reads and merges independent changes automatically
+  ---
+  duration_ms: 1.35025
+  ...
+# Subtest: contention on the same field still requires a user choice
+ok 8 - contention on the same field still requires a user choice
+  ---
+  duration_ms: 1.554208
+  ...
+# Subtest: persistent contention is bounded and remains retryable without losing local edits
+ok 9 - persistent contention is bounded and remains retryable without losing local edits
+  ---
+  duration_ms: 2.02225
+  ...
+# Subtest: conflicts retain independent records and require fresh review when remote changes again
+ok 10 - conflicts retain independent records and require fresh review when remote changes again
+  ---
+  duration_ms: 3.642292
+  ...
+# Subtest: ineligible state, concurrent local edits and malformed input never replace local data
+ok 11 - ineligible state, concurrent local edits and malformed input never replace local data
+  ---
+  duration_ms: 0.814916
+  ...
+# Subtest: cloud overview opens a separate conflict review with escaped paths and both choices
+ok 12 - cloud overview opens a separate conflict review with escaped paths and both choices
+  ---
+  duration_ms: 5.368084
+  ...
+# Subtest: automatic sync uploads local changes while editing and defers incoming adoption
+ok 13 - automatic sync uploads local changes while editing and defers incoming adoption
+  ---
+  duration_ms: 1.665833
+  ...
+# Subtest: QR join checks notebook identity and maintains it across two-device edits
+ok 14 - QR join checks notebook identity and maintains it across two-device edits
+  ---
+  duration_ms: 1.942958
+  ...
+# Subtest: reviewed cloud choice waits safely then applies without reopening the same conflict
+ok 15 - reviewed cloud choice waits safely then applies without reopening the same conflict
+  ---
+  duration_ms: 3.022625
+  ...
+# Subtest: deferred conflict choice requires fresh review after a new remote edit
+ok 16 - deferred conflict choice requires fresh review after a new remote edit
+  ---
+  duration_ms: 1.597917
+  ...
+# Subtest: an older client can update a format 1 file without retaining additive QR metadata
+ok 17 - an older client can update a format 1 file without retaining additive QR metadata
+  ---
+  duration_ms: 0.634167
+  ...
+# Subtest: file selection is only offered while disconnected and sharing lives in manage
+ok 18 - file selection is only offered while disconnected and sharing lives in manage
+  ---
+  duration_ms: 2.360958
+  ...
+# Subtest: a reviewed choice survives outbound transfer deferral
+ok 19 - a reviewed choice survives outbound transfer deferral
+  ---
+  duration_ms: 1.955709
+  ...
+# Subtest: transient provider reads retry automatically and preserve pending edits
+ok 20 - transient provider reads retry automatically and preserve pending edits
+  ---
+  duration_ms: 23.763166
+  ...
+# Subtest: persistent provider failures stop after three scheduled retries and manual retry recovers
+ok 21 - persistent provider failures stop after three scheduled retries and manual retry recovers
+  ---
+  duration_ms: 206.15325
+  ...
+# Subtest: invalid cloud content is identified as validation failure and is not automatically retried
+ok 22 - invalid cloud content is identified as validation failure and is not automatically retried
+  ---
+  duration_ms: 41.865041
+  ...
+# Subtest: overview exposes escaped error details and retry without implying every failure is connectivity
+ok 23 - overview exposes escaped error details and retry without implying every failure is connectivity
+  ---
+  duration_ms: 0.754292
+  ...
+# Subtest: a missing Android provider requires reselecting the file rather than scheduled retries
+ok 24 - a missing Android provider requires reselecting the file rather than scheduled retries
+  ---
+  duration_ms: 82.794625
+  ...
+# Subtest: local mode cancels scheduled retries and resumes with local and remote records and annotations intact
+ok 25 - local mode cancels scheduled retries and resumes with local and remote records and annotations intact
+  ---
+  duration_ms: 82.597458
+  ...
+# Subtest: local mode immediately releases a pending provider read (late changes)
+ok 26 - local mode immediately releases a pending provider read (late changes)
+  ---
+  duration_ms: 0.653125
+  ...
+# Subtest: local mode immediately releases a pending provider read (late failure)
+ok 27 - local mode immediately releases a pending provider read (late failure)
+  ---
+  duration_ms: 0.952125
+  ...
+# Subtest: pausing during an acknowledged write keeps its baseline without adopting incoming data
+ok 28 - pausing during an acknowledged write keeps its baseline without adopting incoming data
+  ---
+  duration_ms: 1.264125
+  ...
+# Subtest: reselecting the same notebook preserves deletions, baseline, cancellation and identity checks
+ok 29 - reselecting the same notebook preserves deletions, baseline, cancellation and identity checks
+  ---
+  duration_ms: 0.949583
+  ...
+# Subtest: a connected or paused notebook cannot be replaced through join, create or backup setup
+ok 30 - a connected or paused notebook cannot be replaced through join, create or backup setup
+  ---
+  duration_ms: 0.878041
+  ...
+# Subtest: reviewed conflicting values remain valid after unrelated practice and diagnostic updates
+ok 31 - reviewed conflicting values remain valid after unrelated practice and diagnostic updates
+  ---
+  duration_ms: 1.594166
+  ...
+# Subtest: legacy catalogue diagnostic conflicts are repaired without choosing between notebooks
+ok 32 - legacy catalogue diagnostic conflicts are repaired without choosing between notebooks
+  ---
+  duration_ms: 2.189792
+  ...
+# Subtest: returning to the app resumes exhausted transient retries but retains pauses and permission errors
+ok 33 - returning to the app resumes exhausted transient retries but retains pauses and permission errors
+  ---
+  duration_ms: 31.635334
+  ...
+# Subtest: showing an exact Drive QR does not adopt incoming data or trigger a reload
+ok 34 - showing an exact Drive QR does not adopt incoming data or trigger a reload
+  ---
+  duration_ms: 0.784959
+  ...
+# Subtest: switching backwards and forwards retains timing, measurements, snapshots and stable order through recovery/save
+ok 35 - switching backwards and forwards retains timing, measurements, snapshots and stable order through recovery/save
+  ---
+  duration_ms: 8.196333
+  ...
+# Subtest: legacy completed results remain immutable while revisiting their block accumulates additional time
+ok 36 - legacy completed results remain immutable while revisiting their block accumulates additional time
+  ---
+  duration_ms: 1.379
+  ...
+# Subtest: reordering and removing earlier flexible blocks preserves the active block and its runtime
+ok 37 - reordering and removing earlier flexible blocks preserves the active block and its runtime
+  ---
+  duration_ms: 0.552417
+  ...
+# Subtest: recover a copied Hanon block mislabeled as Reading without losing timing, IDs or its exercises
+ok 38 - recover a copied Hanon block mislabeled as Reading without losing timing, IDs or its exercises
+  ---
+  duration_ms: 0.504417
+  ...
+# Subtest: audio-thread pulse has no accumulated drift at 44100 Hz
+ok 39 - audio-thread pulse has no accumulated drift at 44100 Hz
+  ---
+  duration_ms: 1383.647208
+  ...
+# Subtest: audio-thread pulse has no accumulated drift at 48000 Hz
+ok 40 - audio-thread pulse has no accumulated drift at 48000 Hz
+  ---
+  duration_ms: 1421.521833
+  ...
+# Subtest: visual and muted modes generate silence; count-in remains audible when exercise clicks are off
+ok 41 - visual and muted modes generate silence; count-in remains audible when exercise clicks are off
+  ---
+  duration_ms: 62.685
+  ...
+# Subtest: clock keeps updating without animation frames and shares change detection with frames
+ok 42 - clock keeps updating without animation frames and shares change detection with frames
+  ---
+  duration_ms: 3.492625
+  ...
+# Subtest: score clock refreshes when only the independent session total changes
+ok 43 - score clock refreshes when only the independent session total changes
+  ---
+  duration_ms: 0.592625
+  ...
+# Subtest: self-paced timing survives routine, plan, active session and completed-session backups
+ok 44 - self-paced timing survives routine, plan, active session and completed-session backups
+  ---
+  duration_ms: 6.307166
+  ...
+# Subtest: legacy blocks stay compatible and unknown timing values fail backup validation
+ok 45 - legacy blocks stay compatible and unknown timing values fail backup validation
+  ---
+  duration_ms: 0.57725
+  ...
+# Subtest: preparation offers self-paced mobile exercises and preserves timed piano controls
+ok 46 - preparation offers self-paced mobile exercises and preserves timed piano controls
+  ---
+  duration_ms: 2.652875
+  ...
+# Subtest: optional warm-ups materialize every configured type without rewriting the practice
+ok 47 - optional warm-ups materialize every configured type without rewriting the practice
+  ---
+  duration_ms: 11.554292
+  ...
+# Subtest: repertoire has its type before its content and omits the tempo in preparation and overview
+ok 48 - repertoire has its type before its content and omits the tempo in preparation and overview
+  ---
+  duration_ms: 1.271959
+  ...
+# Subtest: warm-up consumes the selected total and returns its minutes when disabled
+ok 49 - warm-up consumes the selected total and returns its minutes when disabled
+  ---
+  duration_ms: 0.316
+  ...
+# Subtest: static piano marks the real pitches, including enharmonic scale spellings
+ok 50 - static piano marks the real pitches, including enharmonic scale spellings
+  ---
+  duration_ms: 4.52975
+  ...
+# Subtest: routines resolve MIDI and first-position warm-up at practice time without mutating legacy data
+ok 51 - routines resolve MIDI and first-position warm-up at practice time without mutating legacy data
+  ---
+  duration_ms: 3.302375
+  ...
+# Subtest: routine tempo resolves from current practice defaults instead of saved template tempo
+ok 52 - routine tempo resolves from current practice defaults instead of saved template tempo
+  ---
+  duration_ms: 0.294417
+  ...
+# Subtest: Hanon No. 1 follows the published figure, fingering and turning point in both hands
+ok 53 - Hanon No. 1 follows the published figure, fingering and turning point in both hands
+  ---
+  duration_ms: 6.397417
+  ...
+# Subtest: warm-up bars stream continuously through the reader chunk interface
+ok 54 - warm-up bars stream continuously through the reader chunk interface
+  ---
+  duration_ms: 5.859708
+  ...
+# Subtest: warm-up blocks and preferences validate, rotate and stay out of phone sessions
+ok 55 - warm-up blocks and preferences validate, rotate and stay out of phone sessions
+  ---
+  duration_ms: 1.939417
+  ...
+# Subtest: Hanon Nos. 6-10 follow the Mutopia edition
+ok 56 - Hanon Nos. 6-10 follow the Mutopia edition
+  ---
+  duration_ms: 0.445208
+  ...
+# Subtest: warm-ups are sets of exercises that rotate by one and fit the minutes
+ok 57 - warm-ups are sets of exercises that rotate by one and fit the minutes
+  ---
+  duration_ms: 0.682041
+  ...
+# Subtest: a warm-up set streams each exercise once, then starts again
+ok 58 - a warm-up set streams each exercise once, then starts again
+  ---
+  duration_ms: 0.589333
+  ...
+# Subtest: the guide offers the approved animation and explains independent finger preparation
+ok 59 - the guide offers the approved animation and explains independent finger preparation
+  ---
+  duration_ms: 0.546958
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2944.824125

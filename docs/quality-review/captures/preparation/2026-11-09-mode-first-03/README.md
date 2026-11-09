@@ -1,0 +1,9 @@
+# Practice mode before configuration — 9 November 2026
+
+Owner-requested two-step setup: Mobile or With piano precedes configuration for Reading, Technique, Repertoire and Free. Mobile is enabled for the first two. MIDI is detected at physical-practice start/reopen, without a third configuration mode. Change returns to the mode step, preserving the goal and selected total. The selected-mode summary precedes total duration; optional warm-up follows the total and borrows its minutes.
+
+Browser mode cases cover all four types, retained goals, totals and automatic MIDI, with four responsive layouts. Browser-only frames are explicitly prefixed. The in-app screenshot shows the actual reviewed step. Native frames are from the installed Android emulator and synthetic namespaced storage. Native validation checks replacement installation, original logical stores and immutable blobs, four activity gates, fixed warm-up allocation, Roman scale degrees and the shared clock. Audio events at 48 kHz remain on the exact one-second grid, including the first click, while the UI is blocked for 1.8 seconds. Original notebook stores remain unchanged; the private recovery archive is excluded from public artifacts.
+
+Earlier native attempts exposed a delayed first click caused by module initialization; those logs remain in the private output history. Free clicks now anchor to the first actual audio render, generated clicks skip expired count-in beats, and the module is preloaded during preparation/start. A focused unit regression covers delayed initialization and audio-device frame jumps. Hardware-speaker/Bluetooth latency remains a physical-device acceptance step.
+
+This run supersedes the earlier inline-context arrangement and retains prior evidence. Exact beta122 source/package/publication information is recorded in docs/releases/6.2.2-beta.1-validation.json and its publication report. No Play submission is requested.

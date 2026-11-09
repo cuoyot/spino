@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-09",
+  "kind": "responsive-browser-review",
+  "nativeAcceptance": false,
+  "publication": false,
+  "baseCommit": "902f0e7ee5ab6933e36421b17631d5fe61dad894",
+  "workingTree": "Existing checkout; unrelated uncommitted work retained. No commit or version change.",
+  "browser": "Chromium / Chrome 157.0.8103.39; temporary test profiles",
+  "sizes": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "fixtures": [
+    "tests/browser.js: disposable empty notebook on independent localhost test origins",
+    "tests/fixtures/drive/notebook-server.js: synthetic second device and Drive server",
+    "scripts/review/drive-notebook-fixture.mjs and cloud-recovery-fixture.mjs: synthetic notebook and score/annotation assets",
+    "scripts/review/preview-preparation.mjs: dedicated synthetic review at http://127.0.0.1:5196",
+    "tests/score-timer.browser.test.js: synthetic PDF and MusicXML"
+  ],
+  "verification": {
+    "unitChecks": 57,
+    "distinctBrowserChecks": 14,
+    "additionalFinalFocusedRerun": 4,
+    "audioGridSecondsPerRate": 60,
+    "sampleRates": [
+      44100,
+      48000
+    ],
+    "audioMaxErrorSamples": 0.51,
+    "blockedInterfaceMilliseconds": 1800
+  },
+  "sourceSHA256": {
+    "src/main.js": "a54d14e838bfc6fc2c20137ac6eba5a19b854ec362503e7819791ee8f4066c08",
+    "src/metronome.js": "c285c09a07215f85bb55ba349fb1d521581db45e0cdf568b7190452a5bbcf4c4",
+    "src/metronome-processor.js": "64415919f28c32911f6c78f870d01cd58df431d3349322adee1eae320766d7fd",
+    "src/companion/app.js": "691ec65d89018ad9f909764e498a6ff7f0f87071fae757f166c97fcaaeee20bc",
+    "src/companion/app.css": "5090fc7d2d24cbdf92211311338c57d5fe440b6174cafa179b967b5d69bbf613",
+    "src/companion/views.js": "a96f57ef72809f5c316a0841ef8124f9e579e5adfb394358d1ba96f27c94676c",
+    "src/companion/session-view.js": "c80905e1d7102a1308fca5eeddcc8d34ca0502a9cd65741127bb593179fda27d",
+    "src/companion/session-view.css": "ddd47bceedb660392f340b2849c97204963f493a6cd678aaf12dd20cc03ae975",
+    "src/companion/score-controls.js": "bfa5e253f5b629208b8f172d7f57f6cf1a55505fb8c022feac2bf21a99b9842b",
+    "src/companion/practice-widget.js": "f38f206f84a94521bd6a3cea6d4c3ce687a2e138e1c717b7bd9e67f1471ed014",
+    "src/companion/practice-clock.js": "08fbfc78fffa906a300078f35fcd1065cb3b6fc977dd0684667381a4d3e60cd4",
+    "src/companion/profile-view.js": "368f7542afb765588a9b2c66e59a5b556df844e56bee19494e239db6bd657a82",
+    "src/companion/model.js": "7cd5b1fe43aa5a083ccc49fb44fd8c9a067a113b219eb4bde893c1d3435a9ea9",
+    "src/companion/warmups.js": "2734902f9606820ece27eb2bbecb3239d1ab6f9f56c0b2c467e3f769d61e9e15",
+    "src/companion/clock-display.js": "3431b854912e7e834df5d25abcc4f4ceff463f6990ea2b9535900d849c407ed9",
+    "src/companion/clock-display.css": "69029316dc5c18df291d4d71d3ae9062dd6292e7108e4ba774f72482e8813147",
+    "src/companion/calendar-position.js": "471e6f9f6aa8308a3fefa62139296e907de1a2075480d13af1798778b06c205d",
+    "src/companion/preparation-warmup.js": "58ed5b8dfc8d6e1366f7d95ae221c82e21e29aac8768c28fe7af907f6765520b",
+    "src/companion/scale-preview.js": "66b60b9696bd53dbbaf19450a37107ae0afe9f2b096002a3de558275bcd39f89",
+    "tests/metronome.test.js": "f192b8ac78cc93d7e9fd971658e344fa3d3576f7175fc7d1320f6a5d57de055b",
+    "tests/preparation-warmup.test.js": "0c17b20bbb6aa8bf0cbc1155a9eb858c803fc660443f41935706375b9f4d9b9d",
+    "tests/practice-revision.browser.test.js": "387b1fd7bbe01313cff0b3600e7f143743face2282b0fe5c4131926fa6afc12b",
+    "tests/cloud-local.browser.test.js": "feff79258cf29a5e1c01e8d9b2e750712ce3c65e1400c8cd9265aa29a2860f4c",
+    "tests/free-practice.browser.test.js": "c1ba22b77618cce1fc6476675af9611d81a3626f66102daf3160b728d44e7d5f"
+  },
+  "distIndexSHA256": "621e9eb41780f2a1c485ea4f85e84359817cf29c5050f73f03c2e921aefeba10",
+  "screenshots": [
+    "block-header-1024x768.png",
+    "block-header-390x844.png",
+    "block-header-768x1024.png",
+    "block-header-844x390.png",
+    "calendar-1024x768.png",
+    "calendar-390x844.png",
+    "calendar-768x1024.png",
+    "calendar-844x390.png",
+    "dial-0-1024x768.png",
+    "dial-0-390x844.png",
+    "dial-0-768x1024.png",
+    "dial-0-844x390.png",
+    "dial-180-1024x768.png",
+    "dial-180-390x844.png",
+    "dial-180-768x1024.png",
+    "dial-180-844x390.png",
+    "dial-270-1024x768.png",
+    "dial-270-390x844.png",
+    "dial-270-768x1024.png",
+    "dial-270-844x390.png",
+    "dial-90-1024x768.png",
+    "dial-90-390x844.png",
+    "dial-90-768x1024.png",
+    "dial-90-844x390.png",
+    "running-clock.png",
+    "scale-warmup-1024x768.png",
+    "scale-warmup-390x844.png",
+    "scale-warmup-768x1024.png",
+    "scale-warmup-844x390.png"
+  ],
+  "distAssetsSHA256": {
+    "dist/assets/web-Bnm0f4uf.js": "b0c3cd4ebcde75cd0a76613cb42e80c7eb4175b0c8a202cda91688f07abb71dd",
+    "dist/assets/catalogue-preview-BDmShGJy.js": "b5cef42601606d775722ac4b105532c7d9216a3458d439ee0ae230c719c0671c",
+    "dist/assets/pdf-viewer-BIeFDWbL.css": "2a8abc95db10da909dfa89117f455655e21d1ed3d2a47c60dd451da31664905e",
+    "dist/assets/media-trim-browser-D6nmaEgJ.js": "de019cb8e078514fb8b51e63424deaf9c7b21c3a812b73d08f74df2e20f10717",
+    "dist/assets/library--60XbAKY.js": "b35f0593e0dee78f29916788d7ed21be8ad8f54e2c333388b339f07f6d4af2b7",
+    "dist/assets/pdf-metadata-DS1M6BV8.js": "a9bef5821f77bfd80ea466943e58b9536f2022d9356c8d6e50065534db5932b7",
+    "dist/assets/opensheetmusicdisplay.min-BrXXX89h.js": "3736802269c73b0a966eb56d5cd290d5b5b690a6fa0ab280005eed8e93c03b02",
+    "dist/assets/pdf-print-C3l4tMmf.js": "52ea8a0d122c42a3efa1cede848845d008f2b8702b4352086ae38765b4d1c99a",
+    "dist/assets/pdf-viewer-WrnoswSH.js": "f737d1cb74f258e14ccee58f3cfc1d89b8f551b9b5c855b9a7fdacf3c7597d4d",
+    "dist/assets/web-CJFPcSNB.js": "57cf33373fcb74da0752b0c5f15094b2bd313f14ebc08a2ed5c424b06fd9fc6d",
+    "dist/assets/app-C2bRfjQy.js": "ffb4f94cb31804fdffe4351b4d4f9d83a02f3f61394f67fb7ec7957c4de6aa7b",
+    "dist/assets/lamejs-DxgK9G4m.js": "3798ccd48171e35a98bf9a2c7e2e105623975109fdee03627aa67b38b63c839f",
+    "dist/assets/musicxml-worker-DAZ85IhR.js": "049bff0dd17787ce3d1b348fbe065d954fcedc57be647586c911e7033959a2b3",
+    "dist/assets/metronome-processor-Dzn5waj-.js": "64415919f28c32911f6c78f870d01cd58df431d3349322adee1eae320766d7fd",
+    "dist/assets/rolldown-runtime-C0FnF6B9.js": "e0a79ad36c6ca1ffbc796c80aa5661803a9d1bc684e29d1587f48b4ba9a82714",
+    "dist/assets/pdf-document-B4pyKYWB.js": "4e99dd2327d5c151c4452dbb79f42a36edbd085b5b8db519dbcb218a192731ce",
+    "dist/assets/musicxml-print-ib6GjsG-.js": "3cc955f6fb733639f40598a657ace7ef2805df01e13fd053659ed4c944cad2c6",
+    "dist/assets/asset-print-BGV1uWn4.js": "ea481f66712fe451558c53e1b9aec0fb5d6299339b2e917dfdebbffa0d8614b4",
+    "dist/assets/score-ocr-D4o-I8qy.js": "fcefb02b74f54ba9f1893345e9ee108760926157ae3f28efb11b346e4d48fd7a",
+    "dist/assets/musicxml-viewer-Dh29ET3g.js": "299c994313f383ef7a4138df97be1327bc8850a2012c3127b02a2a5faa2a3acf",
+    "dist/assets/app-_wBx5IY_.css": "84c66a5bf44edf5ccfe7df6947d86cbffb97bf01190048d9ca598275c2662fdc",
+    "dist/assets/browser-NM0WNCww.js": "587bc2b2d333eadb46c14109032fc3899cf1104036ee328c8a1b964a8c2fcf0e",
+    "dist/assets/esm-BBchjGm5.js": "b4862aad7eb30248938b44c9d4ad166a2f20c270de39d7b2522d34067c1310fd",
+    "dist/assets/score-print-C7FvnSER.js": "1bfaa914b3396a9d407274434c92f9a947d03720b06a596f4946de084c91bf31"
+  }
+}

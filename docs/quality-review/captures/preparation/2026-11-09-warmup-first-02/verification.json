@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-09",
+  "kind": "responsive-browser-review",
+  "nativeAcceptance": false,
+  "baseCommit": "902f0e7ee5ab6933e36421b17631d5fe61dad894",
+  "workingTree": "Existing checkout and unrelated uncommitted work retained; no release or APK.",
+  "fixtures": [
+    "tests/browser.js: independent localhost origins and temporary profiles",
+    "tests/preparation-repertoire.browser.test.js: disposable stand pieces and optional warm-up preferences",
+    "scripts/review/preview-preparation.mjs: synthetic in-app-browser review; original tab retained while a new degrees tab presents the update"
+  ],
+  "tests": {
+    "focusedUnitChecks": 6,
+    "browserChecks": 5,
+    "failures": 0,
+    "broaderUnitChecks": 59
+  },
+  "screenshots": [
+    "dark-block-header-1024x768.png",
+    "dark-block-header-390x844.png",
+    "dark-block-header-768x1024.png",
+    "dark-block-header-844x390.png",
+    "dark-scale-warmup-1024x768.png",
+    "dark-scale-warmup-390x844.png",
+    "dark-scale-warmup-768x1024.png",
+    "dark-scale-warmup-844x390.png",
+    "dial-0-1024x768.png",
+    "dial-0-390x844.png",
+    "dial-0-768x1024.png",
+    "dial-0-844x390.png",
+    "dial-180-1024x768.png",
+    "dial-180-390x844.png",
+    "dial-180-768x1024.png",
+    "dial-180-844x390.png",
+    "dial-270-1024x768.png",
+    "dial-270-390x844.png",
+    "dial-270-768x1024.png",
+    "dial-270-844x390.png",
+    "dial-90-1024x768.png",
+    "dial-90-390x844.png",
+    "dial-90-768x1024.png",
+    "dial-90-844x390.png",
+    "light-block-header-1024x768.png",
+    "light-block-header-390x844.png",
+    "light-block-header-768x1024.png",
+    "light-block-header-844x390.png",
+    "light-scale-warmup-1024x768.png",
+    "light-scale-warmup-390x844.png",
+    "light-scale-warmup-768x1024.png",
+    "light-scale-warmup-844x390.png",
+    "review-degrees-spanish.png",
+    "running-clock.png"
+  ],
+  "sourceSHA256": {
+    "src/companion/app.js": "c6d220c886ef877046b3a755e83ed68c1df9f9a6f01858b30e157cc85f218fae",
+    "src/companion/app.css": "6c59107df14cb665240919614eb332cd5b8c99507a2f93dc970bea8169f1f8d0",
+    "src/companion/views.js": "76abf9834061474d2aa02761ea9b4abb20b8bb0511fe99502bdf68fbbe54d167",
+    "src/companion/scale-preview.js": "329ab5b6707b419e6ee4481e595de75b24b61c7a8847d9bdd22489db6f2fe4e4",
+    "src/companion/preparation-warmup.js": "177f312194eedbe2a468338e60e00d878571d643712b37502e809a60a9cad802",
+    "tests/preparation-warmup.test.js": "6e5f32d32b789788a7239f4de437ddd3b79c71fcbd20be939504af5877d24b41",
+    "tests/practice-revision.browser.test.js": "cbb2d9b222fb846cc6b3e6ab3d59a8a3a4ec561c18ebc61b017f9ad59747617f",
+    "tests/practice-duration.browser.test.js": "0027e0fac4430bf78a3af1bde993f493d9a18002e3e7651c586181bb5da344d8",
+    "tests/preparation-repertoire.browser.test.js": "fa97820f0d321b37198df7164bcc9bd817d77d88dd91847ce57509d6b0121ab1"
+  },
+  "distIndexSHA256": "a54fcc18aa9e1a79f9a279717098d37532bc3a7e73b05a5ed23815900981d509",
+  "buildAssetsSHA256": {
+    "dist/assets/asset-print-CU3d-0iD.js": "67e92d4c5c7430b26a8634f507735ad7893804fe1b2a1d72864e021025f6d0c8",
+    "dist/assets/pdf-viewer-BIeFDWbL.css": "2a8abc95db10da909dfa89117f455655e21d1ed3d2a47c60dd451da31664905e",
+    "dist/assets/pdf-document-Cri3SPqN.js": "365131e9bb287a05150d14c3ddca5a0a8104c603b0cea786dfb23d06bca6ac68",
+    "dist/assets/catalogue-preview-24MYEU87.js": "45275d62fc636d3d82fb72c04bbc4de93d0c7ce50dac488ec56b2606e712e6ff",
+    "dist/assets/pdf-print-D4ZGVKH2.js": "e5dba973651771f6a77c514751e516abe88c279aab68091b3e4c5f840e8af388",
+    "dist/assets/library--60XbAKY.js": "b35f0593e0dee78f29916788d7ed21be8ad8f54e2c333388b339f07f6d4af2b7",
+    "dist/assets/app-DFgwJDAt.js": "876f3c6efa662dc686f003ec4e3d803fd07a7478b2df9a458126f43260c72616",
+    "dist/assets/opensheetmusicdisplay.min-BrXXX89h.js": "3736802269c73b0a966eb56d5cd290d5b5b690a6fa0ab280005eed8e93c03b02",
+    "dist/assets/app-ComH2mUL.css": "4bd20e6b4e04fbff742a888aa9524dbecc1711e47c4638b4bb1d6f8ad6859738",
+    "dist/assets/musicxml-viewer-CFoPeN9j.js": "d1e09d811ef6796c35b584d1889f4f976fd5e144bb27eebadd3bde69023573f3",
+    "dist/assets/lamejs-DxgK9G4m.js": "3798ccd48171e35a98bf9a2c7e2e105623975109fdee03627aa67b38b63c839f",
+    "dist/assets/score-print-B8Iezncf.js": "095e7d87a8275e636d7ebc95417cff3e07700706447c8c38aba42c0bd7f4d4ef",
+    "dist/assets/media-trim-browser-Boq-GyV7.js": "16a3980aa07101ab4eafa038114362002f91fe2da26e430e1cabc3678cdc5671",
+    "dist/assets/pdf-metadata-C7EHNxgp.js": "1b918603e320af2922926fd8da001f5de57d859a198c997ef1ba7ec00f534655",
+    "dist/assets/musicxml-worker-DAZ85IhR.js": "049bff0dd17787ce3d1b348fbe065d954fcedc57be647586c911e7033959a2b3",
+    "dist/assets/metronome-processor-Dzn5waj-.js": "64415919f28c32911f6c78f870d01cd58df431d3349322adee1eae320766d7fd",
+    "dist/assets/rolldown-runtime-C0FnF6B9.js": "e0a79ad36c6ca1ffbc796c80aa5661803a9d1bc684e29d1587f48b4ba9a82714",
+    "dist/assets/pdf-viewer-_ZsCEyro.js": "af813166fb8ce71a7c9f55e65612eeb42b03f2449e1f1ddfcd5c0829d05ab3d6",
+    "dist/assets/web-CCRh8NB2.js": "39bef96dc745b188331c23e47e6ddd23abada40c8e941b894ad4e63a094ba370",
+    "dist/assets/musicxml-print-1JcQDgMo.js": "c25ccc79ea7a9e0255c9e971b94150afcebb71b4f39a5aca7e4ca7a79b542c82",
+    "dist/assets/web-CwXk6-w9.js": "0fa27c85afaf7cd1fb3a05d6655dec2ef18f25a0b47db44c4cdbc6723e8f8ca5",
+    "dist/assets/browser-NM0WNCww.js": "587bc2b2d333eadb46c14109032fc3899cf1104036ee328c8a1b964a8c2fcf0e",
+    "dist/assets/esm-BBchjGm5.js": "b4862aad7eb30248938b44c9d4ad166a2f20c270de39d7b2522d34067c1310fd",
+    "dist/assets/score-ocr-CIh7on-M.js": "d2a69f5068aec70dfd6ecef3f23c582b30a0d6732f7fc2d2d254ec6787a0f9c9"
+  },
+  "sizes": [
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ]
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "degreeDisplay": "Owner-selected I\u2013VII alongside note names; upper tonic is I again."
+}

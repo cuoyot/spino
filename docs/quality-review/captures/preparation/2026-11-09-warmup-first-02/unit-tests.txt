@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: total duration preserves proportions and block identities without mutating saved routines
+ok 1 - total duration preserves proportions and block identities without mutating saved routines
+  ---
+  duration_ms: 1.633875
+  ...
+# Subtest: rounding, minimum block time and long existing routines keep exact totals
+ok 2 - rounding, minimum block time and long existing routines keep exact totals
+  ---
+  duration_ms: 2.137708
+  ...
+# Subtest: optional warm-ups materialize every configured type without rewriting the practice
+ok 3 - optional warm-ups materialize every configured type without rewriting the practice
+  ---
+  duration_ms: 5.66725
+  ...
+# Subtest: repertoire has its type before its content and omits the tempo in preparation and overview
+ok 4 - repertoire has its type before its content and omits the tempo in preparation and overview
+  ---
+  duration_ms: 1.2525
+  ...
+# Subtest: warm-up consumes the selected total and returns its minutes when disabled
+ok 5 - warm-up consumes the selected total and returns its minutes when disabled
+  ---
+  duration_ms: 0.312334
+  ...
+# Subtest: static piano marks the real pitches, including enharmonic scale spellings
+ok 6 - static piano marks the real pitches, including enharmonic scale spellings
+  ---
+  duration_ms: 3.664084
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 204.831916

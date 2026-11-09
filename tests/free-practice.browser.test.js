@@ -5,7 +5,8 @@ import { sessionFixtures } from '../scripts/review/session-fixtures.mjs';
 
 test('dedicated free practice retains time and offers selectable visual metronome', {timeout:30000}, async t => {
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
-  await send('Page.addScriptToEvaluateOnNewDocument',{source:`window.metroOscillators=0;const original=AudioContext.prototype.createOscillator;AudioContext.prototype.createOscillator=function(...args){window.metroOscillators++;return original.apply(this,args);};`});
+  const activate=expression=>send('Runtime.evaluate',{expression,awaitPromise:true,userGesture:true});
+  await send('Page.addScriptToEvaluateOnNewDocument',{source:`window.metroAudibleConfigurations=0;const Original=AudioWorkletNode;window.AudioWorkletNode=class extends Original{constructor(...args){super(...args);const post=this.port.postMessage.bind(this.port);this.port.postMessage=(data,...rest)=>{if(data?.volume>0)window.metroAudibleConfigurations++;return post(data,...rest);};}};`});
   const wait=condition=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${condition}){clearInterval(timer);resolve();}else if(++n>500){clearInterval(timer);reject(Error('Free practice timeout'));}},20);})`);
   await send('Page.navigate',{url});await wait(`document.querySelector('.cp-today')`);
   const fixture=sessionFixtures().running;
@@ -15,9 +16,9 @@ test('dedicated free practice retains time and offers selectable visual metronom
   await wait(`document.querySelector('.cp-free-practice')`);
   assert.equal(await evaluate(`document.querySelector('[data-block-clock]').textContent`),'8:00');
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=session-end]').length`),0);
-  await evaluate(`document.querySelector('[data-metro-setting=mode]').value='visual';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-metro-setting=beats]').value='3';document.querySelector('[data-metro-setting=beats]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
+  await activate(`document.querySelector('[data-metro-setting=mode]').value='visual';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-metro-setting=beats]').value='3';document.querySelector('[data-metro-setting=beats]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
   await wait(`document.querySelector('[data-metro-beat].is-active')`);
-  assert.equal(await evaluate(`window.metroOscillators`),0,'Visual-only mode must not produce audio.');
+  assert.equal(await evaluate(`window.metroAudibleConfigurations`),0,'Visual-only mode must not produce audio.');
   assert.equal(await evaluate(`document.querySelectorAll('[data-metro-beat]').length`),3);
   await evaluate(`document.querySelector('[data-action=toggle-session]').click()`);
   assert.equal(await evaluate(`document.querySelector('[data-action=toggle-metronome]').getAttribute('aria-pressed')`),'false');
@@ -33,16 +34,16 @@ test('dedicated free practice retains time and offers selectable visual metronom
   await evaluate(`document.querySelector('[data-action=open-free-practice]').click()`);
   assert.equal(await evaluate(`document.querySelector('[data-metro-setting=mode]').value`),'visual');
   assert.equal(await evaluate(`document.querySelector('[data-metro-setting=beats]').value`),'3');
-  await evaluate(`document.querySelector('[data-metro-setting=mode]').value='audio';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
-  await wait(`window.metroOscillators>0`);
+  await activate(`document.querySelector('[data-metro-setting=mode]').value='audio';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
+  await wait(`window.metroAudibleConfigurations>0`);
   assert.equal(await evaluate(`document.querySelectorAll('[data-metro-beat].is-active').length`),0,'Audio-only mode does not flash beat indicators.');
   await evaluate(`document.querySelector('[data-action=free-return]').click()`);
   await send('Page.reload');await wait(`document.querySelector('[data-action=resume-session]')`);
   await evaluate(`document.querySelector('[data-action=resume-session]').click();document.querySelector('[data-action=open-free-practice]').click()`);
   assert.equal(await evaluate(`document.querySelector('[data-metro-setting=mode]').value`),'audio','Settings survive notebook recovery.');
   assert.equal(await evaluate(`document.querySelector('[data-metro-setting=beats]').value`),'3');
-  await evaluate(`document.querySelector('[data-metro-setting=mode]').value='both';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
-  await wait(`window.metroOscillators>0 && document.querySelector('[data-metro-beat].is-active')`);
+  await activate(`document.querySelector('[data-metro-setting=mode]').value='both';document.querySelector('[data-metro-setting=mode]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-action=toggle-metronome]').click()`);
+  await wait(`window.metroAudibleConfigurations>0 && document.querySelector('[data-metro-beat].is-active')`);
   await evaluate(`document.querySelector('[data-action=toggle-session]').click();window.tempoProbeNow=performance.now();performance.now=()=>window.tempoProbeNow;document.querySelector('[data-action=tap-tempo]').click()`);
   await evaluate(`window.tempoProbeNow+=500;document.querySelector('[data-action=tap-tempo]').click()`);
   assert.equal(await evaluate(`document.querySelector('[data-metro-setting=bpm]').value`),'120','Two taps 500 ms apart select 120 BPM.');
@@ -57,9 +58,9 @@ test('dedicated free practice retains time and offers selectable visual metronom
   }
   await evaluate(`document.querySelector('[data-action=metro-favorite][data-id="40"]').click()`);
   assert.equal(await evaluate(`document.querySelector('.cp-tempo-dial strong').textContent`),'40');
-  await evaluate(`{const field=document.querySelector('[data-metro-setting=volume]');field.value=0;field.dispatchEvent(new Event('change',{bubbles:true}));window.metroOscillators=0;document.querySelector('[data-action=toggle-metronome]').click();}`);
+  await activate(`{const field=document.querySelector('[data-metro-setting=volume]');field.value=0;field.dispatchEvent(new Event('change',{bubbles:true}));window.metroAudibleConfigurations=0;document.querySelector('[data-action=toggle-metronome]').click();}`);
   await wait(`document.querySelector('[data-metro-beat].is-active')`);
-  assert.equal(await evaluate(`window.metroOscillators`),0,'Zero volume is silent but retains visual timing.');
+  assert.equal(await evaluate(`window.metroAudibleConfigurations`),0,'Zero volume is silent but retains visual timing.');
   await evaluate(`document.querySelector('[data-action=free-return]').click()`);
   await send('Page.reload');await wait(`document.querySelector('[data-action=resume-session]')`);
   await evaluate(`document.querySelector('[data-action=resume-session]').click();document.querySelector('[data-action=open-free-practice]').click()`);
