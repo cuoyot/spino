@@ -63,5 +63,7 @@
   "websiteCommit": "f2b19e9499151522df92edc30c76e3b8217a1b37",
   "publicVerification": "docs/releases/6.2.1-publication.json",
   "publicDownloadHashesMatchSignedHandoff": true,
-  "handoffZIPContainsIdenticalTaggedNotesAndUploadedAAB": true
+  "handoffZIPContainsIdenticalTaggedNotesAndUploadedAAB": true,
+  "googlePlayStatus": "Published at 100%",
+  "googlePlayProductionEvidence": "docs/releases/6.2.1-play-production.jpg"
 }

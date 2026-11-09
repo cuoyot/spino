@@ -10,4 +10,4 @@ Calendar/Library/Progress share the existing navigation refinement. This release
 
 Owner visual acceptance and physical Google Play installation remain separate from implementation and automated evidence.
 
-Release delivery: packaged in stable Android 6.2.1/build121. Replacement emulator installation retains all 135 original files and confirms foreground. Google Play accepted the full-rollout submission; approval is pending. The exact public website and final signed downloads pass verification in docs/releases/6.2.1-publication.json.
+Release delivery: packaged in stable Android 6.2.1/build121. Replacement emulator installation retains all 135 original files and confirms foreground. Google Play confirms the approved release is available in production at 100%. The exact public website and final signed downloads pass verification in docs/releases/6.2.1-publication.json.
