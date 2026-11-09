@@ -1,0 +1,16 @@
+{
+  "commit": "1ab3a24bdd5189dd344f1baf6d71a21a356101a9",
+  "exitCode": 0,
+  "versionId": "a3a9510c-d17c-45bf-b110-fa3eaad68f09",
+  "log": "docs/releases/6.2.2-beta.1-wrangler-deploy.log",
+  "logSHA256": "524208f4551544ca5cb10a9afd792e177c93308445ab92a75875da3609b66978",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "wrangler": "4.151.3",
+  "exportVerification": {
+    "commit": "1ab3a24bdd5189dd344f1baf6d71a21a356101a9",
+    "snapshot": "/private/tmp/spino-beta122-publish",
+    "filesVerifiedAgainstGitBlobs": 1848,
+    "bytesVerified": 18442915965,
+    "method": "Isolated copy-on-write export of only committed files; each file verified against its exact Git blob; no regeneration."
+  }
+}
