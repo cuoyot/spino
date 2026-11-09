@@ -16,8 +16,9 @@ const older=await Promise.all((await readdir(new URL('../../docs/play-store/',im
   const notes=Object.fromEntries([['en','English'],['es','Spanish'],['ca','Catalan']].map(([lang,label])=>[lang,section(text,`## Release notes (${label})`)||section(text,`## Play release notes (${label})`)||section(text,'## Release notes (English)')||'No detailed release notes were archived.']));
   return {version:name.slice(8,-3),title:name.slice(8,-3),notes,source:'docs/play-store/'+name};
 }));
-const listing=await readFile(new URL('../../docs/play-store/listing.md',import.meta.url),'utf8');
-const legacy=[['5.1.1',listing.split('<!-- field:en:notes -->')[1]?.split('<!-- /field -->')[0]?.trim()],['5.1.0',listing.split('<!-- field:es:notes -->')[1]?.split('<!-- /field -->')[0]?.trim()],['5.0.0','First SPino notebook candidate: planning, practice history, repertoire and local scores. Detailed release notes were not archived.'],['4.0','Earlier application version. Detailed release notes were not archived.']].map(([version,notes])=>({version,title:version,notes:{en:notes,es:notes,ca:notes},source:'docs/play-store/listing.md'}));
+// Keep the legacy archive text unchanged when the current store notes advance.
+const listing=await readFile(new URL('../../docs/releases/6.2.0-release-notes.txt',import.meta.url),'utf8');
+const legacy=[['5.1.1',listing.split('<en-US>')[1]?.split('</en-US>')[0]?.trim()],['5.1.0',listing.split('<es-ES>')[1]?.split('</es-ES>')[0]?.trim()],['5.0.0','First SPino notebook candidate: planning, practice history, repertoire and local scores. Detailed release notes were not archived.'],['4.0','Earlier application version. Detailed release notes were not archived.']].map(([version,notes])=>({version,title:version,notes:{en:notes,es:notes,ca:notes},source:'docs/play-store/listing.md'}));
 const order=version=>{const [base,beta]=version.split('-beta.');return [...base.split('.').map(Number),beta?Number(beta):9999];};
 export const releases=[...modern,...older,...legacy].sort((a,b)=>{const x=order(a.version),y=order(b.version);for(let i=0;i<4;i++)if((x[i]||0)!==(y[i]||0))return (y[i]||0)-(x[i]||0);return 0;});
 const storageBeta=releases.find(r=>r.version==='6.1.5-beta.1');
