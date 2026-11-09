@@ -52,6 +52,10 @@ test('raised score timer advances through checkpoints, pauses and resumes in fou
   assert.equal(await evaluate(`getComputedStyle(document.querySelector('.score-timer')).color`),'rgb(245, 255, 255)');
   assert.equal(await evaluate(`document.querySelector('[data-pdf=tools],[data-xml=options]').hidden`),false);
   assert.equal(await evaluate(`document.querySelector('[data-pdf=finish],[data-xml=finish]').hidden`),false);
+  const compact=await evaluate(`(()=>{const widget=document.querySelector('.practice-widget'),r=widget.getBoundingClientRect(),grip=widget.querySelector('[data-practice-role=drag]').getBoundingClientRect(),record=widget.querySelector('[data-pdf=record],[data-xml=record]')?.getBoundingClientRect(),count=widget.querySelector('.pdf-page-count').getBoundingClientRect();return{height:r.height,arrows:[...widget.querySelectorAll('[data-pdf=prev],[data-pdf=next],[data-xml=prev],[data-xml=next]')].some(e=>e.getClientRects().length),recordY:record?.y,gripY:grip.y,countLeft:count.left,countWidth:count.width}})()`);
+  assert.ok(compact.height<75,JSON.stringify(compact));assert.equal(compact.arrows,false);
+  assert.ok(compact.countLeft<50&&compact.countWidth>0,JSON.stringify(compact));
+  if(compact.recordY!==undefined)assert.ok(Math.abs(compact.recordY-compact.gripY)<1,JSON.stringify(compact));
   const results=await evaluate(`Array.from(document.querySelectorAll('.pdf-widget-bar button:not([hidden]),.pdf-widget-bar .score-timer')).filter(e=>e.getClientRects().length).map(e=>{const r=e.getBoundingClientRect();return{action:e.dataset.pdf||e.dataset.xml,x:r.x,y:r.y,right:r.right,bottom:r.bottom,w:r.width,h:r.height}})`);
   for(const r of results){assert.ok(r.x>=0&&r.y>=0&&r.right<=await evaluate('innerWidth')&&r.bottom<=await evaluate('innerHeight'),JSON.stringify(r));assert.ok(r.w>=(await evaluate('innerWidth')<=350&&r.action!=='drag'?36:44)&&r.h>=44,JSON.stringify(r));}
  };

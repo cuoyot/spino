@@ -43,7 +43,7 @@ test('direct block entry retains separate times, PDF position and warm-up throug
  for(const theme of ['light','dark'])for(const [name,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='${theme}'`);await capture(theme+'-pdf-'+name);
   coreLayouts[theme+'-'+name]=await evaluate(`Object.fromEntries([...document.querySelectorAll('.pdf-viewer [data-practice-role]')].filter(e=>!e.hidden).map(e=>{const r=e.getBoundingClientRect();return[e.dataset.practiceRole,{left:r.left,top:r.top,width:r.width,height:r.height}]}))`);
-  if(width<=600||height<=500){
+  {
    const compact=await evaluate(`(()=>{const w=document.querySelector('.pdf-widget').getBoundingClientRect(),record=document.querySelector('[data-pdf=record]').getBoundingClientRect(),grip=document.querySelector('[data-pdf=drag]').getBoundingClientRect(),count=document.querySelector('.pdf-page-count').getBoundingClientRect();return{height:w.height,left:w.left,right:w.right,recordY:record.y,gripY:grip.y,countWidth:count.width,countLeft:count.left,arrows:[...document.querySelectorAll('.pdf-pagination button')].some(e=>e.getClientRects().length)}})()`);
    assert.ok(compact.height<75&&compact.left>=0&&compact.right<=width,JSON.stringify(compact));
    assert.ok(Math.abs(compact.recordY-compact.gripY)<1,JSON.stringify(compact));
@@ -60,8 +60,12 @@ test('direct block entry retains separate times, PDF position and warm-up throug
   const point=await evaluate(`(()=>{const r=document.querySelector('.pdf-paper').getBoundingClientRect();return{x:${side==='prev'?'Math.max(0,r.left)+5':'Math.min(innerWidth,r.right)-5'},y:Math.max(100,r.top+100)}})()`);
   await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...point,id:1}]});await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
  };
- await tapPdfEdge('prev');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('1')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
- await tapPdfEdge('next');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('2')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
+ for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
+  await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+  await wait(`document.querySelector('.pdf-paper[aria-busy=false]')`);
+  await tapPdfEdge('prev');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('1')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
+  await tapPdfEdge('next');await wait(`document.querySelector('.pdf-page-count').textContent.trim().startsWith('2')&&document.querySelector('.pdf-paper[aria-busy=false]')`);
+ }
  await evaluate(`document.querySelector('[data-pdf=close]').click()`);await wait(`!document.querySelector('.pdf-viewer')`);
  await action('session-select-block','synthetic-bach-block');await wait(`document.querySelector('.pdf-paper[aria-busy=false]')`);assert.equal(await evaluate(`document.querySelector('.pdf-widget .pdf-time').textContent`),'8:00');
  await advance(5000);await evaluate(`document.querySelector('[data-pdf=timer]').click();document.querySelector('[data-pdf=close]').click()`);await wait(`!document.querySelector('.pdf-viewer')`);

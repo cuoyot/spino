@@ -305,3 +305,6 @@ if(practiceTimingBeta122){const text=await readFile(new URL('../../docs/releases
 
 const stablePractice622=releases.find(r=>r.version==='6.2.2');
 if(stablePractice622){const text=await readFile(new URL('../../docs/releases/6.2.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))stablePractice622.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const scoreControlsBeta124=releases.find(r=>r.version==='6.2.2-beta.2');
+if(scoreControlsBeta124){const text=await readFile(new URL('../../docs/releases/6.2.2-beta.2-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))scoreControlsBeta124.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

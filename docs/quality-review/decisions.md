@@ -958,3 +958,6 @@ When only Passage or goal remains, it is shown directly, without an exercise-opt
 Owner-approved direction: changing setup must not insert dependent content above the selection, for any practice type. New practice now has a separate Mobile/With piano choice before its configuration. Repertoire and Free require piano; Reading/Technique support both. MIDI is detected at physical-practice start/reopen, without a third setup choice. Change returns to the first step, preserving the goal, total duration and block identities. The selected-mode summary precedes total duration; warm-up still follows the total. This supersedes the earlier inline context selector.
 
 All four types, mode transitions, fixed totals, retained goals and automatic MIDI are covered by the dedicated browser regression. Physical/native timing checks and beta122 publication are tracked in release validation.
+
+
+2026-11-09: owner confirms a single floating score-control row on mobile and tablet, with no page arrows in the bar. The shared PDF/MusicXML stylesheet extends compact edge paging and inline recording to tablets; a separate indicator preserves page position. Browser/native package and website evidence are tracked in docs/releases/6.2.2-beta.2-validation.json and the publication manifest. Physical-device acceptance remains open.

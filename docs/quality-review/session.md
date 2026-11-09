@@ -197,3 +197,6 @@ Owner refinement supersedes the earlier placement: the optional warm-up comes im
 When only Passage or goal remains, it is shown directly, without an exercise-options disclosure. Reading/technique keep the disclosure for their additional settings. The scale's overlapping note-name row is replaced by a static two-octave piano: actual scale pitches, including enharmonic spellings, are highlighted alongside the unchanged staff.
 
 [Responsive verification](captures/preparation/2026-11-09-warmup-first-02/README.md) passes six focused unit checks and five browser checks, with both themes in phone/tablet portrait/landscape. The source/build hashes and isolated fixture references are retained there; earlier run 01 remains historical evidence. Functional direction is accepted; the exact layout still awaits owner review. No APK, native acceptance or publication.
+
+
+2026-11-09: owner confirms a single floating score-control row on mobile and tablet, with no page arrows in the bar. The shared PDF/MusicXML stylesheet extends compact edge paging and inline recording to tablets; a separate indicator preserves page position. Browser/native package and website evidence are tracked in docs/releases/6.2.2-beta.2-validation.json and the publication manifest. Physical-device acceptance remains open.
