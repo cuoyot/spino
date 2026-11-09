@@ -1,0 +1,11 @@
+{
+  "commit": "f2b19e9499151522df92edc30c76e3b8217a1b37",
+  "exitCode": 0,
+  "versionId": "71b5701c-5206-4cf3-bf46-90ffbdc047ed",
+  "log": "docs/releases/6.2.1-wrangler-deploy.log",
+  "logSHA256": "dc6df8d7913814e439a622d0f292f06fafed786ef73a4de7447ba4f6225dd51e",
+  "detailsURL": "https://dash.cloudflare.com/546011d1072de05b93dda100285c2f9a/workers/services/view/spino/production",
+  "authorization": "Owner-requested release and website publication. Stored authorized Wrangler session reused.",
+  "wranglerVersion": "4.151.3",
+  "isolatedExportVerifiedFiles": 1811
+}

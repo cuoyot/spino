@@ -1,0 +1,37 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.158.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 760 files from the assets directory /private/tmp/spino-621-publish4/site
+🌀 Starting asset upload...
+🌀 Found 13 new or modified static assets to upload. Proceeding with upload...
++ /downloads/spino-6.2.1-checksums.json
++ /downloads/parts/spino-6.2.1-121-android.apk.003.bin
++ /downloads/parts/spino-6.2.1-121-android.aab.002.bin
++ /downloads/parts/spino-6.2.1-play-console-handoff.zip.003.bin
++ /downloads/parts/spino-6.2.1-121-android.aab.000.bin
++ /downloads/parts/spino-6.2.1-121-android.aab.003.bin
++ /downloads/parts/spino-6.2.1-121-android.aab.001.bin
++ /downloads/parts/spino-6.2.1-121-android.apk.000.bin
++ /downloads/parts/spino-6.2.1-121-android.apk.001.bin
++ /downloads/parts/spino-6.2.1-121-android.apk.002.bin
++ /downloads/parts/spino-6.2.1-play-console-handoff.zip.000.bin
++ /downloads/parts/spino-6.2.1-play-console-handoff.zip.001.bin
++ /downloads/parts/spino-6.2.1-play-console-handoff.zip.002.bin
+Uploaded 2 of 13 assets
+Uploaded 4 of 13 assets
+Uploaded 7 of 13 assets
+Uploaded 10 of 13 assets
+Uploaded 13 of 13 assets
+✨ Success! Uploaded 13 files (727 already uploaded) (30.78 sec)
+
+Total Upload: 122.77 KiB / gzip: 29.63 KiB
+Worker Startup Time: 1 ms
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (83.94 sec)
+Deployed spino triggers (1.90 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: 71b5701c-5206-4cf3-bf46-90ffbdc047ed

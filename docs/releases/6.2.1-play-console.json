@@ -37,5 +37,6 @@
   "consoleURL": "https://play.google.com/console/u/0/developers/5810146646828567054/app/4975350856482164945/publishing",
   "evidence": "docs/releases/6.2.1-play-submission.jpg",
   "codeCommit": "6a2adace0dbf116712190af9b55b714b9cc35c80",
-  "websiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c"
+  "websiteCommit": "f2b19e9499151522df92edc30c76e3b8217a1b37",
+  "initialWebsiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c"
 }

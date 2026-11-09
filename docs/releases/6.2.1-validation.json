@@ -59,5 +59,9 @@
   "playEvidence": "docs/releases/6.2.1-play-console.json",
   "codeCommit": "6a2adace0dbf116712190af9b55b714b9cc35c80",
   "nativeEvidenceFile": "docs/releases/6.2.1-native-validation.json",
-  "initialWebsiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c"
+  "initialWebsiteCommit": "01af1331d39c6f32ef2315996571f47980e2588c",
+  "websiteCommit": "f2b19e9499151522df92edc30c76e3b8217a1b37",
+  "publicVerification": "docs/releases/6.2.1-publication.json",
+  "publicDownloadHashesMatchSignedHandoff": true,
+  "handoffZIPContainsIdenticalTaggedNotesAndUploadedAAB": true
 }

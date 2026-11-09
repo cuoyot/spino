@@ -9,3 +9,5 @@ Five-language, two-theme, phone/tablet portrait/landscape evidence: [40 responsi
 Calendar/Library/Progress share the existing navigation refinement. This release also darkens selected dark-theme pills and light-theme blue text, and resolves the light Today button cascade. The earlier shared navigation and light-contrast audits have been rerun successfully in both themes and four orientations. Earlier baselines remain unchanged.
 
 Owner visual acceptance and physical Google Play installation remain separate from implementation and automated evidence.
+
+Release delivery: packaged in stable Android 6.2.1/build121. Replacement emulator installation retains all 135 original files and confirms foreground. Google Play accepted the full-rollout submission; approval is pending. The exact public website and final signed downloads pass verification in docs/releases/6.2.1-publication.json.
