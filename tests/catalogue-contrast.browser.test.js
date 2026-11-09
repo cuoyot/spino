@@ -5,7 +5,7 @@ import { openBrowser } from './browser.js';
 
 test('catalogue native options remain readable in both themes', async t => {
   const {send,evaluate,url}=await openBrowser(t,{companion:true});
-  const folder='docs/quality-review/captures/repertoire/2026-10-21-catalogue-contrast-01';
+  const folder='artifacts/catalogue-contrast';
   await mkdir(folder,{recursive:true});
   await send('Page.navigate',{url});
   await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{const b=document.querySelector('[data-action=piano]');if(b){clearInterval(timer);b.click();document.querySelector('[data-action=catalog]').click();resolve()}},25)})`);

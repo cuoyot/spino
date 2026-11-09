@@ -1,0 +1,773 @@
+{
+  "runId": "2026-11-09-release621-02",
+  "title": "Update highlights and optional rating",
+  "date": "2026-11-09",
+  "surface": "Responsive production browser; disposable synthetic notebook; not native-device acceptance",
+  "reviewHref": "../../../profile-release-notice.md",
+  "sourceSha256": "fe24e1d997ef7d37cee0980f3cae1a66d8ec91f16bc33bc192e4a9abe2a68312",
+  "stylesheetSha256": "af4ed93855c22c182a2f5c0ee7066092ff4ba31a0b17cd988883af3a109df767",
+  "buildSha256": "02c60e3987de79a8c1ae06e640d1ee1ff38b333496d4b65f114bc1e015c036ec",
+  "results": [
+    {
+      "state": "es-light",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "es-light-390x844-overview.png",
+          "sha256": "9be3c6c73c10abcace78f123ba0cc563e3710f6fac28e2331604d45bff4243e2",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-light-390x844-actions.png",
+          "sha256": "9be3c6c73c10abcace78f123ba0cc563e3710f6fac28e2331604d45bff4243e2",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "es-light",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "es-light-844x390-overview.png",
+          "sha256": "d9f88b77258a20bed8538ff7454874fdd03d1efe487d1bc10f221bbe0a74c6da",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-light-844x390-actions.png",
+          "sha256": "5c486e73a92bcb452f3e831de04288390aa1e8bccdaf503e4aa2b32d9881569d",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "es-light",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "es-light-768x1024-overview.png",
+          "sha256": "2b0b8d01775c6b270d4b9d086ba948a5c588d1b1555081d643b2de9ad030f846",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-light-768x1024-actions.png",
+          "sha256": "2b0b8d01775c6b270d4b9d086ba948a5c588d1b1555081d643b2de9ad030f846",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "es-light",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "es-light-1024x768-overview.png",
+          "sha256": "22918c5934bfed6311109ebd832ad9e821fbd009f0ddb6322124c3dfbb5c1512",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-light-1024x768-actions.png",
+          "sha256": "22918c5934bfed6311109ebd832ad9e821fbd009f0ddb6322124c3dfbb5c1512",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "es-dark",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "es-dark-390x844-overview.png",
+          "sha256": "cea3e1f0298b9e7f93fdc0c5e0643b79dc7f734650691d5a2b38d75243054d8e",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-dark-390x844-actions.png",
+          "sha256": "cea3e1f0298b9e7f93fdc0c5e0643b79dc7f734650691d5a2b38d75243054d8e",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "es-dark",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "es-dark-844x390-overview.png",
+          "sha256": "f45344eafbbb7d70f6ee651dd1aa29eeb274101106e80d192b5c91b0f88da92d",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-dark-844x390-actions.png",
+          "sha256": "d90fef761fcda19d2e19d34dbdecff943da705bf002c5fcda3f1f0cd4f43d9a2",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "es-dark",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "es-dark-768x1024-overview.png",
+          "sha256": "d681aa3ae5ead254533560043534564847e7a648b8a1f6030f69a072f4ff6eca",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-dark-768x1024-actions.png",
+          "sha256": "d681aa3ae5ead254533560043534564847e7a648b8a1f6030f69a072f4ff6eca",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "es-dark",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "es-dark-1024x768-overview.png",
+          "sha256": "b706455254c6706c59b0f5e002392073399ae42f495a48bc9f54c1e0a4a8d7f7",
+          "scrollTop": 0
+        },
+        {
+          "path": "es-dark-1024x768-actions.png",
+          "sha256": "b706455254c6706c59b0f5e002392073399ae42f495a48bc9f54c1e0a4a8d7f7",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-light",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "en-light-390x844-overview.png",
+          "sha256": "6085a598483bd2da295a159c93a9f0932b96467163512987d6f5ec8198e9aea1",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-light-390x844-actions.png",
+          "sha256": "6085a598483bd2da295a159c93a9f0932b96467163512987d6f5ec8198e9aea1",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-light",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "en-light-844x390-overview.png",
+          "sha256": "408a51e7ba053319554fa387d8d8b9eb7932034c0c90684e61d3972daf21e8d2",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-light-844x390-actions.png",
+          "sha256": "e84119f0666a54f86fcd8241138e003a0e158fd13f3fe332353fa32084533e1a",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "en-light",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "en-light-768x1024-overview.png",
+          "sha256": "bc5464c21d9bc440ea19adc48ad54ec906487c6f65e998e97941d83b97848be7",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-light-768x1024-actions.png",
+          "sha256": "bc5464c21d9bc440ea19adc48ad54ec906487c6f65e998e97941d83b97848be7",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-light",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "en-light-1024x768-overview.png",
+          "sha256": "9404776fcc036e227d600cf9c0d38da4cc19937cc6ef9204a3d39b3d7d66b81d",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-light-1024x768-actions.png",
+          "sha256": "9404776fcc036e227d600cf9c0d38da4cc19937cc6ef9204a3d39b3d7d66b81d",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-dark",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "en-dark-390x844-overview.png",
+          "sha256": "38b210026fb08f4a4c00bb22ed1436a08e0e46528bcb9075177333148e051597",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-dark-390x844-actions.png",
+          "sha256": "38b210026fb08f4a4c00bb22ed1436a08e0e46528bcb9075177333148e051597",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-dark",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "en-dark-844x390-overview.png",
+          "sha256": "3c3033841679e3fb87d34f5c35a38f6cb0298e24cc1bbd2395c856e96376834c",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-dark-844x390-actions.png",
+          "sha256": "26a081bdd6b0047541e7d9f2ab2ce3f99672b5cb95e97571b8ff4fa5702cb237",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "en-dark",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "en-dark-768x1024-overview.png",
+          "sha256": "5865cb3a5dc8c4f4228fc095f68dee7d72ca24839991db03dcdeb9d6f8f2ea79",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-dark-768x1024-actions.png",
+          "sha256": "5865cb3a5dc8c4f4228fc095f68dee7d72ca24839991db03dcdeb9d6f8f2ea79",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "en-dark",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "en-dark-1024x768-overview.png",
+          "sha256": "42668d5d26cc17a6107475468dae6491bdb1887dbe10c8a2171bd2d07ed3ab13",
+          "scrollTop": 0
+        },
+        {
+          "path": "en-dark-1024x768-actions.png",
+          "sha256": "42668d5d26cc17a6107475468dae6491bdb1887dbe10c8a2171bd2d07ed3ab13",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-light",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "ca-light-390x844-overview.png",
+          "sha256": "aadc8404de035ab91e30516369624f9d1b056bd8574969747fcaa1784e7295f6",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-light-390x844-actions.png",
+          "sha256": "aadc8404de035ab91e30516369624f9d1b056bd8574969747fcaa1784e7295f6",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-light",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "ca-light-844x390-overview.png",
+          "sha256": "03519d934cb00cf5f048ba003e84a2f77d9dd7617b8c5e6798536b1e39f7d653",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-light-844x390-actions.png",
+          "sha256": "31895b66969ab9f1bb14304644e12b036393cf846718c7040bf0af07f4be7ec1",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "ca-light",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "ca-light-768x1024-overview.png",
+          "sha256": "3d477fe5a4037e2989332222a75e30e5a627327a7a8b42d900ea4a9befaa2e82",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-light-768x1024-actions.png",
+          "sha256": "3d477fe5a4037e2989332222a75e30e5a627327a7a8b42d900ea4a9befaa2e82",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-light",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "ca-light-1024x768-overview.png",
+          "sha256": "a943c174b48568cac6c5fc753ec64ee7b96cfa9f408d8e9ce015e0f0e4038516",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-light-1024x768-actions.png",
+          "sha256": "a943c174b48568cac6c5fc753ec64ee7b96cfa9f408d8e9ce015e0f0e4038516",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-dark",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "ca-dark-390x844-overview.png",
+          "sha256": "a108bdf40d86955c7daba3cb0d3c9d7bf39a56bd76c76aa5d0d9b0a97dcf2de6",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-dark-390x844-actions.png",
+          "sha256": "a108bdf40d86955c7daba3cb0d3c9d7bf39a56bd76c76aa5d0d9b0a97dcf2de6",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-dark",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "ca-dark-844x390-overview.png",
+          "sha256": "6efc280a804e9e1f28f6511eb4c65a0576a4c69153a64f1f6a9d07130c8b8fc5",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-dark-844x390-actions.png",
+          "sha256": "62021b061ebef5c6dc144956cc5799b39a5b06465aaafc13dcaa99e709258d5e",
+          "scrollTop": 205
+        }
+      ]
+    },
+    {
+      "state": "ca-dark",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "ca-dark-768x1024-overview.png",
+          "sha256": "2a4fb59c0ee7592e3c82143e53c55438d183bcbfd29ca246e536ba3a3ca42c45",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-dark-768x1024-actions.png",
+          "sha256": "2a4fb59c0ee7592e3c82143e53c55438d183bcbfd29ca246e536ba3a3ca42c45",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "ca-dark",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "ca-dark-1024x768-overview.png",
+          "sha256": "03e60248c26ce699e2eb349c1b86d9f95c64e68ce2887679f90860ef2fb1fdde",
+          "scrollTop": 0
+        },
+        {
+          "path": "ca-dark-1024x768-actions.png",
+          "sha256": "03e60248c26ce699e2eb349c1b86d9f95c64e68ce2887679f90860ef2fb1fdde",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-light",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "de-light-390x844-overview.png",
+          "sha256": "fd89f9710f4eca9ae9188cb6bda75f9fa42668703a5eef4339f3c26917b5d1c2",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-light-390x844-actions.png",
+          "sha256": "fd89f9710f4eca9ae9188cb6bda75f9fa42668703a5eef4339f3c26917b5d1c2",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-light",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "de-light-844x390-overview.png",
+          "sha256": "8e8ec1f77a3364b49033e38bdd5cc58643698bad88bd6b2f4d86da2110d3d092",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-light-844x390-actions.png",
+          "sha256": "5b2bf5d4bfebdfb4c28539c9a05f8d2247214e4aff62c286433c5f8c5bbb33cd",
+          "scrollTop": 228
+        }
+      ]
+    },
+    {
+      "state": "de-light",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "de-light-768x1024-overview.png",
+          "sha256": "b40ea0d39024c2d0c69098a8c359b38756370ada00fa2966daeec431c8cc102a",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-light-768x1024-actions.png",
+          "sha256": "b40ea0d39024c2d0c69098a8c359b38756370ada00fa2966daeec431c8cc102a",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-light",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "de-light-1024x768-overview.png",
+          "sha256": "1c2293601e1989e65e12e3a3bac4686d57a1eb798879d232ca8a51a45f3fe158",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-light-1024x768-actions.png",
+          "sha256": "1c2293601e1989e65e12e3a3bac4686d57a1eb798879d232ca8a51a45f3fe158",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-dark",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "de-dark-390x844-overview.png",
+          "sha256": "ddab9f5e7050bf420ad3c4db8bcf973ac407eac07db3767d2a10caf7e0ed5556",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-dark-390x844-actions.png",
+          "sha256": "ddab9f5e7050bf420ad3c4db8bcf973ac407eac07db3767d2a10caf7e0ed5556",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-dark",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "de-dark-844x390-overview.png",
+          "sha256": "c2ab9f68dc05fa9d2142c54701099e42c8c5010b04666b9cf8eff98855314691",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-dark-844x390-actions.png",
+          "sha256": "393518e0779956ffc4182cfe5bdc8d8dc543b08b35aa3cbf0a8cd03ceb8eba12",
+          "scrollTop": 228
+        }
+      ]
+    },
+    {
+      "state": "de-dark",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "de-dark-768x1024-overview.png",
+          "sha256": "b772135bcf52dce87ec6fd207c6cace15fab73a734d257de7a371541200bf1c7",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-dark-768x1024-actions.png",
+          "sha256": "b772135bcf52dce87ec6fd207c6cace15fab73a734d257de7a371541200bf1c7",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "de-dark",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "de-dark-1024x768-overview.png",
+          "sha256": "da976f2bf50b3c7cf29337463e2205ec4853a74599b2471ca6c14091703adf2a",
+          "scrollTop": 0
+        },
+        {
+          "path": "de-dark-1024x768-actions.png",
+          "sha256": "da976f2bf50b3c7cf29337463e2205ec4853a74599b2471ca6c14091703adf2a",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-light",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "hu-light-390x844-overview.png",
+          "sha256": "a5beb9c1c4af7ae0618f0895557e660b89ca70d11e95c25acf671fa24ed9e700",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-light-390x844-actions.png",
+          "sha256": "a5beb9c1c4af7ae0618f0895557e660b89ca70d11e95c25acf671fa24ed9e700",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-light",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "hu-light-844x390-overview.png",
+          "sha256": "bf1fd2df24f53d52d29c88bbd427085237abd89c783e50975a5167e38540b373",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-light-844x390-actions.png",
+          "sha256": "a12d43d2abb89c98b5dd3c5329b1adf278f2569fbd2fac78b2b8e739c1d76e63",
+          "scrollTop": 228
+        }
+      ]
+    },
+    {
+      "state": "hu-light",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "hu-light-768x1024-overview.png",
+          "sha256": "6f548c23933b88b59cb4a832b74f0a71a07590356ede55e91de5521fb18d54fd",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-light-768x1024-actions.png",
+          "sha256": "6f548c23933b88b59cb4a832b74f0a71a07590356ede55e91de5521fb18d54fd",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-light",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "hu-light-1024x768-overview.png",
+          "sha256": "a6a8159055a5dce5d5a0c2a5971d8850beee749a730582c933659b64643dda48",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-light-1024x768-actions.png",
+          "sha256": "a6a8159055a5dce5d5a0c2a5971d8850beee749a730582c933659b64643dda48",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-dark",
+      "id": "390x844",
+      "label": "390 × 844",
+      "width": 390,
+      "height": 844,
+      "frames": [
+        {
+          "path": "hu-dark-390x844-overview.png",
+          "sha256": "89ff1cc8e3d4e427d73c7008ffcfe8e7e35e3d2711fb9502fb7263bf4497bc08",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-dark-390x844-actions.png",
+          "sha256": "89ff1cc8e3d4e427d73c7008ffcfe8e7e35e3d2711fb9502fb7263bf4497bc08",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-dark",
+      "id": "844x390",
+      "label": "844 × 390",
+      "width": 844,
+      "height": 390,
+      "frames": [
+        {
+          "path": "hu-dark-844x390-overview.png",
+          "sha256": "9472ac9afee8522638dcb2d2ae95f7036efcf59dcdbc04780c74553795e1fe03",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-dark-844x390-actions.png",
+          "sha256": "cdcf71172fe91bd5ce43ff17396b0075874a462d7a4b8f764dcf4190fba2dbe2",
+          "scrollTop": 228
+        }
+      ]
+    },
+    {
+      "state": "hu-dark",
+      "id": "768x1024",
+      "label": "768 × 1024",
+      "width": 768,
+      "height": 1024,
+      "frames": [
+        {
+          "path": "hu-dark-768x1024-overview.png",
+          "sha256": "ed318b8e96a1fc678ceff50d946d24e21678bae3b1e8f5fc018baf4090b6d0cb",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-dark-768x1024-actions.png",
+          "sha256": "ed318b8e96a1fc678ceff50d946d24e21678bae3b1e8f5fc018baf4090b6d0cb",
+          "scrollTop": 0
+        }
+      ]
+    },
+    {
+      "state": "hu-dark",
+      "id": "1024x768",
+      "label": "1024 × 768",
+      "width": 1024,
+      "height": 768,
+      "frames": [
+        {
+          "path": "hu-dark-1024x768-overview.png",
+          "sha256": "a904e21c2b2cc66993923ba89ccb9c880636ea208a344b4614e100475f834ff0",
+          "scrollTop": 0
+        },
+        {
+          "path": "hu-dark-1024x768-actions.png",
+          "sha256": "a904e21c2b2cc66993923ba89ccb9c880636ea208a344b4614e100475f834ff0",
+          "scrollTop": 0
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

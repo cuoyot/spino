@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {writeFile} from 'node:fs/promises';
+import {writeFile,mkdir} from 'node:fs/promises';
 import {openBrowser} from './browser.js';
 
 test('period and author filters combine with search in four responsive layouts', async t=>{
@@ -14,7 +14,7 @@ test('period and author filters combine with search in four responsive layouts',
   await evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.period.value='classical';form.elements.composer.value='Wolfgang Amadeus Mozart';form.requestSubmit();document.querySelector('.cp-catalogue-filters').open=true})()`);
   assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/3 obras identificadas/);
   assert.equal(await evaluate(`document.documentElement.scrollWidth<=innerWidth`),true);
-  await writeFile(`docs/quality-review/captures/repertoire/2026-10-21-periods-01/period-author-${width}x${height}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await mkdir('artifacts/catalogue-periods',{recursive:true});await writeFile(`artifacts/catalogue-periods/period-author-${width}x${height}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
  }
  await evaluate(`(()=>{const form=document.querySelector('#library-search');form.elements.period.value='impressionist';form.elements.composer.value='Erik Satie';form.requestSubmit()})()`);
  assert.match(await evaluate(`document.querySelector('#library-results').textContent`),/^0 /);
@@ -25,6 +25,6 @@ test('period and author filters combine with search in four responsive layouts',
  await evaluate(`document.querySelector('[data-action=catalogue-pdf-detail]').click()`);
  assert.match(await evaluate(`document.querySelector('#cp-dialog').textContent`),/Piano solo/);
  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
- await writeFile('docs/quality-review/captures/repertoire/2026-10-21-periods-01/albeniz-detail.png',Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ await writeFile('artifacts/catalogue-periods/albeniz-detail.png',Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
  assert.deepEqual(errors,[]);
 });

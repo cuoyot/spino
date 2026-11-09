@@ -1,0 +1,14 @@
+{
+  "version": "6.2.1",
+  "versionCode": 121,
+  "package": "com.miguecoll.spino.beta",
+  "filesRetained": 135,
+  "allOriginalFilesUnchangedBeforeLaunch": true,
+  "retentionCheck": "The full pre-install and post-install tar member hash maps were equal before launch in /tmp/spino-621-native-finish.py. Initial immediate foreground lookup preceded activity resume; a subsequent dumpsys confirms foreground.",
+  "replacementInstall": "Performing Push Install\noutput/release621/spino-6.2.1-121-beta-review.apk: 1 file pushed, 0 skipped. 247.8 MB/s (77295788 bytes in 0.297s)\nSuccess",
+  "privateRecoveryArchive": "/private/tmp/spino-release-621/output/native-review-backups/release621-before-install.tar",
+  "privateRecoveryArchiveSha256": "dedbbc2270d5cbfe764615ea80c807ae2448454c995bb3fa3efada4e839926ed",
+  "foreground": "topResumedActivity=ActivityRecord{c5aa8ca u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t194}",
+  "checkedAt": "2026-11-09T10:50:22.306203+00:00",
+  "environmentRecovery": "Original emulator package service failed. Cold-booted the same AVD with software graphics and no snapshots; no data wipe. Non-streaming replacement installation succeeded."
+}

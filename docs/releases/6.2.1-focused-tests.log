@@ -1,0 +1,304 @@
+TAP version 13
+# Subtest: Navigation palette covers both themes while preserving practice screens
+ok 1 - Navigation palette covers both themes while preserving practice screens
+  ---
+  duration_ms: 4634.373667
+  type: 'test'
+  ...
+# Subtest: Catalan reader, operational messages and warm-ups have explicit resources
+ok 2 - Catalan reader, operational messages and warm-ups have explicit resources
+  ---
+  duration_ms: 5.733833
+  type: 'test'
+  ...
+# Subtest: Catalan presentation preserves notebook data, original titles and unknown diagnostics
+ok 3 - Catalan presentation preserves notebook data, original titles and unknown diagnostics
+  ---
+  duration_ms: 72.3935
+  type: 'test'
+  ...
+# Subtest: each new edition is searchable and has a working bundled preview
+ok 4 - each new edition is searchable and has a working bundled preview
+  ---
+  duration_ms: 6077.537625
+  type: 'test'
+  ...
+# Subtest: catalogue native options remain readable in both themes
+ok 5 - catalogue native options remain readable in both themes
+  ---
+  duration_ms: 2858.856
+  type: 'test'
+  ...
+# Subtest: period and author filters combine with search in four responsive layouts
+ok 6 - period and author filters combine with search in four responsive layouts
+  ---
+  duration_ms: 3458.485208
+  type: 'test'
+  ...
+# Subtest: compact unified catalogue: continuous scroll, global search, downloaded scores and repertoire lifecycle
+ok 7 - compact unified catalogue: continuous scroll, global search, downloaded scores and repertoire lifecycle
+  ---
+  duration_ms: 3947.443
+  type: 'test'
+  ...
+# Subtest: download actions expose repertoire only after PDF and XML acquisition completes
+ok 8 - download actions expose repertoire only after PDF and XML acquisition completes
+  ---
+  duration_ms: 3495.288208
+  type: 'test'
+  ...
+# Subtest: public catalogue sources render real PDF and XML previews
+ok 9 - public catalogue sources render real PDF and XML previews # SKIP
+  ---
+  duration_ms: 0.207375
+  type: 'test'
+  ...
+# Subtest: catalogue website captures: es
+ok 10 - catalogue website captures: es
+  ---
+  duration_ms: 2112.694333
+  type: 'test'
+  ...
+# Subtest: catalogue website captures: en
+ok 11 - catalogue website captures: en
+  ---
+  duration_ms: 2476.273875
+  type: 'test'
+  ...
+# Subtest: catalogue website captures: ca
+ok 12 - catalogue website captures: ca
+  ---
+  duration_ms: 1843.759625
+  type: 'test'
+  ...
+# Subtest: one catalogue searches both formats, sorts titles and excludes research
+ok 13 - one catalogue searches both formats, sorts titles and excludes research
+  ---
+  duration_ms: 47.407208
+  type: 'test'
+  ...
+# Subtest: downloaded filter and repertoire controls require a local score in either format
+ok 14 - downloaded filter and repertoire controls require a local score in either format
+  ---
+  duration_ms: 19.482
+  type: 'test'
+  ...
+# Subtest: transfers combine formats in one queue and do not duplicate empty panels
+ok 15 - transfers combine formats in one queue and do not duplicate empty panels
+  ---
+  duration_ms: 15.725875
+  type: 'test'
+  ...
+# Subtest: every PDF has a bundled first-page preview with exact edition and licence evidence
+ok 16 - every PDF has a bundled first-page preview with exact edition and licence evidence
+  ---
+  duration_ms: 66.946125
+  type: 'test'
+  ...
+# Subtest: composition count merges editions and movements and excludes unresolved identities
+ok 17 - composition count merges editions and movements and excludes unresolved identities
+  ---
+  duration_ms: 8.893167
+  type: 'test'
+  ...
+# Subtest: period and composer filters combine without reclassifying source credits
+ok 18 - period and composer filters combine without reclassifying source credits
+  ---
+  duration_ms: 2.019708
+  type: 'test'
+  ...
+# Subtest: complete one lesson occurrence, retain planning, stable result edits and backup links
+ok 19 - complete one lesson occurrence, retain planning, stable result edits and backup links
+  ---
+  duration_ms: 15.229375
+  type: 'test'
+  ...
+# Subtest: reject invalid lessons and feedback without changing the notebook; support long lessons without a score
+ok 20 - reject invalid lessons and feedback without changing the notebook; support long lessons without a score
+  ---
+  duration_ms: 0.785
+  type: 'test'
+  ...
+# Subtest: lesson result and recording references survive notebook backup and independent cloud edits
+ok 21 - lesson result and recording references survive notebook backup and independent cloud edits
+  ---
+  duration_ms: 1.839875
+  type: 'test'
+  ...
+# Subtest: lesson score clocks resume independently and completion credits exact piece times once
+ok 22 - lesson score clocks resume independently and completion credits exact piece times once
+  ---
+  duration_ms: 1.265209
+  type: 'test'
+  ...
+# Subtest: light appearance keeps main screens, form labels and floating PDF tools legible in four layouts
+ok 23 - light appearance keeps main screens, form labels and floating PDF tools legible in four layouts
+  ---
+  duration_ms: 6831.596833
+  type: 'test'
+  ...
+# Subtest: expected keys skip rests, grace notes, tied continuations and the other hand
+ok 24 - expected keys skip rests, grace notes, tied continuations and the other hand
+  ---
+  duration_ms: 1.617625
+  type: 'test'
+  ...
+# Subtest: the cursor waits for every key of a chord, counts wrong keys and skips rests
+ok 25 - the cursor waits for every key of a chord, counts wrong keys and skips rests
+  ---
+  duration_ms: 0.358583
+  type: 'test'
+  ...
+# Subtest: following one hand ignores the other and resumes from the session totals
+ok 26 - following one hand ignores the other and resumes from the session totals
+  ---
+  duration_ms: 0.149458
+  type: 'test'
+  ...
+# Subtest: MusicXML view zoom, reversible labels, mark retention and reopening work across orientations
+ok 27 - MusicXML view zoom, reversible labels, mark retention and reopening work across orientations
+  ---
+  duration_ms: 3742.79225
+  type: 'test'
+  ...
+# Subtest: MXL resolves container.xml instead of the first XML entry
+ok 28 - MXL resolves container.xml instead of the first XML entry
+  ---
+  duration_ms: 15.553166
+  type: 'test'
+  ...
+# Subtest: score validation rejects HTML, timewise, malformed XML, entities, traversal and excessive decompression
+ok 29 - score validation rejects HTML, timewise, malformed XML, entities, traversal and excessive decompression
+  ---
+  duration_ms: 2.067666
+  type: 'test'
+  ...
+# Subtest: written measures, pickups, key/meter changes, voices, ties, tuplets and cross-staff notes have independent features
+ok 30 - written measures, pickups, key/meter changes, voices, ties, tuplets and cross-staff notes have independent features
+  ---
+  duration_ms: 7.009583
+  type: 'test'
+  ...
+# Subtest: segments validate ownership/boundaries and recalculate metrics instead of inheriting parent totals
+ok 31 - segments validate ownership/boundaries and recalculate metrics instead of inheriting parent totals
+  ---
+  duration_ms: 83.490709
+  type: 'test'
+  ...
+# Subtest: German and Hungarian persist while notebook IDs and original content remain intact
+ok 32 - German and Hungarian persist while notebook IDs and original content remain intact
+  ---
+  duration_ms: 3.380458
+  type: 'test'
+  ...
+# Subtest: new dictionaries preserve interpolation, markup attributes and unknown user values
+ok 33 - new dictionaries preserve interpolation, markup attributes and unknown user values
+  ---
+  duration_ms: 15.714166
+  type: 'test'
+  ...
+# Subtest: reader follows regional German and Hungarian locales
+ok 34 - reader follows regional German and Hungarian locales
+  ---
+  duration_ms: 0.3035
+  type: 'test'
+  ...
+# Subtest: new website routes have localized navigation, metadata and no nonexistent Arcade alternates
+ok 35 - new website routes have localized navigation, metadata and no nonexistent Arcade alternates
+  ---
+  duration_ms: 6.152583
+  type: 'test'
+  ...
+# Subtest: all known persisted diagnostic messages have German and Hungarian copy
+ok 36 - all known persisted diagnostic messages have German and Hungarian copy
+  ---
+  duration_ms: 1.911334
+  type: 'test'
+  ...
+# Subtest: long practice durations use German and Hungarian hour labels
+ok 37 - long practice durations use German and Hungarian hour labels
+  ---
+  duration_ms: 70.942916
+  type: 'test'
+  ...
+# Subtest: update notice is once per installation, defers active practice and opens the existing store listing
+ok 38 - update notice is once per installation, defers active practice and opens the existing store listing
+  ---
+  duration_ms: 3141.966666
+  type: 'test'
+  ...
+# Subtest: new installations keep onboarding and do not receive an update prompt
+ok 39 - new installations keep onboarding and do not receive an update prompt
+  ---
+  duration_ms: 1.64775
+  type: 'test'
+  ...
+# Subtest: legacy installations and upgrades receive one dismissible notice per release
+ok 40 - legacy installations and upgrades receive one dismissible notice per release
+  ---
+  duration_ms: 0.12825
+  type: 'test'
+  ...
+# Subtest: unavailable local preferences never prevent startup or repeatedly request a rating
+ok 41 - unavailable local preferences never prevent startup or repeatedly request a rating
+  ---
+  duration_ms: 0.081375
+  type: 'test'
+  ...
+# Subtest: all five locales provide the three improvements and an optional neutral rating action
+ok 42 - all five locales provide the three improvements and an optional neutral rating action
+  ---
+  duration_ms: 0.364708
+  type: 'test'
+  ...
+# Subtest: Drive score references ignore field order, retaining chunk order and length
+ok 43 - Drive score references ignore field order, retaining chunk order and length
+  ---
+  duration_ms: 1.06325
+  type: 'test'
+  ...
+# Subtest: deferred score hydration keeps local edits and rejects a real replacement
+ok 44 - deferred score hydration keeps local edits and rejects a real replacement
+  ---
+  duration_ms: 1.157708
+  type: 'test'
+  ...
+# Subtest: a first deferred sync retains only local bytes matching immutable chunk hashes
+ok 45 - a first deferred sync retains only local bytes matching immutable chunk hashes
+  ---
+  duration_ms: 6.908625
+  type: 'test'
+  ...
+# Subtest: score headers separate a centred title, catalogue reference and composer from musical directions
+ok 46 - score headers separate a centred title, catalogue reference and composer from musical directions
+  ---
+  duration_ms: 4.418375
+  type: 'test'
+  ...
+# Subtest: PDF words are grouped without joining opposite sides of the header
+ok 47 - PDF words are grouped without joining opposite sides of the header
+  ---
+  duration_ms: 0.19125
+  type: 'test'
+  ...
+# Subtest: explicit labels and cover-page names are accepted; credits, notes and low-confidence OCR are not
+ok 48 - explicit labels and cover-page names are accepted; credits, notes and low-confidence OCR are not
+  ---
+  duration_ms: 0.227042
+  type: 'test'
+  ...
+# Subtest: printed numeric tempo is suggested without inventing BPM for words, dates or catalogue numbers
+ok 49 - printed numeric tempo is suggested without inventing BPM for words, dates or catalogue numbers
+  ---
+  duration_ms: 0.359667
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 48
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 25378.845583

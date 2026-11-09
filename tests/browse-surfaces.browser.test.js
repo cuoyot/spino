@@ -32,12 +32,12 @@ test('Navigation palette covers both themes while preserving practice screens', 
    if(route==='piano')await evaluate(`document.querySelector('[data-action=repertoire]').click()`);
    if(route==='catalog'){
     await evaluate(`new Promise(r=>{const i=setInterval(()=>{if(document.querySelector('[data-action=library-all]')){clearInterval(i);r()}},20)})`);
-    await evaluate(`document.querySelector('[data-action=library-clear]').click()`);
+    await evaluate(`document.querySelector('[data-action=library-all]').click()`);
    }
    assert.equal(await evaluate(`document.querySelector('.cp-page').classList.contains('cp-browse-surface')`),true);
    const contrast=await evaluate(`(()=>{
     const rgb=s=>(s.match(/[\\d.]+/g)||[]).map(Number),lum=c=>c.slice(0,3).map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4}).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);
-    return [...document.querySelectorAll('.cp-shortcuts .cp-icon,.cp-repertoire-section .cp-dashboard-count,.cp-agenda-week-title .cp-tag,.cp-repertoire-table .cp-stand-icon[aria-pressed=true],.cp-library-tabs [aria-pressed=true],.cp-choice-group button[aria-pressed=true],.cp-choice-group button[aria-current=page]')].map(e=>{const s=getComputedStyle(e),a=lum(rgb(s.color)),b=lum(rgb(s.backgroundColor));return {element:e.className,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)}});
+    return [...document.querySelectorAll('.cp-shortcuts .cp-icon,.cp-repertoire-section .cp-dashboard-count,.cp-agenda-week-title .cp-tag,.cp-repertoire-table .cp-stand-icon[aria-pressed=true],.cp-library-tabs [aria-pressed=true],.cp-choice-group button[aria-pressed=true],.cp-choice-group button[aria-current=page]')].map(e=>{const s=getComputedStyle(e),background=node=>{if(!node)return [255,255,255];const c=rgb(getComputedStyle(node).backgroundColor),alpha=c[3]??1,parent=alpha<1?background(node.parentElement):[0,0,0];return c.slice(0,3).map((v,i)=>v*alpha+parent[i]*(1-alpha));},a=lum(rgb(s.color)),b=lum(background(e));return {element:e.className,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)}});
    })()`);
    assert.ok(contrast.every(c=>c.ratio>=4.5),`${theme}/${route}: ${JSON.stringify(contrast)}`);
 

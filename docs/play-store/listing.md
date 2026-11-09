@@ -67,16 +67,15 @@ PRIVADO POR DISEÑO
 • Sin cuentas, sin anuncios y sin servidores propios: tu cuaderno se guarda en tu dispositivo.
 • Copias JSON con partituras y anotaciones. Conexión opcional con tu Google Drive para sincronizar el cuaderno y copiar grabaciones guardadas. Los JSON no incluyen audio ni vídeo.
 
-Disponible en español, inglés y catalán.
+Disponible en español, inglés, catalán, alemán y húngaro.
 <!-- /field -->
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-• Sincronización en la nube y copias de seguridad en secciones separadas.
-• Copias automáticas en disco local o en una cuenta de Drive independiente, con carpeta por nombre.
-• Última copia, destino y progreso visibles.
-• Guardar ZIP abre el selector de archivos de Android.
-• Las grabaciones se sincronizan con el cuaderno según tu conexión.
+• Interfaz más clara en Calendario, Biblioteca, Progreso y práctica.
+• Catálogo mejor organizado y selección de partituras más cómoda.
+• MusicXML: elección de instrumentos, zoom del 20 al 300 % y controles para nombres, créditos y digitaciones.
+• Novedades al actualizar y acceso para valorar SPino.
 <!-- /field -->
 
 ## English — en-US
@@ -142,16 +141,15 @@ PRIVATE BY DESIGN
 • No accounts, no ads and no servers of our own: your notebook stays on your device.
 • JSON copies with scores and annotations. Optionally connect your own Google Drive to synchronize the notebook and copy saved recordings. JSON files exclude audio and video.
 
-Available in English, Spanish and Catalan.
+Available in English, Spanish, Catalan, German and Hungarian.
 <!-- /field -->
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-• Separate cloud synchronization and backup sections.
-• Automatic backups to local disk or an independent Drive account, with a named folder.
-• Visible latest backup, destination and progress.
-• Save ZIP opens the Android file destination picker.
-• Recordings synchronize with the notebook according to your connection settings.
+• Clearer Calendar, Library, Progress and practice screens.
+• Better catalogue organization and easier score selection.
+• MusicXML: instrument selection, 20–300% zoom and controls for names, credits and fingering.
+• Update highlights and an optional link to rate SPino.
 <!-- /field -->
 
 ## Other listing fields

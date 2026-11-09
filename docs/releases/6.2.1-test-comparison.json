@@ -1,0 +1,89 @@
+{
+  "baseline": {
+    "tests": 728,
+    "passed": 671,
+    "failed": 54,
+    "skipped": 3,
+    "build": "6.2.1-beta.8 (120)"
+  },
+  "initialRelease": {
+    "tests": 732,
+    "passed": 673,
+    "failed": 56,
+    "skipped": 3
+  },
+  "onlyReleaseFailures": [
+    "each new edition is searchable and has a working bundled preview",
+    "main routes share header geometry and library tabs stay below it while scrolling",
+    "period and author filters combine with search in four responsive layouts"
+  ],
+  "onlyBaselineFailures": [
+    "tests/header-parity.browser.test.js"
+  ],
+  "sharedFailingNames": [
+    "Android Back traverses screen history, closes dialogs and preserves catalogue context",
+    "Catalan Drive notebook keeps reader settings, scores and annotations and rejects invalid cloud data",
+    "Catalan reader, operational messages and warm-ups have explicit resources",
+    "Drive setup, legacy migration, reconnect, offline continuation and local JSON copies",
+    "Home and Multimedia record a chosen repertoire piece without a practice session, with live audio feedback and camera preview",
+    "Manage keeps routine controls readable and recovery separate without leaving on pause",
+    "Navigation palette covers both themes while preserving practice screens",
+    "PDF repertoire import, safe page gestures, annotation tools, persistence and practice timing",
+    "Sync now checks only the cursor and a suspended recording check recovers without a stale spinner",
+    "a failed current-block removal preserves played work and a retry archives it once",
+    "a paused phone practice stays local while completed tablet history arrives; stalled sync can pause and retry",
+    "a second device finds and joins the Drive notebook from Profile",
+    "a stalled Drive read can be paused immediately and still permits a local JSON export",
+    "all known persisted diagnostic messages have German and Hungarian copy",
+    "annotations survive reload and are included in the complete notebook backup",
+    "authorized account can disconnect after failed legacy migration and configure again without losing local data",
+    "calendar, agenda and recurring planner switch their dates and actions at runtime",
+    "closed retained forms no longer prevent applying cloud changes",
+    "complete one lesson occurrence, retain planning, stable result edits and backup links",
+    "conflict review retains both offline practices and only chooses the shared plan link: local",
+    "conflict review retains both offline practices and only chooses the shared plan link: remote",
+    "create open and bounded event series, edit one date and cancel future dates",
+    "device linking code, real QR decoding and backup compatibility choices in four layouts",
+    "downloads stay separate from repertoire and backup round-trips attachments and history",
+    "duplicate notebook comparison, exact QR, rename and channel-specific local export",
+    "duration sliders and block editing preserve source plans and recover from failed saves",
+    "light appearance keeps main screens, form labels and floating PDF tools legible in four layouts",
+    "live session edits preserve completed work, source plans and routines across reload",
+    "local audio/video capture, playback, restart, quota retry, device isolation and notebook restore",
+    "long press moves and bins remaining blocks without losing performed work",
+    "managed keyboard landscape (timed) preserves controls, settings and rotation",
+    "managed keyboard landscape (wait) preserves controls, settings and rotation",
+    "management print icons invoke printing without opening score or custom preview",
+    "musical streak detail and weekly/monthly recording navigation preserve notebook and recordings",
+    "offline practice starts without a sync prompt, saves progress and keeps automatic sync enabled after restart",
+    "open Web MIDI input survives consecutive reading sessions and activity stays visible when paused",
+    "optional explanations use keyboard-accessible Info while actions, warnings and notebook data remain available",
+    "page actions stay accessible below the shared header and Calendar keeps one toolbar",
+    "persists repertoire and events, escaping user-provided titles",
+    "piano companion: local planning, practice, history, recovery and responsive navigation",
+    "piano sessions open with a Hanon warm-up that explains itself, rotates and can be switched off",
+    "planned practice supports structured editing, routines and touch/keyboard rescheduling",
+    "planner date fields fit and landscape practice respects safe insets without changing zero-inset Android geometry",
+    "plans a practice and completes the linked card without duplicating a session",
+    "profile switches and persists both new languages, including reader and stable app copy",
+    "quick score is shown, saved once at finish and retained after reload",
+    "recording problems name the file, allow independent copies and recover through Retry",
+    "recovers an interrupted session paused and preserves earlier history",
+    "sessions can finish without saving and saved sessions can be deleted safely",
+    "stalled Drive never gates practice and late incoming changes wait until the saved session is finished",
+    "tablet warm-up next action stays on the same header row",
+    "weekly assistant previews and saves practice days plus a tutor class without duplicates",
+    "work actions and every saved-session summary share the Progress card without changing notebook or scores"
+  ],
+  "finalReleaseGate": {
+    "tests": 49,
+    "passed": 48,
+    "failed": 0,
+    "skipped": 1
+  },
+  "website": {
+    "tests": 11,
+    "passed": 11,
+    "failed": 0
+  }
+}

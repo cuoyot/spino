@@ -1,3 +1,5 @@
+import { createReleaseNoticeState, releaseNoticeCopy, releaseNoticeMarkup } from './release-notice.js';
+import './release-notice.css';
 import {verifyDeviceReset,retainResetArchive,readResetArchive} from './device-reset.js';
 import {createBackupDrive} from './backup-drive.js';
 import {createDriveStorage} from './drive-storage.js';
@@ -127,13 +129,15 @@ export async function bootCompanion(reader) {
   setAppLanguage(document.documentElement.lang);
   const bootMessage = root.querySelector('.boot-message');
   if (bootMessage) bootMessage.textContent = ui('Opening your notebook…', 'Abriendo tu cuaderno…');
-  let store, data;
-  try { store = await openStore(localStorage.getItem('spino.recovered-notebook')||undefined); data = await store.load(); }
+  let store, data, hadNotebook = false;
+  try { store = await openStore(localStorage.getItem('spino.recovered-notebook')||undefined); hadNotebook = await store.hasNotebook(); data = await store.load(); }
   catch (e) { root.innerHTML = `${ui("<div class=\"cp-page\"><h1>Could not open the notebook</h1><p>", "<div class=\"cp-page\"><h1>No se ha podido abrir el cuaderno</h1><p>")}${esc(localizeMessage(e.message))}${ui("</p><p>Your existing data is safe. Close and reopen the app.</p></div>", "</p><p>Los datos existentes se conservan. Cierra y vuelve a abrir la app.</p></div>")}`; return; }
   // Existing notebooks were displayed in Spanish before a language preference existed.
   data.preferences.language ||= 'es';
   setAppLanguage(data.preferences.language);
   reader.setLanguage?.(getAppLanguage());
+  const releaseNotice = createReleaseNoticeState({storage:localStorage,version:APP_VERSION,existingNotebook:hadNotebook});
+  let releaseNoticeReady = false;
   let view = 'home', selectedDate = localDate(), detailId = '', draft = null, preparePurpose = 'start';
   let materialSelection = null;
   let repertoireFilters = {}, repertoireIndex = 0;
@@ -184,7 +188,7 @@ export async function bootCompanion(reader) {
   const dialog = document.createElement('dialog'); dialog.id = 'cp-dialog'; document.body.append(dialog);
   dialog.addEventListener('close', () => {
     // A queued close event can arrive after the shared dialog has already been reopened.
-    if (!dialog.open) { dialogCleanup?.(); dialogCleanup = null; }
+    if (!dialog.open) { dialogCleanup?.(); dialogCleanup = null; queueMicrotask(tryReleaseNotice); }
   });
   const dialogBusy = () => dialog.getAttribute('aria-busy') === 'true' || Boolean(dialog.querySelector('form[aria-busy="true"]'));
   dialog.addEventListener('cancel', event => { if (dialogBusy()) event.preventDefault(); });
@@ -313,6 +317,12 @@ export async function bootCompanion(reader) {
     checkpoint(); updateClock();
   }
   function hideReader() { if (readerMounted) { pauseSession(); reader.hide(); } root.hidden = false; readerTotal.hidden = true;void leaveReaderFullscreen(); }
+  function tryReleaseNotice() {
+    if (!releaseNoticeReady || !releaseNotice.pending || data.active || dialog.open || walkthrough.open || root.hidden || scoreViewer || openingScore || view !== 'home') return;
+    const copy = releaseNoticeCopy(getAppLanguage());
+    showDialog(copy.title, releaseNoticeMarkup(APP_VERSION,getAppLanguage()),null,true);
+    releaseNotice.acknowledge();
+  }
   function showDialog(title, body, onSubmit = null, introduction = false) {
     dialogCleanup?.(); dialogCleanup = null;
     dialog.removeAttribute('aria-busy');
@@ -1043,6 +1053,7 @@ export async function bootCompanion(reader) {
     $('#prepare-form')?.addEventListener('submit',async e=>{e.preventDefault();if(!validDraft())return;try{if(preparePurpose==='routine')await saveRoutineDraft();else if(preparePurpose==='edit-plan')planForm(data.plans.find(p=>p.id===draft.id),draft);else if(preparePurpose==='plan')planForm();else await startSession(draft);}catch(e){toast(e.message);}});
     if(view==='prepare')requestAnimationFrame(revealStandSelection);
     updateClock();
+    queueMicrotask(tryReleaseNotice);
   }
 
   function revealStandSelection() {
@@ -1671,6 +1682,7 @@ export async function bootCompanion(reader) {
     'profile-appearance':()=>showDialog(ui('Appearance','Apariencia'),appearanceMarkup(data.preferences)+'<div class="cp-actions">'+btn('close-dialog',ui('Done','Hecho'))+'</div>'),
     'set-theme':async mode=>{if(!['light','dark','system'].includes(mode))return;data.preferences.theme=mode;applyTheme(mode);await persist();dialog.querySelectorAll('[data-action=set-theme]').forEach(b=>{const selected=b.dataset.id===mode;b.setAttribute('aria-pressed',String(selected));b.classList.toggle('primary',selected);});},
     'walkthrough':()=>{if(dialog.open)dialog.close();walkthrough.start(routeSnapshot());},
+    'release-notice-rate':()=>{releaseNotice.acknowledge();dialog.close();return rateApp().catch(()=>toast(ui('Could not open the app rating.','No se pudo abrir la valoración de la app.')));},
     'rate-app':()=>rateApp().catch(()=>toast(ui('Could not open the app rating.','No se pudo abrir la valoración de la app.'))),
     'share-app':async()=>{try{const shared=await shareApp();if(!shared)toast(ui('App link copied.','Enlace de la app copiado.'));}catch(error){if(error.name!=='AbortError')toast(ui('Could not share the app.','No se pudo compartir la app.'));}},
     'profile-edit':()=>showDialog(ui("Edit profile", "Editar perfil"),identityMarkup(data.preferences,getAppLanguage()),async f=>{const language=String(f.get('language'));if(!Object.hasOwn(APP_LANGUAGES,language))throw Error(ui('Choose a supported language.','Elige un idioma disponible.'));const level=Number(f.get('level'));if(!(Number.isInteger(level)&&level>=1&&level<=4))throw Error(ui('Choose a pianist level.','Elige un nivel de pianista.'));const next=copy(data);next.preferences={...next.preferences,name:String(f.get('name')).trim(),weeklyMinutes:Number(f.get('weeklyMinutes')),language,level};await store.save(next);data=next;setAppLanguage(language);reader.setLanguage?.(language);dialog.close();render();await reminders();toast(ui('Profile saved.','Perfil guardado.'));}),
@@ -1807,7 +1819,7 @@ export async function bootCompanion(reader) {
   library = await importLibrary({ previous: library, save: value => store.saveLibrary(value) });
   let legacyProgress = {}; try { legacyProgress = JSON.parse(localStorage.getItem('sr.progress') || '{}'); } catch {}
   library.legacyMigration = legacyMigrationReport(data, legacyProgress);
-  if(!data.active&&walkthrough.needsIntroduction())setTimeout(()=>{if(!data.active&&!dialog.open&&!root.hidden)walkthrough.start(routeSnapshot());},400);
+  if(!releaseNotice.pending&&!data.active&&walkthrough.needsIntroduction())setTimeout(()=>{if(!data.active&&!dialog.open&&!root.hidden)walkthrough.start(routeSnapshot());},400);
   const localAssets = new Set((await store.assets()).map(a => a.id));
   for (const e of Object.values(library.executions)) if (e.assetId && !localAssets.has(e.assetId)) { e.validated = false; e.render = null; }
   await store.saveLibrary(library); libraryReady = true;
@@ -1817,5 +1829,8 @@ export async function bootCompanion(reader) {
   if(storageUI&&cloud?.state.name&&!dialog.open){await storageUI.notify();if(['home','profile-backup'].includes(view))render();}
   if(localStorage.getItem('spino.reset-recovery')&&!recoveredNotebook&&!cloud?.state.name)showDialog(ui('Reconnect your notebook','Reconectar tu cuaderno'),`<p>${ui('A verified recovery ZIP is retained on this device.','Se conserva un ZIP de recuperación verificado en este dispositivo.')}</p><div class="cp-actions">${btn('storage-reconnect-reset',ui('Reconnect the same notebook','Reconectar el mismo cuaderno'))}${btn('storage-restore-reset',ui('Restore retained ZIP','Restaurar ZIP conservado'))}</div>`);
   if(recoveredNotebook)showDialog(ui('Recovered notebook','Cuaderno recuperado'),`<p>${ui('This is a separate local recovery. Cloud synchronization is disabled. Your original notebook is intact.','Esta es una recuperación local separada. La sincronización en la nube está desactivada. Tu cuaderno original está intacto.')}</p><div class="cp-actions">${btn('storage-return-original',ui('Return to original notebook','Volver al cuaderno original'))}${btn('close-dialog',ui('Review recovered notebook','Revisar cuaderno recuperado'))}</div>`);
+
+  releaseNoticeReady = true;
+  queueMicrotask(tryReleaseNotice);
 
 }

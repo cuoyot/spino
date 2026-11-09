@@ -1,10 +1,12 @@
 // Google Play screenshots from the production web build, in disposable browser notebooks.
 // Usage: npm run build && node scripts/store/capture-play-screenshots.mjs [es|en ...]
 // Output: docs/play-store/screenshots/<lang>/<device>/NN-<screen>.png (existing files are replaced).
-import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { mkdir, writeFile, rm, readdir } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { openBrowser } from '../../tests/browser.js';
 import { storeNotebook, STORE_NOW } from './store-fixtures.mjs';
+import {createHash} from 'node:crypto';
+import {musicXMLFixture} from '../../tests/musicxml-fixture.js';
 
 // Play requires 320–3840 px with the long side at most twice the short side.
 const DEVICES = [
@@ -40,7 +42,7 @@ try {
     await shot('today');
 
     // A planned practice opens with the Hanon warm-up and its hand-position guide.
-    await act('start-plan', 'store-next'); await wait(`document.querySelector('.cp-session-warmup svg')`);
+    await act('start-plan', 'store-next'); await wait(`document.querySelector('.cp-session-warmup')`);
     await shot('warmup-session');
     await act('warmup-guide'); await wait(`document.querySelector('#cp-dialog[open] .cp-warmup-guide')`);
     await shot('warmup-guide');
@@ -53,8 +55,7 @@ try {
 
     // Two-hand sight-reading on the grand staff, with the bass holding its pattern.
     await evaluate(`document.querySelector('#practice-advance').click()`); await wait(`document.querySelector('[data-action=open-reader]')`);
-    await act('next-block'); await wait(`document.querySelector('.cp-session-card .eyebrow')?.textContent.includes('3')`);
-    await act('open-reader'); await wait(`window.__sr.timed && window.__sr.timed.suspendedAt==null`);
+    await act('session-select-block', 'store-reading'); await wait(`window.__sr.timed && window.__sr.timed.suspendedAt==null`);
     await evaluate(`new Promise(r=>setTimeout(r,600))`); await evaluate(`document.querySelector('#start').click()`);
     await evaluate(`document.querySelector('#feedback').textContent=''`);
     await shot('reading-two-hands');
@@ -78,6 +79,18 @@ try {
     await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click()`); await wait(`document.querySelector('.cp-page[data-view=piano]')`);
     await act('catalog'); await wait(`document.querySelector('.cp-page[data-view=catalog]') && !document.querySelector('.cp-page [role=status]')?.textContent.includes('…')`);
     await shot('catalogue');
+    await evaluate(`document.querySelector('.cp-nav [data-action=piano]').click();document.querySelector('[data-action=repertoire]').click()`);
+    await shot('repertoire');
+    await evaluate(`document.querySelector('.cp-nav [data-action=progress]').click()`);
+    await shot('progress');
+    const files=await readdir('dist/assets'),xmlChunk=files.find(n=>/^musicxml-viewer-.*\.js$/.test(n));
+    await evaluate(`Promise.all(${JSON.stringify(files.filter(n=>/^pdf-viewer-.*\.css$/.test(n)))}.map(name=>new Promise(resolve=>{const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/'+name;l.onload=resolve;document.head.append(l)})))`);
+    const xml=musicXMLFixture().replaceAll('<part-name>Piano</part-name>','<part-name>Concert grand piano</part-name>');
+    await evaluate(`(async()=>{window.storeViewer=await(await import('/assets/${xmlChunk}')).openMusicScore({asset:${JSON.stringify({base64:Buffer.from(xml).toString('base64'),format:'musicxml',sha256:createHash('sha256').update(xml).digest('hex')})},selection:['P'],end:8});})()`);
+    await wait(`document.querySelector('.xml-score svg')`);
+    await evaluate(`document.querySelector('[data-xml=options]').click()`);
+    await evaluate(`{const z=document.querySelector('[data-xml-zoom]');z.value='40';z.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-xml-show=heading]').click();document.querySelector('[data-xml=done]').click();}`);
+    await shot('musicxml');
     if (errors.length) throw new Error(`${lang}/${device.id}: ${JSON.stringify(errors[0])}`);
     console.log(`${lang}/${device.id}: ${index} screenshots`);
     while (cleanup.length) await cleanup.pop()();

@@ -9,7 +9,7 @@ test('light appearance keeps main screens, form labels and floating PDF tools le
  const wait=c=>evaluate(`new Promise((resolve,reject)=>{let n=0;const id=setInterval(()=>{if(${c}){clearInterval(id);resolve()}else if(++n>500){clearInterval(id);reject(Error('Timeout'))}},20)})`);
  await send('Page.navigate',{url});await wait(`document.querySelector('.cp-today')`);
  await evaluate(`document.querySelector('[data-action=settings]').click();document.querySelector('[data-action=profile-appearance]').click();document.querySelector('[data-action=set-theme][data-id=light]').click();document.querySelector('[data-action=close-dialog]').click()`);
- const folder='docs/quality-review/captures/themes/2026-10-14-light-contrast';await mkdir(folder,{recursive:true});
+ const folder='artifacts/light-contrast';await mkdir(folder,{recursive:true});
  const pdfCSS=(await readdir('dist/assets')).find(n=>/^pdf-viewer-.*\.css$/.test(n));
  await evaluate(`new Promise(resolve=>{const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/${pdfCSS}';link.onload=resolve;document.head.append(link)})`);
  const results=[];

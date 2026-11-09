@@ -1,0 +1,7 @@
+.cp-release-version { margin: 0 0 18px; color: var(--theme-muted, #9aa0a6); font-size: 14px; }
+.cp-release-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+.cp-release-list strong { font-size: 17px; }
+.cp-release-list p { margin: 6px 0 0; line-height: 1.5; }
+.cp-release-feedback { margin: 22px 0 16px; padding-top: 18px; border-top: 1px solid var(--theme-border, #414650); }
+.cp-release-actions { gap: 10px; flex-wrap: wrap; }
+.cp-release-actions button { min-height: 44px; flex: 1 1 140px; }

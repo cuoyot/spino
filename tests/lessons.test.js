@@ -7,7 +7,7 @@ import {eventsBetween} from '../src/companion/event-recurrence.js';
 import {agendaEntries,agendaCard} from '../src/companion/agenda.js';
 import {reminderNotifications} from '../src/companion/reminders.js';
 const now=Date.parse('2026-10-18T12:00:00Z');
-function fixture(){const d=emptyData();d.works=['a','b'].map(id=>({id,title:id,composer:'',stage:'En estudio',notes:'Original',passage:'',target:null,bpm:60}));d.events=[{id:'lesson',type:'Clase',date:'2026-10-18',time:'18:00',title:'Tutor lesson',place:'Studio',notes:'Preparation stays',workIds:['a'],reminder:true,recurrence:{id:'lesson',frequency:'weekly',until:null,rule:true,excluded:[]}}];return d;}
+function fixture(){const d=emptyData();d.preferences.notificationsEnabled=true;d.works=['a','b'].map(id=>({id,title:id,composer:'',stage:'En estudio',notes:'Original',passage:'',target:null,bpm:60}));d.events=[{id:'lesson',type:'Clase',date:'2026-10-18',time:'18:00',title:'Tutor lesson',place:'Studio',notes:'Preparation stays',workIds:['a'],reminder:true,recurrence:{id:'lesson',frequency:'weekly',until:null,rule:true,excluded:[]}}];return d;}
 const values={title:'Lesson result',date:'2026-10-18',minutes:75,mood:4,workIds:['a','b'],notes:'Teacher fingering',next:'Practise slowly'};
 test('complete one lesson occurrence, retain planning, stable result edits and backup links',()=>{
  const d=fixture(),before=structuredClone(d.events);const s=completeLesson(d,'lesson@2026-10-18',values,now);

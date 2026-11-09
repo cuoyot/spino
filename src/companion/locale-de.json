@@ -1,4 +1,8 @@
 {
+  "A backup operation is already running.": "Eine Sicherung läuft bereits. Du kannst ihren Fortschritt unter Sicherung und Synchronisierung prüfen.",
+  "Synchronize the notebook before setting up backups.": "Synchronisiere das Notizbuch, bevor du Sicherungen einrichtest.",
+  "Finish synchronization and editing before organizing storage.": "Warte, bis die Synchronisierung beendet ist, und schließe die Übung, bevor du den Speicher einrichtest.",
+  "A recording needs attention before the complete ZIP can be created.": "Eine Aufnahme muss überprüft werden, bevor die vollständige ZIP-Datei erstellt werden kann.",
   "Today": "Heute",
   "Practice": "Üben",
   "Progress": "Fortschritt",

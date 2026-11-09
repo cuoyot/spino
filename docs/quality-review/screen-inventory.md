@@ -1,3 +1,5 @@
+2026-11-09: UPDATE-01 is a once-per-release shared-dialog notice with optional store rating. Calendar/Library/Progress navigation contrast is rechecked. See [review](profile-release-notice.md); physical acceptance remains separate.
+
 2026-11-08: SCORE-02/03, REP-02/04 and C-SCORE are reopened for instrument selection, deferred Drive score recovery, persistent 20–300% zoom and reversible labels/fingering. Earlier shared MusicXML practice/follow and printing are rechecked; PDF/saved-session design is unchanged. Final responsive evidence: session/2026-11-08-musicxml-recovery-04. Native/owner acceptance remains open.
 
 2026-11-07: PRACTICE-01/05 compact header and prominent total accepted by owner. Beta119 packages the approved responsive layout. Evidence: session/2026-11-07-session-total-header-01. Physical-device acceptance remains separate.

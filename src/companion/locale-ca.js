@@ -1,5 +1,9 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+A backup operation is already running.|Ja hi ha una còpia en curs. Pots consultar-ne el progrés a Còpia i sincronització.
+Synchronize the notebook before setting up backups.|Sincronitza el quadern abans de configurar les còpies.
+Finish synchronization and editing before organizing storage.|Espera que acabi la sincronització i tanca la pràctica abans de configurar les còpies.
+A recording needs attention before the complete ZIP can be created.|Hi ha una gravació que cal revisar abans de crear el ZIP complet.
 Total practiced|Total practicat
 Time remaining|Temps restant
 This lesson|Aquesta classe

@@ -217,6 +217,19 @@
       ],
       "verifiedAgainst": "repertoire/2026-10-19-work-detail-05; library scrolling: repertoire/2026-10-19-sticky-tabs-02; score-only catalogue: repertoire/2026-10-21-score-only-01; compact catalogue and previews: repertoire/2026-10-21-catalogue-rows-01; distinct works and periods: repertoire/2026-10-21-periods-01; beta8 native package: releases/2026-10-21-beta618",
       "coverage": "Source/browser work-action hierarchy, score/recording rows, management menu and shared session summaries verified in both themes, four orientations and narrow 320 px. Build, 20 unit and seven browser checks pass; notebook/score assets retained. Owner/native visual acceptance remains open. Beta8/build84 includes 106 identified works across 129 editions, combined period/composer search, individual downloads, source instrumentation and first-page previews. Six synthetic app browser regressions and 335 unit checks pass; replacement installation preserves 130 IndexedDB files and all 30 Hanon videos. Physical-device acceptance remains separate. Owner-accepted 2026-11-06 detail cleanup is packaged in Android beta 6.2.1-beta.3/build115: overview titles and Close, event date tile/countdown and work thumbnail/date/totals/single Actions menu. Ten isolated browser checks, signed packaging and replacement installation/data retention/foreground pass; public publication is recorded separately in docs/releases/6.2.1-beta.3-publication.json. Physical-device acceptance remains open. Source/web follow-up after beta115: standalone PDF floating Close remains reachable in reading/annotation/framing; failed saves retain marks and successful retry exits to the work. Twenty synthetic frames and three browser regressions pass in session/2026-11-06-standalone-pdf-close-01; no new APK/publication or native acceptance. Release follow-up: standalone PDF floating Close fix packaged in beta 6.2.1-beta.4/build116; three browser regressions and native replacement/data retention/foreground pass. Public verification is recorded in docs/releases/6.2.1-beta.4-publication.json; physical-device acceptance separate. Source/browser 2026-11-08: semantic Drive content identity, deferred-score instrument selection, cached-byte/annotation retention, 20–300% persistent zoom and reversible labels/fingering verified in session/2026-11-08-musicxml-recovery-04. Build, 74 unit and three browser checks pass; one optional acquired-score check skipped. Owner/native acceptance and packaging remain open. Packaging follow-up: local beta 6.2.1-beta.8/build120 APK/AAB signatures, asset parity, replacement emulator installation, 135 retained files and foreground verified. No public deployment or Play submission; physical-device acceptance remains open."
+    },
+    {
+      "id": "update-highlights",
+      "title": "Updates and ratings",
+      "order": 96,
+      "source": "en/update-highlights.md",
+      "status": "verified-browser",
+      "reviewIds": [
+        "UPDATE-01"
+      ],
+      "coverage": "6.2.1 (121): once-per-release local notice; active-practice deferral; neutral optional store link; no notebook mutation. Physical installation acceptance is separate.",
+      "verifiedAgainst": "profile/2026-11-09-release621-02",
+      "decisions": []
     }
   ],
   "plannedChapters": [

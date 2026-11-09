@@ -21,6 +21,7 @@ export async function openStore(name='cuaderno-piano') {
     onChange(listener) { listeners.add(listener); return () => listeners.delete(listener); },
     syncBase: () => read('state', 'cloud-sync-base-v1'),
     saveSyncBase(value) { return write(['state'], tx => tx.objectStore('state').put(value, 'cloud-sync-base-v1'), false); },
+    async hasNotebook() { return !!(await read('state', 'current')); },
     async load() { const saved = await read('state', 'current'); if (saved) return validateData(saved); const data = emptyData(); const locale = globalThis.navigator?.language || ''; data.preferences.language = /^ca(-|$)/i.test(locale) ? 'ca' : /^(es|gl)(-|$)/i.test(locale) ? 'es' : 'en'; return data; },
     save(data) { const snapshot = structuredClone(data); return write(['state'], tx => tx.objectStore('state').put(snapshot, 'current')); },
     asset: id => read('assets', id),

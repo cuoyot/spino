@@ -1,3 +1,4 @@
+import release621 from '../../docs/releases/6.2.1-release-notes.txt?raw';
 import release621beta8 from '../../docs/releases/6.2.1-beta.8-release-notes.txt?raw';
 import release621beta1 from '../../docs/releases/6.2.1-beta.1-release-notes.txt?raw';
 import release620 from '../../docs/releases/6.2.0-release-notes.txt?raw';
@@ -35,6 +36,7 @@ const listingNotes = language => listing.split(`<!-- field:${language}:notes -->
 export function aboutMarkup(lang = 'en') {
   const es = lang === 'es', word = (en, spanish) => localize(en, spanish, lang);
   const history = [
+    ['6.2.1', release621.split('<'+({es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
     ['6.2.1-beta.8', release621beta8.split('<'+({es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
     ['6.2.1-beta.1', release621beta1.split('<'+({es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
     ['6.2.0', release620.split('<'+({es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}[lang]||'en-US')+'>')[1].split('</')[0].trim()],
