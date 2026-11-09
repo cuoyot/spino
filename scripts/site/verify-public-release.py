@@ -87,9 +87,12 @@ if previous:
     artifacts[previous_manifest['artifacts'][0]['file']] = previous_manifest['artifacts'][0]
 for artifact in json.loads((root / 'site/downloads/spino-6.0.0-checksums.json').read_text())['artifacts']:
     artifacts[artifact['file']] = artifact
-stable_manifest = root / 'site/downloads' / f"spino-{manifest['stable']['version']}-checksums.json"
-for artifact in json.loads(stable_manifest.read_text())['artifacts']:
-    artifacts[artifact['file']] = artifact
+for channel in ['stable', 'beta']:
+    if channel not in manifest:
+        continue
+    channel_manifest = root / 'site/downloads' / f"spino-{manifest[channel]['version']}-checksums.json"
+    for artifact in json.loads(channel_manifest.read_text())['artifacts']:
+        artifacts[artifact['file']] = artifact
 
 def verify_artifact(artifact):
     url = origin + 'downloads/' + artifact['file']
