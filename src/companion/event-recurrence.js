@@ -78,6 +78,9 @@ export function reminderEvents(events, now = Date.now()) {
 }
 
 export function upcomingEvents(events, from) {
+  // Each type has its own allowance; routine appointments never displace performances.
+  const priority = event => ['Audición', 'Concierto'].includes(event.type) ? 0 : 1;
+  const counts = new Map();
   return events.flatMap(e => {
     if (!e.recurrence?.rule) return e.date > from ? [e] : [];
     const start = e.date > from ? e.date : iso(timestamp(from)+dayMs);
@@ -87,5 +90,11 @@ export function upcomingEvents(events, from) {
     const end = last.length === 10 ? last : '9999-12-31';
     return eventsBetween([e],start,end).slice(0,2);
   })
-    .sort((a,b)=>a.date.localeCompare(b.date) || (a.time || '').localeCompare(b.time || '')).slice(0,2);
+    .sort((a,b)=>priority(a)-priority(b) || a.date.localeCompare(b.date) || (a.time || '').localeCompare(b.time || ''))
+    .filter(event => {
+      const count = counts.get(event.type) || 0;
+      if (count >= (priority(event) === 0 ? 1 : 2)) return false;
+      counts.set(event.type, count + 1);
+      return true;
+    });
 }

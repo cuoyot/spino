@@ -10,7 +10,7 @@ export function applyTheme(mode = 'dark') {
   const changed = document.documentElement.dataset.theme !== resolved;
   document.documentElement.dataset.theme = resolved;
   document.documentElement.dataset.themePreference = preference;
-  document.querySelector('meta[name=theme-color]')?.setAttribute('content', dark ? '#14161a' : '#f3f5fa');
+  document.querySelector('meta[name=theme-color]')?.setAttribute('content', dark ? '#1b2640' : '#f7f7fb');
   try { localStorage.setItem('spino.theme',preference); } catch {}
   if (changed && Capacitor.getPlatform()==='android' && Capacitor.isPluginAvailable('Notebook')) void Notebook.applyAppearance({dark}).catch(()=>{});
   if (changed && Capacitor.isNativePlatform()) void SystemBars.setStyle({style:dark?'LIGHT':'DARK'}).catch(()=>{});

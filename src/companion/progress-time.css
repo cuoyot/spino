@@ -6,7 +6,7 @@
 .cp-time-stats span { margin-top: 4px; color: var(--theme-muted); font-size: 14px; }
 #app-shell .cp-time-caption { margin: 26px 0 4px; font-size: 14px; }
 .cp-time-chart { margin: 10px 0 20px; color: var(--browse-blue,var(--theme-link)); }
-.cp-time-chart svg { width: 100%; display: block; overflow: visible; }
+.cp-time-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
 .cp-time-chart text { fill: var(--theme-muted); font: 14px system-ui,sans-serif; }
 .cp-time-grid { stroke: var(--theme-line); stroke-width: 1; }
 .cp-time-line { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -33,6 +33,6 @@
 .cp-time-values th, .cp-time-values td { text-align: start; padding: 10px 0; border-bottom: 1px solid var(--theme-line); }
 .cp-time-values th:last-child, .cp-time-values td:last-child { text-align: end; white-space: nowrap; padding-left: 8px; }
 @media(max-width:339px) { .cp-time-filters { grid-template-columns: 1fr; gap: 8px; } .cp-time-detail, .cp-time-overview { padding: 18px 14px; } }
-@media(min-width:700px) { .cp-time-chart svg { max-height: 330px; } }
+
 
 #app-shell .cp-time-reset { padding: 0; min-height: 0; border: 0; border-radius: 0; background: transparent; color: var(--theme-link); font: inherit; text-decoration: underline; text-underline-offset: 3px; }

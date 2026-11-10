@@ -1,3 +1,5 @@
+import {eventDateTileMarkup} from './event-date-tile.js';
+import {eventCountdown, eventCountdownUnits} from './event-countdown.js';
 import { icon } from './icons.js';
 import { scoreIcon } from './score-controls.js';
 import { savedSessionCardMarkup } from './saved-session-card.js';
@@ -100,13 +102,14 @@ export function pendingSessionMarkup(active) {
 }
 
 function practiceFocus(session, state, recording = false) {
+  if (!session && recording) return `<article class="cp-today-focus cp-today-quick-actions" data-focus-state="empty"><div class="cp-focus-actions">${button('practice',scoreIcon('play')+'<span>'+ui('Choose practice','Elegir práctica')+'</span>','','primary')}${button('record-media',scoreIcon('record')+'<span>'+ui('Record','Grabar')+'</span>','','quiet cp-record-entry')}</div></article>`;
   const active = state === 'active';
   const duration = session?.blocks.reduce((n,b)=>n+b.minutes,0);
   return `<article class="cp-today-focus${active ? ' cp-today-resume' : ''}" data-focus-state="${state}">
     <div class="cp-focus-copy"><span class="eyebrow">${active ? ui('Unfinished session', 'Sesión pendiente') : session ? `${session.time ? esc(session.time)+' · ' : ''}${ui('Planned for today', 'Prevista para hoy')}` : ui('Your time at the piano', 'Tu momento al piano')}</span>
     <h2>${session ? esc(session.title) : ui('Make room for music', 'Haz sitio a la música')}</h2>
     <p class="muted">${session ? `${active ? `${minutes(session.elapsedMs)} ${ui('min elapsed', 'min transcurridos')}` : `${duration} min`} · ${CONTEXTS[session.context]}` : ui('Choose an activity or one of your routines.', 'Elige una actividad o una de tus rutinas.')}</p>
-    ${session && !active ? `<p class="cp-focus-blocks">${session.blocks.map(b=>`${ACTIVITIES[b.type]} ${b.minutes}′`).join(' · ')}</p>` : ''}</div>
+    ${session && !active && !recording ? `<p class="cp-focus-blocks">${session.blocks.map(b=>`${ACTIVITIES[b.type]} ${b.minutes}′`).join(' · ')}</p>` : ''}</div>
     <div class="cp-focus-actions">${button(active?'resume-session':session?'start-plan':'practice',active?ui('Resume session','Continuar sesión'):session?ui('Start practice','Empezar práctica'):ui('Choose practice','Elegir práctica'),session && !active ? session.id : '','primary')}${session && !active ? button('plan-detail',ui('View plan','Ver plan'),session.id,'quiet') : ''}${recording ? button('record-media',scoreIcon('record')+'<span>'+ui('Record','Grabar')+'</span>','','quiet cp-record-entry') : ''}</div>
   </article>`;
 }
@@ -117,28 +120,60 @@ export function todayWeeklyProgress(data, today = localDate()) {
   const duration = formatProgressDuration(minutes*60000), goalDuration = goal ? formatProgressDuration(goal*60000) : '';
   const start=weekOf(today),dates=Array.from({length:7},(_,i)=>addDays(start,i));
   const daily=dates.map(date=>date>today?0:data.sessions.filter(s=>s.date===date).reduce((n,s)=>n+s.elapsedMs/60000,0));
+  const todayDuration = formatProgressDuration((daily[dates.indexOf(today)] || 0)*60000);
   const peak=Math.max(1,...daily);
   const percent = goal ? Math.min(100,Math.round(minutes/goal*100)) : 0;
   return `<section class="cp-today-progress" aria-label="${ui('Practised this week','Practicado esta semana')}">
-    <div class="cp-today-progress-heading"><h2>${ui('Your week','Tu semana')}</h2>${button('progress',ui('View progress','Ver progreso'),'','quiet')}</div>
-    <div class="cp-today-progress-total"><strong>${duration.replace(/ (hr|min)/g,'<small> $1</small>')}</strong>${goal ? `<span>/ <b>${goalDuration}</b> ${ui('goal','objetivo')}</span>` : ''}</div>
-    ${goal ? `<div class="cp-today-progress-track" role="progressbar" aria-label="${ui('Weekly goal','Objetivo semanal')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${duration} / ${goalDuration}"><span style="width:${percent}%"></span></div><p class="cp-today-progress-caption">${minutes>=goal ? ui('✓ Goal reached','✓ Objetivo cumplido') : `${goal-minutes} ${ui('min to go','min para tu objetivo')}`}</p>` : ''}
-    <div class="cp-today-week" aria-label="${ui("Your week", "Tu semana")}"><div class="cp-row"><span>${weekLabel(start)}</span>${button('today-calendar',ui('View calendar', 'Ver calendario'),'','quiet')}</div>
-      <div class="cp-today-days">${dates.map((date,i)=>{const day=agendaEntries(data,date);const types=[...new Set(day.map(e=>e.event?'event':(e.plan||e.session).blocks[0]?.type||'free'))];return `<button type="button" data-action="calendar-day" data-id="${date}" ${date===today?'aria-current="date"':''} aria-label="${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}, ${Math.round(daily[i])} min, ${day.length} ${ui('activities', 'actividades')}"><small>${ui(['M','T','W','T','F','S','S'], ['L','M','X','J','V','S','D'])[i]}</small><b>${+date.slice(8)}</b><span class="cp-day-practice" aria-hidden="true"><i style="height:${daily[i]>0?Math.max(10,daily[i]/peak*100):0}%"></i></span><span class="cp-day-minutes" aria-hidden="true">${daily[i]>0?Math.round(daily[i])+'′':'·'}</span><span class="cp-today-marks">${types.map(type=>`<i data-activity="${type}"></i>`).join('')}</span></button>`;}).join('')}</div>
+    <div class="cp-today-progress-summary">
+      <button type="button" class="cp-today-progress-today" data-action="progress" aria-label="${ui('Today','Hoy')}: ${esc(todayDuration)}. ${ui('View progress','Ver progreso')}" title="${ui('View progress','Ver progreso')}"><span class="cp-metric-heading"><span>${ui('Today','Hoy')}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-8h4v8M3 20h18"/></svg></span><strong>${esc(todayDuration)}</strong><span class="cp-metric-caption">${esc(dateLabel(today))}</span></button>
+      <button type="button" class="cp-today-progress-weekly" data-action="today-calendar" aria-label="${ui('Your week','Tu semana')}: ${esc(duration)}${goal ? ' / '+esc(goalDuration) : ''}. ${ui('View calendar','Ver calendario')}" title="${ui('View calendar','Ver calendario')}"><span class="cp-metric-heading cp-today-progress-heading"><span>${ui('Your week','Tu semana')}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 11h18M8 15h2M14 15h2"/></svg></span><span class="cp-today-progress-total"><strong>${duration.replace(/ (hr|min)/g,'<small> $1</small>')}</strong></span><span class="cp-metric-caption">${goal ? `/ ${esc(goalDuration)} ${ui('goal','objetivo')}` : esc(weekLabel(start))}</span></button>
+    </div>
+    ${goal ? `<div class="cp-today-progress-track" role="progressbar" aria-label="${ui('Weekly goal','Objetivo semanal')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${duration} / ${goalDuration}"><span style="width:${percent}%"></span></div><p class="cp-today-progress-caption sr-only">${minutes>=goal ? ui('✓ Goal reached','✓ Objetivo cumplido') : `${goal-minutes} ${ui('min to go','min para tu objetivo')}`}</p>` : ''}
+    <div class="cp-today-week" aria-label="${ui("Your week", "Tu semana")}"><span class="sr-only">${weekLabel(start)}</span>
+      <div class="cp-today-days">${dates.map((date,i)=>{const day=agendaEntries(data,date);const types=[...new Set(day.map(e=>e.event?'event':(e.plan||e.session).blocks[0]?.type||'free'))];return `<button type="button" data-action="calendar-day" data-id="${date}" ${date===today?'aria-current="date"':''} aria-label="${esc(dateLabel(date,{weekday:'long',day:'numeric',month:'long'}))}, ${Math.round(daily[i])} min, ${day.length} ${ui('activities', 'actividades')}"><small>${ui(['M','T','W','T','F','S','S'], ['L','M','X','J','V','S','D'])[i]}</small><b>${+date.slice(8)}</b><span class="cp-day-practice" aria-hidden="true"><i style="width:${daily[i]>0?Math.max(10,daily[i]/peak*100):0}%"></i></span><span class="cp-day-minutes" aria-hidden="true">${daily[i]>0?Math.round(daily[i])+'′':'·'}</span><span class="cp-today-marks">${types.map(type=>`<i data-activity="${type}"></i>`).join('')}</span></button>`;}).join('')}</div>
+
     </div>
   </section>`;
+}
+
+function todayAppointmentMarkup(entry) {
+  if (!entry.event) return agendaCard(entry);
+  const event = entry.event;
+  return `<article class="cp-agenda-card cp-today-appointment" data-activity="event" data-entry-id="${esc(entry.id)}"><button type="button" class="cp-entry-open" data-action="event-detail" data-id="${esc(event.id)}"><span class="cp-appointment-time"><strong>${esc(event.time || '—')}</strong><small>${esc(entry.lessonCompleted ? ui('Completed lesson','Clase completada') : eventTypeLabel(event.type))}</small></span><span class="cp-appointment-copy"><strong>${esc(event.title)}</strong>${event.place ? `<small>${esc(event.place)}</small>` : ''}</span><span class="cp-upcoming-chevron">${scoreIcon('next')}</span></button></article>`;
+}
+
+function upcomingEventMarkup(event, today) {
+  const featured = ['Audición', 'Concierto'].includes(event.type);
+  const countdown = eventCountdown(event.date, today);
+  const units = eventCountdownUnits(event.date, today).map(({value, unit}) => {
+    const formatter = new Intl.NumberFormat(getAppLanguage(), {style:'unit', unit, unitDisplay:'long'});
+    const label = formatter.formatToParts(value).filter(part => part.type === 'unit').map(part => part.value).join('');
+    return `<span class="cp-upcoming-unit"><b>${esc(new Intl.NumberFormat(getAppLanguage()).format(value))}</b><small>${esc(label)}</small></span>`;
+  }).join('');
+  return `<button type="button" data-action="event-detail" data-id="${esc(event.id)}" data-event-type="${esc(event.type)}" data-event-tier="${featured ? 'featured' : 'secondary'}" class="cp-upcoming-event">
+    <span class="cp-upcoming-main">${eventDateTileMarkup(event.date)}<span class="cp-upcoming-copy"><span class="cp-upcoming-meta"><span class="cp-upcoming-type">${esc(eventTypeLabel(event.type))}</span>${event.time ? `<time datetime="${esc(event.date)}T${esc(event.time)}">${esc(event.time)}</time>` : ''}</span><strong>${esc(event.title)}</strong>${!featured ? `<span class="cp-upcoming-remaining">${esc(countdown)}</span>` : ''}</span><span class="cp-upcoming-chevron">${scoreIcon('next')}</span></span>
+    ${featured ? `<span class="cp-upcoming-remaining"><span class="cp-upcoming-caption">${ui('Time remaining','Tiempo restante')}</span><span class="sr-only">${esc(countdown)}</span><span class="cp-upcoming-units" aria-hidden="true">${units}</span></span>` : ''}
+  </button>`;
 }
 
 export function todayMarkup(data, icon, today = localDate(), sessionOptions = {}) {
   const {active,next,entries} = todayPractice(data,today);
   const remaining = entries.filter(e=>active || !next || e.plan?.id !== next.id);
+  const scheduled = remaining.filter(entry => !entry.session);
+  const saved = remaining.filter(entry => entry.session);
   const events = upcomingEvents(data.events,today);
+  const performances = events.filter(event => ['Audición', 'Concierto'].includes(event.type));
+  const appointments = events.filter(event => !performances.includes(event));
   return `<div class="cp-today">
     <div class="cp-row cp-today-title"><div><h1>${ui("Today", "Hoy")}</h1><p class="muted">${data.preferences.name ? `${ui('Hello', 'Hola')}, ${esc(data.preferences.name)} · ` : ''}${dateLabel(today,{weekday:'long',day:'numeric',month:'long'})}</p></div></div>
     ${todayWeeklyProgress(data,today)}
     ${practiceFocus(active || next,active?'active':next?'planned':'empty',true)}
-    ${remaining.length ? `<section class="cp-section"><h2>${ui('Also today', 'También hoy')}</h2><div class="cp-today-sessions">${remaining.map(e=>agendaCard(e,{detailed:true,works:data.works,sessionOptions})).join('')}</div></section>` : ''}
-    <div class="cp-section">
-    <section class="cp-card"><div class="cp-row"><h2>${ui("Coming up", "Próximos compromisos")}</h2>${button('new-event',ui("+ Event", "+ Evento"),'','quiet')}</div>${events.length?events.map(e=>`<button type="button" data-action="event-detail" data-id="${esc(e.id)}" class="cp-upcoming-event"><span class="cp-countdown"><b>${daysUntil(e.date,today)}</b><small>${ui("days", "días")}</small></span><span><strong>${esc(e.title)}</strong><small>${esc(dateLabel(e.date))} · ${esc(eventTypeLabel(e.type))}</small></span></button>`).join(''):`<p class="muted">${ui("Add a lesson or audition to keep track of your preparation time.", "Añade una clase o audición y ten presente cuánto queda para prepararla.")}</p>`}</section></div>
+    ${scheduled.length ? `<section class="cp-section cp-today-schedule"><h2>${ui('Also today', 'También hoy')}</h2><div class="cp-today-sessions">${scheduled.map(todayAppointmentMarkup).join('')}</div></section>` : ''}
+    <section class="cp-section cp-upcoming-section"><div class="cp-row cp-upcoming-heading"><h2>${ui("Coming up", "Próximos compromisos")}</h2>${button('new-event',ui("+ Event", "+ Evento"),'','quiet')}</div>
+      ${performances.length ? `<div class="cp-upcoming-featured">${performances.map(event=>upcomingEventMarkup(event,today)).join('')}</div>` : ''}
+      ${appointments.length ? `<div class="cp-upcoming-secondary">${appointments.map(event=>upcomingEventMarkup(event,today)).join('')}</div>` : ''}
+      ${!events.length ? `<p class="muted">${ui("Add a lesson or audition to keep track of your preparation time.", "Añade una clase o audición y ten presente cuánto queda para prepararla.")}</p>` : ''}
+    </section>
+    ${saved.length ? `<section class="cp-section cp-today-history"><h2>${ui('Practised today','Practicado hoy')}</h2><div class="cp-today-sessions">${saved.map(e=>agendaCard(e,{detailed:true,works:data.works,sessionOptions})).join('')}</div></section>` : ''}
   </div>`;
 }

@@ -29,6 +29,7 @@ import './progress-time.css';
 import {formatProgressDuration} from './progress-duration.js';
 import {workPracticeTotals, workPracticeLabel} from './work-practice.js';
 import {eventCountdown} from './event-countdown.js';
+import {eventDateTileMarkup} from './event-date-tile.js';
 import { savedSessionsMarkup } from './saved-session-card.js';
 import { bindScoreThumbnails } from './score-thumbnail.js';
 import './saved-session-card.css';
@@ -89,6 +90,8 @@ import './dashboard.css';
 import './session-view.css';
 import './warmup-guide.css';
 import './navigation-refinement.css';
+import './today.css';
+import './appearance.css';
 import { openStore } from './store.js';
 import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, weekOf, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
 import { TARGETS, targetById } from './curriculum.js';
@@ -645,11 +648,9 @@ export async function bootCompanion(reader) {
     const completed=lessonResult(data,e.id);
     const lesson=e.type==='Clase'?`<section class="cp-card"><div class="cp-row"><h2>${completed?ui('Completed lesson','Clase completada'):ui('Lesson','Clase')}</h2>${btn('complete-lesson',completed?ui('Edit completed lesson','Editar clase completada'):ui('Complete lesson','Completar clase'),e.id,'primary')}</div>${completed?`${sessionCards([completed])}<p style="white-space:pre-wrap">${esc(completed.notes)}</p>${completed.next?`<h3>${ui('Next step','Próximo paso')}</h3><p style="white-space:pre-wrap">${esc(completed.next)}</p>`:''}${completed.workIds?.length?`<h3>${ui('Scores worked on','Partituras trabajadas')}</h3>${completed.workIds.map(id=>`<div class="cp-actions">${btn('work-detail',esc(workName(id)),id)}${workHasScore(data.works.find(w=>w.id===id)||{})?btn('open-pdf',ui('Open score','Abrir partitura'),id):''}</div>`).join('')}`:''}`:''}</section>${lessonRecordings(e)}`:'';
     const totals=workPracticeTotals(data.sessions);
-    const eventDate=new Date(`${e.date}T12:00:00`);
-    const datePart=options=>new Intl.DateTimeFormat(getAppLanguage(),options).format(eventDate);
     return `<div class="cp-event-detail">
       <section class="cp-event-overview"><div class="cp-event-summary"><div class="cp-detail-heading"><h1 class="cp-detail-title" data-detail-title>${esc(e.title)}</h1><p class="cp-event-type">${esc(eventTypeLabel(e.type))}</p></div>${btn('close-event','<span aria-hidden="true">×</span> '+ui('Close','Cerrar'))}</div>
-      <div class="cp-event-schedule"><time class="cp-event-date-tile" datetime="${esc(e.date)}" aria-label="${esc(datePart({dateStyle:'full'}))}"><span class="cp-event-month">${esc(datePart({month:'short',year:'numeric'}))}</span><strong>${esc(datePart({day:'numeric'}))}</strong><span class="cp-event-weekday">${esc(datePart({weekday:'long'}))}</span></time>
+      <div class="cp-event-schedule">${eventDateTileMarkup(e.date)}
       <div class="cp-event-countdown"><span>${completed?ui('Original plan','Plan original'):ui('Time remaining','Tiempo restante')}</span><strong>${esc(eventCountdown(e.date))}</strong><div class="cp-event-time-actions">${e.time?`<time class="cp-event-hour" datetime="${esc(e.date)}T${esc(e.time)}">${esc(e.time)}</time>`:''}${btn('edit-event',ui('Edit','Editar'),e.id,'quiet')}</div></div></div>${e.place?`<p class="cp-event-place">${esc(e.place)}</p>`:''}${e.notes?`<p class="cp-event-notes">${esc(e.notes)}</p>`:''}</section>
       ${lesson}
       <section class="cp-event-preparation"><h2>${ui('Preparation steps','Pasos de preparación')}</h2><div class="cp-event-steps">${(e.milestones||[]).map((m,i)=>`<label class="check"><input type="checkbox" data-milestone="${i}" ${m.done?'checked':''} /><span>${esc(m.title)}</span></label>`).join('')}</div><p class="muted">${ui('Mark each step when you feel ready.','Tú marcas cuándo está preparado cada paso.')}</p></section>

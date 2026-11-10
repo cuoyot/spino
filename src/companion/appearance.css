@@ -1,0 +1,76 @@
+/* Shared palette: soft practice-inspired surfaces by day, warmer color in the evening. */
+:root {
+  --theme-bg:#1b2640; --theme-panel:#273650; --theme-raised:#344461;
+  --theme-text:#f1f2fa; --theme-muted:#b9c5dc; --theme-hint:#b9c5dc;
+  --theme-line:#40516d; --theme-border:#526381; --theme-control:#2d3e5c;
+  --theme-accent:#abbaf3; --theme-link:#c0cdfb; --theme-tint:#35476b; --theme-selected:#405779;
+  --theme-floating:#283852f5; --theme-warning:#f4c69c; --theme-success:#9fe0cc; --theme-secondary:#b9c5dc;
+  --palette-blue:#becdf8; --palette-blue-tint:#33486c; --palette-teal:#98dfcf; --palette-teal-tint:#2a4b52;
+  --palette-purple:#d4c1f2; --palette-purple-tint:#493b61; --palette-gold:#f4c69c; --palette-gold-tint:#594451;
+  --palette-shadow:0 3px 8px #0b142226,0 9px 22px #0b142212;
+  --performance-bg:linear-gradient(120deg,#61445f,#49394f); --performance-text:#fff4ed; --performance-muted:#f1d6da;
+  --performance-date-bg:#ffdcc2; --performance-date-head:#f2bb9e; --performance-date-text:#563b43;
+  --performance-type-bg:#ffdbc51c; --performance-edge:#d9b9cc30; --performance-rule:#efd0d42b;
+}
+:root[data-theme=light] {
+  --theme-bg:#f7f7fb; --theme-panel:#ffffff; --theme-raised:#edf0f7;
+  --theme-text:#303b50; --theme-muted:#626e85; --theme-hint:#626e85;
+  --theme-line:#dce2ed; --theme-border:#cbd5e4; --theme-control:#f2f4fa;
+  --theme-accent:#5c70a6; --theme-link:#52679d; --theme-tint:#e9edf9; --theme-selected:#dfe6f6;
+  --theme-floating:#fffffff5; --theme-warning:#8b5e36; --theme-success:#377464; --theme-secondary:#626e85;
+  --palette-blue:#52679d; --palette-blue-tint:#e9eefb; --palette-teal:#3c746c; --palette-teal-tint:#e8f4ee;
+  --palette-purple:#735d95; --palette-purple-tint:#f0eafb; --palette-gold:#916447; --palette-gold-tint:#fcf0e5;
+  --palette-shadow:0 2px 4px #36497506,0 7px 18px #36497509;
+  --performance-bg:linear-gradient(120deg,#fff2e7,#fae9e3); --performance-text:#533d44; --performance-muted:#7c5b60;
+  --performance-date-bg:#fffaf4; --performance-date-head:#f8dac3; --performance-date-text:#7c4b39;
+  --performance-type-bg:#f6daca; --performance-edge:#ead3ca; --performance-rule:#e9d3ca;
+}
+:root[data-theme] #app-shell .cp-browse-surface[data-view] {
+  --browse-blue:var(--palette-blue); --browse-blue-tint:var(--palette-blue-tint);
+  --browse-teal:var(--palette-teal); --browse-teal-tint:var(--palette-teal-tint); --browse-tint:var(--palette-teal-tint);
+  --browse-purple:var(--palette-purple); --browse-purple-tint:var(--palette-purple-tint);
+  --browse-gold:var(--palette-gold); --browse-gold-tint:var(--palette-gold-tint);
+  --browse-card:var(--theme-panel); --browse-panel:var(--palette-blue-tint); --browse-edge:var(--theme-line); --browse-shadow:var(--palette-shadow);
+  --review-panel:var(--theme-panel); --review-edge:var(--theme-line); --review-blue:var(--palette-blue); --review-blue-tint:var(--palette-blue-tint); --review-shadow:var(--palette-shadow);
+  background:var(--theme-bg);
+}
+:root[data-theme] #app-shell :is(.cp-app-header,.cp-nav) { background:var(--theme-panel); border-color:var(--theme-line); }
+:root[data-theme] #app-shell .cp-browse-surface[data-view=calendar] .cp-agenda-toolbar { background:var(--theme-bg); }
+:root[data-theme] #app-shell .cp-browse-surface[data-view] .cp-choice-group button:is([aria-pressed=true],[aria-current=page]),
+:root[data-theme] #app-shell .cp-nav button[aria-current=page],
+:root[data-theme] #app-shell .current-week .cp-week-badge {
+  background:var(--theme-selected); color:var(--theme-text); border-color:transparent;
+}
+:root[data-theme] #app-shell .cp-calendar-today { background:var(--palette-blue-tint); color:var(--palette-blue); border-color:var(--theme-line); }
+:root[data-theme] :is(#app-shell,#cp-dialog) .primary,
+:root[data-theme] #start { background:#abbaf3; border-color:#abbaf3; color:#273655; }
+:root[data-theme=light] :is(#app-shell,#cp-dialog) .primary,
+:root[data-theme=light] #start { background:#e3eafb; border-color:#d3ddf1; color:#405a90; }
+:root[data-theme] #app-shell .cp-today .cp-today-quick-actions .primary { background:var(--palette-blue-tint); color:var(--palette-blue); border-color:var(--theme-line); }
+:root[data-theme] #app-shell .cp-today .cp-day-practice > i,
+:root[data-theme] #app-shell .cp-today-progress-track > span { background:linear-gradient(90deg,#9cabdc,#8ac8bb); }
+:root[data-theme] #app-shell .cp-today .cp-today-days [aria-current=date] b { background:var(--theme-selected); color:var(--theme-text); }
+:root[data-theme] #app-shell .cp-upcoming-featured .cp-upcoming-event[data-event-type=Concierto] {
+  --performance-bg:linear-gradient(120deg,#424f7c,#3c3f65); --performance-text:#f6f1ff; --performance-muted:#d6d4f0;
+  --performance-date-bg:#ddd8f8; --performance-date-head:#c6c0eb; --performance-date-text:#454267;
+  --performance-type-bg:#d6cff523; --performance-edge:#aaa2d43d; --performance-rule:#d6d2f12b;
+}
+:root[data-theme=light] #app-shell .cp-upcoming-featured .cp-upcoming-event[data-event-type=Concierto] {
+  --performance-bg:linear-gradient(120deg,#f1edfc,#e8eefb); --performance-text:#444864; --performance-muted:#626584;
+  --performance-date-bg:#fdfbff; --performance-date-head:#e5ddf6; --performance-date-text:#645487;
+  --performance-type-bg:#e4ddf3; --performance-edge:#dcdcf0; --performance-rule:#dcdcf0;
+}
+
+:root[data-theme] #app-shell .cp-browse-surface .cp-agenda-day time[aria-current=date] > b,
+:root[data-theme] #app-shell .cp-browse-surface .cp-section-tabs [aria-current=page],
+:root[data-theme] #app-shell .cp-time-ranges [aria-pressed=true],
+:root[data-theme] #app-shell .cp-segment [aria-pressed=true],
+:root[data-theme] #app-shell .cp-week button[aria-pressed=true],
+:root[data-theme] #app-shell .cp-day[aria-pressed=true],
+:root[data-theme] #app-shell .cp-planner-days input:checked + span,
+:root[data-theme] #cp-dialog .cp-date-days button[aria-pressed=true] {
+  background:var(--theme-selected); color:var(--theme-text); border-color:var(--theme-line);
+}
+
+/* Keep the progress plot at card width instead of letterboxing its SVG. */
+#app-shell .cp-progress-page .cp-time-chart svg { max-height:none; width:100%; height:auto; }
