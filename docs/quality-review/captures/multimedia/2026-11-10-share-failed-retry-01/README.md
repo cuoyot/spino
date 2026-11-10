@@ -1,0 +1,9 @@
+# Failed video share and cached retry — 2026-11-10
+
+Owner clarification: the installed app eventually responded, but sharing did not complete. This does not establish successful chooser launch or delivery, and the exact phone-side failure remains unverified. The phone still has the published app; the pending source fixes have not been packaged.
+
+The current source retains the previous close/Back and native-launch repairs. The failure message now explicitly directs the user to Share again while confirming that the recording remains saved. The extended decorated-video regression forces a share-opening failure after processing, retries through the prepared-video action without a new conversion/progress dialog, and compares the prepared file SHA-256 on both attempts. Original file bytes/duration remain unchanged.
+
+`retry-check.log` records the passing isolated decorated-video regression. Six related sharing, Close/Back, stalled-callback and write-retry checks pass in the initial focused run. That run hit the previously observed initial progress-dialog timeout in the decorated test; the isolated retry passes. This limitation is retained in `focused-checks-initial.log`. Current source/build hashes and the verified conditions are in `verification.json`. Earlier responsive layouts and Android compilation/15 unit checks are recorded in share-close-back-04; native Java source is unchanged in this follow-up.
+
+Source: `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`, `codex/repertoire-multiselect`, published beta125 base. Synthetic notebook/video only; no personal recording, PDF or annotation was accessed. No new APK, release, website publication or physical Android acceptance. The prepared cache remains scoped to the running app and does not survive process termination.

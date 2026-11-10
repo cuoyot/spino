@@ -1,0 +1,37 @@
+{
+  "version": "6.2.2-beta.4",
+  "versionCode": 126,
+  "baseCommit": "b8e8947bd3b436d56b2112cc599f4c7dc4b5420b",
+  "applicationTests": {
+    "passed": 29,
+    "failed": 0,
+    "log": "6.2.2-beta.4-application-tests.log"
+  },
+  "androidTests": {
+    "passed": 15,
+    "failed": 0,
+    "log": "6.2.2-beta.4-android-build.log"
+  },
+  "websiteTests": {
+    "passed": 11,
+    "failed": 0,
+    "log": "6.2.2-beta.4-website-tests.log"
+  },
+  "packages": {
+    "identicalWebFiles": 687,
+    "apkAndAabMatchBuild": true
+  },
+  "nativeEvidence": {
+    "version": "6.2.2-beta.4",
+    "versionCode": 126,
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "originalFilesRetained": 140,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": "ResumedActivity: ActivityRecord{a5781c1 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t206}",
+    "checkedAt": "2026-11-10T21:14:41.052196+00:00"
+  },
+  "physicalDeviceAcceptance": false,
+  "playConsoleSubmission": "Not requested; website beta APK delivery only.",
+  "knownBaselineDebt": "Earlier broad browser pass had two startup timeouts; final serial focused run passes. Existing standalone caption/calendar assertions outside this scope remain baseline debt. No persistent Android background service is claimed."
+}

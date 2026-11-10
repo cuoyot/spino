@@ -47,7 +47,7 @@
 :root[data-theme=light] :is(#app-shell,#cp-dialog) .primary,
 :root[data-theme=light] #start { background:#e3eafb; border-color:#d3ddf1; color:#405a90; }
 :root[data-theme] #app-shell .cp-today .cp-today-quick-actions .primary { background:var(--palette-blue-tint); color:var(--palette-blue); border-color:var(--theme-line); }
-:root[data-theme] #app-shell .cp-today .cp-day-practice > i,
+:root[data-theme] #app-shell .cp-today .cp-day-practice > i { background:linear-gradient(0deg,#9cabdc,#8ac8bb); }
 :root[data-theme] #app-shell .cp-today-progress-track > span { background:linear-gradient(90deg,#9cabdc,#8ac8bb); }
 :root[data-theme] #app-shell .cp-today .cp-today-days [aria-current=date] b { background:var(--theme-selected); color:var(--theme-text); }
 :root[data-theme] #app-shell .cp-upcoming-featured .cp-upcoming-event[data-event-type=Concierto] {

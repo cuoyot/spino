@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+ok 1 - new sessions start at forty minutes and the total slider updates all blocks without changing tempo
+  ---
+  duration_ms: 2938.938459
+  ...
+# Subtest: total duration preserves proportions and block identities without mutating saved routines
+ok 2 - total duration preserves proportions and block identities without mutating saved routines
+  ---
+  duration_ms: 1.121958
+  ...
+# Subtest: rounding, minimum block time and long existing routines keep exact totals
+ok 3 - rounding, minimum block time and long existing routines keep exact totals
+  ---
+  duration_ms: 1.258958
+  ...
+# Subtest: all practice types choose Mobile or With piano before configuration, retaining the draft
+ok 4 - all practice types choose Mobile or With piano before configuration, retaining the draft
+  ---
+  duration_ms: 3114.917667
+  ...
+# Subtest: With piano selects connected MIDI automatically without a third configuration mode
+ok 5 - With piano selects connected MIDI automatically without a third configuration mode
+  ---
+  duration_ms: 1474.630916
+  ...
+# Subtest: stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+ok 6 - stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+  ---
+  duration_ms: 4502.96175
+  ...
+# Subtest: optional warm-ups materialize every configured type without rewriting the practice
+ok 7 - optional warm-ups materialize every configured type without rewriting the practice
+  ---
+  duration_ms: 5.2625
+  ...
+# Subtest: repertoire has its type before its content and omits the tempo in preparation and overview
+ok 8 - repertoire has its type before its content and omits the tempo in preparation and overview
+  ---
+  duration_ms: 1.403292
+  ...
+# Subtest: warm-up consumes the selected total and returns its minutes when disabled
+ok 9 - warm-up consumes the selected total and returns its minutes when disabled
+  ---
+  duration_ms: 0.373958
+  ...
+# Subtest: static piano marks the real pitches, including enharmonic scale spellings
+ok 10 - static piano marks the real pitches, including enharmonic scale spellings
+  ---
+  duration_ms: 3.940042
+  ...
+# Subtest: repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+ok 11 - repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+  ---
+  duration_ms: 4500.562
+  ...
+# Subtest: multiple pieces share a fixed total while retaining settings, IDs and warm-up
+ok 12 - multiple pieces share a fixed total while retaining settings, IDs and warm-up
+  ---
+  duration_ms: 4.653375
+  ...
+# Subtest: selection never exceeds the available minutes or twenty pieces
+ok 13 - selection never exceeds the available minutes or twenty pieces
+  ---
+  duration_ms: 0.295375
+  ...
+# Subtest: existing custom plans remain editable without merging activity identities
+ok 14 - existing custom plans remain editable without merging activity identities
+  ---
+  duration_ms: 0.131708
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4653.477042

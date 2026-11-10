@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {openBrowser} from './browser.js';
 import {todayCompactFixtures,REVIEW_NOW} from '../scripts/review/today-compact-fixtures.mjs';
 
-test('Today keeps daily progress, appointments and performances ahead of saved practice history', {timeout:60000},async t=>{
+test('Today restores the weekly overview and retains appointments and performance priorities', {timeout:60000},async t=>{
   const {send,evaluate,url,errors}=await openBrowser(t,{companion:true});
   const baseline=!!process.env.TODAY_COMPACT_BASELINE,evidence=process.env.TODAY_COMPACT_EVIDENCE,measurements=[];
   await send('Emulation.setTimezoneOverride',{timezoneId:'Europe/Madrid'});
@@ -19,7 +19,9 @@ test('Today keeps daily progress, appointments and performances ahead of saved p
     await send('Page.reload');await wait(`document.querySelector('.cp-today')`);await evaluate('document.fonts.ready');await wait(`document.querySelector('#cp-toast').hidden`);
     assert.equal(await evaluate(`document.querySelector('.cp-today-progress-total strong').textContent`),'50 min');
     if(!baseline){
-      assert.equal(await evaluate(`document.querySelector('.cp-today-progress-today strong').textContent`),'12 min');
+      assert.equal(await evaluate(`document.querySelector('.cp-today-progress-heading h2').textContent`),'Tu semana');
+      assert.match(await evaluate(`document.querySelector('.cp-today-progress-caption').textContent`),/190/);
+      assert.equal(await evaluate(`getComputedStyle(document.querySelector('.cp-today-progress-caption')).position`),'static');
       assert.equal(await evaluate(`!!(document.querySelector('.cp-upcoming-section').compareDocumentPosition(document.querySelector('.cp-today-history'))&Node.DOCUMENT_POSITION_FOLLOWING)`),true);
       assert.equal(await evaluate(`document.querySelectorAll('.cp-today-history .cp-history-card').length`),1);
     }
@@ -31,10 +33,9 @@ test('Today keeps daily progress, appointments and performances ahead of saved p
       if(evidence)await writeFile(`${evidence}/${state}-${theme}-${width}x${height}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
       assert.equal(metrics.overflow,false);
       if(!baseline){
-        assert.ok(metrics.progress.height<=205,JSON.stringify({state,width,height,...metrics}));
+        assert.ok(metrics.pills.every(p=>p.height===32),JSON.stringify(metrics.pills));
         assert.ok(metrics.focus.height<=(state==='current'?60:145),JSON.stringify({state,width,height,...metrics}));
         assert.ok(metrics.appointment.top<metrics.performance.top);
-        if(state==='current'&&width===390)assert.ok(metrics.performance.bottom<=metrics.page.bottom,JSON.stringify(metrics));
         for(const action of metrics.actions)assert.ok(action.width>=44&&action.height>=44,JSON.stringify(action));
       }
       measurements.push({state,theme,width,height,...metrics});

@@ -85,3 +85,39 @@ Run `node scripts/review/preview-audio-visualizer.mjs`, open http://127.0.0.1:53
 
 
 2026-10-18 beta20/build73 delivery: D-063 is included in the owner-authorized Android/website release. [Release validation](../releases/6.1.0-beta.20-validation.json) records the final browser checks, native replacement installation, actual Android gestures, six native light/dark animation frames, preserved recorder/stream, monitor cleanup, sharing and current original-store/blob retention. [Publication](../releases/6.1.0-beta.20-publication.json) is recorded separately. Physical microphone/performance and owner visual acceptance remain open. Earlier source-only statements are historical.
+
+
+## 2026-11-10 — Distinguish recording stop and retain export progress
+
+Owner evidence: two phone screenshots show an unlabeled recording square near the practice stop and a video preparation dialog cancelled by screen locking. Accepted objectives: a clear recording stop, preservation after an accidental practice stop, and a faster/more resilient sharing flow. This source proposal builds on the owner-accepted multiple-repertoire selection in the same isolated beta125-based worktree.
+
+Implemented: a labeled red **Stop recording** remains in the score widget, including its collapsed state; the duplicate square is hidden. PDF/MusicXML call the recording guard before closing. An active take stops into a retained review and leaves practice paused on the score. Existing already-stopped reviews still retain their draft when leaving; storage errors remain visible rather than claiming persistence.
+
+Video Share first offers the original file without conversion, or optional title/closing cards. The original route verifies exact bytes. Decorated conversion no longer cancels solely on visibility change. Browser rendering pauses both playback and MediaRecorder, excludes hidden time from its timeout/fades and resumes on return. The native conversion/staging request remains alive; sharing is deferred until visible. Preparation requests screen-awake while visible and retains explicit Cancel. A fresh **Share prepared file** action avoids expired browser activation. One prepared copy is cached in memory, keyed by take/revision, size/type, duration, titles, date, format and language, so retry need not re-encode.
+
+The existing native FileProvider transport still stages a completed file with temporary read access, consistent with [Android secure sharing](https://developer.android.com/training/secure-file-sharing). Choosing a destination before conversion and surviving process termination would need a separate Android export workflow; it is not claimed here. No persistent background service, native Android build, publication or physical lock acceptance is included. Original notebook, recording identities, scores and annotations remain intact; shared saved-session cards are unchanged.
+
+[Responsive evidence](captures/multimedia/2026-11-10-recording-stop-export-05/README.md) separates browser and simulated bridge checks from native acceptance. Worktree: `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`, branch `codex/repertoire-multiselect`, published base `b8e8947bd3b436d56b2112cc599f4c7dc4b5420b`. Recording preview: http://127.0.0.1:5342/; export chooser: http://127.0.0.1:5342/?review=export. Both use synthetic PDF/video/camera data and namespaced disposable stores. In-app browser opening was unavailable. Next: owner layout review, then native physical screen-lock/recipient acceptance when packaged.
+
+
+## 2026-11-10 — Recover a frozen saved-recording viewer and consume Back
+
+Owner screenshot/report: after processing, the saved recording viewer ignores Close and Back navigates the underlying app. Inspection identifies two matching defects: sharing reused the viewer's write-busy flag until the OS callback returned; floating media panels were absent from the app's Back stack.
+
+The repair separates sharing from local writes. Saved Close remains available; it aborts the owned sharing operation and dismisses the viewer without deleting its file. Abort-aware waits release the UI even if staging, native sharing or cleanup never answers. Late callbacks cannot report into or unlock another operation. Mutation controls remain disabled during sharing. Genuine local writes remain guarded; a failed draft write retains the edited title and review for retry. Preparation/choice dialogs observe the same cancellation signal.
+
+App Back now asks the media controller to handle its layer before closing the enclosing score/studio or traversing screen history. Export dialogs retain first priority when above the viewer. The native share plugin opens the chooser with `startActivity` and resolves once launched; it no longer waits for an optional activity result from a receiving app. The temporary FileProvider file remains available under the existing retention policy; opening a chooser is not recipient delivery.
+
+[Current evidence](captures/multimedia/2026-11-10-share-close-back-04/README.md) includes stalled-sharing/staging, Close/Back/late-callback and failed-write recovery with synthetic video hashes and responsive frames. Android Java compilation and 15 unit checks pass. The clean beta125-based worktree remains `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; earlier repertoire and recording improvements are preserved. No new APK, replacement install, release or physical-device acceptance is claimed. The published app is unchanged.
+
+Preview: http://127.0.0.1:5342/?review=share reproduces a nonresponding share with synthetic media and a working Close. The in-app browser was unavailable. Next: owner review, followed by physical Android sharing/Back verification when packaged.
+
+
+2026-11-10 owner clarification: the installed viewer eventually became responsive, but the share did not complete. The exact native cause remains unverified; recovery of the panel is not evidence of delivery. Pending source now adds explicit retry guidance and verifies a failed decorated-video sharing attempt followed by reuse of the identical prepared file, without another conversion. [Failure/retry evidence](captures/multimedia/2026-11-10-share-failed-retry-01/README.md) retains an initial known progress-dialog timeout and the passing isolated retry. Existing Close/Back/native-launch changes remain; no APK or physical-device fix is claimed yet.
+
+
+## 2026-11-10 — Persistent processed video implemented
+
+The owner requested processing once and reusing a persistently saved prepared file after restart. Save commits the original before preparing a separate derived copy in an installation-local IndexedDB store; Share reuses that copy. Mutable title/language metadata does not invalidate it. Trim invalidates and recreates it from the original. Deletion/release clean up derived files; quota failure leaves the original intact. Legacy or missing prepared files can prepare once again.
+
+Eight focused browser cases and the final serial persistence/close/retry checks pass. Evidence: [persistent video](captures/multimedia/2026-11-10-persistent-video-01/). The new beta126 packaging/publication is in progress after the owner approved restoring Today's 6.2 weekly layout and requested an APK and website delivery. Physical screen-lock and receiving-app acceptance remain separate; no persistent Android background service is claimed.

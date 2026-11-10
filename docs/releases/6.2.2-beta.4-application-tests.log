@@ -1,0 +1,184 @@
+TAP version 13
+# Subtest: legacy video prepares once; failed sharing, metadata changes and app restart reuse the persistent file
+ok 1 - legacy video prepares once; failed sharing, metadata changes and app restart reuse the persistent file
+  ---
+  duration_ms: 19211.961958
+  type: 'test'
+  ...
+# Subtest: saving a video prepares its durable copy before Share; restart shares without encoding
+ok 2 - saving a video prepares its durable copy before Share; restart shares without encoding
+  ---
+  duration_ms: 10872.425667
+  type: 'test'
+  ...
+# Subtest: Close and Android Back dismiss a saved viewer during a stalled share without navigating or losing the video
+ok 3 - Close and Android Back dismiss a saved viewer during a stalled share without navigating or losing the video
+  ---
+  duration_ms: 1479.904625
+  type: 'test'
+  ...
+# Subtest: Back cancels a stalled native staging dialog promptly, then closes the viewer before route navigation
+ok 4 - Back cancels a stalled native staging dialog promptly, then closes the viewer before route navigation
+  ---
+  duration_ms: 994.225417
+  type: 'test'
+  ...
+# Subtest: Back retains an edited draft and stays on its review if the local write fails
+ok 5 - Back retains an edited draft and stays on its review if the local write fails
+  ---
+  duration_ms: 848.711625
+  type: 'test'
+  ...
+# Subtest: native original sharing skips conversion, keeps staging across lock and presents only after returning
+ok 6 - native original sharing skips conversion, keeps staging across lock and presents only after returning
+  ---
+  duration_ms: 869.982125
+  type: 'test'
+  ...
+# Subtest: cancelling an unresponsive OS operation releases the caller and consumes late failure
+ok 7 - cancelling an unresponsive OS operation releases the caller and consumes late failure
+  ---
+  duration_ms: 2.950292
+  type: 'test'
+  ...
+# Subtest: normal completion and OS errors keep their result
+ok 8 - normal completion and OS errors keep their result
+  ---
+  duration_ms: 0.216167
+  type: 'test'
+  ...
+# Subtest: processed files survive reopen, follow take revisions, and clean up without changing originals
+ok 9 - processed files survive reopen, follow take revisions, and clean up without changing originals
+  ---
+  duration_ms: 804.85975
+  type: 'test'
+  ...
+# Subtest: failed processed-file writes keep the saved original and never advertise a ready copy
+ok 10 - failed processed-file writes keep the saved original and never advertise a ready copy
+  ---
+  duration_ms: 713.494
+  type: 'test'
+  ...
+# Subtest: sharing keeps original recording bytes, safe musical filenames and audio/video MIME types
+ok 11 - sharing keeps original recording bytes, safe musical filenames and audio/video MIME types
+  ---
+  duration_ms: 2.076417
+  type: 'test'
+  ...
+# Subtest: native sharing transfers bounded sequential chunks before opening the system chooser
+ok 12 - native sharing transfers bounded sequential chunks before opening the system chooser
+  ---
+  duration_ms: 17.574833
+  type: 'test'
+  ...
+# Subtest: interrupted preparation releases its temporary copy without opening sharing
+ok 13 - interrupted preparation releases its temporary copy without opening sharing
+  ---
+  duration_ms: 0.472917
+  type: 'test'
+  ...
+# Subtest: saving a ZIP uses a document destination after all chunks, without opening sharing
+ok 14 - saving a ZIP uses a document destination after all chunks, without opening sharing
+  ---
+  duration_ms: 20.573875
+  type: 'test'
+  ...
+# Subtest: cancelled document save returns cancellation and provider failure releases the staged ZIP
+ok 15 - cancelled document save returns cancellation and provider failure releases the staged ZIP
+  ---
+  duration_ms: 0.476791
+  type: 'test'
+  ...
+# Subtest: native staging cancels safely and waits before presenting the chooser
+ok 16 - native staging cancels safely and waits before presenting the chooser
+  ---
+  duration_ms: 6.457916
+  type: 'test'
+  ...
+# Subtest: stopping PDF practice retains the active recording visibly before leaving and preserves saved takes
+ok 17 - stopping PDF practice retains the active recording visibly before leaving and preserves saved takes
+  ---
+  duration_ms: 2050.967709
+  type: 'test'
+  ...
+# Subtest: stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+ok 18 - stand selection, horizontal cards, other repertoire pieces and catalogue preserve preparation
+  ---
+  duration_ms: 2282.524
+  type: 'test'
+  ...
+# Subtest: new installations keep onboarding and do not receive an update prompt
+ok 19 - new installations keep onboarding and do not receive an update prompt
+  ---
+  duration_ms: 0.742208
+  type: 'test'
+  ...
+# Subtest: only a known major/minor change prompts; patch, beta and legacy state migrate quietly
+ok 20 - only a known major/minor change prompts; patch, beta and legacy state migrate quietly
+  ---
+  duration_ms: 0.1645
+  type: 'test'
+  ...
+# Subtest: unavailable local preferences never prevent startup or repeatedly request a rating
+ok 21 - unavailable local preferences never prevent startup or repeatedly request a rating
+  ---
+  duration_ms: 0.08925
+  type: 'test'
+  ...
+# Subtest: all five locales provide the three improvements and an optional neutral rating action
+ok 22 - all five locales provide the three improvements and an optional neutral rating action
+  ---
+  duration_ms: 0.284375
+  type: 'test'
+  ...
+# Subtest: repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+ok 23 - repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+  ---
+  duration_ms: 1297.915541
+  type: 'test'
+  ...
+# Subtest: multiple pieces share a fixed total while retaining settings, IDs and warm-up
+ok 24 - multiple pieces share a fixed total while retaining settings, IDs and warm-up
+  ---
+  duration_ms: 4.964625
+  type: 'test'
+  ...
+# Subtest: selection never exceeds the available minutes or twenty pieces
+ok 25 - selection never exceeds the available minutes or twenty pieces
+  ---
+  duration_ms: 0.250292
+  type: 'test'
+  ...
+# Subtest: existing custom plans remain editable without merging activity identities
+ok 26 - existing custom plans remain editable without merging activity identities
+  ---
+  duration_ms: 0.086583
+  type: 'test'
+  ...
+# Subtest: Today restores the weekly overview and retains appointments and performance priorities
+ok 27 - Today restores the weekly overview and retains appointments and performance priorities
+  ---
+  duration_ms: 9272.752917
+  type: 'test'
+  ...
+# Subtest: Today prioritizes distant performances, opens their details and retains the notebook
+ok 28 - Today prioritizes distant performances, opens their details and retains the notebook
+  ---
+  duration_ms: 2106.144666
+  type: 'test'
+  ...
+# Subtest: Home highlights saved weekly practice with and without a goal in both themes
+ok 29 - Home highlights saved weekly practice with and without a goal in both themes
+  ---
+  duration_ms: 2903.971375
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 58949.654167

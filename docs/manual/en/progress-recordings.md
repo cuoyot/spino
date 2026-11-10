@@ -64,3 +64,24 @@ Published in beta9/build85, retained in stable 6.1.1/build86: open a saved recor
 
 
 Stable 6.1.1/build86: **Share recording** prepares video cards after any saved trim. A three-second opening shows the SPino logo, spinoapp.com, original piece title (or free recording title) and recording date. A two-second closing shows the logo and website. Cards follow portrait or landscape orientation; 300 ms fades connect the opening, performance and closing through black. The performance audio is preserved; cards are silent. Keep SPino open while preparing the video, or use **Cancel**. Sharing does not modify the saved take or its Drive copy, so repeated exports do not accumulate cards. Audio-only recordings retain their audio format. A browser that cannot open its share sheet after preparation downloads the result. Native emulator and synthetic browser exports are verified; physical receiving-app acceptance remains separate.
+
+
+## Current source follow-up: stop recording and share video
+
+During score practice, **Stop recording** is a labeled action beside the red recording status, separate from the practice stop square. It remains reachable when the practice widget is collapsed. If you press **Stop practice** during capture, recording stops into a retained review and practice pauses. Review or save the take before leaving the score. The take retains its piece/session association. Closing an already stopped review still retains its pending local copy.
+
+Saving a video keeps the original first, then prepares and persistently stores a separate copy with its title and closing cards. **Share** reuses that prepared file, including after restarting SPino, without rendering it again. Older recordings without a prepared copy offer **Share original · fast** or preparation once. Renaming a recording does not rebuild its existing prepared copy. Trimming invalidates the prepared copy and prepares a new one from the trimmed original, so cards do not accumulate. A cancelled or failed preparation leaves the original available for retry.
+
+Preparation no longer cancels automatically when the screen becomes hidden. The browser encoder pauses its media/recorder and resumes when visible again; the native preparation request is retained, and native sharing waits until SPino is visible. A progress dialog shows staging and requests that automatic screen locking be suppressed while visible. User cancellation remains available. This is not a persistent Android background service: interrupted preparation may need to restart. A successfully saved prepared copy survives app restarts. The saved original remains available.
+
+This follow-up is verified with synthetic responsive browsers and a simulated Android bridge. Physical screen-lock behavior, native device acceptance and packaging remain pending.
+
+
+### Current source repair: closing a recording after sharing
+
+A saved recording remains closable while sharing is pending. **Close** cancels SPino's pending sharing/preparation and dismisses the viewer while retaining the saved take. On Android, **Back** handles the visible recording panel before navigating to an earlier screen. During preparation, the first Back cancels that preparation dialog; the next closes the recording viewer. A failed local write for an edited draft keeps the review open for retry.
+
+Opening Android's sharing chooser completes SPino's sharing action; the viewer does not wait for a receiving app to return. This confirms opening the chooser, not delivery to a recipient. This repair is verified in responsive browser/simulated native tests and Android compilation/unit checks; a new APK and physical-device acceptance remain pending.
+
+
+If sharing fails after a video has been prepared, tap **Share** again to reuse the saved prepared file. Save/restart/retry, storage failure and missing-copy recovery are verified with synthetic notebooks. Android replacement installation and packaging are recorded with beta126; physical recipient delivery remains separate.

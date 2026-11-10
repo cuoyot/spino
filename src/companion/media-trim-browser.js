@@ -7,7 +7,7 @@ export async function trimBrowserRecording(record,{startMs,endMs,durationMs},{si
   const Context=globalThis.AudioContext||globalThis.webkitAudioContext;
   if(!Context||!globalThis.MediaRecorder)throw Error('Trimming is not supported on this device.');
   const context=new Context(),element=document.createElement(record.kind==='video'?'video':'audio');
-  const url=URL.createObjectURL(record.blob),chunks=[];let recorder,frame,watchdog,stream,source,failed;
+  const url=URL.createObjectURL(record.blob),chunks=[];let recorder,frame,watchdog,stream,source,failed,removeVisibility=()=>{};
   const cancelled=()=>{if(signal?.aborted)throw new DOMException('Trim cancelled.','AbortError');};
   const wait=event=>new Promise((resolve,reject)=>{
     const clean=()=>{clearTimeout(timeout);element.removeEventListener(event,ready);element.removeEventListener('error',error);signal?.removeEventListener('abort',abort);};
@@ -37,12 +37,13 @@ export async function trimBrowserRecording(record,{startMs,endMs,durationMs},{si
     });
     // Observe rejection immediately, including an abort while play() is pending.
     finished.catch(()=>{});signal?.addEventListener('abort',abort,{once:true});cancelled();
+    let suspendedAt=0;
     let phase=bookends?'intro':'body',phaseStart=performance.now();
     const paint=(image,ms,length)=>{pixels.fillStyle='#000';pixels.fillRect(0,0,canvas.width,canvas.height);pixels.globalAlpha=fadeOpacity(ms,length);pixels.drawImage(image,0,0,canvas.width,canvas.height);pixels.globalAlpha=1;};
     if(bookends)paint(cards[0],0,BOOKENDS.introMs);
     recorder.start(250);if(!bookends)await element.play();
     const tick=()=>{
-      if(recorder.state==='inactive')return;
+      if(recorder.state==='inactive'||suspendedAt)return;
       const elapsed=performance.now()-phaseStart;
       if(phase==='intro'){
         paint(cards[0],elapsed,BOOKENDS.introMs);
@@ -55,12 +56,25 @@ export async function trimBrowserRecording(record,{startMs,endMs,durationMs},{si
       }
       const progress=phase==='intro'?elapsed:phase==='body'?(bookends?3000:0)+element.currentTime*1000-startMs:3000+durationMs+elapsed;
       onProgress(Math.min(99,Math.max(0,Math.floor(progress/totalMs*100))));frame=requestAnimationFrame(tick);
-    };tick();
-    watchdog=setTimeout(()=>{failed=Error('Export stopped before completion.');if(recorder.state!=='inactive')recorder.stop();},totalMs*2+15000);
+    };
+    const visibility=()=>{
+      if(document.hidden){
+        if(suspendedAt)return;suspendedAt=performance.now();cancelAnimationFrame(frame);element.pause();
+        if(recorder.state==='recording')recorder.pause();
+      }else if(suspendedAt){
+        phaseStart+=performance.now()-suspendedAt;suspendedAt=0;lastCheck=performance.now();
+        if(recorder.state==='paused')recorder.resume();
+        void context.resume().then(async()=>{if(phase==='body')await element.play();tick();}).catch(error=>{failed=error;if(recorder.state!=='inactive')recorder.stop();});
+      }
+    };
+    document.addEventListener('visibilitychange',visibility);removeVisibility=()=>document.removeEventListener('visibilitychange',visibility);
+    if(document.hidden)visibility();else tick();
+    let activeMs=0,lastCheck=performance.now();
+    watchdog=setInterval(()=>{const now=performance.now();if(!suspendedAt)activeMs+=now-lastCheck;lastCheck=now;if(activeMs>totalMs*2+15000){failed=Error('Export stopped before completion.');if(recorder.state!=='inactive')recorder.stop();}},1000);
     await finished;cancelled();onProgress(100);
     return finalizeMediaDuration(new Blob(chunks,{type:recorder.mimeType}),totalMs);
   }finally{
-    clearTimeout(watchdog);cancelAnimationFrame(frame);signal?.removeEventListener('abort',abort);element.pause();
+    clearInterval(watchdog);removeVisibility();cancelAnimationFrame(frame);signal?.removeEventListener('abort',abort);element.pause();
     if(recorder&&recorder.state!=='inactive')recorder.stop();stream?.getTracks().forEach(t=>t.stop());source?.disconnect();
     element.removeAttribute('src');element.load();element.remove();URL.revokeObjectURL(url);await context.close().catch(()=>{});
   }

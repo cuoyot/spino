@@ -1,3 +1,7 @@
+2026-11-10 beta126 delivery: owner requested the APK and website publication after the restored 6.2 weekly overview and vertical daily gradient. Final source build, 29 application, 15 Android and 11 website checks pass. Android installation and exact committed website publication are being verified; see `docs/releases/6.2.2-beta.4-validation.json` and the publication record for final status. Earlier preview-only/pending statements below are historical.
+
+2026-11-10 CURRENT FOCUS: owner requests Today progress similar to 6.2 while preserving the other pending improvements. Restored the `v6.2.0` weekly hierarchy, total, goal, calendar link and vertical day bars; retained current practice/recording actions and commitment cards. Production build and three focused browser tests pass; [40 synthetic responsive captures](captures/today/2026-11-10-weekly-62-02/README.md) cover both themes and five layouts. Presented in the Codex in-app browser at http://127.0.0.1:5343/. Rendered layout feedback pending; not yet in Android artifacts or published. Continue in `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; preserve the older dirty main checkout and all other pending source changes.
+
 2026-11-09: UPDATE-01 is a once-per-release shared-dialog notice with optional store rating. Calendar/Library/Progress navigation contrast is rechecked. See [review](profile-release-notice.md); physical acceptance remains separate.
 
 2026-11-08: SCORE-02/03, REP-02/04 and C-SCORE are reopened for instrument selection, deferred Drive score recovery, persistent 20–300% zoom and reversible labels/fingering. Earlier shared MusicXML practice/follow and printing are rechecked; PDF/saved-session design is unchanged. Final responsive evidence: session/2026-11-08-musicxml-recovery-04. Native/owner acceptance remains open.
@@ -504,3 +508,12 @@ Accepted owner objective: a visible floating exit when opening a work for annota
 
 
 2026-11-09: owner confirms a single floating score-control row on mobile and tablet, with no page arrows in the bar. The shared PDF/MusicXML stylesheet extends compact edge paging and inline recording to tablets; a separate indicator preserves page position. Browser/native package and website evidence are tracked in docs/releases/6.2.2-beta.2-validation.json and the publication manifest. Physical-device acceptance remains open.
+
+
+2026-11-10 PREP-01/C-PRACTICE reopened for direct multiple repertoire selection, optional warm-up and fixed total. Stand/search choice, advanced editor fallback, per-piece identities and unchanged work records verified in [responsive evidence](captures/preparation/2026-11-10-repertoire-multiselect-01/README.md). No shared saved-session design change. Current implementation is in `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; layout/native acceptance and packaging remain open.
+
+
+2026-11-10 MEDIA-02/SCORE-01/PRACTICE-05 and C-PRACTICE/C-SCORE/C-TRANSFER reopened for clear recording stop, retained active-take review and video export lifecycle. Direct stop, collapsed widget, PDF/MusicXML finish guards, exact original sharing, optional cards, hide/resume and ready/retry are verified in [responsive/simulated evidence](captures/multimedia/2026-11-10-recording-stop-export-05/README.md). Shared saved-session summaries are unchanged. Source: `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; physical Android lock/recipient acceptance, persistent background export and packaging are separate.
+
+
+2026-11-10 MEDIA-02/C-DIALOG/C-TRANSFER/C-NAV reopened for a frozen saved-recording viewer after sharing. Saved Close, Back layer priority, never-settling OS waits, late callbacks and draft-save retry are verified in [responsive/simulated evidence](captures/multimedia/2026-11-10-share-close-back-04/README.md). Native chooser launch completion compiles and passes 15 Android unit checks. Shared saved-session cards and notebook/recording identities are unchanged. No new APK or physical acceptance.

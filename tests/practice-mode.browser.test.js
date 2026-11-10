@@ -20,6 +20,7 @@ test('all practice types choose Mobile or With piano before configuration, retai
   }
   const choose=mode=>click(`[data-action=prepare-mode][data-id=${mode}]`);
   await choose(['reading','technique'].includes(type)?'mobile':'piano');
+  if(type==='repertoire') {await click('[data-action=prepare-more]');await click('[data-action=prepare-customize]');}
   assert.equal(await evaluate(`document.querySelector('[name=type-0]').value`),type);
   assert.equal(await evaluate(`document.querySelector('#practice-context').type`),'hidden');
   assert.equal(await evaluate(`document.querySelector('select[name=context]')`),null);

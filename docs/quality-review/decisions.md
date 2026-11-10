@@ -1,3 +1,5 @@
+2026-11-10 Today revision: the owner requests the weekly progress presentation from 6.2, retaining other work. Reuse the v6.2.0 weekly overview rather than the beta125 paired daily/weekly metrics. The implementation and [responsive evidence](captures/today/2026-11-10-weekly-62-02/README.md) are presented; final visual acceptance is pending. Existing upcoming-event priorities, shared saved-session cards, practice controls and recording/export work are preserved. No publication or native acceptance is claimed for this revision.
+
 2026-11-07: PRACTICE-01/05 compact header and prominent total accepted by owner. Beta119 packages the approved responsive layout. Evidence: session/2026-11-07-session-total-header-01. Physical-device acceptance remains separate.
 
 2026-11-07: Calendar, Library and Progress are reopened against the owner-supplied calendar mockup. The initial repository-derived visual pass was rejected. All weeks remain expanded; compact horizontal practices, soft week panels and a current-week header are the reference. Library retains its functions behind one Add work entry; Progress receives bounded visual alignment. Today/Practice remain unchanged and Profile is excluded. Source/browser review, owner acceptance pending; no APK or publication. See [review](calendar-library-progress.md).
@@ -961,3 +963,41 @@ All four types, mode transitions, fixed totals, retained goals and automatic MID
 
 
 2026-11-09: owner confirms a single floating score-control row on mobile and tablet, with no page arrows in the bar. The shared PDF/MusicXML stylesheet extends compact edge paging and inline recording to tablets; a separate indicator preserves page position. Browser/native package and website evidence are tracked in docs/releases/6.2.2-beta.2-validation.json and the publication manifest. Physical-device acceptance remains open.
+
+
+## 2026-11-10 — Select multiple repertoire pieces without building blocks
+
+Accepted owner objective: choose total time, optional warm-up and several stand pieces directly, with access to repertoire search. Implemented source proposal replaces ordinary repertoire setup with a multiple-selection stand strip and a search dialog that stays open for several choices. Off-stand selections remain visible without changing repertoire membership. Selecting/deselecting reallocates the existing practice minutes equally; optional warm-up retains its configured share of the same total. Selection requires at least one piece and keeps at least one minute per piece, up to 20.
+
+The existing per-piece activity model remains in use. Retained activities keep their IDs and musical settings. More options → Adjust individual pieces opens the detailed block editor. Mixed practices, policy routines and existing repeated-piece/unassigned multi-block plans retain their full editor. No notebook schema or shared saved-session-card change.
+
+Implementation is isolated at `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`, branch `codex/repertoire-multiselect`, from published beta125 website commit `b8e8947bd3b436d56b2112cc599f4c7dc4b5420b`. The old main checkout and unrelated pending work are preserved. [Evidence](captures/preparation/2026-11-10-repertoire-multiselect-01/README.md) records nine unit and five browser passes; the precise layout remains proposed for owner review. Preview: http://127.0.0.1:5341/. In-app browser opening returned unavailable; no native acceptance, APK, publication or release is claimed.
+
+
+## 2026-11-10 — Distinguish recording stop and retain export progress
+
+Owner evidence: two phone screenshots show an unlabeled recording square near the practice stop and a video preparation dialog cancelled by screen locking. Accepted objectives: a clear recording stop, preservation after an accidental practice stop, and a faster/more resilient sharing flow. This source proposal builds on the owner-accepted multiple-repertoire selection in the same isolated beta125-based worktree.
+
+Implemented: a labeled red **Stop recording** remains in the score widget, including its collapsed state; the duplicate square is hidden. PDF/MusicXML call the recording guard before closing. An active take stops into a retained review and leaves practice paused on the score. Existing already-stopped reviews still retain their draft when leaving; storage errors remain visible rather than claiming persistence.
+
+Video Share first offers the original file without conversion, or optional title/closing cards. The original route verifies exact bytes. Decorated conversion no longer cancels solely on visibility change. Browser rendering pauses both playback and MediaRecorder, excludes hidden time from its timeout/fades and resumes on return. The native conversion/staging request remains alive; sharing is deferred until visible. Preparation requests screen-awake while visible and retains explicit Cancel. A fresh **Share prepared file** action avoids expired browser activation. One prepared copy is cached in memory, keyed by take/revision, size/type, duration, titles, date, format and language, so retry need not re-encode.
+
+The existing native FileProvider transport still stages a completed file with temporary read access, consistent with [Android secure sharing](https://developer.android.com/training/secure-file-sharing). Choosing a destination before conversion and surviving process termination would need a separate Android export workflow; it is not claimed here. No persistent background service, native Android build, publication or physical lock acceptance is included. Original notebook, recording identities, scores and annotations remain intact; shared saved-session cards are unchanged.
+
+[Responsive evidence](captures/multimedia/2026-11-10-recording-stop-export-05/README.md) separates browser and simulated bridge checks from native acceptance. Worktree: `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`, branch `codex/repertoire-multiselect`, published base `b8e8947bd3b436d56b2112cc599f4c7dc4b5420b`. Recording preview: http://127.0.0.1:5342/; export chooser: http://127.0.0.1:5342/?review=export. Both use synthetic PDF/video/camera data and namespaced disposable stores. In-app browser opening was unavailable. Next: owner layout review, then native physical screen-lock/recipient acceptance when packaged.
+
+
+## 2026-11-10 — Recover a frozen saved-recording viewer and consume Back
+
+Owner screenshot/report: after processing, the saved recording viewer ignores Close and Back navigates the underlying app. Inspection identifies two matching defects: sharing reused the viewer's write-busy flag until the OS callback returned; floating media panels were absent from the app's Back stack.
+
+The repair separates sharing from local writes. Saved Close remains available; it aborts the owned sharing operation and dismisses the viewer without deleting its file. Abort-aware waits release the UI even if staging, native sharing or cleanup never answers. Late callbacks cannot report into or unlock another operation. Mutation controls remain disabled during sharing. Genuine local writes remain guarded; a failed draft write retains the edited title and review for retry. Preparation/choice dialogs observe the same cancellation signal.
+
+App Back now asks the media controller to handle its layer before closing the enclosing score/studio or traversing screen history. Export dialogs retain first priority when above the viewer. The native share plugin opens the chooser with `startActivity` and resolves once launched; it no longer waits for an optional activity result from a receiving app. The temporary FileProvider file remains available under the existing retention policy; opening a chooser is not recipient delivery.
+
+[Current evidence](captures/multimedia/2026-11-10-share-close-back-04/README.md) includes stalled-sharing/staging, Close/Back/late-callback and failed-write recovery with synthetic video hashes and responsive frames. Android Java compilation and 15 unit checks pass. The clean beta125-based worktree remains `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; earlier repertoire and recording improvements are preserved. No new APK, replacement install, release or physical-device acceptance is claimed. The published app is unchanged.
+
+Preview: http://127.0.0.1:5342/?review=share reproduces a nonresponding share with synthetic media and a working Close. The in-app browser was unavailable. Next: owner review, followed by physical Android sharing/Back verification when packaged.
+
+
+2026-11-10 owner clarification: the installed viewer eventually became responsive, but the share did not complete. The exact native cause remains unverified; recovery of the panel is not evidence of delivery. Pending source now adds explicit retry guidance and verifies a failed decorated-video sharing attempt followed by reuse of the identical prepared file, without another conversion. [Failure/retry evidence](captures/multimedia/2026-11-10-share-failed-retry-01/README.md) retains an initial known progress-dialog timeout and the passing isolated retry. Existing Close/Back/native-launch changes remain; no APK or physical-device fix is claimed yet.

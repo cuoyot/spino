@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-10T13:05:56.515956+00:00",
+  "baseCommit": "b8e8947bd3b436d56b2112cc599f4c7dc4b5420b",
+  "kind": "Synthetic browser failure/retry; not physical Android acceptance",
+  "sourceHashes": {
+    "src/companion/media-view.js": "262287d688d1212c9bea7d6a49d478051a4bb17f7e482f89308f08746f45ed11",
+    "src/companion/media-share.js": "2b89f00c1e89caceb4513db5b5dd8da576367af761e2bd6fd954972177284504",
+    "tests/media-bookends.browser.test.js": "b0671ba19dcbb31eaaffec0a1445000e4a78374e9344a1dd7c2ed4799785c720"
+  },
+  "buildIndexSHA256": "ad813578a3b30f572af3627c6df35bc56b8e08db343fcb1be3431621f80a390d",
+  "checks": [
+    "First prepared-video share rejects before opening a receiver",
+    "Failure reports that the original remains saved and gives retry guidance",
+    "Retry offers prepared video immediately without a new progress/conversion stage",
+    "Prepared file SHA-256 is identical before the failed share and on retry",
+    "Saved original bytes and duration remain unchanged"
+  ],
+  "validation": "Six related checks passed in the initial focused run; the decorated test encountered the previously observed initial progress-dialog timeout, then passed in isolation with the new failed-share/cached-retry assertions."
+}

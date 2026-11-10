@@ -1,0 +1,108 @@
+TAP version 13
+# Subtest: video sharing adds portrait cards and fades without changing the saved take
+not ok 1 - video sharing adds portrait cards and fades without changing the saved take
+  ---
+  duration_ms: 41657.571667
+  location: '/Users/migue/.codex/worktrees/repertoire-multiselect/spino/tests/media-bookends.browser.test.js:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":3,"text":"Uncaught (in promise) Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError","lineNumber":1,"columnNumber":214,"scriptId":"38","stackTrace":{"callFrames":[{"functionName":"","scriptId":"38","url":"","lineNumber":0,"columnNumber":213}]},"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError\n    at <anonymous>:1:214","objectId":"-3378450698662918305.2.4"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 214,
+    +   exception: {
+    +     className: 'Error',
+    +     description: "Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError\n" +
+    +       '    at <anonymous>:1:214',
+    +     objectId: '-3378450698662918305.2.4',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 3,
+    +   lineNumber: 1,
+    +   scriptId: '38',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 213,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '38',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: "Uncaught (in promise) Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError"
+    + }
+    - undefined
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 3
+    text: "Uncaught (in promise) Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError"
+    lineNumber: 1
+    columnNumber: 214
+    scriptId: '38'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '38'
+          url: ''
+          lineNumber: 0
+          columnNumber: 213
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'Error'
+      description: |-
+        Error: Timeout: document.querySelector('[data-media-export] progress')||window.exportError
+            at <anonymous>:1:214
+      objectId: '-3378450698662918305.2.4'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///Users/migue/.codex/worktrees/repertoire-multiselect/spino/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/repertoire-multiselect/spino/tests/media-bookends.browser.test.js:26:131)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Close and Android Back dismiss a saved viewer during a stalled share without navigating or losing the video
+ok 2 - Close and Android Back dismiss a saved viewer during a stalled share without navigating or losing the video
+  ---
+  duration_ms: 1146.939958
+  ...
+# Subtest: Back cancels a stalled native staging dialog promptly, then closes the viewer before route navigation
+ok 3 - Back cancels a stalled native staging dialog promptly, then closes the viewer before route navigation
+  ---
+  duration_ms: 901.821417
+  ...
+# Subtest: Back retains an edited draft and stays on its review if the local write fails
+ok 4 - Back retains an edited draft and stays on its review if the local write fails
+  ---
+  duration_ms: 852.527792
+  ...
+# Subtest: cancelling an unresponsive OS operation releases the caller and consumes late failure
+ok 5 - cancelling an unresponsive OS operation releases the caller and consumes late failure
+  ---
+  duration_ms: 3.389041
+  ...
+# Subtest: normal completion and OS errors keep their result
+ok 6 - normal completion and OS errors keep their result
+  ---
+  duration_ms: 0.297333
+  ...
+# Subtest: saved takes share exact files from review and Multimedia, with cancellation, retry and intact notebook
+ok 7 - saved takes share exact files from review and Multimedia, with cancellation, retry and intact notebook
+  ---
+  duration_ms: 1725.245041
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 51995.816959

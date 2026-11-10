@@ -1,0 +1,20 @@
+TAP version 13
+# Subtest: synthetic recording preview recording
+ok 1 - synthetic recording preview recording
+  ---
+  duration_ms: 1030.164167
+  ...
+# Subtest: synthetic recording preview export
+ok 2 - synthetic recording preview export
+  ---
+  duration_ms: 731.474792
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1809.929917

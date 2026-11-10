@@ -741,3 +741,8 @@
 .cp-mode-choices button:disabled { opacity: .5; }
 .cp-preparation-mode { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
 @media(max-width:420px) { .cp-mode-choices { grid-template-columns: 1fr; } .cp-mode-choices button { min-height: 105px; padding: 16px; } }
+
+.cp-repertoire-picker { min-width: 0; }
+.cp-repertoire-picker .cp-practice-piece-heading { flex-wrap: wrap; }
+.cp-repertoire-picker h2 { margin: 0; }
+.cp-repertoire-picker .cp-repertoire-stand-label { margin: 12px 0 6px; font-weight: 650; font-size: 13px; }

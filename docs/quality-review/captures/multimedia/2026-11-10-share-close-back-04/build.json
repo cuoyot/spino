@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-10T13:00:48.391249+00:00",
+  "baseCommit": "b8e8947bd3b436d56b2112cc599f4c7dc4b5420b",
+  "workspace": "/Users/migue/.codex/worktrees/repertoire-multiselect/spino",
+  "kind": "Responsive browser and simulated native callbacks; not physical Android acceptance",
+  "native": {
+    "compiled": true,
+    "unitTests": 15,
+    "failures": 0,
+    "apkBuilt": false
+  },
+  "sourceHashes": {
+    "src/companion/app.js": "e9cdeb89b16f12a36c128f91df8fdd25c5b7d71373a0bee18f6038dd6bed6803",
+    "src/companion/media-view.js": "11bffb8b312d53ba857a64dc37b3586fb014b540d4cc659f4e0fa3fc8966628f",
+    "src/companion/media-share.js": "2b89f00c1e89caceb4513db5b5dd8da576367af761e2bd6fd954972177284504",
+    "src/companion/media-export-ui.js": "83bc4a074fa53ce5a3ef1b8113fa09ccf6ebdf4fd0d27f26a4bf37e724710a65",
+    "src/companion/media-operation.js": "5f3922b3c95f25cede4fd0a4f745a810dc5c6a400a302ba4cf26702083cca85a",
+    "android/app/src/main/java/com/miguecoll/spino/MediaSharePlugin.java": "d51b25d7930393d3ea20db41d92b67f714b8c44eeb2d663cf620f2005f57aa64",
+    "tests/media-operation.test.js": "45575127c3eb5f6f0738884cf883082a68ca835a7868588f8ab21838841e73a5",
+    "tests/media-close-share.browser.test.js": "3ad6a408f778ba7e0e69d28bad5de965365ad1f9b0250b78ca932b03ce4b8014",
+    "tests/media-bookends.browser.test.js": "cb6ebd421720455c4c312750e48c897b539c436732af76a3fdd32b90016679f0",
+    "scripts/review/preview-recording-stop-export.mjs": "e131d0bbf72c1df2b0bebd5d5a916a4f0c2ee58db36cffa22f0f03a87c28af42"
+  },
+  "buildIndexSHA256": "89e1937f5168786a6c76d3d00d48bcfe926b3c026086c65776a7e40a4464cb0b",
+  "focusedChecks": {
+    "tests": 28,
+    "passed": 28,
+    "failed": 0
+  },
+  "previewChecks": {
+    "tests": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}

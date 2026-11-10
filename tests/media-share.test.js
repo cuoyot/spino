@@ -31,3 +31,13 @@ test('cancelled document save returns cancellation and provider failure releases
  assert.deepEqual(await saveNativeFile(new File(['zip'],'SPino.zip',{type:'application/zip'}),plugin),{cancelled:true});assert.equal(aborted,0);
  plugin.save=async()=>{throw Error('Provider unavailable');};await assert.rejects(saveNativeFile(new File(['zip'],'SPino.zip',{type:'application/zip'}),plugin),/Provider unavailable/);assert.equal(aborted,1);
 });
+
+test('native staging cancels safely and waits before presenting the chooser',async()=>{
+ const controller=new AbortController();let discarded=false,presented=false;
+ const plugin={begin:async()=>({token:'staged'}),writeChunk:async()=>{controller.abort();},abort:async()=>{discarded=true;},share:async()=>{presented=true;}};
+ await assert.rejects(shareNativeRecording(new File(['file'],'take.webm',{type:'video/webm'}),plugin,{signal:controller.signal}),{name:'AbortError'});
+ assert.equal(discarded,true);assert.equal(presented,false);
+ let resume;const ready=new Promise(resolve=>{resume=resolve;});plugin.writeChunk=async()=>{};plugin.abort=async()=>{};
+ const pending=shareNativeRecording(new File(['file'],'take.webm',{type:'video/webm'}),plugin,{beforeShare:()=>ready});
+ await new Promise(resolve=>setTimeout(resolve,5));assert.equal(presented,false);resume();await pending;assert.equal(presented,true);
+});

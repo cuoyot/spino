@@ -74,14 +74,15 @@ public class MediaSharePlugin extends Plugin {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             Intent chooser=Intent.createChooser(intent,call.getString("dialogTitle","Share recording"));
             transfer.finished=true;presenting=true;
-            getActivity().runOnUiThread(()->{try{startActivityForResult(call,chooser,"shareResult");}catch(Exception error){presenting=false;call.reject("Could not open Android sharing.");}});
+            getActivity().runOnUiThread(()->{
+                try{
+                    // Opening the chooser completes our operation. Some receivers never return a result.
+                    getActivity().startActivity(chooser);
+                    worker.execute(()->{transfers.remove(call.getString("token",""));presenting=false;call.resolve(new JSObject().put("launched",true));});
+                }catch(Exception error){presenting=false;transfer.finished=false;call.reject("Could not open Android sharing.");}
+            });
         }catch(Exception error){call.reject(error.getMessage());}
     });}
-    @ActivityCallback private void shareResult(PluginCall call,ActivityResult result){
-        presenting=false;if(call==null)return;
-        // Keep the granted file available for receivers that read after the chooser closes.
-        worker.execute(()->{transfers.remove(call.getString("token",""));call.resolve(new JSObject().put("cancelled",result.getResultCode()==android.app.Activity.RESULT_CANCELED));});
-    }
     private void discard(String token) {
         Transfer transfer=transfers.remove(token);
         if(transfer!=null){transfer.file.delete();transfer.file.getParentFile().delete();}

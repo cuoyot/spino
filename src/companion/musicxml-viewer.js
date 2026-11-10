@@ -288,7 +288,7 @@ export async function openMusicScore({ asset, selection, start = 0, end, session
       finally { printButton.disabled=false;printButton.innerHTML=scoreIcon('print');printButton.removeAttribute('aria-busy'); }
     }
     if (action === 'record') { session?.record?.(); return; }
-    if (action === 'finish' && session?.finish) { if(running()) { await session.toggle(); controls(); } if (await close()) await session.finish(); return; }
+    if (action === 'finish' && session?.finish) { if(running()) { await session.toggle(); controls(); } if (await session.beforeFinish?.() === false) return; if (await close()) await session.finish(); return; }
     if (action === 'close') await close();
     if (action === 'pause') { if (!running() && (expanded || annotationTool!=='read')) await leaveEditing({ resume: false }); else { await session.toggle(); controls(); if(session.returnOnStop && !running()) await close(); } }
     if (action === 'next' || action === 'prev') turn(action === 'next' ? 1 : -1);

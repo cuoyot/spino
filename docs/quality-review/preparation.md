@@ -64,3 +64,12 @@ When only Passage or goal remains, it is shown directly, without an exercise-opt
 Owner-approved direction: changing setup must not insert dependent content above the selection, for any practice type. New practice now has a separate Mobile/With piano choice before its configuration. Repertoire and Free require piano; Reading/Technique support both. MIDI is detected at physical-practice start/reopen, without a third setup choice. Change returns to the first step, preserving the goal, total duration and block identities. The selected-mode summary precedes total duration; warm-up still follows the total. This supersedes the earlier inline context selector.
 
 All four types, mode transitions, fixed totals, retained goals and automatic MIDI are covered by the dedicated browser regression. Physical/native timing checks and beta122 publication are tracked in release validation.
+
+
+## 2026-11-10 — Select multiple repertoire pieces without building blocks
+
+Accepted owner objective: choose total time, optional warm-up and several stand pieces directly, with access to repertoire search. Implemented source proposal replaces ordinary repertoire setup with a multiple-selection stand strip and a search dialog that stays open for several choices. Off-stand selections remain visible without changing repertoire membership. Selecting/deselecting reallocates the existing practice minutes equally; optional warm-up retains its configured share of the same total. Selection requires at least one piece and keeps at least one minute per piece, up to 20.
+
+The existing per-piece activity model remains in use. Retained activities keep their IDs and musical settings. More options → Adjust individual pieces opens the detailed block editor. Mixed practices, policy routines and existing repeated-piece/unassigned multi-block plans retain their full editor. No notebook schema or shared saved-session-card change.
+
+Implementation is isolated at `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`, branch `codex/repertoire-multiselect`, from published beta125 website commit `b8e8947bd3b436d56b2112cc599f4c7dc4b5420b`. The old main checkout and unrelated pending work are preserved. [Evidence](captures/preparation/2026-11-10-repertoire-multiselect-01/README.md) records nine unit and five browser passes; the precise layout remains proposed for owner review. Preview: http://127.0.0.1:5341/. In-app browser opening returned unavailable; no native acceptance, APK, publication or release is claimed.

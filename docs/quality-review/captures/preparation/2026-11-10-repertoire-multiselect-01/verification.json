@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-10",
+  "surface": "Responsive browser; synthetic notebook; not native acceptance",
+  "frames": [
+    "light-selected-390x844.png",
+    "light-search-390x844.png",
+    "light-selected-844x390.png",
+    "light-search-844x390.png",
+    "light-selected-768x1024.png",
+    "light-search-768x1024.png",
+    "light-selected-1024x768.png",
+    "light-search-1024x768.png",
+    "light-selected-320x640.png",
+    "light-search-320x640.png",
+    "dark-selected-390x844.png",
+    "dark-search-390x844.png",
+    "dark-selected-844x390.png",
+    "dark-search-844x390.png",
+    "dark-selected-768x1024.png",
+    "dark-search-768x1024.png",
+    "dark-selected-1024x768.png",
+    "dark-search-1024x768.png",
+    "dark-selected-320x640.png",
+    "dark-search-320x640.png"
+  ],
+  "fixture": {
+    "schemaVersion": 1,
+    "preferences": {
+      "name": "",
+      "context": "mobile",
+      "weeklyMinutes": 90,
+      "notificationsEnabled": false,
+      "practiceSuggestions": false,
+      "wifiOnly": true,
+      "theme": "light",
+      "language": "es"
+    },
+    "works": [
+      {
+        "id": "bach",
+        "title": "Prelude in C major BWV 846 — Well Tempered Clavier First Book",
+        "composer": "J. S. Bach",
+        "onStand": true,
+        "stage": "En estudio",
+        "passage": "",
+        "notes": "Synthetic notebook",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "satie",
+        "title": "Gymnopédie No. 1",
+        "composer": "Erik Satie",
+        "onStand": true,
+        "stage": "En estudio",
+        "passage": "",
+        "notes": "Synthetic notebook",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "shelf",
+        "title": "Été",
+        "composer": "Review composer",
+        "onStand": false,
+        "stage": "En estudio",
+        "passage": "",
+        "notes": "Synthetic notebook",
+        "target": null,
+        "bpm": 60
+      },
+      {
+        "id": "trash",
+        "title": "Deleted piece",
+        "composer": "",
+        "onStand": false,
+        "stage": "En estudio",
+        "passage": "",
+        "notes": "Synthetic notebook",
+        "target": null,
+        "bpm": 60,
+        "trashedAt": "2026-11-01T12:00:00Z"
+      }
+    ],
+    "downloads": [],
+    "downloadJobs": [],
+    "routines": [],
+    "plans": [],
+    "events": [],
+    "sessions": [],
+    "active": null,
+    "lastBackup": null
+  },
+  "errors": [],
+  "sources": {
+    "app.js": "c12540bae799b8975ca3d97e25e1d9120a5e831b01292374d3167399927d2ff8",
+    "views.js": "57c03587ac31cbb42b5494b454b76daf63df18c11146e40fb341819d77e01539",
+    "app.css": "b75cbccf500385b59dc0c922d0a775986a1587df3aa183c98ec6b3cccf447902",
+    "repertoire-preparation.js": "44f7c440d1f3d99c08922e825d8e7874ca68316203b8be04cd5051ae076789ed"
+  },
+  "checks": [
+    "Multiple stand and off-stand selections; deselection; search accents; trash exclusion",
+    "Fixed total and optional warm-up; mode return; unique per-piece activity IDs",
+    "No block creation controls in default repertoire setup",
+    "Both themes/four orientations/320px; notebook works/history retained"
+  ]
+}

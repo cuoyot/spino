@@ -1,0 +1,19 @@
+<es-ES>
+Selecciona varias piezas del atril sin crear bloques. Detener grabación y Parar práctica quedan separados. El vídeo se procesa al guardar y conserva su copia preparada, también tras reiniciar SPino; compartir la reutiliza. Cerrar y Atrás responden durante la preparación y el envío. Se conservan originales, cuaderno y anotaciones. Hoy recupera el progreso semanal de 6.2.
+</es-ES>
+
+<en-US>
+Select several stand pieces without creating blocks. Recording and practice have distinct stop controls. Videos are processed on save and retain a prepared copy across app restarts; sharing reuses it. Close and Back remain available during preparation and sharing. Originals, notebook and annotations are retained. Today restores the 6.2 weekly overview.
+</en-US>
+
+<ca>
+Selecciona diverses peces de l’atril sense crear blocs. Aturar la gravació i la pràctica són accions separades. El vídeo es processa en desar-lo i conserva la còpia preparada, també després de reiniciar SPino; compartir la reutilitza. Tanca i Enrere responen durant la preparació i l’enviament. Es conserven originals, quadern i anotacions. Avui recupera el progrés setmanal de 6.2.
+</ca>
+
+<de-DE>
+Mehrere Stücke vom Notenpult ohne Blöcke wählen. Aufnahme und Übung haben getrennte Stopptasten. Videos werden beim Speichern verarbeitet; die fertige Kopie bleibt auch nach einem Neustart zum Teilen erhalten. Schließen und Zurück bleiben bei Vorbereitung und Teilen verfügbar. Originale, Notizbuch und Anmerkungen bleiben erhalten. Heute zeigt wieder die Wochenübersicht aus 6.2.
+</de-DE>
+
+<hu-HU>
+Több darab választható a kottatartóról blokkok létrehozása nélkül. Külön gomb állítja le a felvételt és a gyakorlást. A videó mentéskor készül el; a feldolgozott példány újraindítás után is megmarad, és megosztáskor újra felhasználható. A Bezárás és a Vissza előkészítés és megosztás közben is működik. Az eredetik és a jegyzetek megmaradnak. A Ma oldal visszakapja a 6.2 heti áttekintését.
+</hu-HU>

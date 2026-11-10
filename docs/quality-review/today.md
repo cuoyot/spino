@@ -1,3 +1,7 @@
+2026-11-10 beta126 delivery: owner requested the APK and website publication after the restored 6.2 weekly overview and vertical daily gradient. Final source build, 29 application, 15 Android and 11 website checks pass. Android installation and exact committed website publication are being verified; see `docs/releases/6.2.2-beta.4-validation.json` and the publication record for final status. Earlier preview-only/pending statements below are historical.
+
+2026-11-10 CURRENT FOCUS: owner requests Today progress similar to 6.2 while preserving the other pending improvements. Restored the `v6.2.0` weekly hierarchy, total, goal, calendar link and vertical day bars; retained current practice/recording actions and commitment cards. Production build and three focused browser tests pass; [40 synthetic responsive captures](captures/today/2026-11-10-weekly-62-02/README.md) cover both themes and five layouts. Presented in the Codex in-app browser at http://127.0.0.1:5343/. Rendered layout feedback pending; not yet in Android artifacts or published. Continue in `/Users/migue/.codex/worktrees/repertoire-multiselect/spino`; preserve the older dirty main checkout and all other pending source changes.
+
 # Today review
 
 Review ID: **TODAY-01**. Status: **presented compact layout visually accepted; remaining behavior/accessibility/native coverage tracked**. Updated: 2026-10-01.

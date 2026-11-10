@@ -525,6 +525,7 @@ export async function openScore({ asset, title, save, saveView = async () => {},
       if (action === 'record') { session?.record?.(); return; }
       if (action === 'finish' && session?.finish) {
         if (running()) { await session.toggle(); updateTimer(); }
+        if (await session.beforeFinish?.() === false) return;
         if (await close()) await session.finish();
         return;
       }

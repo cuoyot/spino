@@ -4,6 +4,14 @@ The current-block panel shows what to practise and whether it is Ready, Paused, 
 
 Long companion dialogs keep **Close** in their title bar while the content scrolls. Closing the warm-up guide stops its demonstration. Close waits while a form or confirmation is being saved. Recording retains its own **Stop and review**, **Save** and **Discard** actions. Closing a pending take first keeps its audio/video and edited title on this device; reopen it from Multimedia or its lesson to review and save it. A failed local write keeps the take open.
 
+## Prepare repertoire practice
+
+Choose **Repertoire**, then **With piano**. Set the total duration and optional **Warm-up**, then tap one or more pieces on your stand. Tap a selected piece again to remove it. **Search your repertoire** finds other pieces by title or composer; you can select several before choosing **Done**. Pieces selected from the rest of the repertoire remain visible in preparation without moving them onto your stand.
+
+Practice time is shared automatically between the selected pieces. Warm-up time comes from the same total. **More options → Adjust individual pieces** opens the detailed controls for duration and passages. Mixed practices, routines and existing plans with repeated pieces keep their block controls. Each piece remains a separate activity in the session, with its own accumulated time.
+
+This preparation flow is verified in the responsive browser on the current source; Android packaging and native acceptance are pending.
+
 ## Start or resume
 
 Every live practice uses the same floating control bar, initially at the lower right: **Move controls**, the block's play/pause clock, the stop square and **Options**. PDF, MusicXML, generated reading, note names, technique, warm-up and free practice keep these four controls in the same positions. Drag the grip to move the bar; double-tap it, or activate it with the keyboard, to minimize or expand it. Reopening a block starts from the standard position. The small **Total** clock remains at the upper left. With a physical piano or MIDI, the generated score fills the viewport without an outer header, rounded card or side/footer frame. An internal bottom margin keeps the last notation clear of the floating controls.

@@ -1,0 +1,171 @@
+TAP version 13
+# Subtest: video sharing adds portrait cards and fades without changing the saved take
+ok 1 - video sharing adds portrait cards and fades without changing the saved take
+  ---
+  duration_ms: 11817.20075
+  ...
+# Subtest: export uses the piece title and recording date, with bounded fades for short clips
+ok 2 - export uses the piece title and recording date, with bounded fades for short clips
+  ---
+  duration_ms: 32.246083
+  ...
+# Subtest: audio-only sharing preserves the original format and content
+ok 3 - audio-only sharing preserves the original format and content
+  ---
+  duration_ms: 0.690125
+  ...
+# Subtest: native original sharing skips conversion, keeps staging across lock and presents only after returning
+ok 4 - native original sharing skips conversion, keeps staging across lock and presents only after returning
+  ---
+  duration_ms: 1138.565042
+  ...
+# Subtest: saved takes share exact files from review and Multimedia, with cancellation, retry and intact notebook
+ok 5 - saved takes share exact files from review and Multimedia, with cancellation, retry and intact notebook
+  ---
+  duration_ms: 1740.361042
+  ...
+# Subtest: sharing keeps original recording bytes, safe musical filenames and audio/video MIME types
+ok 6 - sharing keeps original recording bytes, safe musical filenames and audio/video MIME types
+  ---
+  duration_ms: 1.74775
+  ...
+# Subtest: native sharing transfers bounded sequential chunks before opening the system chooser
+ok 7 - native sharing transfers bounded sequential chunks before opening the system chooser
+  ---
+  duration_ms: 19.572084
+  ...
+# Subtest: interrupted preparation releases its temporary copy without opening sharing
+ok 8 - interrupted preparation releases its temporary copy without opening sharing
+  ---
+  duration_ms: 0.5515
+  ...
+# Subtest: saving a ZIP uses a document destination after all chunks, without opening sharing
+ok 9 - saving a ZIP uses a document destination after all chunks, without opening sharing
+  ---
+  duration_ms: 19.770042
+  ...
+# Subtest: cancelled document save returns cancellation and provider failure releases the staged ZIP
+ok 10 - cancelled document save returns cancellation and provider failure releases the staged ZIP
+  ---
+  duration_ms: 0.370666
+  ...
+# Subtest: native staging cancels safely and waits before presenting the chooser
+ok 11 - native staging cancels safely and waits before presenting the chooser
+  ---
+  duration_ms: 6.794334
+  ...
+# Subtest: trim replaces audio in place; quota and cancellation are safe
+ok 12 - trim replaces audio in place; quota and cancellation are safe
+  ---
+  duration_ms: 3157.682625
+  ...
+# Subtest: video trim exports a decodable shortened copy
+ok 13 - video trim exports a decodable shortened copy
+  ---
+  duration_ms: 2052.970458
+  ...
+# Subtest: trim validates bounds and creates an independent cloud identity
+ok 14 - trim validates bounds and creates an independent cloud identity
+  ---
+  duration_ms: 1.861
+  ...
+# Subtest: native output failure and cancellation clean staging without returning partial output
+ok 15 - native output failure and cancellation clean staging without returning partial output
+  ---
+  duration_ms: 1.152666
+  ...
+# Subtest: MIDI capture, piano playback, export, reload and disconnect in a disposable notebook
+ok 16 - MIDI capture, piano playback, export, reload and disconnect in a disposable notebook
+  ---
+  duration_ms: 5643.897417
+  ...
+# Subtest: MusicXML view zoom, reversible labels, mark retention and reopening work across orientations
+ok 17 - MusicXML view zoom, reversible labels, mark retention and reopening work across orientations
+  ---
+  duration_ms: 1675.9745
+  ...
+# Subtest: immersive PDF practice, pause-only tools, fingering and saved framing
+    # Subtest: MIDI feedback minimizes without blocking score reading or interrupting capture
+    ok 1 - MIDI feedback minimizes without blocking score reading or interrupting capture
+      ---
+      duration_ms: 919.145417
+      ...
+    # Subtest: floating Record starts compact capture and stops into review over the running PDF
+    ok 2 - floating Record starts compact capture and stops into review over the running PDF
+      ---
+      duration_ms: 2423.788583
+      ...
+    # Subtest: running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+    ok 3 - running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+      ---
+      duration_ms: 60.24625
+      ...
+    # Subtest: paused tools offer direct fingering stamps, a visual palette and undo/redo
+    ok 4 - paused tools offer direct fingering stamps, a visual palette and undo/redo
+      ---
+      duration_ms: 343.821167
+      ...
+    # Subtest: saved framing survives page turns, portrait/landscape and reopening the same work
+    ok 5 - saved framing survives page turns, portrait/landscape and reopening the same work
+      ---
+      duration_ms: 785.832833
+      ...
+    # Subtest: one draggable widget stays inside phone/tablet screens and does not resize the score
+    ok 6 - one draggable widget stays inside phone/tablet screens and does not resize the score
+      ---
+      duration_ms: 1109.131084
+      ...
+    # Subtest: opening tools preserves the dragged bottom anchor when collapsed or resumed
+    ok 7 - opening tools preserves the dragged bottom anchor when collapsed or resumed
+      ---
+      duration_ms: 1466.174792
+      ...
+    # Subtest: pause and explicit editing keep one row across phone and tablet layouts
+    ok 8 - pause and explicit editing keep one row across phone and tablet layouts
+      ---
+      duration_ms: 14568.185375
+      ...
+    # Subtest: visible finish action opens feedback without automatically saving the session
+    ok 9 - visible finish action opens feedback without automatically saving the session
+      ---
+      duration_ms: 53.170166
+      ...
+    1..9
+ok 18 - immersive PDF practice, pause-only tools, fingering and saved framing
+  ---
+  duration_ms: 23188.51075
+  ...
+# Subtest: stopping PDF practice retains the active recording visibly before leaving and preserves saved takes
+ok 19 - stopping PDF practice retains the active recording visibly before leaving and preserves saved takes
+  ---
+  duration_ms: 3299.3515
+  ...
+# Subtest: repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+ok 20 - repertoire selects multiple stand/search pieces and starts with fixed total and separate identities
+  ---
+  duration_ms: 1261.634125
+  ...
+# Subtest: only visible running practice suppresses automatic screen locking
+ok 21 - only visible running practice suppresses automatic screen locking
+  ---
+  duration_ms: 0.77875
+  ...
+# Subtest: screen requests are serialized, deduplicated and released after a delayed acquisition
+ok 22 - screen requests are serialized, deduplicated and released after a delayed acquisition
+  ---
+  duration_ms: 0.413792
+  ...
+# Subtest: failed screen policy changes can be retried
+ok 23 - failed screen policy changes can be retried
+  ---
+  duration_ms: 0.242625
+  ...
+1..23
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59960.24775

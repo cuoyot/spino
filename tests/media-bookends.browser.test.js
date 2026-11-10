@@ -3,21 +3,64 @@ import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {openBrowser} from './browser.js';
 import {driveNotebookBootstrap} from '../scripts/review/drive-notebook-fixture.mjs';
-const until=expression=>`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(${expression}){clearInterval(t);resolve();}else if(++n>1600){clearInterval(t);reject(Error('Timeout'));}},25);})`;
-test('video sharing adds portrait cards and fades without changing the saved take',{timeout:90000},async t=>{
- const take={id:'synthetic-bookends',workId:'synthetic-work',title:'Take title',workTitle:'Hanon · Ejercicio n.º 1',createdAt:'2026-10-22T12:00:00Z',durationMs:3000,kind:'video',draft:false,base64:(await readFile('tests/fixtures/media/bookends-portrait.webm')).toString('base64')};
- const {send,evaluate,url}=await openBrowser(t,{companion:true});
- await send('Page.addScriptToEvaluateOnNewDocument',{source:driveNotebookBootstrap({localMedia:take})+`;delete window.CapacitorCustomPlatform;delete window.androidBridge;console.warn=(...args)=>{if(args[0]==='Recording export failed')window.exportError=args.map(v=>v?.stack||String(v)).join(' ')};Object.defineProperty(navigator,'canShare',{value:()=>true});Object.defineProperty(navigator,'share',{value:async()=>{throw new DOMException('Expired gesture','NotAllowedError')}});const originalURL=URL.createObjectURL;URL.createObjectURL=function(blob){if(blob instanceof File)window.sharedVideo=blob;return originalURL.call(URL,blob);};HTMLAnchorElement.prototype.click=function(){};`});
- await send('Page.navigate',{url});await evaluate(until("document.querySelector('.cp-nav [data-action=piano]')"));
+
+const bytes=await readFile('tests/fixtures/media/bookends-portrait.webm');
+const fixture=draft=>({id:'synthetic-persistent-video',workId:'synthetic-work',title:'Take title',workTitle:'Synthetic piece',createdAt:new Date().toISOString(),durationMs:3000,kind:'video',draft,base64:bytes.toString('base64')});
+const waitSource=expression=>`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${expression}){clearInterval(timer);resolve()}else if(++n>1800){clearInterval(timer);reject(Error('Missing '+${JSON.stringify(expression)}))}},20)})`;
+const readCache=evaluate=>evaluate(`new Promise(resolve=>{const q=indexedDB.open('spino-local-media-prepared',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('exports').objectStore('exports').getAll();r.onsuccess=async()=>{db.close();resolve(await Promise.all(r.result.map(async row=>({id:row.id,fileId:row.fileId,takeId:row.takeId,duration:row.durationMs,hash:[...new Uint8Array(await crypto.subtle.digest('SHA-256',await row.blob.arrayBuffer()))].map(v=>v.toString(16).padStart(2,'0')).join('')}))))}}})`);
+async function setup(t,draft=false){
+ const browser=await openBrowser(t,{companion:true});const {send,evaluate,url}=browser;
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:driveNotebookBootstrap({localMedia:fixture(draft)})+`;
+ delete window.CapacitorCustomPlatform;delete window.androidBridge;delete window.Capacitor;
+ window.shareAttempts=0;window.encodeCount=0;
+ const Recorder=window.MediaRecorder;window.MediaRecorder=new Proxy(Recorder,{construct(target,args){if(sessionStorage.getItem('deny-video-encoding'))throw Error('Unexpected video regeneration');encodeCount++;return Reflect.construct(target,args)}});
+ Object.defineProperty(navigator,'canShare',{configurable:true,value:()=>true});
+ Object.defineProperty(navigator,'share',{configurable:true,value:async data=>{shareAttempts++;window.lastSharedFile=data.files[0];if(window.failNextShare){window.failNextShare=false;throw Error('Synthetic chooser failure')}}});
+ `});
+ const wait=expression=>evaluate(waitSource(expression));
  const click=selector=>send('Runtime.evaluate',{expression:`document.querySelector(${JSON.stringify(selector)}).click()`,userGesture:true,awaitPromise:true});
- await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await evaluate(until("document.querySelector('[data-action=media-share]')"));
- await click('[data-action=media-share]');await evaluate(until('window.sharedVideo||window.exportError'));
- assert.equal(await evaluate('window.exportError||null'),null);
- const result=await evaluate(`(async()=>{const video=document.createElement('video');video.src=URL.createObjectURL(sharedVideo);await new Promise((r,j)=>{video.onloadeddata=r;video.onerror=j;});const c=document.createElement('canvas');c.width=video.videoWidth;c.height=video.videoHeight;const ctx=c.getContext('2d');const pixels=[];for(const time of [0.1,1,3.1,3.6,5.9,6.6,7.9]){await new Promise(r=>{video.onseeked=r;video.currentTime=time;});ctx.drawImage(video,0,0);pixels.push([...ctx.getImageData(5,5,1,1).data]);}return {duration:video.duration,width:video.videoWidth,height:video.videoHeight,pixels,bytes:sharedVideo.size};})()`);
- assert.ok(Math.abs(result.duration-8)<.25,JSON.stringify(result));assert.deepEqual([result.width,result.height],[360,640]);assert.ok(result.pixels[3][0]>200);assert.ok(result.pixels[2][0]<result.pixels[3][0]*.7);assert.ok(result.pixels[4][0]<result.pixels[3][0]*.7);
- const saved=await evaluate(`new Promise(r=>{const q=indexedDB.open('spino-local-media');q.onsuccess=()=>{const db=q.result,g=db.transaction('recordings').objectStore('recordings').get('synthetic-bookends');g.onsuccess=()=>{r({size:g.result.blob.size,duration:g.result.durationMs});db.close();};};})`);assert.equal(saved.duration,3000);assert.equal(saved.size,Buffer.from(take.base64,'base64').length);
- await mkdir('output/review/bookends-browser',{recursive:true});await writeFile('output/review/bookends-browser/verification.json',JSON.stringify(result,null,2));
- await evaluate('window.sharedVideoCopy=window.sharedVideo');
- const encoded=await evaluate(`new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.readAsDataURL(sharedVideo);})`);await writeFile('output/review/bookends-browser/export.webm',Buffer.from(encoded,'base64'));
- await evaluate('window.sharedVideo=null');await click('[data-action=media-share]');await evaluate(until("document.querySelector('dialog[open] progress')"));await click('dialog[open] progress + button');await evaluate(until("!document.querySelector('dialog[open] progress')"));assert.equal(await evaluate('window.sharedVideo'),null);
+ const library=async()=>{await wait(`document.querySelector('.cp-nav [data-action=piano]')`);await click('.cp-nav [data-action=piano]');await click('[data-action=multimedia]');await wait(`document.querySelector('[data-action=media-share],[data-action=media-play]')`);};
+ await send('Page.navigate',{url});await library();return {...browser,wait,click,library};
+}
+async function capture(send,evaluate,state){
+ const folder=process.env.SPINO_PERSISTENT_VIDEO_EVIDENCE;if(!folder)return;await mkdir(folder,{recursive:true});
+ for(const theme of ['light','dark'])for(const [width,height] of [[390,844],[844,390],[768,1024],[1024,768]]){
+  await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='${theme}'`);
+  await evaluate(`new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))`);
+  await writeFile(`${folder}/${theme}-${state}-${width}x${height}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ }
+}
+
+test('legacy video prepares once; failed sharing, metadata changes and app restart reuse the persistent file',{timeout:90000},async t=>{
+ const {send,evaluate,wait,click,library,errors}=await setup(t);
+ await click('[data-action=media-share]');await wait(`document.querySelector('[data-export-choice=decorated]')`);await capture(send,evaluate,'prepare-once');
+ await click('[data-export-choice=decorated]');await wait(`document.querySelector('[data-export-choice=share]')`);await capture(send,evaluate,'saved-ready');
+ const first=await readCache(evaluate);assert.equal(first.length,1);assert.equal(first[0].duration,8000);
+ await evaluate(`window.failNextShare=true`);await click('[data-export-choice=share]');await wait(`!document.querySelector('[data-action=media-share]').disabled`);
+ assert.match(await evaluate(`document.querySelector('#cp-toast').textContent`),/reintentarlo/);
+ await click('[data-action=media-share]');await wait(`shareAttempts===2&&!document.querySelector('[data-action=media-share]').disabled`);
+ assert.equal(await evaluate(`!!document.querySelector('[data-media-export][open]')`),false);assert.equal(await evaluate(`encodeCount`),1);
+ const sharedHash=await evaluate(`(async()=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',await lastSharedFile.arrayBuffer()))].map(v=>v.toString(16).padStart(2,'0')).join(''))()`);assert.equal(sharedHash,first[0].hash);
+ await evaluate(`new Promise(resolve=>{const q=indexedDB.open('spino-local-media',1);q.onsuccess=()=>{const db=q.result,tx=db.transaction('recordings','readwrite'),store=tx.objectStore('recordings'),r=store.get('synthetic-persistent-video');r.onsuccess=()=>store.put({...r.result,title:'Renamed display title',workTitle:'New display piece',createdAt:new Date().toISOString()});tx.oncomplete=()=>{db.close();resolve()}}});sessionStorage.setItem('deny-video-encoding','true');`);
+ await send('Page.reload');await library();await click('[data-action=media-share]');await wait(`shareAttempts===1&&!document.querySelector('[data-action=media-share]').disabled`);
+ assert.equal(await evaluate(`encodeCount`),0);assert.equal(await evaluate(`!!document.querySelector('[data-media-export][open]')`),false);assert.deepEqual(await readCache(evaluate),first);
+ const output=await evaluate(`(async()=>{const video=document.createElement('video');video.src=URL.createObjectURL(lastSharedFile);await new Promise((r,j)=>{video.onloadeddata=r;video.onerror=j});const c=document.createElement('canvas');c.width=video.videoWidth;c.height=video.videoHeight;await new Promise(r=>{video.onseeked=r;video.currentTime=4});const x=c.getContext('2d');x.drawImage(video,0,0);return {duration:video.duration,width:c.width,height:c.height,red:x.getImageData(5,5,1,1).data[0]}})()`);
+ assert.ok(Math.abs(output.duration-8)<.3,JSON.stringify(output));assert.deepEqual([output.width,output.height],[360,640]);assert.ok(output.red>200);
+ // A missing derived file is rebuilt from the retained original, without accumulating cards.
+ await evaluate(`sessionStorage.removeItem('deny-video-encoding');new Promise(resolve=>{const q=indexedDB.open('spino-local-media-prepared',1);q.onsuccess=()=>{const db=q.result,tx=db.transaction('exports','readwrite');tx.objectStore('exports').clear();tx.oncomplete=()=>{db.close();resolve()}}})`);
+ await click('[data-action=media-share]');await wait(`document.querySelector('[data-export-choice=decorated]')`);await click('[data-export-choice=decorated]');await wait(`document.querySelector('[data-export-choice=share]')`);
+ const rebuilt=await readCache(evaluate);assert.notEqual(rebuilt[0].fileId,first[0].fileId);assert.equal(rebuilt[0].duration,8000);await click('[data-export-choice=share]');await wait(`shareAttempts===2`);
+ const original=await evaluate(`new Promise(resolve=>{const q=indexedDB.open('spino-local-media',1);q.onsuccess=()=>{const db=q.result,r=db.transaction('recordings').objectStore('recordings').get('synthetic-persistent-video');r.onsuccess=()=>{db.close();resolve({bytes:r.result.blob.size,duration:r.result.durationMs,id:r.result.id})}}})`);
+ assert.deepEqual(original,{bytes:bytes.length,duration:3000,id:'synthetic-persistent-video'});assert.deepEqual(errors,[]);
+ if(process.env.SPINO_PERSISTENT_VIDEO_EVIDENCE)await writeFile(process.env.SPINO_PERSISTENT_VIDEO_EVIDENCE+'/persistent.json',JSON.stringify({first,rebuilt,output,original},null,2));
+});
+
+test('saving a video prepares its durable copy before Share; restart shares without encoding',{timeout:60000},async t=>{
+ const {send,evaluate,wait,click,library,errors}=await setup(t,true);
+ await click('[data-action=media-play]');await wait(`document.querySelector('[data-media=save]')`);await click('[data-media=save]');
+ await wait(`document.querySelector('[data-media=share]')&&!document.querySelector('[data-media=share]').disabled&&!document.querySelector('[data-media-export][open]')`);
+ const prepared=await readCache(evaluate);assert.equal(prepared.length,1);await capture(send,evaluate,'saved-review');
+ await click('[data-media=share]');await wait(`shareAttempts===1`);assert.equal(await evaluate(`encodeCount`),1);
+ await click('[data-media=close]');await evaluate(`sessionStorage.setItem('deny-video-encoding','true')`);await send('Page.reload');await library();await click('[data-action=media-share]');await wait(`shareAttempts===1`);
+ assert.deepEqual(await readCache(evaluate),prepared);assert.equal(await evaluate(`encodeCount`),0);assert.deepEqual(errors,[]);
 });

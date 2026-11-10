@@ -1,0 +1,31 @@
+{
+  "first": [
+    {
+      "id": "synthetic-installation:synthetic-persistent-video",
+      "fileId": "ff11535b-a391-4495-8f01-4083a9ea6144",
+      "takeId": "synthetic-persistent-video",
+      "duration": 8000,
+      "hash": "2a9e2843e012c8a614b28004658580154977b0d3de321dd6e1928bcfafef958d"
+    }
+  ],
+  "rebuilt": [
+    {
+      "id": "synthetic-installation:synthetic-persistent-video",
+      "fileId": "ef95fe7b-a361-4b0e-bb0e-ecbece4853b2",
+      "takeId": "synthetic-persistent-video",
+      "duration": 8000,
+      "hash": "4deb5bf3f7cd5f3547041cbbdcb813e0b3842432532583f798f4d984d7fd7962"
+    }
+  ],
+  "output": {
+    "duration": 8,
+    "width": 360,
+    "height": 640,
+    "red": 221
+  },
+  "original": {
+    "bytes": 52946,
+    "duration": 3000,
+    "id": "synthetic-persistent-video"
+  }
+}

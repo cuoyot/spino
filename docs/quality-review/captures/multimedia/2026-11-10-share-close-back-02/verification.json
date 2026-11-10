@@ -1,0 +1,28 @@
+{
+  "kind": "Responsive browser and simulated Android Back; not native acceptance",
+  "frames": [
+    "light-closable-share-390x844.png",
+    "light-closable-share-844x390.png",
+    "light-closable-share-768x1024.png",
+    "light-closable-share-1024x768.png",
+    "light-closable-share-320x640.png",
+    "dark-closable-share-390x844.png",
+    "dark-closable-share-844x390.png",
+    "dark-closable-share-768x1024.png",
+    "dark-closable-share-1024x768.png",
+    "dark-closable-share-320x640.png"
+  ],
+  "original": {
+    "id": "synthetic-stuck-share",
+    "title": "Synthetic saved video",
+    "draft": false,
+    "hash": "3d6411239d50e4ea3b05e863a6614202532d5f29980a5cd82f7a4c07ddca3ec5"
+  },
+  "errors": [],
+  "checks": [
+    "Close stays enabled while OS share never resolves",
+    "Android Back consumes the floating saved viewer before route history",
+    "Repeated retry and late failure do not lock or mutate a later viewer",
+    "Original recording ID/title/draft status and SHA-256 retained"
+  ]
+}

@@ -61,8 +61,8 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     assert.ok(await evaluate(`document.querySelector('#cp-media-capture').getBoundingClientRect().top`)<dockBefore);
 
     await evaluate(`document.querySelector('[data-pdf=drag]').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}))`);
-    assert.equal(await evaluate(`getComputedStyle(document.querySelector('#cp-media-capture')).display`),'none');
-    assert.notEqual(await evaluate(`getComputedStyle(document.querySelector('[data-pdf=record]')).display`),'none');
+    assert.notEqual(await evaluate(`getComputedStyle(document.querySelector('#cp-media-capture')).display`),'none');
+    assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-pdf=record]')).display`),'none');
     await evaluate(`__sr.midi.simulateNote(67);__sr.midi.simulateNote(67,false);document.querySelector('[data-pdf=drag]').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}))`);
 
     const frames=[];
@@ -71,7 +71,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
       for(const state of ['minimized','expanded']){
         if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
         const bounds=await evaluate(`(()=>{const panel=document.querySelector('#cp-media-capture'),r=panel.getBoundingClientRect(),paper=document.querySelector('.pdf-paper').getBoundingClientRect();return {width:r.width,height:r.height,right:r.right,bottom:r.bottom,paperWidth:paper.width,blocked:document.elementFromPoint(paper.left+paper.width/2,Math.max(60,paper.top+60))?.closest('#cp-media-capture')!==null}})()`);
-        assert.ok(bounds.right<=width+1&&bounds.bottom<=height+1,JSON.stringify({width,height,state,bounds}));if(state==='minimized')assert.ok(bounds.height<90);
+        assert.ok(bounds.right<=width+1&&bounds.bottom<=height+1,JSON.stringify({width,height,state,bounds}));if(state==='minimized')assert.ok(bounds.height<120,JSON.stringify({width,height,state,bounds}));
         if(state==='expanded')assert.equal(await evaluate(`document.querySelector('[data-midi-key="60"]').classList.contains('is-active')`),true);
         const file=state+'-'+width+'x'+height+'.png';await writeFile(folder+'/'+file,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));frames.push({file,width,height,bounds});
         if(state==='expanded')await evaluate(`document.querySelector('[data-media=minimize]').click()`);
@@ -81,7 +81,7 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').dataset.recording`),'true');
     await evaluate(`__sr.midi.simulateNote(60,false);__sr.midi.simulateControl(64,0);document.querySelector('[data-media=minimize]').click()`);
     assert.equal(await evaluate(`document.querySelectorAll('[data-midi-key].is-active').length`),0);
-    await control('record');await wait(`document.querySelector('[data-media=save]')&&!document.querySelector('[data-media=save]').disabled`);
+    await evaluate(`document.querySelector('[data-media=stop]').click()`);await wait(`document.querySelector('[data-media=save]')&&!document.querySelector('[data-media=save]').disabled`);
     await evaluate(`document.querySelector('[data-media=delete]').click()`);await wait(`document.querySelector('#cp-media-capture').hidden`);
     assert.deepEqual((await read('assets',assetId)).annotations,before.annotations);
     await writeFile(folder+'/verification.json',JSON.stringify({kind:'Responsive browser, disposable PDF and synthetic MIDI; not native acceptance',frames},null,2));
@@ -100,18 +100,19 @@ test('immersive PDF practice, pause-only tools, fingering and saved framing', { 
     await evaluate(`Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));`);
     await wait(`document.querySelector('[data-pdf=record]').dataset.recording==='true'&&!!document.querySelector('.pdf-widget #cp-media-capture')`);
     assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').getAttribute('aria-label')`),'Detener grabación y revisar');
-    assert.equal(await evaluate(`!!document.querySelector('[data-pdf=record] rect')`),true);
+    assert.match(await evaluate(`document.querySelector('[data-media=stop]').textContent`),/Detener grabación/);
+    assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-pdf=record]')).display`),'none');
     await wait(`document.querySelector('[data-media-clock]')?.textContent==='0:02'`);
     const evidence=process.env.SPINO_PDF_RECORD_EVIDENCE,frames=[];
     const captureState=async state=>{if(!evidence)return;await mkdir(evidence,{recursive:true});for(const theme of ['light','dark'])for(const [name,width,height] of [['phone-portrait',390,844],['phone-landscape',844,390],['tablet-portrait',768,1024],['tablet-landscape',1024,768]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);const file=theme+'-'+state+'-'+name+'.png',image=await send('Page.captureScreenshot',{format:'png'});await writeFile(evidence+'/'+file,Buffer.from(image.data,'base64'));frames.push({file,width,height,theme,state});}};
     await captureState('recording');
     await control('next');await ready();assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').dataset.recording`),'true');
-    await control('record');
+    await evaluate(`document.querySelector('[data-media=stop]').click()`);
     await wait(`!document.querySelector('#cp-media-capture').hidden&&document.querySelector('#media-title')&&!document.querySelector('[data-media=save]').disabled`);
     assert.equal(await evaluate(`pdfCaptureTracks.every(track=>track.readyState==='ended')`),true);
     assert.equal(await evaluate(`document.querySelector('.pdf-viewer').dataset.running`),'true');
     await captureState('review');
-    if(evidence)await writeFile(evidence+'/verification.json',JSON.stringify({date:'2026-10-15',kind:'Responsive Chromium, synthetic microphone; not native acceptance',frames,sources:Object.fromEntries(await Promise.all(['app.js','media-view.js','media.css','score-controls.js','pdf-viewer.css'].map(async file=>[file,createHash('sha256').update(await readFile('src/companion/'+file)).digest('hex')]))),checks:['Recording panel hidden by default during PDF capture','Same red control becomes Stop recording and review','Page turning retains capture','Stop releases tracks and opens local draft review without stopping practice']},null,2));
+    if(evidence)await writeFile(evidence+'/verification.json',JSON.stringify({date:'2026-11-10',kind:'Responsive Chromium, synthetic microphone; not native acceptance',frames,sources:Object.fromEntries(await Promise.all(['app.js','media-view.js','media.css','score-controls.js','pdf-viewer.css'].map(async file=>[file,createHash('sha256').update(await readFile('src/companion/'+file)).digest('hex')]))),checks:['Labeled Stop recording remains visible during PDF capture, including the collapsed widget','Duplicate recording square is hidden while recording','Page turning retains capture','Stop releases tracks and opens local draft review without stopping practice']},null,2));
     await evaluate(`document.querySelector('[data-media=delete]').click()`);await wait(`document.querySelector('#cp-media-capture').hidden`);
     assert.equal(await evaluate(`document.querySelector('[data-pdf=record]').getAttribute('aria-label')`),'Grabar práctica');
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await evaluate(`document.documentElement.dataset.theme='light'`);

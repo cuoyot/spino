@@ -248,3 +248,35 @@
 .cp-midi-export-dialog { width:min(360px,calc(100vw - 32px)); padding:20px; border:1px solid var(--theme-border); border-radius:18px; background:var(--theme-panel); color:var(--theme-text); }
 .cp-midi-export-dialog h2 { margin:0 0 16px; font-size:1.15rem; }
 .cp-midi-export-dialog button { display:block; width:100%; margin-top:10px; min-height:48px; }
+
+/* Recording has its own labeled stop action, separate from the practice stop square. */
+.pdf-widget #cp-media-capture.is-score-docked.is-recording [data-media=stop] { display:inline-flex; }
+.pdf-widget #cp-media-capture.is-score-docked.is-minimized .cp-media-capture-actions { display:flex; margin:0; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px; align-items:center; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording > header { display:contents; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording > header b { display:none; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording [data-media=minimize] { grid-column:1/-1; grid-row:2; justify-self:end; min-height:28px; padding:2px 6px; border:0; background:transparent; font-size:12px; }
+.pdf-widget #cp-media-capture.is-score-docked.is-video-stage.is-recording > .cp-camera-stage { display:contents; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording .cp-camera-heading { min-width:0; margin:0; }
+.pdf-widget #cp-media-capture.is-score-docked.is-minimized [data-media=pause-video] { display:none; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording:not(.is-minimized) .cp-camera-preview,
+.pdf-widget #cp-media-capture.is-score-docked.is-recording:not(.is-minimized) .cp-camera-adjustments,
+.pdf-widget #cp-media-capture.is-score-docked.is-recording:not(.is-minimized) .cp-camera-heading { grid-column:1/-1; }
+.pdf-widget #cp-media-capture.is-score-docked.is-recording .cp-recording-status { grid-column:1; margin:0; white-space:normal; }
+#cp-media-capture.is-recording [data-media=stop] { background:var(--theme-control); color:var(--theme-danger,#b72d3b); border:1px solid currentColor; font-weight:700; white-space:normal; min-height:44px; }
+.pdf-widget.has-active-recording :is([data-pdf=record],[data-xml=record]) { display:none !important; }
+.pdf-widget.score-widget-minimized.has-active-recording #cp-media-capture.is-score-docked { display:grid; }
+.cp-media-export-dialog { width:min(420px,calc(100vw - 32px)); box-sizing:border-box; padding:20px; border:1px solid var(--theme-border); border-radius:18px; background:var(--theme-panel,#ffffff); color:var(--theme-text); max-height:90dvh; overflow:auto; }
+.cp-media-export-dialog::backdrop { background:rgb(0 0 0 / .45); }
+.cp-media-export-dialog h2 { margin:0 0 16px; font-size:20px; }
+.cp-media-export-dialog button { display:flex; flex-direction:column; align-items:flex-start; gap:5px; width:100%; margin-top:10px; padding:12px; min-height:44px; white-space:normal; text-align:left; }
+.cp-media-export-dialog button small { color:var(--theme-muted); font-weight:400; }
+.cp-media-export-dialog progress { width:100%; height:10px; accent-color:var(--theme-accent); }
+.cp-media-export-dialog .muted { font-size:13px; line-height:1.5; }
+
+.practice-widget.pdf-widget.has-active-recording:has(> #cp-media-capture:not([hidden])) .practice-widget-secondary { display:contents; padding-bottom:0; }
+.pdf-widget.score-widget-minimized.has-active-recording :is([data-pdf=record],[data-xml=record]) { display:none !important; }
+.pdf-viewer .practice-widget.pdf-widget.score-widget-minimized:has(> #cp-media-capture.is-recording) > #cp-media-capture { display:grid !important; }
+.pdf-widget.score-widget-minimized #cp-media-capture.is-recording [data-media=minimize] { display:none; }
+.pdf-widget #cp-media-capture.is-score-docked.is-minimized .cp-media-capture-actions { grid-column:2; grid-row:1; margin:0; gap:0; }
+.pdf-widget #cp-media-capture.is-score-docked.is-minimized .cp-camera-heading { grid-column:1; grid-row:1; }

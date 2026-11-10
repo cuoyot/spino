@@ -25,6 +25,7 @@ test('stand selection, horizontal cards, other repertoire pieces and catalogue p
   await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(${JSON.stringify(fixture)},'current');tx.oncomplete=()=>{db.close();resolve();};};})`);
   await send('Page.reload');await wait('.cp-today');
   await evaluate(`document.querySelector('[data-action=practice]').click();document.querySelector('[data-action=prepare][data-id=repertoire]').click()`);await wait('#prepare-form');
+  await click('[data-action=prepare-more]');await click('[data-action=prepare-customize]');
   assert.equal(await evaluate(`document.querySelectorAll('[data-action=prepare-select-work]').length`),4);
   assert.equal(await evaluate(`document.querySelectorAll('.cp-prepare [data-action=choose-catalogue],.cp-prepare [data-practice-search],.cp-prepare select[name^=workId]').length`),0);
   await click('[data-action=prepare-select-work]');

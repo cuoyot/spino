@@ -10,7 +10,8 @@ import {localDate} from './model.js';
 import {activityIcon,recordingDate,filterRecordings,monthCalendarMarkup} from './activity-calendar.js';
 import {finalizeMediaDuration} from './media-duration.js';
 import {audioVisualizerMarkup,createAudioVisualizer} from './audio-visualizer.js';
-import {shareRecording} from './media-share.js';
+import {shareRecording,prepareSavedVideo} from './media-share.js';
+import {waitForMediaOperation} from './media-operation.js';
 import {cameraVideoConstraints,createCameraControls,cameraFrameRect} from './camera-controls.js';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const time = ms => `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
@@ -42,15 +43,17 @@ export function mediaMarkup(records, works, {month = localDate(), mode = 'week',
 export function createMediaCapture({store, changed, report, getWork, getWorks = () => [], share = shareRecording}) {
   const panel = document.createElement('aside'); panel.id = 'cp-media-capture'; panel.hidden = true; panel.setAttribute('aria-label', ui('Recording','Grabación')); document.body.append(panel);
   let record = null, stream = null, recorder = null, chunks = [], url = '', timer = null, busy = false, stage = 'closed', startingAt = 0, bytes = 0, stopReason = '', minimized = false, returnFocus = null, requestId = 0, captureError = '', resumeRequest = null, editingTitle = false;
+  let shareOperation=null;
   let sharePending = false, trimEditor = null, midiPlayer = null, midiEvents = [], midiUnsubscribe = [], midiStarted = 0, midiOrigin = 0, midiWaiting = false, midiFeedback = null;
   const releaseMidi=()=>{midiUnsubscribe.forEach(unsubscribe=>unsubscribe());midiUnsubscribe=[];};
   let midiDeviceKey=JSON.stringify(connectedDevices());
   onMidi('devices',devices=>{const next=JSON.stringify(devices),changed=next!==midiDeviceKey;midiDeviceKey=next;if(stage==='choose')draw();else if(changed&&stage==='recording'&&record.kind==='midi')stop(ui('MIDI connection changed. Review the captured take.','La conexión MIDI ha cambiado. Revisa la toma capturada.'));});
+  let takeRetained=false;
   let titleSuggestionActive = false, cameraControls = null, cameraBusy = false, cameraRotation = 0, cameraFormat = null, cameraSettingsOpen = false;
   let choosingOther = false, pieceSearch = '', cameras = [], selectedCamera = '', pausedAt = 0, pausedMs = 0;
   let studio = null, standalone = false, audioContext = null, audioSource = null, audioAnalyser = null, audioFeedback = null, encodedStream = null, frameVideo = null, frameCanvas = null, videoFrame = null, renderCameraFrame = null;
   let standaloneOptions = {};
-  const draftFor = (work,sessionId=null) => {titleSuggestionActive=true;return ({id:crypto.randomUUID(),workId:work?.id||'',workTitle:work?.title||'',title:work?.title||ui('Free recording','Grabación libre'),sessionId,createdAt:new Date().toISOString(),draft:true});};
+  const draftFor = (work,sessionId=null) => {titleSuggestionActive=true;takeRetained=false;return ({id:crypto.randomUUID(),workId:work?.id||'',workTitle:work?.title||'',title:work?.title||ui('Free recording','Grabación libre'),sessionId,createdAt:new Date().toISOString(),draft:true});};
 
   const elapsedTime = () => record?.kind==='midi'?(midiWaiting?0:Math.max(0,Math.min(900000,performance.now()-midiStarted))):Math.max(0,Date.now()-startingAt-pausedMs-(pausedAt?Date.now()-pausedAt:0));
   const scoreButtons = () => [...document.querySelectorAll('.pdf-viewer [data-pdf=record],.pdf-viewer [data-xml=record]')];
@@ -60,6 +63,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
       if (button.dataset.captureState !== state) {
         button.dataset.captureState = state;
         button.dataset.recording = String(stage==='recording');
+        button.hidden = stage==='recording';
         button.disabled = state==='pending'||state==='stopping';
         button.setAttribute('aria-pressed',String(stage==='recording'));
         button.setAttribute('aria-label',stage==='recording'?(midiWaiting?ui('Cancel waiting for first note','Cancelar espera de la primera nota'):ui('Stop recording and review','Detener grabación y revisar')):ui('Record practice','Grabar práctica'));
@@ -120,28 +124,32 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     catch { panel.querySelector('[data-media-error]').textContent=ui('Could not save. Free up storage and try again. Your take is still available here.','No se ha podido guardar. Libera espacio y vuelve a intentarlo. La toma sigue disponible aquí.'); }
     finally { busy=false;panel.querySelectorAll('button,input').forEach(el=>el.disabled=false);if(!editingTitle)updateTitle();else panel.querySelector('#media-title').focus(); }
   }
-  async function shareSaved(id=record?.id) {
+  async function shareSaved(id=record?.id,prepareOnly=false) {
     if(trimEditor?.active)return;
     if(sharePending||!id)return;
     if(stage!=='closed'&&(stage!=='review'||record?.id!==id||record.draft)){report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}
-    sharePending=true;const viewer=stage==='review';if(viewer)busy=true;
+    const operation={controller:new AbortController()};shareOperation=operation;
+    sharePending=true;const viewer=stage==='review';
     if(viewer&&panel.querySelector('[data-media-error]'))panel.querySelector('[data-media-error]').textContent='';
-    const buttons=[...document.querySelectorAll('[data-action=media-share],[data-media=share]')];
+    const buttons=[...document.querySelectorAll('[data-action=media-share],[data-media=share],[data-media=trim],[data-media=delete],[data-media=edit-title]')];
     buttons.forEach(button=>{button.disabled=true;button.setAttribute('aria-busy','true');});
     try {
-      const saved=await store.get(id);
+      const saved=await waitForMediaOperation(store.get(id),operation.controller.signal);
       if(!saved||saved.draft)throw Error('Saved recording unavailable');
-      const result=await share(saved);
+      const options={signal:operation.controller.signal,store};
+      const result=await waitForMediaOperation(prepareOnly?prepareSavedVideo(saved,options):share(saved,options),operation.controller.signal);
+      if(prepareOnly)report(ui('Video saved and ready to share.','Vídeo guardado y listo para compartir.'));
       if(result==='downloaded')report(ui('Recording downloaded.','Grabación descargada.'));
-    }catch {
-      const message=ui('Could not share. Your recording is still saved.','No se ha podido compartir. Tu grabación sigue guardada.');
+    }catch(error) {
+      if(operation.controller.signal.aborted||error.name==='AbortError')return;
+      const message=prepareOnly?ui('The original is saved. Could not save the prepared video. Tap Share to try again.','El original está guardado. No se ha podido guardar el vídeo preparado. Pulsa Compartir para reintentarlo.'):ui('Could not share. Your recording is still saved.','No se ha podido compartir. Tu grabación sigue guardada.')+' '+ui('Tap Share to try again.','Pulsa Compartir para reintentarlo.');
       if(viewer&&panel.querySelector('[data-media-error]'))panel.querySelector('[data-media-error]').textContent=message;else report(message);
     }finally {
-      sharePending=false;if(viewer)busy=false;
+      if(shareOperation===operation){shareOperation=null;sharePending=false;}
       buttons.forEach(button=>{if(button.isConnected){button.disabled=false;button.removeAttribute('aria-busy');}});
     }
   }
-  function close() { if (busy || ['requesting','recording','stopping'].includes(stage)) return; trimEditor?.dispose();trimEditor=null; releaseURL(); panel.hidden = true; panel.replaceChildren(); stage = 'closed'; record = null; standaloneOptions = {}; editingTitle = false; releaseTracks();if(standalone){studio?.close();standalone=false;}syncScoreControls();if(returnFocus?.isConnected)returnFocus.focus();else document.querySelector('[data-action=record-media]')?.focus(); }
+  function close() { if (busy || ['requesting','recording','stopping'].includes(stage)) return;shareOperation?.controller.abort(); trimEditor?.dispose();trimEditor=null; releaseURL(); panel.hidden = true; panel.replaceChildren(); stage = 'closed'; record = null; standaloneOptions = {}; editingTitle = false; releaseTracks();if(standalone){studio?.close();standalone=false;}syncScoreControls();if(returnFocus?.isConnected)returnFocus.focus();else document.querySelector('[data-action=record-media]')?.focus(); }
   async function closeReview() {
     if (busy) return;
     if (stage!=='review'||!record?.draft) { close(); return; }
@@ -163,7 +171,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     return `<div class="cp-camera-stage"><div class="cp-camera-heading"><p class="${stage==='recording'?'cp-recording-status':''}" role="status">${stage==='recording'?`${pausedAt?ui('Paused','En pausa'):'● '+ui('Recording','Grabando')} <span data-media-clock>${time(elapsedTime())}</span>`:ui('Ready','Preparada')}</p><div class="cp-camera-toolbar">${stage==='preview'?`<button type="button" class="quiet" data-media="camera-format" aria-label="${ui('Switch video format','Cambiar formato de vídeo')} · ${format}" title="${ui('Switch video format','Cambiar formato de vídeo')}"><span data-camera-format>${format}</span></button>`:''}<button type="button" class="quiet" data-media="rotate-camera" aria-label="${rotate}" title="${rotate}">${cameraIcon('rotate')}</button><button type="button" class="quiet" data-media="camera-settings" aria-label="${settings}" title="${settings}" aria-expanded="${cameraSettingsOpen}" aria-controls="cp-camera-adjustments">${cameraIcon('settings')}</button></div></div>
       <div class="cp-camera-preview"><video class="cp-media-live" muted autoplay playsinline></video></div>
       <div id="cp-camera-adjustments" class="cp-camera-adjustments" ${cameraSettingsOpen?'':'hidden'}>${cameraControlsMarkup()}${stage==='preview'&&cameras.length>1?`<label>${ui('Camera','Cámara')}<select data-media-camera ${busy?'disabled':''}>${cameras.map((camera,index)=>`<option value="${esc(camera.deviceId)}" ${camera.deviceId===selectedCamera?'selected':''}>${esc(camera.label||ui('Camera','Cámara')+' '+(index+1))}</option>`).join('')}</select></label>`:''}</div>
-      <div class="cp-actions cp-media-capture-actions">${stage==='preview'?`${button('start-video',ui('Start recording','Empezar a grabar'),'primary')}${button('close',ui('Cancel','Cancelar'),'quiet')}`:`${button('pause-video',pausedAt?ui('Resume recording','Reanudar grabación'):ui('Pause recording','Pausar grabación'))}${button('stop',minimized?ui('Stop','Detener'):ui('Stop and review','Detener y revisar'),'primary')}`}</div></div>`;
+      <div class="cp-actions cp-media-capture-actions">${stage==='preview'?`${button('start-video',ui('Start recording','Empezar a grabar'),'primary')}${button('close',ui('Cancel','Cancelar'),'quiet')}`:`${button('pause-video',pausedAt?ui('Resume recording','Reanudar grabación'):ui('Pause recording','Pausar grabación'))}${button('stop',ui('Stop recording','Detener grabación'),'primary')}`}</div></div>`;
   }
   function setCameraSettings(open) {
     cameraSettingsOpen=open;panel.querySelector('#cp-camera-adjustments')?.toggleAttribute('hidden',!open);
@@ -204,7 +212,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     const pieceOptions=standalone&&stage==='choose'?getWorks().slice().sort((a,b)=>a.title.localeCompare(b.title,getAppLanguage())):[];
     const button = (id,label,css='') => `<button type="button" data-media="${id}" class="${css}" ${busy||(id==='midi'&&!connectedDevices().length)||(standalone&&stage==='choose'&&!record&&['audio','video','midi'].includes(id))?'disabled':''}>${label}</button>`;
     const canClose = ['choose','preview','review'].includes(stage);
-    panel.innerHTML = `<header><b>${esc(stage==='review'?ui('Recording','Grabación'):standalone&&stage==='choose'?ui('Record','Grabar'):record?.workTitle||ui('Free recording','Grabación libre'))}</b>${canClose?button('close',ui('Close','Cerrar'),'quiet'):''}${stage==='recording'&&!standalone?button('minimize',minimized?ui('Expand','Ampliar'):ui('Minimize','Minimizar'),'quiet'):''}</header>${stage==='choose'?`${standalone?choosingOther?`<h2>${ui('Other pieces','Otras piezas')}</h2><label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-media-search value="${esc(pieceSearch)}" placeholder="${ui('Title or composer','Título o compositor')}" /></label><div class="cp-media-other-results" data-media-results>${otherResults()}</div><div class="cp-actions">${button('back-pieces',ui('Back','Volver'),'quiet')}</div>`:`<div class="cp-practice-piece-heading"><p>${ui('On your stand','En tu atril')}</p>${button('other-pieces',ui('Other pieces','Otras piezas'),'quiet cp-media-other-link')}</div><div class="cp-practice-stand cp-media-work-strip" data-media-picker role="group" aria-label="${ui('On your stand','En tu atril')}" tabindex="0">${workChoice({id:'',title:ui('Free recording','Grabación libre'),composer:ui('No piece assigned','Sin pieza asignada')})}${pieceOptions.filter(isOnStand).map(workChoice).join('')}</div><p class="cp-media-selected-piece" aria-live="polite">${esc(record?.workTitle||ui('No piece assigned','Sin pieza asignada'))}</p>`:`<p class="cp-media-choice-heading">${ui('Choose a recording format','Elige el tipo de grabación')}</p>`}${!standalone||!choosingOther?`<div class="cp-actions cp-media-choose-actions">${button('audio',activityIcon('audio')+'<span>'+ui('Record audio','Grabar audio')+'</span>','cp-media-mode')}${button('video',activityIcon('video')+'<span>'+ui('Record video','Grabar vídeo')+'</span>','cp-media-mode')}${button('midi',activityIcon('midi')+'<span>'+ui('Record MIDI','Grabar MIDI')+'</span>','cp-media-mode')}</div><p class="muted cp-media-limits">${ui('Saved locally · up to 15 minutes or 250 MB per take.','Guardado local · hasta 15 minutos o 250 MB por toma.')}</p>${connectedDevices().length?'':`<p class="muted" data-midi-connection-hint role="status">${ui('To record MIDI, connect your keyboard using the piano icon at the top of the screen.','Para grabar MIDI, conecta tu teclado desde el icono de piano de la parte superior de la pantalla.')}</p>`}`:''}`:stage==='requesting'?`<p role="status">${ui('Waiting for microphone/camera permission…','Esperando permiso de micrófono/cámara…')}</p>${button('cancel-request',ui('Cancel','Cancelar'))}`:stage==='preview'?videoCaptureMarkup(button):stage==='recording'?record.kind==='video'?videoCaptureMarkup(button):`<p class="cp-recording-status" role="status">${midiWaiting&&record.kind==='midi'?ui('Waiting for first note…','Esperando la primera nota…'):'● '+ui('Recording','Grabando')} <span data-media-clock>${time(elapsedTime())}</span></p>${record.kind==='midi'?midiFeedbackMarkup(ui('Pedal','Pedal'))+'<p class="cp-midi-note-count">MIDI · <span data-midi-count>'+midiEvents.filter(e=>(e.data[0]&240)===144).length+'</span> '+ui('notes','notas')+'</p>':standalone?audioVisualizerMarkup():''}<div class="cp-actions cp-media-capture-actions">${button('stop',midiWaiting&&record.kind==='midi'?ui('Cancel','Cancelar'):minimized?ui('Stop','Detener'):ui('Stop and review','Detener y revisar'),'primary')}</div>`:stage==='stopping'?`<p role="status">${ui('Preparing recording…','Preparando grabación…')}</p>`:`${stopReason?`<p role="status">${esc(stopReason)}</p>`:''}${record.kind==='midi'?'<div data-midi-player></div>':`<${record.kind==='video'?'video':'audio'} controls playsinline src="${url}"></${record.kind==='video'?'video':'audio'}>`}${record.draft?`<label>${ui('Title','Título')}<input id="media-title" maxlength="200" ${busy?'disabled':''} value="${esc(record.title)}" /></label>`:`<div class="cp-media-title">${titleMarkup()}</div>`}<p data-media-error role="alert"></p><div class="cp-actions ${record.draft?'':'cp-media-viewer-actions'}">${record.draft?button('save',ui('Save','Guardar'),'primary'):(shareButton('data-media="share"',busy)+(record.kind==='midi'?'':button('trim',ui('Trim','Recortar'),'quiet')))}${button('delete',record.draft?ui('Discard','Descartar'):ui('Delete','Eliminar'),record.draft?'danger quiet':'cp-media-delete')}</div>`}`;
+    panel.innerHTML = `<header><b>${esc(stage==='review'?ui('Recording','Grabación'):standalone&&stage==='choose'?ui('Record','Grabar'):record?.workTitle||ui('Free recording','Grabación libre'))}</b>${canClose?button('close',ui('Close','Cerrar'),'quiet'):''}${stage==='recording'&&!standalone?button('minimize',minimized?ui('Expand','Ampliar'):ui('Minimize','Minimizar'),'quiet'):''}</header>${stage==='choose'?`${standalone?choosingOther?`<h2>${ui('Other pieces','Otras piezas')}</h2><label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-media-search value="${esc(pieceSearch)}" placeholder="${ui('Title or composer','Título o compositor')}" /></label><div class="cp-media-other-results" data-media-results>${otherResults()}</div><div class="cp-actions">${button('back-pieces',ui('Back','Volver'),'quiet')}</div>`:`<div class="cp-practice-piece-heading"><p>${ui('On your stand','En tu atril')}</p>${button('other-pieces',ui('Other pieces','Otras piezas'),'quiet cp-media-other-link')}</div><div class="cp-practice-stand cp-media-work-strip" data-media-picker role="group" aria-label="${ui('On your stand','En tu atril')}" tabindex="0">${workChoice({id:'',title:ui('Free recording','Grabación libre'),composer:ui('No piece assigned','Sin pieza asignada')})}${pieceOptions.filter(isOnStand).map(workChoice).join('')}</div><p class="cp-media-selected-piece" aria-live="polite">${esc(record?.workTitle||ui('No piece assigned','Sin pieza asignada'))}</p>`:`<p class="cp-media-choice-heading">${ui('Choose a recording format','Elige el tipo de grabación')}</p>`}${!standalone||!choosingOther?`<div class="cp-actions cp-media-choose-actions">${button('audio',activityIcon('audio')+'<span>'+ui('Record audio','Grabar audio')+'</span>','cp-media-mode')}${button('video',activityIcon('video')+'<span>'+ui('Record video','Grabar vídeo')+'</span>','cp-media-mode')}${button('midi',activityIcon('midi')+'<span>'+ui('Record MIDI','Grabar MIDI')+'</span>','cp-media-mode')}</div><p class="muted cp-media-limits">${ui('Saved locally · up to 15 minutes or 250 MB per take.','Guardado local · hasta 15 minutos o 250 MB por toma.')}</p>${connectedDevices().length?'':`<p class="muted" data-midi-connection-hint role="status">${ui('To record MIDI, connect your keyboard using the piano icon at the top of the screen.','Para grabar MIDI, conecta tu teclado desde el icono de piano de la parte superior de la pantalla.')}</p>`}`:''}`:stage==='requesting'?`<p role="status">${ui('Waiting for microphone/camera permission…','Esperando permiso de micrófono/cámara…')}</p>${button('cancel-request',ui('Cancel','Cancelar'))}`:stage==='preview'?videoCaptureMarkup(button):stage==='recording'?record.kind==='video'?videoCaptureMarkup(button):`<p class="cp-recording-status" role="status">${midiWaiting&&record.kind==='midi'?ui('Waiting for first note…','Esperando la primera nota…'):'● '+ui('Recording','Grabando')} <span data-media-clock>${time(elapsedTime())}</span></p>${record.kind==='midi'?midiFeedbackMarkup(ui('Pedal','Pedal'))+'<p class="cp-midi-note-count">MIDI · <span data-midi-count>'+midiEvents.filter(e=>(e.data[0]&240)===144).length+'</span> '+ui('notes','notas')+'</p>':standalone?audioVisualizerMarkup():''}<div class="cp-actions cp-media-capture-actions">${button('stop',midiWaiting&&record.kind==='midi'?ui('Cancel','Cancelar'):ui('Stop recording','Detener grabación'),'primary')}</div>`:stage==='stopping'?`<p role="status">${ui('Preparing recording…','Preparando grabación…')}</p>`:`${stopReason?`<p role="status">${esc(stopReason)}</p>`:''}${record.kind==='midi'?'<div data-midi-player></div>':`<${record.kind==='video'?'video':'audio'} controls playsinline src="${url}"></${record.kind==='video'?'video':'audio'}>`}${record.draft?`<label>${ui('Title','Título')}<input id="media-title" maxlength="200" ${busy?'disabled':''} value="${esc(record.title)}" /></label>`:`<div class="cp-media-title">${titleMarkup()}</div>`}<p data-media-error role="alert"></p><div class="cp-actions ${record.draft?'':'cp-media-viewer-actions'}">${record.draft?button('save',ui('Save','Guardar'),'primary'):(shareButton('data-media="share"',busy)+(record.kind==='midi'?'':button('trim',ui('Trim','Recortar'),'quiet')))}${button('delete',record.draft?ui('Discard','Descartar'):ui('Delete','Eliminar'),record.draft?'danger quiet':'cp-media-delete')}</div>`}`;
     if(stage==='recording'&&record.kind==='midi')midiFeedback?.paint(panel.querySelector('.cp-midi-feedback'));
     if(stage==='review'&&record.kind==='midi')midiPlayer=mountMidiPlayer(panel.querySelector('[data-midi-player]'),record.blob,record.durationMs);
     if (captureError) { const error=document.createElement('p');error.setAttribute('role','alert');error.textContent=captureError;panel.append(error); }
@@ -225,7 +233,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     if (!record.blob.size) { stage='choose'; draw(); report(ui('No media was captured. Try again.','No se ha capturado contenido. Vuelve a intentarlo.')); return; }
     record.blob = await finalizeMediaDuration(record.blob, record.durationMs);
     releaseURL(); url = URL.createObjectURL(record.blob); stage='review'; busy=true; draw();
-    try { await store.put(record); await changed(); }
+    try { await store.put(record);takeRetained=true; await changed(); }
     catch { stopReason=ui('Could not store this take. Free space and try Save again before closing.','No se ha podido almacenar esta toma. Libera espacio y pulsa Guardar antes de cerrar.'); }
     finally { busy=false; draw(); panel.querySelector('[data-media=save]')?.focus(); }
   }
@@ -242,7 +250,12 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
   }
   async function finishPractice() {
     if (standalone || stage === 'closed') return;
+    const interrupted=['recording','stopping'].includes(stage);
     await stop();
+    if(interrupted&&stage==='review'){
+      if(takeRetained)stopReason=ui('Recording stopped and retained. Review or save it before stopping practice.','Grabación detenida y conservada. Revísala o guárdala antes de parar la práctica.');
+      draw();panel.querySelector('[data-media=save]')?.focus();return false;
+    }
     if (reviewPending) await reviewPending;
     if (stage === 'requesting') { requestId++; releaseTracks(); resumeRequest?.(); stage = 'choose'; }
     await closeReview();
@@ -391,6 +404,18 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
   panel.addEventListener('focusin',event=>{if(event.target.id==='media-title'&&record?.draft&&!editingTitle&&titleSuggestionActive){event.target.value='';titleSuggestionActive=false;}});
   panel.addEventListener('change',event=>{if(event.target.matches('[data-media-camera]'))void switchCamera(event.target.value);if(event.target.matches('[data-camera-zoom]'))void updateCameraSetting('zoom',event.target.value);});
   panel.addEventListener('input',event=>{if(event.target.matches('[data-camera-brightness]')){cameraControls?.setBrightness(event.target.value);panel.querySelector('[data-brightness-value]').textContent=event.target.value+'%';}if(event.target.matches('[data-camera-zoom]')){panel.querySelector('[data-zoom-value]').textContent=Number(event.target.value).toFixed(1)+'×';if(cameraControls&&!cameraControls.state.hardwareZoom)void cameraControls.setZoom(event.target.value);}if(event.target.matches('[data-media-search]')){pieceSearch=event.target.value;panel.querySelector('[data-media-results]').innerHTML=otherResults();}});
+  function back(topModal=null) {
+    if(stage==='closed'||topModal&&!topModal.contains(panel))return false;
+    if(trimEditor?.active){if(busy)trimEditor.cancel();else {trimEditor.dispose();trimEditor=null;}return true;}
+    if(busy)return true;
+    if(cameraSettingsOpen&&['preview','recording'].includes(stage)){setCameraSettings(false);return true;}
+    if(editingTitle){editingTitle=false;updateTitle();return true;}
+    if(stage==='choose'&&choosingOther){choosingOther=false;draw();return true;}
+    if(stage==='recording'){void stop();return true;}
+    if(stage==='stopping')return true;
+    if(stage==='requesting'){requestId++;releaseTracks();resumeRequest?.();stage='choose';}
+    void closeReview();return true;
+  }
   panel.addEventListener('keydown',event=>{
     event.stopPropagation();
     if(event.key==='Escape'&&trimEditor?.active){event.preventDefault();if(busy)trimEditor.cancel();else{trimEditor.dispose();trimEditor=null;}return;}
@@ -400,8 +425,8 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     if(event.key==='Escape'){event.preventDefault();if(stage==='choose'&&choosingOther){choosingOther=false;draw();panel.querySelector('[data-media=other-pieces]')?.focus();}else if(stage==='choose'||stage==='preview'||stage==='review')void closeReview();}
   });
   panel.addEventListener('click',async event=>{
-    const action=event.target.closest('[data-media]')?.dataset.media; if(!action||busy)return;
-    if(action==='trim'&&stage==='review'&&!record.draft){if(trimEditor?.active)return;trimEditor=createTrimEditor({panel,record,store,changed,setBusy:value=>busy=value,onSaved:async copy=>{trimEditor=null;record=copy;releaseURL();url=URL.createObjectURL(copy.blob);draw();report(ui('Recording saved on this device.','Grabación guardada en este dispositivo.'));}});return;}
+    const action=event.target.closest('[data-media]')?.dataset.media; if(!action||busy||sharePending&&action!=='close')return;
+    if(action==='trim'&&stage==='review'&&!record.draft){if(trimEditor?.active)return;trimEditor=createTrimEditor({panel,record,store,changed,setBusy:value=>busy=value,onSaved:async copy=>{trimEditor=null;record=copy;releaseURL();url=URL.createObjectURL(copy.blob);draw();report(ui('Recording saved on this device.','Grabación guardada en este dispositivo.'));if(record.kind==='video')await shareSaved(record.id,true);}});return;}
     if(trimEditor?.active&&action!=='close')return;
     if(action==='share')return shareSaved();
     if(action==='other-pieces'&&stage==='choose'){choosingOther=true;pieceSearch='';draw();panel.querySelector('[data-media-search]')?.focus();return;}
@@ -423,7 +448,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     if(action==='save') {
       record.title=panel.querySelector('#media-title').value.trim().slice(0,200)||record.workTitle||ui('Free recording','Grabación libre');busy=true;
       panel.querySelectorAll('button').forEach(b=>b.disabled=true);
-      try { await store.put({...record,draft:false});await standaloneOptions.onSaved?.(record);record.draft=false;await changed();void navigator.storage?.persist?.().catch(()=>{});busy=false;draw();panel.querySelector('[data-media=share]')?.focus();report(ui('Recording saved on this device.','Grabación guardada en este dispositivo.')); }
+      try { await store.put({...record,draft:false});await standaloneOptions.onSaved?.(record);record.draft=false;await changed();void navigator.storage?.persist?.().catch(()=>{});busy=false;draw();panel.querySelector('[data-media=share]')?.focus();report(ui('Recording saved on this device.','Grabación guardada en este dispositivo.'));if(record.kind==='video')await shareSaved(record.id,true); }
       catch { busy=false;draw();panel.querySelector('[data-media-error]').textContent=ui('Could not save. Free up storage and try again. Your take is still available here.','No se ha podido guardar. Libera espacio y vuelve a intentarlo. La toma sigue disponible aquí.'); }
     }
     if(action==='delete') {
@@ -440,6 +465,7 @@ export function createMediaCapture({store, changed, report, getWork, getWorks = 
     get recording(){return stage==='recording';},
     get requesting(){return stage==='requesting';},
     stop,
+    back,
     finishPractice,
     share:shareSaved,
     open(workId,sessionId=null){if(stage!=='closed'||sharePending){panel.hidden=false;report(ui('Finish the current recording first.','Termina primero la grabación actual.'));return;}const work=getWork(workId);if(!work)return;returnFocus=document.activeElement;standalone=false;standaloneOptions={};record=draftFor(work,sessionId);stage='choose';stopReason='';captureError='';draw();panel.querySelector('button')?.focus();},

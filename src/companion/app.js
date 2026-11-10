@@ -1,3 +1,4 @@
+import { isRepertoirePreparation, togglePreparationPiece } from './repertoire-preparation.js';
 import { createReleaseNoticeState, releaseNoticeCopy, releaseNoticeMarkup } from './release-notice.js';
 import './release-notice.css';
 import {verifyDeviceReset,retainResetArchive,readResetArchive} from './device-reset.js';
@@ -173,8 +174,10 @@ export async function bootCompanion(reader) {
     if (panel) panel.outerHTML = instrumentMarkup(instrument.state, {lang:getAppLanguage()});
   }});
   const setScreenAwake = createScreenAwake(practiceScreenAwake);
+  let mediaExportInProgress=false;
+  window.addEventListener('spino:media-export',event=>{mediaExportInProgress=event.detail;syncScreenAwake();});
   function syncScreenAwake() {
-    setScreenAwake(practiceNeedsScreen({active:data.active,view,readerVisible:root.hidden,scoreVisible:!!scoreViewer,hidden:document.hidden})).catch(error=>console.warn('Could not update practice screen policy.',error));
+    setScreenAwake(!document.hidden && (mediaExportInProgress || practiceNeedsScreen({active:data.active,view,readerVisible:root.hidden,scoreVisible:!!scoreViewer,hidden:document.hidden}))).catch(error=>console.warn('Could not update practice screen policy.',error));
   }
   let mediaStore = null, mediaRecords = [], mediaCapture = null;
   const mediaCalendar = {month:localDate(),mode:'week',type:'',workId:'',date:'',limit:24};
@@ -252,6 +255,7 @@ export async function bootCompanion(reader) {
     if (sessionDrag?.active) { render(); return true; }
     // Cancel the topmost modal first; score handlers preserve pause and save-error rules.
     const modal = [...document.querySelectorAll('dialog[open]')].at(-1);
+    if (mediaCapture?.back(modal)) return true;
     if (modal) {
       if (modal.dispatchEvent(new Event('cancel', { cancelable: true }))) modal.close();
       return true;
@@ -465,6 +469,7 @@ export async function bootCompanion(reader) {
   function prepare(type='reading', existing=null, purpose='start') {
     if (data.active && purpose === 'start') { go('session'); toast(ui("A session is pending. Save it or continue before starting another.", "Hay una sesión pendiente. Guárdala o continúa antes de empezar otra.")); return; }
     preparePurpose = purpose;
+    preparationAdvanced = false;
     preparationModeChosen = purpose === 'routine' || purpose === 'edit-plan';preparationModeTotal=null;
     draft = existing ? copy(existing) : { title: ACTIVITIES[type], context: ['free','repertoire'].includes(type) ? 'piano' : data.preferences.context, blocks: [block(type, {...practiceDefaults(data.preferences,type),minutes:DEFAULT_PRACTICE_MINUTES})] };
     if(purpose==='routine'&&!existing) { draft.title='';draft.blocks[0].minutes=10; }
@@ -472,10 +477,12 @@ export async function bootCompanion(reader) {
     if(purpose==='start'&&draft.routinePolicy) { draft=routineForPractice(draft,data,!!reader.devices.length);draft.routinePrepared=true; }
     go('prepare');
   }
+  let preparationAdvanced = false;
+  const simpleRepertoirePreparation = () => preparePurpose!=='routine' && !preparationAdvanced && isRepertoirePreparation(draft);
   let durationWeights = null, preparationModeChosen = false, preparationModeTotal = null;
   function preparePage() {
     durationWeights = null;
-    return draft ? preparePurpose==='routine'?routineBuilderMarkup(draft,data,{esc,opts,btn}):preparationModeChosen?preparationMarkup(draft, preparePurpose, data):practiceModeMarkup(draft) : home();
+    return draft ? preparePurpose==='routine'?routineBuilderMarkup(draft,data,{esc,opts,btn}):preparationModeChosen?preparationMarkup(draft, preparePurpose, data, {simpleRepertoire:simpleRepertoirePreparation()}):practiceModeMarkup(draft) : home();
   }
   const extraWarmupMinutes = () => root.querySelector('[name=include-warmup]')?.checked ? preparationWarmup(draft,data).minutes : 0;
   function refreshPreparationDuration() {
@@ -512,6 +519,7 @@ export async function bootCompanion(reader) {
   function validDraft() {
     readDraft();
     if(!$('#prepare-form').reportValidity()) return false;
+    if(simpleRepertoirePreparation() && !draft.blocks.some(b=>b.workId)) { $('#prepare-error').textContent=ui('Select at least one piece.','Selecciona al menos una pieza.');return false; }
     if(draft.context==='mobile' && draft.blocks.some(b=>['free','repertoire'].includes(b.type))) { $('#prepare-error').textContent=ui("For repertoire or free practice, choose With piano or MIDI piano. Without piano, practice reading or technique.", "Para repertorio o práctica libre, elige Con piano o Piano MIDI. Sin piano puedes trabajar lectura o técnica."); return false; }
     if(preparePurpose!=='routine')draft.title ||= ACTIVITIES[draft.blocks[0].type];
     return true;
@@ -877,7 +885,7 @@ export async function bootCompanion(reader) {
   }
   async function endSession() {
     if(data.active?.lessonPracticeEventId)return returnToLesson();
-    await mediaCapture?.finishPractice();
+    if(await mediaCapture?.finishPractice()===false){pauseSession();return;}
     if(data.active?.quickScore)return quickExitDialog();
     if(!data.active)return;pauseSession();hideReader();go('session');
     const s=data.active;const remaining=s.blocks.some(block=>sessionBlockMs(s,block.id)===0);
@@ -898,7 +906,7 @@ export async function bootCompanion(reader) {
   }
   async function stopPracticeBlock() {
     if (!data.active || data.active.blocks.length <= 1) return endSession();
-    await mediaCapture?.finishPractice();
+    if(await mediaCapture?.finishPractice()===false){pauseSession();return;}
     pauseSession(); hideReader(); go('session');
   }
   function quickExitDialog() {
@@ -1080,7 +1088,7 @@ export async function bootCompanion(reader) {
 
   function revealStandSelection() {
     for(const row of root.querySelectorAll('.cp-practice-stand')) {
-      const selected=row.querySelector('[aria-pressed=true]');if(!selected)continue;
+      const selected=row.contains(document.activeElement) && document.activeElement.matches('[aria-pressed=true]') ? document.activeElement : row.querySelector('[aria-pressed=true]');if(!selected)continue;
       const card=selected.getBoundingClientRect(),bounds=row.getBoundingClientRect();
       if(card.left<bounds.left)row.scrollLeft+=card.left-bounds.left-3;
       else if(card.right>bounds.right)row.scrollLeft+=card.right-bounds.right+3;
@@ -1320,7 +1328,7 @@ export async function bootCompanion(reader) {
   }
   async function saveLessonPause() {
     if (!data.active?.lessonPracticeEventId) return;
-    await mediaCapture?.finishPractice();
+    if(await mediaCapture?.finishPractice()===false){pauseSession();return;}
     pauseSession();
     const next = copy(data), id = pauseLessonPractice(next);
     await store.save(next); data = next;
@@ -1391,6 +1399,7 @@ export async function bootCompanion(reader) {
       if (inPractice && !manualPracticeState(catalogueRecords(library).find(r => r.piece_id === libraryWork.libraryId), executionFor(library, libraryWork.libraryId), library).playable) throw new Error(ui("This score needs validation, analysis or piano-part selection before practice.", "Esta partitura necesita validación, análisis o selección de las partes de piano antes de practicar."));
       return previewLibrary(libraryWork.libraryId, null, inPractice ? {
         returnOnStop: !!data.active?.lessonPracticeEventId,
+        beforeFinish: () => mediaCapture?.finishPractice(),
         finish: () => data.active?.lessonPracticeEventId ? returnToLesson() : stopPracticeBlock(),
         record: () => recordWork(currentBlock()?.workId),
           read: () => ({ time: clock(displayedBlockMs()), totalTime: clock(totalMs()), elapsedMs: displayedBlockMs(), totalElapsedMs: totalMs(), running: data.active?.runningSince != null }),
@@ -1414,6 +1423,7 @@ export async function bootCompanion(reader) {
         saveView: scoreView => store.saveScoreView(asset.id, scoreView),
         session: inPractice ? {
           returnOnStop: !!data.active?.lessonPracticeEventId,
+        beforeFinish: () => mediaCapture?.finishPractice(),
         finish: () => data.active?.lessonPracticeEventId ? returnToLesson() : stopPracticeBlock(),
         record: () => recordWork(currentBlock()?.workId),
           read: () => ({ time: clock(displayedBlockMs()), totalTime: clock(totalMs()), elapsedMs: displayedBlockMs(), totalElapsedMs: totalMs(), running: data.active?.runningSince != null }),
@@ -1543,6 +1553,30 @@ export async function bootCompanion(reader) {
     'plan-practice':()=>{if(!data.routines.length){dialog.close();prepare('reading',null,'plan');return;}showDialog(ui('Schedule practice','Planificar práctica'),`<p class="muted">${ui('Use a saved routine or prepare a new practice.','Usa una rutina guardada o prepara una práctica nueva.')}</p><div class="cp-routine-activities">${data.routines.map(r=>btn('schedule-routine',esc(r.title),r.id))}${btn('schedule-new-practice',ui('+ New practice','+ Práctica nueva'),'','quiet')}${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`);},
     'schedule-new-practice':()=>{dialog.close();prepare('reading',null,'plan');},
     'schedule-routine':id=>{const routine=data.routines.find(r=>r.id===id);if(!routine)return;preparePurpose='plan';planForm(null,copy(routine));},
+    'prepare-customize':()=>{readDraft();preparationAdvanced=true;dialog.close();render();},
+    'prepare-toggle-piece':id=>{
+      readDraft();const work=data.works.find(w=>w.id===id&&!w.trashedAt);if(!work||!simpleRepertoirePreparation())return;
+      const next=togglePreparationPiece(draft,work);
+      if(!next){toast(ui('Increase the total duration to add more pieces (up to 20).','Aumenta la duración total para añadir más piezas (hasta 20).'));return;}
+      const page=root.querySelector('.cp-page'),top=page.scrollTop,left=root.querySelector('.cp-practice-stand')?.scrollLeft||0;
+      const inSearch=dialog.open&&!!dialog.querySelector('[data-repertoire-search]');
+      draft=next;durationWeights=null;render();
+      root.querySelector('.cp-page').scrollTop=top;
+      const strip=root.querySelector('.cp-practice-stand');if(strip)strip.scrollLeft=left;
+      if(inSearch) {const choice=[...dialog.querySelectorAll('[data-action=prepare-toggle-piece]')].find(b=>b.dataset.id===id);choice?.setAttribute('aria-pressed',String(draft.blocks.some(b=>b.workId===id)));}
+      else {const choice=[...root.querySelectorAll('[data-action=prepare-toggle-piece]')].find(b=>b.dataset.id===id);choice?.focus({preventScroll:true});choice?.scrollIntoView({block:'nearest',inline:'nearest'});}
+    },
+    'prepare-browse-repertoire':()=>{
+      readDraft();
+      showDialog(ui('Search your repertoire','Buscar en tu repertorio'),`<label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-repertoire-search placeholder="${ui('Title or composer','Título o compositor')}" /></label><div data-repertoire-results class="cp-practice-results" aria-live="polite"></div><div class="cp-actions">${btn('close-dialog',ui('Done','Listo'),'','primary')}</div>`);
+      const search=dialog.querySelector('[data-repertoire-search]');
+      search.addEventListener('input',()=>{
+        const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+        const query=normalize(search.value.trim()),matches=data.works.filter(w=>!w.trashedAt&&normalize(w.title+' '+(w.composer||'')).includes(query));
+        dialog.querySelector('[data-repertoire-results]').innerHTML=matches.map(w=>`<button type="button" data-action="prepare-toggle-piece" data-id="${esc(w.id)}" aria-pressed="${draft.blocks.some(b=>b.workId===w.id)}"><b>${esc(w.title)}</b>${w.composer?`<small>${esc(w.composer)}</small>`:''}</button>`).join('')||`<p class="muted">${ui('No matching pieces in your repertoire.','No hay coincidencias en tu repertorio.')}</p>`;
+      });
+      search.dispatchEvent(new Event('input'));search.focus({preventScroll:true});
+    },
     'prepare-select-work':id=>{
       readDraft();const [index,workId]=JSON.parse(id),work=data.works.find(w=>w.id===workId&&!w.trashedAt);
       if((workId&&!work)||draft.blocks[index]?.type!=='repertoire')return;
@@ -1596,11 +1630,11 @@ export async function bootCompanion(reader) {
     'routine-remove':id=>changeRoutineBlocks({type:'remove',blockId:id}),
     'routine-cancel':()=>confirm(ui('Discard changes?','¿Descartar cambios?'),ui('Your saved routines stay unchanged.','Tus rutinas guardadas no cambian.'),()=>{dialog.close();go('routines');}),
     'delete-routine':id=>confirm(ui("Delete routine", "Eliminar rutina"),ui("Delete this saved routine? Completed sessions and planned practices will be kept.", "¿Eliminar esta rutina guardada? Se conservarán las sesiones realizadas y las prácticas planificadas."),async()=>{const next=copy(data);next.routines=next.routines.filter(r=>r.id!==id);await store.save(next);data=next;dialog.close();if(view==='prepare')go('routines');else render();toast(ui('Routine deleted.','Rutina eliminada.'));}),
-    'block-add':()=>{dialog.close();readDraft();if(draft.blocks.length>=20){toast(ui("You can include up to 20 blocks in a routine.", "Puedes incluir hasta 20 bloques en una rutina."));return;}const total=practiceMinutes(draft.blocks);draft.blocks.push(block('reading',practiceDefaults(data.preferences,'reading')));draft.blocks=resizePractice(draft.blocks,total);render();},
+    'block-add':()=>{dialog.close();readDraft();preparationAdvanced=true;if(draft.blocks.length>=20){toast(ui("You can include up to 20 blocks in a routine.", "Puedes incluir hasta 20 bloques en una rutina."));return;}const total=practiceMinutes(draft.blocks);draft.blocks.push(block('reading',practiceDefaults(data.preferences,'reading')));draft.blocks=resizePractice(draft.blocks,total);render();},
     'block-remove':id=>{readDraft();if(draft.blocks.length<=1)return;const total=practiceMinutes(draft.blocks);draft.blocks.splice(+id,1);draft.blocks=resizePractice(draft.blocks,total);render();},
     'block-up':id=>{readDraft();const i=+id;if(i>0)[draft.blocks[i-1],draft.blocks[i]]=[draft.blocks[i],draft.blocks[i-1]];render();},
     'block-down':id=>{readDraft();const i=+id;if(i<draft.blocks.length-1)[draft.blocks[i+1],draft.blocks[i]]=[draft.blocks[i],draft.blocks[i+1]];render();},
-    'prepare-more':()=>{readDraft();showDialog(ui("Organize your practice", "Organiza tu práctica"),`<div class="cp-actions">${btn('block-add',ui("+ Add block", "+ Añadir bloque"))}${btn('save-routine',ui("Save routine", "Guardar rutina"))}${btn('schedule-draft',ui("Schedule", "Planificar"))}${btn('close-dialog',ui("Close", "Cerrar"))}</div>`);},
+    'prepare-more':()=>{readDraft();showDialog(ui("Organize your practice", "Organiza tu práctica"),`<div class="cp-actions">${simpleRepertoirePreparation()?btn('prepare-customize',ui('Adjust individual pieces','Ajustar piezas por separado')):''}${btn('block-add',ui("+ Add block", "+ Añadir bloque"))}${btn('save-routine',ui("Save routine", "Guardar rutina"))}${btn('schedule-draft',ui("Schedule", "Planificar"))}${btn('close-dialog',ui("Close", "Cerrar"))}</div>`);},
     'save-routine':()=>{if(!validDraft())return;showDialog(ui("Save routine", "Guardar rutina"),`${ui("<form><label>Name<input name=\"title\" maxlength=\"200\" required value=\"", "<form><label>Nombre<input name=\"title\" maxlength=\"200\" required value=\"")}${esc(draft.title)}" /></label>${formEnd()}</form>`,async f=>{draft.title=String(f.get('title')).trim();const existing=data.routines.find(r=>r.id===draft.id);if(existing)Object.assign(existing,copy(draft));else data.routines.push({id:uid(),title:draft.title,context:draft.context,blocks:copy(draft.blocks)});await persist();dialog.close();go('routines');toast(ui("Routine saved.", "Rutina guardada."));});},
     'schedule-draft':()=>{if(validDraft())planForm(preparePurpose==='edit-plan'?data.plans.find(p=>p.id===draft.id):null,draft);},
     'start-plan':id=>{dialog.close();const p=data.plans.find(p=>p.id===id);return startSession({title:p.title,context:p.context,blocks:p.blocks,planId:p.id});},
