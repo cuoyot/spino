@@ -74,3 +74,6 @@
 
 /* Keep the progress plot at card width instead of letterboxing its SVG. */
 #app-shell .cp-progress-page .cp-time-chart svg { max-height:none; width:100%; height:auto; }
+
+/* Introductory headings receive reading focus without a control outline. */
+#cp-dialog #cp-dialog-title[tabindex="-1"]:focus { outline:none; }

@@ -12,6 +12,8 @@ test('update notice is once per installation, defers active practice and opens t
  await evaluate(`localStorage.removeItem('spino.release-notice.v1')`);
  await send('Page.reload');await wait(`document.querySelector('[data-release-notice]')`);
  assert.match(await evaluate(`document.querySelector('[data-release-notice]').textContent`),/MusicXML/);
+ assert.equal(await evaluate(`document.activeElement.id`),'cp-dialog-title');
+ assert.equal(await evaluate(`getComputedStyle(document.querySelector('#cp-dialog-title')).outlineStyle`),'none');
  await evaluate(`document.querySelector('[data-release-notice] [data-action=close-dialog]').click()`);
  await wait(`!document.querySelector('#cp-dialog').open`);assert.deepEqual(await data(),before);
  await send('Page.reload');await wait(`document.querySelector('.cp-today')`);
