@@ -1,0 +1,15 @@
+<es-ES>
+Hoy destaca la próxima audición y el próximo concierto, con fecha y semanas y días restantes. Progreso y accesos de práctica más compactos. Colores suaves en modo claro y tonos más vivos en oscuro. La gráfica de progreso aprovecha el ancho de la tarjeta. Se conservan el calendario, la biblioteca y los controles de partitura actuales.
+</es-ES>
+<en-US>
+Today highlights the next audition and concert, with dates and weeks and days remaining. More compact progress and practice actions. Softer light colors and brighter dark tones. The progress chart fills its card width. Current Calendar, Library and score controls are retained.
+</en-US>
+<ca>
+Avui destaca la pròxima audició i el pròxim concert, amb data i setmanes i dies restants. Progrés i accessos de pràctica més compactes. Colors suaus en mode clar i tons més vius en fosc. La gràfica de progrés aprofita l’amplada de la targeta. Es conserven el calendari, la biblioteca i els controls de partitura actuals.
+</ca>
+<de-DE>
+Heute hebt das nächste Vorspiel und Konzert mit Datum sowie verbleibenden Wochen und Tagen hervor. Kompakter Fortschritt und Übungszugriff. Sanftere helle Farben und lebendigere dunkle Töne. Das Fortschrittsdiagramm nutzt die Kartenbreite. Aktueller Kalender, Bibliothek und Notensteuerungen bleiben erhalten.
+</de-DE>
+<hu-HU>
+A Ma oldal kiemeli a következő meghallgatást és koncertet, dátummal és a hátralévő hetekkel és napokkal. Tömörebb haladás és gyakorlási gombok. Lágyabb világos színek és élénkebb sötét árnyalatok. A haladási grafikon kitölti a kártya szélességét. A jelenlegi naptár, könyvtár és kottavezérlők megmaradnak.
+</hu-HU>

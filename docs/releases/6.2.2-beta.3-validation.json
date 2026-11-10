@@ -1,0 +1,41 @@
+{
+  "version": "6.2.2-beta.3",
+  "versionCode": 125,
+  "applicationCommit": "d26e71fbd09bae4f4eb6e1d6ff751c9ea424745a",
+  "applicationTests": {
+    "passed": 24,
+    "failed": 0
+  },
+  "noticeTests": {
+    "passed": 5,
+    "failed": 0,
+    "rule": "Only major/minor series transitions; existing full-version preferences migrate without re-prompting; heading reading focus retains no control outline"
+  },
+  "websiteUnitTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "websiteBrowserTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "packages": {
+    "version": "6.2.2-beta.3",
+    "versionCode": 125,
+    "identicalWebFiles": 685,
+    "apkAndAabMatchBuild": true
+  },
+  "nativeEvidence": {
+    "version": "6.2.2-beta.3",
+    "versionCode": 125,
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "originalFilesRetained": 140,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": "ResumedActivity: ActivityRecord{717e17f u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t204}",
+    "checkedAt": "2026-11-10T10:59:58.331684+00:00"
+  },
+  "physicalDeviceAcceptance": false,
+  "knownBaselineDebt": "Full Calendar floating-Today and pagination assertions were reproduced on unchanged beta124; appearance tests do not certify those behaviors.",
+  "playConsoleSubmission": "Not requested; website beta release only."
+}

@@ -80,13 +80,7 @@ actual_manifest = fetch(origin + manifest_path)
 assert actual_manifest == (root / 'site' / manifest_path).read_bytes()
 
 artifacts = {a['file']: a for a in manifest['artifacts']}
-previous = [json.loads(path.read_text()) for path in (root / 'docs/releases').glob('*-artifacts.json')]
-previous = [item for item in previous if item.get('channel') == manifest.get('channel') and item.get('build', 0) < manifest['build']]
-if previous:
-    previous_manifest = max(previous, key=lambda item: item['build'])
-    artifacts[previous_manifest['artifacts'][0]['file']] = previous_manifest['artifacts'][0]
-for artifact in json.loads((root / 'site/downloads/spino-6.0.0-checksums.json').read_text())['artifacts']:
-    artifacts[artifact['file']] = artifact
+# Historical binaries were retired by owner request; verify both active channels.
 for channel in ['stable', 'beta']:
     if channel not in manifest:
         continue
