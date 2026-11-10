@@ -6,15 +6,16 @@ export const RELEASE_NOTICE_KEY = 'spino.release-notice.v1';
 export function createReleaseNoticeState({ storage, version, existingNotebook }) {
   let pending = false;
   try {
-    const seen = storage.getItem(RELEASE_NOTICE_KEY);
-    if (!existingNotebook) storage.setItem(RELEASE_NOTICE_KEY, version);
-    else pending = seen !== version;
+    const series = value => String(value || '').match(/^(\d+\.\d+)(?:\.|-|$)/)?.[1];
+    const current = series(version), seen = series(storage.getItem(RELEASE_NOTICE_KEY));
+    pending = Boolean(existingNotebook && current && seen && seen !== current);
+    if (!pending && current) storage.setItem(RELEASE_NOTICE_KEY, current);
   } catch { /* Unavailable preference storage must not create repeated prompts. */ }
   return {
     get pending() { return pending; },
     acknowledge() {
       pending = false;
-      try { storage.setItem(RELEASE_NOTICE_KEY, version); } catch {}
+      try { storage.setItem(RELEASE_NOTICE_KEY, version.match(/^(\d+\.\d+)/)?.[1] || version); } catch {}
     },
   };
 }

@@ -9,7 +9,7 @@ test('update notice is once per installation, defers active practice and opens t
  await send('Page.navigate',{url});await wait(`document.querySelector('.cp-today')`);
  assert.equal(await evaluate(`!!document.querySelector('[data-release-notice]')`),false);
  const before=await data();
- await evaluate(`localStorage.removeItem('spino.release-notice.v1')`);
+ await evaluate(`localStorage.setItem('spino.release-notice.v1','5.9.9')`);
  await send('Page.reload');await wait(`document.querySelector('[data-release-notice]')`);
  assert.match(await evaluate(`document.querySelector('[data-release-notice]').textContent`),/MusicXML/);
  assert.equal(await evaluate(`document.activeElement.id`),'cp-dialog-title');
@@ -21,7 +21,7 @@ test('update notice is once per installation, defers active practice and opens t
  // An upgraded installation does not interrupt an unfinished practice.
  await evaluate(`document.querySelector('[data-action=practice]').click();document.querySelector('[data-action=prepare][data-id=free]').click();document.querySelector('#prepare-form').requestSubmit()`);
  await wait(`document.querySelector('[data-action=finish-session]') || document.querySelector('[data-action=session-finish]') || document.querySelector('.cp-session')`);
- await evaluate(`localStorage.removeItem('spino.release-notice.v1')`);await send('Page.reload');await wait(`document.querySelector('.cp-today')`);
+ await evaluate(`localStorage.setItem('spino.release-notice.v1','5.9.9')`);await send('Page.reload');await wait(`document.querySelector('.cp-today')`);
  assert.equal(await evaluate(`!!document.querySelector('[data-release-notice]')`),false);
  await evaluate(`document.querySelector('.cp-nav [data-action=practice]').click()`);
  // Discard through the ordinary recovery control, retaining a disposable notebook.
