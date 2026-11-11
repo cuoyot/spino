@@ -1,0 +1,34 @@
+[
+  {
+    "theme": "light",
+    "card": {
+      "background": "rgb(255, 255, 255)",
+      "text": "rgb(30, 41, 59)",
+      "border": "rgba(35, 61, 96, 0.063)",
+      "shadow": "rgba(35, 61, 96, 0.03) 0px 2px 3px 0px, rgba(35, 61, 96, 0.063) 0px 7px 16px 0px"
+    },
+    "today": {
+      "background": "rgb(37, 99, 235)",
+      "text": "rgb(255, 255, 255)"
+    },
+    "daily": "linear-gradient(rgb(56, 200, 172), rgb(54, 140, 232))",
+    "weekly": "linear-gradient(90deg, rgb(79, 140, 255), rgb(50, 198, 172))",
+    "otherPracticeButton": "rgb(233, 238, 251)"
+  },
+  {
+    "theme": "dark",
+    "card": {
+      "background": "rgb(40, 46, 56)",
+      "text": "rgb(232, 234, 237)",
+      "border": "rgba(255, 255, 255, 0.11)",
+      "shadow": "rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.333) 0px 3px 6px 0px, rgba(0, 0, 0, 0.2) 0px 10px 20px 0px"
+    },
+    "today": {
+      "background": "rgb(79, 140, 255)",
+      "text": "rgb(255, 255, 255)"
+    },
+    "daily": "linear-gradient(rgb(56, 200, 172), rgb(54, 140, 232))",
+    "weekly": "linear-gradient(90deg, rgb(79, 140, 255), rgb(50, 198, 172))",
+    "otherPracticeButton": "rgb(51, 72, 108)"
+  }
+]

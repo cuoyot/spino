@@ -1,0 +1,4562 @@
+{
+  "createdAt": "2026-11-11T06:48:30.679Z",
+  "baseline": false,
+  "gitHead": "300d4e9bd7cd312f80c034f8ea9d1cf07db43df7",
+  "sourceHashes": {
+    "src/companion/agenda.js": "a7515c95ea5efd8cedb1058535ea175ff7c88e3991fdc78c87c1e57f18d8fb52",
+    "src/companion/app.js": "e9cdeb89b16f12a36c128f91df8fdd25c5b7d71373a0bee18f6038dd6bed6803",
+    "src/companion/browse-surfaces.css": "81a30397965a407a57471e4d2d9ca17202bbe3a97808b66fb68f44bd1b2197bc",
+    "src/companion/today.css": "50363b197d5648c23b7811dd2247e239e0daeaf52afb074a3825428334d7bf0f",
+    "src/companion/appearance.css": "8d92f450f73d0ebc4cda8ce77b8f9d11d4a222fbfa7c3b35c2c6d7848ebd0887",
+    "src/companion/theme.js": "bffe4a537f578eeaec5e477bfed55322eba1dc9df11d800dd0a5744306e91176",
+    "src/companion/app.css": "b75cbccf500385b59dc0c922d0a775986a1587df3aa183c98ec6b3cccf447902",
+    "src/companion/locale-ca.js": "3a3131aebec789979214cf8a26cab3d0ca550e2db4dd6f213371eddff047cf3b",
+    "src/companion/locale-de.json": "eb6aeccf1180453461986282cb808234841de80f9cb1ba9a3a7b2f91e9c1c4f8",
+    "src/companion/locale-hu.json": "62139fcab1c53e411b2589de6549d8c5c623b2f0b537a7ba2e5eabd9f8449925",
+    "dist/index.html": "2d71ac0810d6cfb5850dae80bddcde163c22dd86d7df62043d17f318afdcfa6d",
+    "scripts/review/today-compact-fixtures.mjs": "e8588be186ad43158643ae0a89d772cb2ee6c975675ecd0f2b1dba35bb91d05c",
+    "tests/today-compact.browser.test.js": "0c074929dcdbd833b9765ca3edc8c030981816f3c987d6178928651915b95cfc"
+  },
+  "renderer": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.39",
+    "revision": "@9a31f0acec1854d44e49a73fbf8017598151a583",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "fixedTime": "2026-11-10T10:00:00.000Z",
+  "surface": "Responsive browser, disposable synthetic notebooks; not native-device acceptance",
+  "measurements": [
+    {
+      "state": "current",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 849.171875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 174,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 174,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 508.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 558.078125,
+        "bottom": 634.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 703.078125,
+        "bottom": 850.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 356,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 356,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 528.84375,
+        "height": 50
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 578.234375,
+        "bottom": 654.234375,
+        "height": 76
+      },
+      "performance": {
+        "top": 723.234375,
+        "bottom": 870.53125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 277,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 277,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 512.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 562.078125,
+        "bottom": 638.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 707.078125,
+        "bottom": 854.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 405,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 405,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 845.171875,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 149,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 149,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 849.171875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 174,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 174,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 508.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 558.078125,
+        "bottom": 634.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 703.078125,
+        "bottom": 850.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 356,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 356,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 528.84375,
+        "height": 50
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 578.234375,
+        "bottom": 654.234375,
+        "height": 76
+      },
+      "performance": {
+        "top": 723.234375,
+        "bottom": 870.53125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 277,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 277,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 512.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 562.078125,
+        "bottom": 638.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 707.078125,
+        "bottom": 854.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 405,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 405,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "current",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 845.171875,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 149,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 149,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 849.171875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 174,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 174,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 508.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 558.078125,
+        "bottom": 634.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 703.078125,
+        "bottom": 850.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 356,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 356,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 528.84375,
+        "height": 50
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 578.234375,
+        "bottom": 654.234375,
+        "height": 76
+      },
+      "performance": {
+        "top": 723.234375,
+        "bottom": 870.53125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 277,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 277,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 512.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 562.078125,
+        "bottom": 638.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 707.078125,
+        "bottom": 854.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 405,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 405,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 845.171875,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 149,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 149,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 849.171875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 174,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 174,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 508.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 558.078125,
+        "bottom": 634.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 703.078125,
+        "bottom": 850.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 356,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 356,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 528.84375,
+        "height": 50
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 578.234375,
+        "bottom": 654.234375,
+        "height": 76
+      },
+      "performance": {
+        "top": 723.234375,
+        "bottom": 870.53125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 277,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 277,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 512.6875,
+        "height": 50
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 562.078125,
+        "bottom": 638.078125,
+        "height": 76
+      },
+      "performance": {
+        "top": 707.078125,
+        "bottom": 854.375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 405,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 405,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "singlePerformance",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 507.484375,
+        "height": 50
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 556.875,
+        "bottom": 632.875,
+        "height": 76
+      },
+      "performance": {
+        "top": 701.875,
+        "bottom": 845.171875,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "practice",
+          "width": 149,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 149,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 907.34375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 516.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 566.25,
+        "bottom": 642.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 711.25,
+        "bottom": 858.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 537.015625,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 586.40625,
+        "bottom": 662.40625,
+        "height": 76
+      },
+      "performance": {
+        "top": 731.40625,
+        "bottom": 878.703125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 520.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 570.25,
+        "bottom": 646.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 715.25,
+        "bottom": 862.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 903.34375,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 907.34375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 516.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 566.25,
+        "bottom": 642.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 711.25,
+        "bottom": 858.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 537.015625,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 586.40625,
+        "bottom": 662.40625,
+        "height": 76
+      },
+      "performance": {
+        "top": 731.40625,
+        "bottom": 878.703125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 520.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 570.25,
+        "bottom": 646.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 715.25,
+        "bottom": 862.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "planned",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 903.34375,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "start-plan",
+          "width": 132.578125,
+          "height": 44
+        },
+        {
+          "action": "plan-detail",
+          "width": 73.78125,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 907.34375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "light",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 516.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 566.25,
+        "bottom": 642.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 711.25,
+        "bottom": 858.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "light",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 537.015625,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 586.40625,
+        "bottom": 662.40625,
+        "height": 76
+      },
+      "performance": {
+        "top": 731.40625,
+        "bottom": 878.703125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "light",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 520.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 570.25,
+        "bottom": 646.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 715.25,
+        "bottom": 862.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "light",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 903.34375,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 907.34375,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 771,
+        "height": 703
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "dark",
+      "width": 844,
+      "height": 390,
+      "progress": {
+        "top": 104,
+        "bottom": 446.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 458.6875,
+        "bottom": 516.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 163,
+        "bottom": 209,
+        "height": 46
+      },
+      "week": {
+        "top": 262.390625,
+        "bottom": 431.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 566.25,
+        "bottom": 642.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 711.25,
+        "bottom": 858.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 390,
+        "height": 322
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "dark",
+      "width": 768,
+      "height": 1024,
+      "progress": {
+        "top": 126,
+        "bottom": 466.84375,
+        "height": 340.84375
+      },
+      "focus": {
+        "top": 478.84375,
+        "bottom": 537.015625,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 185,
+        "bottom": 229.15625,
+        "height": 44.15625
+      },
+      "week": {
+        "top": 282.546875,
+        "bottom": 451.84375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 586.40625,
+        "bottom": 662.40625,
+        "height": 76
+      },
+      "performance": {
+        "top": 731.40625,
+        "bottom": 878.703125,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 1024,
+        "height": 956
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "dark",
+      "width": 1024,
+      "height": 768,
+      "progress": {
+        "top": 108,
+        "bottom": 450.6875,
+        "height": 342.6875
+      },
+      "focus": {
+        "top": 462.6875,
+        "bottom": 520.859375,
+        "height": 58.171875
+      },
+      "summary": {
+        "top": 167,
+        "bottom": 213,
+        "height": 46
+      },
+      "week": {
+        "top": 266.390625,
+        "bottom": 435.6875,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 570.25,
+        "bottom": 646.25,
+        "height": 76
+      },
+      "performance": {
+        "top": 715.25,
+        "bottom": 862.546875,
+        "height": 147.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 768,
+        "height": 700
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "state": "pending",
+      "theme": "dark",
+      "width": 320,
+      "height": 640,
+      "progress": {
+        "top": 112,
+        "bottom": 445.484375,
+        "height": 333.484375
+      },
+      "focus": {
+        "top": 457.484375,
+        "bottom": 565.65625,
+        "height": 108.171875
+      },
+      "summary": {
+        "top": 171,
+        "bottom": 207.796875,
+        "height": 36.796875
+      },
+      "week": {
+        "top": 261.1875,
+        "bottom": 430.484375,
+        "height": 169.296875
+      },
+      "appointment": {
+        "top": 615.046875,
+        "bottom": 691.046875,
+        "height": 76
+      },
+      "performance": {
+        "top": 760.046875,
+        "bottom": 903.34375,
+        "height": 143.296875
+      },
+      "page": {
+        "top": 68,
+        "bottom": 567,
+        "height": 499
+      },
+      "overflow": false,
+      "pills": [
+        {
+          "date": "2026-11-09",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 32,
+          "minutes": "38′"
+        },
+        {
+          "date": "2026-11-10",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 10.09375,
+          "minutes": "12′"
+        },
+        {
+          "date": "2026-11-11",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-12",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-13",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-14",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        },
+        {
+          "date": "2026-11-15",
+          "width": 28,
+          "height": 32,
+          "fillWidth": 28,
+          "fillHeight": 0,
+          "minutes": "·"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resume-session",
+          "width": 128.71875,
+          "height": 44
+        },
+        {
+          "action": "record-media",
+          "width": 87.453125,
+          "height": 44
+        }
+      ]
+    }
+  ],
+  "runtimeErrors": []
+}

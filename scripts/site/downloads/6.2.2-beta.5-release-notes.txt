@@ -1,0 +1,19 @@
+<es-ES>
+Hoy recupera los colores del 9 de noviembre: tarjeta blanca en modo claro, día actual azul y barras azul-verde más vivas. Se mantienen la funcionalidad semanal y el resto de mejoras.
+</es-ES>
+
+<en-US>
+Today restores the 9 November colors: a white card in light mode, a blue current-day marker and brighter blue-green bars. Weekly behavior and all other improvements are retained.
+</en-US>
+
+<ca>
+Avui recupera els colors del 9 de novembre: targeta blanca en mode clar, dia actual blau i barres blau-verd més vives. Es mantenen la funcionalitat setmanal i la resta de millores.
+</ca>
+
+<de-DE>
+Heute erhält die Farben vom 9. November zurück: weiße Karte im hellen Modus, blauer aktueller Tag und kräftigere blau-grüne Balken. Wochenfunktionen und alle weiteren Verbesserungen bleiben erhalten.
+</de-DE>
+
+<hu-HU>
+A Ma oldal visszakapja a november 9-i színeket: világos módban fehér kártya, kék mai nap és élénkebb kék-zöld oszlopok. A heti működés és minden más fejlesztés megmarad.
+</hu-HU>

@@ -1,0 +1,35 @@
+{
+  "version": "6.2.2-beta.5",
+  "versionCode": 127,
+  "baseCommit": "300d4e9bd7cd312f80c034f8ea9d1cf07db43df7",
+  "applicationTests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "androidTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "packages": {
+    "identicalWebFiles": 687,
+    "apkAndAabMatchBuild": true
+  },
+  "nativeEvidence": {
+    "version": "6.2.2-beta.5",
+    "versionCode": 127,
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "originalFilesRetained": 141,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": "topResumedActivity=ActivityRecord{a6d8ba8 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t209}",
+    "checkedAt": "2026-11-11T06:48:50.266275+00:00"
+  },
+  "nativeVisualEvidence": "../quality-review/captures/today/2026-11-11-original-palette-01/README.md",
+  "physicalDeviceAcceptance": false,
+  "playConsoleSubmission": "Not requested; APK and website beta delivery only.",
+  "knownBaselineDebt": "Original emulator notebook has an existing large IndexedDB value read failure; native visual review uses a disposable synthetic namespace without clearing or repairing original data."
+}

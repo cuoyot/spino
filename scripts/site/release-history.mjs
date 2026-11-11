@@ -314,3 +314,6 @@ if(todayBeta125){const text=await readFile(new URL('../../docs/releases/6.2.2-be
 
 const persistentVideoBeta126=releases.find(r=>r.version==='6.2.2-beta.4');
 if(persistentVideoBeta126){const text=await readFile(new URL('../../docs/releases/6.2.2-beta.4-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))persistentVideoBeta126.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const todayPaletteBeta127=releases.find(r=>r.version==='6.2.2-beta.5');
+if(todayPaletteBeta127){const text=await readFile(new URL('../../docs/releases/6.2.2-beta.5-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))todayPaletteBeta127.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

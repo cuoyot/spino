@@ -1,3 +1,7 @@
+2026-11-11 Today palette restoration is implemented for owner-authorized beta127 APK/web delivery. The original weekly palette is scoped to that module; functional calculations, other Today surfaces and previous recording/repertoire work are retained. [Evidence](captures/today/2026-11-11-original-palette-01/README.md).
+
+2026-11-11 Today: owner accepts the restored weekly module structure. Historical palette and exact behavior verified against all 9 November revisions; [audit](today-2026-11-09-audit.md). A color-only restoration is not yet implemented or published.
+
 2026-11-10 Today revision: the owner requests the weekly progress presentation from 6.2, retaining other work. Reuse the v6.2.0 weekly overview rather than the beta125 paired daily/weekly metrics. The implementation and [responsive evidence](captures/today/2026-11-10-weekly-62-02/README.md) are presented; final visual acceptance is pending. Existing upcoming-event priorities, shared saved-session cards, practice controls and recording/export work are preserved. No publication or native acceptance is claimed for this revision.
 
 2026-11-07: PRACTICE-01/05 compact header and prominent total accepted by owner. Beta119 packages the approved responsive layout. Evidence: session/2026-11-07-session-total-header-01. Physical-device acceptance remains separate.

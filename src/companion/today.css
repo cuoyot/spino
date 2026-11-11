@@ -3,8 +3,27 @@
 #app-shell .cp-today .cp-today-title { margin-bottom: 10px; }
 #app-shell .cp-today .cp-today-title > div { width: 100%; text-align: left; }
 #app-shell .cp-today .cp-today-title p { margin: 0; font-size: 12px; line-height: 1.5; color: var(--theme-muted); }
-/* Restore the 6.2 weekly hierarchy while retaining the current Today surfaces. */
-#app-shell .cp-today > .cp-today-progress { margin: 0 0 12px; padding: 14px 16px; border: 1px solid var(--browse-edge); border-radius: 14px; background: var(--theme-tint); box-shadow: none; }
+/* Keep the 9 November weekly palette local to this module. */
+:root[data-theme] #app-shell .cp-today > .cp-today-progress {
+  --theme-text:#e8eaed; --theme-muted:#9aa0a6; --theme-secondary:#a7aeb9;
+  --theme-line:#353941; --theme-control:#1a202b; --theme-accent:#4f8cff; --theme-link:#9cbfff;
+  --browse-blue:#9cbfff; --browse-teal:#6bdcc4; --browse-gold:#edc67d; --browse-purple:#c9b1f2;
+  --browse-card:#282e38; --browse-panel:#222c3a; --browse-blue-tint:#223751; --browse-edge:#ffffff1c;
+  --browse-shadow:inset 0 1px 0 #ffffff08,0 3px 6px #00000055,0 10px 20px #00000033;
+  --ink:var(--theme-text); --subtle:var(--theme-secondary); --line:var(--theme-line);
+  margin:0 0 12px; padding:14px 16px; border:1px solid var(--browse-edge); border-radius:16px;
+  background:var(--browse-card); color:var(--theme-text); box-shadow:var(--browse-shadow);
+}
+:root[data-theme=light] #app-shell .cp-today > .cp-today-progress {
+  --theme-text:#1e293b; --theme-muted:#526075; --theme-secondary:#526075;
+  --theme-line:#c7d1df; --theme-control:#ffffff; --theme-accent:#2563eb; --theme-link:#174da6;
+  --browse-blue:#174da6; --browse-teal:#146b60; --browse-gold:#79571b; --browse-purple:#674697;
+  --browse-card:#ffffff; --browse-panel:#edf3ff; --browse-blue-tint:#e7efff; --browse-edge:#233d6010;
+  --browse-shadow:0 2px 3px #233d6008,0 7px 16px #233d6010;
+}
+:root[data-theme] #app-shell .cp-today > .cp-today-progress .cp-day-practice > i { background:linear-gradient(0deg,#368ce8,#38c8ac); }
+:root[data-theme] #app-shell .cp-today > .cp-today-progress .cp-today-progress-track > span { background:linear-gradient(90deg,#4f8cff,#32c6ac); }
+:root[data-theme] #app-shell .cp-today > .cp-today-progress .cp-today-days [aria-current=date] b { background:var(--theme-accent); color:#ffffff; }
 #app-shell .cp-today .cp-today-progress-total > strong { font-size: clamp(32px,5vw,40px); }
 #app-shell .cp-today .cp-today-progress-total small { font-size: 17px; font-weight: 500; }
 #app-shell .cp-today .cp-today-progress-track { height: 8px; margin-top: 12px; }

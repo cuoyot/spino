@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: new installations keep onboarding and do not receive an update prompt
+ok 1 - new installations keep onboarding and do not receive an update prompt
+  ---
+  duration_ms: 0.781375
+  type: 'test'
+  ...
+# Subtest: only a known major/minor change prompts; patch, beta and legacy state migrate quietly
+ok 2 - only a known major/minor change prompts; patch, beta and legacy state migrate quietly
+  ---
+  duration_ms: 0.167791
+  type: 'test'
+  ...
+# Subtest: unavailable local preferences never prevent startup or repeatedly request a rating
+ok 3 - unavailable local preferences never prevent startup or repeatedly request a rating
+  ---
+  duration_ms: 0.08925
+  type: 'test'
+  ...
+# Subtest: all five locales provide the three improvements and an optional neutral rating action
+ok 4 - all five locales provide the three improvements and an optional neutral rating action
+  ---
+  duration_ms: 0.294875
+  type: 'test'
+  ...
+# Subtest: Today restores the weekly overview and retains appointments and performance priorities
+ok 5 - Today restores the weekly overview and retains appointments and performance priorities
+  ---
+  duration_ms: 12272.215667
+  type: 'test'
+  ...
+# Subtest: Today prioritizes distant performances, opens their details and retains the notebook
+ok 6 - Today prioritizes distant performances, opens their details and retains the notebook
+  ---
+  duration_ms: 1855.508625
+  type: 'test'
+  ...
+# Subtest: Home highlights saved weekly practice with and without a goal in both themes
+ok 7 - Home highlights saved weekly practice with and without a goal in both themes
+  ---
+  duration_ms: 2428.372917
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17314.030458

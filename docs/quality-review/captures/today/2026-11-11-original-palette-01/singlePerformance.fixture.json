@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "preferences": {
+    "name": "",
+    "context": "mobile",
+    "weeklyMinutes": 240,
+    "notificationsEnabled": false,
+    "practiceSuggestions": false,
+    "wifiOnly": true,
+    "theme": "light",
+    "language": "es"
+  },
+  "works": [],
+  "downloads": [],
+  "downloadJobs": [],
+  "routines": [],
+  "plans": [],
+  "events": [
+    {
+      "id": "review-lessons",
+      "title": "Weekly piano lesson",
+      "type": "Clase",
+      "date": "2026-11-10",
+      "time": "15:30",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": [],
+      "recurrence": {
+        "id": "review-lessons",
+        "frequency": "weekly",
+        "rule": true,
+        "until": null,
+        "excluded": []
+      }
+    },
+    {
+      "id": "review-audition",
+      "title": "Audicion de nadal",
+      "type": "Audición",
+      "date": "2026-12-17",
+      "time": "18:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-later-audition",
+      "title": "Spring audition",
+      "type": "Audición",
+      "date": "2027-03-15",
+      "time": "18:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-0-1",
+      "title": "Ensayo 1",
+      "type": "Ensayo",
+      "date": "2026-11-11",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-0-2",
+      "title": "Ensayo 2",
+      "type": "Ensayo",
+      "date": "2026-11-12",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-0-3",
+      "title": "Ensayo 3",
+      "type": "Ensayo",
+      "date": "2026-11-13",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-1-1",
+      "title": "Otro 1",
+      "type": "Otro",
+      "date": "2026-11-11",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-1-2",
+      "title": "Otro 2",
+      "type": "Otro",
+      "date": "2026-11-12",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    },
+    {
+      "id": "review-secondary-1-3",
+      "title": "Otro 3",
+      "type": "Otro",
+      "date": "2026-11-13",
+      "time": "17:00",
+      "place": "",
+      "notes": "",
+      "workIds": [],
+      "reminder": false,
+      "milestones": []
+    }
+  ],
+  "sessions": [
+    {
+      "id": "review-saved-2026-11-10",
+      "title": "Daily piano practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "review-free",
+          "type": "free",
+          "minutes": 40,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "review-free",
+            "type": "free",
+            "minutes": 40,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 720000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-11-10T10:00:00.000Z",
+      "date": "2026-11-10",
+      "elapsedMs": 720000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1794304800000,
+      "notes": "Synthetic saved practice.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-11-10T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    },
+    {
+      "id": "review-saved-2026-11-09",
+      "title": "Daily piano practice",
+      "context": "piano",
+      "planId": null,
+      "blocks": [
+        {
+          "id": "review-free",
+          "type": "free",
+          "minutes": 40,
+          "bpm": 60,
+          "timing": "timed",
+          "target": "C-major",
+          "hand": "right",
+          "input": "piano",
+          "figures": "1",
+          "passage": "",
+          "workId": ""
+        }
+      ],
+      "blockIndex": 1,
+      "results": [
+        {
+          "block": {
+            "id": "review-free",
+            "type": "free",
+            "minutes": 40,
+            "bpm": 60,
+            "timing": "timed",
+            "target": "C-major",
+            "hand": "right",
+            "input": "piano",
+            "figures": "1",
+            "passage": "",
+            "workId": ""
+          },
+          "context": "piano",
+          "elapsedMs": 2280000,
+          "measurement": null,
+          "material": null
+        }
+      ],
+      "startedAt": "2026-11-10T10:00:00.000Z",
+      "date": "2026-11-09",
+      "elapsedMs": 2280000,
+      "blockElapsedMs": 0,
+      "runningSince": null,
+      "updatedAt": 1794304800000,
+      "notes": "Synthetic saved practice.",
+      "next": "",
+      "mood": 4,
+      "workIds": [],
+      "endedAt": "2026-11-10T10:00:00.000Z",
+      "status": "completed",
+      "manual": false
+    }
+  ],
+  "active": null,
+  "lastBackup": null
+}
