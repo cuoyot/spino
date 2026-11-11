@@ -1,0 +1,52 @@
+{
+  "version": "6.2.3",
+  "build": 128,
+  "date": "2026-11-11",
+  "channel": "stable",
+  "stable": {
+    "version": "6.2.3",
+    "build": 128
+  },
+  "googlePlay": {
+    "version": "6.2.3",
+    "build": 128,
+    "status": "pending-review",
+    "track": "production",
+    "rollout": 1.0,
+    "previousPublished": {
+      "version": "6.2.2",
+      "build": 123
+    },
+    "submittedAt": "2026-11-11"
+  },
+  "beta": {
+    "version": "6.2.2-beta.5",
+    "build": 127
+  },
+  "artifacts": [
+    {
+      "file": "spino-6.2.3-128-android.apk",
+      "bytes": 72633653,
+      "sha256": "4e8797b84c1dc40c9ec07a96a767aa296cd85275fc5280228d47ad6fa7999574"
+    },
+    {
+      "file": "spino-6.2.3-128-android.aab",
+      "bytes": 64237608,
+      "sha256": "48670f1e40e8793be337ecdc54cab0dcaceb5a5e740fd0c47d610b4db3d4a03e"
+    },
+    {
+      "file": "spino-6.2.3-play-console-handoff.zip",
+      "bytes": 63953005,
+      "sha256": "5e115e000e4e60056d03af2be5acab85cc76da62cc9c8ebc65202c989853a237"
+    },
+    {
+      "file": "6.2.3-release-notes.txt",
+      "bytes": 1460,
+      "sha256": "5971d9944b3bec91e0c4c26537a950765b1401bedc615b3d8c18bdfccfb82b36"
+    }
+  ],
+  "source": {
+    "tag": "v6.2.3",
+    "url": "https://github.com/cuoyot/spino/tree/v6.2.3"
+  }
+}

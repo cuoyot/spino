@@ -1,0 +1,16 @@
+{
+  "version": "6.2.3",
+  "build": 128,
+  "bundleId": "com.miguecoll.spino",
+  "displayName": "SPino",
+  "archiveCompiled": true,
+  "distributionIpaSigned": true,
+  "signingVerification": "codesign --verify --deep --strict passed",
+  "matchingWebFiles": 687,
+  "ipa": "spino-6.2.3-128-ios.ipa",
+  "ipaBytes": 59447162,
+  "ipaSHA256": "7410c78dd59f95f820739d4beef25989aa232a2f8ae707862440be46f7ae727a",
+  "simulatorCompiled": true,
+  "appleSubmission": "Not requested; local compilation and signing only.",
+  "provisioning": "Used existing local profile/certificates without provisioning updates."
+}

@@ -69,3 +69,7 @@ Validation: the final native Debug build passed and the installed app displayed 
 Updated `master` from `ad0d9dd` to `46160c4` (package version 5.2.7) and reapplied the local iOS scripts, Node selection, and simulator inspection workaround without conflicts. `npm ci`, the production web build, Capacitor iOS synchronization, and the native Debug simulator build passed. Replacement installation retained the existing simulator notebook. The updated app launched and displayed Practice with the new quick-practice and Progress surfaces. Screenshot evidence is in `artifacts/ios-development/2026-10-10-upstream-46160c4/startup-loaded.png`. This verifies compilation and startup, not all newly added features or physical-device behavior.
 
 The pre-update local changes remain recoverable in the Git stash named `iOS development setup before upstream update 2026-10-10`.
+
+## Stable 6.2.3 compilation — 11 November 2026
+
+Xcode 27.2 compiles the approved stable application for device Release and simulator Debug with version 6.2.3/build128 and display name SPino. A local distribution IPA exports with the existing SPino team profile and certificate; `codesign --verify --deep --strict` and all 687 packaged web assets match. No provisioning resources were created or updated and no Apple upload was performed. Simulator replacement installation preserves 15 notebook/WebKit files before launch. Evidence: `docs/releases/6.2.3-ios-validation.json` and `6.2.3-ios-native.json`. Physical-device and App Store acceptance remain separate.

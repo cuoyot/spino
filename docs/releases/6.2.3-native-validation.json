@@ -1,0 +1,10 @@
+{
+  "version": "6.2.3",
+  "versionCode": 128,
+  "package": "com.miguecoll.spino.beta",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "originalFilesRetained": 7,
+  "allOriginalFilesUnchangedBeforeLaunch": true,
+  "foreground": "ResumedActivity: ActivityRecord{694a251 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t210}",
+  "checkedAt": "2026-11-11T07:43:03.910399+00:00"
+}

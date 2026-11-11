@@ -1,0 +1,19 @@
+<es-ES>
+Inicio de prácticas más sencillo: selecciona varias piezas del atril y configura el tiempo y el calentamiento sin crear bloques. Corregidos los problemas al compartir vídeos: se conserva la copia preparada para reutilizarla. Ajustes de diseño y mayor claridad al detener una grabación.
+</es-ES>
+
+<en-US>
+Easier practice setup: select several stand pieces and choose the duration and warm-up without creating blocks. Fixed video sharing issues: prepared copies are saved for reuse. Design refinements and clearer recording stop controls.
+</en-US>
+
+<ca>
+Inici de pràctiques més senzill: selecciona diverses peces de l’atril i configura el temps i l’escalfament sense crear blocs. Corregits els problemes en compartir vídeos: es conserva la còpia preparada per reutilitzar-la. Ajustos de disseny i més claredat en aturar una gravació.
+</ca>
+
+<de-DE>
+Einfacherer Übungsstart: mehrere Stücke vom Notenpult wählen und Dauer sowie Aufwärmen ohne Blöcke festlegen. Probleme beim Teilen von Videos behoben; fertige Kopien bleiben zur Wiederverwendung gespeichert. Design verbessert und Aufnahme-Stopp klarer gestaltet.
+</de-DE>
+
+<hu-HU>
+Egyszerűbb gyakorlásindítás: több darab választható a kottatartóról, az idő és a bemelegítés blokkok nélkül állítható be. Javított videómegosztás: a feldolgozott példány megmarad az újrafelhasználáshoz. Finomított megjelenés és egyértelműbb felvételleállítás.
+</hu-HU>

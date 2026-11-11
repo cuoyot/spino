@@ -1,0 +1,14 @@
+{
+  "simulator": "28D9965D-1D3A-499F-BA04-4CF157356C82",
+  "bundleId": "com.miguecoll.spino",
+  "replacementInstall": true,
+  "existingNotebookFiles": 15,
+  "retainedNotebookFiles": 15,
+  "allExistingNotebookFilesUnchangedBeforeLaunch": true,
+  "changedRelativePaths": [],
+  "launchResult": "com.miguecoll.spino: 45609",
+  "checkedAt": "2026-11-11T07:49:53.847115+00:00",
+  "startupUIVerified": true,
+  "startupSurface": "Today with retained unfinished development practice",
+  "screenshot": "6.2.3-ios-startup.png"
+}

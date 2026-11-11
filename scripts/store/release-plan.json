@@ -1,19 +1,19 @@
 {
   "stable": {
-    "version": "6.2.2",
-    "build": 123
+    "version": "6.2.3",
+    "build": 128
   },
   "googlePlay": {
-    "version": "6.2.2",
-    "build": 123,
+    "version": "6.2.3",
+    "build": 128,
     "status": "pending-review",
     "track": "production",
     "rollout": 1.0,
     "previousPublished": {
-      "version": "6.2.1",
-      "build": 121
+      "version": "6.2.2",
+      "build": 123
     },
-    "submittedAt": "2026-11-09"
+    "submittedAt": "2026-11-11"
   },
   "beta": {
     "version": "6.2.2-beta.5",

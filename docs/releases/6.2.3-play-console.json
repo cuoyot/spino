@@ -1,0 +1,27 @@
+{
+  "version": "6.2.3",
+  "versionCode": 128,
+  "package": "com.miguecoll.spino",
+  "track": "production",
+  "requestedRollout": 1.0,
+  "consoleState": "Changes in review",
+  "releaseAction": "Start full rollout",
+  "managedPublishing": false,
+  "bundle": "spino-6.2.3-128-android.aab",
+  "bundleSHA256": "48670f1e40e8793be337ecdc54cab0dcaceb5a5e740fd0c47d610b4db3d4a03e",
+  "releaseNotesLocales": [
+    "es-ES",
+    "en-US",
+    "ca",
+    "de-DE",
+    "hu-HU"
+  ],
+  "submittedChanges": 1,
+  "quickChecks": "Submission accepted; quick checks underway, then Google review.",
+  "googleApproval": "Pending",
+  "compatibleDevicesLost": 0,
+  "warning": "No deobfuscation file; minification is disabled. No blocking errors.",
+  "consoleURL": "https://play.google.com/console/u/0/developers/5810146646828567054/app/4975350856482164945/publishing",
+  "releaseURL": "https://play.google.com/console/u/0/developers/5810146646828567054/app/4975350856482164945/tracks/4697590939190484672/releases/9/review",
+  "approvedBetaCommit": "db183adc3d09fba3dcf0edde813544ff314a7a1c"
+}

@@ -1,0 +1,65 @@
+{
+  "version": "6.2.3",
+  "versionCode": 128,
+  "baseRelease": "6.2.2-beta.5 (127)",
+  "approvedBetaCommit": "db183adc3d09fba3dcf0edde813544ff314a7a1c",
+  "applicationTests": {
+    "passed": 26,
+    "failed": 0
+  },
+  "androidTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "websiteTests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "packages": {
+    "identicalWebFiles": 687,
+    "stableApkReviewApkAabMatchBuild": true
+  },
+  "nativeEvidence": {
+    "version": "6.2.3",
+    "versionCode": 128,
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "originalFilesRetained": 7,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": "ResumedActivity: ActivityRecord{694a251 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t210}",
+    "checkedAt": "2026-11-11T07:43:03.910399+00:00"
+  },
+  "ios": {
+    "version": "6.2.3",
+    "build": 128,
+    "bundleId": "com.miguecoll.spino",
+    "displayName": "SPino",
+    "archiveCompiled": true,
+    "distributionIpaSigned": true,
+    "signingVerification": "codesign --verify --deep --strict passed",
+    "matchingWebFiles": 687,
+    "ipa": "spino-6.2.3-128-ios.ipa",
+    "ipaBytes": 59447162,
+    "ipaSHA256": "7410c78dd59f95f820739d4beef25989aa232a2f8ae707862440be46f7ae727a",
+    "simulatorCompiled": true,
+    "appleSubmission": "Not requested; local compilation and signing only.",
+    "provisioning": "Used existing local profile/certificates without provisioning updates."
+  },
+  "iosNative": {
+    "simulator": "28D9965D-1D3A-499F-BA04-4CF157356C82",
+    "bundleId": "com.miguecoll.spino",
+    "replacementInstall": true,
+    "existingNotebookFiles": 15,
+    "retainedNotebookFiles": 15,
+    "allExistingNotebookFilesUnchangedBeforeLaunch": true,
+    "changedRelativePaths": [],
+    "launchResult": "com.miguecoll.spino: 45609",
+    "checkedAt": "2026-11-11T07:49:53.847115+00:00",
+    "startupUIVerified": true,
+    "startupSurface": "Today with retained unfinished development practice",
+    "screenshot": "6.2.3-ios-startup.png"
+  },
+  "playConsole": "6.2.3-play-console.json",
+  "physicalDeviceAcceptance": false,
+  "googleApproval": "Pending"
+}
