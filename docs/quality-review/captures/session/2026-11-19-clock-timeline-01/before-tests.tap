@@ -1,0 +1,56 @@
+TAP version 13
+# Subtest: a delayed frame must not count a blocked interval twice or rewind the visible digits
+not ok 1 - a delayed frame must not count a blocked interval twice or rewind the visible digits
+  ---
+  duration_ms: 3995.682375
+  type: 'test'
+  location: '/Users/migue/Source/spino/tests/clock-display.browser.test.js:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    A stale timeline must not move the running origin.
+    + actual - expected
+    
+    + -60556.23399997616
+    - -58739.604000071995
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: -58739.604000071995
+  actual: -60556.23399997616
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/Source/spino/tests/clock-display.browser.test.js:50:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: pause, resume and digit-width rollover retain one origin for every visible digit
+not ok 2 - pause, resume and digit-width rollover retain one origin for every visible digit
+  ---
+  duration_ms: 2101.811708
+  type: 'test'
+  location: '/Users/migue/Source/spino/tests/clock-display.browser.test.js:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(Math.abs(animation.time - result.paused.elapsed) < 1)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/Source/spino/tests/clock-display.browser.test.js:75:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6226.805584

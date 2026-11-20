@@ -1,0 +1,32 @@
+{
+  "version": "6.2.4-beta.1",
+  "versionCode": 129,
+  "base": "df10dbccd2b4d0734d56a282b1fd3905aa27fc19",
+  "packages": {
+    "spino-6.2.4-beta.1-129-android.aab": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 64238078,
+      "sha256": "3be96bc9e795c9fab84c40e9e0b066bcecbea93fe1ec7dffc5519c92547ba71f"
+    },
+    "spino-6.2.4-beta.1-129-android.apk": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 72634125,
+      "sha256": "232aa82f56d85d04725d2dfe76fc5e197c537d624517f4dbf98dd50553cd35e0"
+    },
+    "spino-6.2.4-beta.1-129-beta-android.apk": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 77207312,
+      "sha256": "05c3f34aa66b4e91d04b6e48b535258d3505ac1668176d4da1a525b1d39c3a82"
+    }
+  },
+  "androidUnitTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "combinedTaggedNotesIdenticalInHandoff": true,
+  "physicalDeviceAcceptance": false,
+  "playConsoleSubmission": false
+}

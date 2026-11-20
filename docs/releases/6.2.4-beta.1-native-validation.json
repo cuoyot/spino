@@ -1,0 +1,32 @@
+{
+  "version": "6.2.4-beta.1",
+  "versionCode": 129,
+  "checkedAt": "2026-11-20T08:31:21.594Z",
+  "package": "com.miguecoll.spino.beta",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }",
+  "originalFilesRetained": 8,
+  "allOriginalFilesUnchangedBeforeLaunch": true,
+  "foreground": "ResumedActivity: ActivityRecord{59e805e u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t213}",
+  "before": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "7b8673e05a99aab0c0856adecf99261942956461df86818ab147129f3fc6aa9e",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "77895ec34fa219add49d984b7226785fcada5a4b95f8320bbf6ea8fc1b9b79ad",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "5141157d727352919f8bc1ec911bc313927f42d7f95194ee633e23c6be32eca7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "ae17a6a03491d006b50252165de1ebeddceef1d84dfd3bfeb6d1643844e78a0f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "dc7e25bd961e7d0f141122dae65ac93f9b78b61933df6aa36268b7727925d4dc",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "after": {
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "7b8673e05a99aab0c0856adecf99261942956461df86818ab147129f3fc6aa9e",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "77895ec34fa219add49d984b7226785fcada5a4b95f8320bbf6ea8fc1b9b79ad",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "5141157d727352919f8bc1ec911bc313927f42d7f95194ee633e23c6be32eca7",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "ae17a6a03491d006b50252165de1ebeddceef1d84dfd3bfeb6d1643844e78a0f",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "dc7e25bd961e7d0f141122dae65ac93f9b78b61933df6aa36268b7727925d4dc",
+    "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+  },
+  "physicalDeviceAcceptance": false
+}

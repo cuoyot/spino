@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<link rel="stylesheet" href="/src/companion/clock-display.css">
+<title>Shared practice clock regression fixture</title>
+<style>body { background: white; color: black; } #clock { font: 40px monospace; }</style>
+<output id="clock">0:00</output>
+<script type="module">
+  import { updateClockDisplay } from '/src/companion/clock-display.js';
+  window.updateClockDisplay = updateClockDisplay;
+</script>
+</html>

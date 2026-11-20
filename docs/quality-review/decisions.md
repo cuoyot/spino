@@ -1,3 +1,7 @@
+## 2026-11-20 — Clock correction beta delivery
+
+The owner requests a new beta and website publication of the shared clock-origin correction. No further layout change is proposed. The correction, release metadata and notes are integrated onto published 6.2.3 as 6.2.4-beta.1 (129). [Validation](../releases/6.2.4-beta.1-validation.json) separates browser timing, Android package/native launch and broad-suite test debt from physical-device acceptance.
+
 2026-11-11 Today palette restoration is implemented for owner-authorized beta127 APK/web delivery. The original weekly palette is scoped to that module; functional calculations, other Today surfaces and previous recording/repertoire work are retained. [Evidence](captures/today/2026-11-11-original-palette-01/README.md).
 
 2026-11-11 Today: owner accepts the restored weekly module structure. Historical palette and exact behavior verified against all 9 November revisions; [audit](today-2026-11-09-audit.md). A color-only restoration is not yet implemented or published.

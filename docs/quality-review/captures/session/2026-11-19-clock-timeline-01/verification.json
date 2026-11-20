@@ -1,0 +1,111 @@
+{
+  "reviewDate": "2026-11-19",
+  "scope": "Responsive Chromium browser; synthetic inputs; no native acceptance or publication",
+  "workspace": "/Users/migue/Source/spino",
+  "head": "902f0e7ee5ab6933e36421b17631d5fe61dad894",
+  "preExistingPendingWork": true,
+  "tools": {
+    "node": "v22.23.3",
+    "chromium": "Google Chrome 157.0.8103.79",
+    "browserProfile": "Disposable headless profile per test; not the personal Chrome profile",
+    "vite": "8.3.1"
+  },
+  "buildSucceeded": true,
+  "source": {
+    "src/companion/clock-display.js": "4f12a02eaa579765fce19a9d46437c65a548694e50ce7fa501ab1b388e2421df",
+    "src/companion/clock-display.css": "69029316dc5c18df291d4d71d3ae9062dd6292e7108e4ba774f72482e8813147",
+    "tests/clock-display.browser.test.js": "e9bdfe54513d23d717901858529622821183b1c4041408768578cdb522c651e4",
+    "tests/fixtures/clock-display.html": "957544e8ad0c033366ba70b2be9169286c5c6da3a3eac84028cd3c942642c671",
+    "tests/practice-clock.browser.test.js": "e7d44c9d50cc853585064e7dbeb12d75fe44cbcaa4847678d871255fddb7bf96",
+    "tests/score-timer.browser.test.js": "159ddbf9024d068fed224041ae533775e7034a6f45195f7892dcda7cd58e0db7",
+    "tests/practice-revision.browser.test.js": "833c0b3363bc1b445ddade2612091760c09a876524a1144f654a051dc7eabd46"
+  },
+  "build": {
+    "dist/index.html": "94a949edc42adf45fd7198a89fc2fbdae137c932afaa4777b97e4f574a6c9230",
+    "dist/assets/app-CYhkkdkG.css": "5850792b5ad872f7854e88a54da8fdc4e3a50ece63eaa7d0265b4ee93816415b",
+    "dist/assets/app-Yr3MU4MS.js": "72529b088cd2054019ae1d6f5828ebfc4328118c609b6ea53b2dae68267b3230"
+  },
+  "screenshots": {
+    "pdf-dark-phone-landscape-minimized.png": "f55975c0c6141743e5655eae8fe0df5ea30231c47c475af3f621a5f925d24b72",
+    "pdf-dark-phone-landscape-paused.png": "67708f7cc4678f8251eaaf6427165c03f4e2a4c622af0e2ec390858d25e4c218",
+    "pdf-dark-phone-landscape-running.png": "3c6fe11d5578cad1123317406f519fe5fbdab2f700fe16e333d784d13d3a52cd",
+    "pdf-dark-phone-portrait-minimized.png": "344c97ea55bfd6c519c1b12d5d3e924a39c8af948c6f944155dc5e3e1839cc60",
+    "pdf-dark-phone-portrait-paused.png": "4875d30caa5e446124413eeed7fbc992d2f37f36c22c295d511854bf2f6fac49",
+    "pdf-dark-phone-portrait-running.png": "9934f534b5726f5aab04c13ddf02c90579dc49b7e00c8007f2e9b5bb445dc169",
+    "pdf-dark-small-phone-minimized.png": "962f955e565d35d5de1eafbf306c2d0fb83e33b5607909fd20beed3a01a1f356",
+    "pdf-dark-small-phone-paused.png": "65e2946edd9c606760624a3016a1f07ddb43147cc552b4157fefe7cded666f1f",
+    "pdf-dark-small-phone-running.png": "eadfd0dd89ebeeb6ebb8ba3dde8daf70a0ac2719ae785c42179524e4e6a5b88e",
+    "pdf-dark-tablet-landscape-minimized.png": "bcfe04db5f33d1b05f69b654c6aa390af56e36b95f964d6efc08b7d61903086f",
+    "pdf-dark-tablet-landscape-paused.png": "5a80ec98cf7cc27d12be03b3ab1824558d81898b5a80d7975be8ab28788c3167",
+    "pdf-dark-tablet-landscape-running.png": "fb5ba9f63fe82ef34a97b61ffca574c597d98b64ef93963e78124c0c775f78bb",
+    "pdf-dark-tablet-portrait-minimized.png": "3f84d9681f2b661689fae86f9d42f8b03946e73b60474ce7fc0c59d085699162",
+    "pdf-dark-tablet-portrait-paused.png": "f39eda045d55d8f2ba1749a290bf6caa09b4a74d42b47fde80a7ebd72e68dcb4",
+    "pdf-dark-tablet-portrait-running.png": "2bf25fdede994a7f8257cb99a21bf2176bd1eb56ede03b9354f0c89dba00eb33",
+    "pdf-light-phone-landscape-minimized.png": "870785579106e152dcadd84ac31cf67c4bb2a2fb8648da8c6b7000136a29377d",
+    "pdf-light-phone-landscape-paused.png": "1348864e1adfa63e9b5abf704d9e77b6938672c89f2df7d870c18ddcdef9116f",
+    "pdf-light-phone-landscape-running.png": "4d859f3aa3c63ff1b5a6e554bf83c6dd6d34b7b6eccde1edd442aa34e1049c03",
+    "pdf-light-phone-portrait-minimized.png": "030ff6b6a98f3f27cc8584fd3819fe014d95a3bf899eb53efd3676b40890b12e",
+    "pdf-light-phone-portrait-paused.png": "bc335012e45620aeeb8d8a837eb5ba32ba7625a2b8eafb837aaab001d4a88b83",
+    "pdf-light-phone-portrait-running.png": "2f093fc1b9a65ff5ebd58ab5b624d6876ffdc74b80dea2bdb135021d5be9ae2c",
+    "pdf-light-small-phone-minimized.png": "4e57738d032aa006e4613cccf6b800592067ab065f7f7d31e59bdc0fe0038125",
+    "pdf-light-small-phone-paused.png": "d06c51af64b417ec6223990c114eb12e67f12c3e0719ad0bf38a2b6f292e98b5",
+    "pdf-light-small-phone-running.png": "cb384dae3fffa16470b9edd9dcfb52ffc5433390179a3e56f8be0a8a421015c8",
+    "pdf-light-tablet-landscape-minimized.png": "39db86448422da84a95d04c5c2d7f26798024ed4432c13a22b28b9b3c043a184",
+    "pdf-light-tablet-landscape-paused.png": "ef9596cae638480d5a8fe41c4d446510861d1d8dd77ae9597ee47a0cba528e62",
+    "pdf-light-tablet-landscape-running.png": "36c607189cd508dd017eeccfe400ce9dc1b16e7ce4081da7bf32c46ea251ce07",
+    "pdf-light-tablet-portrait-minimized.png": "f2711316a4885b90c6b786d80670b7db0a7d2fbe80c9e633b2521b0df096a77f",
+    "pdf-light-tablet-portrait-paused.png": "5c1b7a37e66302f01549d0b293ce53871ba526bee4708c486e3635b244a864a5",
+    "pdf-light-tablet-portrait-running.png": "59453c27046d1c5f444e96c1d2de62ce530cfa313066071f26c19a3420c8e216",
+    "xml-phone-landscape-clock-exits-editing-paused.png": "504f000a7ea3566c04415ef095c3a761df1475669ffc7c58a5e53a52c345a90b",
+    "xml-phone-landscape-editing.png": "6b1f5b5096403db83b5543ab2e4414bb24d2e3d52645f3c1c71bead8d238515b",
+    "xml-phone-landscape-minimized.png": "35f66cf082054b76e07eb0eaf4f4276112adb39f681735b8cc4089f05f73e533",
+    "xml-phone-landscape-paused.png": "58a1a4a0b6ae0dd79060fd27cb661f3e39e518aa8f551db18b4c555898c34a1f",
+    "xml-phone-landscape-running.png": "35aa57019a011b82aff11441897ac9b4c93c5f20f3df86d72b34c91910c3241b",
+    "xml-phone-portrait-clock-exits-editing-paused.png": "21c4924c2db6f486a72b0a54bda9d9b50b1a57b32034722979a3bb684a57ae24",
+    "xml-phone-portrait-editing.png": "d5ae04225f65580cdd6ef70dc1c990779b7c59545ec61ff3f455994bb98d91e6",
+    "xml-phone-portrait-minimized.png": "8cccb2c35a4e99b78b426a1d3ab081006f50c946ed35f4f8c99d5af81b1361f6",
+    "xml-phone-portrait-paused.png": "9be4183da65f6e418ad92150dab65adf3d09d10e3c9c400ac94559442a9150a8",
+    "xml-phone-portrait-running.png": "80f8d41f40b03acc1339a2c8b5c547ce27202fb9df392cc592186a1a66cf5249",
+    "xml-tablet-landscape-clock-exits-editing-paused.png": "aaed918526d4b3d17b544dfe787e556c12e95db02499f719841769562ba73e4f",
+    "xml-tablet-landscape-editing.png": "3023359618103e919b42b24fd9f84cb0ee1af70df85f407fa87d7a5eaffbc254",
+    "xml-tablet-landscape-minimized.png": "a80c28b9249322d901b57bca63f96386d38975eb0429b4cf01a493d9620f2f4c",
+    "xml-tablet-landscape-paused.png": "87495fc7731b7450736d450f8ee49ea653488e39566d6436a6ddf0c4ed6c204f",
+    "xml-tablet-landscape-running.png": "2a13e6390ba2fd445efacc20ad863214e000e2abb3cc7e71778e26344b8713ef",
+    "xml-tablet-portrait-clock-exits-editing-paused.png": "3267e8fd08be71a861bb7d4ddb76918fac80e01b3e842bd82277af2634bfd7b4",
+    "xml-tablet-portrait-editing.png": "858760682f777bf787b8c04b26b451f097782e0b768416c03dfcb30635e0a121",
+    "xml-tablet-portrait-minimized.png": "7c92746eaae186ee531ac5f08ed3836a1f5f9136d4db534ef269add6974e5d77",
+    "xml-tablet-portrait-paused.png": "5ec1f28e96b2f25aa02f44e4a85d84025ff7609b7ed3e77c34fd49c1113c24cc",
+    "xml-tablet-portrait-running.png": "481f934f9ac3732a80fb186e3b036cd795bfd3aefafd518efc469dd5182471ab"
+  },
+  "fixturesSha256": "8bcb5c37268b22caf48e6cd9bde4e04c5504dd2e30b27a8f80d962aa69db4456",
+  "baselineOvershootMs": 1814.9400000476835,
+  "fixedPhaseErrorMs": -0.7999999523162842,
+  "baselineVisibleDigits": {
+    "actual": "1:02",
+    "expected": "1:00"
+  },
+  "regressions": {
+    "baselineFinalTests": {
+      "pass": 0,
+      "fail": 2
+    },
+    "fixedFinalTests": {
+      "pass": 2,
+      "fail": 0
+    },
+    "initialFocusedRun": {
+      "pass": 11,
+      "fail": 1,
+      "failedCheck": "Audio worklet minimum beat count, before clock assertions"
+    },
+    "isolatedAudioRecheck": {
+      "pass": 1,
+      "fail": 0
+    }
+  },
+  "preview": {
+    "url": "http://127.0.0.1:5196/?review=pdf",
+    "codexPanel": "queued",
+    "computerUseBrowser": "unavailable"
+  }
+}

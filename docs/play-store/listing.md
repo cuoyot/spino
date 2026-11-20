@@ -72,10 +72,7 @@ Disponible en español, inglés, catalán, alemán y húngaro.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:es:notes -->
-• Interfaz más clara en Calendario, Biblioteca, Progreso y práctica.
-• Catálogo mejor organizado y selección de partituras más cómoda.
-• MusicXML: elección de instrumentos, zoom del 20 al 300 % y controles para nombres, créditos y digitaciones.
-• Novedades al actualizar y acceso para valorar SPino.
+El contador de práctica mantiene el tiempo correcto tras una demora de la interfaz, sin sumar dos veces el intervalo ni reajustarse hacia atrás. Mejora la pausa y la reanudación en práctica libre, ejercicios y partituras PDF y MusicXML.
 <!-- /field -->
 
 ## English — en-US
@@ -146,10 +143,7 @@ Available in English, Spanish, Catalan, German and Hungarian.
 
 ### Release notes — "What's new" (max. 500)
 <!-- field:en:notes -->
-• Clearer Calendar, Library, Progress and practice screens.
-• Better catalogue organization and easier score selection.
-• MusicXML: instrument selection, 20–300% zoom and controls for names, credits and fingering.
-• Update highlights and an optional link to rate SPino.
+The practice clock keeps the correct elapsed time after an interface delay, without counting the interval twice or jumping back. Improves pausing and resuming in free practice, exercises, PDF and MusicXML scores.
 <!-- /field -->
 
 ## Other listing fields

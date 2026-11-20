@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: a delayed frame must not count a blocked interval twice or rewind the visible digits
+ok 1 - a delayed frame must not count a blocked interval twice or rewind the visible digits
+  ---
+  duration_ms: 2472.495667
+  type: 'test'
+  ...
+# Subtest: pause, resume and digit-width rollover retain one origin for every visible digit
+ok 2 - pause, resume and digit-width rollover retain one origin for every visible digit
+  ---
+  duration_ms: 2109.220125
+  type: 'test'
+  ...
+# Subtest: practice seconds repaint promptly between checkpoints without redundant DOM writes
+ok 3 - practice seconds repaint promptly between checkpoints without redundant DOM writes
+  ---
+  duration_ms: 2304.263958
+  type: 'test'
+  ...
+# timed-reading timer visibility: visible
+# timed-reading playing clock: 0:02
+# timed-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: timed-reading
+ok 4 - practice time advances, pauses and survives return: timed-reading
+  ---
+  duration_ms: 8035.130209
+  type: 'test'
+  ...
+# self-paced-reading timer visibility: visible
+# self-paced-reading playing clock: 0:02
+# self-paced-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: self-paced-reading
+ok 5 - practice time advances, pauses and survives return: self-paced-reading
+  ---
+  duration_ms: 7641.480208
+  type: 'test'
+  ...
+# piano-reading timer visibility: visible
+# piano-reading playing clock: 0:02
+# piano-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: piano-reading
+ok 6 - practice time advances, pauses and survives return: piano-reading
+  ---
+  duration_ms: 7804.983208
+  type: 'test'
+  ...
+# Subtest: clock keeps updating without animation frames and shares change detection with frames
+ok 7 - clock keeps updating without animation frames and shares change detection with frames
+  ---
+  duration_ms: 31.848708
+  type: 'test'
+  ...
+# Subtest: score clock refreshes when only the independent session total changes
+ok 8 - score clock refreshes when only the independent session total changes
+  ---
+  duration_ms: 0.198125
+  type: 'test'
+  ...
+# Subtest: preparation puts warm-up first, borrows its minutes and shows static piano keys
+ok 9 - preparation puts warm-up first, borrows its minutes and shows static piano keys
+  ---
+  duration_ms: 1143.515208
+  type: 'test'
+  ...
+# Subtest: worklet audio grid continues through a blocked UI and clock digits keep their own animation
+not ok 10 - worklet audio grid continues through a blocked UI and clock digits keep their own animation
+  ---
+  duration_ms: 3647.832292
+  type: 'test'
+  location: '/Users/migue/Source/spino/tests/practice-revision.browser.test.js:68:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(beats.length>=6)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/Source/spino/tests/practice-revision.browser.test.js:82:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: circular metronome marker is centered on all four cardinal directions
+ok 11 - circular metronome marker is centered on all four cardinal directions
+  ---
+  duration_ms: 1036.153417
+  type: 'test'
+  ...
+# Subtest: raised score timer advances through checkpoints, pauses and resumes in four layouts
+ok 12 - raised score timer advances through checkpoints, pauses and resumes in four layouts
+  ---
+  duration_ms: 41385.229583
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 83001.706875

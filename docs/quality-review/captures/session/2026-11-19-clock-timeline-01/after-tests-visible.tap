@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: a delayed frame must not count a blocked interval twice or rewind the visible digits
+ok 1 - a delayed frame must not count a blocked interval twice or rewind the visible digits
+  ---
+  duration_ms: 2939.404
+  type: 'test'
+  ...
+# Subtest: pause, resume and digit-width rollover retain the correct time for every visible digit
+ok 2 - pause, resume and digit-width rollover retain the correct time for every visible digit
+  ---
+  duration_ms: 2394.80325
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5480.245125

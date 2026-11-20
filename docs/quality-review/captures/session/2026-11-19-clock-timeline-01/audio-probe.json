@@ -1,0 +1,61 @@
+{
+  "before": {
+    "time": 0,
+    "state": "running"
+  },
+  "after": {
+    "time": 2.6933333333333334,
+    "state": "running"
+  },
+  "events": [
+    {
+      "step": 0,
+      "beat": 0,
+      "accent": true,
+      "time": 0.05,
+      "received": 539.0999999046326
+    },
+    {
+      "step": 1,
+      "beat": 1,
+      "accent": false,
+      "time": 0.4879583333333333,
+      "received": 976.1999999284744
+    },
+    {
+      "step": 2,
+      "beat": 2,
+      "accent": false,
+      "time": 0.9259166666666667,
+      "received": 2929.6999999284744
+    },
+    {
+      "step": 3,
+      "beat": 3,
+      "accent": false,
+      "time": 1.363875,
+      "received": 2929.6999999284744
+    },
+    {
+      "step": 4,
+      "beat": 0,
+      "accent": true,
+      "time": 1.8018333333333334,
+      "received": 2929.7999999523163
+    },
+    {
+      "step": 5,
+      "beat": 1,
+      "accent": false,
+      "time": 2.2397708333333335,
+      "received": 2929.7999999523163
+    },
+    {
+      "step": 6,
+      "beat": 2,
+      "accent": false,
+      "time": 2.6777291666666665,
+      "received": 3168.1999999284744
+    }
+  ]
+}

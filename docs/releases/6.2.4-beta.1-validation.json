@@ -1,0 +1,111 @@
+{
+  "version": "6.2.4-beta.1",
+  "versionCode": 129,
+  "base": "df10dbccd2b4d0734d56a282b1fd3905aa27fc19",
+  "packages": {
+    "spino-6.2.4-beta.1-129-android.aab": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 64238078,
+      "sha256": "3be96bc9e795c9fab84c40e9e0b066bcecbea93fe1ec7dffc5519c92547ba71f"
+    },
+    "spino-6.2.4-beta.1-129-android.apk": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 72634125,
+      "sha256": "232aa82f56d85d04725d2dfe76fc5e197c537d624517f4dbf98dd50553cd35e0"
+    },
+    "spino-6.2.4-beta.1-129-beta-android.apk": {
+      "webFiles": 687,
+      "allMatchBuild": true,
+      "bytes": 77207312,
+      "sha256": "05c3f34aa66b4e91d04b6e48b535258d3505ac1668176d4da1a525b1d39c3a82"
+    }
+  },
+  "androidUnitTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "combinedTaggedNotesIdenticalInHandoff": true,
+  "physicalDeviceAcceptance": false,
+  "playConsoleSubmission": false,
+  "clockRelatedBrowserAndUnitChecks": {
+    "passed": 11,
+    "failed": 0,
+    "runContainsSeparateKnownPreparationFailure": true
+  },
+  "preparationTestBaseline": "Same failure reproduced on unchanged 6.2.3; see test comparison.",
+  "websiteChecks": {
+    "passed": 8,
+    "failed": 0
+  },
+  "isolatedPdfChecks": {
+    "passed": 10,
+    "failed": 0
+  },
+  "fullSuite": {
+    "tests": 760,
+    "passed": 696,
+    "failed": 61,
+    "skipped": 3
+  },
+  "fullSuiteNotClean": true,
+  "comparison": "6.2.4-beta.1-test-comparison.json",
+  "nativeEvidence": {
+    "version": "6.2.4-beta.1",
+    "versionCode": 129,
+    "checkedAt": "2026-11-20T08:31:21.594Z",
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "launch": "Starting: Intent { cmp=com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity }",
+    "originalFilesRetained": 8,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": "ResumedActivity: ActivityRecord{59e805e u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t213}",
+    "before": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "7b8673e05a99aab0c0856adecf99261942956461df86818ab147129f3fc6aa9e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "77895ec34fa219add49d984b7226785fcada5a4b95f8320bbf6ea8fc1b9b79ad",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "5141157d727352919f8bc1ec911bc313927f42d7f95194ee633e23c6be32eca7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "ae17a6a03491d006b50252165de1ebeddceef1d84dfd3bfeb6d1643844e78a0f",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "dc7e25bd961e7d0f141122dae65ac93f9b78b61933df6aa36268b7727925d4dc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+    },
+    "after": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/13": "7b8673e05a99aab0c0856adecf99261942956461df86818ab147129f3fc6aa9e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "77895ec34fa219add49d984b7226785fcada5a4b95f8320bbf6ea8fc1b9b79ad",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "5141157d727352919f8bc1ec911bc313927f42d7f95194ee633e23c6be32eca7",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "ae17a6a03491d006b50252165de1ebeddceef1d84dfd3bfeb6d1643844e78a0f",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "dc7e25bd961e7d0f141122dae65ac93f9b78b61933df6aa36268b7727925d4dc",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed"
+    },
+    "physicalDeviceAcceptance": false
+  },
+  "signatures": {
+    "productionApkVerified": true,
+    "betaApkVerified": true,
+    "aabJarVerified": true
+  },
+  "taggedNotes": {
+    "locales": [
+      "es-ES",
+      "en-US",
+      "ca",
+      "de-DE",
+      "hu-HU"
+    ],
+    "maxCharactersPerLocale": 238,
+    "sameFileInHandoffZip": true
+  },
+  "publication": "Recorded separately after exact-commit deployment",
+  "googlePlaySubmission": "Not requested; website beta only",
+  "sourceSHA256": {
+    "src/companion/clock-display.js": "4f12a02eaa579765fce19a9d46437c65a548694e50ce7fa501ab1b388e2421df",
+    "src/companion/about-view.js": "1f4bd6f3cd4d46cf0d76946522ff271182408f3a7515229df7276ac85ea7ffcb",
+    "package.json": "526730c7066cec8da51c723981d81446e22364f8852e710fba56d52c1ee6de69",
+    "android/app/build.gradle": "36974d61fffbbc4a226204d998633de6a7e9652fabcd772063f85ec612a74553",
+    "tests/clock-display.browser.test.js": "e9bdfe54513d23d717901858529622821183b1c4041408768578cdb522c651e4"
+  }
+}

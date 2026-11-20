@@ -1,0 +1,71 @@
+TAP version 13
+# Subtest: immersive PDF practice, pause-only tools, fingering and saved framing
+    # Subtest: MIDI feedback minimizes without blocking score reading or interrupting capture
+    ok 1 - MIDI feedback minimizes without blocking score reading or interrupting capture
+      ---
+      duration_ms: 1019.270042
+      type: 'test'
+      ...
+    # Subtest: floating Record starts compact capture and stops into review over the running PDF
+    ok 2 - floating Record starts compact capture and stops into review over the running PDF
+      ---
+      duration_ms: 2492.714375
+      type: 'test'
+      ...
+    # Subtest: running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+    ok 3 - running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+      ---
+      duration_ms: 144.510125
+      type: 'test'
+      ...
+    # Subtest: paused tools offer direct fingering stamps, a visual palette and undo/redo
+    ok 4 - paused tools offer direct fingering stamps, a visual palette and undo/redo
+      ---
+      duration_ms: 429.645958
+      type: 'test'
+      ...
+    # Subtest: saved framing survives page turns, portrait/landscape and reopening the same work
+    ok 5 - saved framing survives page turns, portrait/landscape and reopening the same work
+      ---
+      duration_ms: 838.617709
+      type: 'test'
+      ...
+    # Subtest: one draggable widget stays inside phone/tablet screens and does not resize the score
+    ok 6 - one draggable widget stays inside phone/tablet screens and does not resize the score
+      ---
+      duration_ms: 1115.551166
+      type: 'test'
+      ...
+    # Subtest: opening tools preserves the dragged bottom anchor when collapsed or resumed
+    ok 7 - opening tools preserves the dragged bottom anchor when collapsed or resumed
+      ---
+      duration_ms: 1405.892917
+      type: 'test'
+      ...
+    # Subtest: pause and explicit editing keep one row across phone and tablet layouts
+    ok 8 - pause and explicit editing keep one row across phone and tablet layouts
+      ---
+      duration_ms: 14762.07425
+      type: 'test'
+      ...
+    # Subtest: visible finish action opens feedback without automatically saving the session
+    ok 9 - visible finish action opens feedback without automatically saving the session
+      ---
+      duration_ms: 65.001042
+      type: 'test'
+      ...
+    1..9
+ok 1 - immersive PDF practice, pause-only tools, fingering and saved framing
+  ---
+  duration_ms: 24865.300666
+  type: 'test'
+  ...
+1..1
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 47652.736333

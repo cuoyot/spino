@@ -320,3 +320,6 @@ if(todayPaletteBeta127){const text=await readFile(new URL('../../docs/releases/6
 
 const stable623=releases.find(r=>r.version==='6.2.3');
 if(stable623){const text=await readFile(new URL('../../docs/releases/6.2.3-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))stable623.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
+
+const clockBeta129=releases.find(r=>r.version==='6.2.4-beta.1');
+if(clockBeta129){const text=await readFile(new URL('../../docs/releases/6.2.4-beta.1-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))clockBeta129.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}

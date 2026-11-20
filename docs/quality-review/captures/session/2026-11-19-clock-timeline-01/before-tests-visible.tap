@@ -1,0 +1,54 @@
+TAP version 13
+# Subtest: a delayed frame must not count a blocked interval twice or rewind the visible digits
+not ok 1 - a delayed frame must not count a blocked interval twice or rewind the visible digits
+  ---
+  duration_ms: 2939.761208
+  type: 'test'
+  location: '/Users/migue/Source/spino/tests/clock-display.browser.test.js:41:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Read the transformed digit rows, rather than only the hidden text.
+    
+    '1:02' !== '1:00'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '1:00'
+  actual: '1:02'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/Source/spino/tests/clock-display.browser.test.js:54:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: pause, resume and digit-width rollover retain the correct time for every visible digit
+not ok 2 - pause, resume and digit-width rollover retain the correct time for every visible digit
+  ---
+  duration_ms: 2435.173584
+  type: 'test'
+  location: '/Users/migue/Source/spino/tests/clock-display.browser.test.js:61:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(Math.abs(animation.phaseError) < 1)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/Source/spino/tests/clock-display.browser.test.js:77:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5520.87

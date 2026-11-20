@@ -1,0 +1,2057 @@
+TAP version 13
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/agenda.browser.test.js
+ok 1 - /private/tmp/spino-beta129-baseline/tests/agenda.browser.test.js
+  ---
+  duration_ms: 264.478209
+  type: 'test'
+  ...
+# Subtest: Home weekly progress counts saved time through today and compares an optional goal
+not ok 2 - Home weekly progress counts saved time through today and compares an optional goal
+  ---
+  duration_ms: 48.158333
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/agenda.test.js:9:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /cp-today-progress-today[\s\S]*?<strong>15 min<\/strong>/. Input:
+    
+    '<section class="cp-today-progress" aria-label="Practicado esta semana">\n' +
+      '    <div class="cp-today-progress-heading"><h2>Tu semana</h2><button type="button" data-action="progress" data-id="" class="quiet">Ver progreso</button></div>\n' +
+      '    <div class="cp-today-progress-total"><strong>45<small> min</small></strong><span>/ <b>1 hr 30 min</b> objetivo</span></div>\n' +
+      '    <div class="cp-today-progress-track" role="progressbar" aria-label="Objetivo semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="45 min / 1 hr 30 min"><span style="width:50%"></span></div><p class="cp-today-progress-caption">45 min para tu objetivo</p>\n' +
+      '    <div class="cp-today-week" aria-label="Tu semana"><div class="cp-row"><span>28 sept – 4 oct</span><button type="button" data-action="today-calendar" data-id="" class="quiet">Ver calendario</button></div>\n' +
+      '      <div class="cp-today-days"><button type="button" data-action="calendar-day" data-id="2026-09-28"  aria-label="lunes, 28 de septiembre, 30 min, 1 actividades"><small>L</small><b>28</b><span class="cp-day-practice" aria-hidden="true"><i style="height:100%"></i></span><span class="cp-day-minutes" aria-hidden="true">30′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-09-29"  aria-label="martes, 29 de septiembre, 0 min, 0 actividades"><small>M</small><b>29</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-09-30" aria-current="date" aria-label="miércoles, 30 de septiembre, 15 min, 1 actividades"><small>X</small><b>30</b><span class="cp-day-practice" aria-hidden="true"><i style="height:50%"></i></span><span class="cp-day-minutes" aria-hidden="true">15′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-01"  aria-label="jueves, 1 de octubre, 0 min, 1 actividades"><small>J</small><b>1</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-02"  aria-label="viernes, 2 de octubre, 0 min, 0 actividades"><small>V</small><b>2</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-03"  aria-label="sábado, 3 de octubre, 0 min, 0 actividades"><small>S</small><b>3</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-04"  aria-label="domingo, 4 de octubre, 0 min, 0 actividades"><small>D</small><b>4</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button></div>\n' +
+      '    </div>\n' +
+      '  </section>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    <section class="cp-today-progress" aria-label="Practicado esta semana">
+        <div class="cp-today-progress-heading"><h2>Tu semana</h2><button type="button" data-action="progress" data-id="" class="quiet">Ver progreso</button></div>
+        <div class="cp-today-progress-total"><strong>45<small> min</small></strong><span>/ <b>1 hr 30 min</b> objetivo</span></div>
+        <div class="cp-today-progress-track" role="progressbar" aria-label="Objetivo semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="45 min / 1 hr 30 min"><span style="width:50%"></span></div><p class="cp-today-progress-caption">45 min para tu objetivo</p>
+        <div class="cp-today-week" aria-label="Tu semana"><div class="cp-row"><span>28 sept – 4 oct</span><button type="button" data-action="today-calendar" data-id="" class="quiet">Ver calendario</button></div>
+          <div class="cp-today-days"><button type="button" data-action="calendar-day" data-id="2026-09-28"  aria-label="lunes, 28 de septiembre, 30 min, 1 actividades"><small>L</small><b>28</b><span class="cp-day-practice" aria-hidden="true"><i style="height:100%"></i></span><span class="cp-day-minutes" aria-hidden="true">30′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-09-29"  aria-label="martes, 29 de septiembre, 0 min, 0 actividades"><small>M</small><b>29</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-09-30" aria-current="date" aria-label="miércoles, 30 de septiembre, 15 min, 1 actividades"><small>X</small><b>30</b><span class="cp-day-practice" aria-hidden="true"><i style="height:50%"></i></span><span class="cp-day-minutes" aria-hidden="true">15′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-01"  aria-label="jueves, 1 de octubre, 0 min, 1 actividades"><small>J</small><b>1</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-02"  aria-label="viernes, 2 de octubre, 0 min, 0 actividades"><small>V</small><b>2</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-03"  aria-label="sábado, 3 de octubre, 0 min, 0 actividades"><small>S</small><b>3</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-04"  aria-label="domingo, 4 de octubre, 0 min, 0 actividades"><small>D</small><b>4</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button></div>
+        </div>
+      </section>
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/agenda.test.js:13:52)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/atomic-notebook.test.js
+ok 3 - /private/tmp/spino-beta129-baseline/tests/atomic-notebook.test.js
+  ---
+  duration_ms: 96.238541
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/audio-visualizer.browser.test.js
+ok 4 - /private/tmp/spino-beta129-baseline/tests/audio-visualizer.browser.test.js
+  ---
+  duration_ms: 117.903667
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/automatic-backup-progress.browser.test.js
+ok 5 - /private/tmp/spino-beta129-baseline/tests/automatic-backup-progress.browser.test.js
+  ---
+  duration_ms: 239.737167
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/backup-account.browser.test.js
+ok 6 - /private/tmp/spino-beta129-baseline/tests/backup-account.browser.test.js
+  ---
+  duration_ms: 233.330417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/backup-drive.test.js
+ok 7 - /private/tmp/spino-beta129-baseline/tests/backup-drive.test.js
+  ---
+  duration_ms: 121.129459
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/backup-format.test.js
+ok 8 - /private/tmp/spino-beta129-baseline/tests/backup-format.test.js
+  ---
+  duration_ms: 191.454
+  type: 'test'
+  ...
+# Subtest: initial tour can skip, replay and finish without modifying notebook data; themes persist and follow device
+not ok 9 - initial tour can skip, replay and finish without modifying notebook data; themes persist and follow device
+  ---
+  duration_ms: 2979.508875
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/beta-experience.browser.test.js:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'rgb(48, 59, 80)'
+    - 'rgb(30, 41, 59)'
+           ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'rgb(30, 41, 59)'
+  actual: 'rgb(48, 59, 80)'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/beta-experience.browser.test.js:17:9)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/beta-header.browser.test.js
+ok 10 - /private/tmp/spino-beta129-baseline/tests/beta-header.browser.test.js
+  ---
+  duration_ms: 123.204333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/beta-practice.browser.test.js
+ok 11 - /private/tmp/spino-beta129-baseline/tests/beta-practice.browser.test.js
+  ---
+  duration_ms: 128.014
+  type: 'test'
+  ...
+# Subtest: public site distinguishes stable and beta in every language
+not ok 12 - public site distinguishes stable and beta in every language
+  ---
+  duration_ms: 4.0135
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/beta-site.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'docs/releases/6.2.3-artifacts.json'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/beta-site.browser.test.js:10:28)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/browse-surfaces.browser.test.js
+ok 13 - /private/tmp/spino-beta129-baseline/tests/browse-surfaces.browser.test.js
+  ---
+  duration_ms: 378.743208
+  type: 'test'
+  ...
+# Subtest: compact calendar, unified work entry and Progress preserve notebook contents
+not ok 14 - compact calendar, unified work entry and Progress preserve notebook contents
+  ---
+  duration_ms: 12180.468875
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/calendar-library-progress.browser.test.js:9:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught (in promise) Error: document.querySelector('.cp-calendar-today').hidden","lineNumber":1,"columnNumber":202,"scriptId":"42","stackTrace":{"callFrames":[{"functionName":"","scriptId":"42","url":"","lineNumber":0,"columnNumber":201}]},"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: document.querySelector('.cp-calendar-today').hidden\n    at <anonymous>:1:202","objectId":"8271767928338055476.3.2"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 202,
+    +   exception: {
+    +     className: 'Error',
+    +     description: "Error: document.querySelector('.cp-calendar-today').hidden\n" +
+    +       '    at <anonymous>:1:202',
+    +     objectId: '8271767928338055476.3.2',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 1,
+    +   scriptId: '42',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 201,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '42',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: "Uncaught (in promise) Error: document.querySelector('.cp-calendar-today').hidden"
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: "Uncaught (in promise) Error: document.querySelector('.cp-calendar-today').hidden"
+    lineNumber: 1
+    columnNumber: 202
+    scriptId: '42'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '42'
+          url: ''
+          lineNumber: 0
+          columnNumber: 201
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'Error'
+      description: |-
+        Error: document.querySelector('.cp-calendar-today').hidden
+            at <anonymous>:1:202
+      objectId: '8271767928338055476.3.2'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-beta129-baseline/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/calendar-library-progress.browser.test.js:48:35)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/calendar-scroll.browser.test.js
+ok 15 - /private/tmp/spino-beta129-baseline/tests/calendar-scroll.browser.test.js
+  ---
+  duration_ms: 194.693458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/camera-controls.browser.test.js
+ok 16 - /private/tmp/spino-beta129-baseline/tests/camera-controls.browser.test.js
+  ---
+  duration_ms: 135.4985
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/camera-controls.test.js
+ok 17 - /private/tmp/spino-beta129-baseline/tests/camera-controls.test.js
+  ---
+  duration_ms: 117.493084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalan.browser.test.js
+ok 18 - /private/tmp/spino-beta129-baseline/tests/catalan.browser.test.js
+  ---
+  duration_ms: 158.538708
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalan.test.js
+ok 19 - /private/tmp/spino-beta129-baseline/tests/catalan.test.js
+  ---
+  duration_ms: 178.8875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalog-sources.test.js
+ok 20 - /private/tmp/spino-beta129-baseline/tests/catalog-sources.test.js
+  ---
+  duration_ms: 146.92225
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-additions.browser.test.js
+ok 21 - /private/tmp/spino-beta129-baseline/tests/catalogue-additions.browser.test.js
+  ---
+  duration_ms: 132.089542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-contrast.browser.test.js
+ok 22 - /private/tmp/spino-beta129-baseline/tests/catalogue-contrast.browser.test.js
+  ---
+  duration_ms: 129.005875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-periods.browser.test.js
+ok 23 - /private/tmp/spino-beta129-baseline/tests/catalogue-periods.browser.test.js
+  ---
+  duration_ms: 124.230292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-redesign.browser.test.js
+ok 24 - /private/tmp/spino-beta129-baseline/tests/catalogue-redesign.browser.test.js
+  ---
+  duration_ms: 242.189959
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-site-captures.browser.test.js
+ok 25 - /private/tmp/spino-beta129-baseline/tests/catalogue-site-captures.browser.test.js
+  ---
+  duration_ms: 115.464834
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/catalogue-view.test.js
+ok 26 - /private/tmp/spino-beta129-baseline/tests/catalogue-view.test.js
+  ---
+  duration_ms: 289.266625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-backup.test.js
+ok 27 - /private/tmp/spino-beta129-baseline/tests/cloud-backup.test.js
+  ---
+  duration_ms: 267.501292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-conflict-review.test.js
+ok 28 - /private/tmp/spino-beta129-baseline/tests/cloud-conflict-review.test.js
+  ---
+  duration_ms: 273.458958
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-error.browser.test.js
+ok 29 - /private/tmp/spino-beta129-baseline/tests/cloud-error.browser.test.js
+  ---
+  duration_ms: 239.892667
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-local.browser.test.js
+ok 30 - /private/tmp/spino-beta129-baseline/tests/cloud-local.browser.test.js
+  ---
+  duration_ms: 239.210333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-policy.browser.test.js
+ok 31 - /private/tmp/spino-beta129-baseline/tests/cloud-policy.browser.test.js
+  ---
+  duration_ms: 125.872416
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/cloud-sync.test.js
+ok 32 - /private/tmp/spino-beta129-baseline/tests/cloud-sync.test.js
+  ---
+  duration_ms: 210.826125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/compact-help.browser.test.js
+ok 33 - /private/tmp/spino-beta129-baseline/tests/compact-help.browser.test.js
+  ---
+  duration_ms: 220.039708
+  type: 'test'
+  ...
+# Subtest: two-hand reading and technique work on physical piano and evaluate both MIDI notes on a phone
+not ok 34 - two-hand reading and technique work on physical piano and evaluate both MIDI notes on a phone
+  ---
+  duration_ms: 1468.152875
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/companion.browser.test.js:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    7 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 7
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/companion.browser.test.js:33:14)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: connected practice: manual mode never creates errors and MIDI disconnect freezes evaluation
+not ok 35 - connected practice: manual mode never creates errors and MIDI disconnect freezes evaluation
+  ---
+  duration_ms: 1262.535
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/companion.browser.test.js:137:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":81,"scriptId":"31","stackTrace":{"callFrames":[{"functionName":"","scriptId":"31","url":"","lineNumber":0,"columnNumber":81}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of null (reading 't0')\n    at <anonymous>:1:82","objectId":"-2162819654880308652.2.3"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 81,
+    +   exception: {
+    +     className: 'TypeError',
+    +     description: "TypeError: Cannot read properties of null (reading 't0')\n" +
+    +       '    at <anonymous>:1:82',
+    +     objectId: '-2162819654880308652.2.3',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 0,
+    +   scriptId: '31',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 81,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '31',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: 'Uncaught'
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: 'Uncaught'
+    lineNumber: 0
+    columnNumber: 81
+    scriptId: '31'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '31'
+          url: ''
+          lineNumber: 0
+          columnNumber: 81
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'TypeError'
+      description: |-
+        TypeError: Cannot read properties of null (reading 't0')
+            at <anonymous>:1:82
+      objectId: '-2162819654880308652.2.3'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-beta129-baseline/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/companion.browser.test.js:146:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/companion.test.js
+ok 35 - /private/tmp/spino-beta129-baseline/tests/companion.test.js
+  ---
+  duration_ms: 187.293625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/complete-backup-save.browser.test.js
+ok 36 - /private/tmp/spino-beta129-baseline/tests/complete-backup-save.browser.test.js
+  ---
+  duration_ms: 206.620041
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/complete-backup-ui.test.js
+ok 37 - /private/tmp/spino-beta129-baseline/tests/complete-backup-ui.test.js
+  ---
+  duration_ms: 180.367542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/complete-backup.test.js
+ok 38 - /private/tmp/spino-beta129-baseline/tests/complete-backup.test.js
+  ---
+  duration_ms: 186.645542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/device-link.browser.test.js
+ok 39 - /private/tmp/spino-beta129-baseline/tests/device-link.browser.test.js
+  ---
+  duration_ms: 222.259375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/device-link.test.js
+ok 40 - /private/tmp/spino-beta129-baseline/tests/device-link.test.js
+  ---
+  duration_ms: 172.655125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/device-reset.test.js
+ok 41 - /private/tmp/spino-beta129-baseline/tests/device-reset.test.js
+  ---
+  duration_ms: 187.960542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/downloads.test.js
+ok 42 - /private/tmp/spino-beta129-baseline/tests/downloads.test.js
+  ---
+  duration_ms: 175.917417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-checkpoint.test.js
+ok 43 - /private/tmp/spino-beta129-baseline/tests/drive-checkpoint.test.js
+  ---
+  duration_ms: 104.67075
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-incremental.test.js
+ok 44 - /private/tmp/spino-beta129-baseline/tests/drive-incremental.test.js
+  ---
+  duration_ms: 205.880416
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-journal.browser.test.js
+ok 45 - /private/tmp/spino-beta129-baseline/tests/drive-journal.browser.test.js
+  ---
+  duration_ms: 137.388042
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-location.test.js
+ok 46 - /private/tmp/spino-beta129-baseline/tests/drive-location.test.js
+  ---
+  duration_ms: 200.595792
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-media.browser.test.js
+ok 47 - /private/tmp/spino-beta129-baseline/tests/drive-media.browser.test.js
+  ---
+  duration_ms: 270.898875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-media.test.js
+ok 48 - /private/tmp/spino-beta129-baseline/tests/drive-media.test.js
+  ---
+  duration_ms: 126.383458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-notebook.browser.test.js
+ok 49 - /private/tmp/spino-beta129-baseline/tests/drive-notebook.browser.test.js
+  ---
+  duration_ms: 231.486042
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-notebook.test.js
+ok 50 - /private/tmp/spino-beta129-baseline/tests/drive-notebook.test.js
+  ---
+  duration_ms: 210.590708
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-object-pack.test.js
+ok 51 - /private/tmp/spino-beta129-baseline/tests/drive-object-pack.test.js
+  ---
+  duration_ms: 107.188375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-profile.browser.test.js
+ok 52 - /private/tmp/spino-beta129-baseline/tests/drive-profile.browser.test.js
+  ---
+  duration_ms: 121.281667
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-recovery-view.test.js
+ok 53 - /private/tmp/spino-beta129-baseline/tests/drive-recovery-view.test.js
+  ---
+  duration_ms: 196.617
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-request.test.js
+ok 54 - /private/tmp/spino-beta129-baseline/tests/drive-request.test.js
+  ---
+  duration_ms: 98.238791
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/drive-storage.test.js
+ok 55 - /private/tmp/spino-beta129-baseline/tests/drive-storage.test.js
+  ---
+  duration_ms: 202.324208
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-date.browser.test.js
+ok 56 - /private/tmp/spino-beta129-baseline/tests/event-date.browser.test.js
+  ---
+  duration_ms: 147.915209
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-detail.browser.test.js
+ok 57 - /private/tmp/spino-beta129-baseline/tests/event-detail.browser.test.js
+  ---
+  duration_ms: 229.44375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-recurrence.browser.test.js
+ok 58 - /private/tmp/spino-beta129-baseline/tests/event-recurrence.browser.test.js
+  ---
+  duration_ms: 129.519958
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-recurrence.test.js
+ok 59 - /private/tmp/spino-beta129-baseline/tests/event-recurrence.test.js
+  ---
+  duration_ms: 198.984375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-time.browser.test.js
+ok 60 - /private/tmp/spino-beta129-baseline/tests/event-time.browser.test.js
+  ---
+  duration_ms: 131.670541
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/event-works.browser.test.js
+ok 61 - /private/tmp/spino-beta129-baseline/tests/event-works.browser.test.js
+  ---
+  duration_ms: 124.257375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/flexible-practice.browser.test.js
+ok 62 - /private/tmp/spino-beta129-baseline/tests/flexible-practice.browser.test.js
+  ---
+  duration_ms: 242.627958
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/flexible-practice.test.js
+ok 63 - /private/tmp/spino-beta129-baseline/tests/flexible-practice.test.js
+  ---
+  duration_ms: 197.475666
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/free-fullscreen.browser.test.js
+ok 64 - /private/tmp/spino-beta129-baseline/tests/free-fullscreen.browser.test.js
+  ---
+  duration_ms: 305.435083
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/free-practice.browser.test.js
+ok 65 - /private/tmp/spino-beta129-baseline/tests/free-practice.browser.test.js
+  ---
+  duration_ms: 332.400667
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/hand-positions.test.js
+ok 66 - /private/tmp/spino-beta129-baseline/tests/hand-positions.test.js
+  ---
+  duration_ms: 140.329916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/hanon-animation.test.js
+ok 67 - /private/tmp/spino-beta129-baseline/tests/hanon-animation.test.js
+  ---
+  duration_ms: 121.026084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/hanon-player.test.js
+ok 68 - /private/tmp/spino-beta129-baseline/tests/hanon-player.test.js
+  ---
+  duration_ms: 127.826375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/hanon-spacing.browser.test.js
+ok 69 - /private/tmp/spino-beta129-baseline/tests/hanon-spacing.browser.test.js
+  ---
+  duration_ms: 277.743333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/header-page-actions.browser.test.js
+ok 70 - /private/tmp/spino-beta129-baseline/tests/header-page-actions.browser.test.js
+  ---
+  duration_ms: 249.062084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/header-parity.browser.test.js
+ok 71 - /private/tmp/spino-beta129-baseline/tests/header-parity.browser.test.js
+  ---
+  duration_ms: 261.8395
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/i18n.test.js
+ok 72 - /private/tmp/spino-beta129-baseline/tests/i18n.test.js
+  ---
+  duration_ms: 140.820125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/instrument.test.js
+ok 73 - /private/tmp/spino-beta129-baseline/tests/instrument.test.js
+  ---
+  duration_ms: 128.008333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/ios-layout.browser.test.js
+ok 74 - /private/tmp/spino-beta129-baseline/tests/ios-layout.browser.test.js
+  ---
+  duration_ms: 205.801916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/ios-network-policy.test.js
+ok 75 - /private/tmp/spino-beta129-baseline/tests/ios-network-policy.test.js
+  ---
+  duration_ms: 452.065333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/keyboard-material.browser.test.js
+ok 76 - /private/tmp/spino-beta129-baseline/tests/keyboard-material.browser.test.js
+  ---
+  duration_ms: 244.750292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/keyboard-range.test.js
+ok 77 - /private/tmp/spino-beta129-baseline/tests/keyboard-range.test.js
+  ---
+  duration_ms: 109.251417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/keyboard.browser.test.js
+ok 78 - /private/tmp/spino-beta129-baseline/tests/keyboard.browser.test.js
+  ---
+  duration_ms: 155.89525
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/landscape-keyboard.browser.test.js
+ok 79 - /private/tmp/spino-beta129-baseline/tests/landscape-keyboard.browser.test.js
+  ---
+  duration_ms: 148.899375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/layout.browser.test.js
+ok 80 - /private/tmp/spino-beta129-baseline/tests/layout.browser.test.js
+  ---
+  duration_ms: 130.637334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/lesson-practice.browser.test.js
+ok 81 - /private/tmp/spino-beta129-baseline/tests/lesson-practice.browser.test.js
+  ---
+  duration_ms: 234.688084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/lessons.browser.test.js
+ok 82 - /private/tmp/spino-beta129-baseline/tests/lessons.browser.test.js
+  ---
+  duration_ms: 257.853666
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/lessons.test.js
+ok 83 - /private/tmp/spino-beta129-baseline/tests/lessons.test.js
+  ---
+  duration_ms: 217.319958
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/library-availability.test.js
+ok 84 - /private/tmp/spino-beta129-baseline/tests/library-availability.test.js
+  ---
+  duration_ms: 220.28975
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/library-locale.test.js
+ok 85 - /private/tmp/spino-beta129-baseline/tests/library-locale.test.js
+  ---
+  duration_ms: 428.938167
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/library-scroll.browser.test.js
+ok 86 - /private/tmp/spino-beta129-baseline/tests/library-scroll.browser.test.js
+  ---
+  duration_ms: 218.326583
+  type: 'test'
+  ...
+# Subtest: catalogue starts with obtainable scores and opens downloaded piano music without review gates
+not ok 88 - catalogue starts with obtainable scores and opens downloaded piano music without review gates
+  ---
+  duration_ms: 35131.346208
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/library.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught (in promise) Error: Timeout: document.querySelector('#prepare-form')","lineNumber":1,"columnNumber":195,"scriptId":"61","stackTrace":{"callFrames":[{"functionName":"","scriptId":"61","url":"","lineNumber":0,"columnNumber":194}]},"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: Timeout: document.querySelector('#prepare-form')\n    at <anonymous>:1:195","objectId":"-87633350147529250.3.2"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 195,
+    +   exception: {
+    +     className: 'Error',
+    +     description: "Error: Timeout: document.querySelector('#prepare-form')\n" +
+    +       '    at <anonymous>:1:195',
+    +     objectId: '-87633350147529250.3.2',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 1,
+    +   scriptId: '61',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 194,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '61',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: "Uncaught (in promise) Error: Timeout: document.querySelector('#prepare-form')"
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: "Uncaught (in promise) Error: Timeout: document.querySelector('#prepare-form')"
+    lineNumber: 1
+    columnNumber: 195
+    scriptId: '61'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '61'
+          url: ''
+          lineNumber: 0
+          columnNumber: 194
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'Error'
+      description: |-
+        Error: Timeout: document.querySelector('#prepare-form')
+            at <anonymous>:1:195
+      objectId: '-87633350147529250.3.2'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-beta129-baseline/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/library.browser.test.js:76:41)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/library.test.js
+ok 88 - /private/tmp/spino-beta129-baseline/tests/library.test.js
+  ---
+  duration_ms: 220.570416
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/light-contrast.browser.test.js
+ok 89 - /private/tmp/spino-beta129-baseline/tests/light-contrast.browser.test.js
+  ---
+  duration_ms: 199.160542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/locale.browser.test.js
+ok 90 - /private/tmp/spino-beta129-baseline/tests/locale.browser.test.js
+  ---
+  duration_ms: 170.297916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/locale.test.js
+ok 91 - /private/tmp/spino-beta129-baseline/tests/locale.test.js
+  ---
+  duration_ms: 313.473333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/management-print.browser.test.js
+ok 92 - /private/tmp/spino-beta129-baseline/tests/management-print.browser.test.js
+  ---
+  duration_ms: 257.53175
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/manual-sync.browser.test.js
+ok 93 - /private/tmp/spino-beta129-baseline/tests/manual-sync.browser.test.js
+  ---
+  duration_ms: 371.134458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/manual-sync.test.js
+ok 94 - /private/tmp/spino-beta129-baseline/tests/manual-sync.test.js
+  ---
+  duration_ms: 294.551625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-bookends.browser.test.js
+ok 95 - /private/tmp/spino-beta129-baseline/tests/media-bookends.browser.test.js
+  ---
+  duration_ms: 278.885709
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-bookends.test.js
+ok 96 - /private/tmp/spino-beta129-baseline/tests/media-bookends.test.js
+  ---
+  duration_ms: 162.58475
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-close-share.browser.test.js
+ok 97 - /private/tmp/spino-beta129-baseline/tests/media-close-share.browser.test.js
+  ---
+  duration_ms: 356.87
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-duration.browser.test.js
+ok 98 - /private/tmp/spino-beta129-baseline/tests/media-duration.browser.test.js
+  ---
+  duration_ms: 310.518
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-export-lifecycle.browser.test.js
+ok 99 - /private/tmp/spino-beta129-baseline/tests/media-export-lifecycle.browser.test.js
+  ---
+  duration_ms: 337.65475
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-network.test.js
+ok 100 - /private/tmp/spino-beta129-baseline/tests/media-network.test.js
+  ---
+  duration_ms: 119.333042
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-operation.test.js
+ok 101 - /private/tmp/spino-beta129-baseline/tests/media-operation.test.js
+  ---
+  duration_ms: 115.555334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-prepared-store.browser.test.js
+ok 102 - /private/tmp/spino-beta129-baseline/tests/media-prepared-store.browser.test.js
+  ---
+  duration_ms: 163.520417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-share.browser.test.js
+ok 103 - /private/tmp/spino-beta129-baseline/tests/media-share.browser.test.js
+  ---
+  duration_ms: 171.409041
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-share.test.js
+ok 104 - /private/tmp/spino-beta129-baseline/tests/media-share.test.js
+  ---
+  duration_ms: 169.90725
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-standalone.browser.test.js
+ok 105 - /private/tmp/spino-beta129-baseline/tests/media-standalone.browser.test.js
+  ---
+  duration_ms: 248.348625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-sync-recovery.browser.test.js
+ok 106 - /private/tmp/spino-beta129-baseline/tests/media-sync-recovery.browser.test.js
+  ---
+  duration_ms: 237.431209
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-sync.test.js
+ok 107 - /private/tmp/spino-beta129-baseline/tests/media-sync.test.js
+  ---
+  duration_ms: 128.079333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-trim.browser.test.js
+ok 108 - /private/tmp/spino-beta129-baseline/tests/media-trim.browser.test.js
+  ---
+  duration_ms: 283.116
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media-trim.test.js
+ok 109 - /private/tmp/spino-beta129-baseline/tests/media-trim.test.js
+  ---
+  duration_ms: 108.705917
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/media.browser.test.js
+ok 110 - /private/tmp/spino-beta129-baseline/tests/media.browser.test.js
+  ---
+  duration_ms: 244.435458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/metronome.test.js
+ok 111 - /private/tmp/spino-beta129-baseline/tests/metronome.test.js
+  ---
+  duration_ms: 100.3845
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/midi-input.browser.test.js
+ok 112 - /private/tmp/spino-beta129-baseline/tests/midi-input.browser.test.js
+  ---
+  duration_ms: 151.879459
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/midi-recording.browser.test.js
+ok 113 - /private/tmp/spino-beta129-baseline/tests/midi-recording.browser.test.js
+  ---
+  duration_ms: 130.664917
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/midi-recording.test.js
+ok 114 - /private/tmp/spino-beta129-baseline/tests/midi-recording.test.js
+  ---
+  duration_ms: 147.2475
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/midi-render.browser.test.js
+ok 115 - /private/tmp/spino-beta129-baseline/tests/midi-render.browser.test.js
+  ---
+  duration_ms: 135.531125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/midi-scheduling.test.js
+ok 116 - /private/tmp/spino-beta129-baseline/tests/midi-scheduling.test.js
+  ---
+  duration_ms: 94.790375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/mobile-keyboard-range.browser.test.js
+ok 117 - /private/tmp/spino-beta129-baseline/tests/mobile-keyboard-range.browser.test.js
+  ---
+  duration_ms: 131.375833
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/mobile-target-range.test.js
+ok 118 - /private/tmp/spino-beta129-baseline/tests/mobile-target-range.test.js
+  ---
+  duration_ms: 110.242333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/musicxml-follow.test.js
+ok 119 - /private/tmp/spino-beta129-baseline/tests/musicxml-follow.test.js
+  ---
+  duration_ms: 95.44175
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/musicxml-view.browser.test.js
+ok 120 - /private/tmp/spino-beta129-baseline/tests/musicxml-view.browser.test.js
+  ---
+  duration_ms: 167.920875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/musicxml.test.js
+ok 121 - /private/tmp/spino-beta129-baseline/tests/musicxml.test.js
+  ---
+  duration_ms: 295.719375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/navigation.browser.test.js
+ok 122 - /private/tmp/spino-beta129-baseline/tests/navigation.browser.test.js
+  ---
+  duration_ms: 298.75275
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/new-languages-site.browser.test.js
+ok 123 - /private/tmp/spino-beta129-baseline/tests/new-languages-site.browser.test.js
+  ---
+  duration_ms: 141.317292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/new-languages.browser.test.js
+ok 124 - /private/tmp/spino-beta129-baseline/tests/new-languages.browser.test.js
+  ---
+  duration_ms: 129.57375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/new-languages.test.js
+ok 125 - /private/tmp/spino-beta129-baseline/tests/new-languages.test.js
+  ---
+  duration_ms: 586.50375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/note-labels.test.js
+ok 126 - /private/tmp/spino-beta129-baseline/tests/note-labels.test.js
+  ---
+  duration_ms: 110.069334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/notebook-layout.browser.test.js
+ok 127 - /private/tmp/spino-beta129-baseline/tests/notebook-layout.browser.test.js
+  ---
+  duration_ms: 180.463709
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/notebook-locale.test.js
+ok 128 - /private/tmp/spino-beta129-baseline/tests/notebook-locale.test.js
+  ---
+  duration_ms: 248.824625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/notebook-review.test.js
+ok 129 - /private/tmp/spino-beta129-baseline/tests/notebook-review.test.js
+  ---
+  duration_ms: 237.155292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/page-layout.test.js
+ok 130 - /private/tmp/spino-beta129-baseline/tests/page-layout.test.js
+  ---
+  duration_ms: 98.129
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf-annotations.test.js
+ok 131 - /private/tmp/spino-beta129-baseline/tests/pdf-annotations.test.js
+  ---
+  duration_ms: 213.688083
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf-edit-back.browser.test.js
+ok 132 - /private/tmp/spino-beta129-baseline/tests/pdf-edit-back.browser.test.js
+  ---
+  duration_ms: 133.359375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf-mark-edit.browser.test.js
+ok 133 - /private/tmp/spino-beta129-baseline/tests/pdf-mark-edit.browser.test.js
+  ---
+  duration_ms: 113.667375
+  type: 'test'
+  ...
+# Subtest: immersive PDF practice, pause-only tools, fingering and saved framing
+    # Subtest: MIDI feedback minimizes without blocking score reading or interrupting capture
+    ok 1 - MIDI feedback minimizes without blocking score reading or interrupting capture
+      ---
+      duration_ms: 1004.827125
+      type: 'test'
+      ...
+    # Subtest: floating Record starts compact capture and stops into review over the running PDF
+    ok 2 - floating Record starts compact capture and stops into review over the running PDF
+      ---
+      duration_ms: 2440.478375
+      type: 'test'
+      ...
+    # Subtest: running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+    ok 3 - running practice gives the sheet the whole viewport and rejects annotation/exit until paused
+      ---
+      duration_ms: 61.261667
+      type: 'test'
+      ...
+    # Subtest: paused tools offer direct fingering stamps, a visual palette and undo/redo
+    ok 4 - paused tools offer direct fingering stamps, a visual palette and undo/redo
+      ---
+      duration_ms: 419.919916
+      type: 'test'
+      ...
+    # Subtest: saved framing survives page turns, portrait/landscape and reopening the same work
+    ok 5 - saved framing survives page turns, portrait/landscape and reopening the same work
+      ---
+      duration_ms: 812.074959
+      type: 'test'
+      ...
+    # Subtest: one draggable widget stays inside phone/tablet screens and does not resize the score
+    ok 6 - one draggable widget stays inside phone/tablet screens and does not resize the score
+      ---
+      duration_ms: 1089.033083
+      type: 'test'
+      ...
+    # Subtest: opening tools preserves the dragged bottom anchor when collapsed or resumed
+    ok 7 - opening tools preserves the dragged bottom anchor when collapsed or resumed
+      ---
+      duration_ms: 1495.184166
+      type: 'test'
+      ...
+    # Subtest: pause and explicit editing keep one row across phone and tablet layouts
+    ok 8 - pause and explicit editing keep one row across phone and tablet layouts
+      ---
+      duration_ms: 16161.235291
+      type: 'test'
+      ...
+    # Subtest: visible finish action opens feedback without automatically saving the session
+    ok 9 - visible finish action opens feedback without automatically saving the session
+      ---
+      duration_ms: 93.623541
+      type: 'test'
+      ...
+    1..9
+ok 135 - immersive PDF practice, pause-only tools, fingering and saved framing
+  ---
+  duration_ms: 25478.605417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf-recording-finish.browser.test.js
+ok 135 - /private/tmp/spino-beta129-baseline/tests/pdf-recording-finish.browser.test.js
+  ---
+  duration_ms: 125.263916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf-standalone-close.browser.test.js
+ok 136 - /private/tmp/spino-beta129-baseline/tests/pdf-standalone-close.browser.test.js
+  ---
+  duration_ms: 253.814875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pdf.browser.test.js
+ok 137 - /private/tmp/spino-beta129-baseline/tests/pdf.browser.test.js
+  ---
+  duration_ms: 128.889417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pedals.test.js
+ok 138 - /private/tmp/spino-beta129-baseline/tests/pedals.test.js
+  ---
+  duration_ms: 111.512459
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/pending-session.browser.test.js
+ok 139 - /private/tmp/spino-beta129-baseline/tests/pending-session.browser.test.js
+  ---
+  duration_ms: 228.684125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/plan-edit.browser.test.js
+ok 140 - /private/tmp/spino-beta129-baseline/tests/plan-edit.browser.test.js
+  ---
+  duration_ms: 220.187209
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/planner.browser.test.js
+ok 141 - /private/tmp/spino-beta129-baseline/tests/planner.browser.test.js
+  ---
+  duration_ms: 210.42375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/planner.test.js
+ok 142 - /private/tmp/spino-beta129-baseline/tests/planner.test.js
+  ---
+  duration_ms: 193.797917
+  type: 'test'
+  ...
+# Subtest: catalogue tabs preserve a planned draft and add a downloaded PDF without selecting metadata-only works
+not ok 144 - catalogue tabs preserve a planned draft and add a downloaded PDF without selecting metadata-only works
+  ---
+  duration_ms: 1493.449209
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/practice-catalogue.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    adding a score preserves the selected total duration
+    
+    0 !== 17
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 17
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/practice-catalogue.browser.test.js:35:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-clock.browser.test.js
+ok 144 - /private/tmp/spino-beta129-baseline/tests/practice-clock.browser.test.js
+  ---
+  duration_ms: 225.898
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-clock.test.js
+ok 145 - /private/tmp/spino-beta129-baseline/tests/practice-clock.test.js
+  ---
+  duration_ms: 110.096167
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-duration.browser.test.js
+ok 146 - /private/tmp/spino-beta129-baseline/tests/practice-duration.browser.test.js
+  ---
+  duration_ms: 122.063125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-duration.test.js
+ok 147 - /private/tmp/spino-beta129-baseline/tests/practice-duration.test.js
+  ---
+  duration_ms: 96.1905
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-header-return.browser.test.js
+ok 148 - /private/tmp/spino-beta129-baseline/tests/practice-header-return.browser.test.js
+  ---
+  duration_ms: 198.653625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-mode.browser.test.js
+ok 149 - /private/tmp/spino-beta129-baseline/tests/practice-mode.browser.test.js
+  ---
+  duration_ms: 133.990042
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-notifications.browser.test.js
+ok 150 - /private/tmp/spino-beta129-baseline/tests/practice-notifications.browser.test.js
+  ---
+  duration_ms: 153.896
+  type: 'test'
+  ...
+# Subtest: preparation puts warm-up first, borrows its minutes and shows static piano keys
+not ok 152 - preparation puts warm-up first, borrows its minutes and shows static piano keys
+  ---
+  duration_ms: 1422.776667
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/practice-revision.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":42,"scriptId":"30","stackTrace":{"callFrames":[{"functionName":"","scriptId":"30","url":"","lineNumber":0,"columnNumber":42}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of null (reading 'closest')\n    at <anonymous>:1:43","objectId":"8629992736434323398.2.3"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 42,
+    +   exception: {
+    +     className: 'TypeError',
+    +     description: "TypeError: Cannot read properties of null (reading 'closest')\n" +
+    +       '    at <anonymous>:1:43',
+    +     objectId: '8629992736434323398.2.3',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 0,
+    +   scriptId: '30',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 42,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '30',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: 'Uncaught'
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: 'Uncaught'
+    lineNumber: 0
+    columnNumber: 42
+    scriptId: '30'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '30'
+          url: ''
+          lineNumber: 0
+          columnNumber: 42
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'TypeError'
+      description: |-
+        TypeError: Cannot read properties of null (reading 'closest')
+            at <anonymous>:1:43
+      objectId: '8629992736434323398.2.3'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-beta129-baseline/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/practice-revision.browser.test.js:17:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-time.test.js
+ok 152 - /private/tmp/spino-beta129-baseline/tests/practice-time.test.js
+  ---
+  duration_ms: 195.850708
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-timing.test.js
+ok 153 - /private/tmp/spino-beta129-baseline/tests/practice-timing.test.js
+  ---
+  duration_ms: 222.45175
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/practice-toolbar.browser.test.js
+ok 154 - /private/tmp/spino-beta129-baseline/tests/practice-toolbar.browser.test.js
+  ---
+  duration_ms: 125.443208
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/preparation-repertoire.browser.test.js
+ok 155 - /private/tmp/spino-beta129-baseline/tests/preparation-repertoire.browser.test.js
+  ---
+  duration_ms: 247.130542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/preparation-warmup.test.js
+ok 156 - /private/tmp/spino-beta129-baseline/tests/preparation-warmup.test.js
+  ---
+  duration_ms: 228.30025
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/profile-navigation.browser.test.js
+ok 157 - /private/tmp/spino-beta129-baseline/tests/profile-navigation.browser.test.js
+  ---
+  duration_ms: 173.504
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/profile-photo.test.js
+ok 158 - /private/tmp/spino-beta129-baseline/tests/profile-photo.test.js
+  ---
+  duration_ms: 375.851084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/profile.browser.test.js
+ok 159 - /private/tmp/spino-beta129-baseline/tests/profile.browser.test.js
+  ---
+  duration_ms: 165.838334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/profile.test.js
+ok 160 - /private/tmp/spino-beta129-baseline/tests/profile.test.js
+  ---
+  duration_ms: 262.303709
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-history.browser.test.js
+ok 161 - /private/tmp/spino-beta129-baseline/tests/progress-history.browser.test.js
+  ---
+  duration_ms: 247.929167
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-learning.test.js
+ok 162 - /private/tmp/spino-beta129-baseline/tests/progress-learning.test.js
+  ---
+  duration_ms: 203.931584
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-metrics.test.js
+ok 163 - /private/tmp/spino-beta129-baseline/tests/progress-metrics.test.js
+  ---
+  duration_ms: 217.262458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-rhythm.browser.test.js
+ok 164 - /private/tmp/spino-beta129-baseline/tests/progress-rhythm.browser.test.js
+  ---
+  duration_ms: 240.592584
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-rhythm.test.js
+ok 165 - /private/tmp/spino-beta129-baseline/tests/progress-rhythm.test.js
+  ---
+  duration_ms: 184.924583
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-sections.browser.test.js
+ok 166 - /private/tmp/spino-beta129-baseline/tests/progress-sections.browser.test.js
+  ---
+  duration_ms: 201.506042
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-time.browser.test.js
+ok 167 - /private/tmp/spino-beta129-baseline/tests/progress-time.browser.test.js
+  ---
+  duration_ms: 269.3575
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/progress-time.test.js
+ok 168 - /private/tmp/spino-beta129-baseline/tests/progress-time.test.js
+  ---
+  duration_ms: 172.747667
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/quick-practice.browser.test.js
+ok 169 - /private/tmp/spino-beta129-baseline/tests/quick-practice.browser.test.js
+  ---
+  duration_ms: 120.102708
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/quick-practice.test.js
+ok 170 - /private/tmp/spino-beta129-baseline/tests/quick-practice.test.js
+  ---
+  duration_ms: 177.843625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/quick-score.browser.test.js
+ok 171 - /private/tmp/spino-beta129-baseline/tests/quick-score.browser.test.js
+  ---
+  duration_ms: 117.74425
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/quick-score.test.js
+ok 172 - /private/tmp/spino-beta129-baseline/tests/quick-score.test.js
+  ---
+  duration_ms: 178.200709
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/reading.browser.test.js
+ok 173 - /private/tmp/spino-beta129-baseline/tests/reading.browser.test.js
+  ---
+  duration_ms: 124.233334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/recording-copies.test.js
+ok 174 - /private/tmp/spino-beta129-baseline/tests/recording-copies.test.js
+  ---
+  duration_ms: 193.538167
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/release-notice.browser.test.js
+ok 175 - /private/tmp/spino-beta129-baseline/tests/release-notice.browser.test.js
+  ---
+  duration_ms: 116.245541
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/release-notice.test.js
+ok 176 - /private/tmp/spino-beta129-baseline/tests/release-notice.test.js
+  ---
+  duration_ms: 209.741333
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/reminders.test.js
+ok 177 - /private/tmp/spino-beta129-baseline/tests/reminders.test.js
+  ---
+  duration_ms: 185.361875
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/repertoire-multiselect.browser.test.js
+ok 178 - /private/tmp/spino-beta129-baseline/tests/repertoire-multiselect.browser.test.js
+  ---
+  duration_ms: 220.671792
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/repertoire-preparation.test.js
+ok 179 - /private/tmp/spino-beta129-baseline/tests/repertoire-preparation.test.js
+  ---
+  duration_ms: 198.865084
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/repertoire-recovery.browser.test.js
+ok 180 - /private/tmp/spino-beta129-baseline/tests/repertoire-recovery.browser.test.js
+  ---
+  duration_ms: 239.551625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/repertoire.browser.test.js
+ok 181 - /private/tmp/spino-beta129-baseline/tests/repertoire.browser.test.js
+  ---
+  duration_ms: 124.36775
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/repertoire.test.js
+ok 182 - /private/tmp/spino-beta129-baseline/tests/repertoire.test.js
+  ---
+  duration_ms: 210.181208
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/routine-policy.test.js
+ok 183 - /private/tmp/spino-beta129-baseline/tests/routine-policy.test.js
+  ---
+  duration_ms: 188.465542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/saved-practice-edit.browser.test.js
+ok 184 - /private/tmp/spino-beta129-baseline/tests/saved-practice-edit.browser.test.js
+  ---
+  duration_ms: 262.009
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/saved-practice-edit.test.js
+ok 185 - /private/tmp/spino-beta129-baseline/tests/saved-practice-edit.test.js
+  ---
+  duration_ms: 216.223916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-content.test.js
+ok 186 - /private/tmp/spino-beta129-baseline/tests/score-content.test.js
+  ---
+  duration_ms: 252.423958
+  type: 'test'
+  ...
+# Subtest: score cursor and light follow actual notation in page and scrolling layouts
+not ok 188 - score cursor and light follow actual notation in page and scrolling layouts
+  ---
+  duration_ms: 1654.482792
+  type: 'test'
+  location: '/private/tmp/spino-beta129-baseline/tests/score-guides.browser.test.js:13:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught","lineNumber":5,"columnNumber":43,"scriptId":"7","stackTrace":{"callFrames":[{"functionName":"window.scoreBeat","scriptId":"7","url":"","lineNumber":5,"columnNumber":43},{"functionName":"","scriptId":"31","url":"","lineNumber":0,"columnNumber":120}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of null (reading 't0')\n    at window.scoreBeat (<anonymous>:6:44)\n    at <anonymous>:1:121","objectId":"2415202813755426272.2.3"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 43,
+    +   exception: {
+    +     className: 'TypeError',
+    +     description: "TypeError: Cannot read properties of null (reading 't0')\n" +
+    +       '    at window.scoreBeat (<anonymous>:6:44)\n' +
+    +       '    at <anonymous>:1:121',
+    +     objectId: '2415202813755426272.2.3',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 5,
+    +   scriptId: '7',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 43,
+    +         functionName: 'window.scoreBeat',
+    +         lineNumber: 5,
+    +         scriptId: '7',
+    +         url: ''
+    +       },
+    +       {
+    +         columnNumber: 120,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '31',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: 'Uncaught'
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: 'Uncaught'
+    lineNumber: 5
+    columnNumber: 43
+    scriptId: '7'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: 'window.scoreBeat'
+          scriptId: '7'
+          url: ''
+          lineNumber: 5
+          columnNumber: 43
+        1:
+          functionName: ''
+          scriptId: '31'
+          url: ''
+          lineNumber: 0
+          columnNumber: 120
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'TypeError'
+      description: |-
+        TypeError: Cannot read properties of null (reading 't0')
+            at window.scoreBeat (<anonymous>:6:44)
+            at <anonymous>:1:121
+      objectId: '2415202813755426272.2.3'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-beta129-baseline/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-beta129-baseline/tests/score-guides.browser.test.js:28:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-locale.test.js
+ok 188 - /private/tmp/spino-beta129-baseline/tests/score-locale.test.js
+  ---
+  duration_ms: 236.898666
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-metadata.test.js
+ok 189 - /private/tmp/spino-beta129-baseline/tests/score-metadata.test.js
+  ---
+  duration_ms: 93.811625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-print.browser.test.js
+ok 190 - /private/tmp/spino-beta129-baseline/tests/score-print.browser.test.js
+  ---
+  duration_ms: 115.35275
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-sections.test.js
+ok 191 - /private/tmp/spino-beta129-baseline/tests/score-sections.test.js
+  ---
+  duration_ms: 87.762291
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-timer.browser.test.js
+ok 192 - /private/tmp/spino-beta129-baseline/tests/score-timer.browser.test.js
+  ---
+  duration_ms: 124.99975
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/score-transfer.test.js
+ok 193 - /private/tmp/spino-beta129-baseline/tests/score-transfer.test.js
+  ---
+  duration_ms: 195.304834
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/screen-awake.test.js
+ok 194 - /private/tmp/spino-beta129-baseline/tests/screen-awake.test.js
+  ---
+  duration_ms: 87.584292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/self-paced.browser.test.js
+ok 195 - /private/tmp/spino-beta129-baseline/tests/self-paced.browser.test.js
+  ---
+  duration_ms: 112.95125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/session-drag.browser.test.js
+ok 196 - /private/tmp/spino-beta129-baseline/tests/session-drag.browser.test.js
+  ---
+  duration_ms: 200.597375
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/session-edit.test.js
+ok 197 - /private/tmp/spino-beta129-baseline/tests/session-edit.test.js
+  ---
+  duration_ms: 174.274542
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/session-refinement.browser.test.js
+ok 198 - /private/tmp/spino-beta129-baseline/tests/session-refinement.browser.test.js
+  ---
+  duration_ms: 197.499833
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/session-removal.browser.test.js
+ok 199 - /private/tmp/spino-beta129-baseline/tests/session-removal.browser.test.js
+  ---
+  duration_ms: 123.979125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-beta-recovery.browser.test.js
+ok 200 - /private/tmp/spino-beta129-baseline/tests/site-beta-recovery.browser.test.js
+  ---
+  duration_ms: 124.375916
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-catalogue.browser.test.js
+ok 201 - /private/tmp/spino-beta129-baseline/tests/site-catalogue.browser.test.js
+  ---
+  duration_ms: 122.3215
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-download.test.js
+ok 202 - /private/tmp/spino-beta129-baseline/tests/site-download.test.js
+  ---
+  duration_ms: 99.876583
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-media.browser.test.js
+ok 203 - /private/tmp/spino-beta129-baseline/tests/site-media.browser.test.js
+  ---
+  duration_ms: 119.886625
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-release-notes.browser.test.js
+ok 204 - /private/tmp/spino-beta129-baseline/tests/site-release-notes.browser.test.js
+  ---
+  duration_ms: 127.124792
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-seo.browser.test.js
+ok 205 - /private/tmp/spino-beta129-baseline/tests/site-seo.browser.test.js
+  ---
+  duration_ms: 130.6405
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site-seo.test.js
+ok 206 - /private/tmp/spino-beta129-baseline/tests/site-seo.test.js
+  ---
+  duration_ms: 347.094917
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site.browser.test.js
+ok 207 - /private/tmp/spino-beta129-baseline/tests/site.browser.test.js
+  ---
+  duration_ms: 121.617417
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/site.test.js
+ok 208 - /private/tmp/spino-beta129-baseline/tests/site.test.js
+  ---
+  duration_ms: 305.975208
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/storage-coordinator.test.js
+ok 209 - /private/tmp/spino-beta129-baseline/tests/storage-coordinator.test.js
+  ---
+  duration_ms: 92.471834
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/storage-ui.test.js
+ok 210 - /private/tmp/spino-beta129-baseline/tests/storage-ui.test.js
+  ---
+  duration_ms: 195.928125
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/sync-backup-copy.browser.test.js
+ok 211 - /private/tmp/spino-beta129-baseline/tests/sync-backup-copy.browser.test.js
+  ---
+  duration_ms: 223.438834
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/sync-backup-copy.test.js
+ok 212 - /private/tmp/spino-beta129-baseline/tests/sync-backup-copy.test.js
+  ---
+  duration_ms: 187.455917
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/sync-indicator.browser.test.js
+ok 213 - /private/tmp/spino-beta129-baseline/tests/sync-indicator.browser.test.js
+  ---
+  duration_ms: 210.283833
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/sync-indicator.test.js
+ok 214 - /private/tmp/spino-beta129-baseline/tests/sync-indicator.test.js
+  ---
+  duration_ms: 105.468792
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/today-compact.browser.test.js
+ok 215 - /private/tmp/spino-beta129-baseline/tests/today-compact.browser.test.js
+  ---
+  duration_ms: 195.953458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/today-event-priority.browser.test.js
+ok 216 - /private/tmp/spino-beta129-baseline/tests/today-event-priority.browser.test.js
+  ---
+  duration_ms: 199.825666
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/today-focus.browser.test.js
+ok 217 - /private/tmp/spino-beta129-baseline/tests/today-focus.browser.test.js
+  ---
+  duration_ms: 201.74425
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/today-weekly-progress.browser.test.js
+ok 218 - /private/tmp/spino-beta129-baseline/tests/today-weekly-progress.browser.test.js
+  ---
+  duration_ms: 196.579208
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/warmup.browser.test.js
+ok 219 - /private/tmp/spino-beta129-baseline/tests/warmup.browser.test.js
+  ---
+  duration_ms: 119.670292
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/warmups.test.js
+ok 220 - /private/tmp/spino-beta129-baseline/tests/warmups.test.js
+  ---
+  duration_ms: 176.544458
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/work-added-date.test.js
+ok 221 - /private/tmp/spino-beta129-baseline/tests/work-added-date.test.js
+  ---
+  duration_ms: 178.581917
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/work-detail.browser.test.js
+ok 222 - /private/tmp/spino-beta129-baseline/tests/work-detail.browser.test.js
+  ---
+  duration_ms: 214.278708
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/work-pdf.browser.test.js
+ok 223 - /private/tmp/spino-beta129-baseline/tests/work-pdf.browser.test.js
+  ---
+  duration_ms: 117.728334
+  type: 'test'
+  ...
+1..0
+# Subtest: /private/tmp/spino-beta129-baseline/tests/work-practice.test.js
+ok 224 - /private/tmp/spino-beta129-baseline/tests/work-practice.test.js
+  ---
+  duration_ms: 169.943459
+  type: 'test'
+  ...
+1..225
+# tests 234
+# suites 0
+# pass 224
+# fail 10
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 122116.338625

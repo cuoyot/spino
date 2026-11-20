@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: preparation puts warm-up first, borrows its minutes and shows static piano keys
+not ok 1 - preparation puts warm-up first, borrows its minutes and shows static piano keys
+  ---
+  duration_ms: 2154.6555
+  type: 'test'
+  location: '/private/tmp/spino-clock-beta-20261120/tests/practice-revision.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":42,"scriptId":"30","stackTrace":{"callFrames":[{"functionName":"","scriptId":"30","url":"","lineNumber":0,"columnNumber":42}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of null (reading 'closest')\n    at <anonymous>:1:43","objectId":"5907814261765603214.2.3"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 42,
+    +   exception: {
+    +     className: 'TypeError',
+    +     description: "TypeError: Cannot read properties of null (reading 'closest')\n" +
+    +       '    at <anonymous>:1:43',
+    +     objectId: '5907814261765603214.2.3',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 0,
+    +   scriptId: '30',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 42,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '30',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: 'Uncaught'
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: 'Uncaught'
+    lineNumber: 0
+    columnNumber: 42
+    scriptId: '30'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '30'
+          url: ''
+          lineNumber: 0
+          columnNumber: 42
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'TypeError'
+      description: |-
+        TypeError: Cannot read properties of null (reading 'closest')
+            at <anonymous>:1:43
+      objectId: '5907814261765603214.2.3'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-clock-beta-20261120/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-clock-beta-20261120/tests/practice-revision.browser.test.js:17:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2317.974875

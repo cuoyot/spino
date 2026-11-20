@@ -23,6 +23,11 @@ export function updateClockDisplay(element, text, elapsedMs, running) {
     element.append(readable, overlay);
   }
   if (readable.textContent !== text) readable.textContent = text;
+  // Animation currentTime uses the last rendered frame's timeline time. After
+  // a long task it is stale, so seeking it to fresh elapsed time counts the
+  // blocked interval twice on the next frame. Anchor to the live monotonic
+  // clock instead; all digits share the same origin across frame delays.
+  const startTime = performance.now() - Math.max(0, elapsedMs);
   const colon = text.indexOf(':');
   for (let i=0; i<text.length; i++) {
     const track = overlay.children[i].firstElementChild;
@@ -34,9 +39,11 @@ export function updateClockDisplay(element, text, elapsedMs, running) {
       track.dataset.track = Array.from({length:count+1}, (_,n)=>n%count).join('\n');
       animation = track.animate([{transform:'translateY(0)'},{transform:`translateY(-${count}em)`}], {duration,iterations:Infinity,easing:`steps(${count}, end)`});
     }
-    const phase = Math.max(0, elapsedMs) % duration;
-    if (!running || animation.playState !== 'running' || Math.abs((animation.currentTime % duration) - phase) > 150) animation.currentTime = phase;
-    if (running) { if (animation.playState !== 'running') animation.play(); }
-    else animation.pause();
+    if (running) {
+      if (animation.startTime == null || animation.playState !== 'running' || Math.abs(animation.startTime - startTime) > 150) animation.startTime = startTime;
+    } else {
+      animation.pause();
+      animation.currentTime = Math.max(0, elapsedMs);
+    }
   }
 }

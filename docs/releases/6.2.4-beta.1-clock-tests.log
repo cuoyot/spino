@@ -1,0 +1,155 @@
+TAP version 13
+# Subtest: a delayed frame must not count a blocked interval twice or rewind the visible digits
+ok 1 - a delayed frame must not count a blocked interval twice or rewind the visible digits
+  ---
+  duration_ms: 3690.661833
+  type: 'test'
+  ...
+# Subtest: pause, resume and digit-width rollover retain the correct time for every visible digit
+ok 2 - pause, resume and digit-width rollover retain the correct time for every visible digit
+  ---
+  duration_ms: 3197.321208
+  type: 'test'
+  ...
+# Subtest: practice seconds repaint promptly between checkpoints without redundant DOM writes
+ok 3 - practice seconds repaint promptly between checkpoints without redundant DOM writes
+  ---
+  duration_ms: 2536.19975
+  type: 'test'
+  ...
+# timed-reading timer visibility: visible
+# timed-reading playing clock: 0:02
+# timed-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: timed-reading
+ok 4 - practice time advances, pauses and survives return: timed-reading
+  ---
+  duration_ms: 10968.354667
+  type: 'test'
+  ...
+# self-paced-reading timer visibility: visible
+# self-paced-reading playing clock: 0:02
+# self-paced-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: self-paced-reading
+ok 5 - practice time advances, pauses and survives return: self-paced-reading
+  ---
+  duration_ms: 8616.93875
+  type: 'test'
+  ...
+# piano-reading timer visibility: visible
+# piano-reading playing clock: 0:02
+# piano-reading returned clocks: {"session":"0:04","block":"0:04"}
+# Subtest: practice time advances, pauses and survives return: piano-reading
+ok 6 - practice time advances, pauses and survives return: piano-reading
+  ---
+  duration_ms: 8552.947541
+  type: 'test'
+  ...
+# Subtest: clock keeps updating without animation frames and shares change detection with frames
+ok 7 - clock keeps updating without animation frames and shares change detection with frames
+  ---
+  duration_ms: 59.036583
+  type: 'test'
+  ...
+# Subtest: score clock refreshes when only the independent session total changes
+ok 8 - score clock refreshes when only the independent session total changes
+  ---
+  duration_ms: 0.243917
+  type: 'test'
+  ...
+# Subtest: preparation puts warm-up first, borrows its minutes and shows static piano keys
+not ok 9 - preparation puts warm-up first, borrows its minutes and shows static piano keys
+  ---
+  duration_ms: 1943.867791
+  type: 'test'
+  location: '/private/tmp/spino-clock-beta-20261120/tests/practice-revision.browser.test.js:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":42,"scriptId":"30","stackTrace":{"callFrames":[{"functionName":"","scriptId":"30","url":"","lineNumber":0,"columnNumber":42}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of null (reading 'closest')\n    at <anonymous>:1:43","objectId":"1644705561882173206.2.3"}}
+    + actual - expected
+    
+    + {
+    +   columnNumber: 42,
+    +   exception: {
+    +     className: 'TypeError',
+    +     description: "TypeError: Cannot read properties of null (reading 'closest')\n" +
+    +       '    at <anonymous>:1:43',
+    +     objectId: '1644705561882173206.2.3',
+    +     subtype: 'error',
+    +     type: 'object'
+    +   },
+    +   exceptionId: 1,
+    +   lineNumber: 0,
+    +   scriptId: '30',
+    +   stackTrace: {
+    +     callFrames: [
+    +       {
+    +         columnNumber: 42,
+    +         functionName: '',
+    +         lineNumber: 0,
+    +         scriptId: '30',
+    +         url: ''
+    +       }
+    +     ]
+    +   },
+    +   text: 'Uncaught'
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    exceptionId: 1
+    text: 'Uncaught'
+    lineNumber: 0
+    columnNumber: 42
+    scriptId: '30'
+    stackTrace:
+      callFrames:
+        0:
+          functionName: ''
+          scriptId: '30'
+          url: ''
+          lineNumber: 0
+          columnNumber: 42
+    exception:
+      type: 'object'
+      subtype: 'error'
+      className: 'TypeError'
+      description: |-
+        TypeError: Cannot read properties of null (reading 'closest')
+            at <anonymous>:1:43
+      objectId: '1644705561882173206.2.3'
+  operator: 'strictEqual'
+  stack: |-
+    evaluate (file:///private/tmp/spino-clock-beta-20261120/tests/browser.js:133:12)
+    async TestContext.<anonymous> (file:///private/tmp/spino-clock-beta-20261120/tests/practice-revision.browser.test.js:17:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: worklet audio grid continues through a blocked UI and clock digits keep their own animation
+ok 10 - worklet audio grid continues through a blocked UI and clock digits keep their own animation
+  ---
+  duration_ms: 5600.5055
+  type: 'test'
+  ...
+# Subtest: circular metronome marker is centered on all four cardinal directions
+ok 11 - circular metronome marker is centered on all four cardinal directions
+  ---
+  duration_ms: 1425.226042
+  type: 'test'
+  ...
+# Subtest: raised score timer advances through checkpoints, pauses and resumes in four layouts
+ok 12 - raised score timer advances through checkpoints, pauses and resumes in four layouts
+  ---
+  duration_ms: 43391.2055
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91139.255458

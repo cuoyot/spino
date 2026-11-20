@@ -160,7 +160,7 @@ Recordings are stored only in this installation. Notebook JSON export, backup an
 Practice seconds repaint when they change, independently of periodic saving. PDF and MusicXML clock digits keep a fixed width. Tapping the clock during editing saves pending changes and returns to paused practice. The separate Done editing checkmark and Back retain their save-and-resume behavior. These changes are verified in responsive browsers with disposable notebooks, including pause/resume, delayed frames and phone/tablet layouts. Android package installation is recorded separately from physical-device acceptance.
 
 
-Practice metronomes use the audio-rendering thread; clock digits animate independently from interface callbacks while saved durations are computed from elapsed timestamps. The circular beat marker is centered at each cardinal direction.
+Practice metronomes use the audio-rendering thread; clock digits animate independently from interface callbacks while saved durations are computed from elapsed timestamps. Beta 6.2.4-beta.1 corrects the digit synchronization after delayed interface work, including pausing, resuming and crossing minute boundaries. The circular beat marker is centered at each cardinal direction.
 
 
 ### Choose the practice mode first
