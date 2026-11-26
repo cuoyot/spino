@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-26",
+  "version": "6.2.4-beta.3",
+  "versionCode": 131,
+  "validation": {
+    "version": "6.2.4-beta.3",
+    "versionCode": 131,
+    "webAssetParity": {
+      "files": 685,
+      "packages": 3,
+      "equal": true
+    },
+    "androidTests": [
+      {
+        "name": "com.getcapacitor.myapp.ExampleUnitTest",
+        "tests": "1",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "timestamp": "2026-11-26T18:13:41.679Z",
+        "hostname": "MacBook-Pro-de-Miguel.local",
+        "time": "0.005"
+      },
+      {
+        "name": "com.miguecoll.spino.DocumentExportTest",
+        "tests": "5",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "timestamp": "2026-11-26T18:13:41.690Z",
+        "hostname": "MacBook-Pro-de-Miguel.local",
+        "time": "0.245"
+      },
+      {
+        "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "timestamp": "2026-11-26T18:13:41.960Z",
+        "hostname": "MacBook-Pro-de-Miguel.local",
+        "time": "0.025"
+      },
+      {
+        "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "timestamp": "2026-11-26T18:13:41.987Z",
+        "hostname": "MacBook-Pro-de-Miguel.local",
+        "time": "0.008"
+      },
+      {
+        "name": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "timestamp": "2026-11-26T18:13:41.953Z",
+        "hostname": "MacBook-Pro-de-Miguel.local",
+        "time": "0.005"
+      }
+    ],
+    "applicationTests": {
+      "passed": 27,
+      "failed": 0,
+      "scope": "focused regression set; no broad-suite clean pass claimed"
+    },
+    "responsiveEvidence": [
+      "../quality-review/captures/repertoire/2026-11-26-add-work-docking-01/manifest.json",
+      "../quality-review/captures/navigation/2026-11-26-calendar-progress-docking-01/manifest.json",
+      "../quality-review/captures/navigation/2026-11-26-header-background-fade-01/manifest.json"
+    ],
+    "packageSignatures": {
+      "releaseAPK": "apksigner verified",
+      "betaAPK": "apksigner verified",
+      "AAB": "jarsigner verified with existing upload certificate"
+    },
+    "physicalDeviceAcceptance": "pending owner installation",
+    "distribution": "website-beta",
+    "nativeEvidence": {
+      "retainedOriginalFiles": 8,
+      "unchangedBeforeLaunch": true,
+      "foreground": [
+        "ResumedActivity: ActivityRecord{368c6b9 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t216}"
+      ],
+      "version": [
+        "versionCode=131 minSdk=24 targetSdk=36",
+        "versionName=6.2.4-beta.3"
+      ]
+    },
+    "websiteTests": {
+      "passed": 9,
+      "failed": 0
+    },
+    "releaseEvidence": "../quality-review/captures/releases/2026-11-26-beta131-final/manifest.json",
+    "reviewedNavigationSourceHashes": {
+      "src/companion/page-navigation.js": "80175d885d5945851573e169f85188053b35262c42a3a733b0cba05091a65ce8",
+      "src/companion/page-navigation.css": "56fcba418d1d95027dfee9e736f3c3dcb90c29057e243eff95a43f40d416cfbd"
+    }
+  },
+  "files": {
+    "beta-apk-signature.log": "b0a1af67205efcd284e5bbae691ebf4a0d296b4fcae02cd28e7e0509d0e0efbc",
+    "website-tests.log": "16ce4d4cae095f7a77980cb88d862cd56496d713d8d48c5500cef1b80463449e",
+    "release-apk-signature.log": "b0a1af67205efcd284e5bbae691ebf4a0d296b4fcae02cd28e7e0509d0e0efbc",
+    "app-tests.log": "8748a8e33ce5ecc10ce159794d7915ce75411f80bc209b80f1a602be8a813578",
+    "aab-signature.log": "a4c8d40cd4879f34396afb2f3dc49af81debe6a7db9edca93d0bd1b47c867028",
+    "website-build.log": "66799c46738fd51250c563bbc139ca253d0e90e187ec393624950c41b3ec1806",
+    "README.md": "9f7b90c5a5e12a089011f3e8be358e89d83ac86ddd7782cb62d5c7e55208ea12",
+    "android-build.log": "6acb9887af12b2ce27b78773aee7561819c0c59f7d29cbc849f824a9ea895b6f",
+    "web-build.log": "acb686c67d8b9b94cc1b8b0efed982bbbdb61029e670b63ef040ebbf3441cc05"
+  }
+}

@@ -1,0 +1,19 @@
+<es-ES>
+Añadir obra abre directamente el formulario, con PDF opcional. Calendario, Progreso y Biblioteca comparten menús compactos que se integran con la cabecera sin separación. El fondo pasa de transparente al color de la cabecera al desplazar. Corregido el regreso a la semana actual con Hoy.
+</es-ES>
+
+<en-US>
+Add work opens the form directly, with an optional PDF. Calendar, Progress and Library share compact menus that join the header without a divider. The background changes from transparent to the header color as you scroll. Fixed Today returning to the current week.
+</en-US>
+
+<ca>
+Afegir obra obre directament el formulari, amb PDF opcional. Calendari, Progrés i Biblioteca comparteixen menús compactes que s’integren amb la capçalera sense separació. El fons passa de transparent al color de la capçalera en desplaçar. Corregit el retorn a la setmana actual amb Avui.
+</ca>
+
+<de-DE>
+Werk hinzufügen öffnet direkt das Formular mit optionalem PDF. Kalender, Fortschritt und Bibliothek teilen kompakte Menüs, die ohne Trennlinie an die Kopfzeile anschließen. Beim Scrollen wechselt der Hintergrund von transparent zur Kopfzeilenfarbe. Heute kehrt wieder zur aktuellen Woche zurück.
+</de-DE>
+
+<hu-HU>
+A mű hozzáadása közvetlenül az űrlapot nyitja meg, opcionális PDF-fel. A Naptár, Haladás és Könyvtár kompakt menüi elválasztó vonal nélkül illeszkednek a fejléchez. Görgetéskor az áttetsző háttér fokozatosan a fejléc színét veszi fel. A Ma gomb ismét az aktuális hétre ugrik.
+</hu-HU>

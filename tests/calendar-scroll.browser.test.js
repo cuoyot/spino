@@ -30,6 +30,9 @@ test('weekly calendar extends continuously without a month heading', {timeout:60
    const shot=await send('Page.captureScreenshot',{format:'png'});
    await writeFile(`${evidence}/week-${width}x${height}.png`,Buffer.from(shot.data,'base64'));
   }
+  // Returning to today must replace the old scroll anchor, even within the same week.
+  await evaluate(`document.querySelector('[data-action=calendar-today]').click()`);
+  await wait(`Math.abs(document.querySelector('.current-week').getBoundingClientRect().top-document.querySelector('.cp-agenda-toolbar').getBoundingClientRect().bottom-12)<2`);
   await evaluate(`document.querySelector('[data-action=calendar-mode][data-id=month]').click()`);
   assert.ok(await evaluate(`!!document.querySelector('.cp-calendar-heading h2')`));
   await evaluate(`document.querySelector('[data-action=calendar-mode][data-id=week]').click()`);

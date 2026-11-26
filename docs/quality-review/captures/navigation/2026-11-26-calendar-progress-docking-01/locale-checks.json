@@ -1,0 +1,330 @@
+[
+  {
+    "lang": "en",
+    "file": "locale-en-calendar.jpg",
+    "active": "Week",
+    "bar": {
+      "bottom": 104,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 60,
+      "width": 320,
+      "x": 0,
+      "y": 60
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "planner": {
+      "bottom": 104,
+      "height": 44,
+      "left": 192.53125,
+      "right": 304,
+      "top": 60,
+      "width": 111.46875,
+      "x": 192.53125,
+      "y": 60
+    },
+    "scroll": 476,
+    "view": "calendar",
+    "width": 320
+  },
+  {
+    "lang": "en",
+    "file": "locale-en-progress.jpg",
+    "active": "Activity",
+    "bar": {
+      "bottom": 112,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 68,
+      "width": 320,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 320
+  },
+  {
+    "lang": "ca",
+    "file": "locale-ca-calendar.jpg",
+    "active": "Setmana",
+    "bar": {
+      "bottom": 104,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 60,
+      "width": 320,
+      "x": 0,
+      "y": 60
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "planner": {
+      "bottom": 104,
+      "height": 44,
+      "left": 154.0625,
+      "right": 304,
+      "top": 60,
+      "width": 149.9375,
+      "x": 154.0625,
+      "y": 60
+    },
+    "scroll": 503,
+    "view": "calendar",
+    "width": 320
+  },
+  {
+    "lang": "ca",
+    "file": "locale-ca-progress.jpg",
+    "active": "Activitat",
+    "bar": {
+      "bottom": 112,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 68,
+      "width": 320,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 320
+  },
+  {
+    "lang": "de",
+    "file": "locale-de-calendar.jpg",
+    "active": "Woche",
+    "bar": {
+      "bottom": 104,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 60,
+      "width": 320,
+      "x": 0,
+      "y": 60
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "planner": {
+      "bottom": 104,
+      "height": 44,
+      "left": 168.421875,
+      "right": 304,
+      "top": 60,
+      "width": 135.578125,
+      "x": 168.421875,
+      "y": 60
+    },
+    "scroll": 476,
+    "view": "calendar",
+    "width": 320
+  },
+  {
+    "lang": "de",
+    "file": "locale-de-progress.jpg",
+    "active": "Aktivität",
+    "bar": {
+      "bottom": 112,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 68,
+      "width": 320,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 320
+  },
+  {
+    "lang": "hu",
+    "file": "locale-hu-calendar.jpg",
+    "active": "Hét",
+    "bar": {
+      "bottom": 104,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 60,
+      "width": 320,
+      "x": 0,
+      "y": 60
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "planner": {
+      "bottom": 104,
+      "height": 44,
+      "left": 156.390625,
+      "right": 304,
+      "top": 60,
+      "width": 147.609375,
+      "x": 156.390625,
+      "y": 60
+    },
+    "scroll": 476,
+    "view": "calendar",
+    "width": 320
+  },
+  {
+    "lang": "hu",
+    "file": "locale-hu-progress.jpg",
+    "active": "Tevékenység",
+    "bar": {
+      "bottom": 112,
+      "height": 44,
+      "left": 0,
+      "right": 320,
+      "top": 68,
+      "width": 320,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 640,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 320
+  }
+]

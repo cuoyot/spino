@@ -1,0 +1,35 @@
+✔ one catalogue searches both formats, sorts titles and excludes research (311.594042ms)
+✔ downloaded filter and repertoire controls require a local score in either format (241.02775ms)
+✔ transfers combine formats in one queue and do not duplicate empty panels (150.575125ms)
+✔ every PDF has a bundled first-page preview with exact edition and licence evidence (307.381667ms)
+✔ composition count merges editions and movements and excludes unresolved identities (90.30275ms)
+✔ period and composer filters combine without reclassifying source credits (8.646708ms)
+✔ MIDI settings are available to keyboard users and first-time disconnected users (6.693292ms)
+✔ past weekdays are unavailable for a single week but retained in a future recurring series (16.820083ms)
+✔ piano-key names identify pitch and octave without depending on visible assistance (0.478167ms)
+✔ profile language persists without changing historical identifiers or requiring migration (114.218583ms)
+✔ Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors (0.606541ms)
+✔ Drive incremental transfer failures and persisted old diagnostics use the selected language (17.183292ms)
+✔ optional warm-ups materialize every configured type without rewriting the practice (33.116708ms)
+✔ repertoire has its type before its content and omits the tempo in preparation and overview (7.066ms)
+✔ warm-up consumes the selected total and returns its minutes when disabled (1.401542ms)
+✔ static piano marks the real pitches, including enharmonic scale spellings (15.7165ms)
+✔ weekly streaks tolerate unfinished current week, distinguish goals and exclude future sessions (12.364291ms)
+✔ gaps, empty records, no goal and year boundaries (0.603ms)
+✔ time filters allocate only matching blocks, preserve notebook and exclude future/unsaved time (47.886334ms)
+✔ overview contains 12 Monday-based weeks including zero weeks and unfinished current week (8.495833ms)
+✔ previous comparison uses equal calendar-day duration and same filters (20.588458ms)
+✔ month ends, leap year and year-to-date use calendar boundaries (4.164208ms)
+✔ every range partitions its total without gaps or duplicates across DST/year changes (15.032833ms)
+✔ large repertoire supports accent-insensitive search, combined filters and bounded pages (126.872209ms)
+✔ trash preserves stable IDs, attachments and references and survives backup validation (21.79575ms)
+✔ the music stand lists current pieces in full and pages the rest of the repertoire (2.511041ms)
+✔ repertoire blocks can leave the piece open, switch pieces and record the part worked on (129.111041ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4280.748417

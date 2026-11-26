@@ -96,6 +96,8 @@ import './today.css';
 import './appearance.css';
 import './form-actions.css';
 import './scroll-surfaces.css';
+import './page-navigation.css';
+import {mountPageNavigation} from './page-navigation.js';
 import { mountDialogFormActions } from './form-actions.js';
 import { openStore } from './store.js';
 import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, weekOf, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
@@ -959,7 +961,7 @@ export async function bootCompanion(reader) {
   let historyThumbnails = null;
   function render() {
     const previousCalendar = root.querySelector('.cp-page[data-view=calendar]');
-    const calendarPosition = view === 'calendar' && previousCalendar?.dataset.calendarAnchor === selectedDate && previousCalendar?.dataset.calendarMode === calendarMode ? captureCalendarPosition(root) : null;
+    const calendarPosition = view === 'calendar' && calendarWeekAnchor === selectedDate && !calendarNeedsPosition && previousCalendar?.dataset.calendarAnchor === selectedDate && previousCalendar?.dataset.calendarMode === calendarMode ? captureCalendarPosition(root) : null;
     const previousSpin = root.querySelector('.cp-sync-status svg')?.getAnimations().find(animation => animation.animationName === 'cp-sync-spin');
     const syncPhase = previousSpin && {time: previousSpin.currentTime, capturedAt: performance.now()};
     const catalogueScroll = view === 'catalog' && root.querySelector('.cp-page')?.dataset.view === 'catalog' ? root.querySelector('.cp-page').scrollTop : 0;
@@ -984,7 +986,11 @@ export async function bootCompanion(reader) {
       root.querySelector('.cp-nav [data-action=practice]')?.setAttribute('aria-current','page');
     }
     const heading = root.querySelector('.cp-content h1');
-    if(libraryRoute(view)) root.querySelector('.cp-page').insertAdjacentHTML('afterbegin',libraryNavigation());
+    if(libraryRoute(view)) {
+      const page = root.querySelector('.cp-page');
+      page.insertAdjacentHTML('afterbegin',libraryNavigation());
+    }
+    mountPageNavigation(root.querySelector('.cp-page'));
     const profile=root.querySelector('.cp-nav .cp-profile-nav');
     if(profile)root.querySelector('.cp-header-profile').append(profile);
     if(heading?.hasAttribute('data-detail-title')) {
@@ -1041,7 +1047,7 @@ export async function bootCompanion(reader) {
           requestAnimationFrame(()=>{
             if(!page.isConnected)return;
             const target=agenda.querySelector(`[data-week-start="${weekOf(selectedDate)}"]`);
-            const toolbar=content.querySelector('.cp-agenda-toolbar');
+            const toolbar=page.querySelector('.cp-agenda-toolbar');
             // Respect a scroll made before the initial animation frame.
             if(page.scrollTop===0)page.scrollTop+=target.getBoundingClientRect().top-page.getBoundingClientRect().top-toolbar.offsetHeight-12;
             requestAnimationFrame(()=>{positioning=false;updateToday();if(pendingScroll){pendingScroll=false;extendCalendar();}});
@@ -1664,8 +1670,7 @@ export async function bootCompanion(reader) {
     'favorite-work':async id=>{const next=copy(data),work=next.works.find(w=>w.id===id);if(!work)return;work.favorite=!work.favorite;await store.save(next);data=next;render();},
     'restore-work':async id=>{const next=copy(data);setWorkTrashed(next,id,false);await store.save(next);data=next;render();toast(ui("Work restored.", "Obra restaurada."));},
     'delete-work':id=>confirm(ui("Delete work", "Eliminar obra"), ui("Move this work to trash? Its PDF, annotations, practice history and existing plans will be kept. You can restore it from Repertoire → Collection → Trash.", "¿Mover esta obra a la papelera? Se conservarán su PDF, anotaciones, historial y planes. Puedes restaurarla desde Repertorio → Colección → Papelera."),async()=>{const next=copy(data);setWorkTrashed(next,id,true);await store.save(next);data=next;go('repertoire');}),
-    'add-work':()=>showDialog(ui('Add work','Añadir obra'),`<div class="cp-add-work-options">${btn('new-work',ui('Enter work details','Introducir datos de la obra'),'','quiet')}${btn('add-work-pdf',ui('Import PDF','Importar PDF'),'','quiet')}</div><div class="cp-actions">${btn('close-dialog',ui('Cancel','Cancelar'),'','quiet')}</div>`),
-    'add-work-pdf':()=>{dialog.close();importScore();},
+    'add-work':()=>workForm(),
     'new-work':()=>workForm(),'edit-work':id=>workForm(data.works.find(w=>w.id===id)),
     'work-detail':id=>go('work',id),
     'close-work':()=>go('repertoire'),

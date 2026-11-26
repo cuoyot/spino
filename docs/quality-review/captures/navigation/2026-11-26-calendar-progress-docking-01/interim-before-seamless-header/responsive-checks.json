@@ -1,0 +1,4594 @@
+[
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-light-390x844-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 484,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-light-390x844-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 1074,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-light-390x844-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 130,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 86,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 86
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-light-390x844-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 220,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-light-390x844-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-light-390x844-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 663,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-light-390x844-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-light-390x844-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 614,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-light-390x844-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-light-390x844-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-light-390x844-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 591,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-light-844x390-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 491,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-light-844x390-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 354,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-light-844x390-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 122,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 78,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 78
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-light-844x390-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 259,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-light-844x390-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-light-844x390-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 256,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-light-844x390-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-light-844x390-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 279,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-light-844x390-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-light-844x390-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-light-844x390-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 282,
+    "view": "piano",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-light-768x1024-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 70,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 70
+    },
+    "scroll": 513,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-light-768x1024-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 70,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 70
+    },
+    "scroll": 1331,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-light-768x1024-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 144,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 100,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 100
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-light-768x1024-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-light-768x1024-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 894,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-light-768x1024-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-light-768x1024-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 821,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-light-768x1024-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-light-768x1024-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-light-768x1024-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 326,
+    "view": "piano",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-light-1024x768-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 495,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-light-1024x768-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 198,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-light-1024x768-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 126,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 82,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 82
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-light-1024x768-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 195,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-light-1024x768-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-light-1024x768-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 643,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-light-1024x768-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-light-1024x768-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 609,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-light-1024x768-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1024,
+      "top": 80,
+      "width": 868,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-light-1024x768-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "light",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-light-1024x768-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 621,
+    "view": "piano",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-dark-390x844-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 484,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-dark-390x844-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 1103,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-dark-390x844-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 130,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 86,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 86
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-dark-390x844-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 243.234375,
+      "right": 374,
+      "top": 70,
+      "width": 130.765625,
+      "x": 243.234375,
+      "y": 70
+    },
+    "scroll": 201,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-dark-390x844-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-dark-390x844-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 620,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-dark-390x844-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-dark-390x844-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 558,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-dark-390x844-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-dark-390x844-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-dark-390x844-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 638,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-dark-844x390-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 491,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-dark-844x390-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 358,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-dark-844x390-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 122,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 78,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 78
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-dark-844x390-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 697.234375,
+      "right": 828,
+      "top": 70,
+      "width": 130.765625,
+      "x": 697.234375,
+      "y": 70
+    },
+    "scroll": 259,
+    "view": "calendar",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-dark-844x390-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-dark-844x390-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 265,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-dark-844x390-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-dark-844x390-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 257,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-dark-844x390-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-dark-844x390-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 125,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 76,
+      "width": 754,
+      "x": 90,
+      "y": 76
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-dark-844x390-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 90,
+      "right": 844,
+      "top": 68,
+      "width": 754,
+      "x": 90,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 844,
+      "top": 0,
+      "width": 844,
+      "x": 0,
+      "y": 0
+    },
+    "height": 390,
+    "overflow": 0,
+    "scroll": 249,
+    "view": "piano",
+    "width": 844
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-dark-768x1024-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 70,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 70
+    },
+    "scroll": 513,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-dark-768x1024-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 70,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 70
+    },
+    "scroll": 1048,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-dark-768x1024-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "planner": {
+      "bottom": 144,
+      "height": 44,
+      "left": 613.234375,
+      "right": 744,
+      "top": 100,
+      "width": 130.765625,
+      "x": 613.234375,
+      "y": 100
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-dark-768x1024-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-dark-768x1024-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 899,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-dark-768x1024-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-dark-768x1024-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 808,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-dark-768x1024-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-dark-768x1024-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 147,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 98,
+      "width": 612,
+      "x": 156,
+      "y": 98
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-dark-768x1024-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 768,
+      "top": 68,
+      "width": 612,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 768,
+      "top": 0,
+      "width": 768,
+      "x": 0,
+      "y": 0
+    },
+    "height": 1024,
+    "overflow": 0,
+    "scroll": 915,
+    "view": "piano",
+    "width": 768
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "after-dark-1024x768-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 495,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "after-dark-1024x768-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 169,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "initial",
+    "file": "after-dark-1024x768-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 126,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 82,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 82
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "after-dark-1024x768-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "planner": {
+      "bottom": 114,
+      "height": 44,
+      "left": 858.234375,
+      "right": 989,
+      "top": 70,
+      "width": 130.765625,
+      "x": 858.234375,
+      "y": 70
+    },
+    "scroll": 223,
+    "view": "calendar",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "initial",
+    "file": "after-dark-1024x768-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "after-dark-1024x768-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 113,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "after-dark-1024x768-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "after-dark-1024x768-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 651,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "technique",
+    "state": "initial",
+    "file": "after-dark-1024x768-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1024,
+      "top": 80,
+      "width": 868,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "initial",
+    "file": "after-dark-1024x768-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 129,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 80,
+      "width": 857,
+      "x": 156,
+      "y": 80
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 1024
+  },
+  {
+    "version": "after",
+    "theme": "dark",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "after-dark-1024x768-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 156,
+      "right": 1013,
+      "top": 68,
+      "width": 857,
+      "x": 156,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": true,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "overflow": 0,
+    "scroll": 660,
+    "view": "piano",
+    "width": 1024
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "before-light-390x844-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(247, 247, 251)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 466,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "before-light-390x844-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(247, 247, 251)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 1217,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "month",
+    "state": "initial",
+    "file": "before-light-390x844-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(247, 247, 251)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "before-light-390x844-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(247, 247, 251)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 7,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "activity",
+    "state": "initial",
+    "file": "before-light-390x844-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(237, 240, 247)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "before-light-390x844-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 0,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": -46,
+      "width": 358,
+      "x": 16,
+      "y": -46
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(237, 240, 247)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 142,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "before-light-390x844-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(237, 240, 247)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "before-light-390x844-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(237, 240, 247)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "technique",
+    "state": "initial",
+    "file": "before-light-390x844-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(237, 240, 247)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "library",
+    "state": "initial",
+    "file": "before-light-390x844-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "light",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "before-light-390x844-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(255, 255, 255)",
+      "rgb(255, 255, 255)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 61,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "initial",
+    "file": "before-dark-390x844-calendar-initial.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(27, 38, 64)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 466,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "calendar",
+    "state": "scrolled",
+    "file": "before-dark-390x844-calendar-scrolled.jpg",
+    "active": "Semana",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(27, 38, 64)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 1711,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "month",
+    "state": "initial",
+    "file": "before-dark-390x844-month-initial.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(27, 38, 64)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 0,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "month",
+    "state": "scrolled",
+    "file": "before-dark-390x844-month-scrolled.jpg",
+    "active": "Mes",
+    "bar": {
+      "bottom": 134,
+      "height": 66,
+      "left": 10,
+      "right": 380,
+      "top": 68,
+      "width": 370,
+      "x": 10,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(27, 38, 64)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "planner": {
+      "bottom": 123,
+      "height": 44,
+      "left": 229.234375,
+      "right": 374,
+      "top": 79,
+      "width": 144.765625,
+      "x": 229.234375,
+      "y": 79
+    },
+    "scroll": 49,
+    "view": "calendar",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "initial",
+    "file": "before-dark-390x844-activity-initial.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(52, 68, 97)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "activity",
+    "state": "scrolled",
+    "file": "before-dark-390x844-activity-scrolled.jpg",
+    "active": "Actividad",
+    "bar": {
+      "bottom": -349,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": -395,
+      "width": 358,
+      "x": 16,
+      "y": -395
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(52, 68, 97)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 491,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "initial",
+    "file": "before-dark-390x844-repertoire-initial.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(52, 68, 97)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "repertoire",
+    "state": "scrolled",
+    "file": "before-dark-390x844-repertoire-scrolled.jpg",
+    "active": "Repertorio",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(52, 68, 97)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "technique",
+    "state": "initial",
+    "file": "before-dark-390x844-technique-initial.jpg",
+    "active": "Técnica",
+    "bar": {
+      "bottom": 142,
+      "height": 46,
+      "left": 16,
+      "right": 374,
+      "top": 96,
+      "width": 358,
+      "x": 16,
+      "y": 96
+    },
+    "canScroll": false,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(52, 68, 97)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "progress",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "library",
+    "state": "initial",
+    "file": "before-dark-390x844-library-initial.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 84,
+      "width": 390,
+      "x": 0,
+      "y": 84
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 0,
+    "view": "piano",
+    "width": 390
+  },
+  {
+    "version": "before",
+    "theme": "dark",
+    "screen": "library",
+    "state": "scrolled",
+    "file": "before-dark-390x844-library-scrolled.jpg",
+    "active": "Mi repertorio",
+    "bar": {
+      "bottom": 117,
+      "height": 49,
+      "left": 0,
+      "right": 390,
+      "top": 68,
+      "width": 390,
+      "x": 0,
+      "y": 68
+    },
+    "canScroll": true,
+    "colors": [
+      "rgb(39, 54, 80)",
+      "rgb(39, 54, 80)"
+    ],
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "overflow": 0,
+    "scroll": 152,
+    "view": "piano",
+    "width": 390
+  }
+]

@@ -1,0 +1,87 @@
+/* Library, Calendar and Progress share one header-colored docking treatment. */
+#app-shell .cp-page:has(> .cp-page-navigation) {
+  --page-navigation-inset: 20px;
+  --cp-page-top-space: 8px;
+  padding-top: 0;
+  padding-inline: 0;
+}
+#app-shell .cp-page:has(> .cp-page-navigation) > .cp-content {
+  box-sizing: border-box;
+  max-width: calc(1080px + 2 * var(--page-navigation-inset));
+  padding-inline: var(--page-navigation-inset);
+}
+#app-shell .cp-page > .cp-page-navigation {
+  position: sticky;
+  top: calc(-1 * var(--cp-page-top-space));
+  z-index: 5;
+  max-width: none;
+  margin: 0 0 12px;
+  padding: var(--cp-page-top-space) 0 0;
+  background: transparent;
+}
+:root[data-theme] #app-shell .cp-page > .cp-page-navigation > .cp-navigation-bar {
+  box-sizing: border-box;
+  position: static;
+  max-width: none;
+  margin: 0;
+  padding: 0 max(var(--page-navigation-inset), calc((100% - 1080px) / 2));
+  gap: 0;
+  border: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--theme-panel) calc(var(--cp-navigation-coverage, 0) * 100%), transparent);
+}
+:root[data-theme] #app-shell .cp-page > .cp-page-navigation .cp-navigation-toolbar > .cp-navigation-tabs {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+#app-shell .cp-page > .cp-page-navigation .cp-navigation-tabs button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 4px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--theme-muted);
+}
+:root[data-theme] #app-shell .cp-page[data-view] > .cp-page-navigation .cp-navigation-tabs button:is([aria-current=page],[aria-pressed=true]) {
+  background: transparent;
+  border-bottom-color: var(--theme-link);
+  color: var(--theme-link);
+}
+#app-shell .cp-page > .cp-page-navigation .cp-navigation-toolbar { justify-content: space-between; }
+#app-shell .cp-page > .cp-page-navigation .cp-navigation-toolbar .cp-navigation-tabs button { padding-inline: 12px; }
+#app-shell .cp-page > .cp-page-navigation .cp-navigation-toolbar > [data-action=weekly-planner] {
+  min-height: 44px;
+  max-width: 60%;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  background: transparent;
+  color: var(--theme-link);
+  font-size: 13px;
+  white-space: normal;
+}
+#app-shell .cp-page[data-view=progress] .cp-progress-page > .cp-page-heading { display: none; }
+:root[data-theme] #app-shell:has(> .cp-page > .cp-page-navigation) > .cp-app-header {
+  height: 60px;
+  min-height: 60px;
+  padding-block: 4px;
+  border-bottom: 0;
+  box-shadow: none;
+}
+@media (max-width: 599px), (orientation: landscape) and (max-height: 599px) {
+  #app-shell .cp-page:has(> .cp-page-navigation) { --page-navigation-inset: 16px; }
+}
+@media (min-width: 600px) and (min-height: 600px) {
+  #app-shell .cp-page:has(> .cp-page-navigation) { --page-navigation-inset: 24px; }
+}

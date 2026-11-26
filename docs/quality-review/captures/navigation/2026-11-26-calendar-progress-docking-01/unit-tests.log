@@ -1,0 +1,19 @@
+✔ weekly streaks tolerate unfinished current week, distinguish goals and exclude future sessions (26.446292ms)
+✔ gaps, empty records, no goal and year boundaries (0.5445ms)
+✔ time filters allocate only matching blocks, preserve notebook and exclude future/unsaved time (6.933292ms)
+✔ overview contains 12 Monday-based weeks including zero weeks and unfinished current week (0.576917ms)
+✔ previous comparison uses equal calendar-day duration and same filters (0.504375ms)
+✔ month ends, leap year and year-to-date use calendar boundaries (1.459666ms)
+✔ every range partitions its total without gaps or duplicates across DST/year changes (6.95975ms)
+✔ large repertoire supports accent-insensitive search, combined filters and bounded pages (67.678833ms)
+✔ trash preserves stable IDs, attachments and references and survives backup validation (39.009167ms)
+✔ the music stand lists current pieces in full and pages the rest of the repertoire (1.622083ms)
+✔ repertoire blocks can leave the piece open, switch pieces and record the part worked on (55.44225ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.674417

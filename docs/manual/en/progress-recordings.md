@@ -85,3 +85,16 @@ Opening Android's sharing chooser completes SPino's sharing action; the viewer d
 
 
 If sharing fails after a video has been prepared, tap **Share** again to reuse the saved prepared file. Save/restart/retry, storage failure and missing-copy recovery are verified with synthetic notebooks. Android replacement installation and packaging are recorded with beta126; physical recipient delivery remains separate.
+
+
+## Current source: integrated page navigation
+
+Calendar, Progress and Library share a compact header-colored navigation strip. Scrolling removes the small leading space and joins the strip directly to the app header, without a divider or shadow. The current tab remains underlined. Calendar keeps Week/Month and Plan your week; Progress keeps Activity/Repertoire/Technique. Today returns to the current week rather than preserving the previous scroll position.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026 (`navigation/2026-11-26-calendar-progress-docking-01`). This local follow-up is not included in the already-published beta130. Physical/native and final owner visual acceptance remain open.
+
+
+Local source follow-up (26 November 2026): the navigation background starts transparent and progressively takes the header color across its 8 px approach. At the dock it is fully opaque; scrolling back reverses the fade. Text and icons stay fully opaque. Verified in `navigation/2026-11-26-header-background-fade-01`; not included in published beta130.
+
+
+Release follow-up: the verified source refinements above are packaged in Android website beta 6.2.4-beta.3/build131. Installation/data retention and foreground pass on the existing emulator; public delivery is recorded in its release publication manifest. Physical acceptance remains open.

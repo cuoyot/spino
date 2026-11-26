@@ -54,3 +54,25 @@ Packaging follow-up: these MusicXML changes are included in the owner-requested 
 An empty collection, empty Trash and a filtered search with no matches show different guidance. Clear filters is available when filters hide all results. Icon actions include the original work title in their accessible names.
 
 Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.
+
+
+## Current source review: adding works and library navigation
+
+Add work opens the work form directly. Enter the details, optionally select a PDF for local detection, and Save. The preceding manual-entry/PDF choice is removed. Cancelling leaves the repertoire unchanged.
+
+The three Library tabs use the same surface as the app header, with an underline identifying the current section. On scrolling, the space above them moves away and the tabs stay directly beneath the header. This applies to My repertoire, Catalogue and Multimedia.
+
+Verified in a synthetic responsive-browser review on 26 November 2026 (`repertoire/2026-11-26-add-work-docking-01`). This follow-up is local source only and is not included in the already-published beta130. Native/physical acceptance remains open.
+
+
+## Current source: integrated page navigation
+
+Calendar, Progress and Library share a compact header-colored navigation strip. Scrolling removes the small leading space and joins the strip directly to the app header, without a divider or shadow. The current tab remains underlined. Calendar keeps Week/Month and Plan your week; Progress keeps Activity/Repertoire/Technique. Today returns to the current week rather than preserving the previous scroll position.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026 (`navigation/2026-11-26-calendar-progress-docking-01`). This local follow-up is not included in the already-published beta130. Physical/native and final owner visual acceptance remain open.
+
+
+Local source follow-up (26 November 2026): the navigation background starts transparent and progressively takes the header color across its 8 px approach. At the dock it is fully opaque; scrolling back reverses the fade. Text and icons stay fully opaque. Verified in `navigation/2026-11-26-header-background-fade-01`; not included in published beta130.
+
+
+Release follow-up: the verified source refinements above are packaged in Android website beta 6.2.4-beta.3/build131. Installation/data retention and foreground pass on the existing emulator; public delivery is recorded in its release publication manifest. Physical acceptance remains open.

@@ -75,8 +75,6 @@
 #app-shell .cp-browse-surface .cp-repertoire-table .cp-repertoire-open { font-size: 14px; }
 #app-shell .cp-browse-surface .cp-repertoire-table td { padding-block: 6px; border-bottom-color: var(--review-edge); }
 #app-shell .cp-browse-surface .cp-repertoire-table .cp-stand-icon[aria-pressed=true] { background: transparent; }
-#cp-dialog .cp-add-work-options { display: grid; gap: 8px; margin-bottom: 12px; }
-#cp-dialog .cp-add-work-options button { text-align: start; padding: 12px; }
 
 /* Progress uses the calendar's panel hierarchy and quieter secondary actions. */
 #app-shell .cp-browse-surface:is([data-view=progress],[data-view=progress-time]) .cp-progress-page { gap: 12px; }

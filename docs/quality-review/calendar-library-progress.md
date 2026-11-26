@@ -1,3 +1,7 @@
+2026-11-26 LOCAL BACKGROUND FADE: owner requests transparent navigation that takes the header color as it rises. Shared Calendar/Progress/Library bar now follows scroll coverage from 0 to 1 over its existing 8 px approach, without extra padding or geometry changes. Text/icons remain opaque; the docked seam stays borderless. Both-theme 0/50/100% and reverse checks plus four responsive orientations pass; production build passes. [Evidence](captures/navigation/2026-11-26-header-background-fade-01/README.md). Refresh the local app at port5381 to review. Exact owner/native acceptance remains open; public beta130 is unchanged.
+
+2026-11-26 LOCAL SHARED HEADER: owner extends Library docking to Calendar/Progress and requests no dividing line plus less padding. Shared page-navigation component now serves all three areas: 60 px header + 44 px bar, zero seam/border/shadow and preserved 44 px targets. Calendar Week/Month, planning, Today and Progress keyboard/detail entry verified. Explicit Today jumps now bypass old-position restoration. Final evidence: [108 responsive frames, eight narrow locale frames and measured seam](captures/navigation/2026-11-26-calendar-progress-docking-01/README.md); production build and 11 unit checks pass. Prior Library evidence is reopened; exact owner/native acceptance remains open. Preview http://127.0.0.1:5381/. Public beta130 is unchanged; no new APK or publication.
+
 # Calendar reference and browsing-screen alignment — 7 November 2026
 
 ## Accepted scope

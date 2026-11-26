@@ -1,0 +1,9 @@
+{
+  "monthKeyboardActivation": true,
+  "previousNextMonth": true,
+  "returnToWeek": true,
+  "todayGap": 12.140625,
+  "plannerKeyboardEntry": true,
+  "progressKeyboardSwitching": true,
+  "progressDetailEntry": true
+}

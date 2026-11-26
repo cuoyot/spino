@@ -1,0 +1,47 @@
+
+ ⛅️ wrangler 4.151.3 (update available 4.168.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 235 files from the assets directory /private/tmp/spino-beta130-publish/site
+🌀 Starting asset upload...
+🌀 Found 23 new or modified static assets to upload. Proceeding with upload...
++ /downloads/spino-6.2.4-beta.2-checksums.json
++ /index.html
++ /hu/index.html
++ /downloads/parts/spino-6.2.4-beta.2-130-android.apk.003.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.aab.001.bin
++ /downloads/6.2.4-beta.2-release-notes.txt
++ /en/index.html
++ /downloads/parts/spino-6.2.4-beta.2-play-console-handoff.zip.003.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-beta-android.apk.003.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.aab.002.bin
++ /ca/index.html
++ /de/index.html
++ /downloads/parts/spino-6.2.4-beta.2-130-android.aab.003.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.aab.000.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.apk.000.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.apk.001.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-android.apk.002.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-beta-android.apk.000.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-beta-android.apk.001.bin
++ /downloads/parts/spino-6.2.4-beta.2-130-beta-android.apk.002.bin
++ /downloads/parts/spino-6.2.4-beta.2-play-console-handoff.zip.000.bin
++ /downloads/parts/spino-6.2.4-beta.2-play-console-handoff.zip.001.bin
++ /downloads/parts/spino-6.2.4-beta.2-play-console-handoff.zip.002.bin
+Uploaded 5 of 23 assets
+Uploaded 9 of 23 assets
+Uploaded 14 of 23 assets
+Uploaded 17 of 23 assets
+Uploaded 20 of 23 assets
+Uploaded 23 of 23 assets
+✨ Success! Uploaded 23 files (192 already uploaded) (28.84 sec)
+
+Total Upload: 28.18 KiB / gzip: 7.66 KiB
+Your Worker has access to the following bindings:
+Binding            Resource      
+env.ASSETS         Assets        
+
+Uploaded spino (52.73 sec)
+Deployed spino triggers (1.80 sec)
+  https://spino.cuoyot.workers.dev
+Current Version ID: a3ff47cd-ac32-4964-9e01-d9a9cad1dfc3

@@ -1,0 +1,21 @@
+✔ one catalogue searches both formats, sorts titles and excludes research (53.291709ms)
+✔ downloaded filter and repertoire controls require a local score in either format (17.524166ms)
+✔ transfers combine formats in one queue and do not duplicate empty panels (9.924292ms)
+✔ every PDF has a bundled first-page preview with exact edition and licence evidence (53.453916ms)
+✔ composition count merges editions and movements and excludes unresolved identities (11.827667ms)
+✔ period and composer filters combine without reclassifying source credits (2.87375ms)
+✔ MIDI settings are available to keyboard users and first-time disconnected users (2.838042ms)
+✔ past weekdays are unavailable for a single week but retained in a future recurring series (13.963583ms)
+✔ piano-key names identify pitch and octave without depending on visible assistance (0.294167ms)
+✔ large repertoire supports accent-insensitive search, combined filters and bounded pages (34.85375ms)
+✔ trash preserves stable IDs, attachments and references and survives backup validation (7.196417ms)
+✔ the music stand lists current pieces in full and pages the rest of the repertoire (0.969ms)
+✔ repertoire blocks can leave the piece open, switch pieces and record the part worked on (38.968375ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 557.336

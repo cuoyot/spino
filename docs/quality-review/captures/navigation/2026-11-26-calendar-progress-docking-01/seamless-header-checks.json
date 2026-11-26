@@ -1,0 +1,23 @@
+{
+  "barBorder": "0px",
+  "barHeight": 44,
+  "barShadow": "none",
+  "gap": 0,
+  "headerBorder": "0px",
+  "headerHeight": 60,
+  "headerShadow": "none",
+  "targets": [
+    {
+      "height": 44,
+      "text": "Actividad"
+    },
+    {
+      "height": 44,
+      "text": "Repertorio"
+    },
+    {
+      "height": 44,
+      "text": "Técnica"
+    }
+  ]
+}

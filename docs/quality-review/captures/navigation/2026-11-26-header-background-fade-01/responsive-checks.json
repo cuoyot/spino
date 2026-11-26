@@ -1,0 +1,188 @@
+[
+  {
+    "theme": "light",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 8,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 390,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 844
+    },
+    "docked": {
+      "background": "color(srgb 1 1 1)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 0,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 390,
+      "overflow": 0,
+      "scroll": 16,
+      "view": "progress",
+      "width": 844
+    }
+  },
+  {
+    "theme": "light",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 8,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 1024,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 768
+    },
+    "docked": {
+      "background": "color(srgb 1 1 1)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 0,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 1024,
+      "overflow": 0,
+      "scroll": 41,
+      "view": "progress",
+      "width": 768
+    }
+  },
+  {
+    "theme": "light",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 8,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 768,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 1024
+    },
+    "docked": {
+      "background": "color(srgb 1 1 1)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(82, 103, 157)",
+      "gap": 0,
+      "headerBackground": "rgb(255, 255, 255)",
+      "height": 768,
+      "overflow": 0,
+      "scroll": 31,
+      "view": "progress",
+      "width": 1024
+    }
+  },
+  {
+    "theme": "dark",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 8,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 390,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 844
+    },
+    "docked": {
+      "background": "color(srgb 0.152941 0.211765 0.313726)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 0,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 390,
+      "overflow": 0,
+      "scroll": 16,
+      "view": "progress",
+      "width": 844
+    }
+  },
+  {
+    "theme": "dark",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 8,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 1024,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 768
+    },
+    "docked": {
+      "background": "color(srgb 0.152941 0.211765 0.313726)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 0,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 1024,
+      "overflow": 0,
+      "scroll": 41,
+      "view": "progress",
+      "width": 768
+    }
+  },
+  {
+    "theme": "dark",
+    "initial": {
+      "background": "color(srgb 0 0 0 / 0)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 0,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 8,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 768,
+      "overflow": 0,
+      "scroll": 0,
+      "view": "progress",
+      "width": 1024
+    },
+    "docked": {
+      "background": "color(srgb 0.152941 0.211765 0.313726)",
+      "border": "0px",
+      "buttonOpacity": "1",
+      "coverage": 1,
+      "foreground": "rgb(192, 205, 251)",
+      "gap": 0,
+      "headerBackground": "rgb(39, 54, 80)",
+      "height": 768,
+      "overflow": 0,
+      "scroll": 31,
+      "view": "progress",
+      "width": 1024
+    }
+  }
+]

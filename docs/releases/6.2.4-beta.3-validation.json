@@ -1,0 +1,98 @@
+{
+  "version": "6.2.4-beta.3",
+  "versionCode": 131,
+  "webAssetParity": {
+    "files": 685,
+    "packages": 3,
+    "equal": true
+  },
+  "androidTests": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.679Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    },
+    {
+      "name": "com.miguecoll.spino.DocumentExportTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.690Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.245"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.960Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.025"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.987Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.008"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.953Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    }
+  ],
+  "applicationTests": {
+    "passed": 27,
+    "failed": 0,
+    "scope": "focused regression set; no broad-suite clean pass claimed"
+  },
+  "responsiveEvidence": [
+    "../quality-review/captures/repertoire/2026-11-26-add-work-docking-01/manifest.json",
+    "../quality-review/captures/navigation/2026-11-26-calendar-progress-docking-01/manifest.json",
+    "../quality-review/captures/navigation/2026-11-26-header-background-fade-01/manifest.json"
+  ],
+  "packageSignatures": {
+    "releaseAPK": "apksigner verified",
+    "betaAPK": "apksigner verified",
+    "AAB": "jarsigner verified with existing upload certificate"
+  },
+  "physicalDeviceAcceptance": "pending owner installation",
+  "distribution": "website-beta",
+  "nativeEvidence": {
+    "retainedOriginalFiles": 8,
+    "unchangedBeforeLaunch": true,
+    "foreground": [
+      "ResumedActivity: ActivityRecord{368c6b9 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t216}"
+    ],
+    "version": [
+      "versionCode=131 minSdk=24 targetSdk=36",
+      "versionName=6.2.4-beta.3"
+    ]
+  },
+  "websiteTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "releaseEvidence": "../quality-review/captures/releases/2026-11-26-beta131-final/manifest.json",
+  "reviewedNavigationSourceHashes": {
+    "src/companion/page-navigation.js": "80175d885d5945851573e169f85188053b35262c42a3a733b0cba05091a65ce8",
+    "src/companion/page-navigation.css": "56fcba418d1d95027dfee9e736f3c3dcb90c29057e243eff95a43f40d416cfbd"
+  }
+}

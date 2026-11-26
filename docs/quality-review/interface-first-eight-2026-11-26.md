@@ -1,6 +1,6 @@
 # First eight interface improvements — before/after review
 
-Date: 26 November 2026. Status: **implemented and verified for beta 6.2.4-beta.2 / build130; publication authorized; physical-device acceptance remains open**.
+Date: 26 November 2026. Status: **implemented and verified for beta 6.2.4-beta.2 / build130; published and public-download verified; physical-device acceptance remains open**.
 
 The owner requested preparation of UX-01–08 from the [interface audit](interface-audit-2026-11-26.md), with a before/after comparison before creating a beta. The subsequent event-form refinement is explicit: use **only a repetition icon beside Time**, without visible button text; opening the options explains the function. The icon retains an accessible name and a selected treatment when repetition is enabled.
 
@@ -52,4 +52,4 @@ The owner subsequently authorized publishing the completed beta while away. Hori
 
 Android release/debug APK and signed AAB build successfully; all three contain identical 685 built web files. All 15 Android unit tests pass. Replacement installation on the existing emulator preserves eight original IndexedDB files byte-for-byte before launch, confirms version130 and foreground activity. This is installation/data-retention evidence, separate from synthetic responsive layout evidence and physical owner acceptance.
 
-Publication status and exact commit/provider/public-download hashes are recorded in `docs/releases/6.2.4-beta.2-publication.json` once verified. Website beta distribution is requested; no production Play rollout is part of this delivery.
+Publication status and exact commit/provider/public-download hashes are recorded in `docs/releases/6.2.4-beta.2-publication.json` (verified: five language pages, nine full downloads and 76 images). Website beta distribution is complete; no production Play rollout is part of this delivery.

@@ -329,3 +329,9 @@ if(interfaceBeta){
  const text=await readFile(new URL('../../docs/releases/6.2.4-beta.2-release-notes.txt',import.meta.url),'utf8');
  for(const [lang,tag] of [['en','en-US'],['es','es-ES'],['ca','ca'],['de','de-DE'],['hu','hu-HU']])interfaceBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</'+tag+'>')[0].trim();
 }
+
+const navigationBeta=releases.find(release=>release.version==='6.2.4-beta.3');
+if(navigationBeta){
+ const text=await readFile(new URL('../../docs/releases/6.2.4-beta.3-release-notes.txt',import.meta.url),'utf8');
+ for(const [lang,tag] of [['en','en-US'],['es','es-ES'],['ca','ca'],['de','de-DE'],['hu','hu-HU']])navigationBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</'+tag+'>')[0].trim();
+}

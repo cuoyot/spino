@@ -60,7 +60,7 @@ test('compact calendar, unified work entry and Progress preserve notebook conten
     assert.equal(await evaluate(`!!document.querySelector('.cp-repertoire-heading [data-action=import-pdf]')`),false);
     await capture(`${theme}-library-${width}x${height}`);
     await click('add-work');await capture(`${theme}-add-work-${width}x${height}`);
-    await click('new-work');assert.ok(await evaluate(`!!document.querySelector('#cp-dialog [name=score]')`));await click('close-dialog');
+    assert.ok(await evaluate(`!!document.querySelector('#cp-dialog [name=score]')`));await click('close-dialog');
    } else {
     for(const section of ['activity','repertoire','technique']) {
      await evaluate(`document.querySelector('[data-action=progress-section][data-id=${section}]').click()`);

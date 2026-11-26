@@ -44,3 +44,16 @@ Synchronization keeps the visible calendar date at its current offset when incom
 New events expose repetition through an icon beside Time. Open it to choose frequency and an optional end date. The highlighted icon indicates active repetition; closing its options retains the choice. Multi-activity week rows show a count and swipe cue. One-week planning disables past weekdays; recurring planning retains requested weekdays that have future dates.
 
 Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.
+
+
+## Current source: integrated page navigation
+
+Calendar, Progress and Library share a compact header-colored navigation strip. Scrolling removes the small leading space and joins the strip directly to the app header, without a divider or shadow. The current tab remains underlined. Calendar keeps Week/Month and Plan your week; Progress keeps Activity/Repertoire/Technique. Today returns to the current week rather than preserving the previous scroll position.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026 (`navigation/2026-11-26-calendar-progress-docking-01`). This local follow-up is not included in the already-published beta130. Physical/native and final owner visual acceptance remain open.
+
+
+Local source follow-up (26 November 2026): the navigation background starts transparent and progressively takes the header color across its 8 px approach. At the dock it is fully opaque; scrolling back reverses the fade. Text and icons stay fully opaque. Verified in `navigation/2026-11-26-header-background-fade-01`; not included in published beta130.
+
+
+Release follow-up: the verified source refinements above are packaged in Android website beta 6.2.4-beta.3/build131. Installation/data retention and foreground pass on the existing emulator; public delivery is recorded in its release publication manifest. Physical acceptance remains open.

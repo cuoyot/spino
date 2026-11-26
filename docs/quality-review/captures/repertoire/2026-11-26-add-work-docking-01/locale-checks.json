@@ -1,0 +1,130 @@
+[
+  {
+    "lang": "en",
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "headerBackground": "rgb(255, 255, 255)",
+    "height": 640,
+    "nav": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 320,
+      "top": 84,
+      "width": 320,
+      "x": 0,
+      "y": 84
+    },
+    "navBackground": "rgb(255, 255, 255)",
+    "overflow": 0,
+    "scroll": 0,
+    "selectedBackground": "rgba(0, 0, 0, 0)",
+    "selectedBorder": "rgb(82, 103, 157)",
+    "width": 320
+  },
+  {
+    "lang": "ca",
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "headerBackground": "rgb(255, 255, 255)",
+    "height": 640,
+    "nav": {
+      "bottom": 138.1875,
+      "height": 54.1875,
+      "left": 0,
+      "right": 320,
+      "top": 84,
+      "width": 320,
+      "x": 0,
+      "y": 84
+    },
+    "navBackground": "rgb(255, 255, 255)",
+    "overflow": 0,
+    "scroll": 0,
+    "selectedBackground": "rgba(0, 0, 0, 0)",
+    "selectedBorder": "rgb(82, 103, 157)",
+    "width": 320
+  },
+  {
+    "lang": "de",
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "headerBackground": "rgb(255, 255, 255)",
+    "height": 640,
+    "nav": {
+      "bottom": 138.1875,
+      "height": 54.1875,
+      "left": 0,
+      "right": 320,
+      "top": 84,
+      "width": 320,
+      "x": 0,
+      "y": 84
+    },
+    "navBackground": "rgb(255, 255, 255)",
+    "overflow": 0,
+    "scroll": 0,
+    "selectedBackground": "rgba(0, 0, 0, 0)",
+    "selectedBorder": "rgb(82, 103, 157)",
+    "width": 320
+  },
+  {
+    "lang": "hu",
+    "docked": false,
+    "header": {
+      "bottom": 68,
+      "height": 68,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "headerBackground": "rgb(255, 255, 255)",
+    "height": 640,
+    "nav": {
+      "bottom": 133,
+      "height": 49,
+      "left": 0,
+      "right": 320,
+      "top": 84,
+      "width": 320,
+      "x": 0,
+      "y": 84
+    },
+    "navBackground": "rgb(255, 255, 255)",
+    "overflow": 0,
+    "scroll": 0,
+    "selectedBackground": "rgba(0, 0, 0, 0)",
+    "selectedBorder": "rgb(82, 103, 157)",
+    "width": 320
+  }
+]
