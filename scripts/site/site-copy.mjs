@@ -8,7 +8,7 @@ export const COPY = {
     "tagline": "Your piano practice app",
     "lead": "SPino is a free piano practice notebook for Android. Plan routines, keep PDF and MusicXML scores with annotations, practise sight-reading and track your progress. Use an acoustic piano, a compatible MIDI keyboard or the on-screen keyboard.",
     "cta": "Explore the app",
-    "ctaNote": "Android · free · no ads",
+    "ctaNote": "Android · iPhone · iPad · free · no ads",
     "featuresTitle": "Tools for your piano practice",
     "hanon": {
       "title": "Warm up with Hanon",
@@ -134,7 +134,7 @@ export const COPY = {
       ],
       [
         "Which Android download should I choose?",
-        "Install the stable version from Google Play. Download the beta APK to try features being tested."
+        "Install the stable version from Google Play or the App Store. Download the beta APK to try features being tested."
       ]
     ]
   },
@@ -146,7 +146,7 @@ export const COPY = {
     "tagline": "Tu app para practicar piano",
     "lead": "SPino es un cuaderno gratuito de práctica de piano para Android. Organiza rutinas, guarda partituras PDF y MusicXML con anotaciones, practica lectura y sigue tu progreso. Usa un piano acústico, un teclado MIDI compatible o el teclado en pantalla.",
     "cta": "Descubre la app",
-    "ctaNote": "Android · gratis · sin anuncios",
+    "ctaNote": "Android · iPhone · iPad · gratis · sin anuncios",
     "featuresTitle": "Herramientas para tu práctica de piano",
     "hanon": {
       "title": "Calienta con Hanon",
@@ -240,7 +240,7 @@ export const COPY = {
     "contact": "Contacto",
     "testDownload": [
       "Descargar SPino 5.2.7 Test APK",
-      "Prueba para Android · código 39 · impresión con anotaciones y MusicXML en A4. No es una publicación en Play Store.",
+      "Prueba para Android · iPhone · iPad · código 39 · impresión con anotaciones y MusicXML en A4. No es una publicación en Play Store.",
       "Descargar Arcade Test APK"
     ],
     "downloadsTitle": "Descarga SPino para Android",
@@ -272,7 +272,7 @@ export const COPY = {
       ],
       [
         "¿Qué descarga de Android debo elegir?",
-        "Instala la versión estable desde Google Play. Descarga el APK beta para probar las funciones en desarrollo."
+        "Instala la versión estable desde Google Play o App Store. Descarga el APK beta para probar las funciones en desarrollo."
       ]
     ]
   },
@@ -284,7 +284,7 @@ export const COPY = {
     "tagline": "La teva app per practicar piano",
     "lead": "SPino és un quadern gratuït de pràctica de piano per a Android. Organitza rutines, desa partitures PDF i MusicXML amb anotacions, practica lectura i segueix el progrés. Fes servir un piano acústic, un teclat MIDI compatible o el teclat en pantalla.",
     "cta": "Descobreix l’app",
-    "ctaNote": "Android · gratuït · sense anuncis",
+    "ctaNote": "Android · iPhone · iPad · gratuït · sense anuncis",
     "featuresTitle": "Eines per a la teva pràctica de piano",
     "hanon": {
       "title": "Escalfa amb Hanon",
@@ -378,7 +378,7 @@ export const COPY = {
     "contact": "Contacte",
     "testDownload": [
       "Descarrega SPino 5.2.7 Test APK",
-      "Prova per a Android · codi 39 · impressió amb anotacions i MusicXML en A4. No és una publicació a Play Store.",
+      "Prova per a Android · iPhone · iPad · codi 39 · impressió amb anotacions i MusicXML en A4. No és una publicació a Play Store.",
       "Descarrega Arcade Test APK"
     ],
     "downloadsTitle": "Descarrega SPino per a Android",
@@ -410,7 +410,7 @@ export const COPY = {
       ],
       [
         "Quina descàrrega d’Android he de triar?",
-        "Instal·la la versió estable des de Google Play. Descarrega l’APK beta per provar les funcions en desenvolupament."
+        "Instal·la la versió estable des de Google Play o l’App Store. Descarrega l’APK beta per provar les funcions en desenvolupament."
       ]
     ]
   }
