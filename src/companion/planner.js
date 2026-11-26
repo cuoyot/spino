@@ -8,6 +8,14 @@ import { weekLabel } from './agenda.js';
 const weekdays = () => ui(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']);
 const options = entries => entries.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
 
+export function plannerDayAvailability(week, weeks = 1, today = localDate()) {
+  const start = weekOf(week);
+  return Array.from({length:7}, (_,day) => ({
+    available: addDays(start,day+(weeks-1)*7) >= today,
+    startsLater: addDays(start,day) < today && addDays(start,day+(weeks-1)*7) >= today,
+  }));
+}
+
 // Build one week without altering existing appointments or practice history.
 export function proposeWeek(data, settings, today = localDate()) {
   const { week, days, minutes, context, routineId, tutor, tutorDay, tutorTime } = settings;
@@ -72,7 +80,7 @@ export function plannerMarkup(data, selected) {
       <label>${ui("Repeat", "Repetir")}<select name="weeks">${[1,4,8,12,26,52].map(n => `<option value="${n}">${n === 1 ? ui("This week only", "Solo esta semana") : ui(`Every week for ${n} weeks`, `Cada semana durante ${n} semanas`)}</option>`).join('')}</select></label>
       <fieldset class="cp-planner-days"><legend>${ui("Practice days", "Días de práctica")}</legend><div>${weekdays().map((day,i) => `<label><input type="checkbox" name="days" value="${i}" ${[0,2,4].includes(i)?'checked':''} /><span><abbr title="${day}">${ui(['M','T','W','T','F','S','S'], ['L','M','X','J','V','S','D'])[i]}</abbr></span><span class="sr-only">${day}</span></label>`).join('')}</div></fieldset>
       ${data.routines.length ? `<label>${ui("Practice", "Práctica")}<select name="routineId"><option value="">${ui("Simple practice", "Práctica sencilla")}</option>${options(data.routines.map(r => [r.id,r.title]))}</select></label>` : ''}
-      <div class="cp-planner-custom cp-fields"><label>${ui("Where?", "¿Dónde?")}<select name="context">${Object.entries(CONTEXTS).map(([id,label])=>`<option value="${id}" ${id===data.preferences.context?'selected':''}>${label}</option>`).join('')}</select></label><label class="cp-tempo"><span><output for="weekly-minutes">${DEFAULT_PRACTICE_MINUTES}</output> ${ui('min per day', 'min por día')}</span><input type="range" name="minutes" id="weekly-minutes" min="5" max="90" step="5" value="${DEFAULT_PRACTICE_MINUTES}" /></label></div>
+      <div class="cp-planner-custom cp-fields"><label>${ui("Practice mode", "Modo de práctica")}<select name="context">${Object.entries(CONTEXTS).map(([id,label])=>`<option value="${id}" ${id===data.preferences.context?'selected':''}>${label}</option>`).join('')}</select></label><label class="cp-tempo"><span><output for="weekly-minutes">${DEFAULT_PRACTICE_MINUTES}</output> ${ui('min per day', 'min por día')}</span><input type="range" name="minutes" id="weekly-minutes" min="5" max="90" step="5" value="${DEFAULT_PRACTICE_MINUTES}" /></label></div>
       <p class="cp-planner-material muted"></p>
       <label class="check"><input type="checkbox" name="tutor" />${ui(" I have a tutor lesson", " Tengo clase con tutor")}</label>
       <div class="cp-fields cp-planner-tutor" hidden><label>${ui("Lesson day", "Día de la clase")}<select name="tutorDay">${options(weekdays().map((day,i)=>[String(i),day]))}</select></label><label>${ui("Time", "Hora")}<input type="time" name="tutorTime" value="18:00" /></label></div>
@@ -83,14 +91,36 @@ export function plannerMarkup(data, selected) {
 
 export function bindPlanner(form, getData, save) {
   const error = form.querySelector('[role=alert]'), submit = form.querySelector('[type=submit]');
+  const days = [...form.querySelectorAll('[name=days]')];
+  const selectedDays = new Set(days.filter(input=>input.checked).map(input=>Number(input.value)));
+  const dayStatus = document.createElement('p'), selection = document.createElement('p');
+  dayStatus.className = 'cp-planner-day-status';
+  selection.className = 'cp-planner-selection';
+  selection.setAttribute('role','status');
+  form.querySelector('.cp-planner-days').append(dayStatus,selection);
   const read = () => {
     const f = new FormData(form);
     return { week: String(f.get('week')), weeks: Number(f.get('weeks')), days: f.getAll('days').map(Number), minutes: Number(f.get('minutes')), context: f.get('context'), routineId: f.get('routineId') || '', tutor: f.has('tutor'), tutorDay: Number(f.get('tutorDay')), tutorTime: f.get('tutorTime') };
   };
   const dateLabel = date => new Intl.DateTimeFormat(getAppLanguage(), { weekday: 'short', day: 'numeric' }).format(new Date(date+'T12:00:00'));
   let saving = false;
-  function preview() {
+  function preview(event) {
     if (saving) return;
+    if (event?.target.name==='days') {
+      const day=Number(event.target.value);
+      if(event.target.checked)selectedDays.add(day);else selectedDays.delete(day);
+    }
+    const week=form.elements.week.value, weeks=Number(form.elements.weeks.value);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(week)) {
+      const availability=plannerDayAvailability(week,weeks);
+      days.forEach((input,day)=>{
+        input.disabled=!availability[day].available;
+        input.checked=availability[day].available&&selectedDays.has(day);
+        input.setAttribute('aria-label',weekdays()[day]+(!availability[day].available?' · '+ui('Past date','Día pasado'):availability[day].startsLater?' · '+ui('Starts in a later week','Empieza en una semana posterior'):''));
+      });
+      dayStatus.textContent=availability.some(day=>!day.available)?ui('Past days are unavailable.','Los días pasados no están disponibles.'):availability.some(day=>day.startsLater)?ui('Past dates are skipped; selected days repeat in later weeks.','Se omiten las fechas pasadas; los días elegidos se repiten en las semanas siguientes.'):'';
+      dayStatus.hidden=!dayStatus.textContent;
+    }
     const settings = read(), routine = getData().routines.find(r=>r.id===settings.routineId);
     form.querySelector('.cp-planner-custom').hidden = !!routine;
     form.querySelector('.cp-planner-tutor').hidden = !settings.tutor;
@@ -103,16 +133,18 @@ export function bindPlanner(form, getData, save) {
     try {
       const proposal = proposeSchedule(getData(), settings);
       error.textContent = '';
-      panel.innerHTML = `<b>${weekLabel(proposal.start)}</b><p>${proposal.plans.length} ${ui('practices', 'prácticas')} · ${proposal.minutes} min${proposal.events.length?ui(" + tutor lesson", " + clase con tutor"):''}</p><div class="cp-planner-dates">${proposal.plans.map(p=>`<span>${esc(dateLabel(p.date))}</span>`).join('')}${proposal.events.map(e=>`<span>${ui('Lesson', 'Clase')}: ${esc(dateLabel(e.date))} · ${e.time}</span>`).join('')}</div>${proposal.skipped.length?`<p class="muted cp-planner-skipped">${proposal.skipped.map(s=>`${esc(dateLabel(s.date))}: ${esc(s.reason)}`).join(' · ')}</p>`:''}`;
+      selection.textContent = proposal.plans.length+' '+(proposal.plans.length===1?ui('practice','práctica'):ui('practices','prácticas'))+' · '+proposal.minutes+' min';
+      if (!proposal.plans.length&&!proposal.events.length) selection.textContent=ui('Choose an available day.','Elige un día disponible.');
+      panel.innerHTML = `<b>${weekLabel(proposal.start)}</b><p>${proposal.plans.length} ${proposal.plans.length===1?ui('practice','práctica'):ui('practices','prácticas')} · ${proposal.minutes} min${proposal.events.length?ui(" + tutor lesson", " + clase con tutor"):''}</p><div class="cp-planner-dates">${proposal.plans.map(p=>`<span>${esc(dateLabel(p.date))}</span>`).join('')}${proposal.events.map(e=>`<span>${ui('Lesson', 'Clase')}: ${esc(dateLabel(e.date))} · ${e.time}</span>`).join('')}</div>${proposal.skipped.length?`<p class="muted cp-planner-skipped">${proposal.skipped.map(s=>`${esc(dateLabel(s.date))}: ${esc(s.reason)}`).join(' · ')}</p>`:''}`;
       submit.disabled = !proposal.plans.length && !proposal.events.length;
       submit.textContent = settings.weeks > 1 ? ui("Save weekly series", "Guardar serie semanal") : ui("Save week", "Guardar semana");
-      if (settings.weeks > 1) panel.innerHTML = `<b>${ui('Weekly through', 'Semanalmente hasta')} ${esc(dateLabel(proposal.until))}</b><p>${proposal.plans.length} ${ui('practices', 'prácticas')} · ${proposal.events.length} ${ui('tutor lessons', 'clases con tutor')} · ${proposal.minutes} min</p><p class="muted">${proposal.skipped.length} ${ui('past or occupied dates skipped. Edit each appointment separately or cancel future occurrences together.', 'fechas pasadas u ocupadas omitidas. Edita cada cita por separado o cancela las futuras juntas.')}</p>`;
-    } catch (e) { error.textContent = e.message; panel.textContent = ''; submit.disabled = true; }
+      if (settings.weeks > 1) panel.innerHTML = `<b>${ui('Weekly through', 'Semanalmente hasta')} ${esc(dateLabel(proposal.until))}</b><p>${proposal.plans.length} ${proposal.plans.length===1?ui('practice','práctica'):ui('practices','prácticas')} · ${proposal.events.length} ${ui('tutor lessons', 'clases con tutor')} · ${proposal.minutes} min</p><p class="muted">${proposal.skipped.length} ${ui('past or occupied dates skipped. Edit each appointment separately or cancel future occurrences together.', 'fechas pasadas u ocupadas omitidas. Edita cada cita por separado o cancela las futuras juntas.')}</p>`;
+    } catch (e) { error.textContent = e.message; panel.textContent = ''; selection.textContent=''; submit.disabled = true; }
   }
   form.addEventListener('input', preview);
   form.addEventListener('change', e => {
     if (e.target.name === 'week' && /^\d{4}-\d{2}-\d{2}$/.test(e.target.value)) e.target.value = weekOf(e.target.value);
-    preview();
+    preview(e);
   });
   form.addEventListener('submit', async e => {
     e.preventDefault(); if (saving) return;

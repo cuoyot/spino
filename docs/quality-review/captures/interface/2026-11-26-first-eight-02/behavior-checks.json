@@ -1,0 +1,265 @@
+[
+  {
+    "id": "event-repeat-expanded",
+    "buttonLabel": "Repetir: Cada mes",
+    "buttonText": "",
+    "frequency": "monthly",
+    "hintVisible": true,
+    "untilEnabled": true
+  },
+  {
+    "id": "event-repeat-removed",
+    "disabled": true,
+    "frequency": "",
+    "hidden": true,
+    "untilDisabled": true
+  },
+  {
+    "id": "save-failure-retention",
+    "dialogOpen": true,
+    "error": "Synthetic save failure",
+    "errorBottom": 767,
+    "saveEnabled": true,
+    "title": "Synthetic save retry"
+  },
+  {
+    "id": "save-retry",
+    "result": "Saved event detail opens with retained title"
+  },
+  {
+    "id": "save-retry-no-duplicate",
+    "visibleEvents": 1
+  },
+  {
+    "id": "warmup-on-off-on",
+    "onState": {
+      "hidden": false,
+      "total": "40",
+      "warmup": "5"
+    },
+    "offState": {
+      "focusName": "include-warmup",
+      "hidden": true,
+      "total": "40"
+    },
+    "retainedMinutes": "5"
+  },
+  {
+    "id": "filtered-miss-clear",
+    "message": "No hay obras que coincidan.\n\nBorrar filtros",
+    "searchAfterClear": ""
+  },
+  {
+    "id": "planner-once-series-once",
+    "seriesDays": [
+      {
+        "checked": true,
+        "day": "0",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "1",
+        "disabled": false
+      },
+      {
+        "checked": true,
+        "day": "2",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "3",
+        "disabled": false
+      },
+      {
+        "checked": true,
+        "day": "4",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "5",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "6",
+        "disabled": false
+      }
+    ],
+    "oneWeekDays": [
+      {
+        "checked": false,
+        "day": "0",
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "day": "1",
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "day": "2",
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "day": "3",
+        "disabled": false
+      },
+      {
+        "checked": true,
+        "day": "4",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "5",
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "day": "6",
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "id": "piano-key-names-and-enter",
+    "keyNames": [
+      "F4",
+      "F♯4",
+      "G4",
+      "A♭4",
+      "A4",
+      "B♭4",
+      "B4",
+      "C5",
+      "C♯5",
+      "D5",
+      "E♭5",
+      "E5",
+      "F5"
+    ],
+    "answersBefore": 0,
+    "answersAfter": 1
+  },
+  {
+    "id": "midi-keyboard-entry",
+    "view": "instrument"
+  },
+  {
+    "id": "preparation-error-next-to-start",
+    "bottom": 701,
+    "height": 844,
+    "insideActions": true,
+    "text": "Selecciona al menos una pieza.",
+    "top": 679.25
+  },
+  {
+    "id": "reduced-height-form",
+    "bottom": 507,
+    "viewport": 520,
+    "scope": "Responsive viewport; not native soft-keyboard acceptance"
+  },
+  {
+    "id": "collapsed-repetition-save",
+    "frequency": "monthly",
+    "time": "18:47",
+    "detailContainsFrequency": true
+  },
+  {
+    "id": "recurring-occurrence-edit-retained",
+    "hour": "18",
+    "minute": "47",
+    "scope": true
+  },
+  {
+    "id": "finish-form-footer",
+    "layouts": [
+      {
+        "id": "phone-portrait",
+        "width": 390,
+        "height": 844,
+        "bottom": 831,
+        "buttons": [
+          {
+            "bottom": 694,
+            "text": "Guardar"
+          },
+          {
+            "bottom": 746,
+            "text": "Guardar y planificar"
+          },
+          {
+            "bottom": 819,
+            "text": "‹ Seguir practicando"
+          },
+          {
+            "bottom": 819,
+            "text": "Terminar sin guardar"
+          }
+        ],
+        "fieldsHeight": 534,
+        "top": 637,
+        "viewport": 844
+      },
+      {
+        "id": "phone-landscape",
+        "width": 844,
+        "height": 390,
+        "bottom": 377,
+        "buttons": [
+          {
+            "bottom": 313,
+            "text": "Guardar"
+          },
+          {
+            "bottom": 313,
+            "text": "Guardar y planificar"
+          },
+          {
+            "bottom": 369,
+            "text": "‹ Seguir practicando"
+          },
+          {
+            "bottom": 369,
+            "text": "Terminar sin guardar"
+          }
+        ],
+        "fieldsHeight": 170,
+        "top": 260,
+        "viewport": 390
+      },
+      {
+        "id": "narrow",
+        "width": 320,
+        "height": 640,
+        "bottom": 627,
+        "buttons": [
+          {
+            "bottom": 490,
+            "text": "Guardar"
+          },
+          {
+            "bottom": 542,
+            "text": "Guardar y planificar"
+          },
+          {
+            "bottom": 615,
+            "text": "‹ Seguir practicando"
+          },
+          {
+            "bottom": 615,
+            "text": "Terminar sin guardar"
+          }
+        ],
+        "fieldsHeight": 330,
+        "top": 433,
+        "viewport": 640
+      }
+    ]
+  }
+]

@@ -1,0 +1,246 @@
+[
+  {
+    "lang": "en",
+    "ux": 1,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "en",
+    "ux": 2,
+    "calendarAdd": "Add activity: Thursday, November 26",
+    "language": "en",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "en",
+    "ux": 3,
+    "empty": "No pieces yet. Add a work to start your collection.",
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "en",
+    "ux": 4,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "en",
+    "ux": 5,
+    "language": "en",
+    "pageScrollWidth": 375,
+    "pageWidth": 375,
+    "repeatName": "Add repetitions",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "en",
+    "ux": 6,
+    "language": "en",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "en",
+    "ux": 7,
+    "dayStatus": "Past days are unavailable.",
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "en",
+    "ux": 8,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "ca",
+    "ux": 1,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "ca",
+    "ux": 2,
+    "calendarAdd": "Afegir activitat: dijous, 26 de novembre",
+    "language": "ca",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "ca",
+    "ux": 3,
+    "empty": "Encara no hi ha obres. Afegeix-ne una per començar la col·lecció.",
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "ca",
+    "ux": 4,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "ca",
+    "ux": 5,
+    "language": "ca",
+    "pageScrollWidth": 375,
+    "pageWidth": 375,
+    "repeatName": "Afegir repeticions",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "ca",
+    "ux": 6,
+    "language": "ca",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "ca",
+    "ux": 7,
+    "dayStatus": "Els dies passats no estan disponibles.",
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "ca",
+    "ux": 8,
+    "language": "ca",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "de",
+    "ux": 1,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "de",
+    "ux": 2,
+    "calendarAdd": "Aktivität hinzufügen: Donnerstag, 26. November",
+    "language": "de",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "de",
+    "ux": 3,
+    "empty": "Noch keine Stücke. Füge ein Werk hinzu, um deine Sammlung zu beginnen.",
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "de",
+    "ux": 4,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "de",
+    "ux": 5,
+    "language": "de",
+    "pageScrollWidth": 375,
+    "pageWidth": 375,
+    "repeatName": "Wiederholungen hinzufügen",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "de",
+    "ux": 6,
+    "language": "de",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "de",
+    "ux": 7,
+    "dayStatus": "Vergangene Tage sind nicht verfügbar.",
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "de",
+    "ux": 8,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "hu",
+    "ux": 1,
+    "language": "hu",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "hu",
+    "ux": 2,
+    "calendarAdd": "Tevékenység hozzáadása: november 26., csütörtök",
+    "language": "hu",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "hu",
+    "ux": 3,
+    "empty": "Még nincsenek darabok. Adj hozzá egy művet a gyűjteményedhez.",
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "hu",
+    "ux": 4,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "hu",
+    "ux": 5,
+    "language": "hu",
+    "pageScrollWidth": 375,
+    "pageWidth": 375,
+    "repeatName": "Ismétlődés hozzáadása",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "hu",
+    "ux": 6,
+    "language": "hu",
+    "pageScrollWidth": 375,
+    "pageWidth": 375
+  },
+  {
+    "lang": "hu",
+    "ux": 7,
+    "dayStatus": "A korábbi napok nem választhatók.",
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  },
+  {
+    "lang": "hu",
+    "ux": 8,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390
+  }
+]

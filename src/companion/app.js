@@ -18,6 +18,7 @@ import {driveRenameMarkup,driveRecoveryCopy} from './drive-recovery-view.js';
 import { syncIndicatorMarkup, updateSyncIndicator } from './sync-indicator.js';
 import {beginLessonPractice, pauseLessonPractice, completeLesson, lessonResult, linkLessonRecordings} from './lessons.js';
 import {eventTimeMarkup, bindEventTime} from './event-time.js';
+import {eventRepetitionButton, bindEventRepetitions} from './event-repetitions.js';
 import {bindEventDates} from './event-date.js';
 import {bindEventWorks} from './event-works.js';
 import {moreInfo,replaceHelpMarkup} from './more-info.js';
@@ -93,6 +94,9 @@ import './warmup-guide.css';
 import './navigation-refinement.css';
 import './today.css';
 import './appearance.css';
+import './form-actions.css';
+import './scroll-surfaces.css';
+import { mountDialogFormActions } from './form-actions.js';
 import { openStore } from './store.js';
 import { CONTEXTS, ACTIVITIES, STAGES, stageLabel, eventTypeLabel, uid, copy, localDate, addDays, weekOf, daysUntil, block, beginSession, adjustPracticeTime, accrue, pause, finishBlock, saveSession, applyWorkParts, deleteSession, summary, validateBackup } from './model.js';
 import { TARGETS, targetById } from './curriculum.js';
@@ -333,6 +337,7 @@ export async function bootCompanion(reader) {
     dialogCleanup?.(); dialogCleanup = null;
     dialog.removeAttribute('aria-busy');
     dialog.innerHTML = `<div class="cp-dialog-head"><h2 id="cp-dialog-title" ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2><button type="button" class="quiet" data-action="close-dialog">${ui('Close','Cerrar')}</button></div><div class="cp-dialog-body">${body}<p id="cp-form-error" role="alert"></p></div>`;
+    mountDialogFormActions(dialog);
     dialog.setAttribute('aria-labelledby', 'cp-dialog-title');
     dialog.querySelector('form')?.addEventListener('submit', async e => {
       e.preventDefault();
@@ -520,7 +525,7 @@ export async function bootCompanion(reader) {
     readDraft();
     if(!$('#prepare-form').reportValidity()) return false;
     if(simpleRepertoirePreparation() && !draft.blocks.some(b=>b.workId)) { $('#prepare-error').textContent=ui('Select at least one piece.','Selecciona al menos una pieza.');return false; }
-    if(draft.context==='mobile' && draft.blocks.some(b=>['free','repertoire'].includes(b.type))) { $('#prepare-error').textContent=ui("For repertoire or free practice, choose With piano or MIDI piano. Without piano, practice reading or technique.", "Para repertorio o práctica libre, elige Con piano o Piano MIDI. Sin piano puedes trabajar lectura o técnica."); return false; }
+    if(draft.context==='mobile' && draft.blocks.some(b=>['free','repertoire'].includes(b.type))) { $('#prepare-error').textContent=ui('For repertoire or free practice, choose With piano. On screen supports reading and technique.','Para repertorio o práctica libre, elige Con piano. En pantalla puedes trabajar lectura o técnica.'); return false; }
     if(preparePurpose!=='routine')draft.title ||= ACTIVITIES[draft.blocks[0].type];
     return true;
   }
@@ -601,8 +606,8 @@ export async function bootCompanion(reader) {
     showDialog(existing?ui('Edit event','Editar evento'):ui('New event','Nuevo evento'),`<form id="event-form">
       <label>${ui('Title','Título')}<input name="title" maxlength="200" value="${esc(e.title)}" required /></label>
       <label>${ui('Date','Fecha')}<input type="date" name="date" value="${esc(e.date)}" required /></label>
-      <div class="cp-fields cp-event-basics"><label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label>${eventTimeMarkup(e.time)}</div>
-      ${!existing ? `<label>${ui('Repeat','Repetir')}<select name="frequency">${opts(eventFrequencyOptions(),'')}</select></label><div data-event-until hidden><label>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label></div><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
+      <div class="cp-fields cp-event-basics"><label>${ui('Type','Tipo')}<select name="type">${opts(['Audición','Concierto','Clase','Ensayo','Otro'].map(s=>[s,eventTypeLabel(s)]),e.type)}</select></label><div class="cp-event-time-row">${eventTimeMarkup(e.time)}${!existing?eventRepetitionButton():''}</div></div>
+      ${!existing ? `<div id="event-repeat-options" class="cp-event-repeat-options" hidden><label>${ui('Repeat','Repetir')}<select name="frequency" disabled>${opts(eventFrequencyOptions(),'')}</select></label><div data-event-until hidden><label>${ui('End date (optional)','Fecha de fin (opcional)')}<input type="date" name="until" disabled /><small>${ui('Leave empty to repeat without an end date.','Déjala vacía para repetir sin fecha de fin.')}</small></label></div><p data-event-monthly hidden class="muted">${ui('If the day does not exist in a month, the event falls on its last day.','Si el día no existe en un mes, el evento se celebra el último día de ese mes.')}</p></div>` : e.recurrence ? `<p class="muted">${esc(eventSeriesLabel(e))}. ${ui('Changes apply to this appointment only.','Los cambios se aplican solo a esta cita.')}</p>` : ''}
       <label class="check"><input type="checkbox" name="reminder" ${e.reminder?'checked':''} />${ui('Reminder 15 minutes before','Recordatorio 15 minutos antes')}</label>
       <section class="cp-event-works" data-event-works></section>
       <details class="cp-event-details"><summary>${ui('Place and notes','Lugar y notas')}</summary>
@@ -622,8 +627,7 @@ export async function bootCompanion(reader) {
     bindEventDates(dialog.querySelector('#event-form'));
     bindEventWorks(dialog.querySelector('#event-form'),data.works,e.workIds);
     if(!existing) {
-      const form=dialog.querySelector('#event-form'),update=()=>{const frequency=form.elements.frequency.value;form.querySelector('[data-event-until]').hidden=!frequency;form.elements.until.disabled=!frequency;form.elements.until.min=form.elements.date.value;form.querySelector('[data-event-monthly]').hidden=!['monthly','yearly'].includes(frequency);};
-      form.elements.frequency.addEventListener('change',update);form.elements.date.addEventListener('change',update);update();
+      bindEventRepetitions(dialog.querySelector('#event-form'));
     }
   }
   function lessonRecordings(e) {
@@ -1830,7 +1834,15 @@ export async function bootCompanion(reader) {
     try{await action(button.dataset.id);}catch(error){toast(error.message||ui("Could not complete the action. Please try again.", "No se ha podido completar. Puedes volver a intentarlo."));}finally{button.disabled=false;if(loading){button.classList.remove('cp-loading');button.removeAttribute('aria-busy');}}
   }
   root.addEventListener('click',handleAction);dialog.addEventListener('click',handleAction);
-  bindMidiShortcuts(document,{connected:()=>instrument.state.devices.length>0,connect:()=>instrument.reconnectLast().then(()=>{if(instrument.state.error)toast(ui('Could not reconnect MIDI. Hold the icon to open MIDI settings.','No se pudo reconectar el MIDI. Mantén pulsado el icono para abrir los ajustes.'));}).catch(error=>toast(error.message)),settings:()=>actions['midi-settings']().catch(error=>toast(error.message))});
+  bindMidiShortcuts(document,{
+    connected:()=>instrument.state.devices.length>0,
+    canReconnect:()=>instrument.state.remembered.length>0,
+    connect:async()=>{
+      try { await instrument.reconnectLast(); if(instrument.state.error)await actions['midi-settings'](); }
+      catch(error) { toast(error.message); await actions['midi-settings'](); }
+    },
+    settings:()=>actions['midi-settings']().catch(error=>toast(error.message)),
+  });
   root.addEventListener('input',e=>{if(view==='prepare'&&preparePurpose==='routine'&&e.target.closest('#prepare-form')){readDraft();const total=root.querySelector('output[for=practice-duration]');if(total)total.value=practiceMinutes(draft.blocks)+(draft.routinePolicy.warmup?draft.routinePolicy.warmupMinutes:0);if(e.target.name==='routine-warmup'){const minutes=root.querySelector('[name=warmup-minutes]');minutes.disabled=!draft.routinePolicy.warmup;minutes.required=draft.routinePolicy.warmup;}return;}if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const warmMinutes=extraWarmupMinutes();const resized=resizePractice(durationWeights,Number(e.target.value)-warmMinutes);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name==='warmup-duration'){if(!e.target.validity.valid)return;const total=Number($('#practice-duration').value);durationWeights=null;readDraft();draft=resizePreparationWarmup(draft,data,total);refreshPreparationDuration();}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();refreshPreparationDuration();}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range'){const output=root.querySelector(`output[for="${e.target.id}"]`);if(output)output.value=e.target.value;}});
   root.addEventListener('change',async e=>{if(view==='progress-time'&&['type','workId'].includes(e.target.dataset.timeFilter)){const id=e.target.id;timeFilters[e.target.dataset.timeFilter]=e.target.value;render();root.querySelector('#'+id)?.focus({preventScroll:true});return;}if(e.target.id==='practice-duration')durationWeights=null;
     if(e.target.dataset.metroSetting && data.active){const key=e.target.dataset.metroSetting,value=key==='mode'?e.target.value:Number(e.target.value);if((key==='bpm'&&(!Number.isFinite(value)||value<30||value>240))||(key==='volume'&&(!Number.isFinite(value)||value<0||value>100))){e.target.value=metronomeSettings(data.active)[key];return;}data.active.freeMetronome={...metronomeSettings(data.active),[key]:value};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();return;}
@@ -1846,7 +1858,7 @@ export async function bootCompanion(reader) {
     if(e.target.id==='background-timer'&&data.active){data.active.keepTimeInBackground=e.target.checked;checkpoint();}
     if(e.target.id==='calendar-date'){if(e.target.value){selectedDate=e.target.value;render();}}
     if(e.target.id==='catalog-target'){filteredTarget=e.target.value;render();}
-    if(view==='prepare'&&(e.target.name?.startsWith('type-')||e.target.name?.startsWith('timing-')||['context','include-warmup','warmup-kind','warmup-target','warmup-exercise'].includes(e.target.name))){const wasMobile=draft.context==='mobile',total=Number($('#practice-duration').value);readDraft();if(['include-warmup','context'].includes(e.target.name))draft=resizePreparationWarmup(draft,data,total);if(e.target.name==='context'&&wasMobile&&draft.context!=='mobile'&&!draft.id)for(const b of draft.blocks)if(['reading','technique'].includes(b.type))b.hand=practiceDefaults(data.preferences,b.type).hand;if(preparePurpose!=='routine'&&!draft.id&&draft.blocks.length===1)draft.title=ACTIVITIES[draft.blocks[0].type];render();}
+    if(view==='prepare'&&(e.target.name?.startsWith('type-')||e.target.name?.startsWith('timing-')||['context','include-warmup','warmup-kind','warmup-target','warmup-exercise'].includes(e.target.name))){const wasMobile=draft.context==='mobile',total=Number($('#practice-duration').value);readDraft();if(['include-warmup','context'].includes(e.target.name))draft=resizePreparationWarmup(draft,data,total);if(e.target.name==='context'&&wasMobile&&draft.context!=='mobile'&&!draft.id)for(const b of draft.blocks)if(['reading','technique'].includes(b.type))b.hand=practiceDefaults(data.preferences,b.type).hand;if(preparePurpose!=='routine'&&!draft.id&&draft.blocks.length===1)draft.title=ACTIVITIES[draft.blocks[0].type];render();if(e.target.name==='include-warmup')root.querySelector('[name=include-warmup]')?.focus({preventScroll:true});}
     if(e.target.dataset.milestone!=null){const event=findEvent(data.events,detailId);if(event){event.milestones[+e.target.dataset.milestone].done=e.target.checked;data.events=saveEventOccurrence(data.events,event);try{await persist();}catch{}}}
   });
   window.addEventListener('piano:play',()=>{if(data.active){accrue(data.active);data.active.runningSince=Date.now();checkpoint();}});

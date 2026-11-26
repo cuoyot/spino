@@ -1,0 +1,212 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+    - heading "Calendario" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - group "Vista del calendario":
+    - button "Semana" [pressed]
+    - button "Mes"
+  - button "Organizar semana"
+  - heading "16 nov – 22 nov" [level=2]
+  - generic: Semana 47
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "16"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 16 de noviembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "17"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 17 de noviembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "18"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 18 de noviembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "19"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 19 de noviembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "20"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 20 de noviembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "21"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 21 de noviembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "22"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 22 de noviembre": + Añadir
+  - heading "23 nov – 29 nov" [level=2]
+  - generic: Semana 48 · Actual
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "23"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 23 de noviembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "24"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 24 de noviembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "25"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 25 de noviembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "26"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 26 de noviembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "27"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 27 de noviembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "28"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 28 de noviembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "29"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 29 de noviembre": + Añadir
+  - heading "30 nov – 6 dic" [level=2]
+  - generic: Semana 49
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "30"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 30 de noviembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "1"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 1 de diciembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "2"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 2 de diciembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "3"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 3 de diciembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "4"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 4 de diciembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "5"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 5 de diciembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "6"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 6 de diciembre": + Añadir
+  - heading "7 dic – 13 dic" [level=2]
+  - generic: Semana 50
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "7"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 7 de diciembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "8"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 8 de diciembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "9"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 9 de diciembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "10"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 10 de diciembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "11"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 11 de diciembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "12"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 12 de diciembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "13"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 13 de diciembre": + Añadir
+  - heading "14 dic – 20 dic" [level=2]
+  - generic: Semana 51
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "14"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 14 de diciembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "15"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 15 de diciembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "16"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 16 de diciembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "17"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 17 de diciembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "18"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 18 de diciembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "19"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 19 de diciembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "20"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 20 de diciembre": + Añadir
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

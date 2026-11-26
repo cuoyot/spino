@@ -1,0 +1,61 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Lectura" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - generic: Tiempo total de práctica
+  - generic: 0 1 2 3 4 5 6 7 8 9 0
+  - generic: ":"
+  - generic: 0 1 2 3 4 5 0
+  - generic: 0 1 2 3 4 5 6 7 8 9 0
+  - paragraph: Sin piano
+  - button "Continuar después":
+    - generic: Continuar después
+  - article "Do mayor":
+    - paragraph: Actividad actual · Lectura
+    - status: En práctica
+    - heading "Do mayor" [level=2]
+    - generic: Tiempo del bloque
+    - strong:
+      - generic: 0 1 2 3 4 5 6 7 8 9 0
+      - generic: ":"
+      - generic: 0 1 2 3 4 5 0
+      - generic: 0 1 2 3 4 5 6 7 8 9 0
+    - generic: 40 min
+    - generic: orientativos
+    - generic: 60 BPM
+    - button "Continuar ejercicio":
+      - generic: Continuar ejercicio
+  - region "En esta práctica":
+    - heading "En esta práctica" [level=2]
+    - text: 40 min orientativos
+    - button "Añadir un bloque":
+      - generic: Añadir
+    - list:
+      - 'button "Practicar Lectura: Do mayor" [pressed]':
+        - strong: Do mayor
+        - generic: Lectura · Ahora
+        - generic: 0 1 2 3 4 5 6 7 8 9 0
+        - generic: ":"
+        - generic: 0 1 2 3 4 5 0
+        - generic: 0 1 2 3 4 5 6 7 8 9 0
+      - 'button "Editar Lectura: Do mayor"':
+      - 'button "Mover o eliminar Lectura: Do mayor"':
+    - button "Descartar sesión":
+      - generic: Descartar
+    - button "Finalizar":
+      - generic: Finalizar
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - 'button "Practicar: Sesión pendiente"':
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

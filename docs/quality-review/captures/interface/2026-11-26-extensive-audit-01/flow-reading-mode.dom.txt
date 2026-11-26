@@ -1,0 +1,27 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Elige el modo de práctica" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - article:
+    - heading "Lectura" [level=2]
+    - button "Móvil Teclado en pantalla o nombres de notas":
+      - strong: Móvil
+      - generic: Teclado en pantalla o nombres de notas
+    - button "Con piano Conecta MIDI cuando quieras":
+      - strong: Con piano
+      - generic: Conecta MIDI cuando quieras
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

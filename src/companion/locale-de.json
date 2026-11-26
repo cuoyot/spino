@@ -2072,5 +2072,18 @@
   "Added to repertoire": "Zum Repertoire hinzugefügt",
   "Date not recorded": "Datum nicht erfasst",
   "Actions": "Aktionen",
-  "Practised today": "Heute geübt"
+  "Practised today": "Heute geübt",
+  "Add activity": "Aktivität hinzufügen",
+  "No matching works.": "Keine passenden Werke.",
+  "Trash is empty.": "Der Papierkorb ist leer.",
+  "No pieces yet. Add a work to start your collection.": "Noch keine Stücke. Füge ein Werk hinzu, um deine Sammlung zu beginnen.",
+  "With piano · MIDI": "Mit Klavier · MIDI",
+  "Practice mode": "Übungsmodus",
+  "Starts in a later week": "Beginnt in einer späteren Woche",
+  "Past days are unavailable.": "Vergangene Tage sind nicht verfügbar.",
+  "Past dates are skipped; selected days repeat in later weeks.": "Vergangene Termine werden übersprungen; die ausgewählten Wochentage wiederholen sich in späteren Wochen.",
+  "practice": "Übung",
+  "Choose an available day.": "Wähle einen verfügbaren Tag.",
+  "Add repetitions": "Wiederholungen hinzufügen",
+  "For repertoire or free practice, choose With piano. On screen supports reading and technique.": "Wähle für Repertoire oder freies Üben Mit Klavier. Auf dem Bildschirm sind Blattspiel und Technik möglich."
 }

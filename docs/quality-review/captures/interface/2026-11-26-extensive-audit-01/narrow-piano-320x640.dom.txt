@@ -1,0 +1,107 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Repertorio" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Biblioteca":
+    - button "Mi repertorio"
+    - button "Catálogo"
+    - button "Multimedia"
+  - banner:
+    - button "+ Añadir obra"
+  - region "El atril 2":
+    - heading "El atril 2" [level=2]:
+      - text: El atril
+      - generic: "2"
+    - table:
+      - rowgroup:
+        - 'row "Título: ordenar Autor: ordenar Estado: ordenar Atril Imprimir partitura"':
+          - 'columnheader "Título: ordenar Autor: ordenar Estado: ordenar"':
+            - 'button "Título: ordenar"': Título ↑
+            - 'button "Autor: ordenar"': Autor
+            - 'button "Estado: ordenar"': Estado
+          - columnheader "Atril"
+          - columnheader "Imprimir partitura": Imprimir
+      - rowgroup:
+        - 'row "Étude mélodique Review fixture En estudio Total practicado: 5 min Retirar del atril: Étude mélodique Imprimir partitura"':
+          - 'cell "Étude mélodique Review fixture En estudio Total practicado: 5 min"':
+            - button "Étude mélodique Review fixture":
+              - generic: Étude mélodique
+              - generic: Review fixture
+            - generic: En estudio
+            - generic: "Total practicado: 5 min"
+          - 'cell "Retirar del atril: Étude mélodique"':
+            - 'button "Retirar del atril: Étude mélodique" [pressed]':
+          - cell "Imprimir partitura":
+            - button "Imprimir partitura":
+        - 'row "Prélude en do majeur Review fixture En estudio Total practicado: 44 min Retirar del atril: Prélude en do majeur Imprimir partitura"':
+          - 'cell "Prélude en do majeur Review fixture En estudio Total practicado: 44 min"':
+            - button "Prélude en do majeur Review fixture":
+              - generic: Prélude en do majeur
+              - generic: Review fixture
+            - generic: En estudio
+            - generic: "Total practicado: 44 min"
+          - 'cell "Retirar del atril: Prélude en do majeur"':
+            - 'button "Retirar del atril: Prélude en do majeur" [pressed]':
+          - cell "Imprimir partitura":
+            - button "Imprimir partitura":
+  - heading "Colección" [level=2]:
+    - text: Colección
+    - status: "2"
+  - searchbox "Buscar título o autor"
+  - generic "Filtros ⌄"
+  - option "Todas las obras" [selected]
+  - option "Papelera"
+  - option "Todos los estados" [selected]
+  - option "Por empezar"
+  - option "En estudio"
+  - option "Consolidando"
+  - option "Mantenimiento"
+  - option "Archivada"
+  - option "Todas las etiquetas" [selected]
+  - table:
+    - rowgroup:
+      - 'row "Título: ordenar Autor: ordenar Estado: ordenar Atril Imprimir partitura"':
+        - 'columnheader "Título: ordenar Autor: ordenar Estado: ordenar"':
+          - 'button "Título: ordenar"': Título ↑
+          - 'button "Autor: ordenar"': Autor
+          - 'button "Estado: ordenar"': Estado
+        - columnheader "Atril"
+        - columnheader "Imprimir partitura": Imprimir
+    - rowgroup:
+      - 'row "Étude mélodique Review fixture En estudio Total practicado: 5 min Retirar del atril: Étude mélodique Imprimir partitura"':
+        - 'cell "Étude mélodique Review fixture En estudio Total practicado: 5 min"':
+          - button "Étude mélodique Review fixture":
+            - generic: Étude mélodique
+            - generic: Review fixture
+          - generic: En estudio
+          - generic: "Total practicado: 5 min"
+        - 'cell "Retirar del atril: Étude mélodique"':
+          - 'button "Retirar del atril: Étude mélodique" [pressed]':
+        - cell "Imprimir partitura":
+          - button "Imprimir partitura":
+      - 'row "Prélude en do majeur Review fixture En estudio Total practicado: 44 min Retirar del atril: Prélude en do majeur Imprimir partitura"':
+        - 'cell "Prélude en do majeur Review fixture En estudio Total practicado: 44 min"':
+          - button "Prélude en do majeur Review fixture":
+            - generic: Prélude en do majeur
+            - generic: Review fixture
+          - generic: En estudio
+          - generic: "Total practicado: 44 min"
+        - 'cell "Retirar del atril: Prélude en do majeur"':
+          - 'button "Retirar del atril: Prélude en do majeur" [pressed]':
+        - cell "Imprimir partitura":
+          - button "Imprimir partitura":
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

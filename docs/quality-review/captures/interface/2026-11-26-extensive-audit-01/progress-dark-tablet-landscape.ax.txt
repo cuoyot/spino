@@ -1,0 +1,123 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?theme=dark&route=progress".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=progress
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Progreso, Value: 1
+				6 text Progreso
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 container Secciones de progreso
+				11 button Actividad
+				12 button Repertorio
+				13 button Técnica
+			14 container
+				15 heading Esta semana, Value: 2
+					16 text Esta semana
+				17 text 2 hr 43 min Tiempo de práctica 4 hr Objetivo semanal
+			18 text Últimas 12 semanas
+			19 container
+				20 container Tiempo de práctica registrado
+					21 text 0 min
+					22 text 1 hr 30 min
+					23 text 3 hr
+					24 checkbox Description: 7 sept 2026 – 13 sept 2026: 0 min, Value: 0
+						25 image 7 sept 2026 – 13 sept 2026: 0 min
+					26 checkbox Description: 14 sept 2026 – 20 sept 2026: 0 min, Value: 0
+						27 image 14 sept 2026 – 20 sept 2026: 0 min
+					28 checkbox Description: 21 sept 2026 – 27 sept 2026: 0 min, Value: 0
+						29 image 21 sept 2026 – 27 sept 2026: 0 min
+					30 checkbox Description: 28 sept 2026 – 4 oct 2026: 0 min, Value: 0
+						31 image 28 sept 2026 – 4 oct 2026: 0 min
+					32 checkbox Description: 5 oct 2026 – 11 oct 2026: 0 min, Value: 0
+						33 image 5 oct 2026 – 11 oct 2026: 0 min
+					34 checkbox Description: 12 oct 2026 – 18 oct 2026: 0 min, Value: 0
+						35 image 12 oct 2026 – 18 oct 2026: 0 min
+					36 checkbox Description: 19 oct 2026 – 25 oct 2026: 0 min, Value: 0
+						37 image 19 oct 2026 – 25 oct 2026: 0 min
+					38 checkbox Description: 26 oct 2026 – 1 nov 2026: 0 min, Value: 0
+						39 image 26 oct 2026 – 1 nov 2026: 0 min
+					40 checkbox Description: 2 nov 2026 – 8 nov 2026: 0 min, Value: 0
+						41 image 2 nov 2026 – 8 nov 2026: 0 min
+					42 checkbox Description: 9 nov 2026 – 15 nov 2026: 0 min, Value: 0
+						43 image 9 nov 2026 – 15 nov 2026: 0 min
+					44 checkbox Description: 16 nov 2026 – 22 nov 2026: 12 min, Value: 0
+						45 image 16 nov 2026 – 22 nov 2026: 12 min
+					46 checkbox Description: 23 nov 2026 – 26 nov 2026: 2 hr 43 min, Value: 1
+						47 image 23 nov 2026 – 26 nov 2026: 2 hr 43 min
+					48 text 7 sept
+					49 text 5 oct
+					50 text 26 oct
+					51 text 23 nov
+				52 text Práctica semanal · semana actual en curso
+			53 button Más detalles
+			54 button Mantén tu ritmo 2 semanas practicando Racha de objetivos: 0 · semanas
+				55 text Mantén tu ritmo
+				56 text 2
+				57 text semanas practicando
+				58 text Racha de objetivos: 0 · semanas
+			59 button Grabaciones 0 Esta semana 0 Audio 0 Vídeo
+				60 text Grabaciones
+				61 text 0
+				62 text Esta semana
+				63 text 0 Audio
+				64 text 0 Vídeo
+			65 heading Escalas y modos trabajados, Value: 2
+				66 text Escalas y modos trabajados
+			67 text Do mayor · 1 hr 35 min
+			68 button Ver
+			69 heading Historial, Value: 2
+				70 text Historial
+			71 button Práctica de piano jue, 26 nov 2026 Bien Práctica libre 20 min Registro manual Ver sesión
+				72 text Práctica de piano
+				73 text jue, 26 nov 2026
+				74 text Bien
+				75 text Práctica libre
+				76 text 20 min
+				77 text Registro manual
+				78 text Ver sesión
+			79 button Repertorio mié, 25 nov 2026 Prélude en do majeur Muy bien Repertorio 44 min Piano MIDI Ver sesión
+				80 text Repertorio
+				81 text mié, 25 nov 2026
+				82 text Prélude en do majeur
+				83 text Muy bien
+				84 text Repertorio
+				85 text 44 min
+				86 text Piano MIDI
+				87 text Ver sesión
+			88 button Lectura y repertorio mar, 24 nov 2026 Étude mélodique Lectura Repertorio 9 min Piano MIDI Ver sesión
+				89 text Lectura y repertorio
+				90 text mar, 24 nov 2026
+				91 text Étude mélodique
+				92 text Lectura
+				93 text Repertorio
+				94 text 9 min
+				95 text Piano MIDI
+				96 text Ver sesión
+			97 button Técnica y lectura lun, 23 nov 2026 Difícil Técnica Lectura 1 hr 30 min Piano MIDI · Parcial Ver sesión
+				98 text Técnica y lectura
+				99 text lun, 23 nov 2026
+				100 text Difícil
+				101 text Técnica
+				102 text Lectura
+				103 text 1 hr 30 min
+				104 text Piano MIDI · Parcial
+				105 text Ver sesión
+			106 button Repaso de una obra archivada dom, 22 nov 2026 A long synthetic title with <tags> & several movements Muy difícil Repertorio 12 min Piano MIDI Ver sesión
+				107 text Repaso de una obra archivada
+				108 text dom, 22 nov 2026
+				109 text A long synthetic title with <tags> & several movements
+				110 text Muy difícil
+				111 text Repertorio
+				112 text 12 min
+				113 text Piano MIDI
+				114 text Ver sesión
+		115 container Navegación principal
+			116 button Hoy
+			117 button Practicar
+			118 button Calendario
+			119 button Biblioteca
+			120 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=progress

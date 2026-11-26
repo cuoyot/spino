@@ -1,0 +1,45 @@
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 719 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/metronome-processor-rYjNjo7t.js            2.18 kB
+dist/index.html                                       17.04 kB │ gzip:   4.74 kB
+dist/assets/spino-symbol-512-Buw3jNkk.png            156.40 kB
+dist/assets/musicxml-worker-DsQV-xjS.js              847.98 kB
+dist/assets/pdf.worker.min-BmVo14Nb.mjs            1,317.03 kB
+dist/assets/pdf-viewer-Q508HZ-_.css                   14.35 kB │ gzip:   3.53 kB
+dist/assets/app-B47oMz9S.css                         274.74 kB │ gzip:  49.04 kB
+dist/assets/web-DzY0jtTE.js                            0.36 kB │ gzip:   0.24 kB
+dist/assets/rolldown-runtime-C0FnF6B9.js               1.29 kB │ gzip:   0.71 kB
+dist/assets/asset-print-CJOzF7ai.js                    1.51 kB │ gzip:   0.65 kB
+dist/assets/musicxml-print-BYzpmws6.js                 1.67 kB │ gzip:   1.03 kB
+dist/assets/pdf-print-CHsawpHY.js                      2.57 kB │ gzip:   1.31 kB
+dist/assets/catalogue-preview-CXn5G8fC.js              2.93 kB │ gzip:   1.37 kB
+dist/assets/media-trim-browser-Cb3tMatg.js             4.26 kB │ gzip:   1.89 kB
+dist/assets/web-Bkk8OeWX.js                            4.43 kB │ gzip:   1.28 kB
+dist/assets/pdf-metadata-CjagZto-.js                   5.12 kB │ gzip:   2.66 kB
+dist/assets/score-ocr-D2OuQbA9.js                     18.42 kB │ gzip:   7.85 kB
+dist/assets/musicxml-viewer-Dnbbg76i.js               21.00 kB │ gzip:   8.05 kB
+dist/assets/browser-NM0WNCww.js                       23.47 kB │ gzip:   8.86 kB
+dist/assets/pdf-viewer-BpLsQ8y9.js                    24.67 kB │ gzip:   9.28 kB
+dist/assets/musicxml-document-DBC6eVOY.js            106.70 kB │ gzip:  40.30 kB
+dist/assets/lamejs-DxgK9G4m.js                       162.69 kB │ gzip:  56.94 kB
+dist/assets/library--60XbAKY.js                      173.15 kB │ gzip:  47.28 kB
+dist/assets/esm-BBchjGm5.js                          368.75 kB │ gzip: 108.08 kB
+dist/assets/score-print-CZLG2-qI.js                  421.69 kB │ gzip: 176.37 kB
+dist/assets/pdf-document-DNNOhljZ.js                 487.61 kB │ gzip: 148.40 kB
+dist/assets/opensheetmusicdisplay.min-BrXXX89h.js  1,310.28 kB │ gzip: 337.33 kB
+dist/assets/app-C-7m1lCS.js                        2,307.86 kB │ gzip: 900.47 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/companion/musicxml-segments.js is dynamically imported by src/companion/catalogue-preview.js, src/companion/score-thumbnail.js but also statically imported by src/companion/library-pipeline.js, src/companion/musicxml-viewer.js, dynamic import will not move module into another chunk.
+
+✓ built in 8.28s
+[33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 8.8s. The build took 8.3s. Callbacks such as `closeBundle` run after the build ends, so callback time can be more than build time.
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite:prepare-out-dir renderStart (91%, 7.5s, 1 call)
+Additional callback time came from the callbacks below and from callbacks under 1s.
+1 callback is listed without a time. Its calls overlapped, so the time inside one call includes work from other calls. To find its cost, profile the build with `node --cpu-prof`:
+  - plugin vite:asset load (34 calls)
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+

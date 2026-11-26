@@ -1,5 +1,18 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+For repertoire or free practice, choose With piano. On screen supports reading and technique.|Per a repertori o pràctica lliure, tria Amb piano. En pantalla pots treballar lectura i tècnica.
+Add repetitions|Afegir repeticions
+Add activity|Afegir activitat
+No matching works.|No hi ha obres que coincideixin.
+Trash is empty.|La paperera és buida.
+No pieces yet. Add a work to start your collection.|Encara no hi ha obres. Afegeix-ne una per començar la col·lecció.
+With piano · MIDI|Amb piano · MIDI
+Practice mode|Mode de pràctica
+Starts in a later week|Comença en una setmana posterior
+Past days are unavailable.|Els dies passats no estan disponibles.
+Past dates are skipped; selected days repeat in later weeks.|S’ometen les dates passades; els dies triats es repeteixen les setmanes següents.
+practice|pràctica
+Choose an available day.|Tria un dia disponible.
 Practised today|Practicat avui
 A backup operation is already running.|Ja hi ha una còpia en curs. Pots consultar-ne el progrés a Còpia i sincronització.
 Synchronize the notebook before setting up backups.|Sincronitza el quadern abans de configurar les còpies.

@@ -1,0 +1,111 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+    - heading "Hoy" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: jueves, 26 de noviembre
+  - region "Practicado esta semana":
+    - heading "Tu semana" [level=2]
+    - button "Ver progreso"
+    - strong: 0 min
+    - generic: / 4 hr objetivo
+    - progressbar "Objetivo semanal"
+    - paragraph: 240 min para tu objetivo
+    - generic "Tu semana":
+      - generic: 23 nov – 29 nov
+      - button "Ver calendario"
+      - button "lunes, 23 de noviembre, 0 min, 0 actividades":
+        - generic: L
+        - generic: "23"
+        - generic: ·
+      - button "martes, 24 de noviembre, 0 min, 1 actividades":
+        - generic: M
+        - generic: "24"
+        - generic: ·
+      - button "miércoles, 25 de noviembre, 0 min, 0 actividades":
+        - generic: X
+        - generic: "25"
+        - generic: ·
+      - button "jueves, 26 de noviembre, 0 min, 0 actividades":
+        - generic: J
+        - generic: "26"
+        - generic: ·
+      - button "viernes, 27 de noviembre, 0 min, 0 actividades":
+        - generic: V
+        - generic: "27"
+        - generic: ·
+      - button "sábado, 28 de noviembre, 0 min, 0 actividades":
+        - generic: S
+        - generic: "28"
+        - generic: ·
+      - button "domingo, 29 de noviembre, 0 min, 0 actividades":
+        - generic: D
+        - generic: "29"
+        - generic: ·
+  - article:
+    - generic: Sesión pendiente
+    - heading "Daily piano practice" [level=2]
+    - paragraph: 6 min transcurridos · Con piano
+    - button "Continuar sesión"
+    - button "Grabar":
+      - generic: Grabar
+  - heading "Próximos compromisos" [level=2]
+  - button "+ Evento"
+  - button "sábado, 5 de diciembre de 2026 Concierto 19:00 Winter concert Tiempo restante 1 semana y 2 días":
+    - time:
+      - generic: dic 2026
+      - strong: "5"
+      - generic: sábado
+    - generic: Concierto
+    - time: 19:00
+    - strong: Winter concert
+    - generic: Tiempo restante
+    - generic: 1 semana y 2 días
+    - generic: "1"
+    - generic: semana
+    - generic: "2"
+    - generic: días
+  - button "jueves, 17 de diciembre de 2026 Audición 18:00 Audicion de nadal Tiempo restante 3 semanas":
+    - time:
+      - generic: dic 2026
+      - strong: "17"
+      - generic: jueves
+    - generic: Audición
+    - time: 18:00
+    - strong: Audicion de nadal
+    - generic: Tiempo restante
+    - generic: 3 semanas
+    - generic: "3"
+    - generic: semanas
+  - button "martes, 1 de diciembre de 2026 Clase 15:30 Weekly piano lesson 5 días":
+    - time:
+      - generic: dic 2026
+      - strong: "1"
+      - generic: martes
+    - generic: Clase
+    - time: 15:30
+    - strong: Weekly piano lesson
+    - generic: 5 días
+  - button "martes, 8 de diciembre de 2026 Clase 15:30 Weekly piano lesson 1 semana y 5 días":
+    - time:
+      - generic: dic 2026
+      - strong: "8"
+      - generic: martes
+    - generic: Clase
+    - time: 15:30
+    - strong: Weekly piano lesson
+    - generic: 1 semana y 5 días
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - 'button "Practicar: Sesión pendiente"':
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"
+- status: Tu sesión se ha recuperado en pausa. El tiempo con la app cerrada no se ha contado.

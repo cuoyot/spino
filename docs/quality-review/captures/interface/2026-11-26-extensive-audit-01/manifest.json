@@ -1,0 +1,1180 @@
+{
+  "reviewDate": "2026-11-26",
+  "surface": "responsive-browser",
+  "nativeAcceptance": false,
+  "applicationVersion": "6.2.4-beta.1",
+  "androidVersionCodeReference": 129,
+  "sourceCommit": "559c7949a0f180e36c826468daf59d2709b68f3c",
+  "sourceExport": "/private/tmp/spino-ui-audit-20261126",
+  "browser": "Codex in-app browser via CUA",
+  "data": "Synthetic fixtures on dedicated 127.0.0.1:5376 origin and ui-audit-20261126 IndexedDB prefix",
+  "fixedBrowserDate": "2026-11-26T10:00:00Z",
+  "personalNotebookUsed": false,
+  "applicationSourceChanged": false,
+  "buildPassed": true,
+  "buildIndexSha256": "d18ede129bdd45b47201c9fc4da9fe762535d50f86e798ca337ec156ab2a68c7",
+  "sourceHashes": {
+    "src/audio.js": "26d398504aa36e0cc083fb3a1572937433ca51615cd90e9f7ba0d3bbfc479674",
+    "src/companion/about-view.js": "1f4bd6f3cd4d46cf0d76946522ff271182408f3a7515229df7276ac85ea7ffcb",
+    "src/companion/activity-calendar.css": "f371a2fbbc39f7c8fd4141bf9cfa7fd793e9b8faccffeea8aea9f5fb8850e130",
+    "src/companion/activity-calendar.js": "9bc36727273487250069ab7df38775e2581a944aa5dcf3ca28870f7920b02f74",
+    "src/companion/agenda.js": "a7515c95ea5efd8cedb1058535ea175ff7c88e3991fdc78c87c1e57f18d8fb52",
+    "src/companion/analysis-versions.js": "169830c6cbc9323316a3f26f56cab82961eb20fac003ed5f2fed8b0cefc11dbe",
+    "src/companion/app-actions.js": "7265731eb09fda5ceb2b7a368ccc191413ff09452b6e78d0dfe242ffc5f74d40",
+    "src/companion/app-version.js": "e8865c3a38f80e869fca1d93c819960478c29b20042dae86f21eef973e16259c",
+    "src/companion/app.css": "b75cbccf500385b59dc0c922d0a775986a1587df3aa183c98ec6b3cccf447902",
+    "src/companion/app.js": "e9cdeb89b16f12a36c128f91df8fdd25c5b7d71373a0bee18f6038dd6bed6803",
+    "src/companion/appearance.css": "8d92f450f73d0ebc4cda8ce77b8f9d11d4a222fbfa7c3b35c2c6d7848ebd0887",
+    "src/companion/asset-print.js": "282f28e2f60678bd2f030712d736065bf38ad745b7225381f631757cfc06e163",
+    "src/companion/atomic-notebook.js": "98fe30ea3356181704b75f2efe2737792ec148156d4da969e01708c85a4cd19b",
+    "src/companion/audio-visualizer.js": "cade2bbc97d347593b63b076c12653c80d6d04c4729b2c8cb150026cc03c0a20",
+    "src/companion/automatic-backup-copy.js": "86386d4a18cd6b489799e600bda7f30da946686d72d61e6a36c3d24cabf3f44e",
+    "src/companion/backup-drive.js": "e254f2f5f0ed34c51dbf02fa5ccb29f2065cbe7ba71c991aa666cc2b970c826c",
+    "src/companion/backup-export-name.js": "7985e3c261ea85ddcbc6adf678de15b87f7f51097cfe4b7759fe2e33b68a83f3",
+    "src/companion/backup-format.js": "92bf18c258f4f3a2fbba96a58b01774907bf26faf2cd9f9859a5390b2591b643",
+    "src/companion/browse-surfaces.css": "81a30397965a407a57471e4d2d9ca17202bbe3a97808b66fb68f44bd1b2197bc",
+    "src/companion/calendar-drag.js": "49700b8120dee6832718b41f1276c0b3948a3977931399b2d82bcfb25141914c",
+    "src/companion/calendar-position.js": "471e6f9f6aa8308a3fefa62139296e907de1a2075480d13af1798778b06c205d",
+    "src/companion/camera-controls.js": "d382070947085527aae9e778864cdd6fed79a6c1a7bbc6c9aae3d675cee5c689",
+    "src/companion/catalog.js": "9e39b2eb7ddab6cd3a95157efb412db6602925ed6724de05d0148aaffafb5f78",
+    "src/companion/catalogue-additions.js": "a14217b2f5489074653d02f4e717885480ddc14b698071d2761232a467347615",
+    "src/companion/catalogue-identity.js": "691f86de3b64b04dcb7f02dbaa5d0347068255255527d3c20bb529e043305dd0",
+    "src/companion/catalogue-periods.js": "80cfec19cdc24b97bc7c3c69f6966730f853877648cf7a2987be8b336dc1cf25",
+    "src/companion/catalogue-preview.js": "188f548134c062afa0bba8b052e998c5cb741a4d96fe7e146e9da27e1ec47b71",
+    "src/companion/catalogue-view.js": "a70316a076ec3363cba50a5fa04661d6e74a00a95211f0d55fe599b84af1c267",
+    "src/companion/clock-display.css": "69029316dc5c18df291d4d71d3ae9062dd6292e7108e4ba774f72482e8813147",
+    "src/companion/clock-display.js": "4f12a02eaa579765fce19a9d46437c65a548694e50ce7fa501ab1b388e2421df",
+    "src/companion/cloud-backup-view.js": "bdf96fd0c2457b0726d44de4a429c2c1cedae3e5d80476e35ff4ce468ce05652",
+    "src/companion/cloud-backup.css": "6f4d6df4b1bfa575dd5db47d52ab3c6109525dc6ff53180865ed5b37393a44d9",
+    "src/companion/cloud-backup.js": "43714dc95ac94aa761dc4d0134765106d9bc86c4934ee44ed279a22606fcf402",
+    "src/companion/cloud-conflict-review.js": "87357bae9dddeccfd17d0e69a17b24895bcaab54de08e6f48a489d1de31df22d",
+    "src/companion/cloud-errors.js": "ceed92be142bf5b3a166c545d4c535e8158fa54f3d8da1917d5bb9a5eb524ef1",
+    "src/companion/cloud-merge.js": "c5e73c1e9822c4d427c9832e7f4aab066cd906176252f0345310247357b7b55e",
+    "src/companion/cloud-policy.js": "0af79b4d99f597d107652e465dcb16745f738305b58dbd4f6e8362b4388161a0",
+    "src/companion/cloud-sync.js": "f4ee46ebd5138f96df1d4ab55887fa02e3d75d21f50b134b2fb72c9660d7cac0",
+    "src/companion/complete-backup-ui.js": "d25f6d390fdf2444e41ac5a708afeeea880a0293b49ce6026a627965268eb932",
+    "src/companion/complete-backup.js": "c3572df3900718565a59184c83243606fe015139392ac5df32bce392790982d4",
+    "src/companion/curriculum.js": "47f973093c81bd583fcc049c49dac4bb96de9dd33a4341c6a18972a19cc2770a",
+    "src/companion/dashboard.css": "676465a1c50895093ee0a3ea5cea67c456e16137391ee320585e255b1b95838a",
+    "src/companion/device-link.js": "603c08f1794cbebc84e184b4e589384d0d49eb85241bc53c2e49c894ee7faaed",
+    "src/companion/device-reset.js": "f76411efca64a05b9bb5e4df1020ae8d633aaff0632f7c95a846ada468ab0cb9",
+    "src/companion/download-slot.js": "bddbe7fc96322511fbaf645c0c611ff09d7d65f6c7f18bd1ebdd90a1b2001254",
+    "src/companion/download-view.js": "cedcd70babe7377acbadaffa9d6a36de62ccd89a623ddd2ab68a67688474871d",
+    "src/companion/downloads.js": "6aef552ad3ea29bd1ba3e85e2be5350c64430f5471150299509dca1cbf776e5f",
+    "src/companion/drive-archive.js": "71fe82182b4564b5129f2617c1cb2829f1abdf47534b344f5550f1ac612d2ca7",
+    "src/companion/drive-checkpoint.js": "02576609798ba9303958d91ba8a3fbbb3b391b08420936a600744fbfa711ac5b",
+    "src/companion/drive-incremental.js": "1c2d783c237f9a70554d094f07c2e862f5747595c130c22065e4ac426df174cb",
+    "src/companion/drive-journal.js": "b6188c0792dd17c99510c064197de75e9b7d59645a9176726c68106e114433fc",
+    "src/companion/drive-media-fixture.js": "93ed1cb20aa8582956e2a091b7bd28329900a9c0dbe065b4f4926d084629b8b3",
+    "src/companion/drive-media-native.js": "ef2d4ff2286888c0ea541a35a5e1d12b1fb850435ab23e2e2ec428b512b49edd",
+    "src/companion/drive-media.js": "cf96988e91d7541742a13d974f01c22bea71ba8bee1cad0a5e8d8930002d988f",
+    "src/companion/drive-notebook-view.js": "f128f9757ae7a597d31e7826ded9dbb2ca58364950e935459aea363bd582730c",
+    "src/companion/drive-notebook.js": "f24d738bbefd111e96411cec843ff8aa75bbf85f73e79da86f100b16acc186e9",
+    "src/companion/drive-object-pack.js": "4f566d1b32228fe5a689dd003408dd5d04e0a4e819404da471407c0ba337c996",
+    "src/companion/drive-objects.js": "3500f82d106a714568301b9388304f74467c4bcc3fdb8f745e1d2fcb125f6997",
+    "src/companion/drive-recovery-view.js": "d59fb60e870b1c5de4b89f70b395d38f6992263f889deaec682af9e05cb68697",
+    "src/companion/drive-request.js": "d21de4702cef3c1bbe864270f6be0801bb8e5907802f0274e081ad9fb3f16d49",
+    "src/companion/drive-storage.js": "aabeb415e34a0929e160496a0c70b42a327ba440fa178144e39a11dc70ef58a2",
+    "src/companion/drive-sync-view.js": "143ef58fb9ffe734779817ad9189edc0497592816e3ac5c8c715ad46d9c2c108",
+    "src/companion/event-countdown.js": "ca636add181d9d905a3509ebed8988c4c9417079250f9d2e963f7abf9ad9b72c",
+    "src/companion/event-date-tile.js": "9e657ea7f6e98a8b6264711bfd2c98c98a65fa4bd42f29433ad8c4c362134c2c",
+    "src/companion/event-date.css": "106a6f7dd4428e3848bea90e5e253b7d2ec059e70a5a117c936f63df43ddeeb8",
+    "src/companion/event-date.js": "87f7ba9a09b52e2d75aa4d4f5df8d1834b976c23cdb8d3b3d1b65c13c2b94a17",
+    "src/companion/event-recurrence.js": "cccf5b82bd9c5c73c6b80510060679dc57e4c7a80d4e889f74591d8db7497586",
+    "src/companion/event-time.js": "c0fd72d086dd097d7654dead65e61d0efe9c8e59f5faae46dbea113b6370437a",
+    "src/companion/event-works.js": "0f06cfa6aa33f3cf396a574403b217c1be974c6d4ec6d339c4834947876a1884",
+    "src/companion/free-practice.js": "c229628861c09da6652e1f0da8f76d4a4d965bb259ba4728d9d2f574439800ed",
+    "src/companion/hanon-animation.js": "918e610e2d90571999d3781bd61187d471d0c79c7f26b8f0526aa9af38fd7bac",
+    "src/companion/icons.js": "24981b187980546bbbc2c59c1eee2a7d5d0016c3e35a76219f74ee0f88d7ebd9",
+    "src/companion/instrument-view.css": "ba3b1b3eb1334d5bfd94e11a4182b90b1a9f3927d217496b21c7c2cd2e43d9a3",
+    "src/companion/instrument-view.js": "9eb0857a3e4978aa9495648c50fcf7442f3bc2b0c41a2c7d4aee23cd3b248eb7",
+    "src/companion/lessons.js": "37e64729d271865c65cdede79cf6fa2f12a8919789559ad973f479eb66fd4c11",
+    "src/companion/library-browse.js": "7fc33f851c55dc406b88a85b41cf2a31162eefbc4341cba316383c4c9c27436c",
+    "src/companion/library-contract.js": "ecf630a108c35aa05e91b9416997c289acef53be8bc6f24d9e9f5b9e63483888",
+    "src/companion/library-pipeline.js": "aba5664af8c24a927e533328bcd633bc5a1642b016b583acce21a8726aeaff8a",
+    "src/companion/library-state.js": "a890149a38dd139abd128d4f381188bcf25f33601b31c1322da049dda2a4d474",
+    "src/companion/library-ui.js": "5bab3a197beb82582fba1b02b6e0f323efb9045bc564b7e23035ed9246fc7ca0",
+    "src/companion/library-view.js": "f29a382a8ae0eabca418b45b503ee723fba9ef0e97d18e4746289570b82f8107",
+    "src/companion/library.js": "26695e1ba720d3843328774eb350477f2ea5379a77f1ca812cceef015f90c62b",
+    "src/companion/locale-ca.js": "3a3131aebec789979214cf8a26cab3d0ca550e2db4dd6f213371eddff047cf3b",
+    "src/companion/locale-de.json": "eb6aeccf1180453461986282cb808234841de80f9cb1ba9a3a7b2f91e9c1c4f8",
+    "src/companion/locale-extra.js": "e7317e560ad2f6f007a474864636c57ea74bcf7c47a5da281fbd8e170a788cae",
+    "src/companion/locale-hu.json": "62139fcab1c53e411b2589de6549d8c5c623b2f0b537a7ba2e5eabd9f8449925",
+    "src/companion/locale-messages.js": "a3c9abff8711dbe0f8ad6fa0f6ccf7462463ac3a4ac7832593ce009035482474",
+    "src/companion/locale.js": "97bdf8b5087a1c839660849f90a0d8670dd9c08013152ae75e6cbb60a3aa01b8",
+    "src/companion/media-bookends.js": "fdd707c35b0842c9b7bcefa1f256ea3f0e83df20f8446ea035b23b43cce37b98",
+    "src/companion/media-duration.js": "78d1c3c23d448ba396cd0a5ee93817542124b5898d537625759f3f71f0ab8b02",
+    "src/companion/media-export-ui.js": "83bc4a074fa53ce5a3ef1b8113fa09ccf6ebdf4fd0d27f26a4bf37e724710a65",
+    "src/companion/media-network.js": "71ef1797b43d3894856b3af1d091724f7e7cbb782187f18058ec5d09a792fca4",
+    "src/companion/media-operation.js": "5f3922b3c95f25cede4fd0a4f745a810dc5c6a400a302ba4cf26702083cca85a",
+    "src/companion/media-share.js": "86638528f6331eecc52d0d509c6fed3f3903eaf1d253643f7ac0c04a7803bc50",
+    "src/companion/media-store.js": "86d3443128401b92717b8e61b1cecc9f36e53145264a078c432329bb448567ba",
+    "src/companion/media-sync.js": "d642318e631a442542b745a14483bbb9481b62d2d52fcbf4b7a3fb79aaabb9ad",
+    "src/companion/media-trim-browser.js": "9c7efb7824e9da93a582c1a87f3e735ab5d145db4d9f8677dfbd06490eb7142a",
+    "src/companion/media-trim-view.js": "1daf34f4cb96f978f9a5d5d709335f74a7a1dd707082b10f2a840230cf30c498",
+    "src/companion/media-trim.js": "70bab8a9ee7a5f4d48c13cb9a4aba3c9a45cc384c2d634bef9b9535de5728ee2",
+    "src/companion/media-view.js": "9ededc19a3148e30df740e7085cb1f3987afef30dca179466c967e0996ce0b3a",
+    "src/companion/media.css": "ec067f10f66fc3c9523fdf1835f9bd640b9b647f576120ae079143a4e2c45551",
+    "src/companion/midi-export.js": "c0f330f55bc213ee3cef981f0c80d70c6ed8d95949a18c5f97c37c2d92609670",
+    "src/companion/midi-player.js": "bd734342b38337447b7e8d9377895d580178ae09223ea2003a1495bf96735520",
+    "src/companion/midi-recording.js": "7c65c8e6fcb6f3784a62992665c71c5d793644e7cb5e02387cf58faeb973cc4a",
+    "src/companion/midi-render.js": "d9b98ed10fb02333cf36e4e5509267694df4f5896b772c20d388cd9a934a868a",
+    "src/companion/midi-shortcuts.js": "3e829aa8e6f93464219776d8d83b3d353462bf87e7c41c69fa67bd73ab30566e",
+    "src/companion/midi-visualizer.js": "429ef310e8a6253a5f400f3b72d1db1c599aab5c1317e6c2c38d340f131136f0",
+    "src/companion/model.js": "d2be2164361886da604b8e86a5d58bfb9fd57feaf96892cc3c9011a1d47e3a35",
+    "src/companion/more-info.js": "3b9b59b39f0c1bd7a91294996db169ce752296ab55fef7831b1d9090a9fdfee5",
+    "src/companion/musicxml-analysis.js": "77ddc61a77dd1c59a2f57f01a58f1ef70cf08486b8a9f29aab0c295f337300f1",
+    "src/companion/musicxml-document.js": "c86743c553d2585a6497d00f29bbcdaa6e36f8c430f1a71a0ad9d60465669afe",
+    "src/companion/musicxml-follow.js": "b5f2ff17672779803408c91f015d22cc85a3b4b3100cd32cd778a9a532c9c572",
+    "src/companion/musicxml-print.js": "cbc95769c923e1209ea08e8916805a3909523e6f026526c7efc1a67f070fdb17",
+    "src/companion/musicxml-segments.js": "3624b1b51cdac356a1588fc752e52d2c48e0a19998e1bf9b1e3da5ee72b833f5",
+    "src/companion/musicxml-viewer.js": "1bcad22561b05762846eaa43636b63377b6222f38cfb4d5a6b9f74eac140ae62",
+    "src/companion/musicxml-worker.js": "0ecd865b6bb4a04bbb02f9508858b11c9b10b03a39888dec4b074882dcabb4b8",
+    "src/companion/navigation-refinement.css": "462ccfd4e5fff0211910d3ee0f5721ddfb29eb8a13d8f4d4181314abe797a73b",
+    "src/companion/network-policy.js": "77bedf421bb9e9fd44b8b954b4e4b66d91a2f424a4d69311ad85e1b41d9adbf4",
+    "src/companion/notebook-transport.js": "89f1d25d8a97fef1a453a1ac7a7ec985d47cee7180a89a6f86bc6b2a7c1dd79d",
+    "src/companion/pdf-annotations.js": "0325a902ea9e769f17f862834b630e8284739c86879f3506a1766a30817bff2a",
+    "src/companion/pdf-document.js": "04f51053821567a9886511e60ad99f7b9ad755eabcfbdd6328346167d3c797d4",
+    "src/companion/pdf-metadata.js": "12f157f270ac9545db509ebb16acb806d482d73fbc95100fad75573f2d766780",
+    "src/companion/pdf-print.js": "1965541acad854f3ea630fc91abd8fd172bb0b76f778dad17a6bcfbe3fae9352",
+    "src/companion/pdf-viewer.css": "1dfaa4f2ce053a000c9d22464a6bfd795fead292dd197eec4f4b952e8e2f2d13",
+    "src/companion/pdf-viewer.js": "9489b577ad6a718f030474a5c6bf55ae18018989dad76cfc08e8ccb0f2255828",
+    "src/companion/pedals.js": "bbe002b0c44be7630ff5aedaa1c4bd21ff7132335771b03d852dac6ec1fe71b2",
+    "src/companion/photo-crop.js": "daf5222684f09a732117214cb42fe2250032c20d07b157eaba4357a66d48a650",
+    "src/companion/planner.js": "c019a8ece9e5b0f2768c44a28652c13fedf41c20e422c6fb5641294bd909e76d",
+    "src/companion/platform.js": "feb97c8c39382b8f6703ce2e5bb454171347f2584fde9b6a128bbc31a90aeaf9",
+    "src/companion/practice-clock.js": "08fbfc78fffa906a300078f35fcd1065cb3b6fc977dd0684667381a4d3e60cd4",
+    "src/companion/practice-defaults.js": "2eb851a94d7ee6ff8f2e48e78b88b21703ce92334de31c06076a4f4665aa0ace",
+    "src/companion/practice-duration.js": "d2de61aaab944db2ac3824c90693e6bf558313100916b1b4912d7b45be2a8de1",
+    "src/companion/practice-widget.css": "b9fb9601f61bd0cd0f48943965fdf18fa211e3c7ca1437b9ef40f933dabed0c1",
+    "src/companion/practice-widget.js": "f38f206f84a94521bd6a3cea6d4c3ce687a2e138e1c717b7bd9e67f1471ed014",
+    "src/companion/preparation-warmup.js": "177f312194eedbe2a468338e60e00d878571d643712b37502e809a60a9cad802",
+    "src/companion/print-controls.css": "d15f9ef725694aa12e00c1a197459e6aa238eb7ff1c010ed3b15727691c9abbe",
+    "src/companion/profile-view.js": "bd09dfdb7b842299b2d57cdb6942dd8908504ae1525c476c86f4d8fa398fcc99",
+    "src/companion/profile.css": "6aeb596127de78d2f3bd40a2c9652358c8dc80e2120163f0cc918537f8ce3e6f",
+    "src/companion/progress-duration.js": "e2bc66fb69ffc231b14b8d4ed5f8643d703d84b76e050b9ecaea9bd8195cb22a",
+    "src/companion/progress-learning.js": "b5beac34f7e7f7016a45b7f929bae81af4500a9ebecd78e1d6226fed48fbf466",
+    "src/companion/progress-metrics.js": "6e2c190dcb1a2e9d52e6ed6b31c508667719464cfacafbb493d3a89340f448a1",
+    "src/companion/progress-rhythm.js": "f4cbf7f96c1f11885877239c47512d3deb8ec4a66deff8dd64d9a9d2257eae4d",
+    "src/companion/progress-time.css": "76b093583854783433ef3ae612fe66c39754753f6854aa298909bf54b4e150ed",
+    "src/companion/progress-time.js": "e5eefa56571e43fb84d14a07983d39d8adc271c43684b141db6c624541177119",
+    "src/companion/quick-game.css": "8649eab381290a697cf01fa852ab8ca87334ba46ab099bb5060f15bf508fa17f",
+    "src/companion/quick-practice.js": "32bcddaef7f461319b897d8c7a1344380f583ed611daa51714f45db2d7dd8f5f",
+    "src/companion/quick-score.js": "2a8ff6d5a839c19f82a89896ce883d97263804822d7aa547df4cecd4b0db5bfa",
+    "src/companion/recording-copies.js": "cec96b3cf995e5f017657e37d6f0abfc83dc3498e66b5fa6f0d13cefe1ea1495",
+    "src/companion/release-notice.css": "af4ed93855c22c182a2f5c0ee7066092ff4ba31a0b17cd988883af3a109df767",
+    "src/companion/release-notice.js": "e12090aa6efc5e110603a01af564fe915d4ada5774603d596674f3e17b5b64bd",
+    "src/companion/reminders.js": "6dea40728a1217077e9629274bb59798feef3952af00adcd9b2381d51d997002",
+    "src/companion/repertoire-preparation.js": "44f7c440d1f3d99c08922e825d8e7874ca68316203b8be04cd5051ae076789ed",
+    "src/companion/repertoire.js": "f5da6289f5cf943cd6d949b5a4f4fb5f7ffa29e803f1d054f96d261fa184ef2a",
+    "src/companion/rhythm-levels.js": "5ed6155101cb8865bd9b0fab59cd6a16615a46f4c7ac5212d4350ca535f383c7",
+    "src/companion/routine-builder.js": "40f496c8d6f2d862a43ebbe1ec1f8f66ceeda574aebf1884c68346d4e8a9f9dd",
+    "src/companion/routine-policy.js": "4ba93755d42c8f9c1f01bb0778f04113be92f4afc4a1a6abc75dac8084485568",
+    "src/companion/saved-practice-edit.js": "d10a172cc4ea96a685dfe91edeba9898927fd4b23811ada5d35a5298741da62a",
+    "src/companion/saved-session-card.css": "f0bba380cda7c2a3bcaca271c9e09a04ecfa6a7cda51aa164b61ec50c8c68b22",
+    "src/companion/saved-session-card.js": "134afde8ae8f2f61881ad06c0a5ab23109337fe279c872367c49410deed9a15a",
+    "src/companion/scale-preview.js": "329ab5b6707b419e6ee4481e595de75b24b61c7a8847d9bdd22489db6f2fe4e4",
+    "src/companion/score-content.js": "d622fe5434072f5b01675ceb7b3ac94b40f0e129c0b5f0e1ce7a9e2f2fb2ab35",
+    "src/companion/score-controls.js": "bfa5e253f5b629208b8f172d7f57f6cf1a55505fb8c022feac2bf21a99b9842b",
+    "src/companion/score-import.js": "2794319467c8df5463325cb7ff713816756020a08609ee6c1fc393418f1e395f",
+    "src/companion/score-metadata.js": "45534be3403bb821f972472284d02fc4b6dfd922a3bd16c87cbeba4f205dd30d",
+    "src/companion/score-ocr.js": "19d82c1a0cd7da3af4ed98344ba0ac15033207f711caf4a2b1c2d9e7ed020dc3",
+    "src/companion/score-print.js": "157e45e06a78b85b64cd279f7c81922ea898defa74d804cfd3d58006a29fdb13",
+    "src/companion/score-thumbnail.js": "a4c6bb1e6ed11566194b0d630ff301fe232d31572da1b2b0007799c292516bff",
+    "src/companion/score-transfer.js": "f45383abb7b3a54418374c95e161069c4c5515d4f80b1827a6e9bc6063f68093",
+    "src/companion/score-view.js": "d2d8ab38cbca46df050e61cdd7675d4bed7e502e14061996415fee9c4b7fa6ec",
+    "src/companion/screen-awake.js": "553448a468f67ad3d434b1d1a7d06b5a51bac25635f8da815f8dcabd1b73fb68",
+    "src/companion/session-block-editor.js": "66cd9997b9a40c306c2e3615ab64874cddbd0e047fd07935f1dd83a75543af70",
+    "src/companion/session-drag.js": "2bf53d4d064b380162711bb73b45206237a1b53b9335d0fb169df51e9d0fc93c",
+    "src/companion/session-edit.js": "e66e9b715b4ae6bd7d6c8430aec051733bb1555504e70522e5e61c0425c74c33",
+    "src/companion/session-view.css": "ddd47bceedb660392f340b2849c97204963f493a6cd678aaf12dd20cc03ae975",
+    "src/companion/session-view.js": "c80905e1d7102a1308fca5eeddcc8d34ca0502a9cd65741127bb593179fda27d",
+    "src/companion/storage-coordinator.js": "3b677c8fa471b04824ba8a92e1e7562956b257c3769da05cdb32ab9f4c05427c",
+    "src/companion/storage-ui.js": "56951f1d141591c3d3c59441c5bf0a15dc7f987513dea848e2c8558ef0b7b5e0",
+    "src/companion/store.js": "525d73106519cdc7bd7c212ced4ace9b4ef42864bca65c901f960cc826454fb9",
+    "src/companion/sync-backup-copy.js": "ff0adf567a00e3eeaf11122c4c5ad80e4cc1eb100a8b9ba61c8acc8578397665",
+    "src/companion/sync-indicator.js": "725e437a43be8317094d759e50db31f5730720a8f04226e65eca46e0c24c5cd3",
+    "src/companion/theme.css": "c814ffa2d5cf1abdb5a0b2a397a5699a0435bcd181214655bcd30b1e16e17f40",
+    "src/companion/theme.js": "bffe4a537f578eeaec5e477bfed55322eba1dc9df11d800dd0a5744306e91176",
+    "src/companion/today.css": "50363b197d5648c23b7811dd2247e239e0daeaf52afb074a3825428334d7bf0f",
+    "src/companion/views.js": "57c03587ac31cbb42b5494b454b76daf63df18c11146e40fb341819d77e01539",
+    "src/companion/walkthrough.css": "e7adc62e651f0d06bd67e8604a727924269df3eeaf6ecae96e3461df3f3f353c",
+    "src/companion/walkthrough.js": "2df4fbe20f2c1ce8dba6c0e9f63f0548aed082967cd66b05fffeedf5953b6a62",
+    "src/companion/warmup-guide.css": "245e7d4bce89477dc78d2d1e5e30a39ce821fece00746f52a0742cdcd49bb34d",
+    "src/companion/warmup-guide.js": "7d08ee2f7dd1477b5c80e707a75c5a698c6e6ba5a455b2163430ca69ab7e2362",
+    "src/companion/warmup-snapshots.js": "9c786d79ff1c22fb264ed7f084b7cc6067d6a428cbcc8b1711b1d763ae79a2af",
+    "src/companion/warmups.js": "2734902f9606820ece27eb2bbecb3239d1ab6f9f56c0b2c467e3f769d61e9e15",
+    "src/companion/work-detail.css": "0a9359bedc53885628597fa917448b51e83a14b2a0bfac1c97a4cd47c02b33e1",
+    "src/companion/work-detail.js": "c58fa72ce6fbed808aa619771507afd4551d12151c83a2daca1f9752c3361812",
+    "src/companion/work-practice.js": "4a7863d1294468c07c5b8e76975756847d0fa7e34a9340558564002531f69fed",
+    "src/i18n.js": "809ebcc7b35b0ba16b12fa494293070f57b0001ab73d727fab5fc0828158028d",
+    "src/keyboard-material.css": "df0b51068f39449429cecca5238e6b60dcec8fbc8acc1c0bceb959cefd4df384",
+    "src/landscape-keyboard.css": "06d537c0d099db2d0fb5d6cca9f0888b916eaf6a75c037125b100dbe47dde189",
+    "src/layout.css": "f16811bb8cc65a23712ced52ae29ef655925c99273c9b526629c58f9a0823207",
+    "src/levels.js": "866b2e5fc198126534e37cb5287d4b0d497ae6554f621cdfa91727721b50b63d",
+    "src/main.js": "a54d14e838bfc6fc2c20137ac6eba5a19b854ec362503e7819791ee8f4066c08",
+    "src/metronome-processor.js": "6fc8cd9d54551afd1776f708bdff78fd63c03a3dde10e1c85c4be53b68bff5b9",
+    "src/metronome.js": "07c5a7b02e69c8055e86e0845419fc6f6606cbda07935ddb768f66f56fbe4e59",
+    "src/midi-indicator.css": "fc8869ed5a79ed5b1a8f6d2c40a58ba6bfb9787cbbc1cbbc87c54309fc4f5241",
+    "src/midi-indicator.js": "27e094cb662334fe36bddf794c71d5795ed6fd81b456878134a4980579c027be",
+    "src/midi.js": "a803cb4054997d70e767c942d831ed3857967d231920e04acc9e8558f0dc6f89",
+    "src/music.js": "dbed3339f97cee9e3cbc2860259509bb7c06f155aac512e9db65c3e2e2d3d1ad",
+    "src/page-layout.js": "894953bba0981635c5f4a1d4a01c4ce20f7089c6a4830bbb05307cc4a333ccbf",
+    "src/render.js": "9bfe74f55f3a8ef5f20cd96cdfbf018ce5ee82d42c67f062286005aad23a36b9",
+    "src/style.css": "34b86003612947b5b12e1afb8bc7ae4f9dfd6b1694cf48b475ae2ee31d4fb01b",
+    "src/voice.js": "0e72b1938cef60ad7a7905f063374063d0debd9737a49a060a47b27076ed4097"
+  },
+  "fixturesSha256": "010a3a1804711d0a8bca2f710f7425bfd3c59c59724dd5306414a219838900c6",
+  "serverSha256": "1ac61a7c595a4f8a49bdfc12da1e6646f2c7f93505bb8966b9d6a3fdf322267e",
+  "mainScreenMatrixFrames": 48,
+  "mainMatrixPageOverflowFailures": 0,
+  "mainMatrixOverflowScope": "Only the 48 main-screen baselines; internal horizontal strips are intentionally separate. Not an all-dialog or all-state guarantee.",
+  "totalScreenshots": 104,
+  "standardDimensionScreenshots": 101,
+  "excludedVisualAcceptanceFrames": [
+    "flow-generated-paused-phone-landscape.png",
+    "flow-pdf-reader.png",
+    "flow-session-overview.png"
+  ],
+  "captureLimitation": "Score/fullscreen capture mismatch and one generated-reader landscape orientation capture. Retained as diagnostics, not app layout defects.",
+  "consoleScope": "Browser warnings retained; includes MIDI permission rejection and initial PDF worker MIME setup issue in review server. No clean-console or full-suite pass claimed.",
+  "checks": "Production build and recorded DOM/screenshot inspection. No new regression suite or native-device tests run.",
+  "frames": [
+    {
+      "file": "calendar-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "025777bcb1dbc3b19bdaaea482cec26f4de7bf10d663f8226166a8411e81e0e4",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "25ed5d17ed2e86c820c2c79540c41b875f9341c0d22025754383d42b1e05cf31",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "6e78760b26301ad12ca4c2808ef22ae8b2c69e2c6d961948cc7d8be208700f48",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "9947a4b142d282c2e75b44e28987ce7846848d759d5ad6a3d225e1d60878f699",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "8a0f9db4ef7bbacebed83af2797e8a5c1b34ca722a65119466e36f7b4b90ff40",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "316f88e630240b20b187fc7b8dc11aab73cdd55dd44c78efd26c0734e741bbc4",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "c68956ca234a9c642dd86d494148a03cdbabb98d5f7d143ce07f47e838805f9c",
+      "standardDimensions": true
+    },
+    {
+      "file": "calendar-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "59ee6905eff1a66348c4598ec2228446920fdb4386d839449236393897b4285b",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-calendar-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "b6db55bd96af4f3aae24275c808bd5c709c1b2c9ae76e78066bd87feadebedb5",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-home-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "e96ed64051a4fe099eda1ec9f1a3ba7c7da4e601633eeb84fa0edd38e9fd9702",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-piano-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "fee75748f47884c7e7b7353ca6a71df55eae59d4ad749e869cba78c83ea9564e",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-practice-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "7ccb6d66632c643b750879d1fd818dae0eda2e84f1624f95c6b8bccd593d8259",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-progress-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "61feb1cbb09090acb41c054efad099250baed79d48e50168e5340f5d7a14cedf",
+      "standardDimensions": true
+    },
+    {
+      "file": "empty-settings-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "ff069319a22d71f052b660b58e5b28f730100ee17861c85223199542883ec258",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-add-work-choice.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "0c06062b6a882625787414d98e42650808fedee4657f3f060d8c4d7819086809",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-add-work-form.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "f65b2fb60d6246531bc2717756318960709c5abb4dbf2ac5316cac8f4448d69b",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-calendar-add.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "49fc8a4cf84190c38aa68242a30e42823068c72447e1cda656381ee977bb7750",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-calendar-month.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "08df66c6e387f414e4040b02b3d0d8659507722840a999a39267fbeae1937bd5",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-catalogue.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "199492fef0490fc9b3f485a144c4a28b9f89f8061238ec4ec977b323a4a2d33e",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-edit-profile.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "525c51366efa9464318fd0af45f81c6fd049c8826b6a9d8c928b713fdc53b9ca",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-event-form.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "bd2274c597dda8938f88429ff866141c2976d447d3028197a0a25fb7dd4375e9",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-finish-feedback.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "d1acd4a260baa9277affbc6105370e02d949d4cb48cee4506626163ff9313738",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-generated-paused-phone-landscape.png",
+      "size": [
+        180,
+        390
+      ],
+      "sha256": "15dab4b11b23cdbdb7ae54c2ea4e128c57ad295ea54195d8bc71e1d5b622529f",
+      "standardDimensions": false
+    },
+    {
+      "file": "flow-generated-paused-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "7c21ba949e19b03d30f914a0011c98fe904c7079ec34ded68f551ecd86c5a07e",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-generated-paused-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "b7df18d8713d5fe74ed6a63b6ee4dfcbe388037cfa927a0f0b1b4bc0d4b2d654",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-generated-paused-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "785661f23499058b50a7fe7d85ca83194bd24b5939ac5b6cbec794da49980c19",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-generated-reading.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "c5e41e418470ca63b1806928b1e76ec34bffd97a251c323091c61f67be505500",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-midi-instrument.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "fc87e518e94e70b627b868d943597e1e69a3accbbed1337b12e04fbe66e50cfd",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-midi-settings-disconnected.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "15492b4140866f69629ef06d628040bf5a05109ca81b9a3e76c359ded5ff8c9d",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-multimedia-empty.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "b01373cbd069022d97775cc47137bf359c6ed61f6a136788aeefca6831a64dab",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-pdf-reader.png",
+      "size": [
+        390,
+        219
+      ],
+      "sha256": "9a3430ef8cd1a040fba7c7a8cd030a1994ee5bfb094485c7f45f0d2ba668f1cc",
+      "standardDimensions": false
+    },
+    {
+      "file": "flow-plan-week.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "f495191eca7b9eca2720a612f26fbae4160044be441853626c197f74ae3ab3b9",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-practice-preferences.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "f4fde157c11f635865a3a3e2ff181551cdc320be1b9a33c6acbcc1dce345a8df",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-progress-details.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "2f0a6ae53cdeb9c8b9c06f8e9bfaa2474e11832e79a4910db7ff8871b84603d2",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-progress-repertoire.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "01ae6224b7cff8a8a59f145c3f9477135919979e768fea0b9e0d29e4bab3b63e",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-progress-technique.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "b57d9323e2229f53a4b4afbad9a87065e5dd1ec40107baa1f01472352ff4db40",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-reading-mode.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "41996f1878c264e53ccbda3ea80923d92bb4f5b87de9c00d24fe2fa8eb2494a9",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-reading-session.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "1a2ac1a29b2eab2926c00625dc65e73853b4c93f2549a35610f6e31452e3a2bf",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-reading-setup.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "e274904cd7d39a47b07af20c8c929d50fccb32935b2f37f5a70b8838764574d7",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-recording-choice.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "d34dea74737d3cbf0940ed47bf7e3d33617fe2277d3205432c15c74625afd687",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-repertoire-mode.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "aed645cd5367fcf4774b39f6e66dca48b2948627ea5c4a7d39de1f040635f0a7",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-repertoire-picker.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "c160900921e9fffed445312c849bf74d2c407a5a44230d486a572702de52ee5b",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-repertoire-setup.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "4f073f490a4b0476a8f9ae9fe12fa83a56e6f7c20c070ce80ec6f227b66cbdf3",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-routine-setup.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "67fcb411b7b74db5d74598b3fd28cb432437173396cc28e2b1e4c133e20e6d93",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-session-overview-ready.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "5ff502347a988346e20fc78a538d9310cab73bd887071748b103d50c14b92054",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-session-overview.png",
+      "size": [
+        390,
+        219
+      ],
+      "sha256": "3fc8412dd8702105ef624d6dd68dd43b6f4a5677ece6123667e25bcb87e444f5",
+      "standardDimensions": false
+    },
+    {
+      "file": "flow-sync-disconnected.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "24b3b0505824a529188db04f2f73f3609d62adc5a8ef0b0b41f55297d5ead16b",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-today-pending.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "105dd9de9b4e12b017e7f2365374a155b09b7c2ffac139767bd1750aae3f84fb",
+      "standardDimensions": true
+    },
+    {
+      "file": "flow-work-detail.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "7f24aa3243c93a92ac1a873b44fa831ff49166fcd88634b5f3fa32ead6509c90",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "f19d41668b6089e858ea21f4a0820758af447921093b065e325ada16752654f8",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "ddd172a4ac690f328948bc1243a3e78eb9186864a58c66f62742516c820da672",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "00779649934e288650250a9ed0d4187b02391ba745c13e8f3ceadc3b28b6e7ec",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "850752dd60d3e8d5825de0ad004c3b1508544e0795d7212853fc44089d48e241",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "a0b16fbbd35132dd3c6141cca6cef8b0bced7f2b1a3be783c538097b6c3029cf",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "1d3e0e328e35e8cc599603b1abbf935af9acc1fd0de18a0fe32c99d7824fd163",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "3fa8be2b6c27f951bb407d55b6d9749fe78d78e00bd492b7e023db56b2749889",
+      "standardDimensions": true
+    },
+    {
+      "file": "home-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "405fa2731ad8ac67f0f370adc3049e7a10b199ad3a257d4ba0cc548250b764f4",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-calendar-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "3e702332487fd46771088d181926c4cea97c0cd7665e4f51a0cbc82ccf02ae99",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-home-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "ad365187c1f9704600098768904f279a247f7726ec2d49bc3488cdb1691e0445",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-piano-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "0cbd82a4bf8e6ea4b981bf62571e499fda79d49d4b3e0ac8694dc7d5c606e3ec",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-practice-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "58422a52d7feb0235c0ca3038eb483895f577cd93084016efd019742848b1346",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-progress-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "60b614fa3dd984d9802fd4f9f5aef5bcf76350e74ad420b295bfd54916fa4c62",
+      "standardDimensions": true
+    },
+    {
+      "file": "narrow-settings-320x640.png",
+      "size": [
+        320,
+        640
+      ],
+      "sha256": "caffc58f1c1de86ba5a65b9db46dd3f87e2cfd75f0ff063449eae827475af6c8",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-home-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "845084f5b703dd4d0c3b29bafb54f3edaa0bc9e48879ad7276f43bd8f76694d1",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-home-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "c28e1f4eeae7afc20ca0369a8ad17fdd3517f8099c6c340c3953bbdf76feb5c7",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-home-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "ee9e48642dfc26c1ec25bf4e0899aa822daca7fdc4394703883023989f0120b2",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-home-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "848640e5b89f03e92665714e51c16055a8e2d00033b4d8e8061b433751668f9f",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-practice-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "f93818836cb0084e2f31de5ced487288d77256db590a8fd223de51df1b717a23",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-practice-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "097153fe421ce90f5c8ed33aa2e5b1fc8b4dca54f9377687c4f763a9c35e1afa",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-practice-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "6c294894bd07199c6a878c429192e15de6b6ec60be35289916f520bbde50caf1",
+      "standardDimensions": true
+    },
+    {
+      "file": "pending-practice-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "2c6fb0fcfca0254353dc4896eaca26266624da14ee9887a7ec6d9b7fddcab926",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "3549bd74c014c573a3832e8b756aa89a5f0c98e445a36a0f8901ba6e3cdf68b9",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "5eae8b07011111082405189f9ab0ce6ac987dfe013c730a264198860e80f77fe",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "faa4e0fa224b012ea0f01f1dfb0477ecb4535a0169e84a4304a90b84ed3e5028",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "2be7ab6acf2647220baed4397ec0ad07d0e88ed72dd79415ca00a9ca01ff4a34",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "2278fea2d8f2f2e137412cca26d9d2fb508e593ae8a063e3563d9699405d49a1",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "343cefbb9cc7f3d340579f445d7141bbd5d9124183e3982a4285d18960d95583",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "ffb3ee28a66e9b98f8ba683ca654f44b5fdc426f0501fdd125af19871ff84b74",
+      "standardDimensions": true
+    },
+    {
+      "file": "piano-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "dd5c59534d2746263a070e9e13994c6b8788b5e07ab884b6a32ff543e99b9777",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "c5e8d0c9963915a451f060ad8b36fffd392aea7afe93b245cd79893bd5ddbc96",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "35d8f459efdfec223b2a032bc345b777205bddc672fb2064d7ea7e7b439fc881",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "e51e07a2e1a14a245367b961f75ae0fddd07a6fdee445ad9dd50caf6ffe6178f",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "8c8dfbcd1f40982cce7cba46ca8d8727ffc6218b784ce0af726af3257928e8ca",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "33fac417b36f27073d569e415f4ef88ce035a157b8abf80db482716b4aa03b5b",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "07b5264059ad4314edb9930e28fb6d42a33cbdbc6d4a159273b4f05b85eff382",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "5303a3a14c86022574292b5122e64020400f7c15fc22d5c7ff453a0f1bb74683",
+      "standardDimensions": true
+    },
+    {
+      "file": "practice-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "517dac2678294a2e3ace97a29c83797ffbd07b03d49153f0b11a60f0ce3e609f",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "04a457b73648555b63cea97e2c38f44946ea2f0bfddfa5919c526904e937952b",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "98a2667dc078eda8eaf2e348c8e725f337af21606333a132bf8897d195ff0d5b",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "ff6628a749b2187e514c0d5eb74c74f170e87f92e020dfbf2f713ef31860573d",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "93b7d1e30e0646ae9faf39c2605fe677009b2aaaba0791a79a37c28cdcd2c05c",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "3e52dd092cdff6f91e4754afa4c5c3b1d1c86e28e4c4212693c41d0f169156e8",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "20dd3c21cce25068cda8559cc94e3adbb49415b749d74828db52d609e9299360",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "1a57d8b4e3fce8412601f8efe0e17e352eb84413a7e16289d28688f13b39b66c",
+      "standardDimensions": true
+    },
+    {
+      "file": "progress-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "3882186e77671466d44bed47e9b007b0d472f73214723dc8bed52fe8c483bdea",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-dark-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "a653f00fd149856d36031631608d59d631ddf3f912a899c6152858ae8eee0c6c",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-dark-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "ca227752558907938a8c9b0765a0366a4bcdfc679af6f26ccd46f8f9ef47093c",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-dark-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "eacd6bee8fbfa5958b4d923c4b58bdc79367375bd55163b42b01b03e40d14f94",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-dark-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "5d3a8d716b656531c49fb2099c3529ebeb908e97486a56cd1a696aa96b624e0f",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-light-phone-landscape.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "cc23238dc9be3523a7fca8aaca6487ca3a3e00d68f197ad96b557687dc2c192f",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "3a38d475614294291b5d154905676dc285f2862d210ee0797c067860e105ecc2",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-light-tablet-landscape.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "cb685d64dc61ea823cad5b373365e578cacd10d7e89f754d2796751ff704e7b0",
+      "standardDimensions": true
+    },
+    {
+      "file": "settings-light-tablet-portrait.png",
+      "size": [
+        768,
+        1024
+      ],
+      "sha256": "4690b80855b55b7daa9d901abeae79e69b8e6a97a28fc145a69767eeccdcc6dd",
+      "standardDimensions": true
+    },
+    {
+      "file": "today-light-phone-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "1d3e0e328e35e8cc599603b1abbf935af9acc1fd0de18a0fe32c99d7824fd163",
+      "standardDimensions": true
+    }
+  ]
+}

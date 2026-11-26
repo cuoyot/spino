@@ -1,0 +1,83 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+    - heading "Progreso" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Secciones de progreso":
+    - button "Actividad"
+    - button "Repertorio"
+    - button "Técnica"
+  - heading "Esta semana" [level=2]
+  - strong: 0 min
+  - generic: Tiempo de práctica
+  - strong: 1 hr 30 min
+  - generic: Objetivo semanal
+  - paragraph: Últimas 12 semanas
+  - figure "Práctica semanal · semana actual en curso":
+    - group "Tiempo de práctica registrado":
+      - generic: 0 min
+      - generic: 5 min
+      - generic: 10 min
+      - 'button "7 sept 2026 – 13 sept 2026: 0 min"':
+        - 'generic "7 sept 2026 – 13 sept 2026: 0 min"'
+      - 'button "14 sept 2026 – 20 sept 2026: 0 min"':
+        - 'generic "14 sept 2026 – 20 sept 2026: 0 min"'
+      - 'button "21 sept 2026 – 27 sept 2026: 0 min"':
+        - 'generic "21 sept 2026 – 27 sept 2026: 0 min"'
+      - 'button "28 sept 2026 – 4 oct 2026: 0 min"':
+        - 'generic "28 sept 2026 – 4 oct 2026: 0 min"'
+      - 'button "5 oct 2026 – 11 oct 2026: 0 min"':
+        - 'generic "5 oct 2026 – 11 oct 2026: 0 min"'
+      - 'button "12 oct 2026 – 18 oct 2026: 0 min"':
+        - 'generic "12 oct 2026 – 18 oct 2026: 0 min"'
+      - 'button "19 oct 2026 – 25 oct 2026: 0 min"':
+        - 'generic "19 oct 2026 – 25 oct 2026: 0 min"'
+      - 'button "26 oct 2026 – 1 nov 2026: 0 min"':
+        - 'generic "26 oct 2026 – 1 nov 2026: 0 min"'
+      - 'button "2 nov 2026 – 8 nov 2026: 0 min"':
+        - 'generic "2 nov 2026 – 8 nov 2026: 0 min"'
+      - 'button "9 nov 2026 – 15 nov 2026: 0 min"':
+        - 'generic "9 nov 2026 – 15 nov 2026: 0 min"'
+      - 'button "16 nov 2026 – 22 nov 2026: 0 min"':
+        - 'generic "16 nov 2026 – 22 nov 2026: 0 min"'
+      - 'button "23 nov 2026 – 26 nov 2026: 0 min" [pressed]':
+        - 'generic "23 nov 2026 – 26 nov 2026: 0 min"'
+      - generic: 7 sept
+      - generic: 5 oct
+      - generic: 26 oct
+      - generic: 23 nov
+    - generic: Práctica semanal · semana actual en curso
+  - status: No hay práctica guardada en este periodo.
+  - button "Más detalles":
+    - text: Más detalles
+    - generic: →
+  - 'button "Mantén tu ritmo 0 semanas practicando Racha de objetivos: 0 · semanas"':
+    - text: Mantén tu ritmo
+    - generic: ›
+    - strong: "0"
+    - generic: semanas practicando
+    - generic: "Racha de objetivos: 0 · semanas"
+  - button "Grabaciones 0 Esta semana 0 Audio 0 Vídeo":
+    - text: Grabaciones
+    - generic: ›
+    - strong: "0"
+    - generic: Esta semana
+    - text: 0 Audio
+    - text: 0 Vídeo
+  - heading "Escalas y modos trabajados" [level=2]
+  - paragraph: Practica lectura o técnica para seguir tus objetivos musicales.
+  - heading "Historial" [level=2]
+  - paragraph: Tus prácticas guardadas aparecerán aquí. Empieza con unos minutos, a tu ritmo.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

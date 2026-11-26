@@ -1,0 +1,170 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?theme=dark&route=calendar".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=calendar
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Calendario, Value: 1
+				6 text Calendario
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 container Vista del calendario
+				11 checkbox Semana, Value: 1
+				12 checkbox Mes, Value: 0
+			13 button Organizar semana
+			14 heading 16 nov – 22 nov, Value: 2
+				15 text 16 nov – 22 nov
+			16 text Semana 47
+			17 container
+				18 text 12 min  practicados · 0 min previstos
+			19 container
+				20 text LUN 16
+			21 text Sin práctica prevista
+			22 button Añadir al lunes, 16 de noviembre
+			23 container
+				24 text MAR 17
+			25 text Sin práctica prevista
+			26 button Añadir al martes, 17 de noviembre
+			27 container
+				28 text MIÉ 18
+			29 text Sin práctica prevista
+			30 button Añadir al miércoles, 18 de noviembre
+			31 container
+				32 text JUE 19
+			33 text Sin práctica prevista
+			34 button Añadir al jueves, 19 de noviembre
+			35 container
+				36 text VIE 20
+			37 text Sin práctica prevista
+			38 button Añadir al viernes, 20 de noviembre
+			39 container
+				40 text SÁB 21
+			41 text Sin práctica prevista
+			42 button Añadir al sábado, 21 de noviembre
+			43 container
+				44 text DOM 22
+			45 container Prácticas y eventos · desliza horizontalmente
+				46 button Repaso de una obra archivada · dom, 22 nov 2026 · 12 min · Realizada · Piano MIDI · A long synthetic title with <tags> & several movements
+					47 text Repaso de una obra archivada
+					48 text 12 min
+					49 container Realizada
+						50 text ✓
+			51 button Añadir al domingo, 22 de noviembre
+			52 heading 23 nov – 29 nov, Value: 2
+				53 text 23 nov – 29 nov
+			54 text Semana 48 · Actual
+			55 container
+				56 text 163 min  practicados · 0 min previstos
+			57 container
+				58 text LUN 23
+			59 container Prácticas y eventos · desliza horizontalmente
+				60 button Técnica y lectura · lun, 23 nov 2026 · 1 hr 30 min · Piano MIDI · Parcial
+					61 text Técnica y lectura
+					62 text 1 hr 30 min · Parcial
+					63 container Parcial
+						64 text ◐
+			65 button Añadir al lunes, 23 de noviembre
+			66 container
+				67 text MAR 24
+			68 container Prácticas y eventos · desliza horizontalmente
+				69 button Lectura y repertorio · mar, 24 nov 2026 · 9 min · Realizada · Piano MIDI · Étude mélodique
+					70 text Lectura y repertorio
+					71 text 9 min
+					72 container Realizada
+						73 text ✓
+			74 button Añadir al martes, 24 de noviembre
+			75 container
+				76 text MIÉ 25
+			77 container Prácticas y eventos · desliza horizontalmente
+				78 button Repertorio · mié, 25 nov 2026 · 44 min · Realizada · Piano MIDI · Prélude en do majeur
+					79 text Repertorio
+					80 text 44 min
+					81 container Realizada
+						82 text ✓
+			83 button Añadir al miércoles, 25 de noviembre
+			84 container
+				85 text JUE 26
+			86 container Prácticas y eventos · desliza horizontalmente
+				87 button Weekly piano lesson 15:30 · Clase
+					88 text Weekly piano lesson
+					89 text 15:30 · Clase
+				90 button Práctica de piano · jue, 26 nov 2026 · 20 min · Realizada · Registro manual
+					91 text Práctica de piano
+					92 text 20 min
+					93 container Realizada
+						94 text ✓
+			95 button Añadir al jueves, 26 de noviembre
+			96 container
+				97 text VIE 27
+			98 container Prácticas y eventos · desliza horizontalmente
+				99 button Ensayo 1 17:00 · Ensayo
+					100 text Ensayo 1
+					101 text 17:00 · Ensayo
+				102 button Otro 1 17:00 · Otro
+					103 text Otro 1
+					104 text 17:00 · Otro
+			105 button Añadir al viernes, 27 de noviembre
+			106 container
+				107 text SÁB 28
+			108 container Prácticas y eventos · desliza horizontalmente
+				109 button Ensayo 2 17:00 · Ensayo
+					110 text Ensayo 2
+					111 text 17:00 · Ensayo
+				112 button Otro 2 17:00 · Otro
+					113 text Otro 2
+					114 text 17:00 · Otro
+			115 button Añadir al sábado, 28 de noviembre
+			116 container
+				117 text DOM 29
+			118 container Prácticas y eventos · desliza horizontalmente
+				119 button Ensayo 3 17:00 · Ensayo
+					120 text Ensayo 3
+					121 text 17:00 · Ensayo
+				122 button Otro 3 17:00 · Otro
+					123 text Otro 3
+					124 text 17:00 · Otro
+			125 button Añadir al domingo, 29 de noviembre
+			126 heading 30 nov – 6 dic, Value: 2
+				127 text 30 nov – 6 dic
+			128 text Semana 49
+			129 container
+				130 text 0 min  practicados · 0 min previstos
+			131 container
+				132 text LUN 30
+			133 text Sin práctica prevista
+			134 button Añadir al lunes, 30 de noviembre
+			135 container
+				136 text MAR 1
+			137 text Sin práctica prevista
+			138 button Añadir al martes, 1 de diciembre
+			139 container
+				140 text MIÉ 2
+			141 text Sin práctica prevista
+			142 button Añadir al miércoles, 2 de diciembre
+			143 container
+				144 text JUE 3
+			145 container Prácticas y eventos · desliza horizontalmente
+				146 button Weekly piano lesson 15:30 · Clase
+					147 text Weekly piano lesson
+					148 text 15:30 · Clase
+			149 button Añadir al jueves, 3 de diciembre
+			150 container
+				151 text VIE 4
+			152 text Sin práctica prevista
+			153 button Añadir al viernes, 4 de diciembre
+			154 container
+				155 text SÁB 5
+			156 text Sin práctica prevista
+			157 button Añadir al sábado, 5 de diciembre
+			158 container
+				159 text DOM 6
+			160 text Sin práctica prevista
+			161 button Añadir al domingo, 6 de diciembre
+		162 container Navegación principal
+			163 button Hoy
+			164 button Practicar
+			165 button Calendario
+			166 button Biblioteca
+			167 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=calendar

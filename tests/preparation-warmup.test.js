@@ -31,8 +31,10 @@ test('repertoire has its type before its content and omits the tempo in preparat
   const markup=preparationMarkup(source,'start',data);
   assert.ok(markup.indexOf('name="type-0"')<markup.indexOf('data-practice-pieces'));
   assert.doesNotMatch(markup,/name="bpm-0"/);
-  assert.match(markup,/name="include-warmup"\s*\/>/);
-  assert.match(markup,/<fieldset disabled>/);
+  const toggle=markup.match(/<input[^>]*name="include-warmup"[^>]*>/)?.[0];
+  assert.ok(toggle);
+  assert.doesNotMatch(toggle,/\schecked(?:\s|\/?>)/);
+  assert.match(markup,/<fieldset[^>]*disabled[^>]*hidden>/);
   data.active=beginSession(source);
   assert.doesNotMatch(sessionMarkup(data),/cp-session-tempo/);
 });

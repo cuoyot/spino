@@ -1,0 +1,16 @@
+/* Horizontal card strips retain touch, trackpad and keyboard scrolling without a track. */
+:is(#app-shell,#cp-dialog,#cp-media-capture) .cp-practice-stand { scrollbar-width: none; padding-bottom: 4px; }
+:is(#app-shell,#cp-dialog,#cp-media-capture) .cp-practice-stand::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* Browsing scrollbars stay quiet on desktop and disappear on narrow/touch devices. */
+:is(#app-shell .cp-page,#cp-dialog .cp-dialog-body,#cp-dialog .cp-form-fields) {
+  scrollbar-width: thin;
+  scrollbar-color: #9298a840 transparent;
+  scrollbar-color: color-mix(in srgb, var(--theme-muted) 24%, transparent) transparent;
+}
+:is(#app-shell .cp-page,#cp-dialog .cp-dialog-body,#cp-dialog .cp-form-fields)::-webkit-scrollbar { width: 6px; height: 6px; }
+:is(#app-shell .cp-page,#cp-dialog .cp-dialog-body,#cp-dialog .cp-form-fields)::-webkit-scrollbar-thumb { border-radius: 8px; background: #9298a840; }
+@media (max-width: 900px), (pointer: coarse) {
+  :is(#app-shell .cp-page,#cp-dialog .cp-dialog-body,#cp-dialog .cp-form-fields) { scrollbar-width: none; }
+  :is(#app-shell .cp-page,#cp-dialog .cp-dialog-body,#cp-dialog .cp-form-fields)::-webkit-scrollbar { display: none; width: 0; height: 0; }
+}

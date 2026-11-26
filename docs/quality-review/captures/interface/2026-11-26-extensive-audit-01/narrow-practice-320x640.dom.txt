@@ -1,0 +1,40 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Practicar" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: ¿Qué te apetece trabajar?
+  - group "Elegir práctica":
+    - button "Práctica rápida En pantalla · sin tempo · una mano":
+      - strong: Práctica rápida
+      - generic: En pantalla · sin tempo · una mano
+      - generic: ▶
+    - button "Lectura":
+      - text: Lectura
+    - button "Técnica":
+      - text: Técnica
+    - button "Repertorio":
+      - text: Repertorio
+    - button "Práctica libre":
+      - text: Práctica libre
+    - heading "Tus rutinas" [level=2]
+    - button "Gestionar rutinas"
+    - paragraph: Guarda una secuencia de ejercicios para repetirla.
+    - button "Crear rutina"
+    - heading "Récords de práctica rápida" [level=2]
+    - paragraph: Termina una práctica rápida para registrar tu primer récord.
+    - paragraph: 100 por acierto + hasta 100 por rapidez; −50 por error. Los puntos se acumulan durante la práctica.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

@@ -1,0 +1,68 @@
+✖ Home weekly progress counts saved time through today and compares an optional goal (109.177583ms)
+✔ day agenda orders appointments and merges a completed plan with its result (69.138458ms)
+✔ Today gives a pending session one continuation card and retains other plans (2.128958ms)
+✔ weekly agenda crosses month boundaries and keeps unplanned practice visible (4.869834ms)
+✔ monthly and yearly rules clamp short months without drifting the original day (6.41775ms)
+✔ open series is bounded by requested range, has stable IDs and an inclusive optional end (50.686125ms)
+✔ editing, moving, marking and deleting one occurrence preserve the rest and stable IDs (1.552625ms)
+✔ cancelling an open series retains past dates and removes future exceptions (1.192792ms)
+✔ recurrence survives validation and backup round trips and rejects malformed rules (3.601708ms)
+✔ agenda and reminders include future occurrences with independent notification IDs (2.324208ms)
+✔ upcoming events include series starting years ahead and skip excluded dates (0.711208ms)
+✔ upcoming performances take precedence over earlier recurring lessons and rehearsals (0.689208ms)
+✔ upcoming commitments retain date and time order within each priority and exclude today and past events (1.909833ms)
+✔ recurring performances keep excluded dates and occurrence IDs when prioritized (0.853666ms)
+✔ Today limits each performance type to one and each secondary type to two independently (0.655584ms)
+✔ MIDI settings are available to keyboard users and first-time disconnected users (13.524042ms)
+✔ past weekdays are unavailable for a single week but retained in a future recurring series (19.834208ms)
+✔ piano-key names identify pitch and octave without depending on visible assistance (0.515041ms)
+✔ profile language persists without changing historical identifiers or requiring migration (8.234167ms)
+✔ Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors (0.417833ms)
+✔ Drive incremental transfer failures and persisted old diagnostics use the selected language (1.327125ms)
+✔ weekly series cross year boundaries, avoid duplicates and survive backup validation (15.919417ms)
+✔ stopping future practice preserves history, active sessions and the independent tutor series (1.258375ms)
+✔ weekly assistant previews only future free dates and separates tutor classes (23.282959ms)
+✔ weekly routines retain their blocks and context without changing the source (0.695125ms)
+✔ weekly assistant validates class time and supports a class without practice days (0.476833ms)
+✔ optional warm-ups materialize every configured type without rewriting the practice (19.789208ms)
+✔ repertoire has its type before its content and omits the tempo in preparation and overview (33.420167ms)
+✔ warm-up consumes the selected total and returns its minutes when disabled (0.9705ms)
+✔ static piano marks the real pitches, including enharmonic scale spellings (19.297792ms)
+✔ multiple pieces share a fixed total while retaining settings, IDs and warm-up (21.086625ms)
+✔ selection never exceeds the available minutes or twenty pieces (0.539959ms)
+✔ existing custom plans remain editable without merging activity identities (0.333ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 32
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 818.282209
+
+✖ failing tests:
+
+test at tests/agenda.test.js:9:1
+✖ Home weekly progress counts saved time through today and compares an optional goal (109.177583ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /cp-today-progress-today[\s\S]*?<strong>15 min<\/strong>/. Input:
+  
+  '<section class="cp-today-progress" aria-label="Practicado esta semana">\n' +
+    '    <div class="cp-today-progress-heading"><h2>Tu semana</h2><button type="button" data-action="progress" data-id="" class="quiet">Ver progreso</button></div>\n' +
+    '    <div class="cp-today-progress-total"><strong>45<small> min</small></strong><span>/ <b>1 hr 30 min</b> objetivo</span></div>\n' +
+    '    <div class="cp-today-progress-track" role="progressbar" aria-label="Objetivo semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="45 min / 1 hr 30 min"><span style="width:50%"></span></div><p class="cp-today-progress-caption">45 min para tu objetivo</p>\n' +
+    '    <div class="cp-today-week" aria-label="Tu semana"><div class="cp-row"><span>28 sept – 4 oct</span><button type="button" data-action="today-calendar" data-id="" class="quiet">Ver calendario</button></div>\n' +
+    '      <div class="cp-today-days"><button type="button" data-action="calendar-day" data-id="2026-09-28"  aria-label="lunes, 28 de septiembre, 30 min, 1 actividades"><small>L</small><b>28</b><span class="cp-day-practice" aria-hidden="true"><i style="height:100%"></i></span><span class="cp-day-minutes" aria-hidden="true">30′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-09-29"  aria-label="martes, 29 de septiembre, 0 min, 0 actividades"><small>M</small><b>29</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-09-30" aria-current="date" aria-label="miércoles, 30 de septiembre, 15 min, 1 actividades"><small>X</small><b>30</b><span class="cp-day-practice" aria-hidden="true"><i style="height:50%"></i></span><span class="cp-day-minutes" aria-hidden="true">15′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-01"  aria-label="jueves, 1 de octubre, 0 min, 1 actividades"><small>J</small><b>1</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-02"  aria-label="viernes, 2 de octubre, 0 min, 0 actividades"><small>V</small><b>2</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-03"  aria-label="sábado, 3 de octubre, 0 min, 0 actividades"><small>S</small><b>3</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-04"  aria-label="domingo, 4 de octubre, 0 min, 0 actividades"><small>D</small><b>4</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button></div>\n' +
+    '    </div>\n' +
+    '  </section>'
+  
+      at TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/interface-first-eight/spino/tests/agenda.test.js:13:52)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<section class="cp-today-progress" aria-label="Practicado esta semana">\n    <div class="cp-today-progress-heading"><h2>Tu semana</h2><button type="button" data-action="progress" data-id="" class="quiet">Ver progreso</button></div>\n    <div class="cp-today-progress-total"><strong>45<small> min</small></strong><span>/ <b>1 hr 30 min</b> objetivo</span></div>\n    <div class="cp-today-progress-track" role="progressbar" aria-label="Objetivo semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="45 min / 1 hr 30 min"><span style="width:50%"></span></div><p class="cp-today-progress-caption">45 min para tu objetivo</p>\n    <div class="cp-today-week" aria-label="Tu semana"><div class="cp-row"><span>28 sept – 4 oct</span><button type="button" data-action="today-calendar" data-id="" class="quiet">Ver calendario</button></div>\n      <div class="cp-today-days"><button type="button" data-action="calendar-day" data-id="2026-09-28"  aria-label="lunes, 28 de septiembre, 30 min, 1 actividades"><small>L</small><b>28</b><span class="cp-day-practice" aria-hidden="true"><i style="height:100%"></i></span><span class="cp-day-minutes" aria-hidden="true">30′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-09-29"  aria-label="martes, 29 de septiembre, 0 min, 0 actividades"><small>M</small><b>29</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-09-30" aria-current="date" aria-label="miércoles, 30 de septiembre, 15 min, 1 actividades"><small>X</small><b>30</b><span class="cp-day-practice" aria-hidden="true"><i style="height:50%"></i></span><span class="cp-day-minutes" aria-hidden="true">15′</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-01"  aria-label="jueves, 1 de octubre, 0 min, 1 actividades"><small>J</small><b>1</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"><i data-activity="free"></i></span></button><button type="button" data-action="calendar-day" data-id="2026-10-02"  aria-label="viernes, 2 de octubre, 0 min, 0 actividades"><small>V</small><b>2</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-03"  aria-label="sábado, 3 de octubre, 0 min, 0 actividades"><small>S</small><b>3</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button><button type="button" data-action="calendar-day" data-id="2026-10-04"  aria-label="domingo, 4 de octubre, 0 min, 0 actividades"><small>D</small><b>4</b><span class="cp-day-practice" aria-hidden="true"><i style="height:0%"></i></span><span class="cp-day-minutes" aria-hidden="true">·</span><span class="cp-today-marks"></span></button></div>\n    </div>\n  </section>',
+    expected: /cp-today-progress-today[\s\S]*?<strong>15 min<\/strong>/,
+    operator: 'match',
+    diff: 'simple'
+  }

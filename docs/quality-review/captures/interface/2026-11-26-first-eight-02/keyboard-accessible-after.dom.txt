@@ -1,0 +1,41 @@
+- text: "0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"
+- banner:
+  - generic: Lectura · Do mayor
+  - text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"
+- main:
+  - generic "Partitura. Usa las flechas del teclado o los bordes para pasar página.":
+    - generic: Do mayor · 4/4
+  - generic "Aciertos": ✓ 0
+  - generic "Fallos": ✗ 1
+  - generic "Racha": 🔥 0
+  - generic "Tiempo medio (últimas 20)": ⏱ –
+  - status: ✗
+- button "F4" [active]
+- button "F♯4"
+- button "G4"
+- button "A♭4"
+- button "A4"
+- button "B♭4"
+- button "B4"
+- button "C5"
+- button "C♯5"
+- button "D5"
+- button "E♭5"
+- button "E5"
+- button "F5"
+- generic "Tiempo total de práctica":
+  - generic: Total
+  - generic: 0 1 2 3 4 5 6 7 8 9 0
+  - generic: ":"
+  - generic: 0 1 2 3 4 5 0
+  - generic: 0 1 2 3 4 5 6 7 8 9 0
+- complementary "Controles de práctica":
+  - button "Mover controles. Toca dos veces para minimizar." [expanded]:
+  - button "Pausar práctica":
+    - generic: Práctica
+    - generic: 0 1 2 3 4 5 6 7 8 9 0
+    - generic: ":"
+    - generic: 0 1 2 3 4 5 0
+    - generic: 0 1 2 3 4 5 6 7 8 9 0
+  - button "Parar práctica":
+  - button "Opciones":

@@ -1,0 +1,191 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Hoy" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: Hola, Review pianist · jueves, 26 de noviembre
+  - region "Practicado esta semana":
+    - heading "Tu semana" [level=2]
+    - button "Ver progreso"
+    - strong: 2 hr 43 min
+    - generic: / 4 hr objetivo
+    - progressbar "Objetivo semanal"
+    - paragraph: 77 min para tu objetivo
+    - generic "Tu semana":
+      - generic: 23 nov – 29 nov
+      - button "Ver calendario"
+      - button "lunes, 23 de noviembre, 90 min, 1 actividades":
+        - generic: L
+        - generic: "23"
+        - generic: 90′
+      - button "martes, 24 de noviembre, 9 min, 1 actividades":
+        - generic: M
+        - generic: "24"
+        - generic: 9′
+      - button "miércoles, 25 de noviembre, 44 min, 1 actividades":
+        - generic: X
+        - generic: "25"
+        - generic: 44′
+      - button "jueves, 26 de noviembre, 20 min, 2 actividades":
+        - generic: J
+        - generic: "26"
+        - generic: 20′
+      - button "viernes, 27 de noviembre, 0 min, 2 actividades":
+        - generic: V
+        - generic: "27"
+        - generic: ·
+      - button "sábado, 28 de noviembre, 0 min, 2 actividades":
+        - generic: S
+        - generic: "28"
+        - generic: ·
+      - button "domingo, 29 de noviembre, 0 min, 2 actividades":
+        - generic: D
+        - generic: "29"
+        - generic: ·
+  - article:
+    - button "Elegir práctica":
+      - generic: Elegir práctica
+    - button "Grabar":
+      - generic: Grabar
+  - heading "También hoy" [level=2]
+  - article:
+    - button "15:30 Clase Weekly piano lesson":
+      - strong: 15:30
+      - generic: Clase
+      - strong: Weekly piano lesson
+  - heading "Próximos compromisos" [level=2]
+  - button "+ Evento"
+  - button "lunes, 21 de diciembre de 2026 Concierto 19:00 Winter concert Tiempo restante 3 semanas y 4 días":
+    - time:
+      - generic: dic 2026
+      - strong: "21"
+      - generic: lunes
+    - generic: Concierto
+    - time: 19:00
+    - strong: Winter concert
+    - generic: Tiempo restante
+    - generic: 3 semanas y 4 días
+    - generic: "3"
+    - generic: semanas
+    - generic: "4"
+    - generic: días
+  - button "sábado, 2 de enero de 2027 Audición 18:00 Audicion de nadal Tiempo restante 5 semanas y 2 días":
+    - time:
+      - generic: ene 2027
+      - strong: "2"
+      - generic: sábado
+    - generic: Audición
+    - time: 18:00
+    - strong: Audicion de nadal
+    - generic: Tiempo restante
+    - generic: 5 semanas y 2 días
+    - generic: "5"
+    - generic: semanas
+    - generic: "2"
+    - generic: días
+  - button "viernes, 27 de noviembre de 2026 Ensayo 17:00 Ensayo 1 1 día":
+    - time:
+      - generic: nov 2026
+      - strong: "27"
+      - generic: viernes
+    - generic: Ensayo
+    - time: 17:00
+    - strong: Ensayo 1
+    - generic: 1 día
+  - button "viernes, 27 de noviembre de 2026 Otro 17:00 Otro 1 1 día":
+    - time:
+      - generic: nov 2026
+      - strong: "27"
+      - generic: viernes
+    - generic: Otro
+    - time: 17:00
+    - strong: Otro 1
+    - generic: 1 día
+  - button "sábado, 28 de noviembre de 2026 Ensayo 17:00 Ensayo 2 2 días":
+    - time:
+      - generic: nov 2026
+      - strong: "28"
+      - generic: sábado
+    - generic: Ensayo
+    - time: 17:00
+    - strong: Ensayo 2
+    - generic: 2 días
+  - button "sábado, 28 de noviembre de 2026 Otro 17:00 Otro 2 2 días":
+    - time:
+      - generic: nov 2026
+      - strong: "28"
+      - generic: sábado
+    - generic: Otro
+    - time: 17:00
+    - strong: Otro 2
+    - generic: 2 días
+  - button "jueves, 3 de diciembre de 2026 Clase 15:30 Weekly piano lesson 1 semana":
+    - time:
+      - generic: dic 2026
+      - strong: "3"
+      - generic: jueves
+    - generic: Clase
+    - time: 15:30
+    - strong: Weekly piano lesson
+    - generic: 1 semana
+  - button "jueves, 10 de diciembre de 2026 Clase 15:30 Weekly piano lesson 2 semanas":
+    - time:
+      - generic: dic 2026
+      - strong: "10"
+      - generic: jueves
+    - generic: Clase
+    - time: 15:30
+    - strong: Weekly piano lesson
+    - generic: 2 semanas
+  - heading "Practicado hoy" [level=2]
+  - article:
+    - button "Práctica de piano jue, 26 nov 2026 Bien Práctica libre 20 min Registro manual Ver sesión":
+      - strong: Práctica de piano
+      - time: jue, 26 nov 2026
+      - generic: 🙂
+      - generic: Bien
+      - text: Práctica libre
+      - generic: 20 min
+      - generic: Registro manual
+      - text: Ver sesión
+      - generic: ›
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"
+- dialog "Grabar":
+  - complementary "Grabación":
+    - generic: Grabar
+    - button "Cerrar"
+    - paragraph: En tu atril
+    - button "Otras piezas"
+    - group "En tu atril" [active]:
+      - button "Grabación libre Sin pieza asignada" [pressed]:
+        - generic: ✓
+        - generic: Grabación libre
+        - generic: Sin pieza asignada
+      - button "Étude mélodique Review fixture":
+        - generic: Étude mélodique
+        - generic: Review fixture
+      - button "Prélude en do majeur Review fixture":
+        - generic: Prélude en do majeur
+        - generic: Review fixture
+    - paragraph: Sin pieza asignada
+    - button "Grabar audio":
+      - generic: Grabar audio
+    - button "Grabar vídeo":
+      - generic: Grabar vídeo
+    - button "Grabar MIDI" [disabled]:
+      - generic: Grabar MIDI
+    - paragraph: Guardado local · hasta 15 minutos o 250 MB por toma.
+    - status: Para grabar MIDI, conecta tu teclado desde el icono de piano de la parte superior de la pantalla.

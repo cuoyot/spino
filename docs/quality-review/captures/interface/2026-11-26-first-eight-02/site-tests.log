@@ -1,0 +1,17 @@
+✔ current release manifests and generated download parts match the signed source artifacts (2006.29025ms)
+✔ large downloads stream the exact artifact and resume across static-part boundaries (91.456417ms)
+✔ the published Hanon video plays inline with byte ranges matching its exact reviewed media (79.29225ms)
+✔ the 498 MB beta streams every complete part through native pipes without JavaScript readers (1183.842417ms)
+✔ sitemap lists every public page with reciprocal canonical language alternates (24.533542ms)
+✔ landing pages publish consistent application and visible FAQ structured data (14.22775ms)
+✔ crawler policy allows public content and advertises the canonical sitemap (3.784958ms)
+✔ FAQ copy cannot break the HTML or JSON-LD script boundary (0.912292ms)
+✔ website language variants use matching feature coverage and localized app screenshots (34.317417ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3556.836791

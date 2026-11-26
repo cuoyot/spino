@@ -1,0 +1,266 @@
+[
+  {
+    "lang": "en",
+    "ux": 1,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 2,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 3,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 4,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 5,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "repeatName": "Add repetitions",
+    "scrollbar": "none",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "en",
+    "ux": 6,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 7,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "en",
+    "ux": 8,
+    "language": "en",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 1,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 2,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 3,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 4,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 5,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "repeatName": "Afegir repeticions",
+    "scrollbar": "none",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "ca",
+    "ux": 6,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 7,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "ca",
+    "ux": 8,
+    "language": "ca",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 1,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 2,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 3,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 4,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 5,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "repeatName": "Wiederholungen hinzufügen",
+    "scrollbar": "none",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "de",
+    "ux": 6,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 7,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "de",
+    "ux": 8,
+    "language": "de",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 1,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 2,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 3,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 4,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 5,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "repeatName": "Ismétlődés hozzáadása",
+    "scrollbar": "none",
+    "visibleRepeatText": ""
+  },
+  {
+    "lang": "hu",
+    "ux": 6,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 7,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  },
+  {
+    "lang": "hu",
+    "ux": 8,
+    "language": "hu",
+    "pageScrollWidth": 390,
+    "pageWidth": 390,
+    "scrollbar": "none"
+  }
+]

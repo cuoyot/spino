@@ -1,0 +1,44 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+    - heading "Repertorio" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Biblioteca":
+    - button "Mi repertorio"
+    - button "Catálogo"
+    - button "Multimedia"
+  - banner:
+    - button "+ Añadir obra"
+  - region "El atril 0":
+    - heading "El atril 0" [level=2]:
+      - text: El atril
+      - generic: "0"
+    - paragraph: Marca el icono de atril en la colección para poner una obra aquí.
+  - heading "Colección" [level=2]:
+    - text: Colección
+    - status: "0"
+  - searchbox "Buscar título o autor"
+  - generic "Filtros ⌄"
+  - option "Todas las obras" [selected]
+  - option "Papelera"
+  - option "Todos los estados" [selected]
+  - option "Por empezar"
+  - option "En estudio"
+  - option "Consolidando"
+  - option "Mantenimiento"
+  - option "Archivada"
+  - option "Todas las etiquetas" [selected]
+  - paragraph: No hay obras con estos filtros. Cámbialos o añade una obra.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

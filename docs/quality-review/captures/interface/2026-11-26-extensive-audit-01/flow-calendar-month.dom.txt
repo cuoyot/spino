@@ -1,0 +1,100 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Calendario" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - group "Vista del calendario":
+    - button "Semana"
+    - button "Mes" [pressed]
+  - button "Organizar semana"
+  - button "Mes anterior": ‹
+  - heading "noviembre 2026" [level=2]
+  - button "Mes siguiente": ›
+  - generic: L
+  - generic: M
+  - generic: X
+  - generic: J
+  - generic: V
+  - generic: S
+  - generic: D
+  - button "2026-10-26, 0 previstas, 0 realizadas, 0 eventos": "26"
+  - button "2026-10-27, 0 previstas, 0 realizadas, 0 eventos": "27"
+  - button "2026-10-28, 0 previstas, 0 realizadas, 0 eventos": "28"
+  - button "2026-10-29, 0 previstas, 0 realizadas, 0 eventos": "29"
+  - button "2026-10-30, 0 previstas, 0 realizadas, 0 eventos": "30"
+  - button "2026-10-31, 0 previstas, 0 realizadas, 0 eventos": "31"
+  - button "2026-11-01, 0 previstas, 0 realizadas, 0 eventos": "1"
+  - button "2026-11-02, 0 previstas, 0 realizadas, 0 eventos": "2"
+  - button "2026-11-03, 0 previstas, 0 realizadas, 0 eventos": "3"
+  - button "2026-11-04, 0 previstas, 0 realizadas, 0 eventos": "4"
+  - button "2026-11-05, 0 previstas, 0 realizadas, 0 eventos": "5"
+  - button "2026-11-06, 0 previstas, 0 realizadas, 0 eventos": "6"
+  - button "2026-11-07, 0 previstas, 0 realizadas, 0 eventos": "7"
+  - button "2026-11-08, 0 previstas, 0 realizadas, 0 eventos": "8"
+  - button "2026-11-09, 0 previstas, 0 realizadas, 0 eventos": "9"
+  - button "2026-11-10, 0 previstas, 0 realizadas, 0 eventos": "10"
+  - button "2026-11-11, 0 previstas, 0 realizadas, 0 eventos": "11"
+  - button "2026-11-12, 0 previstas, 0 realizadas, 0 eventos": "12"
+  - button "2026-11-13, 0 previstas, 0 realizadas, 0 eventos": "13"
+  - button "2026-11-14, 0 previstas, 0 realizadas, 0 eventos": "14"
+  - button "2026-11-15, 0 previstas, 0 realizadas, 0 eventos": "15"
+  - button "2026-11-16, 0 previstas, 0 realizadas, 0 eventos": "16"
+  - button "2026-11-17, 0 previstas, 0 realizadas, 0 eventos": "17"
+  - button "2026-11-18, 0 previstas, 0 realizadas, 0 eventos": "18"
+  - button "2026-11-19, 0 previstas, 0 realizadas, 0 eventos": "19"
+  - button "2026-11-20, 0 previstas, 0 realizadas, 0 eventos": "20"
+  - button "2026-11-21, 0 previstas, 0 realizadas, 0 eventos": "21"
+  - button "2026-11-22, 0 previstas, 1 realizadas, 0 eventos": "22"
+  - button "2026-11-23, 0 previstas, 1 realizadas, 0 eventos": "23"
+  - button "2026-11-24, 0 previstas, 1 realizadas, 0 eventos": "24"
+  - button "2026-11-25, 0 previstas, 1 realizadas, 0 eventos": "25"
+  - button "2026-11-26, 0 previstas, 1 realizadas, 1 eventos" [pressed]: "26"
+  - button "2026-11-27, 0 previstas, 0 realizadas, 2 eventos": "27"
+  - button "2026-11-28, 0 previstas, 0 realizadas, 2 eventos": "28"
+  - button "2026-11-29, 0 previstas, 0 realizadas, 2 eventos": "29"
+  - button "2026-11-30, 0 previstas, 0 realizadas, 0 eventos": "30"
+  - button "2026-12-01, 0 previstas, 0 realizadas, 0 eventos": "1"
+  - button "2026-12-02, 0 previstas, 0 realizadas, 0 eventos": "2"
+  - button "2026-12-03, 0 previstas, 0 realizadas, 1 eventos": "3"
+  - button "2026-12-04, 0 previstas, 0 realizadas, 0 eventos": "4"
+  - button "2026-12-05, 0 previstas, 0 realizadas, 0 eventos": "5"
+  - button "2026-12-06, 0 previstas, 0 realizadas, 0 eventos": "6"
+  - generic: Prevista
+  - generic: Realizada
+  - generic: Evento
+  - button "Hoy"
+  - heading "jue, 26 nov" [level=2]
+  - button "+ Práctica"
+  - button "+"
+  - article:
+    - button "15:30 · Clase Weekly piano lesson Evento Preparación y repertorio":
+      - generic: 15:30 · Clase
+      - strong: Weekly piano lesson
+      - generic: Evento
+      - generic: Preparación y repertorio
+  - group "Prácticas realizadas · desliza horizontalmente":
+    - article:
+      - button "Práctica de piano jue, 26 nov 2026 Bien Práctica libre 20 min Registro manual Ver sesión":
+        - strong: Práctica de piano
+        - time: jue, 26 nov 2026
+        - generic: 🙂
+        - generic: Bien
+        - text: Práctica libre
+        - generic: 20 min
+        - generic: Registro manual
+        - text: Ver sesión
+        - generic: ›
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

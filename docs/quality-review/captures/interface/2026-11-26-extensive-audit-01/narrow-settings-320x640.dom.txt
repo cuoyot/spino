@@ -1,0 +1,51 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Perfil" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - button "Cambiar foto de perfil":
+    - generic: RP
+  - heading "Review pianist" [level=2]
+  - paragraph: Inicial · Objetivo semanal · 240 min
+  - button "Editar perfil"
+  - button "Preferencias de práctica Manos, registro y tempo":
+    - strong: Preferencias de práctica
+    - generic: Manos, registro y tempo
+  - button "Sincronización y copias Sin conectar":
+    - strong: Sincronización y copias
+    - generic: Sin conectar
+  - button "Conectar otro dispositivo Escanea el QR de un cuaderno o selecciona su archivo de nube":
+    - strong: Conectar otro dispositivo
+    - generic: Escanea el QR de un cuaderno o selecciona su archivo de nube
+  - button "Partituras guardadas 2 partituras · locales y en Drive":
+    - strong: Partituras guardadas
+    - generic: 2 partituras · locales y en Drive
+  - button "Recordatorios Disponibles en la app Android o iOS":
+    - strong: Recordatorios
+    - generic: Disponibles en la app Android o iOS
+  - button "Apariencia Claro, oscuro o según tu dispositivo":
+    - strong: Apariencia
+    - generic: Claro, oscuro o según tu dispositivo
+  - button "Recorrido de la app Explora las pantallas principales":
+    - strong: Recorrido de la app
+    - generic: Explora las pantallas principales
+  - button "Valorar app"
+  - button "Compartir app"
+  - button "Créditos y notas de versión":
+    - text: SPino · 6.2.4-beta.1
+    - generic: Smart Piano Notebook
+  - button "Gestionar datos locales"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

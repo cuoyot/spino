@@ -37,3 +37,10 @@ The unfinished-session card uses the same design on Today and Practice and is al
 
 
 Synchronization keeps the visible calendar date at its current offset when incoming cards are added above it. Previously loaded weeks and explicit navigation remain available.
+
+
+## Beta130 interface refinements
+
+New events expose repetition through an icon beside Time. Open it to choose frequency and an optional end date. The highlighted icon indicates active repetition; closing its options retains the choice. Multi-activity week rows show a count and swipe cue. One-week planning disables past weekdays; recurring planning retains requested weekdays that have future dates.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.

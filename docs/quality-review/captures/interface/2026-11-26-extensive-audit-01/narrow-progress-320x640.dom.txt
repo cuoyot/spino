@@ -1,0 +1,141 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Progreso" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Secciones de progreso":
+    - button "Actividad"
+    - button "Repertorio"
+    - button "Técnica"
+  - heading "Esta semana" [level=2]
+  - strong: 2 hr 43 min
+  - generic: Tiempo de práctica
+  - strong: 4 hr
+  - generic: Objetivo semanal
+  - paragraph: Últimas 12 semanas
+  - figure "Práctica semanal · semana actual en curso":
+    - group "Tiempo de práctica registrado":
+      - generic: 0 min
+      - generic: 1 hr 30 min
+      - generic: 3 hr
+      - 'button "7 sept 2026 – 13 sept 2026: 0 min"':
+        - 'generic "7 sept 2026 – 13 sept 2026: 0 min"'
+      - 'button "14 sept 2026 – 20 sept 2026: 0 min"':
+        - 'generic "14 sept 2026 – 20 sept 2026: 0 min"'
+      - 'button "21 sept 2026 – 27 sept 2026: 0 min"':
+        - 'generic "21 sept 2026 – 27 sept 2026: 0 min"'
+      - 'button "28 sept 2026 – 4 oct 2026: 0 min"':
+        - 'generic "28 sept 2026 – 4 oct 2026: 0 min"'
+      - 'button "5 oct 2026 – 11 oct 2026: 0 min"':
+        - 'generic "5 oct 2026 – 11 oct 2026: 0 min"'
+      - 'button "12 oct 2026 – 18 oct 2026: 0 min"':
+        - 'generic "12 oct 2026 – 18 oct 2026: 0 min"'
+      - 'button "19 oct 2026 – 25 oct 2026: 0 min"':
+        - 'generic "19 oct 2026 – 25 oct 2026: 0 min"'
+      - 'button "26 oct 2026 – 1 nov 2026: 0 min"':
+        - 'generic "26 oct 2026 – 1 nov 2026: 0 min"'
+      - 'button "2 nov 2026 – 8 nov 2026: 0 min"':
+        - 'generic "2 nov 2026 – 8 nov 2026: 0 min"'
+      - 'button "9 nov 2026 – 15 nov 2026: 0 min"':
+        - 'generic "9 nov 2026 – 15 nov 2026: 0 min"'
+      - 'button "16 nov 2026 – 22 nov 2026: 12 min"':
+        - 'generic "16 nov 2026 – 22 nov 2026: 12 min"'
+      - 'button "23 nov 2026 – 26 nov 2026: 2 hr 43 min" [pressed]':
+        - 'generic "23 nov 2026 – 26 nov 2026: 2 hr 43 min"'
+      - generic: 7 sept
+      - generic: 5 oct
+      - generic: 26 oct
+      - generic: 23 nov
+    - generic: Práctica semanal · semana actual en curso
+  - button "Más detalles":
+    - text: Más detalles
+    - generic: →
+  - 'button "Mantén tu ritmo 2 semanas practicando Racha de objetivos: 0 · semanas"':
+    - text: Mantén tu ritmo
+    - generic: ›
+    - strong: "2"
+    - generic: semanas practicando
+    - generic: "Racha de objetivos: 0 · semanas"
+  - button "Grabaciones 0 Esta semana 0 Audio 0 Vídeo":
+    - text: Grabaciones
+    - generic: ›
+    - strong: "0"
+    - generic: Esta semana
+    - text: 0 Audio
+    - text: 0 Vídeo
+  - heading "Escalas y modos trabajados" [level=2]
+  - generic: Do mayor · 1 hr 35 min
+  - button "Ver"
+  - heading "Historial" [level=2]
+  - article:
+    - button "Práctica de piano jue, 26 nov 2026 Bien Práctica libre 20 min Registro manual Ver sesión":
+      - strong: Práctica de piano
+      - time: jue, 26 nov 2026
+      - generic: 🙂
+      - generic: Bien
+      - text: Práctica libre
+      - generic: 20 min
+      - generic: Registro manual
+      - text: Ver sesión
+      - generic: ›
+  - article:
+    - button "Repertorio mié, 25 nov 2026 Prélude en do majeur Muy bien Repertorio 44 min Piano MIDI Ver sesión":
+      - strong: Repertorio
+      - time: mié, 25 nov 2026
+      - generic: Prélude en do majeur
+      - generic: 😄
+      - generic: Muy bien
+      - text: Repertorio
+      - generic: 44 min
+      - generic: Piano MIDI
+      - text: Ver sesión
+      - generic: ›
+  - article:
+    - button "Lectura y repertorio mar, 24 nov 2026 Étude mélodique Lectura Repertorio 9 min Piano MIDI Ver sesión":
+      - strong: Lectura y repertorio
+      - time: mar, 24 nov 2026
+      - generic: Étude mélodique
+      - text: Lectura
+      - text: Repertorio
+      - generic: 9 min
+      - generic: Piano MIDI
+      - text: Ver sesión
+      - generic: ›
+  - article:
+    - button "Técnica y lectura lun, 23 nov 2026 Difícil Técnica Lectura 1 hr 30 min Piano MIDI · Parcial Ver sesión":
+      - strong: Técnica y lectura
+      - time: lun, 23 nov 2026
+      - generic: 🙁
+      - generic: Difícil
+      - text: Técnica
+      - text: Lectura
+      - generic: 1 hr 30 min
+      - generic: Piano MIDI · Parcial
+      - text: Ver sesión
+      - generic: ›
+  - article:
+    - button "Repaso de una obra archivada dom, 22 nov 2026 A long synthetic title with <tags> & several movements Muy difícil Repertorio 12 min Piano MIDI Ver sesión":
+      - strong: Repaso de una obra archivada
+      - time: dom, 22 nov 2026
+      - generic: A long synthetic title with <tags> & several movements
+      - generic: 😞
+      - generic: Muy difícil
+      - text: Repertorio
+      - generic: 12 min
+      - generic: Piano MIDI
+      - text: Ver sesión
+      - generic: ›
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

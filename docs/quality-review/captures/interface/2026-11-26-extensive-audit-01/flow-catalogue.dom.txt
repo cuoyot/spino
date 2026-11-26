@@ -1,0 +1,209 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Catálogo" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Biblioteca":
+    - button "Mi repertorio"
+    - button "Catálogo"
+    - button "Multimedia"
+  - region "Catálogo de partituras":
+    - search:
+      - generic: Buscar en el catálogo
+      - searchbox "Buscar en el catálogo"
+      - button "Buscar"
+      - navigation "Vistas del catálogo":
+        - button "Todas 129" [pressed]
+        - button "Descargadas 0"
+      - generic: Formato
+      - combobox "Formato":
+        - option "Todos los formatos" [selected]
+        - option "MusicXML"
+        - option "PDF"
+      - generic "Más filtros"
+      - option "Todos los periodos" [selected]
+      - option "Barroco"
+      - option "Clasicismo"
+      - option "Romanticismo"
+      - option "Impresionismo"
+      - option "Primer modernismo"
+      - option "Sin clasificar"
+      - option "Todos los compositores" [selected]
+      - option "Christian Petzold"
+      - option "Claude Debussy"
+      - option "Erik Satie"
+      - option "Franz Liszt"
+      - option "Franz Schubert"
+      - option "Frédéric Chopin"
+      - option "Isaac Albéniz"
+      - option "Johann Friedrich Franz Burgmüller"
+      - option "Johann Pachelbel"
+      - option "Johann Sebastian Bach"
+      - option "Ludwig van Beethoven"
+      - option "Nikolai Rimsky-Korsakov"
+      - option "Patty and Mildred Hill"
+      - option "Pyotr Ilyich Tchaikovsky"
+      - option "Robert Schumann"
+      - option "Scott Joplin"
+      - option "Wolfgang Amadeus Mozart"
+      - button "Transferencias"
+    - status: 129 partituras · 106 obras identificadas
+    - article:
+      - heading "* * * * * · Op. 68 No. 26" [level=2]:
+        - button "* * * * * · Op. 68 No. 26"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Air" [level=2]:
+        - button "Air"
+      - paragraph: Johann Sebastian Bach · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Album pour la jeunesse - 13.Mai, cher Mai, ... · Op. 68 No. 13" [level=2]:
+        - button "Album pour la jeunesse - 13.Mai, cher Mai, ... · Op. 68 No. 13"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Arabesque No. 1 in E Major" [level=2]:
+        - button "Arabesque No. 1 in E Major"
+      - paragraph: Claude Debussy · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Ave Maria" [level=2]:
+        - button "Ave Maria"
+      - paragraph: Franz Schubert · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Bach Minuet in G Major BWV Anh. 114" [level=2]:
+        - button "Bach Minuet in G Major BWV Anh. 114"
+      - paragraph: Christian Petzold · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Bach Toccata and Fugue in D Minor Piano solo" [level=2]:
+        - button "Bach Toccata and Fugue in D Minor Piano solo"
+      - paragraph: MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Ballade · Op. 100 No. 15" [level=2]:
+        - button "Ballade · Op. 100 No. 15"
+      - paragraph: Johann Friedrich Franz Burgmüller · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Ballade I" [level=2]:
+        - button "Ballade I"
+      - paragraph: Frédéric Chopin · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Beethoven Symphony No. 5 1st movement Piano solo" [level=2]:
+        - button "Beethoven Symphony No. 5 1st movement Piano solo"
+      - paragraph: Ludwig van Beethoven · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Canon in D" [level=2]:
+        - button "Canon in D"
+      - paragraph: Johann Pachelbel · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Canon in D (2)" [level=2]:
+        - button "Canon in D (2)"
+      - paragraph: Johann Pachelbel · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Canon in D (3)" [level=2]:
+        - button "Canon in D (3)"
+      - paragraph: Johann Pachelbel · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chanson du chasseur · Op. 68 No. 7" [level=2]:
+        - button "Chanson du chasseur · Op. 68 No. 7"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chanson fredonnée · Op. 68 No. 3" [level=2]:
+        - button "Chanson fredonnée · Op. 68 No. 3"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chanson populaire · Op. 68 No. 9" [level=2]:
+        - button "Chanson populaire · Op. 68 No. 9"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chant de marins italiens · Op. 68 No. 36" [level=2]:
+        - button "Chant de marins italiens · Op. 68 No. 36"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chant des moissonneurs · Op. 68 No. 18" [level=2]:
+        - button "Chant des moissonneurs · Op. 68 No. 18"
+      - paragraph: Robert Schumann · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Chopin - Nocturne Op. 9 No. 1" [level=2]:
+        - button "Chopin - Nocturne Op. 9 No. 1"
+      - paragraph: Frédéric Chopin · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Clair de Lune" [level=2]:
+        - button "Clair de Lune"
+      - paragraph: Claude Debussy · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Claire de lune" [level=2]:
+        - button "Claire de lune"
+      - paragraph: Claude Debussy · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Consolation · Op. 100 No. 13" [level=2]:
+        - button "Consolation · Op. 100 No. 13"
+      - paragraph: Johann Friedrich Franz Burgmüller · PDF
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "Dance Of the Sugar Plum Fairy" [level=2]:
+        - button "Dance Of the Sugar Plum Fairy"
+      - paragraph: Pyotr Ilyich Tchaikovsky · MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - article:
+      - heading "DANSE VILLAGEOISE Beethoven" [level=2]:
+        - button "DANSE VILLAGEOISE Beethoven"
+      - paragraph: MusicXML
+      - button "Vista previa de la partitura":
+      - button "Descargar partitura":
+    - button "Mostrar más partituras"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

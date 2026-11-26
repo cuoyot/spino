@@ -36,3 +36,10 @@ The current source shows update errors directly in Backup & sync, including the 
 ## Current source: consistent primary headers
 
 The primary header uses the same 68 px height and title/Profile/MIDI alignment across the main destinations. Library's My repertoire and Catalogue tabs sit below the primary bar and stay available when its page scrolls. Calendar keeps Week/Month beside its title. This correction is included in the signed Android 6.0.0/build53 package and verified in responsive browsers in both themes and three languages. Native installation and first-launch foreground are checked separately; populated native/physical visual acceptance remains open. Public beta 13/build52 retains the preceding layout.
+
+
+## Beta130 interface refinements
+
+The disconnected MIDI icon opens Instrument settings directly for first-time and keyboard use. A remembered native device keeps tap-to-reconnect; a failed reconnect opens settings. Narrow/touch views hide browsing scrollbars while preserving scrolling.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.

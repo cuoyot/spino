@@ -1,0 +1,70 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Preferencias de práctica" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - button "Volver":
+  - text: Modo habitual
+  - combobox "Modo habitual":
+    - option "En pantalla" [selected]
+    - option "Con piano"
+    - option "Con MIDI"
+  - paragraph: Puedes ajustarlas para cada práctica.
+  - heading "Nivel de pianista" [level=2]
+  - paragraph: Inicial · Las prácticas nuevas parten de este nivel
+  - paragraph: 1 · Inicial (MD negras · MI redondas) · Reducido
+  - button "Cambiar nivel"
+  - heading "Lectura" [level=2]
+  - text: Manos
+  - combobox "Manos":
+    - option "Derecha" [selected]
+    - option "Izquierda"
+    - option "Dos manos"
+  - text: Tempo
+  - status: "60"
+  - text: BPM
+  - slider "Tempo BPM": "60"
+  - heading "Técnica" [level=2]
+  - text: Manos
+  - combobox "Manos":
+    - option "Derecha" [selected]
+    - option "Izquierda"
+    - option "Dos manos"
+  - text: Tempo
+  - status: "60"
+  - text: BPM
+  - slider "Tempo BPM": "60"
+  - paragraph: Dos manos está disponible con piano o MIDI.
+  - heading "Calentamiento" [level=2]
+  - checkbox "Incluir calentamiento Hanon en las rutinas nuevas"
+  - text: Incluir calentamiento Hanon en las rutinas nuevas
+  - text: Minutos
+  - spinbutton "Minutos": "3"
+  - text: Ejercicios
+  - combobox "Ejercicios":
+    - option "Serie rotativa de Hanon n.º 1–10" [selected]
+    - option "Hanon n.º 1"
+    - option "Hanon n.º 2"
+    - option "Hanon n.º 3"
+    - option "Hanon n.º 4"
+    - option "Hanon n.º 5"
+    - option "Hanon n.º 6"
+    - option "Hanon n.º 7"
+    - option "Hanon n.º 8"
+    - option "Hanon n.º 9"
+    - option "Hanon n.º 10"
+  - button "Guardar cambios"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

@@ -1,0 +1,63 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Multimedia" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - navigation "Biblioteca":
+    - button "Mi repertorio"
+    - button "Catálogo"
+    - button "Multimedia"
+  - button "Grabar":
+    - generic: Grabar
+  - region "23–29 nov 2026":
+    - button "Semana anterior": ‹
+    - button "noviembre de 2026. Mostrar mes":
+      - generic: noviembre de 2026
+    - button "Semana siguiente": ›
+    - generic: lun
+    - generic: mar
+    - generic: mié
+    - generic: jue
+    - generic: vie
+    - generic: sáb
+    - generic: dom
+    - 'group "lunes, 23 de noviembre de 2026: 0 grabaciones"':
+      - button "lunes, 23 de noviembre de 2026": "23"
+    - 'group "martes, 24 de noviembre de 2026: 0 grabaciones"':
+      - button "martes, 24 de noviembre de 2026": "24"
+    - 'group "miércoles, 25 de noviembre de 2026: 0 grabaciones"':
+      - button "miércoles, 25 de noviembre de 2026": "25"
+    - 'group "jueves, 26 de noviembre de 2026: 0 grabaciones"':
+      - button "jueves, 26 de noviembre de 2026": "26"
+    - 'group "viernes, 27 de noviembre de 2026: 0 grabaciones"':
+      - button "viernes, 27 de noviembre de 2026": "27"
+    - 'group "sábado, 28 de noviembre de 2026: 0 grabaciones"':
+      - button "sábado, 28 de noviembre de 2026": "28"
+    - 'group "domingo, 29 de noviembre de 2026: 0 grabaciones"':
+      - button "domingo, 29 de noviembre de 2026": "29"
+  - group "Filtros de grabaciones":
+    - button "Audio":
+      - text: Audio
+    - button "Vídeo":
+      - text: Vídeo
+    - button "MIDI":
+      - text: MIDI
+    - button "Obra":
+      - generic: Obra
+  - status: "Grabaciones: 0"
+  - heading "Sin grabaciones locales" [level=2]
+  - paragraph: Usa Grabar para una toma libre o elige una obra del repertorio.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

@@ -1,0 +1,96 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?theme=dark&route=piano".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=piano
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Repertorio, Value: 1
+				6 text Repertorio
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 container Biblioteca
+				11 button Mi repertorio
+				12 button Catálogo
+				13 button Multimedia
+			14 button + Añadir obra
+			15 container El atril 2
+				16 heading El atril 2, Value: 2, ID: repertoire-stand-title
+					17 text El atril
+				18 table
+					19 row
+						20 cell
+							21 button Título: ordenar
+							22 container
+								23 button Autor: ordenar
+								24 button Estado: ordenar
+						25 cell
+							26 text Atril
+						27 cell Imprimir partitura
+							28 text Imprimir
+					29 row
+						30 cell
+							31 button Étude mélodique Review fixture
+								32 text Étude mélodique
+								33 text Review fixture
+							34 text En estudio Total practicado: 5 min
+						35 cell
+							36 checkbox Description: Retirar del atril: Étude mélodique, Value: 1
+						37 cell
+							38 button Imprimir partitura
+					39 row
+						40 cell
+							41 button Prélude en do majeur Review fixture
+								42 text Prélude en do majeur
+								43 text Review fixture
+							44 text En estudio Total practicado: 44 min
+						45 cell
+							46 checkbox Description: Retirar del atril: Prélude en do majeur, Value: 1
+						47 cell
+							48 button Imprimir partitura
+			49 container
+				50 heading Colección, Value: 2
+					51 text Colección
+					52 text 2
+				53 search text field (settable) Description: Buscar título o autor, ID: repertoire-search
+				54 button (collapsed) Filtros ⌄, Secondary Actions: Expand
+					55 text Filtros
+					56 text ⌄
+				57 table
+					58 row
+						59 cell
+							60 button Título: ordenar
+							61 container
+								62 button Autor: ordenar
+								63 button Estado: ordenar
+						64 cell
+							65 text Atril
+						66 cell Imprimir partitura
+							67 text Imprimir
+					68 row
+						69 cell
+							70 button Étude mélodique Review fixture
+								71 text Étude mélodique
+								72 text Review fixture
+							73 text En estudio Total practicado: 5 min
+						74 cell
+							75 checkbox Description: Retirar del atril: Étude mélodique, Value: 1
+						76 cell
+							77 button Imprimir partitura
+					78 row
+						79 cell
+							80 button Prélude en do majeur Review fixture
+								81 text Prélude en do majeur
+								82 text Review fixture
+							83 text En estudio Total practicado: 44 min
+						84 cell
+							85 checkbox Description: Retirar del atril: Prélude en do majeur, Value: 1
+						86 cell
+							87 button Imprimir partitura
+		88 container Navegación principal
+			89 button Hoy
+			90 button Practicar
+			91 button Calendario
+			92 button Biblioteca
+			93 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=piano

@@ -13,7 +13,7 @@ import { RHYTHM_VALUES } from './rhythm-levels.js';
 import { WARMUP_IDS, WARMUP_SET_MAX, validWarmupPreferences } from './warmups.js';
 // Versioned, local product data. Dates without times are local calendar dates.
 export const VERSION = 1;
-export const CONTEXTS = { get mobile() { return ui('Without piano', 'Sin piano'); }, get piano() { return ui('With piano', 'Con piano'); }, get midi() { return ui('MIDI piano', 'Piano MIDI'); } };
+export const CONTEXTS = { get mobile() { return ui('On screen', 'En pantalla'); }, get piano() { return ui('With piano', 'Con piano'); }, get midi() { return ui('With piano', 'Con piano') + ' · MIDI'; } };
 export const ACTIVITIES = { get warmup() { return ui('Warm-up', 'Calentamiento'); }, get reading() { return ui('Sight-reading', 'Lectura'); }, get technique() { return ui('Technique', 'Técnica'); }, get repertoire() { return ui('Repertoire', 'Repertorio'); }, get free() { return ui('Free practice', 'Práctica libre'); }, get theory() { return ui('Learn', 'Aprender'); } };
 // Keep historical stored values stable; translate labels only.
 export const stageLabel = value => ui(({ 'Por empezar': 'Not started', 'En estudio': 'Learning', 'Consolidando': 'Consolidating', 'Mantenimiento': 'Maintaining', 'Archivada': 'Archived' })[value] || value, value);

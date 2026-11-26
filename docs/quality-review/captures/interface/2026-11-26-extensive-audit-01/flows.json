@@ -1,0 +1,222 @@
+[
+  {
+    "name": "flow-repertoire-mode",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-repertoire-setup",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-repertoire-picker",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-session-overview",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-session-overview-ready",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-finish-feedback",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-calendar-month",
+    "url": "http://127.0.0.1:5376/?route=calendar"
+  },
+  {
+    "name": "flow-calendar-add",
+    "url": "http://127.0.0.1:5376/?route=calendar"
+  },
+  {
+    "name": "flow-event-form",
+    "url": "http://127.0.0.1:5376/?route=calendar"
+  },
+  {
+    "name": "flow-plan-week",
+    "url": "http://127.0.0.1:5376/?route=calendar"
+  },
+  {
+    "name": "flow-catalogue",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-multimedia-empty",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-work-detail",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-pdf-reader",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-progress-details",
+    "url": "http://127.0.0.1:5376/?route=progress"
+  },
+  {
+    "name": "flow-progress-repertoire",
+    "url": "http://127.0.0.1:5376/?route=progress"
+  },
+  {
+    "name": "flow-progress-technique",
+    "url": "http://127.0.0.1:5376/?route=progress"
+  },
+  {
+    "name": "flow-sync-disconnected",
+    "url": "http://127.0.0.1:5376/?route=settings"
+  },
+  {
+    "name": "flow-practice-preferences",
+    "url": "http://127.0.0.1:5376/?route=settings"
+  },
+  {
+    "name": "flow-reading-mode",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-reading-setup",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-reading-session",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-generated-reading",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-generated-paused-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-generated-paused-phone-landscape",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-generated-paused-tablet-portrait",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-generated-paused-tablet-landscape",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-today-pending",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=pending"
+  },
+  {
+    "name": "empty-home-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=empty"
+  },
+  {
+    "name": "empty-practice-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=practice&fixture=empty"
+  },
+  {
+    "name": "empty-calendar-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=calendar&fixture=empty"
+  },
+  {
+    "name": "empty-piano-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=piano&fixture=empty"
+  },
+  {
+    "name": "empty-progress-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=progress&fixture=empty"
+  },
+  {
+    "name": "empty-settings-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=settings&fixture=empty"
+  },
+  {
+    "name": "narrow-home-320x640",
+    "url": "http://127.0.0.1:5376/?route=home"
+  },
+  {
+    "name": "narrow-practice-320x640",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "narrow-calendar-320x640",
+    "url": "http://127.0.0.1:5376/?route=calendar"
+  },
+  {
+    "name": "narrow-piano-320x640",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "narrow-progress-320x640",
+    "url": "http://127.0.0.1:5376/?route=progress"
+  },
+  {
+    "name": "narrow-settings-320x640",
+    "url": "http://127.0.0.1:5376/?route=settings"
+  },
+  {
+    "name": "pending-home-dark-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-practice-dark-phone-portrait",
+    "url": "http://127.0.0.1:5376/?route=practice&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-home-dark-phone-landscape",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-practice-dark-phone-landscape",
+    "url": "http://127.0.0.1:5376/?route=practice&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-home-dark-tablet-portrait",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-practice-dark-tablet-portrait",
+    "url": "http://127.0.0.1:5376/?route=practice&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-home-dark-tablet-landscape",
+    "url": "http://127.0.0.1:5376/?route=home&fixture=pending&theme=dark"
+  },
+  {
+    "name": "pending-practice-dark-tablet-landscape",
+    "url": "http://127.0.0.1:5376/?route=practice&fixture=pending&theme=dark"
+  },
+  {
+    "name": "flow-add-work-choice",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-add-work-form",
+    "url": "http://127.0.0.1:5376/?route=piano"
+  },
+  {
+    "name": "flow-recording-choice",
+    "url": "http://127.0.0.1:5376/?route=home"
+  },
+  {
+    "name": "flow-routine-setup",
+    "url": "http://127.0.0.1:5376/?route=practice"
+  },
+  {
+    "name": "flow-midi-instrument",
+    "url": "http://127.0.0.1:5376/?route=home"
+  },
+  {
+    "name": "flow-midi-settings-disconnected",
+    "url": "http://127.0.0.1:5376/?route=home"
+  },
+  {
+    "name": "flow-edit-profile",
+    "url": "http://127.0.0.1:5376/?route=settings"
+  }
+]

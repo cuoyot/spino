@@ -1,0 +1,50 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Guarda lo que has practicado, ID: cp-dialog
+		3 heading Guarda lo que has practicado, Value: 2, ID: cp-dialog-title
+			4 text Guarda lo que has practicado
+		5 button Cerrar
+		6 container
+			7 container
+				8 text 0:00  de práctica · Con piano
+			9 container
+				10 text Nombre de la sesión
+				11 text field (settable) Nombre de la sesión, Value: Repertorio
+			12 container ¿Cómo te has sentido? Opcional
+				13 container
+					14 text ¿Cómo te has sentido?  Opcional
+				15 container
+					16 radio button (settable, integer) Description: Muy difícil, Value: 0
+					17 text Muy difícil
+				18 container
+					19 radio button (settable, integer) Description: Difícil, Value: 0
+					20 text Difícil
+				21 container
+					22 radio button (settable, integer) Description: Regular, Value: 0
+					23 text Regular
+				24 container
+					25 radio button (settable, integer) Description: Bien, Value: 0
+					26 text Bien
+				27 container
+					28 radio button (settable, integer) Description: Muy bien, Value: 0
+					29 text Muy bien
+			30 container
+				31 text Comentarios y anotaciones
+				32 text entry area (settable) Comentarios y anotaciones
+			33 container Parte de la obra que has trabajado
+				34 text Parte de la obra que has trabajado
+				35 container
+					36 text Prélude en do majeur
+					37 text field (settable) Prélude en do majeur
+			38 button (collapsed) Obras practicadas y próximo paso, Secondary Actions: Expand
+				39 text Obras practicadas y próximo paso
+			40 container
+				41 text Tiempo practicado (minutos)
+				42 stepper (settable, integer) Tiempo practicado (minutos), Value: 0, Details: 0,00
+			43 checkbox (settable, integer) Description: Guardar como sesión parcial, Value: 1
+			44 button Guardar
+			45 button Guardar y planificar
+			46 button ‹ Seguir practicando
+			47 button Terminar sin guardar
+
+The focused UI element is 5 button Cerrar

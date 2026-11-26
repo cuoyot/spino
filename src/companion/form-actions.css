@@ -1,0 +1,37 @@
+/* Long forms retain their own actions while only the fields scroll. */
+#cp-dialog .cp-dialog-body-form { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
+#cp-dialog .cp-action-form { display: flex; flex-direction: column; min-height: 0; }
+#cp-dialog .cp-form-fields { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 18px 22px; }
+#cp-dialog .cp-form-actions { flex: 0 0 auto; margin: 0; padding: 12px 22px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid var(--theme-line); background: var(--theme-bg); }
+#cp-dialog .cp-form-actions.cp-actions { flex-wrap: wrap; }
+#cp-dialog .cp-form-actions #cp-form-error { flex: 1 0 100%; grid-column: 1 / -1; margin: 0; }
+#cp-dialog .cp-form-actions #cp-form-error:empty { display: none; }
+#cp-dialog .cp-form-actions .cp-save-exits { padding-top: 0; border-top: 0; }
+#app-shell #prepare-form > .cp-form-actions { position: sticky; bottom: -18px; z-index: 2; flex-wrap: wrap; margin: 12px -4px -4px; padding: 12px 4px; border-top: 1px solid var(--theme-line); background: var(--theme-bg); }
+#app-shell #prepare-error { flex: 1 0 100%; margin: 0; color: var(--theme-danger); }
+#app-shell #prepare-error:empty { display: none; }
+#app-shell .cp-preparation-warmup fieldset[hidden] { display: none; }
+#app-shell .cp-preparation-warmup.is-disabled { padding-block: 12px; }
+#app-shell .cp-preparation-warmup.is-disabled > label { margin-bottom: 0; }
+#app-shell .cp-week-agenda .cp-day-entries { flex: 1 1 0; min-width: 0; }
+#app-shell .cp-week-agenda .cp-day-entries .cp-day-strip { width: 100%; }
+#app-shell .cp-day-entry-count { display: block; margin: 3px 2px 0; color: var(--theme-muted); font-size: 11px; line-height: 1.35; text-align: end; }
+#app-shell .cp-planner-days input:disabled + span { opacity: .45; background: transparent; color: var(--theme-muted); border-style: dashed; }
+#app-shell .cp-planner-day-status { margin: 6px 0 0; font-size: 12px; color: var(--theme-muted); }
+#app-shell .cp-planner-selection { margin: 8px 0 0; font-size: 13px; font-weight: 650; }
+#cp-dialog .cp-event-time-row { display: flex; align-items: end; gap: 8px; min-width: 0; margin-bottom: 14px; }
+#cp-dialog .cp-event-time-row .cp-event-time { flex: 1 1 120px; min-width: 104px; margin-bottom: 0; }
+#cp-dialog .cp-event-time-row .cp-event-time-controls { gap: 4px; }
+#cp-dialog .cp-event-repeat-toggle { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; min-width: 44px; padding: 10px; }
+#cp-dialog .cp-event-repeat-toggle[data-repeating=true] { color: var(--theme-link); background: var(--theme-selected); border-color: var(--theme-link); }
+#cp-dialog .cp-event-repeat-options { padding: 12px; margin-bottom: 14px; border: 1px solid var(--theme-line); border-radius: 10px; }
+#cp-dialog .cp-event-repeat-options > :last-child { margin-bottom: 0; }
+@media (max-width: 359px) {
+  #cp-dialog .cp-form-fields { padding: 12px 16px; }
+  #cp-dialog .cp-form-actions { padding-inline: 16px; }
+}
+@media (orientation: landscape) and (max-height: 599px) {
+  #cp-dialog .cp-form-fields { padding-block: 10px; }
+  #cp-dialog .cp-form-actions { padding-block: 8px; }
+  #app-shell #prepare-form > .cp-form-actions { bottom: -10px; align-self: end; }
+}

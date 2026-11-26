@@ -1,0 +1,87 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Tiempo de práctica" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - button "‹ Progreso"
+  - text: Tipo de práctica
+  - combobox "Tipo de práctica":
+    - option "Toda la práctica" [selected]
+    - option "Calentamiento"
+    - option "Lectura"
+    - option "Técnica"
+    - option "Repertorio"
+    - option "Práctica libre"
+  - text: Pieza del repertorio
+  - combobox "Pieza del repertorio":
+    - option "Todas las piezas" [selected]
+    - option "Prélude en do majeur"
+    - option "Étude mélodique"
+    - option "A long synthetic title with <tags> & several movements"
+  - heading "Tiempo total de práctica" [level=2]
+  - strong: 2 hr 55 min
+  - generic: 27 ago 2026 – 26 nov 2026
+  - paragraph:
+    - text: Sin práctica en el periodo anterior
+    - generic: 27 may 2026 – 26 ago 2026
+  - figure "Práctica semanal · semana actual en curso":
+    - group "Tiempo de práctica registrado":
+      - generic: 0 min
+      - generic: 1 hr 30 min
+      - generic: 3 hr
+      - 'button "27 ago 2026 – 30 ago 2026: 0 min"':
+        - 'generic "27 ago 2026 – 30 ago 2026: 0 min"'
+      - 'button "31 ago 2026 – 6 sept 2026: 0 min"':
+        - 'generic "31 ago 2026 – 6 sept 2026: 0 min"'
+      - 'button "7 sept 2026 – 13 sept 2026: 0 min"':
+        - 'generic "7 sept 2026 – 13 sept 2026: 0 min"'
+      - 'button "14 sept 2026 – 20 sept 2026: 0 min"':
+        - 'generic "14 sept 2026 – 20 sept 2026: 0 min"'
+      - 'button "21 sept 2026 – 27 sept 2026: 0 min"':
+        - 'generic "21 sept 2026 – 27 sept 2026: 0 min"'
+      - 'button "28 sept 2026 – 4 oct 2026: 0 min"':
+        - 'generic "28 sept 2026 – 4 oct 2026: 0 min"'
+      - 'button "5 oct 2026 – 11 oct 2026: 0 min"':
+        - 'generic "5 oct 2026 – 11 oct 2026: 0 min"'
+      - 'button "12 oct 2026 – 18 oct 2026: 0 min"':
+        - 'generic "12 oct 2026 – 18 oct 2026: 0 min"'
+      - 'button "19 oct 2026 – 25 oct 2026: 0 min"':
+        - 'generic "19 oct 2026 – 25 oct 2026: 0 min"'
+      - 'button "26 oct 2026 – 1 nov 2026: 0 min"':
+        - 'generic "26 oct 2026 – 1 nov 2026: 0 min"'
+      - 'button "2 nov 2026 – 8 nov 2026: 0 min"':
+        - 'generic "2 nov 2026 – 8 nov 2026: 0 min"'
+      - 'button "9 nov 2026 – 15 nov 2026: 0 min"':
+        - 'generic "9 nov 2026 – 15 nov 2026: 0 min"'
+      - 'button "16 nov 2026 – 22 nov 2026: 12 min"':
+        - 'generic "16 nov 2026 – 22 nov 2026: 12 min"'
+      - 'button "23 nov 2026 – 26 nov 2026: 2 hr 43 min"':
+        - 'generic "23 nov 2026 – 26 nov 2026: 2 hr 43 min"'
+      - generic: 27 ago
+      - generic: 21 sept
+      - generic: 26 oct
+      - generic: 23 nov
+    - generic: Práctica semanal · semana actual en curso
+  - navigation "Rango de fechas":
+    - button "7 días": 7D
+    - button "1 mes": 1M
+    - button "3 meses" [pressed]: 3M
+    - button "6 meses": 6M
+    - button "Año actual": Año
+    - button "1 año": 1A
+  - paragraph: Los filtros cuentan solo el tiempo registrado en los bloques que coinciden.
+  - generic "Ver valores de la gráfica"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

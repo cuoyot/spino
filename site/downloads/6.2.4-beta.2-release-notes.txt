@@ -1,0 +1,15 @@
+<es-ES>
+Interfaz más limpia: calentamiento plegado, acciones de guardado siempre accesibles y repeticiones desde un icono junto a la hora. Barras de desplazamiento ocultas en móvil y más discretas en escritorio. Calendario más claro, mejor selección de días y acceso MIDI. Mejoras de accesibilidad y mensajes de colección vacía.
+</es-ES>
+<en-US>
+Cleaner interface: collapsed warm-up, reachable save actions and repetitions behind an icon beside the time. Hidden mobile scrollbars and quieter desktop scrolling. Clearer calendar, weekday selection and MIDI access. Improved accessibility and empty-library messages.
+</en-US>
+<ca>
+Interfície més neta: escalfament plegat, accions de desament accessibles i repeticions des d’una icona al costat de l’hora. Barres de desplaçament ocultes al mòbil i més discretes a l’escriptori. Calendari més clar, millor selecció de dies i accés MIDI. Millores d’accessibilitat i missatges de col·lecció buida.
+</ca>
+<de-DE>
+Aufgeräumtere Oberfläche: eingeklapptes Aufwärmen, erreichbare Speicheraktionen und Wiederholungen über ein Symbol neben der Uhrzeit. Verborgene mobile und dezentere Desktop-Scrollleisten. Klarerer Kalender, bessere Wochentagauswahl und MIDI-Zugang. Verbesserte Barrierefreiheit und Hinweise bei leerer Sammlung.
+</de-DE>
+<hu-HU>
+Letisztultabb felület: összecsukott bemelegítés, elérhető mentési műveletek és ismétlődés az idő melletti ikonról. Rejtett mobilos és visszafogottabb asztali görgetősávok. Átláthatóbb naptár, jobb napválasztás és MIDI-elérés. Javított akadálymentesség és az üres gyűjtemény üzenetei.
+</hu-HU>

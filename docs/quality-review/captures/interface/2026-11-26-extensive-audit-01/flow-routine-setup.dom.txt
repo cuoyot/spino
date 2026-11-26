@@ -1,0 +1,43 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Crear rutina" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: Prepara una secuencia para repetirla.
+  - heading "Bloques 1" [level=2]
+  - checkbox "Calentamiento Siempre al principio · ejercicios elegidos al practicar"
+  - strong: Calentamiento
+  - generic: Siempre al principio · ejercicios elegidos al practicar
+  - generic: Minutos de calentamiento
+  - spinbutton "Minutos de calentamiento min" [disabled]: "3"
+  - generic: min
+  - list:
+    - button "Mover o eliminar bloque 1": ⠿
+    - button "Lectura Do mayor":
+      - strong: Lectura
+      - generic: Do mayor
+    - generic: Minutos del bloque 1
+    - spinbutton "Minutos del bloque 1 min": "10"
+    - generic: min
+    - button "Editar bloque 1": ✎
+  - button "+ Añadir bloque"
+  - generic: Tiempo total de práctica
+  - strong:
+    - status: "10"
+    - text: min
+  - button "Cancelar"
+  - button "Guardar rutina"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

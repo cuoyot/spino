@@ -1,0 +1,37 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Instrumento" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - button "Volver":
+  - region "Instrumentos conectados":
+    - generic "Actividad MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+    - heading "Sin instrumento conectado" [level=2]
+    - paragraph: Conecta el cable. SPino detecta tu piano automáticamente.
+    - button "Conectar instrumento"
+    - alert: Permite el acceso a MIDI o Bluetooth para conectar.
+    - heading "Pedales para pasar página" [level=3]
+    - paragraph: Pasa las páginas de la partitura con los pedales del piano.
+    - list:
+      - strong: Página siguiente
+      - generic: CC 66 · pedal central
+      - button "Cambiar"
+      - strong: Página anterior
+      - generic: CC 67 · pedal izquierdo
+      - button "Cambiar"
+    - status: Aún no ha llegado ninguna señal de pedal. Pisa un pedal para comprobar que el piano la envía.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

@@ -1,0 +1,43 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Sincronización y copias" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - button "Volver":
+  - region "Sincronización en la nube":
+    - heading "Sincronización en la nube" [level=2]
+    - paragraph: Google Drive · Cuaderno, partituras y grabaciones
+    - status: Sin conectar
+    - term: Cuenta de Google
+    - definition: Sin cuenta de Google conectada
+    - term: Cuaderno
+    - definition: Sin conectar
+    - paragraph: Todavía no hay cambios sincronizados
+    - button "Conectar Google Drive" [disabled]
+    - button "Cómo funciona"
+  - region "Copias de seguridad":
+    - heading "Copias de seguridad" [level=2]
+    - generic "+ Info"
+    - paragraph: Archivos ZIP para recuperar un estado anterior del cuaderno.
+    - button "Guardar ZIP Cuaderno, partituras y grabaciones en un archivo.":
+      - strong: Guardar ZIP
+      - generic: Cuaderno, partituras y grabaciones en un archivo.
+      - generic: ›
+    - button "Restaurar una copia Abre un ZIP del dispositivo o de Google Drive.":
+      - strong: Restaurar una copia
+      - generic: Abre un ZIP del dispositivo o de Google Drive.
+      - generic: ›
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

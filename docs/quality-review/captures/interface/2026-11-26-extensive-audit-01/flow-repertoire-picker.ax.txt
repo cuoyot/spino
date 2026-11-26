@@ -1,0 +1,19 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Buscar en tu repertorio, ID: cp-dialog
+		3 heading Buscar en tu repertorio, Value: 2, ID: cp-dialog-title
+			4 text Buscar en tu repertorio
+		5 button Cerrar
+		6 container
+			7 text Buscar en tu repertorio
+			8 search text field (settable) Buscar en tu repertorio
+		9 container
+			10 checkbox Prélude en do majeur Review fixture, Value: 0
+				11 text Prélude en do majeur
+				12 text Review fixture
+			13 checkbox Étude mélodique Review fixture, Value: 0
+				14 text Étude mélodique
+				15 text Review fixture
+		16 button Listo
+
+The focused UI element is 8 search text field (settable) Buscar en tu repertorio

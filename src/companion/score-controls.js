@@ -31,7 +31,10 @@ const paths = {
   fit: '<path d="M9 3H3v6M15 3h6v6M3 15v6h6M15 21h6v-6"/>',
 };
 export const scoreIcon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || ''}</svg>`;
-export const printActionButton = (action,id,escape) => `<button type="button" class="score-print-icon quiet" data-action="${action}" data-id="${escape(id)}" title="${ui('Print score','Imprimir partitura')}" aria-label="${ui('Print score','Imprimir partitura')}">${scoreIcon('print')}</button>`;
+export const printActionButton = (action,id,escape,title = '') => {
+  const label = ui('Print score','Imprimir partitura') + (title ? ': ' + title : '');
+  return `<button type="button" class="score-print-icon quiet" data-action="${action}" data-id="${escape(id)}" title="${escape(label)}" aria-label="${escape(label)}">${scoreIcon('print')}</button>`;
+};
 export const scoreButton = (action, label, content = scoreIcon(action), extra = '') => `<button type="button" data-pdf="${action}" aria-label="${label}" title="${label}" ${extra}>${content}</button>`;
 const toolButton = (id, label) => `<button type="button" data-tool="${id}" aria-label="${label}" title="${label}" aria-pressed="false">${scoreIcon(id)}<span>${label}</span></button>`;
 

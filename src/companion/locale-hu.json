@@ -2072,5 +2072,18 @@
   "Added to repertoire": "Hozzáadva a repertoárhoz",
   "Date not recorded": "A dátum nincs rögzítve",
   "Actions": "Műveletek",
-  "Practised today": "Mai gyakorlás"
+  "Practised today": "Mai gyakorlás",
+  "Add activity": "Tevékenység hozzáadása",
+  "No matching works.": "Nincs megfelelő mű.",
+  "Trash is empty.": "A kuka üres.",
+  "No pieces yet. Add a work to start your collection.": "Még nincsenek darabok. Adj hozzá egy művet a gyűjteményedhez.",
+  "With piano · MIDI": "Zongorával · MIDI",
+  "Practice mode": "Gyakorlási mód",
+  "Starts in a later week": "Egy későbbi héten kezdődik",
+  "Past days are unavailable.": "A korábbi napok nem választhatók.",
+  "Past dates are skipped; selected days repeat in later weeks.": "A korábbi dátumok kimaradnak; a kiválasztott napok a későbbi heteken ismétlődnek.",
+  "practice": "gyakorlás",
+  "Choose an available day.": "Válassz egy elérhető napot.",
+  "Add repetitions": "Ismétlődés hozzáadása",
+  "For repertoire or free practice, choose With piano. On screen supports reading and technique.": "Repertoárhoz vagy szabad gyakorláshoz válaszd a Zongorával módot. Képernyőn kottaolvasást és technikát gyakorolhatsz."
 }

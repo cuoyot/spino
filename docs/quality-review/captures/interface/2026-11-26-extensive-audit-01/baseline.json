@@ -1,0 +1,942 @@
+[
+  {
+    "name": "home-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "home",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 1807,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 112,
+        "text": "L\n23\n90′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "M\n24\n9′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "X\n25\n44′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "J\n26\n20′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "V\n27\n·",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "S\n28\n·",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "D\n29\n·",
+        "width": 40
+      }
+    ],
+    "view": "home"
+  },
+  {
+    "name": "practice-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "practice",
+    "clientHeight": 703,
+    "clientWidth": 390,
+    "scrollHeight": 703,
+    "scrollWidth": 390,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "calendar",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 2557,
+    "scrollWidth": 375,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "piano",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 862,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "progress",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 1947,
+    "scrollWidth": 375,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-light-phone-portrait",
+    "theme": "light",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "settings",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 864,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "home",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 1341,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "practice",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 548,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "calendar",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 1652,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "piano",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 770,
+    "scrollWidth": 739,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "progress",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 2080,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-light-phone-landscape",
+    "theme": "light",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "settings",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 885,
+    "scrollWidth": 739,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "home",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 1853,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "practice",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "calendar",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 2617,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "piano",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "progress",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 2044,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-light-tablet-portrait",
+    "theme": "light",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "settings",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "home",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 1373,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "practice",
+    "clientHeight": 700,
+    "clientWidth": 868,
+    "scrollHeight": 700,
+    "scrollWidth": 868,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "calendar",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 2617,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "piano",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 802,
+    "scrollWidth": 853,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "progress",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 2166,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-light-tablet-landscape",
+    "theme": "light",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "settings",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 917,
+    "scrollWidth": 853,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "home",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 1807,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 112,
+        "text": "L\n23\n90′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "M\n24\n9′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "X\n25\n44′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "J\n26\n20′",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "V\n27\n·",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "S\n28\n·",
+        "width": 40
+      },
+      {
+        "height": 112,
+        "text": "D\n29\n·",
+        "width": 40
+      }
+    ],
+    "view": "home"
+  },
+  {
+    "name": "practice-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "practice",
+    "clientHeight": 703,
+    "clientWidth": 390,
+    "scrollHeight": 703,
+    "scrollWidth": 390,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "calendar",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 2557,
+    "scrollWidth": 375,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "piano",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 862,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "progress",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 1947,
+    "scrollWidth": 375,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-dark-phone-portrait",
+    "theme": "dark",
+    "id": "phone-portrait",
+    "width": 390,
+    "height": 844,
+    "route": "settings",
+    "clientHeight": 703,
+    "clientWidth": 375,
+    "scrollHeight": 864,
+    "scrollWidth": 375,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "home",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 1341,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "practice",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 548,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "calendar",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 1652,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "piano",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 770,
+    "scrollWidth": 739,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "progress",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 2080,
+    "scrollWidth": 739,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-dark-phone-landscape",
+    "theme": "dark",
+    "id": "phone-landscape",
+    "width": 844,
+    "height": 390,
+    "route": "settings",
+    "clientHeight": 322,
+    "clientWidth": 739,
+    "scrollHeight": 885,
+    "scrollWidth": 739,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "home",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 1853,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "practice",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "calendar",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 2617,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "piano",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "progress",
+    "clientHeight": 956,
+    "clientWidth": 597,
+    "scrollHeight": 2044,
+    "scrollWidth": 597,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-dark-tablet-portrait",
+    "theme": "dark",
+    "id": "tablet-portrait",
+    "width": 768,
+    "height": 1024,
+    "route": "settings",
+    "clientHeight": 956,
+    "clientWidth": 612,
+    "scrollHeight": 956,
+    "scrollWidth": 612,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  },
+  {
+    "name": "home-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "home",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 1373,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "home"
+  },
+  {
+    "name": "practice-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "practice",
+    "clientHeight": 700,
+    "clientWidth": 868,
+    "scrollHeight": 700,
+    "scrollWidth": 868,
+    "smallTargets": [],
+    "view": "practice"
+  },
+  {
+    "name": "calendar-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "calendar",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 2617,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "calendar"
+  },
+  {
+    "name": "piano-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "piano",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 802,
+    "scrollWidth": 853,
+    "smallTargets": [
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      },
+      {
+        "height": 44,
+        "text": "Autor",
+        "width": 31
+      },
+      {
+        "height": 44,
+        "text": "Estado",
+        "width": 39
+      }
+    ],
+    "view": "piano"
+  },
+  {
+    "name": "progress-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "progress",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 2166,
+    "scrollWidth": 853,
+    "smallTargets": [],
+    "view": "progress"
+  },
+  {
+    "name": "settings-dark-tablet-landscape",
+    "theme": "dark",
+    "id": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "route": "settings",
+    "clientHeight": 700,
+    "clientWidth": 853,
+    "scrollHeight": 917,
+    "scrollWidth": 853,
+    "smallTargets": [
+      {
+        "height": 38,
+        "text": "Editar perfil",
+        "width": 76
+      }
+    ],
+    "view": "settings"
+  }
+]

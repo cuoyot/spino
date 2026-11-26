@@ -1,0 +1,50 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?theme=dark&route=settings".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=settings
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Perfil, Value: 1
+				6 text Perfil
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 button Cambiar foto de perfil
+			11 heading Review pianist, Value: 2
+				12 text Review pianist
+			13 text Inicial · Objetivo semanal · 240 min
+			14 button Editar perfil
+			15 button Preferencias de práctica Manos, registro y tempo
+				16 text Preferencias de práctica
+				17 text Manos, registro y tempo
+			18 button Sincronización y copias Sin conectar
+				19 text Sincronización y copias
+				20 text Sin conectar
+			21 button Conectar otro dispositivo Escanea el QR de un cuaderno o selecciona su archivo de nube
+				22 text Conectar otro dispositivo
+				23 text Escanea el QR de un cuaderno o selecciona su archivo de nube
+			24 button Partituras guardadas 2 partituras · locales y en Drive
+				25 text Partituras guardadas
+				26 text 2 partituras · locales y en Drive
+			27 button Recordatorios Disponibles en la app Android o iOS
+				28 text Recordatorios
+				29 text Disponibles en la app Android o iOS
+			30 button Apariencia Claro, oscuro o según tu dispositivo
+				31 text Apariencia
+				32 text Claro, oscuro o según tu dispositivo
+			33 button Recorrido de la app Explora las pantallas principales
+				34 text Recorrido de la app
+				35 text Explora las pantallas principales
+			36 button Valorar app
+			37 button Compartir app
+			38 button Créditos y notas de versión
+				39 text SPino · 6.2.4-beta.1
+				40 text Smart Piano Notebook
+			41 button Gestionar datos locales
+		42 container Navegación principal
+			43 button Hoy
+			44 button Practicar
+			45 button Calendario
+			46 button Biblioteca
+			47 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=dark&route=settings

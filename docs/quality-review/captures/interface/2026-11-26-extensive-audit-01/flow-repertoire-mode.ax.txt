@@ -1,0 +1,26 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Elige el modo de práctica, Value: 1
+				6 text Elige el modo de práctica
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 heading Repertorio, Value: 2
+				11 text Repertorio
+			12 button (disabled) Móvil Disponible para lectura y técnica
+				13 text Móvil
+				14 text Disponible para lectura y técnica
+			15 button Con piano Conecta MIDI cuando quieras
+				16 text Con piano
+				17 text Conecta MIDI cuando quieras
+		18 container Navegación principal
+			19 button Hoy
+			20 button Practicar
+			21 button Calendario
+			22 button Biblioteca
+			23 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice

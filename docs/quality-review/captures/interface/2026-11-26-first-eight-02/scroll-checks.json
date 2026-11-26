@@ -1,0 +1,14 @@
+{
+  "horizontal": {
+    "focused": "✓Étude mélodiqueReview fixture",
+    "left": 3,
+    "scrollable": true,
+    "scrollbar": "none"
+  },
+  "vertical": {
+    "scrollable": true,
+    "scrollbar": "none",
+    "top": 188
+  },
+  "scope": "Responsive browser keyboard/focus; native touch acceptance remains separate"
+}

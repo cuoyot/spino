@@ -1,0 +1,100 @@
+{
+  "version": "6.2.4-beta.2",
+  "versionCode": 130,
+  "webAssetParity": {
+    "files": 685,
+    "packages": 3,
+    "equal": true
+  },
+  "androidTests": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.679Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    },
+    {
+      "name": "com.miguecoll.spino.DocumentExportTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.690Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.245"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.960Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.025"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.987Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.008"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-26T18:13:41.953Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    }
+  ],
+  "native": {
+    "retainedOriginalFiles": 8,
+    "unchangedBeforeLaunch": true,
+    "foreground": [
+      "ResumedActivity: ActivityRecord{2aa0a8 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t215}"
+    ],
+    "version": [
+      "versionCode=130 minSdk=24 targetSdk=36",
+      "versionName=6.2.4-beta.2"
+    ]
+  },
+  "responsiveEvidence": "../quality-review/captures/interface/2026-11-26-first-eight-02/manifest.json",
+  "applicationTests": {
+    "passed": 42,
+    "failed": 1,
+    "baselineFailure": "Today weekly progress obsolete compact-layout assertion also fails on untouched beta129"
+  },
+  "physicalDeviceAcceptance": "pending owner installation",
+  "distribution": "website-beta",
+  "nativeEvidence": {
+    "retainedOriginalFiles": 8,
+    "unchangedBeforeLaunch": true,
+    "foreground": [
+      "ResumedActivity: ActivityRecord{2aa0a8 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t215}"
+    ],
+    "version": [
+      "versionCode=130 minSdk=24 targetSdk=36",
+      "versionName=6.2.4-beta.2"
+    ]
+  },
+  "websiteTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "packageSignatures": {
+    "releaseAPK": "apksigner verified",
+    "betaAPK": "apksigner verified",
+    "AAB": "jarsigner verified; existing self-signed upload certificate"
+  }
+}

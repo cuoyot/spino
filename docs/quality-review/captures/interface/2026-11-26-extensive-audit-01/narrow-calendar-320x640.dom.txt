@@ -1,0 +1,194 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Calendario" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - group "Vista del calendario":
+    - button "Semana" [pressed]
+    - button "Mes"
+  - button "Organizar semana"
+  - heading "16 nov – 22 nov" [level=2]
+  - generic: Semana 47
+  - paragraph: 12 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "16"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 16 de noviembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "17"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 17 de noviembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "18"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 18 de noviembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "19"
+  - generic: Sin práctica prevista
+  - button "Añadir al jueves, 19 de noviembre": + Añadir
+  - time:
+    - generic: vie
+    - generic: "20"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 20 de noviembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "21"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 21 de noviembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "22"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Repaso de una obra archivada · dom, 22 nov 2026 · 12 min · Realizada · Piano MIDI · A long synthetic title with <tags> & several movements":
+        - strong: Repaso de una obra archivada
+        - generic: 12 min
+        - generic "Realizada": ✓
+  - button "Añadir al domingo, 22 de noviembre": +
+  - heading "23 nov – 29 nov" [level=2]
+  - generic: Semana 48 · Actual
+  - paragraph: 163 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "23"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Técnica y lectura · lun, 23 nov 2026 · 1 hr 30 min · Piano MIDI · Parcial":
+        - strong: Técnica y lectura
+        - generic: 1 hr 30 min · Parcial
+        - generic "Parcial": ◐
+  - button "Añadir al lunes, 23 de noviembre": +
+  - time:
+    - generic: mar
+    - generic: "24"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Lectura y repertorio · mar, 24 nov 2026 · 9 min · Realizada · Piano MIDI · Étude mélodique":
+        - strong: Lectura y repertorio
+        - generic: 9 min
+        - generic "Realizada": ✓
+  - button "Añadir al martes, 24 de noviembre": +
+  - time:
+    - generic: mié
+    - generic: "25"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Repertorio · mié, 25 nov 2026 · 44 min · Realizada · Piano MIDI · Prélude en do majeur":
+        - strong: Repertorio
+        - generic: 44 min
+        - generic "Realizada": ✓
+  - button "Añadir al miércoles, 25 de noviembre": +
+  - time:
+    - generic: jue
+    - generic: "26"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Weekly piano lesson 15:30 · Clase":
+        - strong: Weekly piano lesson
+        - generic: 15:30 · Clase
+    - article:
+      - button "Práctica de piano · jue, 26 nov 2026 · 20 min · Realizada · Registro manual":
+        - strong: Práctica de piano
+        - generic: 20 min
+        - generic "Realizada": ✓
+  - button "Añadir al jueves, 26 de noviembre": +
+  - time:
+    - generic: vie
+    - generic: "27"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Ensayo 1 17:00 · Ensayo":
+        - strong: Ensayo 1
+        - generic: 17:00 · Ensayo
+    - article:
+      - button "Otro 1 17:00 · Otro":
+        - strong: Otro 1
+        - generic: 17:00 · Otro
+  - button "Añadir al viernes, 27 de noviembre": +
+  - time:
+    - generic: sáb
+    - generic: "28"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Ensayo 2 17:00 · Ensayo":
+        - strong: Ensayo 2
+        - generic: 17:00 · Ensayo
+    - article:
+      - button "Otro 2 17:00 · Otro":
+        - strong: Otro 2
+        - generic: 17:00 · Otro
+  - button "Añadir al sábado, 28 de noviembre": +
+  - time:
+    - generic: dom
+    - generic: "29"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Ensayo 3 17:00 · Ensayo":
+        - strong: Ensayo 3
+        - generic: 17:00 · Ensayo
+    - article:
+      - button "Otro 3 17:00 · Otro":
+        - strong: Otro 3
+        - generic: 17:00 · Otro
+  - button "Añadir al domingo, 29 de noviembre": +
+  - heading "30 nov – 6 dic" [level=2]
+  - generic: Semana 49
+  - paragraph: 0 min practicados · 0 min previstos
+  - time:
+    - generic: lun
+    - generic: "30"
+  - generic: Sin práctica prevista
+  - button "Añadir al lunes, 30 de noviembre": + Añadir
+  - time:
+    - generic: mar
+    - generic: "1"
+  - generic: Sin práctica prevista
+  - button "Añadir al martes, 1 de diciembre": + Añadir
+  - time:
+    - generic: mié
+    - generic: "2"
+  - generic: Sin práctica prevista
+  - button "Añadir al miércoles, 2 de diciembre": + Añadir
+  - time:
+    - generic: jue
+    - generic: "3"
+  - group "Prácticas y eventos · desliza horizontalmente":
+    - article:
+      - button "Weekly piano lesson 15:30 · Clase":
+        - strong: Weekly piano lesson
+        - generic: 15:30 · Clase
+  - button "Añadir al jueves, 3 de diciembre": +
+  - time:
+    - generic: vie
+    - generic: "4"
+  - generic: Sin práctica prevista
+  - button "Añadir al viernes, 4 de diciembre": + Añadir
+  - time:
+    - generic: sáb
+    - generic: "5"
+  - generic: Sin práctica prevista
+  - button "Añadir al sábado, 5 de diciembre": + Añadir
+  - time:
+    - generic: dom
+    - generic: "6"
+  - generic: Sin práctica prevista
+  - button "Añadir al domingo, 6 de diciembre": + Añadir
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

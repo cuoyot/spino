@@ -1,0 +1,70 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Organiza tu semana" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: Elige días de práctica y una clase, para una semana o una serie semanal.
+  - text: Semana del
+  - textbox "Semana del": 2026-11-23
+  - text: Repetir
+  - combobox "Repetir":
+    - option "Solo esta semana" [selected]
+    - option "Cada semana durante 4 semanas"
+    - option "Cada semana durante 8 semanas"
+    - option "Cada semana durante 12 semanas"
+    - option "Cada semana durante 26 semanas"
+    - option "Cada semana durante 52 semanas"
+  - group "Días de práctica":
+    - generic: Días de práctica
+    - checkbox "L Lunes" [checked]
+    - generic "Lunes": L
+    - generic: Lunes
+    - checkbox "M Martes"
+    - generic "Martes": M
+    - generic: Martes
+    - checkbox "X Miércoles" [checked]
+    - generic "Miércoles": X
+    - generic: Miércoles
+    - checkbox "J Jueves"
+    - generic "Jueves": J
+    - generic: Jueves
+    - checkbox "V Viernes" [checked]
+    - generic "Viernes": V
+    - generic: Viernes
+    - checkbox "S Sábado"
+    - generic "Sábado": S
+    - generic: Sábado
+    - checkbox "D Domingo"
+    - generic "Domingo": D
+    - generic: Domingo
+  - text: ¿Dónde?
+  - combobox "¿Dónde?":
+    - option "Sin piano" [selected]
+    - option "Con piano"
+    - option "Piano MIDI"
+  - status "min por día 40": "40"
+  - text: min por día
+  - slider: "40"
+  - paragraph: Lectura en Do mayor con respuesta en pantalla.
+  - checkbox "Tengo clase con tutor"
+  - text: Tengo clase con tutor
+  - text: 23 nov – 29 nov
+  - paragraph: 1 prácticas · 40 min
+  - generic: vie 27
+  - paragraph: "lun 23: Día pasado · mié 25: Día pasado"
+  - button "Guardar semana"
+  - button "Cancelar"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

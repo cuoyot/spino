@@ -1,0 +1,70 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Prepara tu práctica, Value: 1
+				6 text Prepara tu práctica
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container prepare-form
+			10 text Modo:  Con piano
+			11 button Cambiar
+			12 container
+				13 text Duración total 
+				14 container Duración total min 40
+					15 text 40
+				16 text  min
+				17 slider (settable, integer) Description: Duración total de la práctica en minutos, Value: 40, ID: practice-duration
+			18 container
+				19 checkbox (settable, integer) Description: Calentamiento, Value: 0
+				20 container
+					21 text Tipo de calentamiento
+					22 pop up button (disabled, collapsed, settable) Tipo de calentamiento, Value: Hanon, Secondary Actions: Expand
+						23 menu
+							24 (disabled) Libre
+							25 (disabled) Hanon
+							26 (disabled) Lectura
+							27 (disabled) Escalas
+				28 container
+					29 text Duración (min)
+					30 stepper (disabled, settable, integer) Duración (min), Value: 3
+				31 container
+					32 text Ejercicio
+					33 pop up button (disabled, collapsed, settable) Ejercicio, Value: Siguientes ejercicios, Secondary Actions: Expand
+						34 menu
+							35 (disabled) Siguientes ejercicios
+							36 (disabled) Hanon n.º 1
+							37 (disabled) Hanon n.º 2
+							38 (disabled) Hanon n.º 3
+							39 (disabled) Hanon n.º 4
+							40 (disabled) Hanon n.º 5
+							41 (disabled) Hanon n.º 6
+							42 (disabled) Hanon n.º 7
+							43 (disabled) Hanon n.º 8
+							44 (disabled) Hanon n.º 9
+							45 (disabled) Hanon n.º 10
+			46 container Elige las piezas
+				47 heading Elige las piezas, Value: 2, ID: repertoire-picker-title
+					48 text Elige las piezas
+				49 button Buscar en tu repertorio
+				50 text Selecciona una o varias piezas. El tiempo de práctica se reparte automáticamente.
+				51 text En tu atril
+				52 container Elige las piezas
+					53 checkbox Prélude en do majeur Review fixture, Help: Prélude en do majeur · Review fixture, Value: 0
+						54 text Prélude en do majeur
+						55 text Review fixture
+					56 checkbox Étude mélodique Review fixture, Help: Étude mélodique · Review fixture, Value: 0
+						57 text Étude mélodique
+						58 text Review fixture
+				59 text Elige piezas del atril o busca en tu repertorio.
+			60 button Empezar sesión →
+			61 button Más opciones
+		62 container Navegación principal
+			63 button Hoy
+			64 button Practicar
+			65 button Calendario
+			66 button Biblioteca
+			67 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice

@@ -1,0 +1,147 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?theme=light&route=home".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=light&route=home
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Hoy, Value: 1
+				6 text Hoy
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 text Hola, Review pianist · jueves, 26 de noviembre
+			11 container Practicado esta semana
+				12 heading Tu semana, Value: 2
+					13 text Tu semana
+				14 button Ver progreso
+				15 container
+					16 text 2  hr  43  min
+				17 text /  4 hr  objetivo
+				18 progress indicator Description: Objetivo semanal, Value: 68
+				19 text 77 min para tu objetivo
+				20 container Tu semana
+					21 text 23 nov – 29 nov
+					22 button Ver calendario
+					23 button lunes, 23 de noviembre, 90 min, 1 actividades
+						24 text L
+						25 text 23
+					26 button martes, 24 de noviembre, 9 min, 1 actividades
+						27 text M
+						28 text 24
+					29 button miércoles, 25 de noviembre, 44 min, 1 actividades
+						30 text X
+						31 text 25
+					32 button jueves, 26 de noviembre, 20 min, 2 actividades
+						33 text J
+						34 text 26
+					35 button viernes, 27 de noviembre, 0 min, 2 actividades
+						36 text V
+						37 text 27
+					38 button sábado, 28 de noviembre, 0 min, 2 actividades
+						39 text S
+						40 text 28
+					41 button domingo, 29 de noviembre, 0 min, 2 actividades
+						42 text D
+						43 text 29
+			44 button Elegir práctica
+			45 button Grabar
+			46 heading También hoy, Value: 2
+				47 text También hoy
+			48 button 15:30 Clase Weekly piano lesson
+				49 text 15:30
+				50 text Clase
+				51 text Weekly piano lesson
+			52 heading Próximos compromisos, Value: 2
+				53 text Próximos compromisos
+			54 button + Evento
+			55 button lunes, 21 de diciembre de 2026 Concierto 19:00 Winter concert Tiempo restante 3 semanas y 4 días
+				56 container lunes, 21 de diciembre de 2026
+					57 text DIC 2026
+					58 text 21
+					59 text lunes
+				60 text Concierto
+				61 text 19:00
+				62 text Winter concert
+				63 text Tiempo restante
+				64 text 3 semanas y 4 días
+			65 button sábado, 2 de enero de 2027 Audición 18:00 Audicion de nadal Tiempo restante 5 semanas y 2 días
+				66 container sábado, 2 de enero de 2027
+					67 text ENE 2027
+					68 text 2
+					69 text sábado
+				70 text Audición
+				71 text 18:00
+				72 text Audicion de nadal
+				73 text Tiempo restante
+				74 text 5 semanas y 2 días
+			75 button viernes, 27 de noviembre de 2026 Ensayo 17:00 Ensayo 1 1 día
+				76 container viernes, 27 de noviembre de 2026
+					77 text NOV 2026
+					78 text 27
+					79 text viernes
+				80 text Ensayo
+				81 text 17:00
+				82 text Ensayo 1
+				83 text 1 día
+			84 button viernes, 27 de noviembre de 2026 Otro 17:00 Otro 1 1 día
+				85 container viernes, 27 de noviembre de 2026
+					86 text NOV 2026
+					87 text 27
+					88 text viernes
+				89 text Otro
+				90 text 17:00
+				91 text Otro 1
+				92 text 1 día
+			93 button sábado, 28 de noviembre de 2026 Ensayo 17:00 Ensayo 2 2 días
+				94 container sábado, 28 de noviembre de 2026
+					95 text NOV 2026
+					96 text 28
+					97 text sábado
+				98 text Ensayo
+				99 text 17:00
+				100 text Ensayo 2
+				101 text 2 días
+			102 button sábado, 28 de noviembre de 2026 Otro 17:00 Otro 2 2 días
+				103 container sábado, 28 de noviembre de 2026
+					104 text NOV 2026
+					105 text 28
+					106 text sábado
+				107 text Otro
+				108 text 17:00
+				109 text Otro 2
+				110 text 2 días
+			111 button jueves, 3 de diciembre de 2026 Clase 15:30 Weekly piano lesson 1 semana
+				112 container jueves, 3 de diciembre de 2026
+					113 text DIC 2026
+					114 text 3
+					115 text jueves
+				116 text Clase
+				117 text 15:30
+				118 text Weekly piano lesson
+				119 text 1 semana
+			120 button jueves, 10 de diciembre de 2026 Clase 15:30 Weekly piano lesson 2 semanas
+				121 container jueves, 10 de diciembre de 2026
+					122 text DIC 2026
+					123 text 10
+					124 text jueves
+				125 text Clase
+				126 text 15:30
+				127 text Weekly piano lesson
+				128 text 2 semanas
+			129 heading Practicado hoy, Value: 2
+				130 text Practicado hoy
+			131 button Práctica de piano jue, 26 nov 2026 Bien Práctica libre 20 min Registro manual Ver sesión
+				132 text Práctica de piano
+				133 text jue, 26 nov 2026
+				134 text Bien
+				135 text Práctica libre
+				136 text 20 min
+				137 text Registro manual
+				138 text Ver sesión
+		139 container Navegación principal
+			140 button Hoy
+			141 button Practicar
+			142 button Calendario
+			143 button Biblioteca
+			144 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?theme=light&route=home

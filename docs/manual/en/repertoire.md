@@ -47,3 +47,10 @@ Use **Choose instruments** in the score details to change the displayed parts. A
 
 
 Packaging follow-up: these MusicXML changes are included in the owner-requested local Android 6.2.1-beta.8/build120 review package. Replacement installation and emulator foreground/data retention are verified. Public website/Play delivery and physical-device acceptance remain separate.
+
+
+## Beta130 interface refinements
+
+An empty collection, empty Trash and a filtered search with no matches show different guidance. Clear filters is available when filters hide all results. Icon actions include the original work title in their accessible names.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.

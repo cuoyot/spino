@@ -1,0 +1,107 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - heading "Prepara tu práctica" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - generic: "Modo: Móvil"
+  - button "Cambiar"
+  - text: Duración total
+  - status "Duración total min 40": "40"
+  - text: min
+  - slider "Duración total de la práctica en minutos": "40"
+  - text: Bloque de práctica
+  - combobox "Bloque de práctica":
+    - option "Lectura" [selected]
+    - option "Técnica"
+    - option "Repertorio"
+    - option "Práctica libre"
+  - text: Duración (min)
+  - spinbutton "Duración (min)": "40"
+  - button "+ Catálogo"
+  - text: Escala o modo
+  - combobox "Escala o modo":
+    - option "Do mayor" [selected]
+    - option "Re♭ mayor"
+    - option "Re mayor"
+    - option "Mi♭ mayor"
+    - option "Mi mayor"
+    - option "Fa mayor"
+    - option "Fa♯ mayor"
+    - option "Sol mayor"
+    - option "La♭ mayor"
+    - option "La mayor"
+    - option "Si♭ mayor"
+    - option "Si mayor"
+    - option "Do menor natural"
+    - option "Do menor armónica"
+    - option "Do♯ menor natural"
+    - option "Do♯ menor armónica"
+    - option "Re menor natural"
+    - option "Re menor armónica"
+    - option "Mi♭ menor natural"
+    - option "Mi♭ menor armónica"
+    - option "Mi menor natural"
+    - option "Mi menor armónica"
+    - option "Fa menor natural"
+    - option "Fa menor armónica"
+    - option "Fa♯ menor natural"
+    - option "Fa♯ menor armónica"
+    - option "Sol menor natural"
+    - option "Sol menor armónica"
+    - option "Sol♯ menor natural"
+    - option "Sol♯ menor armónica"
+    - option "La menor natural"
+    - option "La menor armónica"
+    - option "Si♭ menor natural"
+    - option "Si♭ menor armónica"
+    - option "Si menor natural"
+    - option "Si menor armónica"
+    - option "Do dórico"
+    - option "Re dórico"
+    - option "Mi dórico"
+    - option "Fa dórico"
+    - option "Sol dórico"
+    - option "La dórico"
+    - option "Si♭ dórico"
+  - text: Manos
+  - combobox "Manos":
+    - option "Mano derecha · clave de sol" [selected]
+    - option "Mano izquierda · clave de fa"
+    - 'option "Dos manos: elige piano o MIDI" [disabled]'
+  - text: Ritmo
+  - combobox "Ritmo":
+    - option "Con tempo" [selected]
+    - option "Sin tempo"
+  - text: Tempo
+  - status "Tempo BPM 60": "60"
+  - text: BPM
+  - slider: "60"
+  - generic "Opciones · teclado en pantalla"
+  - option "Teclado en pantalla" [selected]
+  - option "Nombres de notas"
+  - option "Registro reducido" [selected]
+  - option "Registro estándar"
+  - option "Registro amplio"
+  - option "1 · Inicial (MD negras · MI redondas)" [selected]
+  - option "2 · Básico (MD blancas y negras · MI redondas y blancas)"
+  - option "3 · Intermedio (MD hasta corcheas · MI arpegios en negras)"
+  - option "4 · Avanzado (MD con puntillo · MI bajo Alberti en corcheas)"
+  - option "Según dispositivo" [selected]
+  - option "Desplazamiento continuo"
+  - option "Página fija"
+  - button "Empezar sesión →"
+  - button "Más opciones"
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

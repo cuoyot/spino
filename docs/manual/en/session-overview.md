@@ -168,3 +168,10 @@ Practice metronomes use the audio-rendering thread; clock digits animate indepen
 New Reading, Technique, Repertoire and Free practice start with a separate mode choice: **Mobile** or **With piano**. Mobile is available for Reading and Technique. Repertoire and Free practice require a piano. With piano uses a connected MIDI keyboard automatically when starting or reopening an exercise; MIDI is not a third configuration mode.
 
 The chosen mode appears above total duration with a **Change** action. Changing it returns to the mode-choice step and preserves the musical goal and selected total. The optional warm-up stays immediately after total duration in piano mode. Enabling it borrows minutes from practice; switching to Mobile returns those minutes. The practice type and its settings remain below these session choices.
+
+
+## Beta130 interface refinements
+
+Inactive warm-up settings are collapsed. Enable Warm-up to reveal its retained options. Practice preparation uses On screen / With piano consistently. Start and validation stay reachable; long dialogs keep actions beneath their scrolling fields. Practice-card strips remain scrollable with touch, trackpad and keyboard without a visible scrollbar.
+
+Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.

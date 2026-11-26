@@ -1,5 +1,5 @@
 // Delegate to dynamically mounted indicators; a held press must not also reconnect.
-export function bindMidiShortcuts(root,{connected,connect,settings,holdMs=550}) {
+export function bindMidiShortcuts(root,{connected,canReconnect=()=>true,connect,settings,holdMs=550}) {
   const selector='[data-action="midi-settings"],#midi-pill,#practice-midi';
   let press=null,suppressUntil=0;
   const target=event=>event.target.closest?.(selector);
@@ -15,7 +15,7 @@ export function bindMidiShortcuts(root,{connected,connect,settings,holdMs=550}) 
     if(!target(event))return;
     event.preventDefault();event.stopImmediatePropagation();
     if(Date.now()<suppressUntil){suppressUntil=0;return;}
-    if(connected())settings();else void connect();
+    if(event.detail===0||connected()||!canReconnect())settings();else void connect();
   },true);
   root.addEventListener('contextmenu',event=>{if(!target(event))return;event.preventDefault();cancel();suppressUntil=Date.now()+1000;settings();},true);
 }

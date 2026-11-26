@@ -121,6 +121,11 @@ export function noteLabel(n) {
   return pitchName(n.letter, n.acc) + n.octave;
 }
 
+export function keyboardNoteLabel(midi, spelling = null) {
+  const [letter, acc = ''] = ['c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#', 'a', 'a#', 'b'][((midi % 12) + 12) % 12];
+  return noteLabel({ ...(spelling || {letter,acc}), octave: Math.floor(midi / 12) - 1 });
+}
+
 // Label from a stats id such as "f#4" or "bb3"
 export function labelFromId(id) {
   const m = /^([a-g])(##|bb|#|b|)(-?\d+)$/.exec(id);

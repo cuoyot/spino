@@ -1,0 +1,15 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Partitura y anotaciones
+		3 container Partitura. Usa las flechas del teclado o los bordes para pasar página.
+		4 container Controles de la partitura
+			5 checkbox Description: Grabar práctica, Value: 0
+			6 text — / —
+			7 button (expanded) Description: Mover controles. Toca dos veces para minimizar., Secondary Actions: Collapse
+			8 button Pausar práctica
+			9 button Parar práctica
+			10 button (collapsed) Description: Opciones, Secondary Actions: Expand
+		11 container Tiempo total de práctica
+			12 text Total
+
+The focused UI element is 3 container Partitura. Usa las flechas del teclado o los bordes para pasar página.

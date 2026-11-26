@@ -1,0 +1,182 @@
+[
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:14:59.428Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:14:59.445Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:00.268Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:00.269Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:00.269Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:15:00.276Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:01.007Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:01.010Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:15:01.010Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:15:01.032Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:07.272Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:07.272Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:07.272Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:17:07.279Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:08.203Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:08.203Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:08.203Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:17:08.209Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.055Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.055Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.055Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:17:17.064Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.870Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.870Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:17.870Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:17:17.889Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"DriveMedia\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:40.928Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"Notebook\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:40.929Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "Capacitor plugin \"AppActions\" already registered. Cannot register plugins twice.",
+    "timestamp": "2026-11-26T17:17:40.929Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  },
+  {
+    "level": "warn",
+    "message": "MIDI initialization failed NotAllowedError: Permission to use Web MIDI API was not granted.",
+    "timestamp": "2026-11-26T17:17:40.938Z",
+    "url": "http://127.0.0.1:5376/assets/app-C-7m1lCS.js"
+  }
+]

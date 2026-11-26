@@ -1,0 +1,49 @@
+Browser tab: 1, Title: "SPino · UI audit · synthetic notebook", URL: "http://127.0.0.1:5376/?route=practice".
+1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice
+	2 container Description: SPino: Smart Piano Notebook, ID: app-shell
+		3 container
+			4 button Perfil
+			5 heading Repertorio, Value: 1
+				6 text Repertorio
+			7 button Instrumento MIDI
+				8 container MIDI desconectado. No hay puertos de entrada abiertos.
+		9 container
+			10 text Tiempo total de práctica
+			11 text Con piano
+			12 button Continuar después
+			13 container Prélude en do majeur
+				14 container
+					15 text ACTIVIDAD ACTUAL   REPERTORIO
+				16 text Listo
+				17 heading Prélude en do majeur, Value: 2, ID: session-current-title
+					18 text Prélude en do majeur
+				19 text Tiempo del bloque
+				20 text 40 min
+				21 text orientativos
+				22 button Empezar práctica
+				23 button Grabar
+				24 button Cambiar obra
+				25 button (collapsed) Opciones de tiempo, Secondary Actions: Expand
+					26 text Opciones de tiempo
+			27 container En esta práctica
+				28 heading En esta práctica, Value: 2, ID: session-plan-title
+					29 text En esta práctica
+				30 text 40 min orientativos
+				31 button Añadir un bloque
+				32 content list
+					33 container
+						34 checkbox Description: Practicar Repertorio: Prélude en do majeur, Value: 1
+							35 text Prélude en do majeur
+							36 text Repertorio · Ahora
+						37 button Editar Repertorio: Prélude en do majeur
+						38 button (collapsed) Description: Mover o eliminar Repertorio: Prélude en do majeur, Help: Mantén para mover · toca para ver opciones, Secondary Actions: Expand
+				39 button Descartar sesión
+				40 button Finalizar
+		41 container Navegación principal
+			42 button Hoy
+			43 button Practicar: Sesión pendiente
+			44 button Calendario
+			45 button Biblioteca
+			46 button Progreso
+
+The focused UI element is 1 AXWebArea SPino · UI audit · synthetic notebook, URL: 127.0.0.1:5376/?route=practice

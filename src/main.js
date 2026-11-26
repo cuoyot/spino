@@ -8,7 +8,7 @@ import './layout.css';
 import './keyboard-material.css';
 import './companion/print-controls.css';
 import './landscape-keyboard.css';
-import { KEYS, NAMINGS, generatePhrase, generateRandomBars, generateScaleBars, generateTwoHands, assignFingering, scaleNotes, pickKey, keyInfo, TIME_SIGS, allowedUnits, shortestUnit, noteLabel, noteId, rangeFor, makeNote, samePitchClass, setNaming, namingForLocale, letterName, labelFromId, pitchName } from './music.js';
+import { KEYS, NAMINGS, generatePhrase, generateRandomBars, generateScaleBars, generateTwoHands, assignFingering, scaleNotes, pickKey, keyInfo, TIME_SIGS, allowedUnits, shortestUnit, noteLabel, keyboardNoteLabel, noteId, rangeFor, makeNote, samePitchClass, setNaming, namingForLocale, letterName, labelFromId, pitchName } from './music.js';
 import { renderScore, renderPage, pxPerBeatFor, setUserZoom } from './render.js';
 import { pageSystemCount, pageBarCount } from './page-layout.js';
 import { LANGUAGES, t, tError, setLanguage, languageForLocale, applyStatic } from './i18n.js';
@@ -1071,7 +1071,7 @@ function buildPiano() {
   kbAuto.hidden = false;
   kbAuto.disabled = settings.kbLo == null;
   pianoKeyW = keyW;
-  const id = `${visLo}-${visHi}-${keyW.toFixed(1)}`;
+  const id = `${visLo}-${visHi}-${keyW.toFixed(1)}-${settings.naming}-${line?.key || ''}`;
   if (pianoEl.dataset.range === id) return;
   pianoEl.dataset.range = id;
   pianoEl.style.setProperty('--wk', `${keyW}px`);
@@ -1083,6 +1083,8 @@ function buildPiano() {
   for (let m = pianoVis.loMidi; m <= pianoVis.hiMidi; m++) {
     const k = document.createElement('button');
     k.className = isBlack(m) ? 'key black' : 'key white';
+    k.type = 'button';
+    k.setAttribute('aria-label', keyboardNoteLabel(m,spell(m)));
     k.dataset.midi = m;
     if (isBlack(m)) k.style.left = `calc(var(--wk) * ${whiteIndex} - var(--bk) / 2)`;
     else {
@@ -1142,6 +1144,16 @@ function pianoPress(id, k) {
   }, DEFER_WRONG_MS);
   pressStart({ pointerId: id, capture: false }, k, voice);
 }
+
+// Native button activation from a keyboard or assistive technology has no pointer event.
+pianoEl.addEventListener('click', event => {
+  if (event.detail !== 0 || !readerVisible) return;
+  const key = event.target.closest('.key');
+  if (!key) return;
+  const id = Symbol('accessible-key');
+  pianoPress(id,key);
+  setTimeout(()=>silence(id),200);
+});
 
 function playPending(id) {
   const tp = touches.get(id);
@@ -1569,6 +1581,7 @@ function openScaleView() {
     const k = document.createElement('button');
     k.type = 'button';
     const pc = m % 12;
+    k.setAttribute('aria-label', pcs.has(pc) ? names[pc] + (Math.floor(m / 12) - 1) : keyboardNoteLabel(m));
     k.className = (isBlack(m) ? 'key black' : 'key white') + (pcs.has(pc) ? ' in-scale' : '') + (pc === tonicPc ? ' tonic' : '');
     if (pcs.has(pc)) k.textContent = names[pc];
     if (isBlack(m)) k.style.left = `calc(var(--wk) * ${wi} - var(--bk) / 2)`;

@@ -46,7 +46,7 @@ test('landing pages publish consistent application and visible FAQ structured da
     assert.equal(data['@context'], 'https://schema.org');
     const graph = data['@graph'];
     const app = graph.find(item => item['@type'] === 'SoftwareApplication');
-    assert.equal(app.operatingSystem, 'Android');
+    assert.equal(app.operatingSystem, 'Android, iOS, iPadOS');
     assert.equal(app.isAccessibleForFree, true);
     assert.equal(app.offers.price, '0');
     assert.equal(app.description, copy.lead);

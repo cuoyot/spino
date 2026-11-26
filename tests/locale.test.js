@@ -16,7 +16,7 @@ test('profile language persists without changing historical identifiers or requi
   const ids = HANDS.map(([id]) => id), stages = [...STAGES];
   setAppLanguage('es');
   assert.equal(getAppLanguage(), 'es');
-  assert.equal(Object.fromEntries(Object.entries(CONTEXTS)).mobile, 'Sin piano');
+  assert.equal(Object.fromEntries(Object.entries(CONTEXTS)).mobile, 'En pantalla');
   assert.equal(ACTIVITIES.reading, 'Lectura');
   assert.equal(HANDS[2][1], 'Las dos manos juntas');
   assert.equal(RANGE_LEVELS[0][1], 'Registro reducido');

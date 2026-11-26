@@ -1,0 +1,65 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+    - heading "Hoy" [level=1]
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - paragraph: jueves, 26 de noviembre
+  - region "Practicado esta semana":
+    - heading "Tu semana" [level=2]
+    - button "Ver progreso"
+    - strong: 0 min
+    - generic: / 1 hr 30 min objetivo
+    - progressbar "Objetivo semanal"
+    - paragraph: 90 min para tu objetivo
+    - generic "Tu semana":
+      - generic: 23 nov – 29 nov
+      - button "Ver calendario"
+      - button "lunes, 23 de noviembre, 0 min, 0 actividades":
+        - generic: L
+        - generic: "23"
+        - generic: ·
+      - button "martes, 24 de noviembre, 0 min, 0 actividades":
+        - generic: M
+        - generic: "24"
+        - generic: ·
+      - button "miércoles, 25 de noviembre, 0 min, 0 actividades":
+        - generic: X
+        - generic: "25"
+        - generic: ·
+      - button "jueves, 26 de noviembre, 0 min, 0 actividades":
+        - generic: J
+        - generic: "26"
+        - generic: ·
+      - button "viernes, 27 de noviembre, 0 min, 0 actividades":
+        - generic: V
+        - generic: "27"
+        - generic: ·
+      - button "sábado, 28 de noviembre, 0 min, 0 actividades":
+        - generic: S
+        - generic: "28"
+        - generic: ·
+      - button "domingo, 29 de noviembre, 0 min, 0 actividades":
+        - generic: D
+        - generic: "29"
+        - generic: ·
+  - article:
+    - button "Elegir práctica":
+      - generic: Elegir práctica
+    - button "Grabar":
+      - generic: Grabar
+  - heading "Próximos compromisos" [level=2]
+  - button "+ Evento"
+  - paragraph: Añade una clase o audición y ten presente cuánto queda para prepararla.
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"

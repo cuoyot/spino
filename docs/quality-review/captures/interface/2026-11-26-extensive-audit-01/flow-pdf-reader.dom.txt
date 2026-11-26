@@ -1,0 +1,66 @@
+- 'application "SPino: Smart Piano Notebook"':
+  - banner:
+    - button "Perfil":
+      - generic: RP
+    - generic: Repertorio
+    - button "Instrumento MIDI":
+      - img "MIDI desconectado. No hay puertos de entrada abiertos.":
+  - heading "Prélude en do majeur" [level=1]
+  - button "Cerrar"
+  - button "Abrir y anotar PDF" [disabled]
+  - paragraph: Review fixture
+  - paragraph: En estudio · En el atril
+  - generic: Total practicado
+  - strong: 44 min
+  - generic: Añadida al repertorio
+  - time: 1 oct 2026
+  - generic "Más opciones":
+    - generic: •••
+    - generic: Acciones
+  - heading "Próximo paso" [level=2]
+  - generic: 60 BPM
+  - paragraph: Elige un pasaje y un objetivo concreto para la siguiente práctica.
+  - region "Partitura y grabaciones":
+    - button "Abrir y anotar PDF PDF y anotaciones sin conexión · seguimiento manual.":
+      - strong: Abrir y anotar PDF
+      - generic: PDF y anotaciones sin conexión · seguimiento manual.
+      - generic: ›
+    - button "Imprimir partitura":
+    - button "Grabaciones 0":
+      - strong: Grabaciones 0
+      - generic: ›
+    - button "Grabar"
+  - heading "Sesiones de esta obra" [level=2]
+  - article:
+    - button "Repertorio mié, 25 nov 2026 Prélude en do majeur Muy bien Repertorio 44 min Piano MIDI Ver sesión":
+      - strong: Repertorio
+      - time: mié, 25 nov 2026
+      - generic: Prélude en do majeur
+      - generic: 😄
+      - generic: Muy bien
+      - text: Repertorio
+      - generic: 44 min
+      - generic: Piano MIDI
+      - text: Ver sesión
+      - generic: ›
+  - navigation "Navegación principal":
+    - button "Hoy":
+      - generic: Hoy
+    - button "Practicar":
+      - generic: Practicar
+    - button "Calendario":
+      - generic: Calendario
+    - button "Biblioteca":
+      - generic: Biblioteca
+    - button "Progreso":
+      - generic: Progreso
+- text: "▶ 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0 0 1 2 3 4 5 6 7 8 9 0 : 0 1 2 3 4 5 0 0 1 2 3 4 5 6 7 8 9 0"
+- dialog "Partitura y anotaciones":
+  - generic "Partitura. Usa las flechas del teclado o los bordes para pasar página." [active]:
+  - complementary "Controles de la partitura":
+    - button "Mover controles":
+    - button "Editar partitura":
+    - button "Página anterior" [disabled]:
+    - generic: — / —
+    - button "Página siguiente" [disabled]:
+    - button "Cerrar partitura": Cerrar
