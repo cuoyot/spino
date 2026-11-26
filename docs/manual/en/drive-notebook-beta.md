@@ -120,3 +120,8 @@ Cloud synchronization and ZIP recovery archives are distinct in beta.3 (109); se
 ## Beta 6.2.4-beta.4: stalled synchronization
 
 A Drive transport operation has a three-minute budget while SPino is running. A blocked local synchronization-cache wait and repeated listing/change pages also produce an error. After operation expiry, choose **Synchronize now** to retry; automatic checks do not restart that expired operation. Pending changes, verified caches and allocated upload identities are retained. A timeout is an interrupted check, not confirmation that other-device changes were received. Synthetic protocol/browser behavior is verified; real-account recovery on the reported phone remains pending.
+
+
+## Beta 6.2.4-beta.5: resume long Drive checks
+
+Drive history discovery retains each completed page. A retry or app restart continues from the last completed page instead of repeating the entire history. Pages are transport metadata only: receiving them does not mean partial history is applied to the notebook. Changes appear after discovery and content validation finish. The status distinguishes notebook-file inventory from checking Drive history. Synthetic interruption/restart is verified; successful recovery on the reported phone remains pending.

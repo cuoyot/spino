@@ -155,3 +155,10 @@ The owner confirms that switching Wi-Fi/cellular and forcing an app restart does
 Authorized repair and installable beta: 6.2.4-beta.4/build132. Source adds a three-minute budget per serialized Drive adapter operation, covering successive bridge calls and cache/outbox waits. It cancels outstanding requests, checks continuation validity, detects repeated listing/change cursor cycles and requires manual retry after expiry. The operation slot is retained until unwinding; no whole-function race lets abandoned work continue against a new operation. Cached content and durable upload IDs are retained.
 
 [Run 02 evidence](captures/profile/2026-11-26-sync-stall-02/README.md) separates source reproduction, responsive browser simulation, package/native installation and physical Google acceptance. The owner’s successful synchronization remains pending installation; this repair does not establish the root cause in their real account.
+
+
+### 26 November follow-up — resume completed discovery pages
+
+Further owner evidence shows 154 attempts / 665 KB / 70 seconds, still checking. This establishes ongoing requests, not an idle frozen bridge. Source had saved the discovery cursor only after all pages completed, so a late provider interruption could repeat already received pages. Beta133 saves a consistent catalog version before each matching cursor and resumes after retry/restart. Partial discovery cannot be materialized/adopted before the scan returns successfully. Empty history pages advance without rewriting the full catalog. File-inventory and history-check phases are distinguished.
+
+The synthetic multipage interruption regression retains the completed catalog/cursor, restarts at the last page and receives a second-device note without changing original sessions, PDFs or annotations. This is a verified defect and repair; the exact personal Drive failure remains unverified. Beta133 supersedes the intermediate beta132 delivery.

@@ -399,7 +399,7 @@ test('removing an accelerator after discovery never makes the retained original 
 });
 
 
-test('cyclic listing and changes pages stop without losing linkage, cached cursor or notebook data',async t=>{
+test('cyclic listing and changes pages stop without losing linkage or notebook data',async t=>{
  for(const kind of ['listing','changes'])await t.test(kind,async()=>{
   const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
   const before=await a.adapter.readLinked(),link=a.settings(),cache=structuredClone(a.values),request=a.options.native.request;let calls=0;
@@ -413,8 +413,9 @@ test('cyclic listing and changes pages stop without losing linkage, cached curso
    return request(options);
   };
   await assert.rejects(a.adapter.readLinked({fullScan:true}),{code:'INVALID_CURSOR'});
-  assert.ok(calls<=3);assert.deepEqual(a.settings(),link);assert.deepEqual(a.values,cache);
-  a.options.native.request=request;assert.equal((await a.adapter.readLinked({fullScan:true})).text,before.text);
+  assert.ok(calls<=3);assert.deepEqual(a.settings(),link);if(kind==='listing')assert.deepEqual(a.values,cache);
+  const cursor=[...cache].find(([key])=>key.endsWith('/cursor'))?.[1]?.token;
+  a.options.native.request=options=>request({...options,path:options.path.replace(/pageToken=cycle-[ab]/,'pageToken='+cursor)});assert.equal((await a.adapter.readLinked({fullScan:true})).text,before.text);
  });
 });
 
@@ -433,12 +434,12 @@ test('an expired synchronization stops automatic retries, keeps pending edits an
  const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
  let local=fixture(),base=structuredClone(local),meta={mode:'sync',enabled:true,name:'Notebook',notebookId:local.cloudBackup.sharedNotebookId};
  local.data.works[0].notes='Pending phone change';const untouched=structuredClone(local),request=a.options.native.request;let calls=0;
- a.options.operationTimeoutMs=40;
- a.options.native.request=async options=>{if(options.path.startsWith('/drive/v3/changes?')){const page=++calls;await new Promise(r=>setTimeout(r,8));return {status:200,text:JSON.stringify({changes:[],nextPageToken:'synthetic-page-'+page})};}return request(options);};
+ a.options.operationTimeoutMs=200;const originalCursor=[...a.values].find(([key])=>key.endsWith('/cursor'))[1].token;
+ a.options.native.request=async options=>{if(options.path.startsWith('/drive/v3/changes?')){const page=++calls;await new Promise(r=>setTimeout(r,50));return {status:200,text:JSON.stringify({changes:[],nextPageToken:'synthetic-page-'+page})};}return request(options);};
  const adapter=a.restart(),cloud=createNotebookCloud({adapter,delay:5,settings:{read:()=>meta,save:v=>{meta=structuredClone(v);}},snapshot:async()=>JSON.stringify(local),eligible:()=>true,readBase:async()=>base,saveBase:async v=>{base=structuredClone(v);},apply:async text=>{local=JSON.parse(text);},backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){}})});t.after(()=>cloud.stop());
  await cloud.sync();assert.equal(cloud.state.status,'error');assert.equal(cloud.state.errorCode,'SYNC_TIMEOUT');assert.equal(cloud.state.retryable,false);assert.equal(cloud.busy,false);assert.deepEqual(local,untouched);
  const stopped=calls;await new Promise(r=>setTimeout(r,35));assert.equal(calls,stopped);await cloud.resumeChecks();assert.equal(calls,stopped);
- a.options.native.request=request;await cloud.retry();assert.equal(cloud.state.status,'saved',cloud.state.error);assert.equal(local.data.works[0].notes,'Pending phone change');assert.deepEqual(local.assets,untouched.assets);
+ a.options.native.request=options=>request({...options,path:options.path.replace(/pageToken=synthetic-page-\d+/,'pageToken='+originalCursor)});await cloud.retry();assert.equal(cloud.state.status,'saved',cloud.state.error);assert.equal(local.data.works[0].notes,'Pending phone change');assert.deepEqual(local.assets,untouched.assets);
  assert.equal((await load(a.restart())).data.works[0].notes,'Pending phone change');
 });
 
@@ -447,10 +448,29 @@ test('a timed-out accepted commit keeps its allocated ID and manual retry never 
  const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
  const before=await a.adapter.readLinked(),next=JSON.parse(before.text);next.data.works[0].notes='Accepted before timeout';
  const request=a.options.native.request;let held=false,release;
- a.options.operationTimeoutMs=40;
+ a.options.operationTimeoutMs=200;
  a.options.native.request=async options=>{const response=await request(options);if(!held&&options.method==='POST'&&options.text?.includes('spino-commit-v2')){held=true;await new Promise(resolve=>{release=resolve;});}return response;};
  const adapter=a.restart();await assert.rejects(adapter.write({text:JSON.stringify(next),expectedHash:before.hash}),{code:'SYNC_TIMEOUT'});assert.equal(held,true);
  const count=commits(server).length,ids=commits(server).map(file=>file.id);a.options.native.request=request;
  const accepted=await adapter.readLinked();await adapter.write({text:JSON.stringify(next),expectedHash:accepted.hash});release();await new Promise(r=>setImmediate(r));
  assert.equal(commits(server).length,count);assert.deepEqual(commits(server).map(file=>file.id),ids);const actual=JSON.parse((await adapter.readLinked()).text);assert.equal(actual.data.works[0].notes,next.data.works[0].notes);assert.deepEqual(actual.assets,next.assets);
+});
+
+
+test('completed discovery pages survive an interruption and restart without adopting partial history',async()=>{
+ const server=syntheticNotebookDrive(),{a,b}=await pair(server),before=await a.adapter.readLinked(),original=JSON.parse(before.text);
+ const remote=await b.adapter.readLinked(),next=JSON.parse(remote.text);next.data.works[0].notes='Tablet note after a long feed';await b.adapter.write({text:JSON.stringify(next),expectedHash:remote.hash});
+ const request=a.options.native.request,seen=[],allChanges=structuredClone(server.changes);let interrupted=true;
+ const cursorEntry=[...a.values].find(([key])=>key.endsWith('/cursor')),start=cursorEntry[1].token;
+ a.options.native.request=async options=>{
+  if(!options.path.startsWith('/drive/v3/changes?'))return request(options);
+  const token=new URL(options.path,'https://www.googleapis.com').searchParams.get('pageToken');seen.push(token);
+  if(token==='resume-2'&&interrupted)throw Object.assign(Error('Synthetic connection lost after two completed pages'),{code:'PERMISSION_REQUIRED'});
+  const page=token===start?{changes:allChanges,nextPageToken:'resume-1'}:token==='resume-1'?{changes:[],nextPageToken:'resume-2'}:{changes:[],newStartPageToken:String(server.changes.length)};
+  return {status:200,text:JSON.stringify(page)};
+ };
+ await assert.rejects(a.adapter.readLinked(),{code:'PERMISSION_REQUIRED'});assert.equal(a.values.get(cursorEntry[0]).token,'resume-2');
+ assert.deepEqual(JSON.parse(before.text),original);const committedCatalog=[...a.values].find(([key])=>key.endsWith('/catalog'))[1];assert.ok(committedCatalog.files.some(f=>f.appProperties.spinoType==='spino-commit-v2'&&f.appProperties.hash!==JSON.parse(before.text).cloudBackup.atomicHeads[0]));
+ interrupted=false;const count=seen.length,recovered=await a.restart().readLinked();assert.equal(seen[count],'resume-2');assert.equal(seen.slice(count).includes(start),false);
+ const actual=JSON.parse(recovered.text);assert.equal(actual.data.works[0].notes,'Tablet note after a long feed');assert.deepEqual(actual.assets,original.assets);assert.deepEqual(actual.data.sessions,original.data.sessions);
 });

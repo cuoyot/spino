@@ -1,0 +1,113 @@
+{
+  "version": "6.2.4-beta.5",
+  "versionCode": 133,
+  "base": "2b3d2c62b5c8b05a15f5018444bfa96fe4c4b4c0",
+  "webAssetParity": [
+    {
+      "file": "spino-6.2.4-beta.5-133-android.aab",
+      "webFiles": 685,
+      "allMatchBuild": true
+    },
+    {
+      "file": "spino-6.2.4-beta.5-133-beta-android.apk",
+      "webFiles": 685,
+      "allMatchBuild": true
+    },
+    {
+      "file": "spino-6.2.4-beta.5-133-android.apk",
+      "webFiles": 685,
+      "allMatchBuild": true
+    }
+  ],
+  "androidTests": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DocumentExportTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "nativeEvidence": {
+    "verifiedAt": "2026-11-26T21:36:11.276183+00:00",
+    "package": "com.miguecoll.spino.beta",
+    "replacementInstall": "Performing Streamed Install\nSuccess",
+    "retainedOriginalFiles": 8,
+    "allOriginalFilesUnchangedBeforeLaunch": true,
+    "foreground": [
+      "ResumedActivity: ActivityRecord{cf6b05e u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t218}"
+    ],
+    "version": [
+      "versionCode=133 minSdk=24 targetSdk=36",
+      "versionName=6.2.4-beta.5"
+    ],
+    "nativeVisualAcceptance": false,
+    "realGoogleSynchronizationAcceptance": false,
+    "originalFileHashes": {
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG": "11287ac5707fefffaedeb401fe3d3934bb2107d8ee36dd6df7d267659874956e",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOCK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/MANIFEST-000001": "720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/000003.log": "fc4c441b4146d609cf5e188cd0fb48b8bf8c16ddb43ff82181d28d9c3f69f18a",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/CURRENT": "0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.leveldb/LOG.old": "af3d967e0798379631906067fd76247da014cbc3c3c2968c5686e0e2b8fc8195",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/1/00/1b": "1a1d405d43b207bf29773ae078030b3a043ebb03624afcb973c89f17afd3a530",
+      "app_webview/Default/IndexedDB/https_localhost_0.indexeddb.blob/3/00/f": "77895ec34fa219add49d984b7226785fcada5a4b95f8320bbf6ea8fc1b9b79ad"
+    }
+  },
+  "packageSignatures": {
+    "betaAPK": "apksigner verified",
+    "releaseAPK": "apksigner verified",
+    "AAB": "jarsigner verified with existing upload certificate"
+  },
+  "combinedTaggedNotesIdenticalInHandoff": true,
+  "productionOperationDeadlineMs": 180000,
+  "resumeCompletedDiscoveryPagesAcrossRestart": true,
+  "physicalGoogleSynchronizationAcceptance": false,
+  "applicationChecks": {
+    "passed": 120,
+    "failed": 0
+  },
+  "responsiveBrowserChecks": {
+    "passed": 2,
+    "failed": 0
+  },
+  "websiteChecks": {
+    "passed": 9,
+    "failed": 0
+  },
+  "knownBrowserBaselineFailure": "manual-sync.browser.test.js expects 1 request but receives 3 on unchanged beta131 and intermediate beta132; not rerun for beta133. No clean broad-suite claim.",
+  "distribution": "website-beta",
+  "websiteReleaseDialogChecks": {
+    "passed": 1,
+    "failed": 0,
+    "responsiveFrames": 15
+  }
+}

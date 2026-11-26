@@ -1,0 +1,19 @@
+<es-ES>
+La sincronización conserva el avance al recorrer el historial de Drive y lo retoma tras una interrupción. Evita esperas indefinidas y páginas repetidas. Mantiene los cambios pendientes, las partituras y las anotaciones.
+</es-ES>
+
+<en-US>
+Synchronization saves its progress through Drive history and resumes after an interruption. Prevents indefinite waits and repeated pages while keeping pending changes, scores and annotations.
+</en-US>
+
+<ca>
+La sincronització conserva el progrés en recórrer l’historial de Drive i el reprèn després d’una interrupció. Evita esperes indefinides i pàgines repetides. Manté els canvis pendents, les partitures i les anotacions.
+</ca>
+
+<de-DE>
+Die Synchronisierung speichert den Fortschritt im Drive-Verlauf und setzt nach einer Unterbrechung dort fort. Verhindert endloses Warten und wiederholte Seiten. Ausstehende Änderungen, Noten und Anmerkungen bleiben erhalten.
+</de-DE>
+
+<hu-HU>
+A szinkronizálás menti a Drive-előzmények feldolgozási állapotát, és megszakítás után onnan folytatja. Megakadályozza a végtelen várakozást és az ismétlődő oldalakat. A függő módosítások, kották és jegyzetek megmaradnak.
+</hu-HU>

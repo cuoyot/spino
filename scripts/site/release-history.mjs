@@ -21,6 +21,8 @@ const listing=await readFile(new URL('../../docs/releases/6.2.0-release-notes.tx
 const legacy=[['5.1.1',listing.split('<en-US>')[1]?.split('</en-US>')[0]?.trim()],['5.1.0',listing.split('<es-ES>')[1]?.split('</es-ES>')[0]?.trim()],['5.0.0','First SPino notebook candidate: planning, practice history, repertoire and local scores. Detailed release notes were not archived.'],['4.0','Earlier application version. Detailed release notes were not archived.']].map(([version,notes])=>({version,title:version,notes:{en:notes,es:notes,ca:notes},source:'docs/play-store/listing.md'}));
 const order=version=>{const [base,beta]=version.split('-beta.');return [...base.split('.').map(Number),beta?Number(beta):9999];};
 export const releases=[...modern,...older,...legacy].sort((a,b)=>{const x=order(a.version),y=order(b.version);for(let i=0;i<4;i++)if((x[i]||0)!==(y[i]||0))return (y[i]||0)-(x[i]||0);return 0;});
+const syncResumeBeta=releases.find(r=>r.version==='6.2.4-beta.5');
+if(syncResumeBeta){const text=await readFile(new URL('../../docs/releases/6.2.4-beta.5-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))syncResumeBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
 const syncRecoveryBeta=releases.find(r=>r.version==='6.2.4-beta.4');
 if(syncRecoveryBeta){const text=await readFile(new URL('../../docs/releases/6.2.4-beta.4-release-notes.txt',import.meta.url),'utf8');for(const [lang,tag] of Object.entries({en:'en-US',es:'es-ES',ca:'ca',de:'de-DE',hu:'hu-HU'}))syncRecoveryBeta.notes[lang]=text.split('<'+tag+'>')[1].split('</')[0].trim();}
 const storageBeta=releases.find(r=>r.version==='6.1.5-beta.1');

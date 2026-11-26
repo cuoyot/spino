@@ -57,12 +57,15 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   client={...root,scope,accountId:connected.id,objects,catalog,graph:null};return client;
  }
  async function refresh(c,{fullScan=false}={}){
-  let token=c.catalog.token,changed=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));const visited=new Set();
+  let token=c.catalog.token,anyChanged=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));const visited=new Set();
   // A cursor alone cannot establish that this device discovered all existing commits.
   // Explicit recovery and first connection inventory the immutable notebook objects.
+  if(fullScan)report('inventory');
   let inventory=fullScan?(await listFiles(`trashed = false and appProperties has { key='rootId' and value='${c.rootId}' } and appProperties has { key='notebookId' and value='${c.notebookId}' } and (appProperties has { key='spinoType' and value='${COMMIT_MARKER}' } or appProperties has { key='spinoType' and value='${OBJECT_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_INDEX_MARKER}' })`)).map(file=>({fileId:file.id,file})):[];
+  report('checking');
   do{
    if(visited.has(token))throw atomicFailure('Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.','INVALID_CURSOR');visited.add(token);
+   let changed=false;
    const r=parse(await api(`/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=${encodeURIComponent(token)}&fields=${encodeURIComponent('nextPageToken,newStartPageToken,changes(fileId,removed,file('+objectFields+'))')}`));
    if(!Array.isArray(r.changes))throw atomicFailure('Invalid Drive changes response.');
    for(const change of [...inventory,...r.changes]){
@@ -86,13 +89,16 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
     }
    }
    inventory=[];
-   const next=r.nextPageToken||r.newStartPageToken;if(typeof next!=='string'||!next||r.nextPageToken!=null&&(typeof r.nextPageToken!=='string'||!r.nextPageToken))throw atomicFailure('Invalid Drive changes cursor.','INVALID_CURSOR');token=next;if(!r.nextPageToken)break;
+   const next=r.nextPageToken||r.newStartPageToken;if(typeof next!=='string'||!next||r.nextPageToken!=null&&(typeof r.nextPageToken!=='string'||!r.nextPageToken))throw atomicFailure('Invalid Drive changes cursor.','INVALID_CURSOR');
+   if(r.nextPageToken&&visited.has(next))throw atomicFailure('Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.','INVALID_CURSOR');
+   // Commit discovery before advancing its cursor. A long feed can resume after
+   // interruption; incomplete pages never reach notebook reconstruction/adoption.
+   const catalog={startToken:c.startToken,version:c.catalog.version+(changed?1:0),token:next,files:[...files.values()]};
+   if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;c.packState=null;}
+   if(changed||next!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token:next});
+   c.catalog=catalog;anyChanged ||= changed;token=next;if(!r.nextPageToken)break;
   }while(true);
-  // Persist discovery only. Missing dependencies still block graph reconstruction and local application.
-  const catalog={startToken:c.startToken,version:c.catalog.version+(changed?1:0),token,files:[...files.values()]};
-  if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;c.packState=null;}
-  if(changed||token!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token});
-  c.catalog=catalog;return changed;
+  return anyChanged;
  }
  async function loadPacks(c){
   const candidates=c.catalog.files.filter(f=>Number(f.appProperties.packIndexCount)>0).sort((a,b)=>Number(b.appProperties.packIndexCount)-Number(a.appProperties.packIndexCount)||a.appProperties.hash.localeCompare(b.appProperties.hash));
