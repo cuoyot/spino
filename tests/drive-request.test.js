@@ -17,3 +17,17 @@ test('bridge call not dispatched after cancellation and overlapping operations s
  const first=gate.serialized(async()=>{await pending.promise;return gate.run(async()=>{dispatched=true;});});await assert.rejects(gate.serialized(async()=>{}),e=>e.code==='BUSY');gate.cancel();pending.resolve();await assert.rejects(first,e=>e.code==='CANCELLED');assert.equal(dispatched,false);
 });
 test('pause aborts every concurrent metadata read and never dispatches another read',async()=>{const ids=[],gate=createDriveRequestGate({cancel:async({requestId})=>ids.push(requestId)});let ready;const started=new Promise(r=>ready=r);const job=gate.serialized(async()=>{const calls=['a','b','c','d'].map(requestId=>gate.run(()=>new Promise(()=>{}),{requestId}));ready();await Promise.all(calls);});await started;gate.cancel();await assert.rejects(job,{code:'CANCELLED'});assert.deepEqual(ids.sort(),['a','b','c','d']);assert.equal(gate.busy,false);});
+
+
+test('a whole operation expires even when each request responds before its own deadline',async()=>{
+ const gate=createDriveRequestGate({}, {timeoutMs:1000,operationTimeoutMs:30});let reads=0;
+ await assert.rejects(gate.serialized(async()=>{for(let n=0;n<20;n++){await gate.run(()=>new Promise(r=>setTimeout(r,5)));reads++;}throw Object.assign(Error('Synthetic request chain exceeded the operation budget'),{code:'TEST_LOOP'});}),{code:'SYNC_TIMEOUT'});
+ assert.ok(reads>0);assert.equal(gate.busy,false);const stopped=reads;
+ assert.equal(await gate.serialized(()=>gate.run(async()=>'recovered')),'recovered');assert.equal(reads,stopped);
+});
+test('operation expiry cancels all concurrent requests and rejects their late responses',async()=>{
+ const pending=deferred(),cancelled=[],gate=createDriveRequestGate({cancel:async({requestId})=>cancelled.push(requestId)}, {timeoutMs:1000,operationTimeoutMs:25});let advanced=false;
+ const job=gate.serialized(async()=>{await Promise.all(['a','b','c'].map(requestId=>gate.run(()=>pending.promise,{requestId})));advanced=true;});
+ await assert.rejects(job,{code:'SYNC_TIMEOUT'});assert.deepEqual(cancelled.sort(),['a','b','c']);pending.resolve('late');
+ await new Promise(r=>setImmediate(r));assert.equal(advanced,false);assert.equal(gate.busy,false);
+});

@@ -146,3 +146,12 @@ Beta.5 (111) publication follow-up: ZIP saved-state/dialog corrections are packa
 
 
 26 October 2026: Back up now creates an explicit extra copy in the saved automatic destination. Automatic copies remain at most once per local day when changed; checks run each minute while open and idle. Principal/network/retention guards remain. Owner requests stable 6.2.0 promotion. Responsive evidence: captures/profile/2026-10-26-backup-now-02. Personal ZIP completeness remains separate.
+
+
+## 2026-11-26 — Phone synchronization never completes
+
+The owner confirms that switching Wi-Fi/cellular and forcing an app restart does not restore updates. A browser request reaches Drive with the expected unauthenticated 401. The app later reports seven attempts and 26 KB received, but the owner confirms that it never finishes. The exact phone version and real-account failing stage remain unverified; a snapshot at three seconds is not acceptance evidence.
+
+Authorized repair and installable beta: 6.2.4-beta.4/build132. Source adds a three-minute budget per serialized Drive adapter operation, covering successive bridge calls and cache/outbox waits. It cancels outstanding requests, checks continuation validity, detects repeated listing/change cursor cycles and requires manual retry after expiry. The operation slot is retained until unwinding; no whole-function race lets abandoned work continue against a new operation. Cached content and durable upload IDs are retained.
+
+[Run 02 evidence](captures/profile/2026-11-26-sync-stall-02/README.md) separates source reproduction, responsive browser simulation, package/native installation and physical Google acceptance. The owner’s successful synchronization remains pending installation; this repair does not establish the root cause in their real account.

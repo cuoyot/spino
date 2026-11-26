@@ -1,5 +1,9 @@
 // Presentation-only translations: stored diagnostics, source evidence and IDs stay intact.
 export const MESSAGE_PAIRS = [
+  ['The local synchronization cache did not respond in time. Your notebook is kept. Retry synchronization.', 'La caché local de sincronización no ha respondido a tiempo. Se conserva tu cuaderno. Reintenta la sincronización.'],
+  ['Synchronization took too long and was stopped. Pending changes are kept. Retry synchronization.', 'La sincronización ha tardado demasiado y se ha detenido. Los cambios pendientes se conservan. Reintenta la sincronización.'],
+  ['Drive repeated a notebook listing page. Your local notebook is kept. Retry synchronization.', 'Drive ha repetido una página de archivos del cuaderno. Se conserva tu cuaderno local. Reintenta la sincronización.'],
+  ['Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.', 'Drive ha repetido una página de cambios del cuaderno. Se conserva tu cuaderno local. Reintenta la sincronización.'],
   ['A backup operation is already running.', 'Hay una copia en curso. Puedes consultar su progreso en Copia y sincronización.'],
   ['Synchronize the notebook before setting up backups.', 'Sincroniza el cuaderno antes de configurar las copias.'],
   ['Finish synchronization and editing before organizing storage.', 'Espera a que termine la sincronización y cierra la práctica antes de configurar las copias.'],

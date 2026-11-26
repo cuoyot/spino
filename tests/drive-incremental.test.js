@@ -397,3 +397,60 @@ test('removing an accelerator after discovery never makes the retained original 
  for(const file of [...packSegments(server),...packIndexes(server)]){server.files.delete(file.id);server.changes.push({fileId:file.id,removed:true});}
  assert.equal((await reader.adapter.readLinked()).text,before.text);
 });
+
+
+test('cyclic listing and changes pages stop without losing linkage, cached cursor or notebook data',async t=>{
+ for(const kind of ['listing','changes'])await t.test(kind,async()=>{
+  const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
+  const before=await a.adapter.readLinked(),link=a.settings(),cache=structuredClone(a.values),request=a.options.native.request;let calls=0;
+  a.options.native.request=async options=>{
+   const url=new URL(options.path,'https://www.googleapis.com');
+   if(url.pathname===(kind==='listing'?'/drive/v3/files':'/drive/v3/changes')){
+    // Repeated empty pages used to avoid both the object-count bound and the adjacent-cursor check.
+    if(++calls>6)throw Object.assign(Error('Synthetic pagination kept looping'),{code:'TEST_LOOP'});
+    return {status:200,text:JSON.stringify({[kind==='listing'?'files':'changes']:[],nextPageToken:calls%2?'cycle-a':'cycle-b'})};
+   }
+   return request(options);
+  };
+  await assert.rejects(a.adapter.readLinked({fullScan:true}),{code:'INVALID_CURSOR'});
+  assert.ok(calls<=3);assert.deepEqual(a.settings(),link);assert.deepEqual(a.values,cache);
+  a.options.native.request=request;assert.equal((await a.adapter.readLinked({fullScan:true})).text,before.text);
+ });
+});
+
+
+test('a stalled local cache releases synchronization without dispatching late remote work',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
+ const before=await a.adapter.readLinked(),originalGet=a.options.journal.get;let release;
+ a.options.operationTimeoutMs=30;a.options.journal.get=()=>new Promise(resolve=>{release=resolve;});
+ const stopped=a.restart(),count=server.requests.length,settings=a.settings();
+ await assert.rejects(stopped.readLinked(),{code:'SYNC_TIMEOUT'});assert.deepEqual(a.settings(),settings);assert.equal(server.requests.length,count);
+ a.options.journal.get=originalGet;release(undefined);await new Promise(r=>setImmediate(r));assert.equal(server.requests.length,count);
+ assert.equal((await stopped.readLinked()).text,before.text);
+});
+
+test('an expired synchronization stops automatic retries, keeps pending edits and recovers manually',async t=>{
+ const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
+ let local=fixture(),base=structuredClone(local),meta={mode:'sync',enabled:true,name:'Notebook',notebookId:local.cloudBackup.sharedNotebookId};
+ local.data.works[0].notes='Pending phone change';const untouched=structuredClone(local),request=a.options.native.request;let calls=0;
+ a.options.operationTimeoutMs=40;
+ a.options.native.request=async options=>{if(options.path.startsWith('/drive/v3/changes?')){const page=++calls;await new Promise(r=>setTimeout(r,8));return {status:200,text:JSON.stringify({changes:[],nextPageToken:'synthetic-page-'+page})};}return request(options);};
+ const adapter=a.restart(),cloud=createNotebookCloud({adapter,delay:5,settings:{read:()=>meta,save:v=>{meta=structuredClone(v);}},snapshot:async()=>JSON.stringify(local),eligible:()=>true,readBase:async()=>base,saveBase:async v=>{base=structuredClone(v);},apply:async text=>{local=JSON.parse(text);},backupFactory:()=>({state:{},busy:false,stop(){},setEnabled:async()=>{},markDirty(){}})});t.after(()=>cloud.stop());
+ await cloud.sync();assert.equal(cloud.state.status,'error');assert.equal(cloud.state.errorCode,'SYNC_TIMEOUT');assert.equal(cloud.state.retryable,false);assert.equal(cloud.busy,false);assert.deepEqual(local,untouched);
+ const stopped=calls;await new Promise(r=>setTimeout(r,35));assert.equal(calls,stopped);await cloud.resumeChecks();assert.equal(calls,stopped);
+ a.options.native.request=request;await cloud.retry();assert.equal(cloud.state.status,'saved',cloud.state.error);assert.equal(local.data.works[0].notes,'Pending phone change');assert.deepEqual(local.assets,untouched.assets);
+ assert.equal((await load(a.restart())).data.works[0].notes,'Pending phone change');
+});
+
+
+test('a timed-out accepted commit keeps its allocated ID and manual retry never duplicates it',async()=>{
+ const server=syntheticNotebookDrive(),a=device(server);await a.adapter.create({text:JSON.stringify(fixture())});
+ const before=await a.adapter.readLinked(),next=JSON.parse(before.text);next.data.works[0].notes='Accepted before timeout';
+ const request=a.options.native.request;let held=false,release;
+ a.options.operationTimeoutMs=40;
+ a.options.native.request=async options=>{const response=await request(options);if(!held&&options.method==='POST'&&options.text?.includes('spino-commit-v2')){held=true;await new Promise(resolve=>{release=resolve;});}return response;};
+ const adapter=a.restart();await assert.rejects(adapter.write({text:JSON.stringify(next),expectedHash:before.hash}),{code:'SYNC_TIMEOUT'});assert.equal(held,true);
+ const count=commits(server).length,ids=commits(server).map(file=>file.id);a.options.native.request=request;
+ const accepted=await adapter.readLinked();await adapter.write({text:JSON.stringify(next),expectedHash:accepted.hash});release();await new Promise(r=>setImmediate(r));
+ assert.equal(commits(server).length,count);assert.deepEqual(commits(server).map(file=>file.id),ids);const actual=JSON.parse((await adapter.readLinked()).text);assert.equal(actual.data.works[0].notes,next.data.works[0].notes);assert.deepEqual(actual.assets,next.assets);
+});
