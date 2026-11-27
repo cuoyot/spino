@@ -1,0 +1,362 @@
+TAP version 13
+# Subtest: incremental notebook preserves stable IDs, PDF bytes and annotations, with separate bounded objects
+ok 1 - incremental notebook preserves stable IDs, PDF bytes and annotations, with separate bounded objects # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.9935
+  ...
+# Subtest: unchanged warm and restarted polls transfer only the changes cursor and never objects or uploads
+ok 2 - unchanged warm and restarted polls transfer only the changes cursor and never objects or uploads # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.078042
+  ...
+# Subtest: one note uploads a small record change and never retransfers unchanged score content
+ok 3 - one note uploads a small record change and never retransfers unchanged score content # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.066042
+  ...
+# Subtest: lost upload responses reuse their allocated ID after restart and do not duplicate a commit
+ok 4 - lost upload responses reuse their allocated ID after restart and do not duplicate a commit # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.07325
+  ...
+# Subtest: two simultaneous writers retain independent fields without a shared mutable manifest
+ok 5 - two simultaneous writers retain independent fields without a shared mutable manifest # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.075083
+  ...
+# Subtest: concurrent overlapping edits require review and a resolution commit is idempotent
+ok 6 - concurrent overlapping edits require review and a resolution commit is idempotent # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.057916
+  ...
+# Subtest: migration preserves the entire old file, pauses old clients and redirects a second old-format device
+ok 7 - migration preserves the entire old file, pauses old clients and redirects a second old-format device # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.063833
+  ...
+# Subtest: an interrupted migration retries existing objects and never activates a stale legacy snapshot
+ok 8 - an interrupted migration retries existing objects and never activates a stale legacy snapshot # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.061584
+  ...
+# Subtest: offline and rejected access leave local linkage and recovery intact
+ok 9 - offline and rejected access leave local linkage and recovery intact # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.279958
+  ...
+# Subtest: cloud engine exposes and resolves remote graph conflicts through the existing review flow
+ok 10 - cloud engine exposes and resolves remote graph conflicts through the existing review flow # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.185917
+  ...
+# Subtest: interrupted migration reuses its verified old snapshot and score pieces when the old revision is unchanged
+ok 11 - interrupted migration reuses its verified old snapshot and score pieces when the old revision is unchanged # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.07275
+  ...
+# Subtest: an archive acknowledgement lost after migration is recoverable without new uploads
+ok 12 - an archive acknowledgement lost after migration is recoverable without new uploads # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.058625
+  ...
+# Subtest: delete versus edit is an explicit conflict and choosing the edit keeps the original identity
+ok 13 - delete versus edit is an explicit conflict and choosing the edit keeps the original identity # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.051708
+  ...
+# Subtest: changed or missing immutable remote objects fail integrity/discovery without adopting partial data
+ok 14 - changed or missing immutable remote objects fail integrity/discovery without adopting partial data # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.142458
+  ...
+# Subtest: large records remain unchanged across restart and do not create repeated change batches
+ok 15 - large records remain unchanged across restart and do not create repeated change batches # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.060084
+  ...
+# Subtest: quiet polling does not rewrite the durable catalog or cached objects
+ok 16 - quiet polling does not rewrite the durable catalog or cached objects # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.191292
+  ...
+# Subtest: first setup retains a notebook identity before any transfer and automatic migration preserves the merge baseline
+ok 17 - first setup retains a notebook identity before any transfer and automatic migration preserves the merge baseline # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.069917
+  ...
+# Subtest: server checksums avoid downloading our own uploaded score pieces; absent checksums use verified readback
+ok 18 - server checksums avoid downloading our own uploaded score pieces; absent checksums use verified readback # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.255459
+  ...
+# Subtest: quiet automatic polling avoids serializing the full unchanged local notebook
+ok 19 - quiet automatic polling avoids serializing the full unchanged local notebook # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.066833
+  ...
+# Subtest: ordinary disconnect retains retry/cache data and explicit notebook erasure clears it
+ok 20 - ordinary disconnect retains retry/cache data and explicit notebook erasure clears it # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.138792
+  ...
+# Subtest: duplicate and out-of-order discovery replays the same graph once; missing dependencies block adoption
+ok 21 - duplicate and out-of-order discovery replays the same graph once; missing dependencies block adoption # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.054917
+  ...
+# Subtest: choosing local conflicting notes retains an independent remote tempo in that same piece
+ok 22 - choosing local conflicting notes retains an independent remote tempo in that same piece # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.045291
+  ...
+# Subtest: both fully saved offline practices survive either conflict choice on the same shared plan
+ok 23 - both fully saved offline practices survive either conflict choice on the same shared plan # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.046209
+  ...
+# Subtest: a reviewed original local field can win without reverting another remote field
+ok 24 - a reviewed original local field can win without reverting another remote field # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.04375
+  ...
+# Subtest: choosing one conflicting annotation retains an independently added annotation and original score bytes
+ok 25 - choosing one conflicting annotation retains an independently added annotation and original score bytes # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.0395
+  ...
+# Subtest: a tablet practice retries uncertain incremental uploads and reaches the phone once without changing scores
+ok 26 - a tablet practice retries uncertain incremental uploads and reaches the phone once without changing scores # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.038125
+  ...
+# Subtest: pause releases a stalled incremental read and an uncached late response cannot overwrite newer practice
+ok 27 - pause releases a stalled incremental read and an uncached late response cannot overwrite newer practice # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.038417
+  ...
+# Subtest: legacy current-practice conflicts cannot block completed history or erase the phone in-progress session
+ok 28 - legacy current-practice conflicts cannot block completed history or erase the phone in-progress session # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.043584
+  ...
+# Subtest: joining and explicit refresh discover saved history absent from the changes feed
+ok 29 - joining and explicit refresh discover saved history absent from the changes feed # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.039459
+  ...
+# Subtest: rename changes only the selected descriptor and previews never connect or mutate notebooks
+ok 30 - rename changes only the selected descriptor and previews never connect or mutate notebooks # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.039875
+  ...
+# Subtest: fast checkpoint joins keep history visible without fetching any score bytes and accept old-client edits
+ok 31 - fast checkpoint joins keep history visible without fetching any score bytes and accept old-client edits # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.04875
+  ...
+# Subtest: protected legacy connection never archives, renames or writes the stable file
+ok 32 - protected legacy connection never archives, renames or writes the stable file # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.148375
+  ...
+# Subtest: legacy conversion requires consent for this exact file; modern client follows verified redirect
+ok 33 - legacy conversion requires consent for this exact file; modern client follows verified redirect # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.149
+  ...
+# Subtest: renaming on one device updates the other through its changes feed without changing notebook identity
+ok 34 - renaming on one device updates the other through its changes feed without changing notebook identity # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.041416
+  ...
+# Subtest: connected presentation and QR use the verified descriptor name even if engine settings retain an old name
+ok 35 - connected presentation and QR use the verified descriptor name even if engine settings retain an old name # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.043083
+  ...
+# Subtest: packs interoperate with the frozen stable 6.1.5 adapter in both directions
+ok 36 - packs interoperate with the frozen stable 6.1.5 adapter in both directions # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.040875
+  ...
+# Subtest: warm polling and ordinary incoming edits never download packs or add polling requests
+ok 37 - warm polling and ordinary incoming edits never download packs or add polling requests # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.037875
+  ...
+# Subtest: new pack generations reuse verified segments and retain all original Drive identities
+ok 38 - new pack generations reuse verified segments and retain all original Drive identities # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.037208
+  ...
+# Subtest: lost segment or index responses retry the same IDs without duplicating acceleration files
+ok 39 - lost segment or index responses retry the same IDs without duplicating acceleration files # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.036542
+  ...
+# Subtest: corrupt or missing optional packs fall back; changed or missing originals still reject adoption
+ok 40 - corrupt or missing optional packs fall back; changed or missing originals still reject adoption # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.036791
+  ...
+# Subtest: removing an accelerator after discovery never makes the retained original notebook unavailable
+ok 41 - removing an accelerator after discovery never makes the retained original notebook unavailable # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.039041
+  ...
+# Subtest: cyclic listing and changes pages stop without losing linkage, cached cursor or notebook data
+    # Subtest: listing
+    not ok 1 - listing
+      ---
+      duration_ms: 51.393166
+      location: '/Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:403:50'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly deep-equal:
+        + actual - expected
+
+          Comparison {
+        +   code: 'TEST_LOOP'
+        -   code: 'INVALID_CURSOR'
+          }
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+        code: 'INVALID_CURSOR'
+      actual:
+      error: 'Synthetic pagination kept looping'
+      stack: |-
+        a.options.native.request (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:410:38)
+        requests.run.requestId.requestId (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:28:40)
+        file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:16:107
+        async Object.run (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:16:14)
+        async api (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:28:10)
+        async listFiles (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:42:73)
+        async refresh (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:60:27)
+        async graph (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:113:18)
+        async read (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:157:22)
+        async file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:21:253
+      operator: 'rejects'
+      stack: |-
+        async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:415:3)
+        async Test.run (node:internal/test_runner/test:797:9)
+        async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:403:42)
+        async Test.run (node:internal/test_runner/test:797:9)
+        async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: changes
+    not ok 2 - changes
+      ---
+      duration_ms: 10.830292
+      location: '/Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:403:50'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly deep-equal:
+        + actual - expected
+
+          Comparison {
+        +   code: 'TEST_LOOP'
+        -   code: 'INVALID_CURSOR'
+          }
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+        code: 'INVALID_CURSOR'
+      actual:
+      error: 'Synthetic pagination kept looping'
+      stack: |-
+        a.options.native.request (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:410:38)
+        requests.run.requestId.requestId (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:28:40)
+        file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:16:107
+        async Object.run (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:16:14)
+        async api (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:28:10)
+        async refresh (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:62:18)
+        async graph (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:113:18)
+        async read (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:157:22)
+        async file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-incremental.js:21:253
+        async Object.serialized (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:23:21)
+      operator: 'rejects'
+      stack: |-
+        async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:415:3)
+        async Test.run (node:internal/test_runner/test:797:9)
+        async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:403:42)
+        async Test.run (node:internal/test_runner/test:797:9)
+        async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..2
+not ok 42 - cyclic listing and changes pages stop without losing linkage, cached cursor or notebook data
+  ---
+  duration_ms: 62.837917
+  location: '/Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-incremental.test.js:402:1'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: a stalled bridge request times out, requests native cancellation and permits a fresh operation
+ok 43 - a stalled bridge request times out, requests native cancellation and permits a fresh operation # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.857792
+  ...
+# Subtest: pause aborts a pending request without letting its late result advance the notebook operation
+ok 44 - pause aborts a pending request without letting its late result advance the notebook operation # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.082041
+  ...
+# Subtest: bridge call not dispatched after cancellation and overlapping operations stay serialized
+ok 45 - bridge call not dispatched after cancellation and overlapping operations stay serialized # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.12425
+  ...
+# Subtest: pause aborts every concurrent metadata read and never dispatches another read
+ok 46 - pause aborts every concurrent metadata read and never dispatches another read # SKIP test name does not match pattern
+  ---
+  duration_ms: 0.069542
+  ...
+# Subtest: a whole operation expires even when each request responds before its own deadline
+not ok 47 - a whole operation expires even when each request responds before its own deadline
+  ---
+  duration_ms: 140.469625
+  location: '/Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-request.test.js:22:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+
+      Comparison {
+    +   code: 'TEST_LOOP'
+    -   code: 'SYNC_TIMEOUT'
+      }
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    code: 'SYNC_TIMEOUT'
+  actual:
+  error: 'Synthetic request chain exceeded the operation budget'
+  stack: |-
+    file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-request.test.js:24:152
+    async Object.serialized (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/src/companion/drive-request.js:23:21)
+    async waitForActual (node:assert:533:5)
+    async Function.rejects (node:assert:654:25)
+    async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-request.test.js:24:2)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/drive-request.test.js:24:2)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: operation expiry cancels all concurrent requests and rejects their late responses
+ok 48 - operation expiry cancels all concurrent requests and rejects their late responses # SKIP test name does not match pattern
+  ---
+  duration_ms: 1.4165
+  ...
+1..48
+# tests 50
+# suites 0
+# pass 0
+# fail 4
+# cancelled 0
+# skipped 46
+# todo 0
+# duration_ms 350.697917

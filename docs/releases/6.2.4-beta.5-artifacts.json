@@ -1,0 +1,34 @@
+{
+  "version": "6.2.4-beta.5",
+  "versionCode": 133,
+  "artifacts": [
+    {
+      "file": "spino-6.2.4-beta.5-133-beta-android.apk",
+      "bytes": 77022760,
+      "sha256": "1b23e3a071c4bc0ea91efb88b99b5673c0bbbf05324d416733f21be7a9d4d9a3",
+      "applicationId": "com.miguecoll.spino.beta"
+    },
+    {
+      "file": "spino-6.2.4-beta.5-133-android.apk",
+      "bytes": 72640567,
+      "sha256": "10213dff25dd8e83d6af9cbdce4e2ee0cd4de5de6d18568e77cf10db348f0b20",
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.2.4-beta.5-133-android.aab",
+      "bytes": 64244357,
+      "sha256": "3039839f71dc4b092b3fc548aa9aa300a08b8bb9bc929f40ec2a516e0b6d878b",
+      "applicationId": "com.miguecoll.spino"
+    },
+    {
+      "file": "spino-6.2.4-beta.5-play-console-handoff.zip",
+      "bytes": 63959629,
+      "sha256": "22f5709a83e68511d7d4280cffa5c2eb72d3e2d0245fbd2b48d48f952624d415"
+    },
+    {
+      "file": "6.2.4-beta.5-release-notes.txt",
+      "bytes": 1200,
+      "sha256": "20d772b8bd98e44437b2c934ec2e00ed59e7d01dfa7fd41c94b5f4eec22a62cd"
+    }
+  ]
+}

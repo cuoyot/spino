@@ -1,0 +1,36 @@
+TAP version 13
+# Subtest: durable Drive identity claims are atomic across journal connections and survive reopening
+ok 1 - durable Drive identity claims are atomic across journal connections and survive reopening
+  ---
+  duration_ms: 2906.910667
+  ...
+# Subtest: Sync now checks only the cursor and a suspended recording check recovers without a stale spinner
+not ok 2 - Sync now checks only the cursor and a suspended recording check recovers without a stale spinner
+  ---
+  duration_ms: 4965.865208
+  location: '/Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/manual-sync.browser.test.js:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    3 !== 1
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 3
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/migue/.codex/worktrees/sync-stall-recovery/spino/tests/manual-sync.browser.test.js:34:46)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5469.09275

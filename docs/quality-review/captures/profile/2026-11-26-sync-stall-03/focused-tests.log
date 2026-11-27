@@ -1,0 +1,733 @@
+TAP version 13
+# Subtest: three-way merge keeps additions, independent fields, deletions and annotation IDs
+ok 1 - three-way merge keeps additions, independent fields, deletions and annotation IDs
+  ---
+  duration_ms: 6.641667
+  type: 'test'
+  ...
+# Subtest: delete versus edit and same annotation edits require explicit choices
+ok 2 - delete versus edit and same annotation edits require explicit choices
+  ---
+  duration_ms: 1.417292
+  type: 'test'
+  ...
+# Subtest: Catalan reader settings synchronize between same-version devices using the production validator
+ok 3 - Catalan reader settings synchronize between same-version devices using the production validator
+  ---
+  duration_ms: 102.386625
+  type: 'test'
+  ...
+# Subtest: two devices combine offline additions, pull without local edits and preserve recovery
+ok 4 - two devices combine offline additions, pull without local edits and preserve recovery
+  ---
+  duration_ms: 9.548125
+  type: 'test'
+  ...
+# Subtest: continued edits after a deferred upload do not conflict with this device itself
+ok 5 - continued edits after a deferred upload do not conflict with this device itself
+  ---
+  duration_ms: 11.578375
+  type: 'test'
+  ...
+# Subtest: edits during a successful provider write retain the acknowledged baseline
+ok 6 - edits during a successful provider write retain the acknowledged baseline
+  ---
+  duration_ms: 9.195291
+  type: 'test'
+  ...
+# Subtest: provider contention re-reads and merges independent changes automatically
+ok 7 - provider contention re-reads and merges independent changes automatically
+  ---
+  duration_ms: 3.414
+  type: 'test'
+  ...
+# Subtest: contention on the same field still requires a user choice
+ok 8 - contention on the same field still requires a user choice
+  ---
+  duration_ms: 11.357958
+  type: 'test'
+  ...
+# Subtest: persistent contention is bounded and remains retryable without losing local edits
+ok 9 - persistent contention is bounded and remains retryable without losing local edits
+  ---
+  duration_ms: 10.645125
+  type: 'test'
+  ...
+# Subtest: conflicts retain independent records and require fresh review when remote changes again
+ok 10 - conflicts retain independent records and require fresh review when remote changes again
+  ---
+  duration_ms: 53.315125
+  type: 'test'
+  ...
+# Subtest: ineligible state, concurrent local edits and malformed input never replace local data
+ok 11 - ineligible state, concurrent local edits and malformed input never replace local data
+  ---
+  duration_ms: 1.664917
+  type: 'test'
+  ...
+# Subtest: cloud overview opens a separate conflict review with escaped paths and both choices
+ok 12 - cloud overview opens a separate conflict review with escaped paths and both choices
+  ---
+  duration_ms: 12.52925
+  type: 'test'
+  ...
+# Subtest: automatic sync uploads local changes while editing and defers incoming adoption
+ok 13 - automatic sync uploads local changes while editing and defers incoming adoption
+  ---
+  duration_ms: 6.275125
+  type: 'test'
+  ...
+# Subtest: QR join checks notebook identity and maintains it across two-device edits
+ok 14 - QR join checks notebook identity and maintains it across two-device edits
+  ---
+  duration_ms: 4.61175
+  type: 'test'
+  ...
+# Subtest: reviewed cloud choice waits safely then applies without reopening the same conflict
+ok 15 - reviewed cloud choice waits safely then applies without reopening the same conflict
+  ---
+  duration_ms: 5.186209
+  type: 'test'
+  ...
+# Subtest: deferred conflict choice requires fresh review after a new remote edit
+ok 16 - deferred conflict choice requires fresh review after a new remote edit
+  ---
+  duration_ms: 6.305125
+  type: 'test'
+  ...
+# Subtest: an older client can update a format 1 file without retaining additive QR metadata
+ok 17 - an older client can update a format 1 file without retaining additive QR metadata
+  ---
+  duration_ms: 1.845333
+  type: 'test'
+  ...
+# Subtest: file selection is only offered while disconnected and sharing lives in manage
+ok 18 - file selection is only offered while disconnected and sharing lives in manage
+  ---
+  duration_ms: 9.508
+  type: 'test'
+  ...
+# Subtest: a reviewed choice survives outbound transfer deferral
+ok 19 - a reviewed choice survives outbound transfer deferral
+  ---
+  duration_ms: 5.406375
+  type: 'test'
+  ...
+# Subtest: transient provider reads retry automatically and preserve pending edits
+ok 20 - transient provider reads retry automatically and preserve pending edits
+  ---
+  duration_ms: 26.203125
+  type: 'test'
+  ...
+# Subtest: persistent provider failures stop after three scheduled retries and manual retry recovers
+ok 21 - persistent provider failures stop after three scheduled retries and manual retry recovers
+  ---
+  duration_ms: 212.871125
+  type: 'test'
+  ...
+# Subtest: invalid cloud content is identified as validation failure and is not automatically retried
+ok 22 - invalid cloud content is identified as validation failure and is not automatically retried
+  ---
+  duration_ms: 44.531041
+  type: 'test'
+  ...
+# Subtest: overview exposes escaped error details and retry without implying every failure is connectivity
+ok 23 - overview exposes escaped error details and retry without implying every failure is connectivity
+  ---
+  duration_ms: 2.231708
+  type: 'test'
+  ...
+# Subtest: a missing Android provider requires reselecting the file rather than scheduled retries
+ok 24 - a missing Android provider requires reselecting the file rather than scheduled retries
+  ---
+  duration_ms: 85.786333
+  type: 'test'
+  ...
+# Subtest: local mode cancels scheduled retries and resumes with local and remote records and annotations intact
+ok 25 - local mode cancels scheduled retries and resumes with local and remote records and annotations intact
+  ---
+  duration_ms: 90.394583
+  type: 'test'
+  ...
+# Subtest: local mode immediately releases a pending provider read (late changes)
+ok 26 - local mode immediately releases a pending provider read (late changes)
+  ---
+  duration_ms: 2.814375
+  type: 'test'
+  ...
+# Subtest: local mode immediately releases a pending provider read (late failure)
+ok 27 - local mode immediately releases a pending provider read (late failure)
+  ---
+  duration_ms: 1.20325
+  type: 'test'
+  ...
+# Subtest: pausing during an acknowledged write keeps its baseline without adopting incoming data
+ok 28 - pausing during an acknowledged write keeps its baseline without adopting incoming data
+  ---
+  duration_ms: 7.920417
+  type: 'test'
+  ...
+# Subtest: reselecting the same notebook preserves deletions, baseline, cancellation and identity checks
+ok 29 - reselecting the same notebook preserves deletions, baseline, cancellation and identity checks
+  ---
+  duration_ms: 5.039
+  type: 'test'
+  ...
+# Subtest: a connected or paused notebook cannot be replaced through join, create or backup setup
+ok 30 - a connected or paused notebook cannot be replaced through join, create or backup setup
+  ---
+  duration_ms: 2.784708
+  type: 'test'
+  ...
+# Subtest: reviewed conflicting values remain valid after unrelated practice and diagnostic updates
+ok 31 - reviewed conflicting values remain valid after unrelated practice and diagnostic updates
+  ---
+  duration_ms: 12.2885
+  type: 'test'
+  ...
+# Subtest: legacy catalogue diagnostic conflicts are repaired without choosing between notebooks
+ok 32 - legacy catalogue diagnostic conflicts are repaired without choosing between notebooks
+  ---
+  duration_ms: 3.092583
+  type: 'test'
+  ...
+# Subtest: returning to the app resumes exhausted transient retries but retains pauses and permission errors
+ok 33 - returning to the app resumes exhausted transient retries but retains pauses and permission errors
+  ---
+  duration_ms: 38.167917
+  type: 'test'
+  ...
+# Subtest: showing an exact Drive QR does not adopt incoming data or trigger a reload
+ok 34 - showing an exact Drive QR does not adopt incoming data or trigger a reload
+  ---
+  duration_ms: 1.563416
+  type: 'test'
+  ...
+# Subtest: opening existing notebook without adding local data preserves recovery and leaves remote unchanged
+ok 35 - opening existing notebook without adding local data preserves recovery and leaves remote unchanged
+  ---
+  duration_ms: 1.24925
+  type: 'test'
+  ...
+# Subtest: incremental notebook preserves stable IDs, PDF bytes and annotations, with separate bounded objects
+ok 36 - incremental notebook preserves stable IDs, PDF bytes and annotations, with separate bounded objects
+  ---
+  duration_ms: 213.529708
+  type: 'test'
+  ...
+# Subtest: unchanged warm and restarted polls transfer only the changes cursor and never objects or uploads
+ok 37 - unchanged warm and restarted polls transfer only the changes cursor and never objects or uploads
+  ---
+  duration_ms: 32.136125
+  type: 'test'
+  ...
+# Subtest: one note uploads a small record change and never retransfers unchanged score content
+ok 38 - one note uploads a small record change and never retransfers unchanged score content
+  ---
+  duration_ms: 331.557667
+  type: 'test'
+  ...
+# Subtest: lost upload responses reuse their allocated ID after restart and do not duplicate a commit
+ok 39 - lost upload responses reuse their allocated ID after restart and do not duplicate a commit
+  ---
+  duration_ms: 20.935875
+  type: 'test'
+  ...
+# Subtest: two simultaneous writers retain independent fields without a shared mutable manifest
+ok 40 - two simultaneous writers retain independent fields without a shared mutable manifest
+  ---
+  duration_ms: 45.573542
+  type: 'test'
+  ...
+# Subtest: concurrent overlapping edits require review and a resolution commit is idempotent
+ok 41 - concurrent overlapping edits require review and a resolution commit is idempotent
+  ---
+  duration_ms: 55.675333
+  type: 'test'
+  ...
+# Subtest: migration preserves the entire old file, pauses old clients and redirects a second old-format device
+ok 42 - migration preserves the entire old file, pauses old clients and redirects a second old-format device
+  ---
+  duration_ms: 23.203958
+  type: 'test'
+  ...
+# Subtest: an interrupted migration retries existing objects and never activates a stale legacy snapshot
+ok 43 - an interrupted migration retries existing objects and never activates a stale legacy snapshot
+  ---
+  duration_ms: 24.321417
+  type: 'test'
+  ...
+# Subtest: offline and rejected access leave local linkage and recovery intact
+ok 44 - offline and rejected access leave local linkage and recovery intact
+  ---
+  duration_ms: 3022.626
+  type: 'test'
+  ...
+# Subtest: cloud engine exposes and resolves remote graph conflicts through the existing review flow
+ok 45 - cloud engine exposes and resolves remote graph conflicts through the existing review flow
+  ---
+  duration_ms: 111.350875
+  type: 'test'
+  ...
+# Subtest: interrupted migration reuses its verified old snapshot and score pieces when the old revision is unchanged
+ok 46 - interrupted migration reuses its verified old snapshot and score pieces when the old revision is unchanged
+  ---
+  duration_ms: 21.443708
+  type: 'test'
+  ...
+# Subtest: an archive acknowledgement lost after migration is recoverable without new uploads
+ok 47 - an archive acknowledgement lost after migration is recoverable without new uploads
+  ---
+  duration_ms: 26.943667
+  type: 'test'
+  ...
+# Subtest: delete versus edit is an explicit conflict and choosing the edit keeps the original identity
+ok 48 - delete versus edit is an explicit conflict and choosing the edit keeps the original identity
+  ---
+  duration_ms: 37.81025
+  type: 'test'
+  ...
+# Subtest: changed or missing immutable remote objects fail integrity/discovery without adopting partial data
+ok 49 - changed or missing immutable remote objects fail integrity/discovery without adopting partial data
+  ---
+  duration_ms: 201.363791
+  type: 'test'
+  ...
+# Subtest: large records remain unchanged across restart and do not create repeated change batches
+ok 50 - large records remain unchanged across restart and do not create repeated change batches
+  ---
+  duration_ms: 74.691125
+  type: 'test'
+  ...
+# Subtest: quiet polling does not rewrite the durable catalog or cached objects
+ok 51 - quiet polling does not rewrite the durable catalog or cached objects
+  ---
+  duration_ms: 13.364333
+  type: 'test'
+  ...
+# Subtest: first setup retains a notebook identity before any transfer and automatic migration preserves the merge baseline
+ok 52 - first setup retains a notebook identity before any transfer and automatic migration preserves the merge baseline
+  ---
+  duration_ms: 35.863375
+  type: 'test'
+  ...
+# Subtest: server checksums avoid downloading our own uploaded score pieces; absent checksums use verified readback
+ok 53 - server checksums avoid downloading our own uploaded score pieces; absent checksums use verified readback
+  ---
+  duration_ms: 19.050209
+  type: 'test'
+  ...
+# Subtest: quiet automatic polling avoids serializing the full unchanged local notebook
+ok 54 - quiet automatic polling avoids serializing the full unchanged local notebook
+  ---
+  duration_ms: 105.304917
+  type: 'test'
+  ...
+# Subtest: ordinary disconnect retains retry/cache data and explicit notebook erasure clears it
+ok 55 - ordinary disconnect retains retry/cache data and explicit notebook erasure clears it
+  ---
+  duration_ms: 12.391666
+  type: 'test'
+  ...
+# Subtest: duplicate and out-of-order discovery replays the same graph once; missing dependencies block adoption
+ok 56 - duplicate and out-of-order discovery replays the same graph once; missing dependencies block adoption
+  ---
+  duration_ms: 46.067417
+  type: 'test'
+  ...
+# Subtest: choosing local conflicting notes retains an independent remote tempo in that same piece
+ok 57 - choosing local conflicting notes retains an independent remote tempo in that same piece
+  ---
+  duration_ms: 63.717584
+  type: 'test'
+  ...
+# Subtest: both fully saved offline practices survive either conflict choice on the same shared plan
+ok 58 - both fully saved offline practices survive either conflict choice on the same shared plan
+  ---
+  duration_ms: 141.250292
+  type: 'test'
+  ...
+# Subtest: a reviewed original local field can win without reverting another remote field
+ok 59 - a reviewed original local field can win without reverting another remote field
+  ---
+  duration_ms: 41.5995
+  type: 'test'
+  ...
+# Subtest: choosing one conflicting annotation retains an independently added annotation and original score bytes
+ok 60 - choosing one conflicting annotation retains an independently added annotation and original score bytes
+  ---
+  duration_ms: 29.817458
+  type: 'test'
+  ...
+# Subtest: a tablet practice retries uncertain incremental uploads and reaches the phone once without changing scores
+ok 61 - a tablet practice retries uncertain incremental uploads and reaches the phone once without changing scores
+  ---
+  duration_ms: 152.567541
+  type: 'test'
+  ...
+# Subtest: pause releases a stalled incremental read and an uncached late response cannot overwrite newer practice
+ok 62 - pause releases a stalled incremental read and an uncached late response cannot overwrite newer practice
+  ---
+  duration_ms: 18.171125
+  type: 'test'
+  ...
+# Subtest: legacy current-practice conflicts cannot block completed history or erase the phone in-progress session
+ok 63 - legacy current-practice conflicts cannot block completed history or erase the phone in-progress session
+  ---
+  duration_ms: 31.856334
+  type: 'test'
+  ...
+# Subtest: joining and explicit refresh discover saved history absent from the changes feed
+ok 64 - joining and explicit refresh discover saved history absent from the changes feed
+  ---
+  duration_ms: 3024.475792
+  type: 'test'
+  ...
+# Subtest: rename changes only the selected descriptor and previews never connect or mutate notebooks
+ok 65 - rename changes only the selected descriptor and previews never connect or mutate notebooks
+  ---
+  duration_ms: 3010.723291
+  type: 'test'
+  ...
+# Subtest: fast checkpoint joins keep history visible without fetching any score bytes and accept old-client edits
+ok 66 - fast checkpoint joins keep history visible without fetching any score bytes and accept old-client edits
+  ---
+  duration_ms: 27.631333
+  type: 'test'
+  ...
+# Subtest: protected legacy connection never archives, renames or writes the stable file
+ok 67 - protected legacy connection never archives, renames or writes the stable file
+  ---
+  duration_ms: 1.430167
+  type: 'test'
+  ...
+# Subtest: legacy conversion requires consent for this exact file; modern client follows verified redirect
+ok 68 - legacy conversion requires consent for this exact file; modern client follows verified redirect
+  ---
+  duration_ms: 4.421583
+  type: 'test'
+  ...
+# Subtest: renaming on one device updates the other through its changes feed without changing notebook identity
+ok 69 - renaming on one device updates the other through its changes feed without changing notebook identity
+  ---
+  duration_ms: 4.461125
+  type: 'test'
+  ...
+# Subtest: connected presentation and QR use the verified descriptor name even if engine settings retain an old name
+ok 70 - connected presentation and QR use the verified descriptor name even if engine settings retain an old name
+  ---
+  duration_ms: 7.094875
+  type: 'test'
+  ...
+# Subtest: packs interoperate with the frozen stable 6.1.5 adapter in both directions
+ok 71 - packs interoperate with the frozen stable 6.1.5 adapter in both directions
+  ---
+  duration_ms: 33.99175
+  type: 'test'
+  ...
+# Subtest: warm polling and ordinary incoming edits never download packs or add polling requests
+ok 72 - warm polling and ordinary incoming edits never download packs or add polling requests
+  ---
+  duration_ms: 31.470083
+  type: 'test'
+  ...
+# Subtest: new pack generations reuse verified segments and retain all original Drive identities
+ok 73 - new pack generations reuse verified segments and retain all original Drive identities
+  ---
+  duration_ms: 78.382541
+  type: 'test'
+  ...
+# Subtest: lost segment or index responses retry the same IDs without duplicating acceleration files
+    # Subtest: segment
+    ok 1 - segment
+      ---
+      duration_ms: 32.69275
+      type: 'test'
+      ...
+    # Subtest: index
+    ok 2 - index
+      ---
+      duration_ms: 28.494375
+      type: 'test'
+      ...
+    1..2
+ok 74 - lost segment or index responses retry the same IDs without duplicating acceleration files
+  ---
+  duration_ms: 61.592916
+  type: 'test'
+  ...
+# Subtest: corrupt or missing optional packs fall back; changed or missing originals still reject adoption
+    # Subtest: corrupt-pack
+    ok 1 - corrupt-pack
+      ---
+      duration_ms: 20.654875
+      type: 'test'
+      ...
+    # Subtest: corrupt-pack-metadata
+    ok 2 - corrupt-pack-metadata
+      ---
+      duration_ms: 23.894417
+      type: 'test'
+      ...
+    # Subtest: missing-pack
+    ok 3 - missing-pack
+      ---
+      duration_ms: 22.498208
+      type: 'test'
+      ...
+    # Subtest: changed-original
+    ok 4 - changed-original
+      ---
+      duration_ms: 23.294917
+      type: 'test'
+      ...
+    # Subtest: missing-original
+    ok 5 - missing-original
+      ---
+      duration_ms: 19.143041
+      type: 'test'
+      ...
+    1..5
+ok 75 - corrupt or missing optional packs fall back; changed or missing originals still reject adoption
+  ---
+  duration_ms: 110.12225
+  type: 'test'
+  ...
+# Subtest: removing an accelerator after discovery never makes the retained original notebook unavailable
+ok 76 - removing an accelerator after discovery never makes the retained original notebook unavailable
+  ---
+  duration_ms: 24.7295
+  type: 'test'
+  ...
+# Subtest: cyclic listing and changes pages stop without losing linkage or notebook data
+    # Subtest: listing
+    ok 1 - listing
+      ---
+      duration_ms: 3.769209
+      type: 'test'
+      ...
+    # Subtest: changes
+    ok 2 - changes
+      ---
+      duration_ms: 3.434959
+      type: 'test'
+      ...
+    1..2
+ok 77 - cyclic listing and changes pages stop without losing linkage or notebook data
+  ---
+  duration_ms: 7.656209
+  type: 'test'
+  ...
+# Subtest: a stalled local cache releases synchronization without dispatching late remote work
+ok 78 - a stalled local cache releases synchronization without dispatching late remote work
+  ---
+  duration_ms: 40.439625
+  type: 'test'
+  ...
+# Subtest: an expired synchronization stops automatic retries, keeps pending edits and recovers manually
+ok 79 - an expired synchronization stops automatic retries, keeps pending edits and recovers manually
+  ---
+  duration_ms: 247.891834
+  type: 'test'
+  ...
+# Subtest: a timed-out accepted commit keeps its allocated ID and manual retry never duplicates it
+ok 80 - a timed-out accepted commit keeps its allocated ID and manual retry never duplicates it
+  ---
+  duration_ms: 206.749041
+  type: 'test'
+  ...
+# Subtest: completed discovery pages survive an interruption and restart without adopting partial history
+ok 81 - completed discovery pages survive an interruption and restart without adopting partial history
+  ---
+  duration_ms: 5.790833
+  type: 'test'
+  ...
+# Subtest: Drive notebooks create, discover and join with exact notebook, score and annotation IDs
+ok 82 - Drive notebooks create, discover and join with exact notebook, score and annotation IDs
+  ---
+  duration_ms: 69.565916
+  type: 'test'
+  ...
+# Subtest: a lost creation response resumes the preallocated Drive file after restart without duplication
+ok 83 - a lost creation response resumes the preallocated Drive file after restart without duplication
+  ---
+  duration_ms: 17.660375
+  type: 'test'
+  ...
+# Subtest: conditional Drive writes reject concurrent changes and keep a local recovery copy
+ok 84 - conditional Drive writes reject concurrent changes and keep a local recovery copy
+  ---
+  duration_ms: 7.52325
+  type: 'test'
+  ...
+# Subtest: offline/revoked access preserves notebook linkage and recovery, disconnect keeps remote files
+ok 85 - offline/revoked access preserves notebook linkage and recovery, disconnect keeps remote files
+  ---
+  duration_ms: 6.894
+  type: 'test'
+  ...
+# Subtest: missing strong revisions and mismatched notebook identities fail before upload/link
+ok 86 - missing strong revisions and mismatched notebook identities fail before upload/link
+  ---
+  duration_ms: 5.680584
+  type: 'test'
+  ...
+# Subtest: Drive sync combines offline edits and keeps theme/network preferences on each device
+ok 87 - Drive sync combines offline edits and keeps theme/network preferences on each device
+  ---
+  duration_ms: 55.5065
+  type: 'test'
+  ...
+# Subtest: migration keeps notebook identity and merges a second legacy device into the existing Drive file
+ok 88 - migration keeps notebook identity and merges a second legacy device into the existing Drive file
+  ---
+  duration_ms: 99.998334
+  type: 'test'
+  ...
+# Subtest: failed migration keeps the legacy connection paused and leaves its baseline and notebook intact
+ok 89 - failed migration keeps the legacy connection paused and leaves its baseline and notebook intact
+  ---
+  duration_ms: 6.244708
+  type: 'test'
+  ...
+# Subtest: second device retries a revision changed during download, then joins without losing remote edits
+ok 90 - second device retries a revision changed during download, then joins without losing remote edits
+  ---
+  duration_ms: 26.209208
+  type: 'test'
+  ...
+# Subtest: beta10 incomplete file resumes on the same ID using v2 revisions without HTTP ETag headers
+ok 91 - beta10 incomplete file resumes on the same ID using v2 revisions without HTTP ETag headers
+  ---
+  duration_ms: 3.941875
+  type: 'test'
+  ...
+# Subtest: metadata and media revisions may differ without blocking creation, joining or conditional updates
+ok 92 - metadata and media revisions may differ without blocking creation, joining or conditional updates
+  ---
+  duration_ms: 6.725667
+  type: 'test'
+  ...
+# Subtest: continuous changes during download are bounded and never link or cache an unverified notebook
+ok 93 - continuous changes during download are bounded and never link or cache an unverified notebook
+  ---
+  duration_ms: 5.76925
+  type: 'test'
+  ...
+# Subtest: a stalled bridge request times out, requests native cancellation and permits a fresh operation
+ok 94 - a stalled bridge request times out, requests native cancellation and permits a fresh operation
+  ---
+  duration_ms: 75.263875
+  type: 'test'
+  ...
+# Subtest: pause aborts a pending request without letting its late result advance the notebook operation
+ok 95 - pause aborts a pending request without letting its late result advance the notebook operation
+  ---
+  duration_ms: 2.638791
+  type: 'test'
+  ...
+# Subtest: bridge call not dispatched after cancellation and overlapping operations stay serialized
+ok 96 - bridge call not dispatched after cancellation and overlapping operations stay serialized
+  ---
+  duration_ms: 0.642083
+  type: 'test'
+  ...
+# Subtest: pause aborts every concurrent metadata read and never dispatches another read
+ok 97 - pause aborts every concurrent metadata read and never dispatches another read
+  ---
+  duration_ms: 0.972583
+  type: 'test'
+  ...
+# Subtest: a whole operation expires even when each request responds before its own deadline
+ok 98 - a whole operation expires even when each request responds before its own deadline
+  ---
+  duration_ms: 32.602125
+  type: 'test'
+  ...
+# Subtest: operation expiry cancels all concurrent requests and rejects their late responses
+ok 99 - operation expiry cancels all concurrent requests and rejects their late responses
+  ---
+  duration_ms: 29.313291
+  type: 'test'
+  ...
+# Subtest: profile language persists without changing historical identifiers or requiring migration
+ok 100 - profile language persists without changing historical identifiers or requiring migration
+  ---
+  duration_ms: 9.922625
+  type: 'test'
+  ...
+# Subtest: Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors
+ok 101 - Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors
+  ---
+  duration_ms: 0.33125
+  type: 'test'
+  ...
+# Subtest: Drive incremental transfer failures and persisted old diagnostics use the selected language
+ok 102 - Drive incremental transfer failures and persisted old diagnostics use the selected language
+  ---
+  duration_ms: 5.220875
+  type: 'test'
+  ...
+# Subtest: repeated manual checks of an unchanged Drive notebook use only the changes feed, with no local export
+ok 103 - repeated manual checks of an unchanged Drive notebook use only the changes feed, with no local export
+  ---
+  duration_ms: 237.639542
+  type: 'test'
+  ...
+# Subtest: a saved local edit still uploads through a manual incremental check
+ok 104 - a saved local edit still uploads through a manual incremental check
+  ---
+  duration_ms: 39.702375
+  type: 'test'
+  ...
+# Subtest: incoming changes cannot bypass an open editor and apply after it closes
+ok 105 - incoming changes cannot bypass an open editor and apply after it closes
+  ---
+  duration_ms: 35.297708
+  type: 'test'
+  ...
+# Subtest: manual retry after a provider error retains the full recovery scan
+ok 106 - manual retry after a provider error retains the full recovery scan
+  ---
+  duration_ms: 18.487792
+  type: 'test'
+  ...
+# Subtest: an edit during a lightweight manual read stays local until the next reconciled upload
+ok 107 - an edit during a lightweight manual read stays local until the next reconciled upload
+  ---
+  duration_ms: 27.881458
+  type: 'test'
+  ...
+# Subtest: ending a media check when notebook sync starts cannot leave a permanently rotating indicator
+ok 108 - ending a media check when notebook sync starts cannot leave a permanently rotating indicator
+  ---
+  duration_ms: 7.367917
+  type: 'test'
+  ...
+# Subtest: waiting copy names the actual blocker and does not invent a practice when another operation is busy
+ok 109 - waiting copy names the actual blocker and does not invent a practice when another operation is busy
+  ---
+  duration_ms: 1.76925
+  type: 'test'
+  ...
+# Subtest: the successful notebook hook runs after it is idle on connection and unchanged manual and automatic checks
+ok 110 - the successful notebook hook runs after it is idle on connection and unchanged manual and automatic checks
+  ---
+  duration_ms: 22.901
+  type: 'test'
+  ...
+# Subtest: the first successful notebook check wakes media immediately after an ineligible pass
+ok 111 - the first successful notebook check wakes media immediately after an ineligible pass
+  ---
+  duration_ms: 1.555666
+  type: 'test'
+  ...
+1..111
+# tests 120
+# suites 0
+# pass 120
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12958.502333

@@ -13,9 +13,12 @@ const parse=response=>JSON.parse(response.text),equal=(a,b)=>stableJSON(a)===sta
 const bytes=text=>new TextEncoder().encode(text).length;
 const optionalPack=file=>[PACK_MARKER,PACK_INDEX_MARKER].includes(file?.appProperties?.spinoType);
 const optionalFailure=error=>['INTEGRITY','LIMIT','FILE_UNAVAILABLE','INVALID_NOTEBOOK','INCOMPLETE'].includes(error.code);
-export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=60000,fastReads=false,preserveLegacy=false}){
+export function createIncrementalNotebookAdapter({native,recovery,settings,journal=createDriveJournal(),validate=validateBackup,requestTimeoutMs=60000,operationTimeoutMs=180000,fastReads=false,preserveLegacy=false}){
  let migrationConsent=null,destination=null,selected=null,client=null,progress=null,progressListener=()=>{},metrics={requests:0,receivedBytes:0,startedAt:0};
- const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs});
+ const requests=createDriveRequestGate(native,{timeoutMs:requestTimeoutMs,operationTimeoutMs});
+ // Cache/outbox waits also belong to this operation. Read results cannot resume
+ // after cancellation; already-enqueued IndexedDB writes retain transaction order.
+ const storage=journal;journal=Object.fromEntries(['get','set','claim','clear'].filter(name=>typeof storage[name]==='function').map(name=>[name,(...args)=>requests.run(()=>storage[name](...args),{timeoutCode:'LOCAL_STORAGE',timeoutMessage:'The local synchronization cache did not respond in time. Your notebook is kept. Retry synchronization.'})]));
  const report=(stage,completed=0,total=null)=>{progress={stage,completed,total,...metrics,elapsedSeconds:Math.floor((Date.now()-metrics.startedAt)/1000)};progressListener();};
  const state=()=>settings.read()||{},save=next=>settings.save(next);
  const serialized=async fn=>requests.serialized(async()=>{metrics={requests:0,receivedBytes:0,startedAt:Date.now()};report('checking');const timer=setInterval(()=>{if(progress)report(progress.stage,progress.completed,progress.total);},1000);try{return await fn();}finally{clearInterval(timer);progress=null;progressListener();}});
@@ -39,7 +42,7 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   if(r.status<200||r.status>=300)throw atomicFailure(`Drive could not complete a notebook request (${r.status}). Your local notebook is kept.`,'PROVIDER_ERROR');return r;
  }
  const metadata=async id=>{if(!validDriveId(id))throw atomicFailure('Invalid Drive notebook ID.');return parse(await api(`/drive/v3/files/${id}?fields=${objectFields}`));};
- async function listFiles(query){let token='',files=[];do{const r=parse(await api(`/drive/v3/files?pageSize=100&spaces=drive&fields=${encodeURIComponent('nextPageToken,files('+objectFields+')')}&q=${encodeURIComponent(query)}${token?'&pageToken='+encodeURIComponent(token):''}`));if(!Array.isArray(r.files))throw atomicFailure('Invalid Drive notebook listing.');files.push(...r.files);token=r.nextPageToken||'';if(files.length>100000)throw atomicFailure('The incremental notebook exceeds the object limit.','LIMIT');}while(token);return files;}
+ async function listFiles(query){let token='',files=[];const visited=new Set();do{if(visited.has(token))throw atomicFailure('Drive repeated a notebook listing page. Your local notebook is kept. Retry synchronization.','INVALID_CURSOR');visited.add(token);const r=parse(await api(`/drive/v3/files?pageSize=100&spaces=drive&fields=${encodeURIComponent('nextPageToken,files('+objectFields+')')}&q=${encodeURIComponent(query)}${token?'&pageToken='+encodeURIComponent(token):''}`));if(!Array.isArray(r.files)||r.nextPageToken!=null&&(typeof r.nextPageToken!=='string'||!r.nextPageToken))throw atomicFailure('Invalid Drive notebook listing.');files.push(...r.files);token=r.nextPageToken||'';if(files.length>100000)throw atomicFailure('The incremental notebook exceeds the object limit.','LIMIT');}while(token);return files;}
  async function open(root){
   const connected=await account();if(client?.rootId===root.rootId&&client.accountId===connected.id&&client.folderId===root.folderId&&(!root.startToken||root.startToken===client.startToken))return client;
   if(root.format!==ATOMIC_FORMAT||!validDriveId(root.rootId)||!validNotebookId(root.notebookId)||!validDriveId(root.folderId)||(root.startToken!=null&&(typeof root.startToken!=='string'||!root.startToken.length||root.startToken.length>2000))||(root.initialHeads!=null&&(!Array.isArray(root.initialHeads)||root.initialHeads.length>1000||!root.initialHeads.every(h=>hashPattern.test(h)))))throw atomicFailure('Invalid incremental notebook descriptor.');
@@ -54,11 +57,15 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
   client={...root,scope,accountId:connected.id,objects,catalog,graph:null};return client;
  }
  async function refresh(c,{fullScan=false}={}){
-  let token=c.catalog.token,changed=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));
+  let token=c.catalog.token,anyChanged=false,files=new Map(c.catalog.files.map(f=>[f.id,f]));const visited=new Set();
   // A cursor alone cannot establish that this device discovered all existing commits.
   // Explicit recovery and first connection inventory the immutable notebook objects.
+  if(fullScan)report('inventory');
   let inventory=fullScan?(await listFiles(`trashed = false and appProperties has { key='rootId' and value='${c.rootId}' } and appProperties has { key='notebookId' and value='${c.notebookId}' } and (appProperties has { key='spinoType' and value='${COMMIT_MARKER}' } or appProperties has { key='spinoType' and value='${OBJECT_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_MARKER}' } or appProperties has { key='spinoType' and value='${PACK_INDEX_MARKER}' })`)).map(file=>({fileId:file.id,file})):[];
+  report('checking');
   do{
+   if(visited.has(token))throw atomicFailure('Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.','INVALID_CURSOR');visited.add(token);
+   let changed=false;
    const r=parse(await api(`/drive/v3/changes?pageSize=1000&spaces=drive&pageToken=${encodeURIComponent(token)}&fields=${encodeURIComponent('nextPageToken,newStartPageToken,changes(fileId,removed,file('+objectFields+'))')}`));
    if(!Array.isArray(r.changes))throw atomicFailure('Invalid Drive changes response.');
    for(const change of [...inventory,...r.changes]){
@@ -82,13 +89,16 @@ export function createIncrementalNotebookAdapter({native,recovery,settings,journ
     }
    }
    inventory=[];
-   const next=r.nextPageToken||r.newStartPageToken;if(typeof next!=='string'||next===token&&r.nextPageToken)throw atomicFailure('Invalid Drive changes cursor.');token=next;if(!r.nextPageToken)break;
+   const next=r.nextPageToken||r.newStartPageToken;if(typeof next!=='string'||!next||r.nextPageToken!=null&&(typeof r.nextPageToken!=='string'||!r.nextPageToken))throw atomicFailure('Invalid Drive changes cursor.','INVALID_CURSOR');
+   if(r.nextPageToken&&visited.has(next))throw atomicFailure('Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.','INVALID_CURSOR');
+   // Commit discovery before advancing its cursor. A long feed can resume after
+   // interruption; incomplete pages never reach notebook reconstruction/adoption.
+   const catalog={startToken:c.startToken,version:c.catalog.version+(changed?1:0),token:next,files:[...files.values()]};
+   if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;c.packState=null;}
+   if(changed||next!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token:next});
+   c.catalog=catalog;anyChanged ||= changed;token=next;if(!r.nextPageToken)break;
   }while(true);
-  // Persist discovery only. Missing dependencies still block graph reconstruction and local application.
-  const catalog={startToken:c.startToken,version:c.catalog.version+(changed?1:0),token,files:[...files.values()]};
-  if(changed){await journal.set(c.scope+'/catalog',catalog);c.graph=null;c.packState=null;}
-  if(changed||token!==c.catalog.token)await journal.set(c.scope+'/cursor',{version:catalog.version,token});
-  c.catalog=catalog;return changed;
+  return anyChanged;
  }
  async function loadPacks(c){
   const candidates=c.catalog.files.filter(f=>Number(f.appProperties.packIndexCount)>0).sort((a,b)=>Number(b.appProperties.packIndexCount)-Number(a.appProperties.packIndexCount)||a.appProperties.hash.localeCompare(b.appProperties.hash));

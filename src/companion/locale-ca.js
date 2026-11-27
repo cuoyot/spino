@@ -5,6 +5,10 @@ Value|Valor
 Session details|Detalls de la sessió
 piece|peça
 pieces|peces
+The local synchronization cache did not respond in time. Your notebook is kept. Retry synchronization.|La memòria cau local de sincronització no ha respost a temps. Es conserva el quadern. Torna a provar la sincronització.
+Synchronization took too long and was stopped. Pending changes are kept. Retry synchronization.|La sincronització ha trigat massa i s’ha aturat. Es conserven els canvis pendents. Torna a provar la sincronització.
+Drive repeated a notebook listing page. Your local notebook is kept. Retry synchronization.|Drive ha repetit una pàgina de fitxers del quadern. Es conserva el quadern local. Torna a provar la sincronització.
+Drive repeated a notebook changes page. Your local notebook is kept. Retry synchronization.|Drive ha repetit una pàgina de canvis del quadern. Es conserva el quadern local. Torna a provar la sincronització.
 For repertoire or free practice, choose With piano. On screen supports reading and technique.|Per a repertori o pràctica lliure, tria Amb piano. En pantalla pots treballar lectura i tècnica.
 Add repetitions|Afegir repeticions
 Add activity|Afegir activitat

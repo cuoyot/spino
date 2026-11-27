@@ -1,0 +1,9 @@
+{
+  "kind": "Responsive browser with synthetic Drive",
+  "nativeDeviceAcceptance": false,
+  "acceleratedOperationDeadlineMs": 800,
+  "productionOperationDeadlineMs": 180000,
+  "keepsNotebookAndScores": true,
+  "manualRetry": true,
+  "lateResponseIgnored": true
+}

@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: current release manifests and generated download parts match the signed source artifacts
+ok 1 - current release manifests and generated download parts match the signed source artifacts
+  ---
+  duration_ms: 2174.331292
+  type: 'test'
+  ...
+# Subtest: large downloads stream the exact artifact and resume across static-part boundaries
+ok 2 - large downloads stream the exact artifact and resume across static-part boundaries
+  ---
+  duration_ms: 284.875833
+  type: 'test'
+  ...
+# Subtest: the published Hanon video plays inline with byte ranges matching its exact reviewed media
+ok 3 - the published Hanon video plays inline with byte ranges matching its exact reviewed media
+  ---
+  duration_ms: 77.1555
+  type: 'test'
+  ...
+# Subtest: the 498 MB beta streams every complete part through native pipes without JavaScript readers
+ok 4 - the 498 MB beta streams every complete part through native pipes without JavaScript readers
+  ---
+  duration_ms: 2172.650209
+  type: 'test'
+  ...
+# Subtest: sitemap lists every public page with reciprocal canonical language alternates
+ok 5 - sitemap lists every public page with reciprocal canonical language alternates
+  ---
+  duration_ms: 19.320417
+  type: 'test'
+  ...
+# Subtest: landing pages publish consistent application and visible FAQ structured data
+ok 6 - landing pages publish consistent application and visible FAQ structured data
+  ---
+  duration_ms: 9.383625
+  type: 'test'
+  ...
+# Subtest: crawler policy allows public content and advertises the canonical sitemap
+ok 7 - crawler policy allows public content and advertises the canonical sitemap
+  ---
+  duration_ms: 0.613209
+  type: 'test'
+  ...
+# Subtest: FAQ copy cannot break the HTML or JSON-LD script boundary
+ok 8 - FAQ copy cannot break the HTML or JSON-LD script boundary
+  ---
+  duration_ms: 0.378958
+  type: 'test'
+  ...
+# Subtest: website language variants use matching feature coverage and localized app screenshots
+ok 9 - website language variants use matching feature coverage and localized app screenshots
+  ---
+  duration_ms: 39.075208
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5183.587875

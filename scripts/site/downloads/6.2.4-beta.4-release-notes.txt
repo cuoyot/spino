@@ -1,0 +1,19 @@
+<es-ES>
+Evita que una sincronización atascada siga esperando indefinidamente. Detecta páginas repetidas de Drive, detiene las operaciones que agotan su tiempo y permite reintentar conservando los cambios pendientes, las partituras y las anotaciones.
+</es-ES>
+
+<en-US>
+Stops stalled synchronization from waiting indefinitely. Detects repeated Drive pages, stops operations that exceed their time limit and allows retrying while keeping pending changes, scores and annotations.
+</en-US>
+
+<ca>
+Evita que una sincronització bloquejada continuï esperant indefinidament. Detecta pàgines repetides de Drive, atura les operacions que esgoten el temps i permet tornar-ho a provar conservant els canvis pendents, les partitures i les anotacions.
+</ca>
+
+<de-DE>
+Verhindert endloses Warten bei blockierter Synchronisierung. Erkennt wiederholte Drive-Seiten, beendet Vorgänge nach Ablauf des Zeitlimits und ermöglicht einen neuen Versuch. Ausstehende Änderungen, Noten und Anmerkungen bleiben erhalten.
+</de-DE>
+
+<hu-HU>
+Megakadályozza az elakadt szinkronizálás végtelen várakozását. Felismeri az ismétlődő Drive-oldalakat, időkorlát után leállítja a műveletet, és lehetővé teszi az újrapróbálást. A függő módosítások, kották és jegyzetek megmaradnak.
+</hu-HU>
