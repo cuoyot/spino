@@ -1,0 +1,107 @@
+{
+  "version": "6.2.4-beta.6",
+  "versionCode": 134,
+  "webAssetParity": {
+    "files": 685,
+    "packages": 3,
+    "equal": true
+  },
+  "applicationTests": {
+    "passed": 92,
+    "failed": 0,
+    "scope": "focused interface, allocation, locale, saved-session editing and integrated Drive protocol regression set"
+  },
+  "androidTests": [
+    {
+      "name": "com.getcapacitor.myapp.ExampleUnitTest",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-27T07:18:26.100Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    },
+    {
+      "name": "com.miguecoll.spino.DocumentExportTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-27T07:18:26.113Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.016"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveMediaAuthorizationTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-27T07:18:26.171Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.025"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveNotebookRequestTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-27T07:18:26.198Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.008"
+    },
+    {
+      "name": "com.miguecoll.spino.DriveAuthorizationDiagnosticTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-27T07:18:26.164Z",
+      "hostname": "MacBook-Pro-de-Miguel.local",
+      "time": "0.005"
+    }
+  ],
+  "physicalDeviceAcceptance": "pending owner installation",
+  "distribution": "website-beta",
+  "integratedPublishedBase": "c4b2ee0f5a129f5b46dfdfe64e3e93373f4b760b",
+  "browserReview": "Earlier disposable four-priority matrix retained; final browser connection unavailable because Mac is locked. No final visual acceptance claimed.",
+  "releaseEvidence": "../quality-review/captures/releases/2026-11-27-beta134-final/README.md",
+  "websiteTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "packageSignatures": {
+    "releaseAPK": "apksigner verified",
+    "betaAPK": "apksigner verified",
+    "AAB": "jarsigner verified with existing upload certificate"
+  },
+  "nativeEvidence": {
+    "retainedOriginalFiles": 8,
+    "unchangedBeforeLaunch": true,
+    "foreground": [
+      "ResumedActivity: ActivityRecord{87f3ab3 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t219}"
+    ],
+    "version": [
+      "versionCode=134 minSdk=24 targetSdk=36",
+      "versionName=6.2.4-beta.6"
+    ],
+    "installation": "replacement adb install -r; no storage clear",
+    "physicalDeviceAcceptance": false
+  },
+  "sourceHashes": {
+    "src/companion/app.js": "482b6acbf6a7d15f3669ea253775fb43c720cb7d41b05332cfafa97747cfa690",
+    "src/companion/views.js": "d806f4bfd650028d28064e78cda802d1677c265e83a247680db5a456a3b1b07f",
+    "src/companion/exact-range-values.js": "792e432538b59d29c48081da4b0a660e10f508392e134de80a5748756814c2f6",
+    "src/companion/second-batch.css": "1fd8b14c1295360e09c22cc1cdf078b26898fe9b5a9d2760b9a5099c6e4deed0",
+    "src/companion/progress-learning.js": "f8cc2a8d431a2fde5f5256ea4e46078c15a889a8e03912b750756c355e9eded7",
+    "src/companion/drive-incremental.js": "442f6114fe15310be8b57687680acd1c0697cb55dd0a79d921e530e9932dad58",
+    "src/companion/drive-request.js": "9cf4484cb332d5e0cf3e1ff4bcf3f49e1462b9b28896b2c38f208ecd39ca3393",
+    "src/companion/drive-sync-view.js": "91290f679b82bfcda383607739a3b1f6d2cf81bd7c04be8a1143f32c293ff1b6",
+    "src/companion/about-view.js": "201bce067cec5f1f6529ebfe1cac133c205d91afdcae6750911e8e55c9525031",
+    "package.json": "8fe57c02112a886a99241cc58ef310381853fbac0c77646d543a61a584f93a17",
+    "package-lock.json": "7a7b751888327b8f2564f32413f86e47308ee36929105c91add5379234512edc",
+    "android/app/build.gradle": "7f34f665adf1833206452610d1ffae3fad5e7a8c950dc35d1cc5fdeadf279398"
+  }
+}

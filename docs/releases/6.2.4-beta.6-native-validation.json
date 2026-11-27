@@ -1,0 +1,13 @@
+{
+  "retainedOriginalFiles": 8,
+  "unchangedBeforeLaunch": true,
+  "foreground": [
+    "ResumedActivity: ActivityRecord{87f3ab3 u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t219}"
+  ],
+  "version": [
+    "versionCode=134 minSdk=24 targetSdk=36",
+    "versionName=6.2.4-beta.6"
+  ],
+  "installation": "replacement adb install -r; no storage clear",
+  "physicalDeviceAcceptance": false
+}

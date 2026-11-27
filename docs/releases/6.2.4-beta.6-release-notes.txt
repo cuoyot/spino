@@ -1,0 +1,15 @@
+<es-ES>
+Duración y tempo exactos al tocar su valor, sin controles duplicados. Guardado más sencillo, con «¿Cómo te has sentido?» siempre visible y sin «Guardar y planificar». El selector indica cuántas piezas has elegido. Mejoras táctiles, fechas y plurales en Progreso. Conserva las correcciones de sincronización de la beta anterior.
+</es-ES>
+<en-US>
+Tap duration or tempo to enter an exact value, without duplicate controls. Simpler saving keeps feelings visible and removes Save and schedule. The picker shows how many pieces you selected. Improved touch targets, dates and plurals in Progress. Retains the previous beta’s synchronization fixes.
+</en-US>
+<ca>
+Durada i tempo exactes tocant-ne el valor, sense controls duplicats. Desament més senzill, amb «Com t’has sentit?» sempre visible i sense «Desar i programar». El selector indica quantes peces has triat. Millores tàctils, dates i plurals a Progrés. Conserva les correccions de sincronització de la beta anterior.
+</ca>
+<de-DE>
+Dauer und Tempo durch Antippen exakt eingeben, ohne doppelte Regler. Einfacheres Speichern mit sichtbarer Gefühlsauswahl; Speichern und planen entfällt. Die Stückauswahl zeigt die Anzahl. Größere Berührungsflächen, passende Datumsangaben und Einzahl/Mehrzahl im Fortschritt. Enthält die Synchronisierungskorrekturen der vorherigen Beta.
+</de-DE>
+<hu-HU>
+Az időtartam és a tempó értéke érintéssel pontosan megadható, ismétlődő vezérlők nélkül. Egyszerűbb mentés, mindig látható hangulatválasztással; a Mentés és ütemezés gomb megszűnik. A darabválasztó mutatja a kijelölt darabok számát. Jobb érintési felületek, dátumok és darabszámok. Megőrzi az előző béta szinkronizálási javításait.
+</hu-HU>
