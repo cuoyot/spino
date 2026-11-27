@@ -1,0 +1,10 @@
+{
+  "version": "6.2.4-beta.7",
+  "versionCode": 135,
+  "productionWebFilesMatchedInAllThreePackages": 685,
+  "androidUnitTests": 15,
+  "appFocusedTests": 26,
+  "responsiveEvidence": "../quality-review/captures/session/2026-11-27-finish-controls-02/verification.json",
+  "signaturesVerified": true,
+  "handoffVerified": true
+}

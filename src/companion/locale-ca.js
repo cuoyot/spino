@@ -1,5 +1,15 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Morning|Matí
+Midday|Migdia
+Afternoon|Tarda
+Night|Nit
+Edit name|Edita el nom
+Edit time|Edita el temps
+Pieces practised|Peces practicades
+Add notes|Afegeix notes
+Set next steps|Fixa els passos següents
+Practice summary|Resum de la pràctica
 Edit value|Edita el valor
 Value|Valor
 Session details|Detalls de la sessió

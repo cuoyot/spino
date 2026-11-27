@@ -1,0 +1,32 @@
+✔ summary matches finalization without changing exact recorded time, active IDs or data (23.576ms)
+✔ edited preview reflects total, title and passage while preserving the original (1.976708ms)
+✔ review omits unplayed blocks and keeps all corrections behind Edit practice (1.319667ms)
+✔ a zero-time session does not report unplayed activities as performed (0.456333ms)
+✔ single-block preparation retains allocation while showing only the total; real splits remain editable (11.118583ms)
+✔ compact finishing retains editable feedback and existing passage attribution (27.205333ms)
+✔ Progress uses a singular practice label in all five languages (66.802459ms)
+✔ a saved calendar date keeps the same displayed day across device time zones (3.611791ms)
+✔ profile language persists without changing historical identifiers or requiring migration (7.763584ms)
+✔ Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors (0.394291ms)
+✔ Drive incremental transfer failures and persisted old diagnostics use the selected language (1.070541ms)
+✔ saving unchanged editor defaults does not reset an exercise or rewrite a free block target (35.341416ms)
+✔ editing musical settings preserves performed material under the original settings and stable block ID (9.844333ms)
+✔ editing a postponed block archives only its performed work; invalid changes are atomic (7.450083ms)
+✔ changing minutes pauses accrued time without restarting the current exercise or changing its source (0.817375ms)
+✔ postponing a progressed block restores its independent time, answers and score when it becomes current again (1.483375ms)
+✔ upcoming order and duration changes keep the current block and its result history intact (0.789584ms)
+✔ removing current or postponed blocks retains performed work in results and leaves total time unchanged (1.979042ms)
+✔ completed blocks stay fixed and the last remaining block cannot be removed (1.627458ms)
+✔ an older all-complete checkpoint can append a fresh block without reopening completed results (1.5455ms)
+✔ adding blocks preserves IDs and runtime while rejecting duplicate IDs, incompatible activities and limits (3.199417ms)
+✔ postponed progress survives backup roundtrip and recovery resumes paused (0.974333ms)
+✔ finalizing or changing context archives each postponed result exactly once without mutating a retryable session (1.50925ms)
+✔ backup validation rejects malformed postponed runtime instead of losing or misattributing it (3.349958ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 579.355291

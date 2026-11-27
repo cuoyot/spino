@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-27T21:40:32.829119+00:00",
+  "version": "6.2.4-beta.7",
+  "build": 135,
+  "applicationId": "com.miguecoll.spino.beta",
+  "replacementInstall": "Performing Streamed Install\nSuccess",
+  "applicationStorageCleared": false,
+  "retainedFiles": 8,
+  "allOriginalIndexedDBFilesUnchangedBeforeLaunch": true,
+  "apkSHA256": "ebf3b57ddb32a73133f16d49ff18aeca1b92e9c180e0c310ca830d543631298e",
+  "foreground": [
+    "topResumedActivity=ActivityRecord{174891b u0 com.miguecoll.spino.beta/com.miguecoll.spino.MainActivity t221}"
+  ],
+  "physicalDeviceAcceptance": false
+}

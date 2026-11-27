@@ -185,4 +185,9 @@ Repertoire search shows **Done · 2 pieces** for two selected works, including w
 
 At Finish, practice minutes and **Save** are prominent. **How did it feel?** stays visible as five compact selectable faces, each with an accessible text label. Notes and session details can be expanded when needed. Save is the only primary completion action. Partial status, Keep practising and Finish without saving remain available. Invalid required details open for correction; failed saving retains edits for retry.
 
-Verified in synthetic responsive browsers on 27 November 2026. Local source only; not yet packaged in a new beta or accepted on a physical device.
+Included in website beta 6.2.4-beta.6/build134. Earlier synthetic responsive behavior is verified; the Save-only follow-up is packaged, with final visual review unavailable while the Mac is locked. Physical-device acceptance remains open.
+
+
+## Finish a practice in beta 6.2.4-beta.7
+
+Review the recorded time and activities, then select a face if you wish and tap **Save**. Tap the suggested name or the total duration to correct it. Tap a repertoire row to change its piece or passage, or use **+** to associate another piece with the session. The notes and next-step tiles open their own editors. **Done** returns to the summary. The original timing is preserved until you change it.

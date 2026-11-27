@@ -2090,5 +2090,15 @@
   "Value": "Érték",
   "Session details": "Gyakorlás részletei",
   "piece": "darab",
-  "pieces": "darab"
+  "pieces": "darab",
+  "Practice summary": "A gyakorlás összegzése",
+  "Morning": "Reggel",
+  "Midday": "Dél",
+  "Afternoon": "Délután",
+  "Night": "Éjszaka",
+  "Edit name": "Név szerkesztése",
+  "Edit time": "Idő szerkesztése",
+  "Pieces practised": "Gyakorolt darabok",
+  "Add notes": "Jegyzet hozzáadása",
+  "Set next steps": "Következő lépések megadása"
 }

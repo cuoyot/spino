@@ -26,7 +26,7 @@ test('autoplay, saved annotation resume, editable time and MIDI hold across four
   await evaluate(`document.querySelector('[data-pdf=split-done]').click()`);await wait(`document.querySelector('.pdf-viewer').dataset.running==='true'`);
   await evaluate(`document.querySelector('[data-pdf=timer]').click()`);assert.equal((await read()).active.runningSince,null);
   await evaluate(`document.querySelector('[data-pdf=finish]').click()`);await wait(`document.querySelector('[name=practicedMinutes]')`);
-  await evaluate(`document.querySelector('[name=practicedMinutes]').value='12.5'`);
+  await evaluate(`document.querySelector('[data-finish-edit=time]').click();const editor=document.querySelector('.cp-finish-editor form');editor.elements.value.value='12.5';editor.requestSubmit()`);
   await mkdir('artifacts/beta/2026-10-12/beta2-header/practice-adjustments',{recursive:true});const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(`artifacts/beta/2026-10-12/beta2-header/practice-adjustments/save-${name}.png`,Buffer.from(shot.data,'base64'));
   await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('button[value=save]'))`);await wait(`document.querySelector('.cp-today') && !document.querySelector('#cp-dialog').open`);
   const saved=(await read()).sessions[0];assert.equal(saved.id,active.id);assert.equal(saved.elapsedMs,750000);assert.equal(saved.results.reduce((n,r)=>n+r.elapsedMs,0),750000);assert.ok(saved.recordedElapsedMs>=0);

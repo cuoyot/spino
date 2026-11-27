@@ -1,0 +1,15 @@
+<es-ES>
+Al terminar, revisa el tiempo y las obras en un resumen. Toca el nombre, el tiempo o una obra para corregirlos. Añade notas, fija el próximo paso y elige cómo te has sentido justo antes de guardar.
+</es-ES>
+<en-US>
+Review your time and pieces at the end of practice. Tap the name, time or a piece to make a correction. Add notes, set your next step and choose how you felt just before saving.
+</en-US>
+<ca>
+En acabar, revisa el temps i les obres en un resum. Toca el nom, el temps o una obra per corregir-los. Afegeix notes, fixa el pas següent i tria com t’has sentit just abans de desar.
+</ca>
+<de-DE>
+Zum Übungsende siehst du Dauer und Stücke auf einen Blick. Tippe zum Ändern auf den Namen, die Dauer oder ein Stück. Ergänze Notizen, lege den nächsten Schritt fest und wähle vor dem Speichern aus, wie du dich gefühlt hast.
+</de-DE>
+<hu-HU>
+A gyakorlás végén áttekintheted az időt és a darabokat. A név, az idő vagy egy darab megérintésével javíthatod az adatokat. Írj jegyzetet, jelöld ki a következő lépést, és mentés előtt válaszd ki, hogyan érezted magad.
+</hu-HU>

@@ -1,0 +1,90 @@
+{
+  "kind": "Responsive Chromium, synthetic notebook",
+  "fixture": "captures/interface/2026-11-27-second-batch-01/fixtures.json",
+  "build": "b495b886cc1e281a682a78c58705288160a49d8ed710adc67c747c5fdf3f1e2b",
+  "metrics": [
+    {
+      "theme": "light",
+      "layout": "phone",
+      "width": 390,
+      "height": 844,
+      "dialogWidth": 364,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "light",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "light",
+      "layout": "tablet",
+      "width": 768,
+      "height": 1024,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "light",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "dark",
+      "layout": "phone",
+      "width": 390,
+      "height": 844,
+      "dialogWidth": 364,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "dark",
+      "layout": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet",
+      "width": 768,
+      "height": 1024,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    },
+    {
+      "theme": "dark",
+      "layout": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "dialogWidth": 478,
+      "overflow": false,
+      "scroll": 0,
+      "closeFocused": false
+    }
+  ],
+  "initialFocus": "heading",
+  "tabFocus": "close button",
+  "editsSaved": true
+}

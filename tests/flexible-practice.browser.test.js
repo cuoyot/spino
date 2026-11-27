@@ -115,7 +115,7 @@ test('direct block entry retains separate times, PDF position and warm-up throug
  const recovered=await read();assert.equal(recovered.active.id,'synthetic-flexible-session');assert.equal(recovered.active.elapsedMs,798000);
  assert.deepEqual(recovered.active.blocks.map(b=>b.id),fixture.data.active.blocks.map(b=>b.id));
  await action('session-end');await wait(`document.querySelector('[name=practicedMinutes]')`);
- assert.equal(await evaluate(`document.querySelectorAll('.cp-work-parts input').length`),2);
+ assert.equal(await evaluate(`document.querySelectorAll('[data-finish-edit^=piece-]').length`),2);
  await evaluate(`document.querySelector('#cp-dialog form').requestSubmit(document.querySelector('button[value=save]'))`);await wait(`document.querySelector('.cp-today')&&!document.querySelector('#cp-dialog').open`);
  const saved=(await read()).sessions[0];assert.equal(saved.elapsedMs,798000);assert.equal(saved.results.reduce((n,r)=>n+r.elapsedMs,0),798000);
  const assets=await evaluate(`new Promise(resolve=>{const r=indexedDB.open('cuaderno-piano');r.onsuccess=()=>{const db=r.result,q=db.transaction('assets').objectStore('assets').getAll();q.onsuccess=()=>{db.close();resolve(q.result)}}})`);

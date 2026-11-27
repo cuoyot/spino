@@ -98,6 +98,7 @@ import './form-actions.css';
 import './scroll-surfaces.css';
 import './page-navigation.css';
 import './second-batch.css';
+import {finishPracticeFields, finishPracticeTitle, finishPracticeRating, bindFinishPractice, applyFinishPieceEdits} from './finish-practice.js';
 import {bindExactRangeValues, syncExactRange} from './exact-range-values.js';
 import {mountPageNavigation} from './page-navigation.js';
 import { mountDialogFormActions } from './form-actions.js';
@@ -342,9 +343,6 @@ export async function bootCompanion(reader) {
     dialog.removeAttribute('aria-busy');
     dialog.innerHTML = `<div class="cp-dialog-head"><h2 id="cp-dialog-title" ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2><button type="button" class="quiet" data-action="close-dialog">${ui('Close','Cerrar')}</button></div><div class="cp-dialog-body">${body}<p id="cp-form-error" role="alert"></p></div>`;
     mountDialogFormActions(dialog);
-    dialog.querySelector('#finish-form')?.addEventListener('invalid', event => {
-      for (let group = event.target.closest('details'); group; group = group.parentElement.closest('details')) group.open = true;
-    }, true);
     dialog.setAttribute('aria-labelledby', 'cp-dialog-title');
     dialog.querySelector('form')?.addEventListener('submit', async e => {
       e.preventDefault();
@@ -903,17 +901,26 @@ export async function bootCompanion(reader) {
     if(!data.active)return;pauseSession();hideReader();go('session');
     const s=data.active;const remaining=s.blocks.some(block=>sessionBlockMs(s,block.id)===0);
     const feedbackSession=settleSuspendedBlocks(s);
+    feedbackSession.title = finishPracticeTitle(s);
     const initialMinutes=(s.elapsedMs/60000).toFixed(2);
-    showDialog(ui("Save what you practiced", "Guarda lo que has practicado"),`<form id="finish-form"><p class="cp-finish-context">${esc(s.title)} · ${CONTEXTS[s.context]}</p><label class="cp-finish-time">${ui("Practice time (minutes)","Tiempo practicado (minutos)")}<input type="number" name="practicedMinutes" min="0" max="720" step="0.01" value="${initialMinutes}" required /></label><label class="check"><input name="partial" type="checkbox" ${remaining?'checked':''}${ui(" /> Save as a partial session</label>", " /> Guardar como sesión parcial</label>")}${feedbackFields(feedbackSession,data.works,{compact:true})}<div class="cp-save-actions"><div class="cp-save-main"><button type="submit" class="primary">${ui('Save','Guardar')}</button></div><div class="cp-save-exits">${btn('close-dialog',ui("‹ Keep practicing", "‹ Seguir practicando"),'','quiet')}${btn('discard-session',ui("Finish without saving", "Terminar sin guardar"),'','danger quiet')}</div></div></form>`,async f=>{
+    showDialog(ui('Practice summary','Resumen de la práctica'),`<form id="finish-form">${finishPracticeFields(feedbackSession,data.works,remaining)}<div class="cp-save-actions">${finishPracticeRating(feedbackSession)}<div class="cp-save-main"><button type="submit" class="primary">${ui('Save','Guardar')}</button></div><div class="cp-save-exits">${btn('close-dialog',ui("‹ Keep practicing", "‹ Seguir practicando"),'','quiet')}${btn('discard-session',ui("Finish without saving", "Terminar sin guardar"),'','danger quiet')}</div></div></form>`,async f=>{
       let saved;
       if (!await commitSessionChange(next => {
         next.active = settleSuspendedBlocks(next.active);
         saved = saveSession(next, next.active, {...readFeedback(f), partial:f.has('partial'), measurement:next.active.currentMeasurement});
-        if (String(f.get('practicedMinutes')) !== initialMinutes) adjustPracticeTime(saved,Math.round(Number(f.get('practicedMinutes'))*60000));
+        applyFinishPieceEdits(saved, pieceEdits);
+        if (Number(f.get('practicedMinutes')) !== Number(initialMinutes)) adjustPracticeTime(saved,Math.round(Number(f.get('practicedMinutes'))*60000));
         delete saved.readerSnapshot; delete saved.currentMeasurement; delete saved.blockRuntime;
       })) return;
       await reminders(); dialog.close(); root.hidden=false; go('home');
     });
+    const close = dialog.querySelector('.cp-dialog-head button');
+    close.setAttribute('aria-label', close.textContent);
+    close.innerHTML = icon('close');
+    const heading = dialog.querySelector('#cp-dialog-title');
+    heading.tabIndex = -1;
+    heading.focus({preventScroll:true});
+    const pieceEdits = bindFinishPractice(dialog.querySelector('#finish-form'),feedbackSession,data.works,initialMinutes,readFeedback);
   }
   async function stopPracticeBlock() {
     if (!data.active || data.active.blocks.length <= 1) return endSession();

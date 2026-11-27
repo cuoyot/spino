@@ -18,11 +18,11 @@ const moodLabels = [['Very difficult', 'Muy difícil'], ['Difficult', 'Difícil'
 export const MOODS = moodLabels.map(() => '');
 for (let index = 0; index < MOODS.length; index++) Object.defineProperty(MOODS, index, { get: () => ui(...moodLabels[index]) });
 export const FACES = ['😞', '🙁', '😐', '🙂', '😄'];
-export function feedbackFields(session, works, {compact = false} = {}) {
+export function feedbackFields(session, works) {
   const ids = session.workIds || [...new Set([...(session.results || []).map(r => r.block.workId), ...(session.blocks || []).map(b => b.workId)].filter(Boolean))];
   const parts = repertoireParts(session), title = id => works.find(w => w.id === id)?.title || ui('Piece', 'Obra');
   works = works.filter(w=>!w.trashedAt || ids.includes(w.id));
-  const fields = `<label>${ui("Session name", "Nombre de la sesión")}<input name="title" maxlength="200" value="${esc(session.title)}" required /></label>
+  return `<label>${ui("Session name", "Nombre de la sesión")}<input name="title" maxlength="200" value="${esc(session.title)}" required /></label>
     <fieldset class="cp-rating"><legend>${ui("How did it feel? ", "¿Cómo te has sentido? ")}<small>${ui("Optional", "Opcional")}</small></legend><div>${MOODS.map((label, i) => `<label><input type="radio" name="mood" value="${i + 1}" ${session.mood === i + 1 ? 'checked' : ''} /><span aria-hidden="true">${FACES[i]}</span><small>${label}</small></label>`).join('')}</div></fieldset>
     <label>${ui("Comments and notes", "Comentarios y anotaciones")}<textarea name="notes" maxlength="10000" placeholder="${ui("What went well, difficult passages…", "Qué ha salido bien, pasajes difíciles…")}">${esc(session.notes)}</textarea></label>
     ${parts.length ? `<fieldset class="cp-work-parts"><legend>${ui("Part of the piece you worked on", "Parte de la obra que has trabajado")}</legend>${parts.map((b, n) => `<label>${esc(title(b.workId))}<input name="part-${n}" maxlength="1000" value="${esc(b.passage)}" placeholder="${ui("E.g. bars 1–16, section B, coda", "Ej.: c. 1–16, sección B, coda")}" /></label>`).join('')}</fieldset>` : ''}
@@ -30,14 +30,6 @@ export function feedbackFields(session, works, {compact = false} = {}) {
       ${works.length ? works.map(w => `<label class="check"><input name="workIds" type="checkbox" value="${esc(w.id)}" ${ids.includes(w.id) ? 'checked' : ''} />${esc(w.title)}</label>`).join('') : `<p class="muted">${ui("List pieces in your notes or add them to your repertoire.", "Puedes anotar las piezas en los comentarios o añadirlas a tu repertorio.")}</p>`}
       <label>${ui("Next step", "Próximo paso")}<textarea name="next" maxlength="10000">${esc(session.next)}</textarea></label>
     </details>`;
-  if (!compact) return fields;
-  const nameEnd = fields.indexOf('</label>') + '</label>'.length;
-  const ratingEnd = fields.indexOf('</fieldset>') + '</fieldset>'.length;
-  const partsStart = fields.indexOf('<fieldset class="cp-work-parts">');
-  const detailsStart = fields.indexOf('<details class="cp-details">');
-  const secondaryStart = partsStart >= 0 ? partsStart : detailsStart;
-  return `${fields.slice(nameEnd, ratingEnd)}<details class="cp-feedback-details"><summary>${ui('Comments and notes','Comentarios y anotaciones')} <small class="muted">· ${ui('Optional','Opcional')}</small></summary>${fields.slice(ratingEnd, secondaryStart)}</details><details class="cp-feedback-details"><summary>${ui('Session details','Detalles de la sesión')}</summary>${fields.slice(0, nameEnd)}${fields.slice(secondaryStart)}</details>`;
-
 }
 export const readFeedback = form => ({ title: String(form.get('title')).trim(), mood: form.has('mood') ? Number(form.get('mood')) : null, notes: String(form.get('notes') || ''), next: String(form.get('next') || ''), workIds: form.getAll('workIds').map(String), parts: [...form.keys()].filter(key => /^part-\d+$/.test(key)).map(key => [Number(key.slice(5)), String(form.get(key))]).reduce((list, [n, value]) => { list[n] = value; return list; }, []) });
 

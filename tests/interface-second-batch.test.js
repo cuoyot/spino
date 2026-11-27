@@ -19,12 +19,10 @@ test('single-block preparation retains allocation while showing only the total; 
   assert.match(multiple, /type="number" name="minutes-1"/);
 });
 
-test('compact finishing retains editable feedback and existing passage attribution', () => {
+test('feedback retains editable feedback and existing passage attribution', () => {
   const session = {title:'Evening routine',notes:'Keep this note',next:'Next passage',mood:4,workIds:['piece'],blockIndex:0,blocks:[block('repertoire',{workId:'piece',passage:'Bars 9–16'})]};
-  const html = feedbackFields(session,[{id:'piece',title:'Original musical title'}],{compact:true});
-  assert.ok(html.indexOf('class="cp-rating"') < html.indexOf('class="cp-feedback-details"'));
+  const html = feedbackFields(session,[{id:'piece',title:'Original musical title'}]);
   assert.match(html, /Comments and notes/);
-  assert.match(html, /Session details/);
   for (const name of ['title','mood','notes','next','workIds','part-0']) assert.ok(html.includes(`name="${name}"`),name);
   assert.match(html, /Bars 9–16/);
   const fields = new FormData();

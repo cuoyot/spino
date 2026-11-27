@@ -2090,5 +2090,15 @@
   "Value": "Wert",
   "Session details": "Übungsdetails",
   "piece": "Stück",
-  "pieces": "Stücke"
+  "pieces": "Stücke",
+  "Practice summary": "Übungsübersicht",
+  "Morning": "Morgen",
+  "Midday": "Mittag",
+  "Afternoon": "Nachmittag",
+  "Night": "Nacht",
+  "Edit name": "Namen bearbeiten",
+  "Edit time": "Zeit bearbeiten",
+  "Pieces practised": "Geübte Stücke",
+  "Add notes": "Notizen hinzufügen",
+  "Set next steps": "Nächste Schritte festlegen"
 }
