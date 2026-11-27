@@ -1,0 +1,2481 @@
+{
+  "frames": [
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux3-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "before-ux11-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "before-ux13-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "before-ux12-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "before-ux14-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "before-ux15-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux11-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux13-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux12-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux14-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "after-ux15-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "height": 844,
+      "scrollWidth": 390,
+      "visibleExact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux11-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux13-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux12-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 3,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux3-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 44.703125,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 30.734375,
+          "x": 85.703125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 38.8125,
+          "x": 128.4375,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 44.703125,
+          "x": 29,
+          "y": 1115.796875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 30.734375,
+          "x": 85.703125,
+          "y": 1115.796875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 38.8125,
+          "x": 128.4375,
+          "y": 1115.796875
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux14-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-before-ux15-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux11-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux13-phone-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux12-phone-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 3,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux3-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 44.703125,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 30.734375,
+          "x": 85.703125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 38.8125,
+          "x": 128.4375,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 44.703125,
+          "x": 29,
+          "y": 1115.796875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 30.734375,
+          "x": 85.703125,
+          "y": 1115.796875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 38.8125,
+          "x": 128.4375,
+          "y": 1115.796875
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux14-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "before",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-before-ux15-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux11-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux13-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux12-phone-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux3-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 93.703125,
+          "y": 235.890625
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 137.703125,
+          "y": 235.890625
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 29,
+          "y": 1116.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 93.703125,
+          "y": 1117.890625
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 137.703125,
+          "y": 1117.890625
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux14-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux15-phone-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux11-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux13-phone-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux12-phone-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux3-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 93.703125,
+          "y": 235.890625
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 137.703125,
+          "y": 235.890625
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 29,
+          "y": 1116.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 93.703125,
+          "y": 1117.890625
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 137.703125,
+          "y": 1117.890625
+        }
+      ],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux14-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux15-phone-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "sort": [],
+      "width": 390
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux11-phone-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux13-phone-landscape-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux12-phone-landscape-light-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux3-phone-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 127,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 419.3125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 561.15625,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 127,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 419.3125,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 561.15625,
+          "y": 975.6875
+        }
+      ],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux14-phone-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux15-phone-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux11-phone-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux13-phone-landscape-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux12-phone-landscape-dark-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux3-phone-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 127,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 419.3125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 561.15625,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 127,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 419.3125,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 561.15625,
+          "y": 975.6875
+        }
+      ],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux14-phone-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux15-phone-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 390,
+      "scrollWidth": 844,
+      "sort": [],
+      "width": 844
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux11-tablet-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux13-tablet-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux12-tablet-portrait-light-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux3-tablet-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 426.953125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 522.96875,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 426.953125,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 522.96875,
+          "y": 975.6875
+        }
+      ],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux14-tablet-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux15-tablet-portrait-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux11-tablet-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux13-tablet-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux12-tablet-portrait-dark-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux3-tablet-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 426.953125,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 522.96875,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 426.953125,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 522.96875,
+          "y": 975.6875
+        }
+      ],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux14-tablet-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux15-tablet-portrait-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 1024,
+      "scrollWidth": 768,
+      "sort": [],
+      "width": 768
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux11-tablet-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux13-tablet-landscape-light-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux12-tablet-landscape-light-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux3-tablet-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 529.859375,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 696.921875,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 529.859375,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 696.921875,
+          "y": 975.6875
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux14-tablet-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "final-after-ux15-tablet-landscape-light-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux11-tablet-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux13-tablet-landscape-dark-es.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux12-tablet-landscape-dark-es.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Duración total de la práctica en minutos, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux3-tablet-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 529.859375,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 696.921875,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Título ↑",
+          "w": 52.703125,
+          "x": 201,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Autor",
+          "w": 44,
+          "x": 529.859375,
+          "y": 975.6875
+        },
+        {
+          "h": 44,
+          "text": "Estado",
+          "w": 46.8125,
+          "x": 696.921875,
+          "y": 975.6875
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux14-tablet-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 15,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "final-after-ux15-tablet-landscape-dark-es.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Editar valor: Tempo BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 768,
+      "scrollWidth": 1024,
+      "sort": [],
+      "width": 1024
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "final-after-ux11-narrow-light-en.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Edit value: Total practice duration in minutes, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Edit value: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "final-after-ux13-narrow-light-en.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "final-after-ux12-narrow-light-en.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Edit value: Total practice duration in minutes, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "final-after-ux3-narrow-light-en.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Title ↑",
+          "w": 45.453125,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Composer",
+          "w": 66.25,
+          "x": 41,
+          "y": 278.84375
+        },
+        {
+          "h": 44,
+          "text": "Stage",
+          "w": 44,
+          "x": 107.25,
+          "y": 278.84375
+        },
+        {
+          "h": 44,
+          "text": "Title ↑",
+          "w": 45.453125,
+          "x": 29,
+          "y": 1159.796875
+        },
+        {
+          "h": 44,
+          "text": "Composer",
+          "w": 66.25,
+          "x": 41,
+          "y": 1203.796875
+        },
+        {
+          "h": 44,
+          "text": "Stage",
+          "w": 44,
+          "x": 107.25,
+          "y": 1203.796875
+        }
+      ],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "final-after-ux14-narrow-light-en.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "final-after-ux11-narrow-light-ca.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Edita el valor: Durada total de la pràctica en minuts, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Edita el valor: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "final-after-ux13-narrow-light-ca.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "final-after-ux12-narrow-light-ca.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Edita el valor: Durada total de la pràctica en minuts, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "final-after-ux3-narrow-light-ca.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Títol ↑",
+          "w": 45.609375,
+          "x": 29,
+          "y": 236.03125
+        },
+        {
+          "h": 44,
+          "text": "Compositor",
+          "w": 73.71875,
+          "x": 41,
+          "y": 280.03125
+        },
+        {
+          "h": 44,
+          "text": "Estat",
+          "w": 44,
+          "x": 114.71875,
+          "y": 280.03125
+        },
+        {
+          "h": 44,
+          "text": "Títol ↑",
+          "w": 45.609375,
+          "x": 29,
+          "y": 1160.984375
+        },
+        {
+          "h": 44,
+          "text": "Compositor",
+          "w": 73.71875,
+          "x": 41,
+          "y": 1204.984375
+        },
+        {
+          "h": 44,
+          "text": "Estat",
+          "w": 44,
+          "x": 114.71875,
+          "y": 1204.984375
+        }
+      ],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "final-after-ux14-narrow-light-ca.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "final-after-ux11-narrow-light-de.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Wert bearbeiten: Gesamte Übungsdauer in Minuten, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Wert bearbeiten: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "final-after-ux13-narrow-light-de.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "final-after-ux12-narrow-light-de.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Wert bearbeiten: Gesamte Übungsdauer in Minuten, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "final-after-ux3-narrow-light-de.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Titel ↑",
+          "w": 45.375,
+          "x": 29,
+          "y": 236.03125
+        },
+        {
+          "h": 44,
+          "text": "Komponist",
+          "w": 67.9375,
+          "x": 41,
+          "y": 280.03125
+        },
+        {
+          "h": 44,
+          "text": "Lernstand",
+          "w": 64.65625,
+          "x": 108.9375,
+          "y": 280.03125
+        },
+        {
+          "h": 44,
+          "text": "Titel ↑",
+          "w": 45.375,
+          "x": 29,
+          "y": 1160.984375
+        },
+        {
+          "h": 44,
+          "text": "Komponist",
+          "w": 67.9375,
+          "x": 41,
+          "y": 1204.984375
+        },
+        {
+          "h": 44,
+          "text": "Lernstand",
+          "w": 64.65625,
+          "x": 108.9375,
+          "y": 1204.984375
+        }
+      ],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "final-after-ux14-narrow-light-de.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 11,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "final-after-ux11-narrow-light-hu.jpg",
+      "dialog": false,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Érték szerkesztése: Teljes gyakorlási idő percben, 40",
+          "w": 44
+        },
+        {
+          "h": 44,
+          "label": "Érték szerkesztése: Tempo  BPM, 60",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 13,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "final-after-ux13-narrow-light-hu.jpg",
+      "dialog": true,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "final-after-ux12-narrow-light-hu.jpg",
+      "dialog": true,
+      "exact": [
+        {
+          "h": 44,
+          "label": "Érték szerkesztése: Teljes gyakorlási idő percben, 40",
+          "w": 44
+        }
+      ],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 3,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "final-after-ux3-narrow-light-hu.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [
+        {
+          "h": 44,
+          "text": "Cím ↑",
+          "w": 44,
+          "x": 29,
+          "y": 234.84375
+        },
+        {
+          "h": 44,
+          "text": "Zeneszerző",
+          "w": 73.859375,
+          "x": 41,
+          "y": 278.84375
+        },
+        {
+          "h": 44,
+          "text": "Tanulási szakasz",
+          "w": 102.359375,
+          "x": 114.859375,
+          "y": 278.84375
+        },
+        {
+          "h": 44,
+          "text": "Cím ↑",
+          "w": 44,
+          "x": 29,
+          "y": 1174.796875
+        },
+        {
+          "h": 44,
+          "text": "Zeneszerző",
+          "w": 73.859375,
+          "x": 41,
+          "y": 1218.796875
+        },
+        {
+          "h": 44,
+          "text": "Tanulási szakasz",
+          "w": 102.359375,
+          "x": 114.859375,
+          "y": 1218.796875
+        }
+      ],
+      "width": 320
+    },
+    {
+      "version": "after",
+      "ux": 14,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "final-after-ux14-narrow-light-hu.jpg",
+      "dialog": false,
+      "exact": [],
+      "footer": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "sort": [],
+      "width": 320
+    },
+    {
+      "version": "before",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "selected2-before-ux12-phone-portrait-light-es.jpg",
+      "selected": 2,
+      "label": "Listo"
+    },
+    {
+      "version": "before",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "selected2-before-ux12-phone-portrait-dark-es.jpg",
+      "selected": 2,
+      "label": "Listo"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "selected2-after-ux12-phone-portrait-light-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "selected2-after-ux12-phone-portrait-dark-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "selected2-after-ux12-phone-landscape-light-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "phone-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "selected2-after-ux12-phone-landscape-dark-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-portrait",
+      "theme": "light",
+      "lang": "es",
+      "file": "selected2-after-ux12-tablet-portrait-light-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-portrait",
+      "theme": "dark",
+      "lang": "es",
+      "file": "selected2-after-ux12-tablet-portrait-dark-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-landscape",
+      "theme": "light",
+      "lang": "es",
+      "file": "selected2-after-ux12-tablet-landscape-light-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "tablet-landscape",
+      "theme": "dark",
+      "lang": "es",
+      "file": "selected2-after-ux12-tablet-landscape-dark-es.jpg",
+      "selected": 2,
+      "label": "Listo · 2 piezas"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "en",
+      "file": "selected2-after-ux12-narrow-light-en.jpg",
+      "selected": 2,
+      "label": "Done · 2 pieces"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "ca",
+      "file": "selected2-after-ux12-narrow-light-ca.jpg",
+      "selected": 2,
+      "label": "Fet · 2 peces"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "de",
+      "file": "selected2-after-ux12-narrow-light-de.jpg",
+      "selected": 2,
+      "label": "Fertig · 2 Stücke"
+    },
+    {
+      "version": "after",
+      "ux": 12,
+      "layout": "narrow",
+      "theme": "light",
+      "lang": "hu",
+      "file": "selected2-after-ux12-narrow-light-hu.jpg",
+      "selected": 2,
+      "label": "Kész · 2 darab"
+    }
+  ],
+  "behaviors": [
+    {
+      "check": "exact values, Escape, invalid minimum, extended capacity and warm-up allocation",
+      "exact57": {
+        "maximum": "180",
+        "output": "57",
+        "tempo": "60",
+        "total": "57",
+        "view": "prepare"
+      },
+      "invalid": {
+        "message": "Value must be greater than or equal to 1.",
+        "valid": false
+      },
+      "allocation": {
+        "total": "240",
+        "warm": "3",
+        "work": "237"
+      },
+      "final": {
+        "maximum": "240",
+        "output": "240",
+        "tempo": "87",
+        "total": "240",
+        "view": "prepare"
+      }
+    },
+    {
+      "check": "finish required field, retained optional notes, corrected time, failure and retry",
+      "requiredOpened": true,
+      "retainedNotes": "Retained review note",
+      "failureText": "Synthetic save failure",
+      "keptTitle": "Reviewed routine",
+      "keptTime": "9"
+    },
+    {
+      "check": "saved routine persists after reload with one result",
+      "savedCount": 1
+    },
+    {
+      "check": "piece selection counts across search",
+      "zeroLabel": "Listo · 0 piezas",
+      "oneLabel": "Listo · 1 pieza",
+      "twoLabel": "Listo · 2 piezas",
+      "hiddenCount": "Listo · 2 piezas"
+    },
+    {
+      "check": "single/multiple/single allocation",
+      "split": [
+        36,
+        4
+      ],
+      "resized": [
+        72,
+        8
+      ],
+      "totalAfterRemoval": "80"
+    },
+    {
+      "check": "exact preference tempo bounds and save",
+      "tempoInvalid": true,
+      "prefTempo": "73"
+    },
+    {
+      "check": "Keep practising retains active routine and finish dialog reopens",
+      "pass": true
+    },
+    {
+      "check": "Save and schedule saves routine once and opens planning with original three-block plan",
+      "pass": true
+    }
+  ]
+}

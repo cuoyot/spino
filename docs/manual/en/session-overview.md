@@ -90,7 +90,7 @@ If MIDI disconnects during practice, evaluation pauses and the session overview 
 
 ## Move on, finish or return later
 
-Return to **In this practice** and tap any block to continue it. Switching retains the previous block under its stable ID instead of completing it. **Finish session** opens feedback, including on the final block. For each repertoire piece practised, **Part of the piece you worked on** records the passage (for example "bars 1–16, section B"). It appears in the session details and in the work's session list, and can be changed later with **Edit feedback**. **Keep practising** closes feedback and leaves the current block available; saving records it once and returns to Today. Save and schedule opens the scheduling dialog over Today. Quick practice keeps its result dialog, with Today shown after closing it.
+Return to **In this practice** and tap any block to continue it. Switching retains the previous block under its stable ID instead of completing it. **Finish session** opens feedback, including on the final block. For each repertoire piece practised, **Part of the piece you worked on** records the passage (for example "bars 1–16, section B"). It appears in the session details and in the work's session list, and can be changed later with **Edit feedback**. **Keep practising** closes feedback and leaves the current block available; saving records it once and returns to Today. Quick practice keeps its result dialog, with Today shown after closing it.
 
 In PDF practice, elapsed time appears inside the play/pause button. In every practice type, the stop-square returns to the practice menu when the session has several blocks, keeping their accumulated time. With one block it opens finish feedback directly. MusicXML follows the same rule. Open tools and choose **Return to session** to leave the score without finishing. Previous/next arrows only turn score pages. Score page navigation sits above the shared controls; MIDI status is available in the tools panel.
 
@@ -175,3 +175,14 @@ The chosen mode appears above total duration with a **Change** action. Changing 
 Inactive warm-up settings are collapsed. Enable Warm-up to reveal its retained options. Practice preparation uses On screen / With piano consistently. Start and validation stay reachable; long dialogs keep actions beneath their scrolling fields. Practice-card strips remain scrollable with touch, trackpad and keyboard without a visible scrollbar.
 
 Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.
+
+
+## Current source review: precise setup and shorter saving
+
+Tap the displayed total minutes or tempo to enter an exact value. Enter applies a valid value; Escape cancels. Leaving a valid field applies it; leaving an invalid field restores the previous value. Sliders remain available. A single practice block without warm-up uses total duration as its one duration control; warm-up or multiple blocks keep individual allocations visible.
+
+Repertoire search shows **Done · 2 pieces** for two selected works, including works outside the current search. Changing the search retains those choices.
+
+At Finish, practice minutes and **Save** are prominent. **How did it feel?** stays visible as five compact selectable faces, each with an accessible text label. Notes and session details can be expanded when needed. Save is the only primary completion action. Partial status, Keep practising and Finish without saving remain available. Invalid required details open for correction; failed saving retains edits for retry.
+
+Verified in synthetic responsive browsers on 27 November 2026. Local source only; not yet packaged in a new beta or accepted on a physical device.

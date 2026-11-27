@@ -1,0 +1,134 @@
+{
+  "frames": [
+    {
+      "lang": "en",
+      "file": "final-after-ux13-narrow-mood-visible-light-en.jpg",
+      "height": 640,
+      "mood": [
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        }
+      ],
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "lang": "ca",
+      "file": "final-after-ux13-narrow-mood-visible-light-ca.jpg",
+      "height": 640,
+      "mood": [
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        }
+      ],
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "lang": "de",
+      "file": "final-after-ux13-narrow-mood-visible-light-de.jpg",
+      "height": 640,
+      "mood": [
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        }
+      ],
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "lang": "hu",
+      "file": "final-after-ux13-narrow-mood-visible-light-hu.jpg",
+      "height": 640,
+      "mood": [
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.390625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        },
+        {
+          "h": 44,
+          "w": 48.40625
+        }
+      ],
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ],
+  "behaviors": [
+    {
+      "check": "The feeling row remains visible with five accessible named 44px targets",
+      "pass": true
+    },
+    {
+      "check": "Selecting Very good survives an injected save failure and retry; saved summary retains note and partial status",
+      "pass": true
+    },
+    {
+      "check": "Keyboard ArrowRight changes total from 40 to 41; committing 47 on blur and changing to Mobile preserves 47",
+      "pass": true
+    }
+  ]
+}

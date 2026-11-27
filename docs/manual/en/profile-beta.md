@@ -43,3 +43,8 @@ The primary header uses the same 68 px height and title/Profile/MIDI alignment a
 The disconnected MIDI icon opens Instrument settings directly for first-time and keyboard use. A remembered native device keeps tap-to-reconnect; a failed reconnect opens settings. Narrow/touch views hide browsing scrollbars while preserving scrolling.
 
 Verified with synthetic responsive-browser evidence on 26 November 2026. Emulator replacement/data retention is recorded separately; physical-device acceptance remains open.
+
+
+## Current source review: exact practice tempos
+
+In Practice preferences, tap the displayed reading or technique BPM to enter an exact tempo. Enter applies a valid value; Escape restores the previous value. The slider remains available and **Save changes** persists the preference. Synthetic responsive-browser verification: 27 November 2026; local source, not a new published beta.

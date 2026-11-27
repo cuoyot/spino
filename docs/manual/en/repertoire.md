@@ -76,3 +76,8 @@ Local source follow-up (26 November 2026): the navigation background starts tran
 
 
 Release follow-up: the verified source refinements above are packaged in Android website beta 6.2.4-beta.3/build131. Installation/data retention and foreground pass on the existing emulator; public delivery is recorded in its release publication manifest. Physical acceptance remains open.
+
+
+## Current source review: compact sorting targets
+
+Title, Composer and Stage keep their quiet appearance with larger touch areas. Sorting remains available on the stand and collection. Verified in synthetic responsive browsers, including narrow translated layouts, on 27 November 2026. Local source only; physical acceptance and new packaging remain open.

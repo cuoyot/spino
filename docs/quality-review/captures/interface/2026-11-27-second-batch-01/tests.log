@@ -1,0 +1,26 @@
+✔ single-block preparation retains allocation while showing only the total; real splits remain editable (13.930167ms)
+✔ compact finishing retains editable feedback and existing passage attribution (47.772666ms)
+✔ Progress uses a singular practice label in all five languages (60.366459ms)
+✔ a saved calendar date keeps the same displayed day across device time zones (3.128416ms)
+✔ profile language persists without changing historical identifiers or requiring migration (4.303416ms)
+✔ Drive revision diagnostics are localized in Spanish and Catalan, including persisted old errors (0.240417ms)
+✔ Drive incremental transfer failures and persisted old diagnostics use the selected language (0.528458ms)
+✔ total duration preserves proportions and block identities without mutating saved routines (3.721375ms)
+✔ rounding, minimum block time and long existing routines keep exact totals (4.646667ms)
+✔ optional warm-ups materialize every configured type without rewriting the practice (25.7925ms)
+✔ repertoire has its type before its content and omits the tempo in preparation and overview (5.067333ms)
+✔ warm-up consumes the selected total and returns its minutes when disabled (0.862125ms)
+✔ static piano marks the real pitches, including enharmonic scale spellings (11.382583ms)
+✔ Technique compares disjoint groups with matching conditions only (34.065917ms)
+✔ Manual and future entries cannot imply measured improvement (1.030375ms)
+✔ multiple pieces share a fixed total while retaining settings, IDs and warm-up (14.61475ms)
+✔ selection never exceeds the available minutes or twenty pieces (0.3875ms)
+✔ existing custom plans remain editable without merging activity identities (0.213792ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 492.374875

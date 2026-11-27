@@ -1,0 +1,35 @@
+#app-shell .cp-exact-range-value {
+  min-width: 44px; min-height: 44px; padding: 2px 5px;
+  border: 0; border-radius: 6px; background: transparent; box-shadow: none;
+  color: var(--theme-link); font: inherit; font-weight: 650;
+  text-decoration: underline dotted; text-underline-offset: 4px;
+}
+#app-shell .cp-exact-range-value[hidden] { display: none; }
+#app-shell .cp-exact-range-input {
+  display: inline-block; width: 76px; min-height: 44px; margin: 0;
+  padding: 4px 6px; font: inherit; text-align: center;
+}
+#app-shell .cp-total-duration > span, #app-shell .cp-tempo > span,
+#app-shell .cp-preference-tempo > span { min-height: 44px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+#app-shell .cp-repertoire-table [data-action=repertoire-sort] {
+  min-width: 44px; min-height: 44px; padding-inline: 4px;
+}
+#app-shell .cp-mobile-sort { display: inline-flex; gap: 0; vertical-align: middle; }
+@media (min-width: 601px) { #app-shell .cp-mobile-sort { display: none; } }
+#cp-dialog #finish-form .cp-finish-time { margin: 0 0 10px; }
+#cp-dialog #finish-form .cp-finish-time input { font-size: 24px; font-weight: 650; }
+#cp-dialog #finish-form .cp-finish-context { margin: 0 0 6px; color: var(--theme-muted); font-size: 13px; }
+#cp-dialog #finish-form .cp-feedback-details { border-top: 1px solid var(--theme-line); padding-top: 12px; margin-top: 12px; }
+#cp-dialog #finish-form .cp-feedback-details summary { min-height: 44px; cursor: pointer; font-weight: 600; }
+#cp-dialog #finish-form .cp-save-main { display: flex; flex-wrap: wrap; gap: 8px; }
+#cp-dialog #finish-form .cp-save-main > .primary { flex: 1 1 130px; }
+#cp-dialog #finish-form .cp-save-exits { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
+#cp-dialog #finish-form .cp-save-exits button { font-size: 12px; padding-inline: 4px; }
+#cp-dialog #finish-form .cp-rating { margin: 12px 0; }
+#cp-dialog #finish-form .cp-rating legend { margin-bottom: 6px; }
+#cp-dialog #finish-form .cp-rating label { min-height: 44px; padding: 0; }
+#cp-dialog #finish-form .cp-rating span { font-size: 24px; }
+#cp-dialog #finish-form .cp-rating label small {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}

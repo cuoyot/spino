@@ -1,5 +1,10 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+Edit value|Edita el valor
+Value|Valor
+Session details|Detalls de la sessió
+piece|peça
+pieces|peces
 For repertoire or free practice, choose With piano. On screen supports reading and technique.|Per a repertori o pràctica lliure, tria Amb piano. En pantalla pots treballar lectura i tècnica.
 Add repetitions|Afegir repeticions
 Add activity|Afegir activitat

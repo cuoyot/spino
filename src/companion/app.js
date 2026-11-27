@@ -97,6 +97,8 @@ import './appearance.css';
 import './form-actions.css';
 import './scroll-surfaces.css';
 import './page-navigation.css';
+import './second-batch.css';
+import {bindExactRangeValues, syncExactRange} from './exact-range-values.js';
 import {mountPageNavigation} from './page-navigation.js';
 import { mountDialogFormActions } from './form-actions.js';
 import { openStore } from './store.js';
@@ -340,6 +342,9 @@ export async function bootCompanion(reader) {
     dialog.removeAttribute('aria-busy');
     dialog.innerHTML = `<div class="cp-dialog-head"><h2 id="cp-dialog-title" ${introduction?'tabindex="-1" autofocus':''}>${esc(title)}</h2><button type="button" class="quiet" data-action="close-dialog">${ui('Close','Cerrar')}</button></div><div class="cp-dialog-body">${body}<p id="cp-form-error" role="alert"></p></div>`;
     mountDialogFormActions(dialog);
+    dialog.querySelector('#finish-form')?.addEventListener('invalid', event => {
+      for (let group = event.target.closest('details'); group; group = group.parentElement.closest('details')) group.open = true;
+    }, true);
     dialog.setAttribute('aria-labelledby', 'cp-dialog-title');
     dialog.querySelector('form')?.addEventListener('submit', async e => {
       e.preventDefault();
@@ -486,6 +491,7 @@ export async function bootCompanion(reader) {
   }
   let preparationAdvanced = false;
   const simpleRepertoirePreparation = () => preparePurpose!=='routine' && !preparationAdvanced && isRepertoirePreparation(draft);
+  const pieceSelectionDone = () => {const count=new Set(draft.blocks.map(b=>b.workId).filter(Boolean)).size;return ui('Done','Listo')+' · '+count+' '+ui(count===1?'piece':'pieces',count===1?'pieza':'piezas');};
   let durationWeights = null, preparationModeChosen = false, preparationModeTotal = null;
   function preparePage() {
     durationWeights = null;
@@ -495,7 +501,8 @@ export async function bootCompanion(reader) {
   function refreshPreparationDuration() {
     const warmMinutes=extraWarmupMinutes(), total=practiceMinutes(draft.blocks)+warmMinutes, slider=$('#practice-duration');
     slider.min=draft.blocks.length+warmMinutes;slider.max=Math.max(180,total);slider.value=total;
-    root.querySelector('output[for=practice-duration]').value=total;
+    slider.dataset.exactMax=600*draft.blocks.length+warmMinutes;
+    syncExactRange(slider);
     draft.blocks.forEach((b,i)=>{const input=root.querySelector(`[name="minutes-${i}"]`);if(input)input.value=b.minutes;const summary=root.querySelector(`[data-block-summary="${i}"]`);if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});
     const warm=root.querySelector('[name=warmup-duration]');if(warm)warm.max=Math.max(1,Math.min(30,total-draft.blocks.length));
   }
@@ -897,8 +904,7 @@ export async function bootCompanion(reader) {
     const s=data.active;const remaining=s.blocks.some(block=>sessionBlockMs(s,block.id)===0);
     const feedbackSession=settleSuspendedBlocks(s);
     const initialMinutes=(s.elapsedMs/60000).toFixed(2);
-    showDialog(ui("Save what you practiced", "Guarda lo que has practicado"),`<form><p><b>${clock(s.elapsedMs)}${ui("</b> of practice · ", "</b> de práctica · ")}${CONTEXTS[s.context]}</p>${feedbackFields(feedbackSession,data.works)}<label>${ui("Practice time (minutes)","Tiempo practicado (minutos)")}<input type="number" name="practicedMinutes" min="0" max="720" step="0.01" value="${initialMinutes}" required /></label><label class="check"><input name="partial" type="checkbox" ${remaining?'checked':''}${ui(" /> Save as a partial session</label>", " /> Guardar como sesión parcial</label>")}<div class="cp-save-actions"><div class="cp-save-main">${ui("<button type=\"submit\" class=\"primary\" value=\"save\">Save</button><button type=\"submit\" value=\"plan\">Save and schedule</button>", "<button type=\"submit\" class=\"primary\" value=\"save\">Guardar</button><button type=\"submit\" value=\"plan\">Guardar y planificar</button>")}</div><div class="cp-save-exits">${btn('close-dialog',ui("‹ Keep practicing", "‹ Seguir practicando"),'','quiet')}${btn('discard-session',ui("Finish without saving", "Terminar sin guardar"),'','danger quiet')}</div></div></form>`,async(f,form,submit)=>{
-      const source={title:s.title,context:s.context,blocks:copy(s.blocks)};
+    showDialog(ui("Save what you practiced", "Guarda lo que has practicado"),`<form id="finish-form"><p class="cp-finish-context">${esc(s.title)} · ${CONTEXTS[s.context]}</p><label class="cp-finish-time">${ui("Practice time (minutes)","Tiempo practicado (minutos)")}<input type="number" name="practicedMinutes" min="0" max="720" step="0.01" value="${initialMinutes}" required /></label><label class="check"><input name="partial" type="checkbox" ${remaining?'checked':''}${ui(" /> Save as a partial session</label>", " /> Guardar como sesión parcial</label>")}${feedbackFields(feedbackSession,data.works,{compact:true})}<div class="cp-save-actions"><div class="cp-save-main"><button type="submit" class="primary">${ui('Save','Guardar')}</button></div><div class="cp-save-exits">${btn('close-dialog',ui("‹ Keep practicing", "‹ Seguir practicando"),'','quiet')}${btn('discard-session',ui("Finish without saving", "Terminar sin guardar"),'','danger quiet')}</div></div></form>`,async f=>{
       let saved;
       if (!await commitSessionChange(next => {
         next.active = settleSuspendedBlocks(next.active);
@@ -906,8 +912,7 @@ export async function bootCompanion(reader) {
         if (String(f.get('practicedMinutes')) !== initialMinutes) adjustPracticeTime(saved,Math.round(Number(f.get('practicedMinutes'))*60000));
         delete saved.readerSnapshot; delete saved.currentMeasurement; delete saved.blockRuntime;
       })) return;
-      await reminders(); source.title=saved.title; dialog.close(); root.hidden=false; go('home');
-      if(submit.value==='plan'){selectedDate=addDays(localDate(),1);planForm(null,source);}
+      await reminders(); dialog.close(); root.hidden=false; go('home');
     });
   }
   async function stopPracticeBlock() {
@@ -991,6 +996,7 @@ export async function bootCompanion(reader) {
       page.insertAdjacentHTML('afterbegin',libraryNavigation());
     }
     mountPageNavigation(root.querySelector('.cp-page'));
+    bindExactRangeValues(root);
     const profile=root.querySelector('.cp-nav .cp-profile-nav');
     if(profile)root.querySelector('.cp-header-profile').append(profile);
     if(heading?.hasAttribute('data-detail-title')) {
@@ -1573,12 +1579,12 @@ export async function bootCompanion(reader) {
       draft=next;durationWeights=null;render();
       root.querySelector('.cp-page').scrollTop=top;
       const strip=root.querySelector('.cp-practice-stand');if(strip)strip.scrollLeft=left;
-      if(inSearch) {const choice=[...dialog.querySelectorAll('[data-action=prepare-toggle-piece]')].find(b=>b.dataset.id===id);choice?.setAttribute('aria-pressed',String(draft.blocks.some(b=>b.workId===id)));}
+      if(inSearch) {dialog.querySelector('[data-piece-selection-done]').textContent=pieceSelectionDone();const choice=[...dialog.querySelectorAll('[data-action=prepare-toggle-piece]')].find(b=>b.dataset.id===id);choice?.setAttribute('aria-pressed',String(draft.blocks.some(b=>b.workId===id)));}
       else {const choice=[...root.querySelectorAll('[data-action=prepare-toggle-piece]')].find(b=>b.dataset.id===id);choice?.focus({preventScroll:true});choice?.scrollIntoView({block:'nearest',inline:'nearest'});}
     },
     'prepare-browse-repertoire':()=>{
       readDraft();
-      showDialog(ui('Search your repertoire','Buscar en tu repertorio'),`<label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-repertoire-search placeholder="${ui('Title or composer','Título o compositor')}" /></label><div data-repertoire-results class="cp-practice-results" aria-live="polite"></div><div class="cp-actions">${btn('close-dialog',ui('Done','Listo'),'','primary')}</div>`);
+      showDialog(ui('Search your repertoire','Buscar en tu repertorio'),`<label>${ui('Search your repertoire','Buscar en tu repertorio')}<input type="search" data-repertoire-search placeholder="${ui('Title or composer','Título o compositor')}" /></label><div data-repertoire-results class="cp-practice-results" aria-live="polite"></div><div class="cp-actions"><button type="button" data-action="close-dialog" class="primary" data-piece-selection-done aria-live="polite">${pieceSelectionDone()}</button></div>`);
       const search=dialog.querySelector('[data-repertoire-search]');
       search.addEventListener('input',()=>{
         const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -1848,7 +1854,7 @@ export async function bootCompanion(reader) {
     },
     settings:()=>actions['midi-settings']().catch(error=>toast(error.message)),
   });
-  root.addEventListener('input',e=>{if(view==='prepare'&&preparePurpose==='routine'&&e.target.closest('#prepare-form')){readDraft();const total=root.querySelector('output[for=practice-duration]');if(total)total.value=practiceMinutes(draft.blocks)+(draft.routinePolicy.warmup?draft.routinePolicy.warmupMinutes:0);if(e.target.name==='routine-warmup'){const minutes=root.querySelector('[name=warmup-minutes]');minutes.disabled=!draft.routinePolicy.warmup;minutes.required=draft.routinePolicy.warmup;}return;}if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const warmMinutes=extraWarmupMinutes();const resized=resizePractice(durationWeights,Number(e.target.value)-warmMinutes);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name==='warmup-duration'){if(!e.target.validity.valid)return;const total=Number($('#practice-duration').value);durationWeights=null;readDraft();draft=resizePreparationWarmup(draft,data,total);refreshPreparationDuration();}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();refreshPreparationDuration();}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range'){const output=root.querySelector(`output[for="${e.target.id}"]`);if(output)output.value=e.target.value;}});
+  root.addEventListener('input',e=>{if(view==='prepare'&&preparePurpose==='routine'&&e.target.closest('#prepare-form')){readDraft();const total=root.querySelector('output[for=practice-duration]');if(total)total.value=practiceMinutes(draft.blocks)+(draft.routinePolicy.warmup?draft.routinePolicy.warmupMinutes:0);if(e.target.name==='routine-warmup'){const minutes=root.querySelector('[name=warmup-minutes]');minutes.disabled=!draft.routinePolicy.warmup;minutes.required=draft.routinePolicy.warmup;}return;}if(e.target.dataset.sessionDuration){const row=e.target.closest('[data-session-block]');row.querySelector('[data-session-minutes]').value=e.target.value;e.target.setAttribute('aria-valuetext',e.target.value+' min');const total=root.querySelector('[data-session-planned-total]');if(total)total.textContent=[...root.querySelectorAll('[data-session-minutes]')].reduce((sum,input)=>sum+Number(input.value),data.active.blocks.slice(0,data.active.blockIndex).reduce((sum,b)=>sum+b.minutes,0));return;}if(e.target.id==='profile-file-search'){const position=e.target.selectionStart;fileSearch=e.target.value;fileLimit=24;render();const search=$('#profile-file-search');search.focus();try{search.setSelectionRange(position,position);}catch{}} if(view==='prepare'&&e.target.id==='practice-duration'){readDraft();durationWeights ||= copy(draft.blocks);const warmMinutes=extraWarmupMinutes();const resized=resizePractice(durationWeights,Number(e.target.value)-warmMinutes);draft.blocks.forEach((b,i)=>b.minutes=resized[i].minutes);draft.blocks.forEach((b,i)=>{const field=root.querySelector('[name="minutes-'+i+'"]');if(field)field.value=b.minutes;const summary=root.querySelector('[data-block-summary="'+i+'"]');if(summary)summary.textContent=(i+1)+'. '+ACTIVITIES[b.type]+' · '+b.minutes+' min';});}else if(view==='prepare'&&e.target.name==='warmup-duration'){if(!e.target.validity.valid)return;const total=Number($('#practice-duration').value);durationWeights=null;readDraft();draft=resizePreparationWarmup(draft,data,total);refreshPreparationDuration();}else if(view==='prepare'&&e.target.name?.startsWith('minutes-')){durationWeights=null;readDraft();refreshPreparationDuration();}e.target.closest('#preferences-form')?.setAttribute('data-edited','true');if(e.target.id==='repertoire-search'){const position=e.target.selectionStart;repertoireFilters.search=e.target.value;repertoireIndex=0;render();const search=$('#repertoire-search');search.focus();try{search.setSelectionRange(position,position);}catch{}}if(e.target.type==='range')syncExactRange(e.target);});
   root.addEventListener('change',async e=>{if(view==='progress-time'&&['type','workId'].includes(e.target.dataset.timeFilter)){const id=e.target.id;timeFilters[e.target.dataset.timeFilter]=e.target.value;render();root.querySelector('#'+id)?.focus({preventScroll:true});return;}if(e.target.id==='practice-duration')durationWeights=null;
     if(e.target.dataset.metroSetting && data.active){const key=e.target.dataset.metroSetting,value=key==='mode'?e.target.value:Number(e.target.value);if((key==='bpm'&&(!Number.isFinite(value)||value<30||value>240))||(key==='volume'&&(!Number.isFinite(value)||value<0||value>100))){e.target.value=metronomeSettings(data.active)[key];return;}data.active.freeMetronome={...metronomeSettings(data.active),[key]:value};const playing=!!metro;stopMetro();if(playing)startMetro();checkpoint();render();return;}
     if (e.target.dataset.sessionMinutes || e.target.dataset.sessionDuration) {

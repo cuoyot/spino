@@ -98,3 +98,8 @@ Local source follow-up (26 November 2026): the navigation background starts tran
 
 
 Release follow-up: the verified source refinements above are packaged in Android website beta 6.2.4-beta.3/build131. Installation/data retention and foreground pass on the existing emulator; public delivery is recorded in its release publication manifest. Physical acceptance remains open.
+
+
+## Current source review: repertoire dates and counts
+
+Repertoire progress uses the selected interface language for the latest-practice date and the appropriate singular or plural practice count. Saved calendar dates keep the same day across device time zones. Synthetic responsive-browser and focused unit verification: 27 November 2026. Local source only; no new beta or native acceptance.

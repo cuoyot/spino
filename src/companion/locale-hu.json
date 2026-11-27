@@ -2085,5 +2085,10 @@
   "practice": "gyakorlás",
   "Choose an available day.": "Válassz egy elérhető napot.",
   "Add repetitions": "Ismétlődés hozzáadása",
-  "For repertoire or free practice, choose With piano. On screen supports reading and technique.": "Repertoárhoz vagy szabad gyakorláshoz válaszd a Zongorával módot. Képernyőn kottaolvasást és technikát gyakorolhatsz."
+  "For repertoire or free practice, choose With piano. On screen supports reading and technique.": "Repertoárhoz vagy szabad gyakorláshoz válaszd a Zongorával módot. Képernyőn kottaolvasást és technikát gyakorolhatsz.",
+  "Edit value": "Érték szerkesztése",
+  "Value": "Érték",
+  "Session details": "Gyakorlás részletei",
+  "piece": "darab",
+  "pieces": "darab"
 }

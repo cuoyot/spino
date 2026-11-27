@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-27",
+  "scope": "Owner-requested removal of Save and schedule from routine finishing",
+  "validation": {
+    "productionBuild": "passed",
+    "sourceWhitespace": "passed",
+    "browserReview": "not completed: Codex computer-use connection unavailable",
+    "nativeReview": "not performed; no Android package created"
+  },
+  "sources": {
+    "src/companion/app.js": "482b6acbf6a7d15f3669ea253775fb43c720cb7d41b05332cfafa97747cfa690",
+    "src/companion/second-batch.css": "1fd8b14c1295360e09c22cc1cdf078b26898fe9b5a9d2760b9a5099c6e4deed0"
+  },
+  "distIndexSha256": "7e903bde6d1248d0b5b62b91705d1f8c4f7a3df9ca5663631d516ffdf544417e"
+}
