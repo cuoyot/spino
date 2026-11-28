@@ -1,0 +1,15 @@
+<es-ES>
+Calendario distingue los eventos sin hora de los de medianoche. Los controles de manos y los títulos largos tienen más espacio en móvil. Progreso muestra un inicio más sencillo y Práctica rápida recoge la puntuación en una ayuda desplegable.
+</es-ES>
+<en-US>
+Calendar distinguishes untimed events from midnight. Hand controls and long titles have more space on mobile. Progress has a simpler first-use view and Quick Practice scoring rules are available in expandable help.
+</en-US>
+<ca>
+El Calendari distingeix els esdeveniments sense hora dels de mitjanit. Els controls de mans i els títols llargs tenen més espai al mòbil. Progrés simplifica el primer ús i la Pràctica ràpida ofereix una ajuda desplegable sobre la puntuació.
+</ca>
+<de-DE>
+Der Kalender unterscheidet Termine ohne Uhrzeit von Mitternacht. Handauswahl und lange Titel erhalten auf Mobilgeräten mehr Platz. Der Fortschritt bietet einen einfacheren Einstieg und die Punkteberechnung der Schnellübung steht in einer aufklappbaren Hilfe.
+</de-DE>
+<hu-HU>
+A naptár megkülönbözteti az időpont nélküli és az éjféli eseményeket. Mobilon több hely jut a kézválasztónak és a hosszú címeknek. A Haladás kezdőnézete egyszerűbb, a gyors gyakorlás pontozása pedig lenyitható súgóban olvasható.
+</hu-HU>

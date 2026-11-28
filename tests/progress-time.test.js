@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {practiceTime, TIME_RANGES} from '../src/companion/progress-time.js';
+import {practiceTime, practiceTimeOverviewMarkup, TIME_RANGES} from '../src/companion/progress-time.js';
 const session=(date,parts,extra={})=>({date,elapsedMs:parts.reduce((n,p)=>n+p[1]*60000,0),results:parts.map(([type,min,workId=''])=>({block:{type,workId},elapsedMs:min*60000})),...extra});
 const data=sessions=>({sessions});
 test('time filters allocate only matching blocks, preserve notebook and exclude future/unsaved time',()=>{
@@ -32,4 +32,12 @@ test('every range partitions its total without gaps or duplicates across DST/yea
   const m=practiceTime(data([session(today,[['free',10]])]),{today,range});
   assert.equal(m.buckets.reduce((n,b)=>n+b.ms,0),m.totalMs);assert.equal(m.buckets[0].start,m.start);assert.equal(m.buckets.at(-1).end,today);
  }
+});
+
+test('the first-use overview is compact and historical sessions keep the weekly chart', () => {
+  const data = {sessions:[], preferences:{weeklyMinutes:120}};
+  assert.match(practiceTimeOverviewMarkup(data), /data-action="practice"/);
+  assert.doesNotMatch(practiceTimeOverviewMarkup(data), /cp-time-chart/);
+  data.sessions.push({date:'2020-01-01', elapsedMs:60000});
+  assert.match(practiceTimeOverviewMarkup(data), /cp-time-chart/);
 });

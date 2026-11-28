@@ -36,3 +36,17 @@
 
 
 #app-shell .cp-time-reset { padding: 0; min-height: 0; border: 0; border-radius: 0; background: transparent; color: var(--theme-link); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.cp-time-work-control > span { display: none; }
+@media (max-width: 600px) {
+  .cp-time-work-filter { grid-column: 1 / -1; }
+  .cp-time-work-control { position: relative; display: block; margin-top: 5px; }
+  .cp-time-work-control > span {
+    display: block; min-height: 46px; padding: 10px 32px 10px 12px;
+    background: var(--theme-panel); border: 1px solid var(--theme-border);
+    border-radius: 10px; font-size: 16px; overflow-wrap: anywhere;
+  }
+  .cp-time-work-control > span::after { content: '⌄'; position: absolute; inset-inline-end: 12px; top: 10px; }
+  .cp-time-work-control:focus-within > span { outline: 2px solid var(--theme-link); }
+  #app-shell .cp-time-work-control > select { position: absolute; inset: 0; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+}

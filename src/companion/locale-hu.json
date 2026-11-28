@@ -1,4 +1,6 @@
 {
+  "No time": "Időpont nélkül",
+  "Your progress will appear after your first practice.": "Az első gyakorlás után itt láthatod a fejlődésedet.",
   "A backup operation is already running.": "Egy biztonsági mentés már folyamatban van. Az állapotát a Biztonsági mentés és szinkronizálás alatt ellenőrizheted.",
   "Synchronize the notebook before setting up backups.": "A biztonsági mentések beállítása előtt szinkronizáld a füzetet.",
   "Finish synchronization and editing before organizing storage.": "A tárhely beállítása előtt várd meg a szinkronizálás végét, és zárd be a gyakorlást.",

@@ -1,4 +1,6 @@
 {
+  "No time": "Ohne Uhrzeit",
+  "Your progress will appear after your first practice.": "Nach deiner ersten Übung siehst du hier deinen Fortschritt.",
   "A backup operation is already running.": "Eine Sicherung läuft bereits. Du kannst ihren Fortschritt unter Sicherung und Synchronisierung prüfen.",
   "Synchronize the notebook before setting up backups.": "Synchronisiere das Notizbuch, bevor du Sicherungen einrichtest.",
   "Finish synchronization and editing before organizing storage.": "Warte, bis die Synchronisierung beendet ist, und schließe die Übung, bevor du den Speicher einrichtest.",

@@ -73,3 +73,8 @@
   #cp-dialog:has(#finish-form) .cp-dialog-body-form { overflow-y: auto; display: block; }
   #cp-dialog #finish-form .cp-form-fields { overflow: visible; }
 }
+
+#cp-dialog [data-show-event-time] { width: 100%; text-align: start; }
+@media (max-width: 600px) {
+  #app-shell .cp-preparation-hands { grid-column: 1 / -1; }
+}

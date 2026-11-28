@@ -1,5 +1,7 @@
 // Catalan interface copy. Musical titles and notebook content are never translated.
 const entries = `
+No time|Sense hora
+Your progress will appear after your first practice.|El teu progrés apareixerà després de la primera pràctica.
 Morning|Matí
 Midday|Migdia
 Afternoon|Tarda

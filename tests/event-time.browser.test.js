@@ -10,8 +10,11 @@ test('event hour/minute controls retain optional time, midnight, edits and recur
   const choose = async (hour, minute) => evaluate(`(()=>{const f=document.querySelector('#event-form');for(const [name,value] of ${JSON.stringify([['eventHour',hour],['eventMinute',minute]])}){f.elements[name].value=value;f.elements[name].dispatchEvent(new Event('change',{bubbles:true}))}return f.elements.time.value})()`);
   await send('Page.navigate', {url});
   await wait(`document.querySelector('[data-action=new-event]')`);
-  await evaluate(`document.querySelector('[data-action=new-event]').click();var f=document.querySelector('#event-form');f.elements.title.value='Time regression';f.elements.date.value='2030-01-31';f.elements.frequency.value='weekly';f.elements.frequency.dispatchEvent(new Event('change'))`);
+  await evaluate(`document.querySelector('[data-action=new-event]').click();var f=document.querySelector('#event-form');f.elements.title.value='Time regression';f.elements.date.value='2030-01-31';f.querySelector('[aria-controls=event-repeat-options]').click();f.elements.frequency.value='weekly';f.elements.frequency.dispatchEvent(new Event('change'))`);
   assert.equal(await choose('', '00'), '');
+  assert.equal(await evaluate(`document.querySelector('[data-show-event-time]').textContent`),'Sin hora');
+  await evaluate(`document.querySelector('[data-show-event-time]').click()`);
+  assert.equal(await evaluate(`document.activeElement.name`),'eventHour');
   assert.equal(await choose('00', '00'), '00:00');
   assert.equal(await choose('23', '59'), '23:59');
   await choose('18','35');
